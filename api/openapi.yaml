@@ -1,0 +1,1461 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: service@ycloud.com
+  description: "The [YCloud](https://ycloud.com) API is organized around [REST](https://en.wikipedia.org/wiki/Representational_state_transfer).\
+    \ Our API is designed to have predictable, resource-oriented URLs, return [JSON](https://www.json.org)\
+    \ responses, and use standard HTTP response codes and verbs."
+  termsOfService: https://ycloud.com/terms-service
+  title: YCloud API
+  version: v2
+externalDocs:
+  description: YCloud Homepage
+  url: https://ycloud.com
+servers:
+- description: YCloud API base URL
+  url: https://api.ycloud.com/v2
+security:
+- api_key: []
+tags:
+- name: Balance
+- name: Emails
+- name: SMS
+- name: Voices
+- name: Webhook Endpoints
+paths:
+  /balance:
+    get:
+      description: Retrieves the current account balance.
+      operationId: balance-retrieve
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance'
+          description: Successfully retrieved balance.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized.
+      summary: Retrieve balance
+      tags:
+      - Balance
+      x-accepts: application/json
+  /emails:
+    post:
+      description: Sends an outbound email message.
+      operationId: email-send
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailSendRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Email'
+          description: The request is successfully accepted.
+      summary: Send an email
+      tags:
+      - Emails
+      x-content-type: application/json
+      x-accepts: application/json
+  /sms:
+    get:
+      description: Returns a paginated list of SMS messages you've previously sent.
+      operationId: sms-list
+      parameters:
+      - description: "Page number of the results to be returned, 1-based."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "A limit on the number of results to be returned, or number of\
+          \ results per page, between 1 and 100, defaults to 10."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Return results inside an object that contains the total result
+          count or not.
+        explode: true
+        in: query
+        name: includeTotal
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: "Return results where the `createTime` field is greater than\
+          \ or equal to this value. Default: One day ago from now."
+        explode: true
+        in: query
+        name: filter.createTime.gte
+        required: false
+        schema:
+          example: 2022-03-01T12:00:00Z
+          format: date-time
+          type: string
+        style: form
+      - description: Return results where the `createTime` field is less than or equal
+          to this value.
+        explode: true
+        in: query
+        name: filter.createTime.lte
+        required: false
+        schema:
+          example: 2022-03-31T12:00:00Z
+          format: date-time
+          type: string
+        style: form
+      - description: Unique object ID on our side. Other filter parameters will be
+          ignored if this parameter is present.
+        explode: true
+        in: query
+        name: filter.id
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmsPage'
+          description: Successfully retrieved a paginated list of objects.
+      summary: List SMS records
+      tags:
+      - SMS
+      x-group-parameters: true
+      x-accepts: application/json
+    post:
+      description: Sends an outbound text message.
+      operationId: sms-send
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmsSendRequest'
+        description: SMS request that needs to be sent.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sms'
+          description: The request is successfully accepted.
+      summary: Send an SMS
+      tags:
+      - SMS
+      x-content-type: application/json
+      x-accepts: application/json
+  /voices:
+    get:
+      description: Returns a paginated list of voice calls you've previously sent.
+      operationId: voice-list
+      parameters:
+      - description: "Page number of the results to be returned, 1-based."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "A limit on the number of results to be returned, or number of\
+          \ results per page, between 1 and 100, defaults to 10."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Return results inside an object that contains the total result
+          count or not.
+        explode: true
+        in: query
+        name: includeTotal
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: "Return results where the `createTime` field is greater than\
+          \ or equal to this value. Default: One day ago from now."
+        explode: true
+        in: query
+        name: filter.createTime.gte
+        required: false
+        schema:
+          example: 2022-03-01T12:00:00Z
+          format: date-time
+          type: string
+        style: form
+      - description: Return results where the `createTime` field is less than or equal
+          to this value.
+        explode: true
+        in: query
+        name: filter.createTime.lte
+        required: false
+        schema:
+          example: 2022-03-31T12:00:00Z
+          format: date-time
+          type: string
+        style: form
+      - description: Unique object ID on our side. Other filter parameters will be
+          ignored if this parameter is present.
+        explode: true
+        in: query
+        name: filter.id
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoicePage'
+          description: Successfully retrieved a paginated list of objects.
+      summary: List voice records
+      tags:
+      - Voices
+      x-group-parameters: true
+      x-accepts: application/json
+    post:
+      description: Sends an outbound voice call verification code.
+      operationId: voice-send
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoiceSendRequest'
+        description: Voice call request that needs to be sent.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voice'
+          description: The request is successfully accepted.
+      summary: Send a voice code
+      tags:
+      - Voices
+      x-content-type: application/json
+      x-accepts: application/json
+  /webhookEndpoints:
+    get:
+      description: Returns a paginated list of webhook endpoints.
+      operationId: webhook_endpoint-list
+      parameters:
+      - description: "Page number of the results to be returned, 1-based."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "A limit on the number of results to be returned, or number of\
+          \ results per page, between 1 and 100, defaults to 10."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Return results inside an object that contains the total result
+          count or not.
+        explode: true
+        in: query
+        name: includeTotal
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookEndpointPage'
+          description: Successfully retrieved a paginated list of objects.
+      summary: List webhook endpoints
+      tags:
+      - Webhook Endpoints
+      x-group-parameters: true
+      x-accepts: application/json
+    post:
+      description: Creates a webhook endpoint listening the specified events.
+      operationId: webhook_endpoint-create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookEndpointCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookEndpoint'
+          description: A webhook endpoint is successfully created.
+      summary: Create a webhook endpoint
+      tags:
+      - Webhook Endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+  /webhookEndpoints/{id}:
+    delete:
+      description: Deletes a webhook endpoint.
+      operationId: webhook_endpoint-delete
+      parameters:
+      - description: ID of the webhook endpoint.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: wh627c8640675de8fc689ab9d9
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookEndpoint'
+          description: The webhook endpoint is successfully deleted.
+      summary: Delete a webhook endpoint
+      tags:
+      - Webhook Endpoints
+      x-accepts: application/json
+    get:
+      description: Retrieves the webhook endpoint with the given ID.
+      operationId: webhook_endpoint-retrieve
+      parameters:
+      - description: ID of the webhook endpoint.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: wh627c8640675de8fc689ab9d9
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookEndpoint'
+          description: The webhook endpoint is successfully retrieved.
+      summary: Retrieve a webhook endpoint
+      tags:
+      - Webhook Endpoints
+      x-accepts: application/json
+    patch:
+      description: "Updates a webhook endpoint, such as url, events, status."
+      operationId: webhook_endpoint-update
+      parameters:
+      - description: ID of the webhook endpoint.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: wh627c8640675de8fc689ab9d9
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookEndpointUpdateRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookEndpoint'
+          description: The webhook endpoint is successfully updated.
+      summary: Update a webhook endpoint
+      tags:
+      - Webhook Endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+  /webhookEndpoints/{id}/rotateSecret:
+    post:
+      description: Generates a new secret for a webhook endpoint.
+      operationId: webhook_endpoint-rotate-secret
+      parameters:
+      - description: ID of the webhook endpoint.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: wh627c8640675de8fc689ab9d9
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookEndpoint'
+          description: The webhook endpoint is successfully deleted.
+      summary: Rotate a webhook endpoint secret
+      tags:
+      - Webhook Endpoints
+      x-accepts: application/json
+components:
+  parameters:
+    filter_createTime_gte-default_1d:
+      description: "Return results where the `createTime` field is greater than or\
+        \ equal to this value. Default: One day ago from now."
+      explode: true
+      in: query
+      name: filter.createTime.gte
+      required: false
+      schema:
+        example: 2022-03-01T12:00:00Z
+        format: date-time
+        type: string
+      style: form
+    filter_createTime_lte:
+      description: Return results where the `createTime` field is less than or equal
+        to this value.
+      explode: true
+      in: query
+      name: filter.createTime.lte
+      required: false
+      schema:
+        example: 2022-03-31T12:00:00Z
+        format: date-time
+        type: string
+      style: form
+    filter_id:
+      description: Unique object ID on our side. Other filter parameters will be ignored
+        if this parameter is present.
+      explode: true
+      in: query
+      name: filter.id
+      required: false
+      schema:
+        type: string
+      style: form
+    id-in_path_for_webhook_endpoint:
+      description: ID of the webhook endpoint.
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        example: wh627c8640675de8fc689ab9d9
+        type: string
+      style: simple
+    includeTotal:
+      description: Return results inside an object that contains the total result
+        count or not.
+      explode: true
+      in: query
+      name: includeTotal
+      required: false
+      schema:
+        default: false
+        type: boolean
+      style: form
+    limit:
+      description: "A limit on the number of results to be returned, or number of\
+        \ results per page, between 1 and 100, defaults to 10."
+      explode: true
+      in: query
+      name: limit
+      required: false
+      schema:
+        default: 10
+        format: int32
+        maximum: 100
+        minimum: 1
+        type: integer
+      style: form
+    page:
+      description: "Page number of the results to be returned, 1-based."
+      explode: true
+      in: query
+      name: page
+      required: false
+      schema:
+        default: 1
+        format: int32
+        maximum: 100
+        minimum: 1
+        type: integer
+      style: form
+  schemas:
+    Balance:
+      example:
+        amount: 190.0765
+        currency: USD
+      properties:
+        amount:
+          description: Balance of current account.
+          example: 190.0765
+          format: double
+          type: number
+        currency:
+          description: "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)"
+          example: USD
+          type: string
+      required:
+      - amount
+      - currency
+      type: object
+    Email:
+      example:
+        cc:
+        - address: team@example.com
+          name: YCloud Team
+        - address: team@example.com
+          name: YCloud Team
+        summary: This is a summary.
+        totalRecipients: 3
+        bcc:
+        - address: team@example.com
+          name: YCloud Team
+        - address: team@example.com
+          name: YCloud Team
+        totalPrice: 0.0085
+        subject: subject
+        externalId: externalId
+        createTime: 2022-06-01T12:00:00Z
+        replyTo:
+        - address: team@example.com
+          name: YCloud Team
+        - address: team@example.com
+          name: YCloud Team
+        from:
+          address: team@example.com
+          name: YCloud Team
+        callbackUrl: https://httpbin.org/anything?tag=api-email
+        currency: USD
+        id: id
+        to:
+        - address: team@example.com
+          name: YCloud Team
+        - address: team@example.com
+          name: YCloud Team
+        contentType: null
+      properties:
+        id:
+          description: Unique ID for the object.
+          maxLength: 128
+          minLength: 6
+          type: string
+        from:
+          $ref: '#/components/schemas/Mailbox'
+        to:
+          description: The intended recipients' email addresses.
+          items:
+            $ref: '#/components/schemas/Mailbox'
+          type: array
+        cc:
+          description: Recipients who will receive a copy of the email.
+          items:
+            $ref: '#/components/schemas/Mailbox'
+          type: array
+        bcc:
+          description: Recipients who will receive a blind carbon copy of the email.
+          items:
+            $ref: '#/components/schemas/Mailbox'
+          type: array
+        replyTo:
+          description: "If this field exists, then the reply should go to the addresses\
+            \ indicated in that field and not to the address(es) indicated in the\
+            \ `from` field."
+          items:
+            $ref: '#/components/schemas/Mailbox'
+          type: array
+        subject:
+          description: "The email subject, which contains a short string identifying\
+            \ the topic of the message."
+          maxLength: 255
+          type: string
+        summary:
+          description: "This is a summary of your email. Max length: 70."
+          example: This is a summary.
+          maxLength: 70
+          type: string
+        contentType:
+          $ref: '#/components/schemas/EmailContentType'
+        externalId:
+          description: "A unique string to reference the object. This can be an order\
+            \ number or similar, and can be used to reconcile the object with your\
+            \ internal systems."
+          type: string
+        callbackUrl:
+          description: "Delivery report URL. You can provide a URL, and we will push\
+            \ the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api.\n\
+            Note: We recommend configuring Webhook Endpoints instead."
+          example: https://httpbin.org/anything?tag=api-email
+          type: string
+        createTime:
+          description: "The time at which this message was created, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+        totalRecipients:
+          description: "Total recipients of this message, including `to`, `cc` and\
+            \ `bcc`."
+          example: 3
+          format: int32
+          type: number
+        totalPrice:
+          description: Total price of this message.
+          example: 0.0085
+          format: double
+          type: number
+        currency:
+          description: "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)"
+          example: USD
+          type: string
+      required:
+      - id
+      type: object
+    EmailContentType:
+      description: The MIME type of the email content (`text/html` or `text/plain`).
+        Be aware that We won't count click and open events for the type `text/plain`.
+      enum:
+      - text/html
+      - text/plain
+      type: string
+      x-enum-varnames:
+      - TEXT_HTML
+      - TEXT_PLAIN
+    EmailDelivery:
+      description: Represents an email delivery report.
+      properties:
+        emailId:
+          description: Unique ID for the related email you've previously sent.
+          maxLength: 128
+          minLength: 6
+          type: string
+        recipientAddress:
+          description: A recipient's email address.
+          example: tom@example.com
+          format: email
+          type: string
+        status:
+          description: Delivery status of the email to the specific recipient address.
+          enum:
+          - sending
+          - sent
+          - delivered
+          - failed
+          example: failed
+          type: string
+        errorCode:
+          description: Error code when the email is undeliverable.
+          example: "402"
+          type: string
+        errorMessage:
+          description: Error message when the email is undeliverable.
+          example: Unsubscribes
+          type: string
+        externalId:
+          description: The `externalId` you specified when you sent the email.
+          type: string
+      required:
+      - emailId
+      - recipientAddress
+      type: object
+    EmailSendRequest:
+      example:
+        cc: "cc1@example.com,Nick<cc2@example.com>"
+        summary: This is a summary.
+        variables:
+        - key: variables
+        - key: variables
+        bcc: "bcc1@example.com,Nick<bcc2@example.com>"
+        subject: subject
+        replyTo: replyTo
+        externalId: externalId
+        from: YCloud<ycloud@ycloud-mail.com>
+        callbackUrl: https://httpbin.org/anything?tag=api-email
+        to: "to1@example.com,Nick<to2@example.com>"
+        contentType: null
+        content: "This is a test message from #nick#."
+      properties:
+        from:
+          description: "- The sender's email. Its domain should be one that has been\
+            \ registered and activated in your YCloud account.\n\n- The test address\
+            \ provided by YCloud is `ycloud@ycloud-mail.com`, which only supports\
+            \ sending emails to your registered email address.\n- The sender's email\
+            \ address is required while the sender's name is optional. For example,\
+            \ both `ycloud@ycloud-mail.com` and `YCloud<ycloud@ycloud-mail.com>` work."
+          example: YCloud<ycloud@ycloud-mail.com>
+          type: string
+        to:
+          description: "- The intended recipients' email addresses.\n\n- Supports\
+            \ a comma-separated list of one or more addresses. Max items: 100."
+          example: "to1@example.com,Nick<to2@example.com>"
+          type: string
+        subject:
+          description: "The email subject, which contains a short string identifying\
+            \ the topic of the message. Max length: 255."
+          maxLength: 255
+          type: string
+        content:
+          description: "- The email body. Max size: 150 KB.\n\n- Variables in the\
+            \ form of `#var_1#` are supported, they should be used together with the\
+            \ `variables` parameter. Variable keys only support letters, digits, and\
+            \ the underline character (`_`).\n- You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545)\
+            \ provided by YCloud for testing."
+          example: "This is a test message from #nick#."
+          type: string
+        contentType:
+          $ref: '#/components/schemas/EmailContentType'
+        variables:
+          description: "- The variable key-value pairs that will replace the variable\
+            \ placeholders in `content` for each recipient. Variable keys are those\
+            \ that are wrapped with `#` as placeholders (e.g., `#var_1#`) in `content`.\
+            \ The placeholders will be replaced by variable values when sending the\
+            \ email.\n\n- The size of the array must be the same as the number of\
+            \ recipients in `to`. Be aware that `cc` and `bcc` addresses are excluded,\
+            \ and they can not receive emails that contain variables.\n- This parameter's\
+            \ size will be calculated together with the parameter `content`. The whole\
+            \ size must not exceed 150 KB."
+          items:
+            additionalProperties:
+              type: string
+            description: Variable key-value pair.
+            type: object
+          type: array
+        cc:
+          description: Recipients who will receive a copy of the email.
+          example: "cc1@example.com,Nick<cc2@example.com>"
+          type: string
+        bcc:
+          description: Recipients who will receive a blind carbon copy of the email.
+          example: "bcc1@example.com,Nick<bcc2@example.com>"
+          type: string
+        replyTo:
+          description: "If this field exists, then the reply should go to the addresses\
+            \ indicated in that field and not to the address(es) indicated in the\
+            \ `from` field."
+          type: string
+        summary:
+          description: "This is a summary of your email. Max length: 70."
+          example: This is a summary.
+          maxLength: 70
+          type: string
+        externalId:
+          description: "A unique string to reference the object. This can be an order\
+            \ number or similar, and can be used to reconcile the object with your\
+            \ internal systems."
+          type: string
+        callbackUrl:
+          description: "Delivery report URL. You can provide a URL, and we will push\
+            \ the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api.\n\
+            Note: We recommend configuring Webhook Endpoints instead."
+          example: https://httpbin.org/anything?tag=api-email
+          type: string
+      required:
+      - content
+      - from
+      - subject
+      - to
+      type: object
+    Error:
+      properties:
+        status:
+          description: "HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6)."
+          example: 401
+          format: int32
+          pattern: "[45]\\d{2}"
+          type: integer
+        code:
+          description: "One of a server-defined set of error codes, which could be\
+            \ handled programmatically."
+          example: UNAUTHORIZED
+          type: string
+        message:
+          description: A human-readable representation of the error. It is intended
+            as an aid to developers and is not suitable for exposure to end users.
+          example: INVALID_API_KEY
+          type: string
+        target:
+          description: The target of the error.
+          example: X-API-Key
+          type: string
+        docUrl:
+          description: A URL to more information about the error.
+          example: https://www.example.com
+          type: string
+      required:
+      - code
+      - status
+      type: object
+    ErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+      required:
+      - error
+      type: object
+    Event:
+      description: "Represents a webhook event payload.\nEvery event contains certain\
+        \ common properties: `id`, `type`, `apiVersion`, `createTime`.\nEach event\
+        \ may also contain some properties unique to the event. For example, `sms`\
+        \ is returned when `type` is `sms.message.updated`."
+      properties:
+        id:
+          description: Unique ID for the object.
+          maxLength: 128
+          minLength: 6
+          type: string
+        type:
+          description: Type of this event.
+          example: sms.message.updated
+          type: string
+        apiVersion:
+          description: The API version used to render this event.
+          example: v2
+          type: string
+        createTime:
+          description: "The time at which this event was created, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+        emailDelivery:
+          $ref: '#/components/schemas/EmailDelivery'
+        sms:
+          $ref: '#/components/schemas/Sms'
+        voice:
+          $ref: '#/components/schemas/Voice'
+      required:
+      - apiVersion
+      - createTime
+      - id
+      - type
+      type: object
+    EventType:
+      description: Type of events.
+      enum:
+      - email.delivery.updated
+      - sms.message.updated
+      - voice.message.updated
+      type: string
+    Mailbox:
+      description: Represents a mailbox.
+      example:
+        address: team@example.com
+        name: YCloud Team
+      properties:
+        name:
+          description: Name of the mailbox.
+          example: YCloud Team
+          type: string
+        address:
+          description: Address of the mailbox.
+          example: team@example.com
+          type: string
+      type: object
+    Page:
+      description: Represents a given page of items.
+      properties:
+        offset:
+          description: "The position of the item this page starts from, zero-based.\
+            \ e.g., the 11th item is at offset 10."
+          format: int32
+          minimum: 0
+          type: integer
+        limit:
+          description: "A limit on the number of items to be returned, between 1 and\
+            \ 100, defaults to 10."
+          format: int32
+          minimum: 1
+          type: integer
+        length:
+          description: The actual number of items in the page.
+          format: int32
+          minimum: 0
+          type: integer
+        total:
+          description: The total number of items. This field is returned only when
+            the request parameter `includeTotal` is set to `true`.
+          format: int32
+          minimum: 0
+          type: integer
+        items:
+          items:
+            type: object
+          type: array
+      required:
+      - length
+      - limit
+      - offset
+      type: object
+    Sms:
+      example:
+        totalPrice: 0.0085
+        totalSegments: 1
+        errorCode: errorCode
+        externalId: externalId
+        updateTime: 2022-03-01T12:00:00Z
+        senderId: YCloud
+        regionCode: GB
+        createTime: 2022-03-01T12:00:00Z
+        currency: USD
+        callbackUrl: https://httpbin.org/anything?tag=api-sms
+        id: id
+        to: +447901614024
+        text: Your verification code is 123456.
+        status: sent
+      properties:
+        id:
+          description: Unique ID for the object.
+          maxLength: 128
+          minLength: 6
+          type: string
+        to:
+          description: The recipient's phone number in E.164 format.
+          example: +447901614024
+          type: string
+        text:
+          description: The text of this message.
+          example: Your verification code is 123456.
+          type: string
+        senderId:
+          description: Sender ID to be used.
+          example: YCloud
+          type: string
+        regionCode:
+          description: "[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)"
+          example: GB
+          type: string
+        totalSegments:
+          description: "Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding)\
+            \ for more info."
+          example: 1
+          format: int32
+          minimum: 1
+          type: integer
+        totalPrice:
+          description: Total price of this message.
+          example: 0.0085
+          format: double
+          type: number
+        currency:
+          description: "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)"
+          example: USD
+          type: string
+        status:
+          description: "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`."
+          enum:
+          - accepted
+          - sent
+          - delivered
+          - undelivered
+          example: sent
+          type: string
+        errorCode:
+          description: Error code when the message is undeliverable.
+          type: string
+        createTime:
+          description: "The time at which this message was created, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-03-01T12:00:00.000Z`."
+          example: 2022-03-01T12:00:00Z
+          format: date-time
+          type: string
+        updateTime:
+          description: "The time at which the delivery report for this message was\
+            \ updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).\
+            \ e.g., `2022-03-01T12:00:00.000Z`."
+          example: 2022-03-01T12:00:00Z
+          format: date-time
+          type: string
+        externalId:
+          description: "A unique string to reference the object. This can be an order\
+            \ number or similar, and can be used to reconcile the object with your\
+            \ internal systems."
+          type: string
+        callbackUrl:
+          description: "Delivery report URL. You can provide a URL, and we will push\
+            \ the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api.\n\
+            Note: We recommend configuring Webhook Endpoints instead."
+          example: https://httpbin.org/anything?tag=api-sms
+          type: string
+      required:
+      - id
+      - to
+      type: object
+    SmsPage:
+      allOf:
+      - $ref: '#/components/schemas/Page'
+      description: Represents a given page of SMS messages.
+      example:
+        items:
+        - totalPrice: 0.0085
+          totalSegments: 1
+          errorCode: errorCode
+          externalId: externalId
+          updateTime: 2022-03-01T12:00:00Z
+          senderId: YCloud
+          regionCode: GB
+          createTime: 2022-03-01T12:00:00Z
+          currency: USD
+          callbackUrl: https://httpbin.org/anything?tag=api-sms
+          id: id
+          to: +447901614024
+          text: Your verification code is 123456.
+          status: sent
+        - totalPrice: 0.0085
+          totalSegments: 1
+          errorCode: errorCode
+          externalId: externalId
+          updateTime: 2022-03-01T12:00:00Z
+          senderId: YCloud
+          regionCode: GB
+          createTime: 2022-03-01T12:00:00Z
+          currency: USD
+          callbackUrl: https://httpbin.org/anything?tag=api-sms
+          id: id
+          to: +447901614024
+          text: Your verification code is 123456.
+          status: sent
+      properties:
+        items:
+          description: An array containing SMS objects.
+          items:
+            $ref: '#/components/schemas/Sms'
+          type: array
+      type: object
+    SmsSendRequest:
+      example:
+        senderId: YCloud
+        signature: YCloud
+        externalId: externalId
+        callbackUrl: https://httpbin.org/anything?tag=api-sms
+        to: +447901614024
+        text: Your verification code is 123456.
+      properties:
+        to:
+          description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+            \ format."
+          example: +447901614024
+          type: string
+        text:
+          description: The text of this message.
+          example: Your verification code is 123456.
+          type: string
+        senderId:
+          description: "[Sender ID](https://help.ycloud.com/en/articles/3080386) to\
+            \ be used."
+          example: YCloud
+          type: string
+        signature:
+          description: "This parameter is only required for Chinese mainland SMSs.\
+            \ You must specify an approved signature such as `YCloud`. It will be\
+            \ added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】\
+            Your verification code is 123456`."
+          example: YCloud
+          type: string
+        externalId:
+          description: "A unique string to reference the object. This can be an order\
+            \ number or similar, and can be used to reconcile the object with your\
+            \ internal systems."
+          type: string
+        callbackUrl:
+          description: "Delivery report URL. You can provide a URL, and we will push\
+            \ the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api.\n\
+            Note: We recommend configuring Webhook Endpoints instead."
+          example: https://httpbin.org/anything?tag=api-sms
+          type: string
+      required:
+      - text
+      - to
+      type: object
+    Voice:
+      example:
+        totalPrice: 0.05
+        totalSegments: 1
+        errorCode: errorCode
+        externalId: externalId
+        language: en
+        updateTime: 2022-03-01T12:00:00Z
+        verificationCode: "123456"
+        regionCode: GB
+        createTime: 2022-03-01T12:00:00Z
+        currency: USD
+        callbackUrl: https://httpbin.org/anything?tag=api-voice
+        id: id
+        to: +447901614024
+        status: sent
+      properties:
+        id:
+          description: Unique ID for the object.
+          maxLength: 128
+          minLength: 6
+          type: string
+        to:
+          description: The recipient's phone number in E.164 format.
+          example: +447901614024
+          type: string
+        verificationCode:
+          description: "The verification code to be sent, 4 to 6 digits."
+          example: "123456"
+          type: string
+        language:
+          description: "[ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html)."
+          example: en
+          type: string
+        regionCode:
+          description: "[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+          example: GB
+          type: string
+        totalSegments:
+          description: Number of message segments. It's always 1 for voice calls.
+          example: 1
+          format: int32
+          minimum: 1
+          type: integer
+        totalPrice:
+          description: Total price of this message.
+          example: 0.05
+          format: double
+          type: number
+        currency:
+          description: "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)"
+          example: USD
+          type: string
+        status:
+          description: "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`."
+          enum:
+          - accepted
+          - sent
+          - delivered
+          - undelivered
+          example: sent
+          type: string
+        errorCode:
+          description: Error code when the message is undeliverable.
+          type: string
+        createTime:
+          description: "The time at which this message was created, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-03-01T12:00:00.000Z`."
+          example: 2022-03-01T12:00:00Z
+          format: date-time
+          type: string
+        updateTime:
+          description: "The time at which the delivery report for this message was\
+            \ updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).\
+            \ e.g., `2022-03-01T12:00:00.000Z`."
+          example: 2022-03-01T12:00:00Z
+          format: date-time
+          type: string
+        externalId:
+          description: "A unique string to reference the object. This can be an order\
+            \ number or similar, and can be used to reconcile the object with your\
+            \ internal systems."
+          type: string
+        callbackUrl:
+          description: "Delivery report URL. You can provide a URL, and we will push\
+            \ the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api.\n\
+            Note: We recommend configuring Webhook Endpoints instead."
+          example: https://httpbin.org/anything?tag=api-voice
+          type: string
+      required:
+      - id
+      - to
+      type: object
+    VoicePage:
+      allOf:
+      - $ref: '#/components/schemas/Page'
+      description: Represents a given page of Voice Calls.
+      example:
+        items:
+        - totalPrice: 0.05
+          totalSegments: 1
+          errorCode: errorCode
+          externalId: externalId
+          language: en
+          updateTime: 2022-03-01T12:00:00Z
+          verificationCode: "123456"
+          regionCode: GB
+          createTime: 2022-03-01T12:00:00Z
+          currency: USD
+          callbackUrl: https://httpbin.org/anything?tag=api-voice
+          id: id
+          to: +447901614024
+          status: sent
+        - totalPrice: 0.05
+          totalSegments: 1
+          errorCode: errorCode
+          externalId: externalId
+          language: en
+          updateTime: 2022-03-01T12:00:00Z
+          verificationCode: "123456"
+          regionCode: GB
+          createTime: 2022-03-01T12:00:00Z
+          currency: USD
+          callbackUrl: https://httpbin.org/anything?tag=api-voice
+          id: id
+          to: +447901614024
+          status: sent
+      properties:
+        items:
+          description: An array containing Voice objects.
+          items:
+            $ref: '#/components/schemas/Voice'
+          type: array
+      type: object
+    VoiceSendRequest:
+      example:
+        externalId: externalId
+        language: en
+        callbackUrl: https://httpbin.org/anything?tag=api-voice
+        to: +447901614024
+        verificationCode: "123456"
+      properties:
+        to:
+          description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+            \ format."
+          example: +447901614024
+          type: string
+        verificationCode:
+          description: "The verification code to be sent, 4 to 6 digits."
+          example: "123456"
+          type: string
+        language:
+          description: "[ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html).\
+            \ If not specified, language will be set as `en` by default. Notably,\
+            \ in certain countries or regions, language will be automatically set\
+            \ as the local language due to the regional restrictions.\nOther applicable\
+            \ languages:\n`en`: English\n`zh`: Chinese\n`id`: Indonesian\n`vi`: Vietnamese\n\
+            `tr`: Turkish\n`ru`: Russian\n`de`: German\n`fr`: French\n`it`: Italian\n\
+            `pt`: Portuguese"
+          example: en
+          type: string
+        externalId:
+          description: "A unique string to reference the object. This can be an order\
+            \ number or similar, and can be used to reconcile the object with your\
+            \ internal systems."
+          type: string
+        callbackUrl:
+          description: "Delivery report URL. You can provide a URL, and we will push\
+            \ the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api.\n\
+            Note: We recommend configuring Webhook Endpoints instead."
+          example: https://httpbin.org/anything?tag=api-voice
+          type: string
+      required:
+      - to
+      - verificationCode
+      type: object
+    WebhookEndpoint:
+      example:
+        createTime: 2022-06-01T12:00:00Z
+        enabledEvents:
+        - email.delivery.updated
+        - sms.message.updated
+        - voice.message.updated
+        description: My first webhook endpoint.
+        updateTime: 2022-06-01T12:00:00Z
+        id: wh627c8640675de8fc689ab9d9
+        secret: whsec_abc4147651944f02baf3be1eb45d33f1
+        url: https://httpbin.org/anything?tag=api
+        status: null
+      properties:
+        id:
+          description: Unique ID for the object.
+          example: wh627c8640675de8fc689ab9d9
+          type: string
+        url:
+          description: The URL of the webhook endpoint.
+          example: https://httpbin.org/anything?tag=api
+          type: string
+        enabledEvents:
+          description: The list of events to enable for this endpoint.
+          example:
+          - email.delivery.updated
+          - sms.message.updated
+          - voice.message.updated
+          items:
+            type: string
+          type: array
+        description:
+          description: An optional description of what the webhook is used for.
+          example: My first webhook endpoint.
+          type: string
+        status:
+          $ref: '#/components/schemas/WebhookEndpointStatus'
+        secret:
+          description: "The endpoint's secret, used to generate webhook signatures."
+          example: whsec_abc4147651944f02baf3be1eb45d33f1
+          type: string
+        createTime:
+          description: "The time at which this object was created, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+        updateTime:
+          description: "The time at which this object was updated, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+      required:
+      - id
+      type: object
+    WebhookEndpointCreateRequest:
+      example:
+        enabledEvents:
+        - null
+        - null
+        description: My first webhook endpoint.
+        url: https://httpbin.org/anything?tag=api
+        status: null
+      properties:
+        url:
+          description: The URL of the webhook endpoint.
+          example: https://httpbin.org/anything?tag=api
+          maxLength: 500
+          type: string
+        enabledEvents:
+          description: The list of events to enable for this endpoint.
+          items:
+            $ref: '#/components/schemas/EventType'
+          type: array
+        description:
+          description: An optional description of what the webhook is used for.
+          example: My first webhook endpoint.
+          maxLength: 400
+          type: string
+        status:
+          $ref: '#/components/schemas/WebhookEndpointStatus'
+      required:
+      - enabledEvents
+      - url
+      type: object
+    WebhookEndpointPage:
+      allOf:
+      - $ref: '#/components/schemas/Page'
+      description: Represents a given page of webhook endpoints.
+      example:
+        items:
+        - createTime: 2022-06-01T12:00:00Z
+          enabledEvents:
+          - email.delivery.updated
+          - sms.message.updated
+          - voice.message.updated
+          description: My first webhook endpoint.
+          updateTime: 2022-06-01T12:00:00Z
+          id: wh627c8640675de8fc689ab9d9
+          secret: whsec_abc4147651944f02baf3be1eb45d33f1
+          url: https://httpbin.org/anything?tag=api
+          status: null
+        - createTime: 2022-06-01T12:00:00Z
+          enabledEvents:
+          - email.delivery.updated
+          - sms.message.updated
+          - voice.message.updated
+          description: My first webhook endpoint.
+          updateTime: 2022-06-01T12:00:00Z
+          id: wh627c8640675de8fc689ab9d9
+          secret: whsec_abc4147651944f02baf3be1eb45d33f1
+          url: https://httpbin.org/anything?tag=api
+          status: null
+      properties:
+        items:
+          description: An array containing webhook endpoint objects.
+          items:
+            $ref: '#/components/schemas/WebhookEndpoint'
+          type: array
+      type: object
+    WebhookEndpointStatus:
+      description: Webhook endpoint status.
+      enum:
+      - active
+      - disabled
+      type: string
+    WebhookEndpointUpdateRequest:
+      example:
+        enabledEvents:
+        - null
+        - null
+        description: My first webhook endpoint.
+        url: https://httpbin.org/anything?tag=api
+        status: null
+      properties:
+        url:
+          description: The URL of the webhook endpoint.
+          example: https://httpbin.org/anything?tag=api
+          maxLength: 500
+          type: string
+        enabledEvents:
+          description: The list of events to enable for this endpoint.
+          items:
+            $ref: '#/components/schemas/EventType'
+          type: array
+        description:
+          description: An optional description of what the webhook is used for.
+          example: My first webhook endpoint.
+          maxLength: 400
+          type: string
+        status:
+          $ref: '#/components/schemas/WebhookEndpointStatus'
+      type: object
+  securitySchemes:
+    api_key:
+      in: header
+      name: X-API-Key
+      type: apiKey
+
