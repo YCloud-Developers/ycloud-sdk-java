@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Unique ID for the object. |  |
-|**to** | **String** | The recipient&#39;s phone number in E.164 format. |  |
+|**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
 |**verificationCode** | **String** | The verification code to be sent, 4 to 6 digits. |  [optional] |
 |**language** | **String** | [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). |  [optional] |
 |**regionCode** | **String** | [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |  [optional] |

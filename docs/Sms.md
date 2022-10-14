@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Unique ID for the object. |  |
-|**to** | **String** | The recipient&#39;s phone number in E.164 format. |  |
+|**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
 |**text** | **String** | The text of this message. |  [optional] |
 |**senderId** | **String** | Sender ID to be used. |  [optional] |
 |**regionCode** | **String** | [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |  [optional] |

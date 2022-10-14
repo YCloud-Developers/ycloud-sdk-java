@@ -25,16 +25,40 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Type of events.
+ * Type of webhook events.
  */
 @JsonAdapter(EventType.Adapter.class)
 public enum EventType {
   
+  /**
+   * Occurs when an email delivery status is updated, and the status changes to &#x60;delivered&#x60; or &#x60;failed&#x60;.
+   */
   EMAIL_DELIVERY_UPDATED("email.delivery.updated"),
   
+  /**
+   * Occurs when an SMS message status is updated, and the status changes to &#x60;delivered&#x60; or &#x60;undelivered&#x60;.
+   */
   SMS_MESSAGE_UPDATED("sms.message.updated"),
   
-  VOICE_MESSAGE_UPDATED("voice.message.updated");
+  /**
+   * Occurs when a voice message status is updated, and the status changes to &#x60;delivered&#x60; or &#x60;undelivered&#x60;.
+   */
+  VOICE_MESSAGE_UPDATED("voice.message.updated"),
+  
+  /**
+   * Occurs when a WhatsApp inbound message is received.
+   */
+  WHATSAPP_INBOUND_MESSAGE_RECEIVED("whatsapp.inbound_message.received"),
+  
+  /**
+   * Occurs when a WhatsApp outbound message status is updated, and the status changes to &#x60;sent&#x60;, &#x60;failed&#x60;, &#x60;delivered&#x60;, or &#x60;read&#x60;.
+   */
+  WHATSAPP_MESSAGE_UPDATED("whatsapp.message.updated"),
+  
+  /**
+   * Occurs when a WhatsApp template is reviewed, and the status changes to &#x60;APPROVED&#x60; or &#x60;REJECTED&#x60;.
+   */
+  WHATSAPP_TEMPLATE_REVIEWED("whatsapp.template.reviewed");
 
   private String value;
 

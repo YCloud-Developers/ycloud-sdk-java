@@ -152,11 +152,11 @@ public class SmsSendRequest {
   }
 
    /**
-   * This parameter is only required for Chinese mainland SMSs. You must specify an approved signature such as &#x60;YCloud&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【YCloud】Your verification code is 123456&#x60;.
+   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;YCloud&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【YCloud】Your verification code is 123456&#x60;.
    * @return signature
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "YCloud", value = "This parameter is only required for Chinese mainland SMSs. You must specify an approved signature such as `YCloud`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】Your verification code is 123456`.")
+  @ApiModelProperty(example = "YCloud", value = "This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `YCloud`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】Your verification code is 123456`.")
 
   public String getSignature() {
     return signature;

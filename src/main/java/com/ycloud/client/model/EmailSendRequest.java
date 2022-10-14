@@ -111,11 +111,11 @@ public class EmailSendRequest {
   }
 
    /**
-   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your YCloud account.  - The test address provided by YCloud is &#x60;ycloud@ycloud-mail.com&#x60;, which only supports sending emails to your registered email address. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;ycloud@ycloud-mail.com&#x60; and &#x60;YCloud&lt;ycloud@ycloud-mail.com&gt;&#x60; work.
+   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is &#x60;ycloud@ycloud-mail.com&#x60;, which only supports sending emails to your registered email address. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;ycloud@ycloud-mail.com&#x60; and &#x60;YCloud&lt;ycloud@ycloud-mail.com&gt;&#x60; work.
    * @return from
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "YCloud<ycloud@ycloud-mail.com>", required = true, value = "- The sender's email. Its domain should be one that has been registered and activated in your YCloud account.  - The test address provided by YCloud is `ycloud@ycloud-mail.com`, which only supports sending emails to your registered email address. - The sender's email address is required while the sender's name is optional. For example, both `ycloud@ycloud-mail.com` and `YCloud<ycloud@ycloud-mail.com>` work.")
+  @ApiModelProperty(example = "YCloud<ycloud@ycloud-mail.com>", required = true, value = "- The sender's email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is `ycloud@ycloud-mail.com`, which only supports sending emails to your registered email address. - The sender's email address is required while the sender's name is optional. For example, both `ycloud@ycloud-mail.com` and `YCloud<ycloud@ycloud-mail.com>` work.")
 
   public String getFrom() {
     return from;
@@ -134,11 +134,11 @@ public class EmailSendRequest {
   }
 
    /**
-   * - The intended recipients&#39; email addresses.  - Supports a comma-separated list of one or more addresses. Max items: 100.
+   * - The intended recipients&#39; email addresses. - Supports a comma-separated list of one or more addresses. Max items: 100.
    * @return to
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "to1@example.com,Nick<to2@example.com>", required = true, value = "- The intended recipients' email addresses.  - Supports a comma-separated list of one or more addresses. Max items: 100.")
+  @ApiModelProperty(example = "to1@example.com,Nick<to2@example.com>", required = true, value = "- The intended recipients' email addresses. - Supports a comma-separated list of one or more addresses. Max items: 100.")
 
   public String getTo() {
     return to;
@@ -180,11 +180,11 @@ public class EmailSendRequest {
   }
 
    /**
-   * - The email body. Max size: 150 KB.  - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.
+   * - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.
    * @return content
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "This is a test message from #nick#.", required = true, value = "- The email body. Max size: 150 KB.  - Variables in the form of `#var_1#` are supported, they should be used together with the `variables` parameter. Variable keys only support letters, digits, and the underline character (`_`). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.")
+  @ApiModelProperty(example = "This is a test message from #nick#.", required = true, value = "- The email body. Max size: 150 KB. - Variables in the form of `#var_1#` are supported, they should be used together with the `variables` parameter. Variable keys only support letters, digits, and the underline character (`_`). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.")
 
   public String getContent() {
     return content;
@@ -234,11 +234,11 @@ public class EmailSendRequest {
   }
 
    /**
-   * - The variable key-value pairs that will replace the variable placeholders in &#x60;content&#x60; for each recipient. Variable keys are those that are wrapped with &#x60;#&#x60; as placeholders (e.g., &#x60;#var_1#&#x60;) in &#x60;content&#x60;. The placeholders will be replaced by variable values when sending the email.  - The size of the array must be the same as the number of recipients in &#x60;to&#x60;. Be aware that &#x60;cc&#x60; and &#x60;bcc&#x60; addresses are excluded, and they can not receive emails that contain variables. - This parameter&#39;s size will be calculated together with the parameter &#x60;content&#x60;. The whole size must not exceed 150 KB.
+   * - The variable key-value pairs that will replace the variable placeholders in &#x60;content&#x60; for each recipient. Variable keys are those that are wrapped with &#x60;#&#x60; as placeholders (e.g., &#x60;#var_1#&#x60;) in &#x60;content&#x60;. The placeholders will be replaced by variable values when sending the email. - The size of the array must be the same as the number of recipients in &#x60;to&#x60;. Be aware that &#x60;cc&#x60; and &#x60;bcc&#x60; addresses are excluded, and they can not receive emails that contain variables. - This parameter&#39;s size will be calculated together with the parameter &#x60;content&#x60;. The whole size must not exceed 150 KB.
    * @return variables
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "- The variable key-value pairs that will replace the variable placeholders in `content` for each recipient. Variable keys are those that are wrapped with `#` as placeholders (e.g., `#var_1#`) in `content`. The placeholders will be replaced by variable values when sending the email.  - The size of the array must be the same as the number of recipients in `to`. Be aware that `cc` and `bcc` addresses are excluded, and they can not receive emails that contain variables. - This parameter's size will be calculated together with the parameter `content`. The whole size must not exceed 150 KB.")
+  @ApiModelProperty(value = "- The variable key-value pairs that will replace the variable placeholders in `content` for each recipient. Variable keys are those that are wrapped with `#` as placeholders (e.g., `#var_1#`) in `content`. The placeholders will be replaced by variable values when sending the email. - The size of the array must be the same as the number of recipients in `to`. Be aware that `cc` and `bcc` addresses are excluded, and they can not receive emails that contain variables. - This parameter's size will be calculated together with the parameter `content`. The whole size must not exceed 150 KB.")
 
   public List<Map<String, String>> getVariables() {
     return variables;

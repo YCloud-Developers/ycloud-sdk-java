@@ -19,3 +19,9 @@ hs_err_pid*
 target
 .gradle
 build
+
+# misc
+.idea
+.openapi-generator
+.openapi-generator-ignore
+git_push.sh

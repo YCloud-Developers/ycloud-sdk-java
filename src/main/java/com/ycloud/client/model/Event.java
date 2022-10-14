@@ -21,8 +21,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.EmailDelivery;
+import com.ycloud.client.model.EventType;
 import com.ycloud.client.model.Sms;
 import com.ycloud.client.model.Voice;
+import com.ycloud.client.model.WhatsappInboundMessage;
+import com.ycloud.client.model.WhatsappMessage;
+import com.ycloud.client.model.WhatsappTemplate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -60,7 +64,7 @@ public class Event {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private EventType type;
 
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -81,6 +85,18 @@ public class Event {
   public static final String SERIALIZED_NAME_VOICE = "voice";
   @SerializedName(SERIALIZED_NAME_VOICE)
   private Voice voice;
+
+  public static final String SERIALIZED_NAME_WHATSAPP_INBOUND_MESSAGE = "whatsappInboundMessage";
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_INBOUND_MESSAGE)
+  private WhatsappInboundMessage whatsappInboundMessage;
+
+  public static final String SERIALIZED_NAME_WHATSAPP_MESSAGE = "whatsappMessage";
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_MESSAGE)
+  private WhatsappMessage whatsappMessage;
+
+  public static final String SERIALIZED_NAME_WHATSAPP_TEMPLATE = "whatsappTemplate";
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_TEMPLATE)
+  private WhatsappTemplate whatsappTemplate;
 
   public Event() { 
   }
@@ -108,25 +124,25 @@ public class Event {
   }
 
 
-  public Event type(String type) {
+  public Event type(EventType type) {
     
     this.type = type;
     return this;
   }
 
    /**
-   * Type of this event.
+   * Get type
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "sms.message.updated", required = true, value = "Type of this event.")
+  @ApiModelProperty(required = true, value = "")
 
-  public String getType() {
+  public EventType getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(EventType type) {
     this.type = type;
   }
 
@@ -245,6 +261,75 @@ public class Event {
     this.voice = voice;
   }
 
+
+  public Event whatsappInboundMessage(WhatsappInboundMessage whatsappInboundMessage) {
+    
+    this.whatsappInboundMessage = whatsappInboundMessage;
+    return this;
+  }
+
+   /**
+   * Get whatsappInboundMessage
+   * @return whatsappInboundMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappInboundMessage getWhatsappInboundMessage() {
+    return whatsappInboundMessage;
+  }
+
+
+  public void setWhatsappInboundMessage(WhatsappInboundMessage whatsappInboundMessage) {
+    this.whatsappInboundMessage = whatsappInboundMessage;
+  }
+
+
+  public Event whatsappMessage(WhatsappMessage whatsappMessage) {
+    
+    this.whatsappMessage = whatsappMessage;
+    return this;
+  }
+
+   /**
+   * Get whatsappMessage
+   * @return whatsappMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappMessage getWhatsappMessage() {
+    return whatsappMessage;
+  }
+
+
+  public void setWhatsappMessage(WhatsappMessage whatsappMessage) {
+    this.whatsappMessage = whatsappMessage;
+  }
+
+
+  public Event whatsappTemplate(WhatsappTemplate whatsappTemplate) {
+    
+    this.whatsappTemplate = whatsappTemplate;
+    return this;
+  }
+
+   /**
+   * Get whatsappTemplate
+   * @return whatsappTemplate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappTemplate getWhatsappTemplate() {
+    return whatsappTemplate;
+  }
+
+
+  public void setWhatsappTemplate(WhatsappTemplate whatsappTemplate) {
+    this.whatsappTemplate = whatsappTemplate;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -297,13 +382,16 @@ public class Event {
         Objects.equals(this.createTime, event.createTime) &&
         Objects.equals(this.emailDelivery, event.emailDelivery) &&
         Objects.equals(this.sms, event.sms) &&
-        Objects.equals(this.voice, event.voice)&&
+        Objects.equals(this.voice, event.voice) &&
+        Objects.equals(this.whatsappInboundMessage, event.whatsappInboundMessage) &&
+        Objects.equals(this.whatsappMessage, event.whatsappMessage) &&
+        Objects.equals(this.whatsappTemplate, event.whatsappTemplate)&&
         Objects.equals(this.additionalProperties, event.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, voice, additionalProperties);
+    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, voice, whatsappInboundMessage, whatsappMessage, whatsappTemplate, additionalProperties);
   }
 
   @Override
@@ -317,6 +405,9 @@ public class Event {
     sb.append("    emailDelivery: ").append(toIndentedString(emailDelivery)).append("\n");
     sb.append("    sms: ").append(toIndentedString(sms)).append("\n");
     sb.append("    voice: ").append(toIndentedString(voice)).append("\n");
+    sb.append("    whatsappInboundMessage: ").append(toIndentedString(whatsappInboundMessage)).append("\n");
+    sb.append("    whatsappMessage: ").append(toIndentedString(whatsappMessage)).append("\n");
+    sb.append("    whatsappTemplate: ").append(toIndentedString(whatsappTemplate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -347,6 +438,9 @@ public class Event {
     openapiFields.add("emailDelivery");
     openapiFields.add("sms");
     openapiFields.add("voice");
+    openapiFields.add("whatsappInboundMessage");
+    openapiFields.add("whatsappMessage");
+    openapiFields.add("whatsappTemplate");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -380,9 +474,6 @@ public class Event {
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
       if (jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
@@ -397,6 +488,18 @@ public class Event {
       // validate the optional field `voice`
       if (jsonObj.getAsJsonObject("voice") != null) {
         Voice.validateJsonObject(jsonObj.getAsJsonObject("voice"));
+      }
+      // validate the optional field `whatsappInboundMessage`
+      if (jsonObj.getAsJsonObject("whatsappInboundMessage") != null) {
+        WhatsappInboundMessage.validateJsonObject(jsonObj.getAsJsonObject("whatsappInboundMessage"));
+      }
+      // validate the optional field `whatsappMessage`
+      if (jsonObj.getAsJsonObject("whatsappMessage") != null) {
+        WhatsappMessage.validateJsonObject(jsonObj.getAsJsonObject("whatsappMessage"));
+      }
+      // validate the optional field `whatsappTemplate`
+      if (jsonObj.getAsJsonObject("whatsappTemplate") != null) {
+        WhatsappTemplate.validateJsonObject(jsonObj.getAsJsonObject("whatsappTemplate"));
       }
   }
 

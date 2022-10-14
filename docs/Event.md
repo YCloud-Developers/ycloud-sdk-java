@@ -9,12 +9,15 @@ Represents a webhook event payload. Every event contains certain common properti
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Unique ID for the object. |  |
-|**type** | **String** | Type of this event. |  |
+|**type** | **EventType** |  |  |
 |**apiVersion** | **String** | The API version used to render this event. |  |
 |**createTime** | **Date** | The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  |
 |**emailDelivery** | [**EmailDelivery**](EmailDelivery.md) |  |  [optional] |
 |**sms** | [**Sms**](Sms.md) |  |  [optional] |
 |**voice** | [**Voice**](Voice.md) |  |  [optional] |
+|**whatsappInboundMessage** | [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  |  [optional] |
+|**whatsappMessage** | [**WhatsappMessage**](WhatsappMessage.md) |  |  [optional] |
+|**whatsappTemplate** | [**WhatsappTemplate**](WhatsappTemplate.md) |  |  [optional] |
 
 
 
