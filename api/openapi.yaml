@@ -24,6 +24,8 @@ tags:
 - name: Voices
 - name: Webhook Endpoints
 - name: WhatsApp Messages
+- name: WhatsApp Phone Numbers
+- name: WhatsApp Templates
 paths:
   /balance:
     get:
@@ -210,6 +212,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/VerificationCheckRequest'
+        required: true
       responses:
         "200":
           content:
@@ -467,6 +470,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/WebhookEndpointUpdateRequest'
+        required: true
       responses:
         "200":
           content:
@@ -507,12 +511,13 @@ paths:
   /whatsapp/messages:
     post:
       description: Sends an outbound WhatsApp message.
-      operationId: whatsapp_messages-send
+      operationId: whatsapp_message-send
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/WhatsappMessageSendRequest'
+        required: true
       responses:
         "200":
           content:
@@ -524,6 +529,320 @@ paths:
       tags:
       - WhatsApp Messages
       x-content-type: application/json
+      x-accepts: application/json
+  /whatsapp/messages/{id}:
+    get:
+      description: Retrieves a WhatsApp message you've previously sent.
+      operationId: whatsapp_message-retrieve
+      parameters:
+      - description: ID of the object.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 627c8640675de8fc689ab9d9
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappMessage'
+          description: Successfully retrieved the object.
+      summary: Retrieve a WhatsApp message
+      tags:
+      - WhatsApp Messages
+      x-accepts: application/json
+  /whatsapp/phoneNumbers:
+    get:
+      description: Returns a paginated list of WhatsApp business account phone numbers
+        you've registered on YCloud.
+      operationId: whatsapp_phone_number-list
+      parameters:
+      - description: "Page number of the results to be returned, 1-based."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "A limit on the number of results to be returned, or number of\
+          \ results per page, between 1 and 100, defaults to 10."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Return results inside an object that contains the total result
+          count or not.
+        explode: true
+        in: query
+        name: includeTotal
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: WhatsApp Business Account ID.
+        explode: true
+        in: query
+        name: filter.wabaId
+        required: false
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappPhoneNumberPage'
+          description: Successfully retrieved a paginated list of objects.
+      summary: List WhatsApp phone numbers
+      tags:
+      - WhatsApp Phone Numbers
+      x-group-parameters: true
+      x-accepts: application/json
+  /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}:
+    get:
+      description: Retrieves a WhatsApp business account phone number you've registered
+        on YCloud.
+      operationId: whatsapp_phone_number-retrieve
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: wabaId
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      - description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+          \ format."
+        explode: false
+        in: path
+        name: phoneNumber
+        required: true
+        schema:
+          example: +447901614024
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappPhoneNumber'
+          description: The WhatsApp phone number is successfully retrieved.
+      summary: Retrieve a WhatsApp phone number
+      tags:
+      - WhatsApp Phone Numbers
+      x-accepts: application/json
+  /whatsapp/templates:
+    get:
+      description: Returns a paginated list of WhatsApp templates you've previously
+        created.
+      operationId: whatsapp_template-list
+      parameters:
+      - description: "Page number of the results to be returned, 1-based."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "A limit on the number of results to be returned, or number of\
+          \ results per page, between 1 and 100, defaults to 10."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Return results inside an object that contains the total result
+          count or not.
+        explode: true
+        in: query
+        name: includeTotal
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: WhatsApp Business Account ID.
+        explode: true
+        in: query
+        name: filter.wabaId
+        required: false
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: form
+      - description: Name of the template.
+        explode: true
+        in: query
+        name: filter.name
+        required: false
+        schema:
+          example: sample_whatsapp_template
+          maxLength: 512
+          pattern: "[a-z0-9]{1,512}"
+          type: string
+        style: form
+      - description: Language of the template.
+        explode: true
+        in: query
+        name: filter.language
+        required: false
+        schema:
+          example: en
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappTemplatePage'
+          description: Successfully retrieved a paginated list of objects.
+      summary: List WhatsApp templates
+      tags:
+      - WhatsApp Templates
+      x-group-parameters: true
+      x-accepts: application/json
+    post:
+      description: "Creates a WhatsApp template. See also [Create Message Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/#create-message-templates)."
+      operationId: whatsapp_template-create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WhatsappTemplateCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappTemplate'
+          description: The template is successfully created.
+      summary: Create a WhatsApp template
+      tags:
+      - WhatsApp Templates
+      x-content-type: application/json
+      x-accepts: application/json
+  /whatsapp/templates/{wabaId}/{name}:
+    delete:
+      description: "Deletes WhatsApp templates by name. If that template name exists\
+        \ in multiple languages, all languages will be deleted.\nHTTP status `404`\
+        \ is returned if no templates are found for the specific name."
+      operationId: whatsapp_template-delete-by-name
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: wabaId
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      - description: Name of the template.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          example: sample_whatsapp_template
+          maximum: 512
+          minimum: 1
+          pattern: "[a-z0-9]{1,512}"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WhatsappTemplate'
+                type: array
+          description: The template(s) is successfully deleted.
+      summary: Delete WhatsApp templates by name
+      tags:
+      - WhatsApp Templates
+      x-accepts: application/json
+  /whatsapp/templates/{wabaId}/{name}/{language}:
+    get:
+      description: Retrieves a WhatsApp template by name and language.
+      operationId: whatsapp_template-retrieve-by-name-and-language
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: wabaId
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      - description: Name of the template.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          example: sample_whatsapp_template
+          maximum: 512
+          minimum: 1
+          pattern: "[a-z0-9]{1,512}"
+          type: string
+        style: simple
+      - description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
+          \ for all codes."
+        explode: false
+        in: path
+        name: language
+        required: true
+        schema:
+          example: en
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappTemplate'
+          description: The WhatsApp template is successfully retrieved.
+      summary: Retrieve a WhatsApp template
+      tags:
+      - WhatsApp Templates
       x-accepts: application/json
 components:
   parameters:
@@ -561,6 +880,26 @@ components:
       schema:
         type: string
       style: form
+    filter_wabaId:
+      description: WhatsApp Business Account ID.
+      explode: true
+      in: query
+      name: filter.wabaId
+      required: false
+      schema:
+        example: whatsapp-business-account-id
+        type: string
+      style: form
+    id-in_path:
+      description: ID of the object.
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        example: 627c8640675de8fc689ab9d9
+        type: string
+      style: simple
     id-in_path_for_webhook_endpoint:
       description: ID of the webhook endpoint.
       explode: false
@@ -609,6 +948,16 @@ components:
         minimum: 1
         type: integer
       style: form
+    wabaId-in_path:
+      description: WhatsApp Business Account ID.
+      explode: false
+      in: path
+      name: wabaId
+      required: true
+      schema:
+        example: whatsapp-business-account-id
+        type: string
+      style: simple
   schemas:
     Balance:
       example:
@@ -953,6 +1302,8 @@ components:
           $ref: '#/components/schemas/WhatsappInboundMessage'
         whatsappMessage:
           $ref: '#/components/schemas/WhatsappMessage'
+        whatsappPhoneNumber:
+          $ref: '#/components/schemas/WhatsappPhoneNumber'
         whatsappTemplate:
           $ref: '#/components/schemas/WhatsappTemplate'
       required:
@@ -969,6 +1320,8 @@ components:
       - voice.message.updated
       - whatsapp.inbound_message.received
       - whatsapp.message.updated
+      - whatsapp.phone_number.name_updated
+      - whatsapp.phone_number.quality_updated
       - whatsapp.template.reviewed
       type: string
       x-enum-descriptions:
@@ -981,6 +1334,10 @@ components:
       - Occurs when a WhatsApp inbound message is received.
       - "Occurs when a WhatsApp outbound message status is updated, and the status\
         \ changes to `sent`, `failed`, `delivered`, or `read`."
+      - Occurs when a WhatsApp business account phone number's name has been approved
+        or rejected.
+      - "Occurs when a WhatsApp business account phone number's quality-related status\
+        \ is updated, and the status changes to `GREEN`, `YELLOW`, or `RED`."
       - "Occurs when a WhatsApp template is reviewed, and the status changes to `APPROVED`\
         \ or `REJECTED`."
     Mailbox:
@@ -1722,6 +2079,10 @@ components:
         id:
           description: Unique ID for the object.
           type: string
+        wabaId:
+          description: WhatsApp Business Account ID.
+          example: whatsapp-business-account-id
+          type: string
         from:
           description: "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
@@ -2170,6 +2531,7 @@ components:
           link: link
           caption: caption
         type: null
+        wabaId: whatsapp-business-account-id
         createTime: 2022-06-01T12:00:00Z
         from: +447901614024
         location:
@@ -2275,10 +2637,14 @@ components:
           - phone: phone
             wa_id: wa_id
             type: type
-        status: status
+        status: null
       properties:
         id:
           description: Unique ID for the object.
+          type: string
+        wabaId:
+          description: WhatsApp Business Account ID.
+          example: whatsapp-business-account-id
           type: string
         from:
           description: "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
@@ -2318,13 +2684,7 @@ components:
             \ internal systems."
           type: string
         status:
-          description: "One of `accepted`, `sent`, `failed`, `delivered`, `read`.\n\
-            - `accepted`: The messaging request is accepted by our system.\n- `sent`:\
-            \ A message sent by your business is in transit within WhatsApp's systems.\n\
-            - `failed`: A message sent by your business failed to send.\n- `delivered`:\
-            \ A message sent by your business was delivered to the user's device.\n\
-            - `read`: A message sent by your business was read by the user."
-          type: string
+          $ref: '#/components/schemas/WhatsappMessageStatus'
         errorCode:
           description: Error code when the message status is `failed`.
           type: string
@@ -2514,13 +2874,11 @@ components:
           description: Name of the location.
           type: string
         address:
-          description: Address of the location.
+          description: Address of the location. Only displayed if `name` is present.
           type: string
       required:
-      - address
       - latitude
       - longitude
-      - name
       type: object
     WhatsappMessageMedia:
       description: "[WhatsApp Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)."
@@ -2901,6 +3259,27 @@ components:
       - to
       - type
       type: object
+    WhatsappMessageStatus:
+      description: "WhatsApp message status. One of `accepted`, `failed`, `sent`,\
+        \ `delivered`, `read`.\n- `accepted`: The messaging request is accepted by\
+        \ our system.\n- `failed`: A message sent by your business failed to send.\n\
+        - `sent`: A message sent by your business is in transit within WhatsApp's\
+        \ systems.\n- `delivered`: A message sent by your business was delivered to\
+        \ the user's device.\n- `read`: A message sent by your business was read by\
+        \ the user."
+      enum:
+      - accepted
+      - failed
+      - sent
+      - delivered
+      - read
+      type: string
+      x-enum-descriptions:
+      - The messaging request is accepted by our system.
+      - A message sent by your business failed to send.
+      - A message sent by your business is in transit within WhatsApp's systems.
+      - A message sent by your business was delivered to the user's device.
+      - A message sent by your business was read by the user.
     WhatsappMessageTemplate:
       description: "Template object when sending a WhatsApp template message. See\
         \ also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object)."
@@ -3040,16 +3419,307 @@ components:
       - interactive
       - contacts
       type: string
+    WhatsappPhoneNumber:
+      description: "A WhatsApp Business Account (WABA) phone number. See also [WhatsApp\
+        \ Retrieve Phone Numbers](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers)."
+      example:
+        decision: decision
+        messagingLimit: TIER_1K
+        qualityRating: null
+        wabaId: whatsapp-business-account-id
+        phoneNumber: +16315551111
+        requestedVerifiedName: requestedVerifiedName
+        newNameStatus: null
+        nameStatus: null
+        verifiedName: John’s Cake Shop
+        displayPhoneNumber: +1 631-555-1111
+        rejectionReason: rejectionReason
+        codeVerificationStatus: null
+        status: null
+      properties:
+        phoneNumber:
+          description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+            \ format."
+          example: +16315551111
+          type: string
+        displayPhoneNumber:
+          description: Display phone number.
+          example: +1 631-555-1111
+          type: string
+        wabaId:
+          description: WhatsApp Business Account ID.
+          example: whatsapp-business-account-id
+          type: string
+        qualityRating:
+          $ref: '#/components/schemas/WhatsappPhoneNumberQualityRating'
+        messagingLimit:
+          description: "Messaging limits determine the maximum number of business-initiated\
+            \ conversations each phone number can start in a rolling 24-hour period.\
+            \ See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits).\n\
+            - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour\
+            \ period.\n- `TIER_250`: 250 business-initiated conversations in a rolling\
+            \ 24-hour period.\n- `TIER_1K`: 1K business-initiated conversations with\
+            \ unique customers in a rolling 24-hour period.\n- `TIER_10K`: 10K business-initiated\
+            \ conversations with unique customers in a rolling 24-hour period.\n-\
+            \ `TIER_100K`: 100K business-initiated conversations with unique customers\
+            \ in a rolling 24-hour period.\n- `TIER_UNLIMITED`: An unlimited number\
+            \ of business-initiated conversations in a rolling 24-hour period."
+          example: TIER_1K
+          type: string
+        verifiedName:
+          description: Verified name.
+          example: John’s Cake Shop
+          type: string
+        codeVerificationStatus:
+          $ref: '#/components/schemas/WhatsappPhoneNumberCodeVerificationStatus'
+        status:
+          $ref: '#/components/schemas/WhatsappPhoneNumberStatus'
+        nameStatus:
+          $ref: '#/components/schemas/WhatsappPhoneNumberNameStatus'
+        newNameStatus:
+          $ref: '#/components/schemas/WhatsappPhoneNumberNameStatus'
+        decision:
+          description: "Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
+          type: string
+        requestedVerifiedName:
+          description: "Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
+          type: string
+        rejectionReason:
+          description: "Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
+          type: string
+      type: object
+    WhatsappPhoneNumberCodeVerificationStatus:
+      description: "To see if a phone number has been verified via OTP (one-time password),\
+        \ check that number's `code_verification_status` field."
+      enum:
+      - VERIFIED
+      - NOT_VERIFIED
+      type: string
+    WhatsappPhoneNumberNameStatus:
+      description: "The review status of the current display name request. See also\
+        \ [Get Display Name Status](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers#get-display-name-status--beta-)."
+      enum:
+      - APPROVED
+      - AVAILABLE_WITHOUT_REVIEW
+      - DECLINED
+      - EXPIRED
+      - PENDING_REVIEW
+      - NONE
+      type: string
+      x-enum-descriptions:
+      - The name has been approved. You can download your certificate now.
+      - The certificate for the phone is available and display name is ready to use
+        without review.
+      - The name has not been approved. You cannot download your certificate.
+      - Your certificate has expire and can no longer be downloaded.
+      - Your name request is under review. You cannot download your certificate.
+      - No certificate is available.
+    WhatsappPhoneNumberPage:
+      allOf:
+      - $ref: '#/components/schemas/Page'
+      description: Represents a given page of WhatsApp phone numbers.
+      example:
+        items:
+        - decision: decision
+          messagingLimit: TIER_1K
+          qualityRating: null
+          wabaId: whatsapp-business-account-id
+          phoneNumber: +16315551111
+          requestedVerifiedName: requestedVerifiedName
+          newNameStatus: null
+          nameStatus: null
+          verifiedName: John’s Cake Shop
+          displayPhoneNumber: +1 631-555-1111
+          rejectionReason: rejectionReason
+          codeVerificationStatus: null
+          status: null
+        - decision: decision
+          messagingLimit: TIER_1K
+          qualityRating: null
+          wabaId: whatsapp-business-account-id
+          phoneNumber: +16315551111
+          requestedVerifiedName: requestedVerifiedName
+          newNameStatus: null
+          nameStatus: null
+          verifiedName: John’s Cake Shop
+          displayPhoneNumber: +1 631-555-1111
+          rejectionReason: rejectionReason
+          codeVerificationStatus: null
+          status: null
+      properties:
+        items:
+          description: An array containing WhatsApp phone number objects.
+          items:
+            $ref: '#/components/schemas/WhatsappPhoneNumber'
+          type: array
+      type: object
+    WhatsappPhoneNumberQualityRating:
+      description: "Quality rating. One of `GREEN`, `YELLOW`, `RED`, or `UNKNOWN`.\
+        \ See also [Quality Rating](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits).\n\
+        - `GREEN`: High quality.\n- `YELLOW`: Medium quality.\n- `RED`: Low quality.\n\
+        - `UNKNOWN`: Unknown quality."
+      enum:
+      - GREEN
+      - YELLOW
+      - RED
+      - UNKNOWN
+      type: string
+      x-enum-descriptions:
+      - High quality
+      - Medium quality
+      - Low quality
+      - Unknown quality
+    WhatsappPhoneNumberStatus:
+      description: "The status of a WhatsApp business account phone number.\n`PENDING`:\
+        \ Pending.\n`UNVERIFIED`: Unverified. Verify this phone number to start sending\
+        \ messages.\n`MANUAL_REVIEW`: Being reviewed. Phone number is currently being\
+        \ reviewed for connection to your account.\n`DISCONNECTED`: Offline. Phone\
+        \ number is currently not reachable by WhatsApp servers.\n`CONNECTED`: Connected.\
+        \ Phone number is associated with this account and working properly.\n`FLAGGED`:\
+        \ Flagged. This phone number has been flagged due to low quality messages.\n\
+        `WARNED`: Warned. A warning has been issued for this number, potentially due\
+        \ to spam reports.\n`RATE_LIMITED`: Rate limited. The number of messages you\
+        \ can send from this phone number may be restricted.\n`BANNED`: Banned. Phone\
+        \ number cannot be used with a WhatsApp account.\n`RESTRICTED`: Restricted.\
+        \ This phone number has reached its 24-hour messaging limit and can no longer\
+        \ send messages to customers. Please wait until the messaging limit is reset\
+        \ to send messages.\n`BLOCKED`: Message limit reached. The limit has been\
+        \ reached for this 24-hour period.\n`MIGRATED`: Transferred. This phone number\
+        \ has been transferred to another WhatsApp Business account.\n`UNKNOWN`: Unavailable.\
+        \ The status of this phone number can't be determined right now."
+      enum:
+      - PENDING
+      - UNVERIFIED
+      - MANUAL_REVIEW
+      - DISCONNECTED
+      - CONNECTED
+      - FLAGGED
+      - WARNED
+      - RATE_LIMITED
+      - BANNED
+      - RESTRICTED
+      - BLOCKED
+      - MIGRATED
+      - UNKNOWN
+      type: string
+      x-enum-descriptions:
+      - Pending
+      - Unverified. Verify this phone number to start sending messages.
+      - Being reviewed. Phone number is currently being reviewed for connection to
+        your account.
+      - Offline. Phone number is currently not reachable by WhatsApp servers.
+      - Connected. Phone number is associated with this account and working properly.
+      - Flagged. This phone number has been flagged due to low quality messages.
+      - "Warned. A warning has been issued for this number, potentially due to spam\
+        \ reports."
+      - Rate limited. The number of messages you can send from this phone number may
+        be restricted.
+      - Banned. Phone number cannot be used with a WhatsApp account.
+      - Restricted. This phone number has reached its 24-hour messaging limit and
+        can no longer send messages to customers. Please wait until the messaging
+        limit is reset to send messages.
+      - Message limit reached. The limit has been reached for this 24-hour period.
+      - Transferred. This phone number has been transferred to another WhatsApp Business
+        account.
+      - Unavailable. The status of this phone number can't be determined right now.
     WhatsappTemplate:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
+      example:
+        wabaId: whatsapp-business-account-id
+        reason: reason
+        components:
+        - buttons:
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          format: TEXT
+          text: text
+          type: BODY
+          example:
+            body_text:
+            - - body_text
+              - body_text
+            - - body_text
+              - body_text
+            header_text:
+            - header_text
+            - header_text
+            header_url:
+            - header_url
+            - header_url
+        - buttons:
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          format: TEXT
+          text: text
+          type: BODY
+          example:
+            body_text:
+            - - body_text
+              - body_text
+            - - body_text
+              - body_text
+            header_text:
+            - header_text
+            - header_text
+            header_url:
+            - header_url
+            - header_url
+        createTime: 2022-06-01T12:00:00Z
+        name: name
+        language: en
+        updateTime: 2022-06-01T12:00:00Z
+        category: null
+        status: REJECTED
       properties:
+        wabaId:
+          description: WhatsApp Business Account ID.
+          example: whatsapp-business-account-id
+          type: string
         name:
           description: Name of the template.
           maxLength: 512
           pattern: "[a-z0-9]{1,512}"
           type: string
         language:
-          description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
+          description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
             \ for all codes."
           example: en
           type: string
@@ -3100,6 +3770,44 @@ components:
         \ and engagement."
       - Send codes that allow your customers to access their accounts.
     WhatsappTemplateComponent:
+      example:
+        buttons:
+        - phone_number: phone_number
+          text: text
+          type: null
+          url: url
+          example:
+          - example
+          - example
+        - phone_number: phone_number
+          text: text
+          type: null
+          url: url
+          example:
+          - example
+          - example
+        - phone_number: phone_number
+          text: text
+          type: null
+          url: url
+          example:
+          - example
+          - example
+        format: TEXT
+        text: text
+        type: BODY
+        example:
+          body_text:
+          - - body_text
+            - body_text
+          - - body_text
+            - body_text
+          header_text:
+          - header_text
+          - header_text
+          header_url:
+          - header_url
+          - header_url
       properties:
         type:
           enum:
@@ -3126,6 +3834,14 @@ components:
           $ref: '#/components/schemas/WhatsappTemplateComponent_example'
       type: object
     WhatsappTemplateComponentButton:
+      example:
+        phone_number: phone_number
+        text: text
+        type: null
+        url: url
+        example:
+        - example
+        - example
       properties:
         type:
           $ref: '#/components/schemas/WhatsappTemplateComponentButtonType'
@@ -3148,14 +3864,99 @@ components:
       type: string
     WhatsappTemplateCreateRequest:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
+      example:
+        wabaId: whatsapp-business-account-id
+        components:
+        - buttons:
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          format: TEXT
+          text: text
+          type: BODY
+          example:
+            body_text:
+            - - body_text
+              - body_text
+            - - body_text
+              - body_text
+            header_text:
+            - header_text
+            - header_text
+            header_url:
+            - header_url
+            - header_url
+        - buttons:
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          format: TEXT
+          text: text
+          type: BODY
+          example:
+            body_text:
+            - - body_text
+              - body_text
+            - - body_text
+              - body_text
+            header_text:
+            - header_text
+            - header_text
+            header_url:
+            - header_url
+            - header_url
+        name: sample_whatsapp_template
+        language: en
+        category: null
       properties:
+        wabaId:
+          description: WhatsApp Business Account ID.
+          example: whatsapp-business-account-id
+          type: string
         name:
           description: Name of the template.
+          example: sample_whatsapp_template
           maxLength: 512
           pattern: "[a-z0-9]{1,512}"
           type: string
         language:
-          description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
+          description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
             \ for all codes."
           example: en
           type: string
@@ -3170,11 +3971,180 @@ components:
       - components
       - language
       - name
+      - wabaId
       type: object
     WhatsappTemplatePage:
       allOf:
       - $ref: '#/components/schemas/Page'
       description: Represents a given page of WhatsApp templates.
+      example:
+        items:
+        - wabaId: whatsapp-business-account-id
+          reason: reason
+          components:
+          - buttons:
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            format: TEXT
+            text: text
+            type: BODY
+            example:
+              body_text:
+              - - body_text
+                - body_text
+              - - body_text
+                - body_text
+              header_text:
+              - header_text
+              - header_text
+              header_url:
+              - header_url
+              - header_url
+          - buttons:
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            format: TEXT
+            text: text
+            type: BODY
+            example:
+              body_text:
+              - - body_text
+                - body_text
+              - - body_text
+                - body_text
+              header_text:
+              - header_text
+              - header_text
+              header_url:
+              - header_url
+              - header_url
+          createTime: 2022-06-01T12:00:00Z
+          name: name
+          language: en
+          updateTime: 2022-06-01T12:00:00Z
+          category: null
+          status: REJECTED
+        - wabaId: whatsapp-business-account-id
+          reason: reason
+          components:
+          - buttons:
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            format: TEXT
+            text: text
+            type: BODY
+            example:
+              body_text:
+              - - body_text
+                - body_text
+              - - body_text
+                - body_text
+              header_text:
+              - header_text
+              - header_text
+              header_url:
+              - header_url
+              - header_url
+          - buttons:
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            - phone_number: phone_number
+              text: text
+              type: null
+              url: url
+              example:
+              - example
+              - example
+            format: TEXT
+            text: text
+            type: BODY
+            example:
+              body_text:
+              - - body_text
+                - body_text
+              - - body_text
+                - body_text
+              header_text:
+              - header_text
+              - header_text
+              header_url:
+              - header_url
+              - header_url
+          createTime: 2022-06-01T12:00:00Z
+          name: name
+          language: en
+          updateTime: 2022-06-01T12:00:00Z
+          category: null
+          status: REJECTED
       properties:
         items:
           description: An array containing WhatsApp template objects.
@@ -3629,7 +4599,7 @@ components:
       properties:
         code:
           description: "The code of the language or locale to use. Accepts both language\
-            \ and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
+            \ and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
             \ for all codes."
           example: en
           type: string
@@ -3757,6 +4727,18 @@ components:
       required:
       - type
     WhatsappTemplateComponent_example:
+      example:
+        body_text:
+        - - body_text
+          - body_text
+        - - body_text
+          - body_text
+        header_text:
+        - header_text
+        - header_text
+        header_url:
+        - header_url
+        - header_url
       properties:
         body_text:
           items:

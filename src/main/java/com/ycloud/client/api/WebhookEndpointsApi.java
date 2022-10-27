@@ -791,7 +791,7 @@ public class WebhookEndpointsApi {
     /**
      * Build call for update
      * @param id ID of the webhook endpoint. (required)
-     * @param webhookEndpointUpdateRequest  (optional)
+     * @param webhookEndpointUpdateRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -855,6 +855,11 @@ public class WebhookEndpointsApi {
             throw new ApiException("Missing the required parameter 'id' when calling update(Async)");
         }
         
+        // verify the required parameter 'webhookEndpointUpdateRequest' is set
+        if (webhookEndpointUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'webhookEndpointUpdateRequest' when calling update(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = updateCall(id, webhookEndpointUpdateRequest, _callback);
         return localVarCall;
@@ -866,7 +871,7 @@ public class WebhookEndpointsApi {
      * <p>
      * Updates a webhook endpoint, such as url, events, status.
      * @param id ID of the webhook endpoint. (required)
-     * @param webhookEndpointUpdateRequest  (optional)
+     * @param webhookEndpointUpdateRequest  (required)
      * @return WebhookEndpoint
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -885,7 +890,7 @@ public class WebhookEndpointsApi {
      * <p>
      * Updates a webhook endpoint, such as url, events, status.
      * @param id ID of the webhook endpoint. (required)
-     * @param webhookEndpointUpdateRequest  (optional)
+     * @param webhookEndpointUpdateRequest  (required)
      * @return ApiResponse&lt;WebhookEndpoint&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -905,7 +910,7 @@ public class WebhookEndpointsApi {
      * <p>
      * Updates a webhook endpoint, such as url, events, status.
      * @param id ID of the webhook endpoint. (required)
-     * @param webhookEndpointUpdateRequest  (optional)
+     * @param webhookEndpointUpdateRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

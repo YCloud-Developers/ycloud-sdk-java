@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **verificationCheckRequest** | [**VerificationCheckRequest**](VerificationCheckRequest.md)|  | [optional] |
+| **verificationCheckRequest** | [**VerificationCheckRequest**](VerificationCheckRequest.md)|  | |
 
 ### Return type
 

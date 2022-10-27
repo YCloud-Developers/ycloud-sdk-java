@@ -78,7 +78,7 @@ public class VerifyApi {
 
     /**
      * Build call for check
-     * @param verificationCheckRequest  (optional)
+     * @param verificationCheckRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -136,6 +136,11 @@ public class VerifyApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call checkValidateBeforeCall(VerificationCheckRequest verificationCheckRequest, final ApiCallback _callback) throws ApiException {
         
+        // verify the required parameter 'verificationCheckRequest' is set
+        if (verificationCheckRequest == null) {
+            throw new ApiException("Missing the required parameter 'verificationCheckRequest' when calling check(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = checkCall(verificationCheckRequest, _callback);
         return localVarCall;
@@ -146,7 +151,7 @@ public class VerifyApi {
      * Check a verification
      * <p>
      * Checks a verification with a phone number, an email address, or a verification ID. A &#x60;pending&#x60; verification status changes to &#x60;approved&#x60; once you receive a response with the &#x60;valid&#x60; parameter is &#x60;true&#x60;. An approved verification cannot be checked anymore.
-     * @param verificationCheckRequest  (optional)
+     * @param verificationCheckRequest  (required)
      * @return VerificationCheck
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -164,7 +169,7 @@ public class VerifyApi {
      * Check a verification
      * <p>
      * Checks a verification with a phone number, an email address, or a verification ID. A &#x60;pending&#x60; verification status changes to &#x60;approved&#x60; once you receive a response with the &#x60;valid&#x60; parameter is &#x60;true&#x60;. An approved verification cannot be checked anymore.
-     * @param verificationCheckRequest  (optional)
+     * @param verificationCheckRequest  (required)
      * @return ApiResponse&lt;VerificationCheck&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -183,7 +188,7 @@ public class VerifyApi {
      * Check a verification (asynchronously)
      * <p>
      * Checks a verification with a phone number, an email address, or a verification ID. A &#x60;pending&#x60; verification status changes to &#x60;approved&#x60; once you receive a response with the &#x60;valid&#x60; parameter is &#x60;true&#x60;. An approved verification cannot be checked anymore.
-     * @param verificationCheckRequest  (optional)
+     * @param verificationCheckRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -17,6 +17,7 @@ Represents a webhook event payload. Every event contains certain common properti
 |**voice** | [**Voice**](Voice.md) |  |  [optional] |
 |**whatsappInboundMessage** | [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  |  [optional] |
 |**whatsappMessage** | [**WhatsappMessage**](WhatsappMessage.md) |  |  [optional] |
+|**whatsappPhoneNumber** | [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  |  [optional] |
 |**whatsappTemplate** | [**WhatsappTemplate**](WhatsappTemplate.md) |  |  [optional] |
 
 

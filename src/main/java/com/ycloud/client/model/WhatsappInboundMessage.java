@@ -64,6 +64,10 @@ public class WhatsappInboundMessage {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
+  @SerializedName(SERIALIZED_NAME_WABA_ID)
+  private String wabaId;
+
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
   private String from;
@@ -143,6 +147,29 @@ public class WhatsappInboundMessage {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public WhatsappInboundMessage wabaId(String wabaId) {
+    
+    this.wabaId = wabaId;
+    return this;
+  }
+
+   /**
+   * WhatsApp Business Account ID.
+   * @return wabaId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "whatsapp-business-account-id", value = "WhatsApp Business Account ID.")
+
+  public String getWabaId() {
+    return wabaId;
+  }
+
+
+  public void setWabaId(String wabaId) {
+    this.wabaId = wabaId;
   }
 
 
@@ -522,6 +549,7 @@ public class WhatsappInboundMessage {
     }
     WhatsappInboundMessage whatsappInboundMessage = (WhatsappInboundMessage) o;
     return Objects.equals(this.id, whatsappInboundMessage.id) &&
+        Objects.equals(this.wabaId, whatsappInboundMessage.wabaId) &&
         Objects.equals(this.from, whatsappInboundMessage.from) &&
         Objects.equals(this.to, whatsappInboundMessage.to) &&
         Objects.equals(this.sendTime, whatsappInboundMessage.sendTime) &&
@@ -541,7 +569,7 @@ public class WhatsappInboundMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, from, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, additionalProperties);
+    return Objects.hash(id, wabaId, from, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, additionalProperties);
   }
 
   @Override
@@ -549,6 +577,7 @@ public class WhatsappInboundMessage {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappInboundMessage {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    sendTime: ").append(toIndentedString(sendTime)).append("\n");
@@ -587,6 +616,7 @@ public class WhatsappInboundMessage {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("wabaId");
     openapiFields.add("from");
     openapiFields.add("to");
     openapiFields.add("sendTime");
@@ -630,6 +660,9 @@ public class WhatsappInboundMessage {
       }
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("wabaId") != null && !jsonObj.get("wabaId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wabaId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wabaId").toString()));
       }
       if (jsonObj.get("from") != null && !jsonObj.get("from").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `from` to be a primitive type in the JSON string but got `%s`", jsonObj.get("from").toString()));

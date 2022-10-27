@@ -54,6 +54,10 @@ import com.ycloud.client.JSON;
 @ApiModel(description = "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplateCreateRequest {
+  public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
+  @SerializedName(SERIALIZED_NAME_WABA_ID)
+  private String wabaId;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -73,6 +77,29 @@ public class WhatsappTemplateCreateRequest {
   public WhatsappTemplateCreateRequest() { 
   }
 
+  public WhatsappTemplateCreateRequest wabaId(String wabaId) {
+    
+    this.wabaId = wabaId;
+    return this;
+  }
+
+   /**
+   * WhatsApp Business Account ID.
+   * @return wabaId
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "whatsapp-business-account-id", required = true, value = "WhatsApp Business Account ID.")
+
+  public String getWabaId() {
+    return wabaId;
+  }
+
+
+  public void setWabaId(String wabaId) {
+    this.wabaId = wabaId;
+  }
+
+
   public WhatsappTemplateCreateRequest name(String name) {
     
     this.name = name;
@@ -84,7 +111,7 @@ public class WhatsappTemplateCreateRequest {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the template.")
+  @ApiModelProperty(example = "sample_whatsapp_template", required = true, value = "Name of the template.")
 
   public String getName() {
     return name;
@@ -103,11 +130,11 @@ public class WhatsappTemplateCreateRequest {
   }
 
    /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
    * @return language
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
+  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.")
 
   public String getLanguage() {
     return language;
@@ -215,7 +242,8 @@ public class WhatsappTemplateCreateRequest {
       return false;
     }
     WhatsappTemplateCreateRequest whatsappTemplateCreateRequest = (WhatsappTemplateCreateRequest) o;
-    return Objects.equals(this.name, whatsappTemplateCreateRequest.name) &&
+    return Objects.equals(this.wabaId, whatsappTemplateCreateRequest.wabaId) &&
+        Objects.equals(this.name, whatsappTemplateCreateRequest.name) &&
         Objects.equals(this.language, whatsappTemplateCreateRequest.language) &&
         Objects.equals(this.category, whatsappTemplateCreateRequest.category) &&
         Objects.equals(this.components, whatsappTemplateCreateRequest.components)&&
@@ -224,13 +252,14 @@ public class WhatsappTemplateCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, language, category, components, additionalProperties);
+    return Objects.hash(wabaId, name, language, category, components, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappTemplateCreateRequest {\n");
+    sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
@@ -258,6 +287,7 @@ public class WhatsappTemplateCreateRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("wabaId");
     openapiFields.add("name");
     openapiFields.add("language");
     openapiFields.add("category");
@@ -265,6 +295,7 @@ public class WhatsappTemplateCreateRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("wabaId");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("language");
     openapiRequiredFields.add("category");
@@ -291,6 +322,9 @@ public class WhatsappTemplateCreateRequest {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("wabaId") != null && !jsonObj.get("wabaId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wabaId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wabaId").toString()));
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

@@ -1,0 +1,311 @@
+# WhatsappTemplatesApi
+
+All URIs are relative to *https://api.ycloud.com/v2*
+
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**create**](WhatsappTemplatesApi.md#create) | **POST** /whatsapp/templates | Create a WhatsApp template |
+| [**deleteByName**](WhatsappTemplatesApi.md#deleteByName) | **DELETE** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name |
+| [**list**](WhatsappTemplatesApi.md#list) | **GET** /whatsapp/templates | List WhatsApp templates |
+| [**retrieveByNameAndLanguage**](WhatsappTemplatesApi.md#retrieveByNameAndLanguage) | **GET** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template |
+
+
+<a name="create"></a>
+# **create**
+> WhatsappTemplate create(whatsappTemplateCreateRequest)
+
+Create a WhatsApp template
+
+Creates a WhatsApp template. See also [Create Message Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/#create-message-templates).
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
+    WhatsappTemplateCreateRequest whatsappTemplateCreateRequest = new WhatsappTemplateCreateRequest(); // WhatsappTemplateCreateRequest | 
+    try {
+      WhatsappTemplate result = apiInstance.create(whatsappTemplateCreateRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappTemplatesApi#create");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **whatsappTemplateCreateRequest** | [**WhatsappTemplateCreateRequest**](WhatsappTemplateCreateRequest.md)|  | |
+
+### Return type
+
+[**WhatsappTemplate**](WhatsappTemplate.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The template is successfully created. |  -  |
+
+<a name="deleteByName"></a>
+# **deleteByName**
+> List&lt;WhatsappTemplate&gt; deleteByName(wabaId, name)
+
+Delete WhatsApp templates by name
+
+Deletes WhatsApp templates by name. If that template name exists in multiple languages, all languages will be deleted. HTTP status &#x60;404&#x60; is returned if no templates are found for the specific name.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
+    String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String name = "sample_whatsapp_template"; // String | Name of the template.
+    try {
+      List<WhatsappTemplate> result = apiInstance.deleteByName(wabaId, name);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappTemplatesApi#deleteByName");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wabaId** | **String**| WhatsApp Business Account ID. | |
+| **name** | **String**| Name of the template. | |
+
+### Return type
+
+[**List&lt;WhatsappTemplate&gt;**](WhatsappTemplate.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The template(s) is successfully deleted. |  -  |
+
+<a name="list"></a>
+# **list**
+> WhatsappTemplatePage list().page(page).limit(limit).includeTotal(includeTotal).filterWabaId(filterWabaId).filterName(filterName).filterLanguage(filterLanguage).execute();
+
+List WhatsApp templates
+
+Returns a paginated list of WhatsApp templates you&#39;ve previously created.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
+    Integer page = 1; // Integer | Page number of the results to be returned, 1-based.
+    Integer limit = 10; // Integer | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10.
+    Boolean includeTotal = false; // Boolean | Return results inside an object that contains the total result count or not.
+    String filterWabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String filterName = "sample_whatsapp_template"; // String | Name of the template.
+    String filterLanguage = "en"; // String | Language of the template.
+    try {
+      WhatsappTemplatePage result = apiInstance.list()
+            .page(page)
+            .limit(limit)
+            .includeTotal(includeTotal)
+            .filterWabaId(filterWabaId)
+            .filterName(filterName)
+            .filterLanguage(filterLanguage)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappTemplatesApi#list");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| Page number of the results to be returned, 1-based. | [optional] [default to 1] |
+| **limit** | **Integer**| A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [optional] [default to 10] |
+| **includeTotal** | **Boolean**| Return results inside an object that contains the total result count or not. | [optional] [default to false] |
+| **filterWabaId** | **String**| WhatsApp Business Account ID. | [optional] |
+| **filterName** | **String**| Name of the template. | [optional] |
+| **filterLanguage** | **String**| Language of the template. | [optional] |
+
+### Return type
+
+[**WhatsappTemplatePage**](WhatsappTemplatePage.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved a paginated list of objects. |  -  |
+
+<a name="retrieveByNameAndLanguage"></a>
+# **retrieveByNameAndLanguage**
+> WhatsappTemplate retrieveByNameAndLanguage(wabaId, name, language)
+
+Retrieve a WhatsApp template
+
+Retrieves a WhatsApp template by name and language.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
+    String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String name = "sample_whatsapp_template"; // String | Name of the template.
+    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+    try {
+      WhatsappTemplate result = apiInstance.retrieveByNameAndLanguage(wabaId, name, language);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappTemplatesApi#retrieveByNameAndLanguage");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wabaId** | **String**| WhatsApp Business Account ID. | |
+| **name** | **String**| Name of the template. | |
+| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. | |
+
+### Return type
+
+[**WhatsappTemplate**](WhatsappTemplate.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The WhatsApp template is successfully retrieved. |  -  |
+

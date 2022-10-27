@@ -8,8 +8,9 @@ See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**wabaId** | **String** | WhatsApp Business Account ID. |  [optional] |
 |**name** | **String** | Name of the template. |  |
-|**language** | **String** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. |  |
+|**language** | **String** | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. |  |
 |**category** | **WhatsappTemplateCategory** |  |  |
 |**components** | [**List&lt;WhatsappTemplateComponent&gt;**](WhatsappTemplateComponent.md) |  |  |
 |**status** | **WhatsappTemplateStatus** |  |  [optional] |

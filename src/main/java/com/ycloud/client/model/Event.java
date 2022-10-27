@@ -26,6 +26,7 @@ import com.ycloud.client.model.Sms;
 import com.ycloud.client.model.Voice;
 import com.ycloud.client.model.WhatsappInboundMessage;
 import com.ycloud.client.model.WhatsappMessage;
+import com.ycloud.client.model.WhatsappPhoneNumber;
 import com.ycloud.client.model.WhatsappTemplate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -93,6 +94,10 @@ public class Event {
   public static final String SERIALIZED_NAME_WHATSAPP_MESSAGE = "whatsappMessage";
   @SerializedName(SERIALIZED_NAME_WHATSAPP_MESSAGE)
   private WhatsappMessage whatsappMessage;
+
+  public static final String SERIALIZED_NAME_WHATSAPP_PHONE_NUMBER = "whatsappPhoneNumber";
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_PHONE_NUMBER)
+  private WhatsappPhoneNumber whatsappPhoneNumber;
 
   public static final String SERIALIZED_NAME_WHATSAPP_TEMPLATE = "whatsappTemplate";
   @SerializedName(SERIALIZED_NAME_WHATSAPP_TEMPLATE)
@@ -308,6 +313,29 @@ public class Event {
   }
 
 
+  public Event whatsappPhoneNumber(WhatsappPhoneNumber whatsappPhoneNumber) {
+    
+    this.whatsappPhoneNumber = whatsappPhoneNumber;
+    return this;
+  }
+
+   /**
+   * Get whatsappPhoneNumber
+   * @return whatsappPhoneNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappPhoneNumber getWhatsappPhoneNumber() {
+    return whatsappPhoneNumber;
+  }
+
+
+  public void setWhatsappPhoneNumber(WhatsappPhoneNumber whatsappPhoneNumber) {
+    this.whatsappPhoneNumber = whatsappPhoneNumber;
+  }
+
+
   public Event whatsappTemplate(WhatsappTemplate whatsappTemplate) {
     
     this.whatsappTemplate = whatsappTemplate;
@@ -385,13 +413,14 @@ public class Event {
         Objects.equals(this.voice, event.voice) &&
         Objects.equals(this.whatsappInboundMessage, event.whatsappInboundMessage) &&
         Objects.equals(this.whatsappMessage, event.whatsappMessage) &&
+        Objects.equals(this.whatsappPhoneNumber, event.whatsappPhoneNumber) &&
         Objects.equals(this.whatsappTemplate, event.whatsappTemplate)&&
         Objects.equals(this.additionalProperties, event.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, voice, whatsappInboundMessage, whatsappMessage, whatsappTemplate, additionalProperties);
+    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, voice, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappTemplate, additionalProperties);
   }
 
   @Override
@@ -407,6 +436,7 @@ public class Event {
     sb.append("    voice: ").append(toIndentedString(voice)).append("\n");
     sb.append("    whatsappInboundMessage: ").append(toIndentedString(whatsappInboundMessage)).append("\n");
     sb.append("    whatsappMessage: ").append(toIndentedString(whatsappMessage)).append("\n");
+    sb.append("    whatsappPhoneNumber: ").append(toIndentedString(whatsappPhoneNumber)).append("\n");
     sb.append("    whatsappTemplate: ").append(toIndentedString(whatsappTemplate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -440,6 +470,7 @@ public class Event {
     openapiFields.add("voice");
     openapiFields.add("whatsappInboundMessage");
     openapiFields.add("whatsappMessage");
+    openapiFields.add("whatsappPhoneNumber");
     openapiFields.add("whatsappTemplate");
 
     // a set of required properties/fields (JSON key names)
@@ -496,6 +527,10 @@ public class Event {
       // validate the optional field `whatsappMessage`
       if (jsonObj.getAsJsonObject("whatsappMessage") != null) {
         WhatsappMessage.validateJsonObject(jsonObj.getAsJsonObject("whatsappMessage"));
+      }
+      // validate the optional field `whatsappPhoneNumber`
+      if (jsonObj.getAsJsonObject("whatsappPhoneNumber") != null) {
+        WhatsappPhoneNumber.validateJsonObject(jsonObj.getAsJsonObject("whatsappPhoneNumber"));
       }
       // validate the optional field `whatsappTemplate`
       if (jsonObj.getAsJsonObject("whatsappTemplate") != null) {

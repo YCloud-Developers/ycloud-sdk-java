@@ -15,6 +15,10 @@
 
 * `WHATSAPP_MESSAGE_UPDATED` (value: `"whatsapp.message.updated"`)
 
+* `WHATSAPP_PHONE_NUMBER_NAME_UPDATED` (value: `"whatsapp.phone_number.name_updated"`)
+
+* `WHATSAPP_PHONE_NUMBER_QUALITY_UPDATED` (value: `"whatsapp.phone_number.quality_updated"`)
+
 * `WHATSAPP_TEMPLATE_REVIEWED` (value: `"whatsapp.template.reviewed"`)
 
 

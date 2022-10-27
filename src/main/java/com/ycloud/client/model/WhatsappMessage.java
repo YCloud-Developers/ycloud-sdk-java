@@ -24,6 +24,7 @@ import com.ycloud.client.model.WhatsappMessageContact;
 import com.ycloud.client.model.WhatsappMessageInteractive;
 import com.ycloud.client.model.WhatsappMessageLocation;
 import com.ycloud.client.model.WhatsappMessageMedia;
+import com.ycloud.client.model.WhatsappMessageStatus;
 import com.ycloud.client.model.WhatsappMessageTemplate;
 import com.ycloud.client.model.WhatsappMessageText;
 import com.ycloud.client.model.WhatsappMessageType;
@@ -63,6 +64,10 @@ public class WhatsappMessage {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
+  @SerializedName(SERIALIZED_NAME_WABA_ID)
+  private String wabaId;
 
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
@@ -118,7 +123,7 @@ public class WhatsappMessage {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
+  private WhatsappMessageStatus status;
 
   public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
   @SerializedName(SERIALIZED_NAME_ERROR_CODE)
@@ -159,6 +164,29 @@ public class WhatsappMessage {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public WhatsappMessage wabaId(String wabaId) {
+    
+    this.wabaId = wabaId;
+    return this;
+  }
+
+   /**
+   * WhatsApp Business Account ID.
+   * @return wabaId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "whatsapp-business-account-id", value = "WhatsApp Business Account ID.")
+
+  public String getWabaId() {
+    return wabaId;
+  }
+
+
+  public void setWabaId(String wabaId) {
+    this.wabaId = wabaId;
   }
 
 
@@ -469,25 +497,25 @@ public class WhatsappMessage {
   }
 
 
-  public WhatsappMessage status(String status) {
+  public WhatsappMessage status(WhatsappMessageStatus status) {
     
     this.status = status;
     return this;
   }
 
    /**
-   * One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;failed&#x60;, &#x60;delivered&#x60;, &#x60;read&#x60;. - &#x60;accepted&#x60;: The messaging request is accepted by our system. - &#x60;sent&#x60;: A message sent by your business is in transit within WhatsApp&#39;s systems. - &#x60;failed&#x60;: A message sent by your business failed to send. - &#x60;delivered&#x60;: A message sent by your business was delivered to the user&#39;s device. - &#x60;read&#x60;: A message sent by your business was read by the user.
+   * Get status
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "One of `accepted`, `sent`, `failed`, `delivered`, `read`. - `accepted`: The messaging request is accepted by our system. - `sent`: A message sent by your business is in transit within WhatsApp's systems. - `failed`: A message sent by your business failed to send. - `delivered`: A message sent by your business was delivered to the user's device. - `read`: A message sent by your business was read by the user.")
+  @ApiModelProperty(value = "")
 
-  public String getStatus() {
+  public WhatsappMessageStatus getStatus() {
     return status;
   }
 
 
-  public void setStatus(String status) {
+  public void setStatus(WhatsappMessageStatus status) {
     this.status = status;
   }
 
@@ -630,6 +658,7 @@ public class WhatsappMessage {
     }
     WhatsappMessage whatsappMessage = (WhatsappMessage) o;
     return Objects.equals(this.id, whatsappMessage.id) &&
+        Objects.equals(this.wabaId, whatsappMessage.wabaId) &&
         Objects.equals(this.from, whatsappMessage.from) &&
         Objects.equals(this.to, whatsappMessage.to) &&
         Objects.equals(this.type, whatsappMessage.type) &&
@@ -653,7 +682,7 @@ public class WhatsappMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, from, to, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, additionalProperties);
+    return Objects.hash(id, wabaId, from, to, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, additionalProperties);
   }
 
   @Override
@@ -661,6 +690,7 @@ public class WhatsappMessage {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappMessage {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -703,6 +733,7 @@ public class WhatsappMessage {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("wabaId");
     openapiFields.add("from");
     openapiFields.add("to");
     openapiFields.add("type");
@@ -753,6 +784,9 @@ public class WhatsappMessage {
       }
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("wabaId") != null && !jsonObj.get("wabaId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wabaId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wabaId").toString()));
       }
       if (jsonObj.get("from") != null && !jsonObj.get("from").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `from` to be a primitive type in the JSON string but got `%s`", jsonObj.get("from").toString()));
@@ -806,9 +840,6 @@ public class WhatsappMessage {
       }
       if (jsonObj.get("externalId") != null && !jsonObj.get("externalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
-      }
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if (jsonObj.get("errorCode") != null && !jsonObj.get("errorCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `errorCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorCode").toString()));

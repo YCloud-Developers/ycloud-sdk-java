@@ -20,9 +20,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.Page;
+import com.ycloud.client.model.WhatsappPhoneNumber;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,119 +49,158 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).
+ * Represents a given page of WhatsApp phone numbers.
  */
-@ApiModel(description = "[WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).")
+@ApiModel(description = "Represents a given page of WhatsApp phone numbers.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageLocation {
-  public static final String SERIALIZED_NAME_LATITUDE = "latitude";
-  @SerializedName(SERIALIZED_NAME_LATITUDE)
-  private Double latitude;
+public class WhatsappPhoneNumberPage {
+  public static final String SERIALIZED_NAME_ITEMS = "items";
+  @SerializedName(SERIALIZED_NAME_ITEMS)
+  private List<WhatsappPhoneNumber> items = null;
 
-  public static final String SERIALIZED_NAME_LONGITUDE = "longitude";
-  @SerializedName(SERIALIZED_NAME_LONGITUDE)
-  private Double longitude;
+  public static final String SERIALIZED_NAME_OFFSET = "offset";
+  @SerializedName(SERIALIZED_NAME_OFFSET)
+  private Integer offset;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_LIMIT = "limit";
+  @SerializedName(SERIALIZED_NAME_LIMIT)
+  private Integer limit;
 
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
+  public static final String SERIALIZED_NAME_LENGTH = "length";
+  @SerializedName(SERIALIZED_NAME_LENGTH)
+  private Integer length;
 
-  public WhatsappMessageLocation() { 
+  public static final String SERIALIZED_NAME_TOTAL = "total";
+  @SerializedName(SERIALIZED_NAME_TOTAL)
+  private Integer total;
+
+  public WhatsappPhoneNumberPage() { 
   }
 
-  public WhatsappMessageLocation latitude(Double latitude) {
+  public WhatsappPhoneNumberPage items(List<WhatsappPhoneNumber> items) {
     
-    this.latitude = latitude;
+    this.items = items;
+    return this;
+  }
+
+  public WhatsappPhoneNumberPage addItemsItem(WhatsappPhoneNumber itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<>();
+    }
+    this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Latitude of the location.
-   * @return latitude
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Latitude of the location.")
-
-  public Double getLatitude() {
-    return latitude;
-  }
-
-
-  public void setLatitude(Double latitude) {
-    this.latitude = latitude;
-  }
-
-
-  public WhatsappMessageLocation longitude(Double longitude) {
-    
-    this.longitude = longitude;
-    return this;
-  }
-
-   /**
-   * Longitude of the location.
-   * @return longitude
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Longitude of the location.")
-
-  public Double getLongitude() {
-    return longitude;
-  }
-
-
-  public void setLongitude(Double longitude) {
-    this.longitude = longitude;
-  }
-
-
-  public WhatsappMessageLocation name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the location.
-   * @return name
+   * An array containing WhatsApp phone number objects.
+   * @return items
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the location.")
+  @ApiModelProperty(value = "An array containing WhatsApp phone number objects.")
 
-  public String getName() {
-    return name;
+  public List<WhatsappPhoneNumber> getItems() {
+    return items;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setItems(List<WhatsappPhoneNumber> items) {
+    this.items = items;
   }
 
 
-  public WhatsappMessageLocation address(String address) {
+  public WhatsappPhoneNumberPage offset(Integer offset) {
     
-    this.address = address;
+    this.offset = offset;
     return this;
   }
 
    /**
-   * Address of the location. Only displayed if &#x60;name&#x60; is present.
-   * @return address
+   * The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10.
+   * minimum: 0
+   * @return offset
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Address of the location. Only displayed if `name` is present.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10.")
 
-  public String getAddress() {
-    return address;
+  public Integer getOffset() {
+    return offset;
   }
 
 
-  public void setAddress(String address) {
-    this.address = address;
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+
+  public WhatsappPhoneNumberPage limit(Integer limit) {
+    
+    this.limit = limit;
+    return this;
+  }
+
+   /**
+   * A limit on the number of items to be returned, between 1 and 100, defaults to 10.
+   * minimum: 1
+   * @return limit
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "A limit on the number of items to be returned, between 1 and 100, defaults to 10.")
+
+  public Integer getLimit() {
+    return limit;
+  }
+
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+
+  public WhatsappPhoneNumberPage length(Integer length) {
+    
+    this.length = length;
+    return this;
+  }
+
+   /**
+   * The actual number of items in the page.
+   * minimum: 0
+   * @return length
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The actual number of items in the page.")
+
+  public Integer getLength() {
+    return length;
+  }
+
+
+  public void setLength(Integer length) {
+    this.length = length;
+  }
+
+
+  public WhatsappPhoneNumberPage total(Integer total) {
+    
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * The total number of items. This field is returned only when the request parameter &#x60;includeTotal&#x60; is set to &#x60;true&#x60;.
+   * minimum: 0
+   * @return total
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The total number of items. This field is returned only when the request parameter `includeTotal` is set to `true`.")
+
+  public Integer getTotal() {
+    return total;
+  }
+
+
+  public void setTotal(Integer total) {
+    this.total = total;
   }
 
   /**
@@ -171,7 +214,7 @@ public class WhatsappMessageLocation {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageLocation putAdditionalProperty(String key, Object value) {
+  public WhatsappPhoneNumberPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -205,27 +248,29 @@ public class WhatsappMessageLocation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageLocation whatsappMessageLocation = (WhatsappMessageLocation) o;
-    return Objects.equals(this.latitude, whatsappMessageLocation.latitude) &&
-        Objects.equals(this.longitude, whatsappMessageLocation.longitude) &&
-        Objects.equals(this.name, whatsappMessageLocation.name) &&
-        Objects.equals(this.address, whatsappMessageLocation.address)&&
-        Objects.equals(this.additionalProperties, whatsappMessageLocation.additionalProperties);
+    WhatsappPhoneNumberPage whatsappPhoneNumberPage = (WhatsappPhoneNumberPage) o;
+    return Objects.equals(this.items, whatsappPhoneNumberPage.items) &&
+        Objects.equals(this.offset, whatsappPhoneNumberPage.offset) &&
+        Objects.equals(this.limit, whatsappPhoneNumberPage.limit) &&
+        Objects.equals(this.length, whatsappPhoneNumberPage.length) &&
+        Objects.equals(this.total, whatsappPhoneNumberPage.total)&&
+        Objects.equals(this.additionalProperties, whatsappPhoneNumberPage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(latitude, longitude, name, address, additionalProperties);
+    return Objects.hash(items, offset, limit, length, total, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageLocation {\n");
-    sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
-    sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("class WhatsappPhoneNumberPage {\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    length: ").append(toIndentedString(length)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -249,43 +294,51 @@ public class WhatsappMessageLocation {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("latitude");
-    openapiFields.add("longitude");
-    openapiFields.add("name");
-    openapiFields.add("address");
+    openapiFields.add("offset");
+    openapiFields.add("limit");
+    openapiFields.add("length");
+    openapiFields.add("total");
+    openapiFields.add("items");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("latitude");
-    openapiRequiredFields.add("longitude");
+    openapiRequiredFields.add("offset");
+    openapiRequiredFields.add("limit");
+    openapiRequiredFields.add("length");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageLocation
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappPhoneNumberPage
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageLocation.openapiRequiredFields.isEmpty()) {
+        if (WhatsappPhoneNumberPage.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageLocation is not found in the empty JSON string", WhatsappMessageLocation.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappPhoneNumberPage is not found in the empty JSON string", WhatsappPhoneNumberPage.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WhatsappMessageLocation.openapiRequiredFields) {
+      for (String requiredField : WhatsappPhoneNumberPage.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (jsonObj.get("address") != null && !jsonObj.get("address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      if (jsonArrayitems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("items").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+        }
+
+        // validate the optional field `items` (array)
+        for (int i = 0; i < jsonArrayitems.size(); i++) {
+          WhatsappPhoneNumber.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
+        };
       }
   }
 
@@ -293,16 +346,16 @@ public class WhatsappMessageLocation {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageLocation.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageLocation' and its subtypes
+       if (!WhatsappPhoneNumberPage.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappPhoneNumberPage' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageLocation> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageLocation.class));
+       final TypeAdapter<WhatsappPhoneNumberPage> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappPhoneNumberPage.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageLocation>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappPhoneNumberPage>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageLocation value) throws IOException {
+           public void write(JsonWriter out, WhatsappPhoneNumberPage value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -325,11 +378,11 @@ public class WhatsappMessageLocation {
            }
 
            @Override
-           public WhatsappMessageLocation read(JsonReader in) throws IOException {
+           public WhatsappPhoneNumberPage read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageLocation instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappPhoneNumberPage instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -354,18 +407,18 @@ public class WhatsappMessageLocation {
   }
 
  /**
-  * Create an instance of WhatsappMessageLocation given an JSON string
+  * Create an instance of WhatsappPhoneNumberPage given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageLocation
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageLocation
+  * @return An instance of WhatsappPhoneNumberPage
+  * @throws IOException if the JSON string is invalid with respect to WhatsappPhoneNumberPage
   */
-  public static WhatsappMessageLocation fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageLocation.class);
+  public static WhatsappPhoneNumberPage fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappPhoneNumberPage.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageLocation to an JSON string
+  * Convert an instance of WhatsappPhoneNumberPage to an JSON string
   *
   * @return JSON string
   */

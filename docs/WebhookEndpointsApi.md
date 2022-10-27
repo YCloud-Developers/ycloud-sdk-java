@@ -416,7 +416,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| ID of the webhook endpoint. | |
-| **webhookEndpointUpdateRequest** | [**WebhookEndpointUpdateRequest**](WebhookEndpointUpdateRequest.md)|  | [optional] |
+| **webhookEndpointUpdateRequest** | [**WebhookEndpointUpdateRequest**](WebhookEndpointUpdateRequest.md)|  | |
 
 ### Return type
 
