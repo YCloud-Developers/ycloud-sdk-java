@@ -9,9 +9,10 @@ WhatsApp outbound message object.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Unique ID for the object. |  |
-|**wabaId** | **String** | WhatsApp Business Account ID. |  [optional] |
+|**wabaId** | **String** | WhatsApp Business Account ID. |  |
 |**from** | **String** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
 |**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
+|**conversation** | [**WhatsappConversation**](WhatsappConversation.md) |  |  [optional] |
 |**type** | **WhatsappMessageType** |  |  |
 |**template** | [**WhatsappMessageTemplate**](WhatsappMessageTemplate.md) |  |  [optional] |
 |**text** | [**WhatsappMessageText**](WhatsappMessageText.md) |  |  [optional] |

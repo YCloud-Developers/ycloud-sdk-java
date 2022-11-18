@@ -71,5 +71,4 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved balance. |  -  |
-| **401** | Unauthorized. |  -  |
 

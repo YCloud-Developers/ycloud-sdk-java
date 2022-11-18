@@ -76,6 +76,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the object. |  -  |
+| **404** | The requested resource does not exist. |  -  |
 
 <a name="send"></a>
 # **send**

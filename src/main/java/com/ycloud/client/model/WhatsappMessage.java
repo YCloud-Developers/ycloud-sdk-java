@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappConversation;
 import com.ycloud.client.model.WhatsappMessageContact;
 import com.ycloud.client.model.WhatsappMessageInteractive;
 import com.ycloud.client.model.WhatsappMessageLocation;
@@ -76,6 +77,10 @@ public class WhatsappMessage {
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
+
+  public static final String SERIALIZED_NAME_CONVERSATION = "conversation";
+  @SerializedName(SERIALIZED_NAME_CONVERSATION)
+  private WhatsappConversation conversation;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -177,8 +182,8 @@ public class WhatsappMessage {
    * WhatsApp Business Account ID.
    * @return wabaId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "whatsapp-business-account-id", value = "WhatsApp Business Account ID.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "whatsapp-business-account-id", required = true, value = "WhatsApp Business Account ID.")
 
   public String getWabaId() {
     return wabaId;
@@ -233,6 +238,29 @@ public class WhatsappMessage {
 
   public void setTo(String to) {
     this.to = to;
+  }
+
+
+  public WhatsappMessage conversation(WhatsappConversation conversation) {
+    
+    this.conversation = conversation;
+    return this;
+  }
+
+   /**
+   * Get conversation
+   * @return conversation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappConversation getConversation() {
+    return conversation;
+  }
+
+
+  public void setConversation(WhatsappConversation conversation) {
+    this.conversation = conversation;
   }
 
 
@@ -661,6 +689,7 @@ public class WhatsappMessage {
         Objects.equals(this.wabaId, whatsappMessage.wabaId) &&
         Objects.equals(this.from, whatsappMessage.from) &&
         Objects.equals(this.to, whatsappMessage.to) &&
+        Objects.equals(this.conversation, whatsappMessage.conversation) &&
         Objects.equals(this.type, whatsappMessage.type) &&
         Objects.equals(this.template, whatsappMessage.template) &&
         Objects.equals(this.text, whatsappMessage.text) &&
@@ -682,7 +711,7 @@ public class WhatsappMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wabaId, from, to, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, additionalProperties);
+    return Objects.hash(id, wabaId, from, to, conversation, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, additionalProperties);
   }
 
   @Override
@@ -693,6 +722,7 @@ public class WhatsappMessage {
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("    conversation: ").append(toIndentedString(conversation)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
@@ -736,6 +766,7 @@ public class WhatsappMessage {
     openapiFields.add("wabaId");
     openapiFields.add("from");
     openapiFields.add("to");
+    openapiFields.add("conversation");
     openapiFields.add("type");
     openapiFields.add("template");
     openapiFields.add("text");
@@ -756,6 +787,7 @@ public class WhatsappMessage {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
+    openapiRequiredFields.add("wabaId");
     openapiRequiredFields.add("from");
     openapiRequiredFields.add("to");
     openapiRequiredFields.add("type");
@@ -793,6 +825,10 @@ public class WhatsappMessage {
       }
       if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
+      }
+      // validate the optional field `conversation`
+      if (jsonObj.getAsJsonObject("conversation") != null) {
+        WhatsappConversation.validateJsonObject(jsonObj.getAsJsonObject("conversation"));
       }
       // validate the optional field `template`
       if (jsonObj.getAsJsonObject("template") != null) {

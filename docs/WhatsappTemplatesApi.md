@@ -6,6 +6,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 |------------- | ------------- | -------------|
 | [**create**](WhatsappTemplatesApi.md#create) | **POST** /whatsapp/templates | Create a WhatsApp template |
 | [**deleteByName**](WhatsappTemplatesApi.md#deleteByName) | **DELETE** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name |
+| [**editByNameAndLanguage**](WhatsappTemplatesApi.md#editByNameAndLanguage) | **PATCH** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template |
 | [**list**](WhatsappTemplatesApi.md#list) | **GET** /whatsapp/templates | List WhatsApp templates |
 | [**retrieveByNameAndLanguage**](WhatsappTemplatesApi.md#retrieveByNameAndLanguage) | **GET** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template |
 
@@ -149,6 +150,83 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The template(s) is successfully deleted. |  -  |
+| **404** | The requested resource does not exist. |  -  |
+
+<a name="editByNameAndLanguage"></a>
+# **editByNameAndLanguage**
+> WhatsappTemplate editByNameAndLanguage(wabaId, name, language, whatsappTemplateEditRequest)
+
+Edit a WhatsApp template
+
+Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
+    String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String name = "sample_whatsapp_template"; // String | Name of the template.
+    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+    WhatsappTemplateEditRequest whatsappTemplateEditRequest = new WhatsappTemplateEditRequest(); // WhatsappTemplateEditRequest | 
+    try {
+      WhatsappTemplate result = apiInstance.editByNameAndLanguage(wabaId, name, language, whatsappTemplateEditRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappTemplatesApi#editByNameAndLanguage");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wabaId** | **String**| WhatsApp Business Account ID. | |
+| **name** | **String**| Name of the template. | |
+| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. | |
+| **whatsappTemplateEditRequest** | [**WhatsappTemplateEditRequest**](WhatsappTemplateEditRequest.md)|  | [optional] |
+
+### Return type
+
+[**WhatsappTemplate**](WhatsappTemplate.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The template is successfully edited. |  -  |
+| **404** | The requested resource does not exist. |  -  |
 
 <a name="list"></a>
 # **list**
@@ -308,4 +386,5 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The WhatsApp template is successfully retrieved. |  -  |
+| **404** | The requested resource does not exist. |  -  |
 

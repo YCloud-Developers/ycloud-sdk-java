@@ -38,12 +38,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Balance'
           description: Successfully retrieved balance.
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Unauthorized.
       summary: Retrieve balance
       tags:
       - Balance
@@ -424,6 +418,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookEndpoint'
           description: The webhook endpoint is successfully deleted.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
       summary: Delete a webhook endpoint
       tags:
       - Webhook Endpoints
@@ -448,6 +448,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookEndpoint'
           description: The webhook endpoint is successfully retrieved.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
       summary: Retrieve a webhook endpoint
       tags:
       - Webhook Endpoints
@@ -478,6 +484,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookEndpoint'
           description: The webhook endpoint is successfully updated.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
       summary: Update a webhook endpoint
       tags:
       - Webhook Endpoints
@@ -504,6 +516,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookEndpoint'
           description: The webhook endpoint is successfully deleted.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
       summary: Rotate a webhook endpoint secret
       tags:
       - Webhook Endpoints
@@ -551,6 +569,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/WhatsappMessage'
           description: Successfully retrieved the object.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
       summary: Retrieve a WhatsApp message
       tags:
       - WhatsApp Messages
@@ -649,6 +673,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/WhatsappPhoneNumber'
           description: The WhatsApp phone number is successfully retrieved.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
       summary: Retrieve a WhatsApp phone number
       tags:
       - WhatsApp Phone Numbers
@@ -793,6 +823,12 @@ paths:
                   $ref: '#/components/schemas/WhatsappTemplate'
                 type: array
           description: The template(s) is successfully deleted.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
       summary: Delete WhatsApp templates by name
       tags:
       - WhatsApp Templates
@@ -840,9 +876,76 @@ paths:
               schema:
                 $ref: '#/components/schemas/WhatsappTemplate'
           description: The WhatsApp template is successfully retrieved.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
       summary: Retrieve a WhatsApp template
       tags:
       - WhatsApp Templates
+      x-accepts: application/json
+    patch:
+      description: "Edits a WhatsApp template by name and language.\nEditing a template\
+        \ replaces its old contents entirely, so include any components you wish to\
+        \ preserve as well as components you wish to update using the components parameter.\n\
+        See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template)."
+      operationId: whatsapp_template-edit-by-name-and-language
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: wabaId
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      - description: Name of the template.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          example: sample_whatsapp_template
+          maximum: 512
+          minimum: 1
+          pattern: "[a-z0-9]{1,512}"
+          type: string
+        style: simple
+      - description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
+          \ for all codes."
+        explode: false
+        in: path
+        name: language
+        required: true
+        schema:
+          example: en
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WhatsappTemplateEditRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappTemplate'
+          description: The template is successfully edited.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Edit a WhatsApp template
+      tags:
+      - WhatsApp Templates
+      x-content-type: application/json
       x-accepts: application/json
 components:
   parameters:
@@ -1235,28 +1338,30 @@ components:
     Error:
       properties:
         status:
-          description: "HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6)."
-          example: 401
+          description: "HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6).\
+            \ It conveys the HTTP status code used for the convenience of the consumer."
+          example: 404
           format: int32
           pattern: "[45]\\d{2}"
           type: integer
         code:
-          description: "One of a server-defined set of error codes, which could be\
-            \ handled programmatically."
-          example: UNAUTHORIZED
+          description: One of a server-defined error codes. Some `4xx` errors that
+            could be handled programmatically include an error code that briefly explains
+            the error reported.
+          example: NOT_FOUND
           type: string
         message:
           description: A human-readable representation of the error. It is intended
             as an aid to developers and is not suitable for exposure to end users.
-          example: INVALID_API_KEY
+          example: The requested resource does not exist.
           type: string
         target:
           description: The target of the error.
-          example: X-API-Key
+          example: ""
           type: string
         docUrl:
           description: A URL to more information about the error.
-          example: https://www.example.com
+          example: ""
           type: string
       required:
       - code
@@ -2073,6 +2178,49 @@ components:
         status:
           $ref: '#/components/schemas/WebhookEndpointStatus'
       type: object
+    WhatsappConversation:
+      description: "WhatsApp defines a conversation as a 24-hour session of messaging\
+        \ between a person and a business. See also [Using the Platform](https://developers.facebook.com/docs/whatsapp/conversation-types#using-the-platform)."
+      example:
+        originType: null
+        expireTime: 2022-06-01T12:00:00Z
+        id: id
+      properties:
+        id:
+          description: Unique ID for the object.
+          type: string
+        originType:
+          $ref: '#/components/schemas/WhatsappConversationOriginType'
+        expireTime:
+          description: "Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).\
+            \ e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+      type: object
+    WhatsappConversationOriginType:
+      description: "Indicates who initiated the conversation.\n`business_initiated`:\
+        \ Indicates that the conversation started by a business sending the first\
+        \ message to a customer. This applies any time it has been more than 24 hours\
+        \ since the last customer message.\n`user_initiated`: Indicates that the conversation\
+        \ started by a business replying to a customer message. This applies only\
+        \ when the business reply is within 24 hours of the last customer message.\n\
+        `referral_conversion`: Indicates that the conversation originated from a free\
+        \ entry point. These conversations are always customer-initiated."
+      enum:
+      - business_initiated
+      - user_initiated
+      - referral_conversion
+      type: string
+      x-enum-descriptions:
+      - Indicates that the conversation started by a business sending the first message
+        to a customer. This applies any time it has been more than 24 hours since
+        the last customer message.
+      - Indicates that the conversation started by a business replying to a customer
+        message. This applies only when the business reply is within 24 hours of the
+        last customer message.
+      - Indicates that the conversation originated from a free entry point. These
+        conversations are always customer-initiated.
     WhatsappInboundMessage:
       description: WhatsApp inbound message object.
       properties:
@@ -2084,10 +2232,12 @@ components:
           example: whatsapp-business-account-id
           type: string
         from:
-          description: "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
-            \ format."
+          description: "The customer's phone number who sent the message to the business,\
+            \ formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format."
           example: +447901614024
           type: string
+        customerProfile:
+          $ref: '#/components/schemas/WhatsappProfile'
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
@@ -2267,8 +2417,15 @@ components:
         \ Webhook. This message contains information that identifies the media object\
         \ and enables you to find and download the object."
       properties:
+        id:
+          description: ID of the media. Can be used to delete the media if stored
+            locally on the client.
+          type: string
         link:
-          description: The protocol and URL of the media.
+          description: "The url to download the media file.\nNote that This link can\
+            \ be directly accessed in a few minutes for the convenience of the consumer,\
+            \ but you should always include an `X-API-Key` header to download this\
+            \ file within a month."
           type: string
         caption:
           description: The provided caption for the media. Only present if specified.
@@ -2277,13 +2434,11 @@ components:
           description: Filename on the sender's device. This will only be present
             in `document` media messages.
           type: string
-        id:
-          description: ID of the media. Can be used to delete the media if stored
-            locally on the client.
-          type: string
         metadata:
+          additionalProperties:
+            type: object
           description: Metadata pertaining to `sticker` media.
-          type: string
+          type: object
         mime_type:
           description: Mime type of the media.
           type: string
@@ -2548,6 +2703,10 @@ components:
           filename: filename
           link: link
           caption: caption
+        conversation:
+          originType: null
+          expireTime: 2022-06-01T12:00:00Z
+          id: id
         contacts:
         - birthday: 2022-09-27
           emails:
@@ -2656,6 +2815,8 @@ components:
             \ format."
           example: +447901614024
           type: string
+        conversation:
+          $ref: '#/components/schemas/WhatsappConversation'
         type:
           $ref: '#/components/schemas/WhatsappMessageType'
         template:
@@ -2708,6 +2869,7 @@ components:
       - id
       - to
       - type
+      - wabaId
       type: object
     WhatsappMessageInteractive:
       description: "[WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object)."
@@ -3370,7 +3532,6 @@ components:
             $ref: '#/components/schemas/WhatsappMessageTemplate_components_inner'
           type: array
       required:
-      - components
       - language
       - name
       type: object
@@ -3423,7 +3584,7 @@ components:
       description: "A WhatsApp Business Account (WABA) phone number. See also [WhatsApp\
         \ Retrieve Phone Numbers](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers)."
       example:
-        decision: decision
+        decision: APPROVED
         messagingLimit: TIER_1K
         qualityRating: null
         wabaId: whatsapp-business-account-id
@@ -3480,6 +3641,7 @@ components:
           $ref: '#/components/schemas/WhatsappPhoneNumberNameStatus'
         decision:
           description: "Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
+          example: APPROVED
           type: string
         requestedVerifiedName:
           description: "Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
@@ -3520,7 +3682,7 @@ components:
       description: Represents a given page of WhatsApp phone numbers.
       example:
         items:
-        - decision: decision
+        - decision: APPROVED
           messagingLimit: TIER_1K
           qualityRating: null
           wabaId: whatsapp-business-account-id
@@ -3533,7 +3695,7 @@ components:
           rejectionReason: rejectionReason
           codeVerificationStatus: null
           status: null
-        - decision: decision
+        - decision: APPROVED
           messagingLimit: TIER_1K
           qualityRating: null
           wabaId: whatsapp-business-account-id
@@ -3622,6 +3784,14 @@ components:
       - Transferred. This phone number has been transferred to another WhatsApp Business
         account.
       - Unavailable. The status of this phone number can't be determined right now.
+    WhatsappProfile:
+      description: Represents the profile of a WhatsApp account.
+      properties:
+        name:
+          description: Name of the WhatsApp account.
+          example: John
+          type: string
+      type: object
     WhatsappTemplate:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
       example:
@@ -3751,6 +3921,7 @@ components:
       - components
       - language
       - name
+      - wabaId
       type: object
     WhatsappTemplateCategory:
       description: "Category of WhatsApp templates.\n`TRANSACTIONAL`: Send account\
@@ -3972,6 +4143,92 @@ components:
       - language
       - name
       - wabaId
+      type: object
+    WhatsappTemplateEditRequest:
+      description: The request body to edit a WhatsApp template.
+      example:
+        components:
+        - buttons:
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          format: TEXT
+          text: text
+          type: BODY
+          example:
+            body_text:
+            - - body_text
+              - body_text
+            - - body_text
+              - body_text
+            header_text:
+            - header_text
+            - header_text
+            header_url:
+            - header_url
+            - header_url
+        - buttons:
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          - phone_number: phone_number
+            text: text
+            type: null
+            url: url
+            example:
+            - example
+            - example
+          format: TEXT
+          text: text
+          type: BODY
+          example:
+            body_text:
+            - - body_text
+              - body_text
+            - - body_text
+              - body_text
+            header_text:
+            - header_text
+            - header_text
+            header_url:
+            - header_url
+            - header_url
+      properties:
+        components:
+          items:
+            $ref: '#/components/schemas/WhatsappTemplateComponent'
+          type: array
+      required:
+      - components
       type: object
     WhatsappTemplatePage:
       allOf:

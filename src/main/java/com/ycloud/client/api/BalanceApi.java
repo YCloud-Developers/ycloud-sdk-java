@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import com.ycloud.client.model.Balance;
-import com.ycloud.client.model.ErrorResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -83,7 +82,6 @@ public class BalanceApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved balance. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call retrieveCall(final ApiCallback _callback) throws ApiException {
@@ -150,7 +148,6 @@ public class BalanceApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved balance. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
      </table>
      */
     public Balance retrieve() throws ApiException {
@@ -168,7 +165,6 @@ public class BalanceApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved balance. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Balance> retrieveWithHttpInfo() throws ApiException {
@@ -188,7 +184,6 @@ public class BalanceApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved balance. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call retrieveAsync(final ApiCallback<Balance> _callback) throws ApiException {

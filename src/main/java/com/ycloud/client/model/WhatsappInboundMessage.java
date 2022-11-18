@@ -27,6 +27,7 @@ import com.ycloud.client.model.WhatsappInboundMessageMedia;
 import com.ycloud.client.model.WhatsappInboundMessageText;
 import com.ycloud.client.model.WhatsappInboundMessageType;
 import com.ycloud.client.model.WhatsappMessageContact;
+import com.ycloud.client.model.WhatsappProfile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -71,6 +72,10 @@ public class WhatsappInboundMessage {
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
   private String from;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
+  private WhatsappProfile customerProfile;
 
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
@@ -180,11 +185,11 @@ public class WhatsappInboundMessage {
   }
 
    /**
-   * The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    * @return from
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "+447901614024", value = "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+447901614024", value = "The customer's phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
 
   public String getFrom() {
     return from;
@@ -193,6 +198,29 @@ public class WhatsappInboundMessage {
 
   public void setFrom(String from) {
     this.from = from;
+  }
+
+
+  public WhatsappInboundMessage customerProfile(WhatsappProfile customerProfile) {
+    
+    this.customerProfile = customerProfile;
+    return this;
+  }
+
+   /**
+   * Get customerProfile
+   * @return customerProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappProfile getCustomerProfile() {
+    return customerProfile;
+  }
+
+
+  public void setCustomerProfile(WhatsappProfile customerProfile) {
+    this.customerProfile = customerProfile;
   }
 
 
@@ -551,6 +579,7 @@ public class WhatsappInboundMessage {
     return Objects.equals(this.id, whatsappInboundMessage.id) &&
         Objects.equals(this.wabaId, whatsappInboundMessage.wabaId) &&
         Objects.equals(this.from, whatsappInboundMessage.from) &&
+        Objects.equals(this.customerProfile, whatsappInboundMessage.customerProfile) &&
         Objects.equals(this.to, whatsappInboundMessage.to) &&
         Objects.equals(this.sendTime, whatsappInboundMessage.sendTime) &&
         Objects.equals(this.type, whatsappInboundMessage.type) &&
@@ -569,7 +598,7 @@ public class WhatsappInboundMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wabaId, from, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, additionalProperties);
+    return Objects.hash(id, wabaId, from, customerProfile, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, additionalProperties);
   }
 
   @Override
@@ -579,6 +608,7 @@ public class WhatsappInboundMessage {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    sendTime: ").append(toIndentedString(sendTime)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -618,6 +648,7 @@ public class WhatsappInboundMessage {
     openapiFields.add("id");
     openapiFields.add("wabaId");
     openapiFields.add("from");
+    openapiFields.add("customerProfile");
     openapiFields.add("to");
     openapiFields.add("sendTime");
     openapiFields.add("type");
@@ -666,6 +697,10 @@ public class WhatsappInboundMessage {
       }
       if (jsonObj.get("from") != null && !jsonObj.get("from").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `from` to be a primitive type in the JSON string but got `%s`", jsonObj.get("from").toString()));
+      }
+      // validate the optional field `customerProfile`
+      if (jsonObj.getAsJsonObject("customerProfile") != null) {
+        WhatsappProfile.validateJsonObject(jsonObj.getAsJsonObject("customerProfile"));
       }
       if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));

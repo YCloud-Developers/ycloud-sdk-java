@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.ycloud.client.model.ErrorResponse;
 import com.ycloud.client.model.WebhookEndpoint;
 import com.ycloud.client.model.WebhookEndpointCreateRequest;
 import com.ycloud.client.model.WebhookEndpointPage;
@@ -215,6 +216,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteCall(String id, final ApiCallback _callback) throws ApiException {
@@ -288,6 +290,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public WebhookEndpoint delete(String id) throws ApiException {
@@ -306,6 +309,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WebhookEndpoint> deleteWithHttpInfo(String id) throws ApiException {
@@ -326,6 +330,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAsync(String id, final ApiCallback<WebhookEndpoint> _callback) throws ApiException {
@@ -538,6 +543,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call retrieveCall(String id, final ApiCallback _callback) throws ApiException {
@@ -611,6 +617,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public WebhookEndpoint retrieve(String id) throws ApiException {
@@ -629,6 +636,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WebhookEndpoint> retrieveWithHttpInfo(String id) throws ApiException {
@@ -649,6 +657,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call retrieveAsync(String id, final ApiCallback<WebhookEndpoint> _callback) throws ApiException {
@@ -668,6 +677,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call rotateSecretCall(String id, final ApiCallback _callback) throws ApiException {
@@ -741,6 +751,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public WebhookEndpoint rotateSecret(String id) throws ApiException {
@@ -759,6 +770,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WebhookEndpoint> rotateSecretWithHttpInfo(String id) throws ApiException {
@@ -779,6 +791,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call rotateSecretAsync(String id, final ApiCallback<WebhookEndpoint> _callback) throws ApiException {
@@ -799,6 +812,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully updated. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateCall(String id, WebhookEndpointUpdateRequest webhookEndpointUpdateRequest, final ApiCallback _callback) throws ApiException {
@@ -878,6 +892,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully updated. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public WebhookEndpoint update(String id, WebhookEndpointUpdateRequest webhookEndpointUpdateRequest) throws ApiException {
@@ -897,6 +912,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully updated. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WebhookEndpoint> updateWithHttpInfo(String id, WebhookEndpointUpdateRequest webhookEndpointUpdateRequest) throws ApiException {
@@ -918,6 +934,7 @@ public class WebhookEndpointsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The webhook endpoint is successfully updated. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateAsync(String id, WebhookEndpointUpdateRequest webhookEndpointUpdateRequest, final ApiCallback<WebhookEndpoint> _callback) throws ApiException {

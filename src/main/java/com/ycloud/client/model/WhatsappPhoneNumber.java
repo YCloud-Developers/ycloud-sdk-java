@@ -350,7 +350,7 @@ public class WhatsappPhoneNumber {
    * @return decision
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).")
+  @ApiModelProperty(example = "APPROVED", value = "Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).")
 
   public String getDecision() {
     return decision;

@@ -23,6 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,6 +53,10 @@ import com.ycloud.client.JSON;
 @ApiModel(description = "When a message with media (`image` | `document` | `audio` | `video` | `sticker`) is received, the WhatsApp Business API client will download the media. Once the media is downloaded, a notification is sent to your Webhook. This message contains information that identifies the media object and enables you to find and download the object.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageMedia {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_LINK = "link";
   @SerializedName(SERIALIZED_NAME_LINK)
   private String link;
@@ -62,13 +69,9 @@ public class WhatsappInboundMessageMedia {
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  private String metadata;
+  private Map<String, Object> metadata = null;
 
   public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
@@ -81,6 +84,29 @@ public class WhatsappInboundMessageMedia {
   public WhatsappInboundMessageMedia() { 
   }
 
+  public WhatsappInboundMessageMedia id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * ID of the media. Can be used to delete the media if stored locally on the client.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the media. Can be used to delete the media if stored locally on the client.")
+
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
   public WhatsappInboundMessageMedia link(String link) {
     
     this.link = link;
@@ -88,11 +114,11 @@ public class WhatsappInboundMessageMedia {
   }
 
    /**
-   * The protocol and URL of the media.
+   * The url to download the media file. Note that This link can be directly accessed in a few minutes for the convenience of the consumer, but you should always include an &#x60;X-API-Key&#x60; header to download this file within a month.
    * @return link
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The protocol and URL of the media.")
+  @ApiModelProperty(value = "The url to download the media file. Note that This link can be directly accessed in a few minutes for the convenience of the consumer, but you should always include an `X-API-Key` header to download this file within a month.")
 
   public String getLink() {
     return link;
@@ -150,32 +176,17 @@ public class WhatsappInboundMessageMedia {
   }
 
 
-  public WhatsappInboundMessageMedia id(String id) {
+  public WhatsappInboundMessageMedia metadata(Map<String, Object> metadata) {
     
-    this.id = id;
+    this.metadata = metadata;
     return this;
   }
 
-   /**
-   * ID of the media. Can be used to delete the media if stored locally on the client.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the media. Can be used to delete the media if stored locally on the client.")
-
-  public String getId() {
-    return id;
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public WhatsappInboundMessageMedia metadata(String metadata) {
-    
-    this.metadata = metadata;
+  public WhatsappInboundMessageMedia putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
@@ -186,12 +197,12 @@ public class WhatsappInboundMessageMedia {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Metadata pertaining to `sticker` media.")
 
-  public String getMetadata() {
+  public Map<String, Object> getMetadata() {
     return metadata;
   }
 
 
-  public void setMetadata(String metadata) {
+  public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }
 
@@ -287,10 +298,10 @@ public class WhatsappInboundMessageMedia {
       return false;
     }
     WhatsappInboundMessageMedia whatsappInboundMessageMedia = (WhatsappInboundMessageMedia) o;
-    return Objects.equals(this.link, whatsappInboundMessageMedia.link) &&
+    return Objects.equals(this.id, whatsappInboundMessageMedia.id) &&
+        Objects.equals(this.link, whatsappInboundMessageMedia.link) &&
         Objects.equals(this.caption, whatsappInboundMessageMedia.caption) &&
         Objects.equals(this.filename, whatsappInboundMessageMedia.filename) &&
-        Objects.equals(this.id, whatsappInboundMessageMedia.id) &&
         Objects.equals(this.metadata, whatsappInboundMessageMedia.metadata) &&
         Objects.equals(this.mimeType, whatsappInboundMessageMedia.mimeType) &&
         Objects.equals(this.sha256, whatsappInboundMessageMedia.sha256)&&
@@ -299,17 +310,17 @@ public class WhatsappInboundMessageMedia {
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, caption, filename, id, metadata, mimeType, sha256, additionalProperties);
+    return Objects.hash(id, link, caption, filename, metadata, mimeType, sha256, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappInboundMessageMedia {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    caption: ").append(toIndentedString(caption)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    sha256: ").append(toIndentedString(sha256)).append("\n");
@@ -336,10 +347,10 @@ public class WhatsappInboundMessageMedia {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
     openapiFields.add("link");
     openapiFields.add("caption");
     openapiFields.add("filename");
-    openapiFields.add("id");
     openapiFields.add("metadata");
     openapiFields.add("mime_type");
     openapiFields.add("sha256");
@@ -362,6 +373,9 @@ public class WhatsappInboundMessageMedia {
           throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappInboundMessageMedia is not found in the empty JSON string", WhatsappInboundMessageMedia.openapiRequiredFields.toString()));
         }
       }
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
       }
@@ -370,12 +384,6 @@ public class WhatsappInboundMessageMedia {
       }
       if (jsonObj.get("filename") != null && !jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
-      }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
       }
       if (jsonObj.get("mime_type") != null && !jsonObj.get("mime_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mime_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime_type").toString()));

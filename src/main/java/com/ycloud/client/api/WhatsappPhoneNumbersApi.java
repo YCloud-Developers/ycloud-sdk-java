@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.ycloud.client.model.ErrorResponse;
 import com.ycloud.client.model.WhatsappPhoneNumber;
 import com.ycloud.client.model.WhatsappPhoneNumberPage;
 
@@ -293,6 +294,7 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The WhatsApp phone number is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call retrieveCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
@@ -373,6 +375,7 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The WhatsApp phone number is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public WhatsappPhoneNumber retrieve(String wabaId, String phoneNumber) throws ApiException {
@@ -392,6 +395,7 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The WhatsApp phone number is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WhatsappPhoneNumber> retrieveWithHttpInfo(String wabaId, String phoneNumber) throws ApiException {
@@ -413,6 +417,7 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The WhatsApp phone number is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call retrieveAsync(String wabaId, String phoneNumber, final ApiCallback<WhatsappPhoneNumber> _callback) throws ApiException {

@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappTemplateComponent;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,145 +48,43 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Error
+ * The request body to edit a WhatsApp template.
  */
+@ApiModel(description = "The request body to edit a WhatsApp template.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Error {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private Integer status;
+public class WhatsappTemplateEditRequest {
+  public static final String SERIALIZED_NAME_COMPONENTS = "components";
+  @SerializedName(SERIALIZED_NAME_COMPONENTS)
+  private List<WhatsappTemplateComponent> components = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
-
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
-
-  public static final String SERIALIZED_NAME_TARGET = "target";
-  @SerializedName(SERIALIZED_NAME_TARGET)
-  private String target;
-
-  public static final String SERIALIZED_NAME_DOC_URL = "docUrl";
-  @SerializedName(SERIALIZED_NAME_DOC_URL)
-  private String docUrl;
-
-  public Error() { 
+  public WhatsappTemplateEditRequest() { 
   }
 
-  public Error status(Integer status) {
+  public WhatsappTemplateEditRequest components(List<WhatsappTemplateComponent> components) {
     
-    this.status = status;
+    this.components = components;
+    return this;
+  }
+
+  public WhatsappTemplateEditRequest addComponentsItem(WhatsappTemplateComponent componentsItem) {
+    this.components.add(componentsItem);
     return this;
   }
 
    /**
-   * HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6). It conveys the HTTP status code used for the convenience of the consumer.
-   * @return status
+   * Get components
+   * @return components
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "404", required = true, value = "HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6). It conveys the HTTP status code used for the convenience of the consumer.")
+  @ApiModelProperty(required = true, value = "")
 
-  public Integer getStatus() {
-    return status;
+  public List<WhatsappTemplateComponent> getComponents() {
+    return components;
   }
 
 
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-
-  public Error code(String code) {
-    
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * One of a server-defined error codes. Some &#x60;4xx&#x60; errors that could be handled programmatically include an error code that briefly explains the error reported.
-   * @return code
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "NOT_FOUND", required = true, value = "One of a server-defined error codes. Some `4xx` errors that could be handled programmatically include an error code that briefly explains the error reported.")
-
-  public String getCode() {
-    return code;
-  }
-
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public Error message(String message) {
-    
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * A human-readable representation of the error. It is intended as an aid to developers and is not suitable for exposure to end users.
-   * @return message
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "The requested resource does not exist.", value = "A human-readable representation of the error. It is intended as an aid to developers and is not suitable for exposure to end users.")
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
-  public Error target(String target) {
-    
-    this.target = target;
-    return this;
-  }
-
-   /**
-   * The target of the error.
-   * @return target
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "", value = "The target of the error.")
-
-  public String getTarget() {
-    return target;
-  }
-
-
-  public void setTarget(String target) {
-    this.target = target;
-  }
-
-
-  public Error docUrl(String docUrl) {
-    
-    this.docUrl = docUrl;
-    return this;
-  }
-
-   /**
-   * A URL to more information about the error.
-   * @return docUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "", value = "A URL to more information about the error.")
-
-  public String getDocUrl() {
-    return docUrl;
-  }
-
-
-  public void setDocUrl(String docUrl) {
-    this.docUrl = docUrl;
+  public void setComponents(List<WhatsappTemplateComponent> components) {
+    this.components = components;
   }
 
   /**
@@ -197,7 +98,7 @@ public class Error {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public Error putAdditionalProperty(String key, Object value) {
+  public WhatsappTemplateEditRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -231,29 +132,21 @@ public class Error {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error error = (Error) o;
-    return Objects.equals(this.status, error.status) &&
-        Objects.equals(this.code, error.code) &&
-        Objects.equals(this.message, error.message) &&
-        Objects.equals(this.target, error.target) &&
-        Objects.equals(this.docUrl, error.docUrl)&&
-        Objects.equals(this.additionalProperties, error.additionalProperties);
+    WhatsappTemplateEditRequest whatsappTemplateEditRequest = (WhatsappTemplateEditRequest) o;
+    return Objects.equals(this.components, whatsappTemplateEditRequest.components)&&
+        Objects.equals(this.additionalProperties, whatsappTemplateEditRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, code, message, target, docUrl, additionalProperties);
+    return Objects.hash(components, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    target: ").append(toIndentedString(target)).append("\n");
-    sb.append("    docUrl: ").append(toIndentedString(docUrl)).append("\n");
+    sb.append("class WhatsappTemplateEditRequest {\n");
+    sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -277,50 +170,45 @@ public class Error {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("code");
-    openapiFields.add("message");
-    openapiFields.add("target");
-    openapiFields.add("docUrl");
+    openapiFields.add("components");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("code");
+    openapiRequiredFields.add("components");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Error
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappTemplateEditRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Error.openapiRequiredFields.isEmpty()) {
+        if (WhatsappTemplateEditRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Error is not found in the empty JSON string", Error.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappTemplateEditRequest is not found in the empty JSON string", WhatsappTemplateEditRequest.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Error.openapiRequiredFields) {
+      for (String requiredField : WhatsappTemplateEditRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (jsonObj.get("code") != null && !jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
-      }
-      if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
-      if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target").toString()));
-      }
-      if (jsonObj.get("docUrl") != null && !jsonObj.get("docUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `docUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("docUrl").toString()));
+      JsonArray jsonArraycomponents = jsonObj.getAsJsonArray("components");
+      if (jsonArraycomponents != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("components").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `components` to be an array in the JSON string but got `%s`", jsonObj.get("components").toString()));
+        }
+
+        // validate the optional field `components` (array)
+        for (int i = 0; i < jsonArraycomponents.size(); i++) {
+          WhatsappTemplateComponent.validateJsonObject(jsonArraycomponents.get(i).getAsJsonObject());
+        };
       }
   }
 
@@ -328,16 +216,16 @@ public class Error {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Error.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Error' and its subtypes
+       if (!WhatsappTemplateEditRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappTemplateEditRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Error> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Error.class));
+       final TypeAdapter<WhatsappTemplateEditRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappTemplateEditRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Error>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappTemplateEditRequest>() {
            @Override
-           public void write(JsonWriter out, Error value) throws IOException {
+           public void write(JsonWriter out, WhatsappTemplateEditRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -360,11 +248,11 @@ public class Error {
            }
 
            @Override
-           public Error read(JsonReader in) throws IOException {
+           public WhatsappTemplateEditRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             Error instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappTemplateEditRequest instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -389,18 +277,18 @@ public class Error {
   }
 
  /**
-  * Create an instance of Error given an JSON string
+  * Create an instance of WhatsappTemplateEditRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Error
-  * @throws IOException if the JSON string is invalid with respect to Error
+  * @return An instance of WhatsappTemplateEditRequest
+  * @throws IOException if the JSON string is invalid with respect to WhatsappTemplateEditRequest
   */
-  public static Error fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Error.class);
+  public static WhatsappTemplateEditRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappTemplateEditRequest.class);
   }
 
  /**
-  * Convert an instance of Error to an JSON string
+  * Convert an instance of WhatsappTemplateEditRequest to an JSON string
   *
   * @return JSON string
   */

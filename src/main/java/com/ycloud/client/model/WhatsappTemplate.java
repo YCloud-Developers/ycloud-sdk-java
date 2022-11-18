@@ -105,8 +105,8 @@ public class WhatsappTemplate {
    * WhatsApp Business Account ID.
    * @return wabaId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "whatsapp-business-account-id", value = "WhatsApp Business Account ID.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "whatsapp-business-account-id", required = true, value = "WhatsApp Business Account ID.")
 
   public String getWabaId() {
     return wabaId;
@@ -417,6 +417,7 @@ public class WhatsappTemplate {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("wabaId");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("language");
     openapiRequiredFields.add("category");

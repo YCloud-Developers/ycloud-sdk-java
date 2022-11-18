@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0 (2022-11-18)
+
+- Add [WhatsApp](https://www.ycloud.com/whatsapp) Edit Template API.
+- Add `customerProfile` for WhatsApp inbound message webhooks.
+- Add `conversation` for WhatsApp outbound message status webhooks.
+
 ## 1.2.0 (2022-10-27)
 
 - Add [WhatsApp](https://www.ycloud.com/whatsapp) templates API.

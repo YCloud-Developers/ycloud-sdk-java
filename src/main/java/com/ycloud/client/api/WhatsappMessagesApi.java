@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.ycloud.client.model.ErrorResponse;
 import com.ycloud.client.model.WhatsappMessage;
 import com.ycloud.client.model.WhatsappMessageSendRequest;
 
@@ -84,6 +85,7 @@ public class WhatsappMessagesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call retrieveCall(String id, final ApiCallback _callback) throws ApiException {
@@ -157,6 +159,7 @@ public class WhatsappMessagesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public WhatsappMessage retrieve(String id) throws ApiException {
@@ -175,6 +178,7 @@ public class WhatsappMessagesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WhatsappMessage> retrieveWithHttpInfo(String id) throws ApiException {
@@ -195,6 +199,7 @@ public class WhatsappMessagesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call retrieveAsync(String id, final ApiCallback<WhatsappMessage> _callback) throws ApiException {
