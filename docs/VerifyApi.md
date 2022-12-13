@@ -75,7 +75,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The verification check is successfully processed. |  -  |
+| **200** | Successfully processed the verification check. |  -  |
 
 <a name="send"></a>
 # **send**

@@ -76,6 +76,10 @@ public class Verification {
   @SerializedName(SERIALIZED_NAME_TOTAL_PRICE)
   private Double totalPrice;
 
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private String currency;
+
   public Verification() { 
   }
 
@@ -201,11 +205,11 @@ public class Verification {
   }
 
    /**
-   * Total price of this verification. Currency: USD.
+   * Total price of this verification.
    * @return totalPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.0085", value = "Total price of this verification. Currency: USD.")
+  @ApiModelProperty(example = "0.0085", value = "Total price of this verification.")
 
   public Double getTotalPrice() {
     return totalPrice;
@@ -214,6 +218,29 @@ public class Verification {
 
   public void setTotalPrice(Double totalPrice) {
     this.totalPrice = totalPrice;
+  }
+
+
+  public Verification currency(String currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
   }
 
   /**
@@ -267,13 +294,14 @@ public class Verification {
         Objects.equals(this.to, verification.to) &&
         Objects.equals(this.channel, verification.channel) &&
         Objects.equals(this.sendTime, verification.sendTime) &&
-        Objects.equals(this.totalPrice, verification.totalPrice)&&
+        Objects.equals(this.totalPrice, verification.totalPrice) &&
+        Objects.equals(this.currency, verification.currency)&&
         Objects.equals(this.additionalProperties, verification.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, to, channel, sendTime, totalPrice, additionalProperties);
+    return Objects.hash(id, status, to, channel, sendTime, totalPrice, currency, additionalProperties);
   }
 
   @Override
@@ -286,6 +314,7 @@ public class Verification {
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    sendTime: ").append(toIndentedString(sendTime)).append("\n");
     sb.append("    totalPrice: ").append(toIndentedString(totalPrice)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -315,6 +344,7 @@ public class Verification {
     openapiFields.add("channel");
     openapiFields.add("sendTime");
     openapiFields.add("totalPrice");
+    openapiFields.add("currency");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -347,6 +377,9 @@ public class Verification {
       }
       if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
+      }
+      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
       }
   }
 

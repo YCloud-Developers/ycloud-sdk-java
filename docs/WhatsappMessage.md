@@ -9,6 +9,7 @@ WhatsApp outbound message object.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Unique ID for the object. |  |
+|**wamid** | **String** | The native WhatsApp message ID. |  [optional] |
 |**wabaId** | **String** | WhatsApp Business Account ID. |  |
 |**from** | **String** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
 |**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
@@ -29,6 +30,8 @@ WhatsApp outbound message object.
 |**errorMessage** | **String** | Error message when the message status is &#x60;failed&#x60;. |  [optional] |
 |**createTime** | **Date** | The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
 |**updateTime** | **Date** | The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
+|**totalPrice** | **Double** | Total price of this message. |  [optional] |
+|**currency** | **String** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). |  [optional] |
 
 
 

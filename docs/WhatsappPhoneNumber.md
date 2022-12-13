@@ -18,7 +18,7 @@ A WhatsApp Business Account (WABA) phone number. See also [WhatsApp Retrieve Pho
 |**status** | **WhatsappPhoneNumberStatus** |  |  [optional] |
 |**nameStatus** | **WhatsappPhoneNumberNameStatus** |  |  [optional] |
 |**newNameStatus** | **WhatsappPhoneNumberNameStatus** |  |  [optional] |
-|**decision** | **String** | Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update). |  [optional] |
+|**decision** | **WhatsappReviewDecision** |  |  [optional] |
 |**requestedVerifiedName** | **String** | Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update). |  [optional] |
 |**rejectionReason** | **String** | Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update). |  [optional] |
 

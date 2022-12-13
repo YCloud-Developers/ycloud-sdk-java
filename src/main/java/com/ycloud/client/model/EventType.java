@@ -46,6 +46,16 @@ public enum EventType {
   VOICE_MESSAGE_UPDATED("voice.message.updated"),
   
   /**
+   * Occurs when a WhatsApp Business Account has been reviewed.
+   */
+  WHATSAPP_BUSINESS_ACCOUNT_REVIEWED("whatsapp.business_account.reviewed"),
+  
+  /**
+   * Occurs when a policy violation happened, WhatsApp Business Account has been banned and more.
+   */
+  WHATSAPP_BUSINESS_ACCOUNT_UPDATED("whatsapp.business_account.updated"),
+  
+  /**
    * Occurs when a WhatsApp inbound message is received.
    */
   WHATSAPP_INBOUND_MESSAGE_RECEIVED("whatsapp.inbound_message.received"),
@@ -66,7 +76,7 @@ public enum EventType {
   WHATSAPP_PHONE_NUMBER_QUALITY_UPDATED("whatsapp.phone_number.quality_updated"),
   
   /**
-   * Occurs when a WhatsApp template is reviewed, and the status changes to &#x60;APPROVED&#x60; or &#x60;REJECTED&#x60;.
+   * Occurs when a WhatsApp template status is updated, and the status changes to REJECTED, APPROVED, PAUSED, DISABLED, or IN_APPEAL.
    */
   WHATSAPP_TEMPLATE_REVIEWED("whatsapp.template.reviewed");
 

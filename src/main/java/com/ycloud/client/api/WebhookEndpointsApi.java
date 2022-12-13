@@ -86,7 +86,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A webhook endpoint is successfully created. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created a webhook endpoint. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createCall(WebhookEndpointCreateRequest webhookEndpointCreateRequest, final ApiCallback _callback) throws ApiException {
@@ -158,7 +158,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A webhook endpoint is successfully created. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created a webhook endpoint. </td><td>  -  </td></tr>
      </table>
      */
     public WebhookEndpoint create(WebhookEndpointCreateRequest webhookEndpointCreateRequest) throws ApiException {
@@ -176,7 +176,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A webhook endpoint is successfully created. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created a webhook endpoint. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WebhookEndpoint> createWithHttpInfo(WebhookEndpointCreateRequest webhookEndpointCreateRequest) throws ApiException {
@@ -196,7 +196,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A webhook endpoint is successfully created. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created a webhook endpoint. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAsync(WebhookEndpointCreateRequest webhookEndpointCreateRequest, final ApiCallback<WebhookEndpoint> _callback) throws ApiException {
@@ -215,7 +215,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -289,7 +289,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -308,7 +308,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -329,7 +329,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -542,7 +542,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -616,7 +616,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -635,7 +635,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -656,7 +656,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -676,7 +676,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully rotated the webhook endpoint secret. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -750,7 +750,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully rotated the webhook endpoint secret. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -769,7 +769,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully rotated the webhook endpoint secret. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -790,7 +790,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully rotated the webhook endpoint secret. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -811,7 +811,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully updated. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -891,7 +891,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully updated. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -911,7 +911,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully updated. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -933,7 +933,7 @@ public class WebhookEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The webhook endpoint is successfully updated. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the webhook endpoint. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */

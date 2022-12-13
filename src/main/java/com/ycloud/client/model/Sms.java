@@ -329,11 +329,11 @@ public class Sms {
   }
 
    /**
-   * [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)")
+  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getCurrency() {
     return currency;

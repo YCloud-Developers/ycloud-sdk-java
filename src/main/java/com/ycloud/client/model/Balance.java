@@ -90,11 +90,11 @@ public class Balance {
   }
 
    /**
-   * [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return currency
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "USD", required = true, value = "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)")
+  @ApiModelProperty(example = "USD", required = true, value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getCurrency() {
     return currency;

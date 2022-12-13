@@ -86,7 +86,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template is successfully created. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created a WhatsApp template. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createCall(WhatsappTemplateCreateRequest whatsappTemplateCreateRequest, final ApiCallback _callback) throws ApiException {
@@ -158,7 +158,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template is successfully created. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created a WhatsApp template. </td><td>  -  </td></tr>
      </table>
      */
     public WhatsappTemplate create(WhatsappTemplateCreateRequest whatsappTemplateCreateRequest) throws ApiException {
@@ -176,7 +176,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template is successfully created. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created a WhatsApp template. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WhatsappTemplate> createWithHttpInfo(WhatsappTemplateCreateRequest whatsappTemplateCreateRequest) throws ApiException {
@@ -196,7 +196,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template is successfully created. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created a WhatsApp template. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAsync(WhatsappTemplateCreateRequest whatsappTemplateCreateRequest, final ApiCallback<WhatsappTemplate> _callback) throws ApiException {
@@ -216,7 +216,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template(s) is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the template(s). </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -297,7 +297,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template(s) is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the template(s). </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -317,7 +317,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template(s) is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the template(s). </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -339,7 +339,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template(s) is successfully deleted. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the template(s). </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -362,7 +362,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template is successfully edited. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully edited the template. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -451,7 +451,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template is successfully edited. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully edited the template. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -473,7 +473,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template is successfully edited. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully edited the template. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -497,7 +497,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The template is successfully edited. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully edited the template. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -757,7 +757,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The WhatsApp template is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the template. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -845,7 +845,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The WhatsApp template is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the template. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -866,7 +866,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The WhatsApp template is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the template. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -889,7 +889,7 @@ public class WhatsappTemplatesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The WhatsApp template is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the template. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */

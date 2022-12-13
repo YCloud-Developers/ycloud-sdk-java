@@ -66,6 +66,10 @@ public class WhatsappMessage {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_WAMID = "wamid";
+  @SerializedName(SERIALIZED_NAME_WAMID)
+  private String wamid;
+
   public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
   @SerializedName(SERIALIZED_NAME_WABA_ID)
   private String wabaId;
@@ -146,6 +150,14 @@ public class WhatsappMessage {
   @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
   private Date updateTime;
 
+  public static final String SERIALIZED_NAME_TOTAL_PRICE = "totalPrice";
+  @SerializedName(SERIALIZED_NAME_TOTAL_PRICE)
+  private Double totalPrice;
+
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private String currency;
+
   public WhatsappMessage() { 
   }
 
@@ -169,6 +181,29 @@ public class WhatsappMessage {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public WhatsappMessage wamid(String wamid) {
+    
+    this.wamid = wamid;
+    return this;
+  }
+
+   /**
+   * The native WhatsApp message ID.
+   * @return wamid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "The native WhatsApp message ID.")
+
+  public String getWamid() {
+    return wamid;
+  }
+
+
+  public void setWamid(String wamid) {
+    this.wamid = wamid;
   }
 
 
@@ -639,6 +674,52 @@ public class WhatsappMessage {
     this.updateTime = updateTime;
   }
 
+
+  public WhatsappMessage totalPrice(Double totalPrice) {
+    
+    this.totalPrice = totalPrice;
+    return this;
+  }
+
+   /**
+   * Total price of this message.
+   * @return totalPrice
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "0.05", value = "Total price of this message.")
+
+  public Double getTotalPrice() {
+    return totalPrice;
+  }
+
+
+  public void setTotalPrice(Double totalPrice) {
+    this.totalPrice = totalPrice;
+  }
+
+
+  public WhatsappMessage currency(String currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -686,6 +767,7 @@ public class WhatsappMessage {
     }
     WhatsappMessage whatsappMessage = (WhatsappMessage) o;
     return Objects.equals(this.id, whatsappMessage.id) &&
+        Objects.equals(this.wamid, whatsappMessage.wamid) &&
         Objects.equals(this.wabaId, whatsappMessage.wabaId) &&
         Objects.equals(this.from, whatsappMessage.from) &&
         Objects.equals(this.to, whatsappMessage.to) &&
@@ -705,13 +787,15 @@ public class WhatsappMessage {
         Objects.equals(this.errorCode, whatsappMessage.errorCode) &&
         Objects.equals(this.errorMessage, whatsappMessage.errorMessage) &&
         Objects.equals(this.createTime, whatsappMessage.createTime) &&
-        Objects.equals(this.updateTime, whatsappMessage.updateTime)&&
+        Objects.equals(this.updateTime, whatsappMessage.updateTime) &&
+        Objects.equals(this.totalPrice, whatsappMessage.totalPrice) &&
+        Objects.equals(this.currency, whatsappMessage.currency)&&
         Objects.equals(this.additionalProperties, whatsappMessage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wabaId, from, to, conversation, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, totalPrice, currency, additionalProperties);
   }
 
   @Override
@@ -719,6 +803,7 @@ public class WhatsappMessage {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappMessage {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    wamid: ").append(toIndentedString(wamid)).append("\n");
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
@@ -739,6 +824,8 @@ public class WhatsappMessage {
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    totalPrice: ").append(toIndentedString(totalPrice)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -763,6 +850,7 @@ public class WhatsappMessage {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("wamid");
     openapiFields.add("wabaId");
     openapiFields.add("from");
     openapiFields.add("to");
@@ -783,6 +871,8 @@ public class WhatsappMessage {
     openapiFields.add("errorMessage");
     openapiFields.add("createTime");
     openapiFields.add("updateTime");
+    openapiFields.add("totalPrice");
+    openapiFields.add("currency");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -816,6 +906,9 @@ public class WhatsappMessage {
       }
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("wamid") != null && !jsonObj.get("wamid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wamid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wamid").toString()));
       }
       if (jsonObj.get("wabaId") != null && !jsonObj.get("wabaId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wabaId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wabaId").toString()));
@@ -882,6 +975,9 @@ public class WhatsappMessage {
       }
       if (jsonObj.get("errorMessage") != null && !jsonObj.get("errorMessage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `errorMessage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorMessage").toString()));
+      }
+      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
       }
   }
 

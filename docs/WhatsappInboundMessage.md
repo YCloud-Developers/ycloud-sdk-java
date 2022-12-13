@@ -9,6 +9,7 @@ WhatsApp inbound message object.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Unique ID for the object. |  |
+|**wamid** | **String** | The native WhatsApp message ID. |  [optional] |
 |**wabaId** | **String** | WhatsApp Business Account ID. |  [optional] |
 |**from** | **String** | The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
 |**customerProfile** | [**WhatsappProfile**](WhatsappProfile.md) |  |  [optional] |
@@ -25,6 +26,12 @@ WhatsApp inbound message object.
 |**location** | [**WhatsappInboundMessageLocation**](WhatsappInboundMessageLocation.md) |  |  [optional] |
 |**button** | [**WhatsappInboundMessageButton**](WhatsappInboundMessageButton.md) |  |  [optional] |
 |**contacts** | [**List&lt;WhatsappMessageContact&gt;**](WhatsappMessageContact.md) |  |  [optional] |
+|**reaction** | [**WhatsappInboundMessageReaction**](WhatsappInboundMessageReaction.md) |  |  [optional] |
+|**order** | [**WhatsappInboundMessageOrder**](WhatsappInboundMessageOrder.md) |  |  [optional] |
+|**system** | [**WhatsappInboundMessageSystem**](WhatsappInboundMessageSystem.md) |  |  [optional] |
+|**errors** | [**List&lt;WhatsappInboundMessageError&gt;**](WhatsappInboundMessageError.md) |  |  [optional] |
+|**context** | [**WhatsappInboundMessageContext**](WhatsappInboundMessageContext.md) |  |  [optional] |
+|**referral** | [**WhatsappInboundMessageReferral**](WhatsappInboundMessageReferral.md) |  |  [optional] |
 
 
 

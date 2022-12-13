@@ -157,6 +157,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The WhatsApp phone number is successfully retrieved. |  -  |
+| **200** | Successfully retrieved the object. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 

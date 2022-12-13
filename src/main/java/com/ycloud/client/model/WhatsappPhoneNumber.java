@@ -24,6 +24,7 @@ import com.ycloud.client.model.WhatsappPhoneNumberCodeVerificationStatus;
 import com.ycloud.client.model.WhatsappPhoneNumberNameStatus;
 import com.ycloud.client.model.WhatsappPhoneNumberQualityRating;
 import com.ycloud.client.model.WhatsappPhoneNumberStatus;
+import com.ycloud.client.model.WhatsappReviewDecision;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -96,7 +97,7 @@ public class WhatsappPhoneNumber {
 
   public static final String SERIALIZED_NAME_DECISION = "decision";
   @SerializedName(SERIALIZED_NAME_DECISION)
-  private String decision;
+  private WhatsappReviewDecision decision;
 
   public static final String SERIALIZED_NAME_REQUESTED_VERIFIED_NAME = "requestedVerifiedName";
   @SerializedName(SERIALIZED_NAME_REQUESTED_VERIFIED_NAME)
@@ -339,25 +340,25 @@ public class WhatsappPhoneNumber {
   }
 
 
-  public WhatsappPhoneNumber decision(String decision) {
+  public WhatsappPhoneNumber decision(WhatsappReviewDecision decision) {
     
     this.decision = decision;
     return this;
   }
 
    /**
-   * Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
+   * Get decision
    * @return decision
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "APPROVED", value = "Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).")
+  @ApiModelProperty(value = "")
 
-  public String getDecision() {
+  public WhatsappReviewDecision getDecision() {
     return decision;
   }
 
 
-  public void setDecision(String decision) {
+  public void setDecision(WhatsappReviewDecision decision) {
     this.decision = decision;
   }
 
@@ -560,9 +561,6 @@ public class WhatsappPhoneNumber {
       }
       if (jsonObj.get("verifiedName") != null && !jsonObj.get("verifiedName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `verifiedName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verifiedName").toString()));
-      }
-      if (jsonObj.get("decision") != null && !jsonObj.get("decision").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `decision` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decision").toString()));
       }
       if (jsonObj.get("requestedVerifiedName") != null && !jsonObj.get("requestedVerifiedName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `requestedVerifiedName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestedVerifiedName").toString()));

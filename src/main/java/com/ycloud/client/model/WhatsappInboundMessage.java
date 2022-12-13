@@ -21,9 +21,15 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappInboundMessageButton;
+import com.ycloud.client.model.WhatsappInboundMessageContext;
+import com.ycloud.client.model.WhatsappInboundMessageError;
 import com.ycloud.client.model.WhatsappInboundMessageInteractive;
 import com.ycloud.client.model.WhatsappInboundMessageLocation;
 import com.ycloud.client.model.WhatsappInboundMessageMedia;
+import com.ycloud.client.model.WhatsappInboundMessageOrder;
+import com.ycloud.client.model.WhatsappInboundMessageReaction;
+import com.ycloud.client.model.WhatsappInboundMessageReferral;
+import com.ycloud.client.model.WhatsappInboundMessageSystem;
 import com.ycloud.client.model.WhatsappInboundMessageText;
 import com.ycloud.client.model.WhatsappInboundMessageType;
 import com.ycloud.client.model.WhatsappMessageContact;
@@ -64,6 +70,10 @@ public class WhatsappInboundMessage {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_WAMID = "wamid";
+  @SerializedName(SERIALIZED_NAME_WAMID)
+  private String wamid;
 
   public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
   @SerializedName(SERIALIZED_NAME_WABA_ID)
@@ -129,6 +139,30 @@ public class WhatsappInboundMessage {
   @SerializedName(SERIALIZED_NAME_CONTACTS)
   private List<WhatsappMessageContact> contacts = null;
 
+  public static final String SERIALIZED_NAME_REACTION = "reaction";
+  @SerializedName(SERIALIZED_NAME_REACTION)
+  private WhatsappInboundMessageReaction reaction;
+
+  public static final String SERIALIZED_NAME_ORDER = "order";
+  @SerializedName(SERIALIZED_NAME_ORDER)
+  private WhatsappInboundMessageOrder order;
+
+  public static final String SERIALIZED_NAME_SYSTEM = "system";
+  @SerializedName(SERIALIZED_NAME_SYSTEM)
+  private WhatsappInboundMessageSystem system;
+
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private List<WhatsappInboundMessageError> errors = null;
+
+  public static final String SERIALIZED_NAME_CONTEXT = "context";
+  @SerializedName(SERIALIZED_NAME_CONTEXT)
+  private WhatsappInboundMessageContext context;
+
+  public static final String SERIALIZED_NAME_REFERRAL = "referral";
+  @SerializedName(SERIALIZED_NAME_REFERRAL)
+  private WhatsappInboundMessageReferral referral;
+
   public WhatsappInboundMessage() { 
   }
 
@@ -152,6 +186,29 @@ public class WhatsappInboundMessage {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public WhatsappInboundMessage wamid(String wamid) {
+    
+    this.wamid = wamid;
+    return this;
+  }
+
+   /**
+   * The native WhatsApp message ID.
+   * @return wamid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "The native WhatsApp message ID.")
+
+  public String getWamid() {
+    return wamid;
+  }
+
+
+  public void setWamid(String wamid) {
+    this.wamid = wamid;
   }
 
 
@@ -530,6 +587,152 @@ public class WhatsappInboundMessage {
     this.contacts = contacts;
   }
 
+
+  public WhatsappInboundMessage reaction(WhatsappInboundMessageReaction reaction) {
+    
+    this.reaction = reaction;
+    return this;
+  }
+
+   /**
+   * Get reaction
+   * @return reaction
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappInboundMessageReaction getReaction() {
+    return reaction;
+  }
+
+
+  public void setReaction(WhatsappInboundMessageReaction reaction) {
+    this.reaction = reaction;
+  }
+
+
+  public WhatsappInboundMessage order(WhatsappInboundMessageOrder order) {
+    
+    this.order = order;
+    return this;
+  }
+
+   /**
+   * Get order
+   * @return order
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappInboundMessageOrder getOrder() {
+    return order;
+  }
+
+
+  public void setOrder(WhatsappInboundMessageOrder order) {
+    this.order = order;
+  }
+
+
+  public WhatsappInboundMessage system(WhatsappInboundMessageSystem system) {
+    
+    this.system = system;
+    return this;
+  }
+
+   /**
+   * Get system
+   * @return system
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappInboundMessageSystem getSystem() {
+    return system;
+  }
+
+
+  public void setSystem(WhatsappInboundMessageSystem system) {
+    this.system = system;
+  }
+
+
+  public WhatsappInboundMessage errors(List<WhatsappInboundMessageError> errors) {
+    
+    this.errors = errors;
+    return this;
+  }
+
+  public WhatsappInboundMessage addErrorsItem(WhatsappInboundMessageError errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+   /**
+   * Get errors
+   * @return errors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<WhatsappInboundMessageError> getErrors() {
+    return errors;
+  }
+
+
+  public void setErrors(List<WhatsappInboundMessageError> errors) {
+    this.errors = errors;
+  }
+
+
+  public WhatsappInboundMessage context(WhatsappInboundMessageContext context) {
+    
+    this.context = context;
+    return this;
+  }
+
+   /**
+   * Get context
+   * @return context
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappInboundMessageContext getContext() {
+    return context;
+  }
+
+
+  public void setContext(WhatsappInboundMessageContext context) {
+    this.context = context;
+  }
+
+
+  public WhatsappInboundMessage referral(WhatsappInboundMessageReferral referral) {
+    
+    this.referral = referral;
+    return this;
+  }
+
+   /**
+   * Get referral
+   * @return referral
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappInboundMessageReferral getReferral() {
+    return referral;
+  }
+
+
+  public void setReferral(WhatsappInboundMessageReferral referral) {
+    this.referral = referral;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -577,6 +780,7 @@ public class WhatsappInboundMessage {
     }
     WhatsappInboundMessage whatsappInboundMessage = (WhatsappInboundMessage) o;
     return Objects.equals(this.id, whatsappInboundMessage.id) &&
+        Objects.equals(this.wamid, whatsappInboundMessage.wamid) &&
         Objects.equals(this.wabaId, whatsappInboundMessage.wabaId) &&
         Objects.equals(this.from, whatsappInboundMessage.from) &&
         Objects.equals(this.customerProfile, whatsappInboundMessage.customerProfile) &&
@@ -592,13 +796,19 @@ public class WhatsappInboundMessage {
         Objects.equals(this.interactive, whatsappInboundMessage.interactive) &&
         Objects.equals(this.location, whatsappInboundMessage.location) &&
         Objects.equals(this.button, whatsappInboundMessage.button) &&
-        Objects.equals(this.contacts, whatsappInboundMessage.contacts)&&
+        Objects.equals(this.contacts, whatsappInboundMessage.contacts) &&
+        Objects.equals(this.reaction, whatsappInboundMessage.reaction) &&
+        Objects.equals(this.order, whatsappInboundMessage.order) &&
+        Objects.equals(this.system, whatsappInboundMessage.system) &&
+        Objects.equals(this.errors, whatsappInboundMessage.errors) &&
+        Objects.equals(this.context, whatsappInboundMessage.context) &&
+        Objects.equals(this.referral, whatsappInboundMessage.referral)&&
         Objects.equals(this.additionalProperties, whatsappInboundMessage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wabaId, from, customerProfile, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, customerProfile, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, reaction, order, system, errors, context, referral, additionalProperties);
   }
 
   @Override
@@ -606,6 +816,7 @@ public class WhatsappInboundMessage {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappInboundMessage {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    wamid: ").append(toIndentedString(wamid)).append("\n");
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
@@ -622,6 +833,12 @@ public class WhatsappInboundMessage {
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    button: ").append(toIndentedString(button)).append("\n");
     sb.append("    contacts: ").append(toIndentedString(contacts)).append("\n");
+    sb.append("    reaction: ").append(toIndentedString(reaction)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    system: ").append(toIndentedString(system)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    context: ").append(toIndentedString(context)).append("\n");
+    sb.append("    referral: ").append(toIndentedString(referral)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -646,6 +863,7 @@ public class WhatsappInboundMessage {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("wamid");
     openapiFields.add("wabaId");
     openapiFields.add("from");
     openapiFields.add("customerProfile");
@@ -662,6 +880,12 @@ public class WhatsappInboundMessage {
     openapiFields.add("location");
     openapiFields.add("button");
     openapiFields.add("contacts");
+    openapiFields.add("reaction");
+    openapiFields.add("order");
+    openapiFields.add("system");
+    openapiFields.add("errors");
+    openapiFields.add("context");
+    openapiFields.add("referral");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -691,6 +915,9 @@ public class WhatsappInboundMessage {
       }
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("wamid") != null && !jsonObj.get("wamid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wamid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wamid").toString()));
       }
       if (jsonObj.get("wabaId") != null && !jsonObj.get("wabaId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wabaId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wabaId").toString()));
@@ -752,6 +979,38 @@ public class WhatsappInboundMessage {
         for (int i = 0; i < jsonArraycontacts.size(); i++) {
           WhatsappMessageContact.validateJsonObject(jsonArraycontacts.get(i).getAsJsonObject());
         };
+      }
+      // validate the optional field `reaction`
+      if (jsonObj.getAsJsonObject("reaction") != null) {
+        WhatsappInboundMessageReaction.validateJsonObject(jsonObj.getAsJsonObject("reaction"));
+      }
+      // validate the optional field `order`
+      if (jsonObj.getAsJsonObject("order") != null) {
+        WhatsappInboundMessageOrder.validateJsonObject(jsonObj.getAsJsonObject("order"));
+      }
+      // validate the optional field `system`
+      if (jsonObj.getAsJsonObject("system") != null) {
+        WhatsappInboundMessageSystem.validateJsonObject(jsonObj.getAsJsonObject("system"));
+      }
+      JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
+      if (jsonArrayerrors != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("errors").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
+        }
+
+        // validate the optional field `errors` (array)
+        for (int i = 0; i < jsonArrayerrors.size(); i++) {
+          WhatsappInboundMessageError.validateJsonObject(jsonArrayerrors.get(i).getAsJsonObject());
+        };
+      }
+      // validate the optional field `context`
+      if (jsonObj.getAsJsonObject("context") != null) {
+        WhatsappInboundMessageContext.validateJsonObject(jsonObj.getAsJsonObject("context"));
+      }
+      // validate the optional field `referral`
+      if (jsonObj.getAsJsonObject("referral") != null) {
+        WhatsappInboundMessageReferral.validateJsonObject(jsonObj.getAsJsonObject("referral"));
       }
   }
 

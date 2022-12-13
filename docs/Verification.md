@@ -12,7 +12,8 @@
 |**to** | **String** | Recipient of the verification. |  [optional] |
 |**channel** | **VerificationChannel** |  |  [optional] |
 |**sendTime** | **Date** | The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
-|**totalPrice** | **Double** | Total price of this verification. Currency: USD. |  [optional] |
+|**totalPrice** | **Double** | Total price of this verification. |  [optional] |
+|**currency** | **String** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). |  [optional] |
 
 
 

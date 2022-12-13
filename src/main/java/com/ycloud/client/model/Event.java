@@ -24,6 +24,7 @@ import com.ycloud.client.model.EmailDelivery;
 import com.ycloud.client.model.EventType;
 import com.ycloud.client.model.Sms;
 import com.ycloud.client.model.Voice;
+import com.ycloud.client.model.WhatsappBusinessAccount;
 import com.ycloud.client.model.WhatsappInboundMessage;
 import com.ycloud.client.model.WhatsappMessage;
 import com.ycloud.client.model.WhatsappPhoneNumber;
@@ -86,6 +87,10 @@ public class Event {
   public static final String SERIALIZED_NAME_VOICE = "voice";
   @SerializedName(SERIALIZED_NAME_VOICE)
   private Voice voice;
+
+  public static final String SERIALIZED_NAME_WHATSAPP_BUSINESS_ACCOUNT = "whatsappBusinessAccount";
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_BUSINESS_ACCOUNT)
+  private WhatsappBusinessAccount whatsappBusinessAccount;
 
   public static final String SERIALIZED_NAME_WHATSAPP_INBOUND_MESSAGE = "whatsappInboundMessage";
   @SerializedName(SERIALIZED_NAME_WHATSAPP_INBOUND_MESSAGE)
@@ -267,6 +272,29 @@ public class Event {
   }
 
 
+  public Event whatsappBusinessAccount(WhatsappBusinessAccount whatsappBusinessAccount) {
+    
+    this.whatsappBusinessAccount = whatsappBusinessAccount;
+    return this;
+  }
+
+   /**
+   * Get whatsappBusinessAccount
+   * @return whatsappBusinessAccount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappBusinessAccount getWhatsappBusinessAccount() {
+    return whatsappBusinessAccount;
+  }
+
+
+  public void setWhatsappBusinessAccount(WhatsappBusinessAccount whatsappBusinessAccount) {
+    this.whatsappBusinessAccount = whatsappBusinessAccount;
+  }
+
+
   public Event whatsappInboundMessage(WhatsappInboundMessage whatsappInboundMessage) {
     
     this.whatsappInboundMessage = whatsappInboundMessage;
@@ -411,6 +439,7 @@ public class Event {
         Objects.equals(this.emailDelivery, event.emailDelivery) &&
         Objects.equals(this.sms, event.sms) &&
         Objects.equals(this.voice, event.voice) &&
+        Objects.equals(this.whatsappBusinessAccount, event.whatsappBusinessAccount) &&
         Objects.equals(this.whatsappInboundMessage, event.whatsappInboundMessage) &&
         Objects.equals(this.whatsappMessage, event.whatsappMessage) &&
         Objects.equals(this.whatsappPhoneNumber, event.whatsappPhoneNumber) &&
@@ -420,7 +449,7 @@ public class Event {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, voice, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappTemplate, additionalProperties);
+    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappTemplate, additionalProperties);
   }
 
   @Override
@@ -434,6 +463,7 @@ public class Event {
     sb.append("    emailDelivery: ").append(toIndentedString(emailDelivery)).append("\n");
     sb.append("    sms: ").append(toIndentedString(sms)).append("\n");
     sb.append("    voice: ").append(toIndentedString(voice)).append("\n");
+    sb.append("    whatsappBusinessAccount: ").append(toIndentedString(whatsappBusinessAccount)).append("\n");
     sb.append("    whatsappInboundMessage: ").append(toIndentedString(whatsappInboundMessage)).append("\n");
     sb.append("    whatsappMessage: ").append(toIndentedString(whatsappMessage)).append("\n");
     sb.append("    whatsappPhoneNumber: ").append(toIndentedString(whatsappPhoneNumber)).append("\n");
@@ -468,6 +498,7 @@ public class Event {
     openapiFields.add("emailDelivery");
     openapiFields.add("sms");
     openapiFields.add("voice");
+    openapiFields.add("whatsappBusinessAccount");
     openapiFields.add("whatsappInboundMessage");
     openapiFields.add("whatsappMessage");
     openapiFields.add("whatsappPhoneNumber");
@@ -519,6 +550,10 @@ public class Event {
       // validate the optional field `voice`
       if (jsonObj.getAsJsonObject("voice") != null) {
         Voice.validateJsonObject(jsonObj.getAsJsonObject("voice"));
+      }
+      // validate the optional field `whatsappBusinessAccount`
+      if (jsonObj.getAsJsonObject("whatsappBusinessAccount") != null) {
+        WhatsappBusinessAccount.validateJsonObject(jsonObj.getAsJsonObject("whatsappBusinessAccount"));
       }
       // validate the optional field `whatsappInboundMessage`
       if (jsonObj.getAsJsonObject("whatsappInboundMessage") != null) {

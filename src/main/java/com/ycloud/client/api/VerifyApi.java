@@ -85,7 +85,7 @@ public class VerifyApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The verification check is successfully processed. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully processed the verification check. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call checkCall(VerificationCheckRequest verificationCheckRequest, final ApiCallback _callback) throws ApiException {
@@ -157,7 +157,7 @@ public class VerifyApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The verification check is successfully processed. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully processed the verification check. </td><td>  -  </td></tr>
      </table>
      */
     public VerificationCheck check(VerificationCheckRequest verificationCheckRequest) throws ApiException {
@@ -175,7 +175,7 @@ public class VerifyApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The verification check is successfully processed. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully processed the verification check. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<VerificationCheck> checkWithHttpInfo(VerificationCheckRequest verificationCheckRequest) throws ApiException {
@@ -195,7 +195,7 @@ public class VerifyApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The verification check is successfully processed. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully processed the verification check. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call checkAsync(VerificationCheckRequest verificationCheckRequest, final ApiCallback<VerificationCheck> _callback) throws ApiException {

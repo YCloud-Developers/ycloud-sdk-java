@@ -23,6 +23,7 @@ tags:
 - name: Verify
 - name: Voices
 - name: Webhook Endpoints
+- name: WhatsApp Business Accounts
 - name: WhatsApp Messages
 - name: WhatsApp Phone Numbers
 - name: WhatsApp Templates
@@ -213,7 +214,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VerificationCheck'
-          description: The verification check is successfully processed.
+          description: Successfully processed the verification check.
       summary: Check a verification
       tags:
       - Verify
@@ -391,7 +392,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WebhookEndpoint'
-          description: A webhook endpoint is successfully created.
+          description: Successfully created a webhook endpoint.
       summary: Create a webhook endpoint
       tags:
       - Webhook Endpoints
@@ -417,7 +418,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WebhookEndpoint'
-          description: The webhook endpoint is successfully deleted.
+          description: Successfully deleted the webhook endpoint.
         "404":
           content:
             application/json:
@@ -447,7 +448,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WebhookEndpoint'
-          description: The webhook endpoint is successfully retrieved.
+          description: Successfully retrieved the webhook endpoint.
         "404":
           content:
             application/json:
@@ -483,7 +484,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WebhookEndpoint'
-          description: The webhook endpoint is successfully updated.
+          description: Successfully updated the webhook endpoint.
         "404":
           content:
             application/json:
@@ -515,7 +516,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WebhookEndpoint'
-          description: The webhook endpoint is successfully deleted.
+          description: Successfully rotated the webhook endpoint secret.
         "404":
           content:
             application/json:
@@ -525,6 +526,64 @@ paths:
       summary: Rotate a webhook endpoint secret
       tags:
       - Webhook Endpoints
+      x-accepts: application/json
+  /whatsapp/businessAccounts:
+    get:
+      description: Returns a paginated list of WhatsApp business accounts you've registered
+        on YCloud.
+      operationId: whatsapp_business_account-list
+      parameters:
+      - description: WhatsApp Business Account review status.
+        explode: true
+        in: query
+        name: filter.accountReviewStatus
+        required: false
+        schema:
+          example: APPROVED
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappBusinessAccount'
+          description: Successfully retrieved a paginated list of objects.
+      summary: List WABAs
+      tags:
+      - WhatsApp Business Accounts
+      x-group-parameters: true
+      x-accepts: application/json
+  /whatsapp/businessAccounts/{id}:
+    get:
+      description: Retrieves a WABA you've registered on YCloud.
+      operationId: whatsapp_business_account-retrieve
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappBusinessAccount'
+          description: Successfully retrieved the WABA.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Retrieve a WABA
+      tags:
+      - WhatsApp Business Accounts
       x-accepts: application/json
   /whatsapp/messages:
     post:
@@ -672,7 +731,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WhatsappPhoneNumber'
-          description: The WhatsApp phone number is successfully retrieved.
+          description: Successfully retrieved the object.
         "404":
           content:
             application/json:
@@ -780,7 +839,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WhatsappTemplate'
-          description: The template is successfully created.
+          description: Successfully created a WhatsApp template.
       summary: Create a WhatsApp template
       tags:
       - WhatsApp Templates
@@ -822,7 +881,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/WhatsappTemplate'
                 type: array
-          description: The template(s) is successfully deleted.
+          description: Successfully deleted the template(s).
         "404":
           content:
             application/json:
@@ -875,7 +934,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WhatsappTemplate'
-          description: The WhatsApp template is successfully retrieved.
+          description: Successfully retrieved the template.
         "404":
           content:
             application/json:
@@ -935,7 +994,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WhatsappTemplate'
-          description: The template is successfully edited.
+          description: Successfully edited the template.
         "404":
           content:
             application/json:
@@ -991,6 +1050,16 @@ components:
       required: false
       schema:
         example: whatsapp-business-account-id
+        type: string
+      style: form
+    filter_accountReviewStatus-WABA:
+      description: WhatsApp Business Account review status.
+      explode: true
+      in: query
+      name: filter.accountReviewStatus
+      required: false
+      schema:
+        example: APPROVED
         type: string
       style: form
     id-in_path:
@@ -1073,7 +1142,7 @@ components:
           format: double
           type: number
         currency:
-          description: "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)"
+          description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
           example: USD
           type: string
       required:
@@ -1179,14 +1248,14 @@ components:
             \ `bcc`."
           example: 3
           format: int32
-          type: number
+          type: integer
         totalPrice:
           description: Total price of this message.
           example: 0.0085
           format: double
           type: number
         currency:
-          description: "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)"
+          description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
           example: USD
           type: string
       required:
@@ -1403,6 +1472,8 @@ components:
           $ref: '#/components/schemas/Sms'
         voice:
           $ref: '#/components/schemas/Voice'
+        whatsappBusinessAccount:
+          $ref: '#/components/schemas/WhatsappBusinessAccount'
         whatsappInboundMessage:
           $ref: '#/components/schemas/WhatsappInboundMessage'
         whatsappMessage:
@@ -1423,6 +1494,8 @@ components:
       - email.delivery.updated
       - sms.message.updated
       - voice.message.updated
+      - whatsapp.business_account.reviewed
+      - whatsapp.business_account.updated
       - whatsapp.inbound_message.received
       - whatsapp.message.updated
       - whatsapp.phone_number.name_updated
@@ -1436,6 +1509,9 @@ components:
         \ or `undelivered`."
       - "Occurs when a voice message status is updated, and the status changes to\
         \ `delivered` or `undelivered`."
+      - Occurs when a WhatsApp Business Account has been reviewed.
+      - "Occurs when a policy violation happened, WhatsApp Business Account has been\
+        \ banned and more."
       - Occurs when a WhatsApp inbound message is received.
       - "Occurs when a WhatsApp outbound message status is updated, and the status\
         \ changes to `sent`, `failed`, `delivered`, or `read`."
@@ -1443,8 +1519,8 @@ components:
         or rejected.
       - "Occurs when a WhatsApp business account phone number's quality-related status\
         \ is updated, and the status changes to `GREEN`, `YELLOW`, or `RED`."
-      - "Occurs when a WhatsApp template is reviewed, and the status changes to `APPROVED`\
-        \ or `REJECTED`."
+      - "Occurs when a WhatsApp template status is updated, and the status changes\
+        \ to REJECTED, APPROVED, PAUSED, DISABLED, or IN_APPEAL."
     Mailbox:
       description: Represents a mailbox.
       example:
@@ -1460,6 +1536,21 @@ components:
           example: team@example.com
           type: string
       type: object
+    MetaBusinessAccountVerificationStatus:
+      description: Current status of business verification of Meta Business Account
+        which owns this WhatsApp Business Account.
+      enum:
+      - expired
+      - failed
+      - ineligible
+      - not_verified
+      - pending
+      - pending_need_more_info
+      - pending_submission
+      - rejected
+      - revoked
+      - verified
+      type: string
     Page:
       description: Represents a given page of items.
       properties:
@@ -1547,7 +1638,7 @@ components:
           format: double
           type: number
         currency:
-          description: "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)"
+          description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
           example: USD
           type: string
         status:
@@ -1635,6 +1726,7 @@ components:
       example:
         totalPrice: 0.0085
         channel: sms
+        currency: USD
         id: ve6j7n8i
         to: +447901614024
         status: null
@@ -1659,10 +1751,14 @@ components:
           format: date-time
           type: string
         totalPrice:
-          description: "Total price of this verification. Currency: USD."
+          description: Total price of this verification.
           example: 0.0085
           format: double
           type: number
+        currency:
+          description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
+          example: USD
+          type: string
       required:
       - id
       type: object
@@ -1898,7 +1994,7 @@ components:
           format: double
           type: number
         currency:
-          description: "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)"
+          description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
           example: USD
           type: string
         status:
@@ -2178,6 +2274,140 @@ components:
         status:
           $ref: '#/components/schemas/WebhookEndpointStatus'
       type: object
+    WhatsappBusinessAccount:
+      description: "Represents a specific [WhatsApp Business Account (WABA)](https://www.facebook.com/business/help/1499554293524119)."
+      example:
+        ownershipType: ownershipType
+        country: country
+        primaryFundingId: primaryFundingId
+        decision: null
+        businessVerificationStatus: null
+        restrictions:
+        - restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
+          expiration: 2022-06-01T12:00:00Z
+        - restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
+          expiration: 2022-06-01T12:00:00Z
+        banDate: "December 9, 2022"
+        messageTemplateNamespace: messageTemplateNamespace
+        banState: null
+        accountReviewStatus: null
+        violationType: SCAM
+        updateEvent: null
+        purchaseOrderNumber: purchaseOrderNumber
+        name: name
+        timezoneId: timezoneId
+        currency: currency
+        id: id
+      properties:
+        id:
+          description: ID of the WhatApp Business Account.
+          type: string
+        name:
+          description: User-friendly name to differentiate WhatsApp Business Accounts.
+          type: string
+        currency:
+          description: The currency in which the payment transactions for the WhatsApp
+            Business Account will be processed.
+          type: string
+        messageTemplateNamespace:
+          description: Namespace string for the message templates that belong to the
+            WhatsApp Business Account.
+          type: string
+        accountReviewStatus:
+          $ref: '#/components/schemas/WhatsappBusinessAccountReviewStatus'
+        businessVerificationStatus:
+          $ref: '#/components/schemas/MetaBusinessAccountVerificationStatus'
+        country:
+          description: Country of the WhatsApp Business Account's owning Meta Business
+            account.
+          type: string
+        ownershipType:
+          description: Ownership type of the WhatsApp Business Account.
+          type: string
+        primaryFundingId:
+          description: Primary funding ID for the WhatsApp Business Account paid service.
+          type: string
+        purchaseOrderNumber:
+          description: The purchase order number supplied by the business for payment
+            management purposes.
+          type: string
+        timezoneId:
+          description: The timezone of the WhatsApp Business Account.
+          type: string
+        decision:
+          $ref: '#/components/schemas/WhatsappReviewDecision'
+        updateEvent:
+          $ref: '#/components/schemas/WhatsappBusinessAccountUpdateEventEnum'
+        banState:
+          $ref: '#/components/schemas/WhatsappBusinessAccountBanState'
+        banDate:
+          description: The date when the WABA is banned.
+          example: "December 9, 2022"
+          type: string
+        violationType:
+          description: "Used to report violations imposed on the WABA. See also [WhatsApp\
+            \ Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations)."
+          example: SCAM
+          type: string
+        restrictions:
+          description: "Used to report restrictions imposed on the WABA, when that\
+            \ WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement)."
+          items:
+            $ref: '#/components/schemas/WhatsappBusinessAccountRestrictionInfo'
+          type: array
+      type: object
+    WhatsappBusinessAccountBanState:
+      description: The ban state of the WhatsApp Business Account.
+      enum:
+      - SCHEDULE_FOR_DISABLE
+      - DISABLE
+      - REINSTATE
+      type: string
+    WhatsappBusinessAccountRestrictionInfo:
+      description: "Used to report restrictions imposed on a specific WABA, when that\
+        \ WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement)."
+      example:
+        restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
+        expiration: 2022-06-01T12:00:00Z
+      properties:
+        restrictionType:
+          description: Restriction type.
+          enum:
+          - RESTRICTED_ADD_PHONE_NUMBER_ACTION
+          - RESTRICTED_BIZ_INITIATED_MESSAGING
+          - RESTRICTED_CUSTOMER_INITIATED_MESSAGING
+          type: string
+        expiration:
+          description: "The time at which this restriction expires, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+      type: object
+    WhatsappBusinessAccountReviewStatus:
+      description: WhatsApp Business Account review status.
+      enum:
+      - PENDING
+      - APPROVED
+      - REJECTED
+      type: string
+    WhatsappBusinessAccountUpdateEventEnum:
+      description: "Indicates the update event type of the WABA when a notification\
+        \ is sent to you to report a [policy violation](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement),\
+        \ a WABA has been banned and more."
+      enum:
+      - DISABLED_UPDATE
+      - VERIFIED_ACCOUNT
+      - ACCOUNT_RESTRICTION
+      - ACCOUNT_VIOLATION
+      - ACCOUNT_DELETED
+      type: string
+      x-enum-descriptions:
+      - WhatsApp Business Account Banned.
+      - Sandbox Number Upgraded to Verified Account.
+      - WhatsApp Business Account Restricted Due To Policy Violations.
+      - WhatsApp Business Account Violates Policy.
+      - WhatsApp Business Account Deleted.
     WhatsappConversation:
       description: "WhatsApp defines a conversation as a 24-hour session of messaging\
         \ between a person and a business. See also [Using the Platform](https://developers.facebook.com/docs/whatsapp/conversation-types#using-the-platform)."
@@ -2227,6 +2457,10 @@ components:
         id:
           description: Unique ID for the object.
           type: string
+        wamid:
+          description: The native WhatsApp message ID.
+          example: wamid.BgNODYxN...
+          type: string
         wabaId:
           description: WhatsApp Business Account ID.
           example: whatsapp-business-account-id
@@ -2273,85 +2507,22 @@ components:
           items:
             $ref: '#/components/schemas/WhatsappMessageContact'
           type: array
+        reaction:
+          $ref: '#/components/schemas/WhatsappInboundMessageReaction'
+        order:
+          $ref: '#/components/schemas/WhatsappInboundMessageOrder'
+        system:
+          $ref: '#/components/schemas/WhatsappInboundMessageSystem'
+        errors:
+          items:
+            $ref: '#/components/schemas/WhatsappInboundMessageError'
+          type: array
+        context:
+          $ref: '#/components/schemas/WhatsappInboundMessageContext'
+        referral:
+          $ref: '#/components/schemas/WhatsappInboundMessageReferral'
       required:
       - id
-      type: object
-    WhatsappMessageContact:
-      description: "When the message type filed is set to `contacts`, this object\
-        \ is included in the message object.\nSee also [WhatsApp message contacts\
-        \ object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#contacts-object)."
-      example:
-        birthday: 2022-09-27
-        emails:
-        - type: WORK
-          email: email
-        - type: WORK
-          email: email
-        addresses:
-        - zip: zip
-          country: country
-          country_code: country_code
-          city: city
-          street: street
-          state: state
-          type: WORK
-        - zip: zip
-          country: country
-          country_code: country_code
-          city: city
-          street: street
-          state: state
-          type: WORK
-        urls:
-        - type: type
-          url: url
-        - type: type
-          url: url
-        org:
-          company: company
-          department: department
-          title: title
-        name:
-          prefix: prefix
-          last_name: last_name
-          middle_name: middle_name
-          suffix: suffix
-          first_name: first_name
-          formatted_name: formatted_name
-        phones:
-        - phone: phone
-          wa_id: wa_id
-          type: type
-        - phone: phone
-          wa_id: wa_id
-          type: type
-      properties:
-        addresses:
-          items:
-            $ref: '#/components/schemas/WhatsappMessageContact_addresses_inner'
-          type: array
-        birthday:
-          description: '`YYYY-MM-DD` formatted string.'
-          example: 2022-09-27
-          type: string
-        emails:
-          items:
-            $ref: '#/components/schemas/WhatsappMessageContact_emails_inner'
-          type: array
-        name:
-          $ref: '#/components/schemas/WhatsappMessageContact_name'
-        org:
-          $ref: '#/components/schemas/WhatsappMessageContact_org'
-        phones:
-          description: Contact phone number(s) formatted as a phone object.
-          items:
-            $ref: '#/components/schemas/WhatsappMessageContact_phones_inner'
-          type: array
-        urls:
-          description: Contact URL(s) formatted as a urls object.
-          items:
-            $ref: '#/components/schemas/WhatsappMessageContact_urls_inner'
-          type: array
       type: object
     WhatsappInboundMessageButton:
       description: "When the message type field is set to `button`, this object is\
@@ -2363,6 +2534,50 @@ components:
           type: string
         text:
           description: Button text.
+          type: string
+      type: object
+    WhatsappInboundMessageContext:
+      description: Message context.
+      properties:
+        forwarded:
+          description: |-
+            **Added to Webhooks if message was forwarded.**
+
+            Set to `true` if the received message has been forwarded.
+          type: boolean
+        frequently_forwarded:
+          description: |-
+            **Added to Webhooks if message has been frequently forwarded.**
+
+            Set to `true` if the received message has been forwarded more than five times.
+          type: boolean
+        from:
+          description: |-
+            **Added to Webhooks if message is an inbound reply to a sent message.**
+
+            The WhatsApp ID (a phone number without the '+' prefix) of the sender of the sent message.
+          type: string
+        id:
+          description: |-
+            **Optional.**
+
+            The `wamid` for the sent message for an inbound reply.
+          example: wamid.BgNODYxN...
+          type: string
+        referred_product:
+          $ref: '#/components/schemas/WhatsappInboundMessageReferredProduct'
+      type: object
+    WhatsappInboundMessageError:
+      description: "When the message type field is set to `unknown` or `unsupported`,\
+        \ this object is included."
+      properties:
+        code:
+          description: The error code.
+          example: "131051"
+          type: string
+        title:
+          description: The error title.
+          example: Unsupported message type
           type: string
       type: object
     WhatsappInboundMessageInteractive:
@@ -2446,6 +2661,150 @@ components:
           description: Checksum.
           type: string
       type: object
+    WhatsappInboundMessageOrder:
+      description: "When a customer places an order, the message type is set to `order`,\
+        \ and this field is included."
+      properties:
+        catalog_id:
+          description: The catalog ID.
+          example: the-catalog_id
+          type: string
+        product_items:
+          items:
+            $ref: '#/components/schemas/WhatsappInboundMessageOrderProductItem'
+          type: array
+        text:
+          description: Text message sent along with the order.
+          type: string
+      type: object
+    WhatsappInboundMessageOrderProductItem:
+      properties:
+        product_retailer_id:
+          description: The product SKU identifier.
+          type: string
+        quantity:
+          description: Number of item.
+          format: int32
+          type: integer
+        item_price:
+          description: Unitary price of item.
+          type: string
+        currency:
+          description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
+          example: USD
+          type: string
+      type: object
+    WhatsappInboundMessageReaction:
+      description: "When a user reacts to messages with an emoji, the message type\
+        \ is set to `reaction`, and this field is included."
+      properties:
+        message_id:
+          description: Specifies the `wamid` of the message received that contained
+            the reaction.
+          example: wamid.BgNODYxN...
+          type: string
+        emoji:
+          description: "This field is included when a user reacts to messages with\
+            \ an emoji. Otherwise, it indicates a user removed the emoji."
+          type: string
+      type: object
+    WhatsappInboundMessageReferral:
+      description: "When a user messages businesses using call-to-actions buttons\
+        \ on [Ads that Click to WhatsApp](https://www.facebook.com/business/help/447934475640650)\
+        \ or a [Facebook Page call-to-action buttons](https://www.facebook.com/help/977869848936797),\
+        \ this field is included as an attachment."
+      properties:
+        source_url:
+          description: Specifies the URL that leads to the ad or post clicked by the
+            user. Opening this URL takes you to the ad viewed by your user.
+          type: string
+        source_type:
+          description: Specifies the type of the ad's source. Supported values are
+            "ad" or "post".
+          type: string
+        source_id:
+          description: Specifies the Meta ID for an ad or post.
+          type: string
+        headline:
+          description: Specifies the headline used in the ad or post that generated
+            the message.
+          type: string
+        body:
+          description: "The description, or body, from the ad or post that generated\
+            \ the message."
+          type: string
+        media_type:
+          description: Media present in the ad or post the user clicked. Supported
+            values are "image" or "video".
+          type: string
+        image_url:
+          description: |-
+            **Added if media_type is "image".**
+
+            Contains a URL to the raw image.
+          type: string
+        video_url:
+          description: |-
+            **Added if media_type is "video".**
+
+            Contains a URL to the video.
+          type: string
+        thumbnail_url:
+          description: |-
+            **Added if media_type is "video".**
+
+            Contains a URL to the thumbnail image of the clicked video.
+          type: string
+      type: object
+    WhatsappInboundMessageReferredProduct:
+      description: "A Product Enquiry Message is received when a user is asking for\
+        \ more information about a specific product.\nThese can be received as in\
+        \ two scenarios:\n1. When a customer replies to Single or Multi-Product Messages.\n\
+        2. When a customer accesses a business’ catalog through another entry point,\
+        \ navigates to a Product Details Page, and clicks Message Business about this\
+        \ Product."
+      properties:
+        catalog_id:
+          description: The catalog ID.
+          type: string
+        product_retailer_id:
+          description: The product SKU identifier.
+          type: string
+      type: object
+    WhatsappInboundMessageSystem:
+      description: "When the message type is set to `system`, this field is included.\n\
+        This object is added to Webhooks if a user has changed their phone number\
+        \ and if a user’s identity has potentially changed on WhatsApp."
+      properties:
+        body:
+          description: "Describes the system message event. Supported use cases are:\n\
+            - Phone number update: for when a user changes from an old number to a\
+            \ new number.\n- Identity update: for when a user identity has changed."
+          type: string
+        new_wa_id:
+          description: |-
+            **Added to Webhooks for phone number updates.**
+
+            New WhatsApp ID of the customer.
+          type: string
+        identity:
+          description: |-
+            **Added to Webhooks for identity updates.**
+
+            New WhatsApp ID of the customer.
+          type: string
+        type:
+          description: "Supported types are:\n- `user_changed_number`: for a user\
+            \ changed number notification.\n- `user_identity_changed`: for user identity\
+            \ changed notification."
+          type: string
+        user:
+          description: |-
+            **Added to Webhooks for identity updates.**
+
+            The new WhatsApp user ID of the customer.
+          type: string
+      type: object
     WhatsappInboundMessageText:
       description: "When the notification describes a text message, the text object\
         \ provides the body of the text message."
@@ -2468,7 +2827,10 @@ components:
       - location
       - interactive
       - button
+      - reaction
+      - order
       - system
+      - unsupported
       - unknown
       type: string
     WhatsappMessage:
@@ -2551,6 +2913,8 @@ components:
           filename: filename
           link: link
           caption: caption
+        wamid: wamid.BgNODYxN...
+        totalPrice: 0.05
         document:
           filename: filename
           link: link
@@ -2694,6 +3058,7 @@ components:
           latitude: 6.027456183070403
           name: name
           longitude: 1.4658129805029452
+        currency: USD
         id: id
         to: +447901614024
         text:
@@ -2801,6 +3166,10 @@ components:
         id:
           description: Unique ID for the object.
           type: string
+        wamid:
+          description: The native WhatsApp message ID.
+          example: wamid.BgNODYxN...
+          type: string
         wabaId:
           description: WhatsApp Business Account ID.
           example: whatsapp-business-account-id
@@ -2864,12 +3233,98 @@ components:
           example: 2022-06-01T12:00:00Z
           format: date-time
           type: string
+        totalPrice:
+          description: Total price of this message.
+          example: 0.05
+          format: double
+          type: number
+        currency:
+          description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
+          example: USD
+          type: string
       required:
       - from
       - id
       - to
       - type
       - wabaId
+      type: object
+    WhatsappMessageContact:
+      description: "When the message type filed is set to `contacts`, this object\
+        \ is included in the message object.\nSee also [WhatsApp message contacts\
+        \ object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#contacts-object)."
+      example:
+        birthday: 2022-09-27
+        emails:
+        - type: WORK
+          email: email
+        - type: WORK
+          email: email
+        addresses:
+        - zip: zip
+          country: country
+          country_code: country_code
+          city: city
+          street: street
+          state: state
+          type: WORK
+        - zip: zip
+          country: country
+          country_code: country_code
+          city: city
+          street: street
+          state: state
+          type: WORK
+        urls:
+        - type: type
+          url: url
+        - type: type
+          url: url
+        org:
+          company: company
+          department: department
+          title: title
+        name:
+          prefix: prefix
+          last_name: last_name
+          middle_name: middle_name
+          suffix: suffix
+          first_name: first_name
+          formatted_name: formatted_name
+        phones:
+        - phone: phone
+          wa_id: wa_id
+          type: type
+        - phone: phone
+          wa_id: wa_id
+          type: type
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/WhatsappMessageContact_addresses_inner'
+          type: array
+        birthday:
+          description: '`YYYY-MM-DD` formatted string.'
+          example: 2022-09-27
+          type: string
+        emails:
+          items:
+            $ref: '#/components/schemas/WhatsappMessageContact_emails_inner'
+          type: array
+        name:
+          $ref: '#/components/schemas/WhatsappMessageContact_name'
+        org:
+          $ref: '#/components/schemas/WhatsappMessageContact_org'
+        phones:
+          description: Contact phone number(s) formatted as a phone object.
+          items:
+            $ref: '#/components/schemas/WhatsappMessageContact_phones_inner'
+          type: array
+        urls:
+          description: Contact URL(s) formatted as a urls object.
+          items:
+            $ref: '#/components/schemas/WhatsappMessageContact_urls_inner'
+          type: array
       type: object
     WhatsappMessageInteractive:
       description: "[WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object)."
@@ -3584,7 +4039,7 @@ components:
       description: "A WhatsApp Business Account (WABA) phone number. See also [WhatsApp\
         \ Retrieve Phone Numbers](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers)."
       example:
-        decision: APPROVED
+        decision: null
         messagingLimit: TIER_1K
         qualityRating: null
         wabaId: whatsapp-business-account-id
@@ -3640,9 +4095,7 @@ components:
         newNameStatus:
           $ref: '#/components/schemas/WhatsappPhoneNumberNameStatus'
         decision:
-          description: "Decision. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
-          example: APPROVED
-          type: string
+          $ref: '#/components/schemas/WhatsappReviewDecision'
         requestedVerifiedName:
           description: "Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
           type: string
@@ -3682,7 +4135,7 @@ components:
       description: Represents a given page of WhatsApp phone numbers.
       example:
         items:
-        - decision: APPROVED
+        - decision: null
           messagingLimit: TIER_1K
           qualityRating: null
           wabaId: whatsapp-business-account-id
@@ -3695,7 +4148,7 @@ components:
           rejectionReason: rejectionReason
           codeVerificationStatus: null
           status: null
-        - decision: APPROVED
+        - decision: null
           messagingLimit: TIER_1K
           qualityRating: null
           wabaId: whatsapp-business-account-id
@@ -3792,6 +4245,13 @@ components:
           example: John
           type: string
       type: object
+    WhatsappReviewDecision:
+      description: Used if a decision about WhatsApp accounts or phone numbers has
+        been made.
+      enum:
+      - APPROVED
+      - REJECTED
+      type: string
     WhatsappTemplate:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
       example:
@@ -3872,8 +4332,10 @@ components:
             header_url:
             - header_url
             - header_url
+        disableDate: "December 9, 2022"
         createTime: 2022-06-01T12:00:00Z
         name: name
+        statusUpdateEvent: null
         language: en
         updateTime: 2022-06-01T12:00:00Z
         category: null
@@ -3915,6 +4377,13 @@ components:
             \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
           example: 2022-06-01T12:00:00Z
           format: date-time
+          type: string
+        statusUpdateEvent:
+          $ref: '#/components/schemas/WhatsappTemplateStatusUpdateEventEnum'
+        disableDate:
+          description: "The date at which the template will be disabled. When a WhatsApp\
+            \ template `FLAGGED` event is received, this field is set."
+          example: "December 9, 2022"
           type: string
       required:
       - category
@@ -4313,8 +4782,10 @@ components:
               header_url:
               - header_url
               - header_url
+          disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
           name: name
+          statusUpdateEvent: null
           language: en
           updateTime: 2022-06-01T12:00:00Z
           category: null
@@ -4396,8 +4867,10 @@ components:
               header_url:
               - header_url
               - header_url
+          disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
           name: name
+          statusUpdateEvent: null
           language: en
           updateTime: 2022-06-01T12:00:00Z
           category: null
@@ -4412,19 +4885,19 @@ components:
     WhatsappTemplateStatus:
       description: "One of `APPROVED`, `PENDING`, `REJECTED`, `PAUSED`, and `DISABLED`."
       enum:
-      - APPROVED
       - PENDING
       - REJECTED
+      - APPROVED
       - PAUSED
       - DISABLED
+      - IN_APPEAL
+      - PENDING_DELETION
       example: REJECTED
       type: string
       x-enum-descriptions:
-      - "Indicates that the template is approved, and you may begin sending it to\
-        \ customers."
-      - Indicates that the template is still under review. Review can take up to 24
-        hours.
+      - The template is still under review. Review can take up to 24 hours.
       - The template has been rejected during review process.
+      - "The template is approved, and you may begin sending it to customers."
       - "The template has been paused due to recurring negative feedback from customers.\
         \ Message templates with this status cannot be sent to customers. See [Template\
         \ Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing)."
@@ -4432,6 +4905,55 @@ components:
         \ or for violating one or more of our policies. Message templates with this\
         \ status cannot be sent to customers. You may be able to edit a disabled message\
         \ template and request an appeal. See [Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals)."
+      - "The template is in appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals)."
+      - The template is pending deletion.
+    WhatsappTemplateStatusUpdateEventEnum:
+      description: Used when an event happened on WhatsApp template status updates.
+      enum:
+      - PENDING
+      - APPROVED
+      - REJECTED
+      - IN_APPEAL
+      - PAUSED
+      - FLAGGED
+      - DISABLED
+      - REINSTATED
+      - PENDING_DELETION
+      type: string
+      x-enum-descriptions:
+      - Pending.
+      - Approved.
+      - Rejected.
+      - "In appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals)."
+      - "Paused. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing)."
+      - Flagged. The template is scheduled for disabling.
+      - "Disabled. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing)."
+      - Reinstated.
+      - Pending deletion.
+    WhatsappInboundMessageInteractive_button_reply:
+      description: Sent when a customer clicks a button. Returned when `type` is `button_reply`.
+      properties:
+        id:
+          description: Unique ID of a button.
+          type: string
+        title:
+          description: Title of a button.
+          type: string
+      type: object
+    WhatsappInboundMessageInteractive_list_reply:
+      description: Sent when a customer selects an item from a list. Returned when
+        `type` is `list_reply`.
+      properties:
+        id:
+          description: Unique ID of the selected list item.
+          type: string
+        title:
+          description: Title of the selected list item.
+          type: string
+        description:
+          description: Description of the selected row.
+          type: string
+      type: object
     WhatsappMessageContact_addresses_inner:
       description: Full contact address(es) formatted as an addresses object.
       example:
@@ -4556,30 +5078,6 @@ components:
           type: string
         type:
           description: Standard values are `HOME` and `WORK`.
-          type: string
-      type: object
-    WhatsappInboundMessageInteractive_button_reply:
-      description: Sent when a customer clicks a button. Returned when `type` is `button_reply`.
-      properties:
-        id:
-          description: Unique ID of a button.
-          type: string
-        title:
-          description: Title of a button.
-          type: string
-      type: object
-    WhatsappInboundMessageInteractive_list_reply:
-      description: Sent when a customer selects an item from a list. Returned when
-        `type` is `list_reply`.
-      properties:
-        id:
-          description: Unique ID of the selected list item.
-          type: string
-        title:
-          description: Title of the selected list item.
-          type: string
-        description:
-          description: Description of the selected row.
           type: string
       type: object
     WhatsappMessageInteractive_action_buttons_inner_reply:

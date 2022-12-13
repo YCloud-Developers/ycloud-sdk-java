@@ -50,7 +50,13 @@ public enum WhatsappInboundMessageType {
   
   BUTTON("button"),
   
+  REACTION("reaction"),
+  
+  ORDER("order"),
+  
   SYSTEM("system"),
+  
+  UNSUPPORTED("unsupported"),
   
   UNKNOWN("unknown");
 

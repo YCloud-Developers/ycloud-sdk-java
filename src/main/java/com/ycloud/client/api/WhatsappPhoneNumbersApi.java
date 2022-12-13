@@ -293,7 +293,7 @@ public class WhatsappPhoneNumbersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The WhatsApp phone number is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -374,7 +374,7 @@ public class WhatsappPhoneNumbersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The WhatsApp phone number is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -394,7 +394,7 @@ public class WhatsappPhoneNumbersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The WhatsApp phone number is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -416,7 +416,7 @@ public class WhatsappPhoneNumbersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The WhatsApp phone number is successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */

@@ -11,6 +11,10 @@
 
 * `VOICE_MESSAGE_UPDATED` (value: `"voice.message.updated"`)
 
+* `WHATSAPP_BUSINESS_ACCOUNT_REVIEWED` (value: `"whatsapp.business_account.reviewed"`)
+
+* `WHATSAPP_BUSINESS_ACCOUNT_UPDATED` (value: `"whatsapp.business_account.updated"`)
+
 * `WHATSAPP_INBOUND_MESSAGE_RECEIVED` (value: `"whatsapp.inbound_message.received"`)
 
 * `WHATSAPP_MESSAGE_UPDATED` (value: `"whatsapp.message.updated"`)

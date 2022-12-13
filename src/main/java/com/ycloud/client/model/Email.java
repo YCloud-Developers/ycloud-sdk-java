@@ -25,7 +25,6 @@ import com.ycloud.client.model.Mailbox;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -105,7 +104,7 @@ public class Email {
 
   public static final String SERIALIZED_NAME_TOTAL_RECIPIENTS = "totalRecipients";
   @SerializedName(SERIALIZED_NAME_TOTAL_RECIPIENTS)
-  private BigDecimal totalRecipients;
+  private Integer totalRecipients;
 
   public static final String SERIALIZED_NAME_TOTAL_PRICE = "totalPrice";
   @SerializedName(SERIALIZED_NAME_TOTAL_PRICE)
@@ -426,7 +425,7 @@ public class Email {
   }
 
 
-  public Email totalRecipients(BigDecimal totalRecipients) {
+  public Email totalRecipients(Integer totalRecipients) {
     
     this.totalRecipients = totalRecipients;
     return this;
@@ -439,12 +438,12 @@ public class Email {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "3", value = "Total recipients of this message, including `to`, `cc` and `bcc`.")
 
-  public BigDecimal getTotalRecipients() {
+  public Integer getTotalRecipients() {
     return totalRecipients;
   }
 
 
-  public void setTotalRecipients(BigDecimal totalRecipients) {
+  public void setTotalRecipients(Integer totalRecipients) {
     this.totalRecipients = totalRecipients;
   }
 
@@ -479,11 +478,11 @@ public class Email {
   }
 
    /**
-   * [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "[ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)")
+  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getCurrency() {
     return currency;

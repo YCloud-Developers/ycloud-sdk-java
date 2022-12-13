@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.3.0</version>
+  <version>1.4.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.3.0"
+     implementation "com.ycloud:ycloud-sdk-java:1.4.0"
   }
 ```
 
@@ -109,6 +109,8 @@ Class | Method | HTTP request | Description
 *WebhookEndpointsApi* | [**retrieve**](docs/WebhookEndpointsApi.md#retrieve) | **GET** /webhookEndpoints/{id} | Retrieve a webhook endpoint
 *WebhookEndpointsApi* | [**rotateSecret**](docs/WebhookEndpointsApi.md#rotateSecret) | **POST** /webhookEndpoints/{id}/rotateSecret | Rotate a webhook endpoint secret
 *WebhookEndpointsApi* | [**update**](docs/WebhookEndpointsApi.md#update) | **PATCH** /webhookEndpoints/{id} | Update a webhook endpoint
+*WhatsappBusinessAccountsApi* | [**list**](docs/WhatsappBusinessAccountsApi.md#list) | **GET** /whatsapp/businessAccounts | List WABAs
+*WhatsappBusinessAccountsApi* | [**retrieve**](docs/WhatsappBusinessAccountsApi.md#retrieve) | **GET** /whatsapp/businessAccounts/{id} | Retrieve a WABA
 *WhatsappMessagesApi* | [**retrieve**](docs/WhatsappMessagesApi.md#retrieve) | **GET** /whatsapp/messages/{id} | Retrieve a WhatsApp message
 *WhatsappMessagesApi* | [**send**](docs/WhatsappMessagesApi.md#send) | **POST** /whatsapp/messages | Send a WhatsApp message
 *WhatsappPhoneNumbersApi* | [**list**](docs/WhatsappPhoneNumbersApi.md#list) | **GET** /whatsapp/phoneNumbers | List WhatsApp phone numbers
@@ -132,6 +134,7 @@ Class | Method | HTTP request | Description
  - [Event](docs/Event.md)
  - [EventType](docs/EventType.md)
  - [Mailbox](docs/Mailbox.md)
+ - [MetaBusinessAccountVerificationStatus](docs/MetaBusinessAccountVerificationStatus.md)
  - [Page](docs/Page.md)
  - [Sms](docs/Sms.md)
  - [SmsPage](docs/SmsPage.md)
@@ -150,15 +153,28 @@ Class | Method | HTTP request | Description
  - [WebhookEndpointPage](docs/WebhookEndpointPage.md)
  - [WebhookEndpointStatus](docs/WebhookEndpointStatus.md)
  - [WebhookEndpointUpdateRequest](docs/WebhookEndpointUpdateRequest.md)
+ - [WhatsappBusinessAccount](docs/WhatsappBusinessAccount.md)
+ - [WhatsappBusinessAccountBanState](docs/WhatsappBusinessAccountBanState.md)
+ - [WhatsappBusinessAccountRestrictionInfo](docs/WhatsappBusinessAccountRestrictionInfo.md)
+ - [WhatsappBusinessAccountReviewStatus](docs/WhatsappBusinessAccountReviewStatus.md)
+ - [WhatsappBusinessAccountUpdateEventEnum](docs/WhatsappBusinessAccountUpdateEventEnum.md)
  - [WhatsappConversation](docs/WhatsappConversation.md)
  - [WhatsappConversationOriginType](docs/WhatsappConversationOriginType.md)
  - [WhatsappInboundMessage](docs/WhatsappInboundMessage.md)
  - [WhatsappInboundMessageButton](docs/WhatsappInboundMessageButton.md)
+ - [WhatsappInboundMessageContext](docs/WhatsappInboundMessageContext.md)
+ - [WhatsappInboundMessageError](docs/WhatsappInboundMessageError.md)
  - [WhatsappInboundMessageInteractive](docs/WhatsappInboundMessageInteractive.md)
  - [WhatsappInboundMessageInteractiveButtonReply](docs/WhatsappInboundMessageInteractiveButtonReply.md)
  - [WhatsappInboundMessageInteractiveListReply](docs/WhatsappInboundMessageInteractiveListReply.md)
  - [WhatsappInboundMessageLocation](docs/WhatsappInboundMessageLocation.md)
  - [WhatsappInboundMessageMedia](docs/WhatsappInboundMessageMedia.md)
+ - [WhatsappInboundMessageOrder](docs/WhatsappInboundMessageOrder.md)
+ - [WhatsappInboundMessageOrderProductItem](docs/WhatsappInboundMessageOrderProductItem.md)
+ - [WhatsappInboundMessageReaction](docs/WhatsappInboundMessageReaction.md)
+ - [WhatsappInboundMessageReferral](docs/WhatsappInboundMessageReferral.md)
+ - [WhatsappInboundMessageReferredProduct](docs/WhatsappInboundMessageReferredProduct.md)
+ - [WhatsappInboundMessageSystem](docs/WhatsappInboundMessageSystem.md)
  - [WhatsappInboundMessageText](docs/WhatsappInboundMessageText.md)
  - [WhatsappInboundMessageType](docs/WhatsappInboundMessageType.md)
  - [WhatsappMessage](docs/WhatsappMessage.md)
@@ -195,6 +211,7 @@ Class | Method | HTTP request | Description
  - [WhatsappPhoneNumberQualityRating](docs/WhatsappPhoneNumberQualityRating.md)
  - [WhatsappPhoneNumberStatus](docs/WhatsappPhoneNumberStatus.md)
  - [WhatsappProfile](docs/WhatsappProfile.md)
+ - [WhatsappReviewDecision](docs/WhatsappReviewDecision.md)
  - [WhatsappTemplate](docs/WhatsappTemplate.md)
  - [WhatsappTemplateCategory](docs/WhatsappTemplateCategory.md)
  - [WhatsappTemplateComponent](docs/WhatsappTemplateComponent.md)
@@ -205,6 +222,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateEditRequest](docs/WhatsappTemplateEditRequest.md)
  - [WhatsappTemplatePage](docs/WhatsappTemplatePage.md)
  - [WhatsappTemplateStatus](docs/WhatsappTemplateStatus.md)
+ - [WhatsappTemplateStatusUpdateEventEnum](docs/WhatsappTemplateStatusUpdateEventEnum.md)
 
 
 ## Documentation for Authorization

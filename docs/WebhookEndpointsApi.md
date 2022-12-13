@@ -79,7 +79,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A webhook endpoint is successfully created. |  -  |
+| **200** | Successfully created a webhook endpoint. |  -  |
 
 <a name="delete"></a>
 # **delete**
@@ -148,7 +148,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The webhook endpoint is successfully deleted. |  -  |
+| **200** | Successfully deleted the webhook endpoint. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
 <a name="list"></a>
@@ -295,7 +295,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The webhook endpoint is successfully retrieved. |  -  |
+| **200** | Successfully retrieved the webhook endpoint. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
 <a name="rotateSecret"></a>
@@ -365,7 +365,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The webhook endpoint is successfully deleted. |  -  |
+| **200** | Successfully rotated the webhook endpoint secret. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
 <a name="update"></a>
@@ -437,6 +437,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The webhook endpoint is successfully updated. |  -  |
+| **200** | Successfully updated the webhook endpoint. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 

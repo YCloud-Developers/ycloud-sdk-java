@@ -15,6 +15,7 @@ Represents a webhook event payload. Every event contains certain common properti
 |**emailDelivery** | [**EmailDelivery**](EmailDelivery.md) |  |  [optional] |
 |**sms** | [**Sms**](Sms.md) |  |  [optional] |
 |**voice** | [**Voice**](Voice.md) |  |  [optional] |
+|**whatsappBusinessAccount** | [**WhatsappBusinessAccount**](WhatsappBusinessAccount.md) |  |  [optional] |
 |**whatsappInboundMessage** | [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  |  [optional] |
 |**whatsappMessage** | [**WhatsappMessage**](WhatsappMessage.md) |  |  [optional] |
 |**whatsappPhoneNumber** | [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  |  [optional] |

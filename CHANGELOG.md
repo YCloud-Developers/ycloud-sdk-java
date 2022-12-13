@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 (2022-12-13)
+
+- Add WhatsApp Business Account APIs and webhooks.
+
 ## 1.3.0 (2022-11-18)
 
 - Add [WhatsApp](https://www.ycloud.com/whatsapp) Edit Template API.

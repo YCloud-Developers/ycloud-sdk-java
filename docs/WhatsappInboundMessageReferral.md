@@ -1,0 +1,22 @@
+
+
+# WhatsappInboundMessageReferral
+
+When a user messages businesses using call-to-actions buttons on [Ads that Click to WhatsApp](https://www.facebook.com/business/help/447934475640650) or a [Facebook Page call-to-action buttons](https://www.facebook.com/help/977869848936797), this field is included as an attachment.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**sourceUrl** | **String** | Specifies the URL that leads to the ad or post clicked by the user. Opening this URL takes you to the ad viewed by your user. |  [optional] |
+|**sourceType** | **String** | Specifies the type of the ad&#39;s source. Supported values are \&quot;ad\&quot; or \&quot;post\&quot;. |  [optional] |
+|**sourceId** | **String** | Specifies the Meta ID for an ad or post. |  [optional] |
+|**headline** | **String** | Specifies the headline used in the ad or post that generated the message. |  [optional] |
+|**body** | **String** | The description, or body, from the ad or post that generated the message. |  [optional] |
+|**mediaType** | **String** | Media present in the ad or post the user clicked. Supported values are \&quot;image\&quot; or \&quot;video\&quot;. |  [optional] |
+|**imageUrl** | **String** | **Added if media_type is \&quot;image\&quot;.**  Contains a URL to the raw image. |  [optional] |
+|**videoUrl** | **String** | **Added if media_type is \&quot;video\&quot;.**  Contains a URL to the video. |  [optional] |
+|**thumbnailUrl** | **String** | **Added if media_type is \&quot;video\&quot;.**  Contains a URL to the thumbnail image of the clicked video. |  [optional] |
+
+
+

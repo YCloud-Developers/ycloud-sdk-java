@@ -78,7 +78,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The template is successfully created. |  -  |
+| **200** | Successfully created a WhatsApp template. |  -  |
 
 <a name="deleteByName"></a>
 # **deleteByName**
@@ -149,7 +149,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The template(s) is successfully deleted. |  -  |
+| **200** | Successfully deleted the template(s). |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
 <a name="editByNameAndLanguage"></a>
@@ -225,7 +225,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The template is successfully edited. |  -  |
+| **200** | Successfully edited the template. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
 <a name="list"></a>
@@ -385,6 +385,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The WhatsApp template is successfully retrieved. |  -  |
+| **200** | Successfully retrieved the template. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 

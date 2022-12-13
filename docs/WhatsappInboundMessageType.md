@@ -25,7 +25,13 @@
 
 * `BUTTON` (value: `"button"`)
 
+* `REACTION` (value: `"reaction"`)
+
+* `ORDER` (value: `"order"`)
+
 * `SYSTEM` (value: `"system"`)
+
+* `UNSUPPORTED` (value: `"unsupported"`)
 
 * `UNKNOWN` (value: `"unknown"`)
 

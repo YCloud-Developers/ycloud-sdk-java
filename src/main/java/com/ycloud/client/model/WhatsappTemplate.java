@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappTemplateCategory;
 import com.ycloud.client.model.WhatsappTemplateComponent;
 import com.ycloud.client.model.WhatsappTemplateStatus;
+import com.ycloud.client.model.WhatsappTemplateStatusUpdateEventEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -91,6 +92,14 @@ public class WhatsappTemplate {
   public static final String SERIALIZED_NAME_UPDATE_TIME = "updateTime";
   @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
   private Date updateTime;
+
+  public static final String SERIALIZED_NAME_STATUS_UPDATE_EVENT = "statusUpdateEvent";
+  @SerializedName(SERIALIZED_NAME_STATUS_UPDATE_EVENT)
+  private WhatsappTemplateStatusUpdateEventEnum statusUpdateEvent;
+
+  public static final String SERIALIZED_NAME_DISABLE_DATE = "disableDate";
+  @SerializedName(SERIALIZED_NAME_DISABLE_DATE)
+  private String disableDate;
 
   public WhatsappTemplate() { 
   }
@@ -306,6 +315,52 @@ public class WhatsappTemplate {
     this.updateTime = updateTime;
   }
 
+
+  public WhatsappTemplate statusUpdateEvent(WhatsappTemplateStatusUpdateEventEnum statusUpdateEvent) {
+    
+    this.statusUpdateEvent = statusUpdateEvent;
+    return this;
+  }
+
+   /**
+   * Get statusUpdateEvent
+   * @return statusUpdateEvent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappTemplateStatusUpdateEventEnum getStatusUpdateEvent() {
+    return statusUpdateEvent;
+  }
+
+
+  public void setStatusUpdateEvent(WhatsappTemplateStatusUpdateEventEnum statusUpdateEvent) {
+    this.statusUpdateEvent = statusUpdateEvent;
+  }
+
+
+  public WhatsappTemplate disableDate(String disableDate) {
+    
+    this.disableDate = disableDate;
+    return this;
+  }
+
+   /**
+   * The date at which the template will be disabled. When a WhatsApp template &#x60;FLAGGED&#x60; event is received, this field is set.
+   * @return disableDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "December 9, 2022", value = "The date at which the template will be disabled. When a WhatsApp template `FLAGGED` event is received, this field is set.")
+
+  public String getDisableDate() {
+    return disableDate;
+  }
+
+
+  public void setDisableDate(String disableDate) {
+    this.disableDate = disableDate;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -360,13 +415,15 @@ public class WhatsappTemplate {
         Objects.equals(this.status, whatsappTemplate.status) &&
         Objects.equals(this.reason, whatsappTemplate.reason) &&
         Objects.equals(this.createTime, whatsappTemplate.createTime) &&
-        Objects.equals(this.updateTime, whatsappTemplate.updateTime)&&
+        Objects.equals(this.updateTime, whatsappTemplate.updateTime) &&
+        Objects.equals(this.statusUpdateEvent, whatsappTemplate.statusUpdateEvent) &&
+        Objects.equals(this.disableDate, whatsappTemplate.disableDate)&&
         Objects.equals(this.additionalProperties, whatsappTemplate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(wabaId, name, language, category, components, status, reason, createTime, updateTime, additionalProperties);
+    return Objects.hash(wabaId, name, language, category, components, status, reason, createTime, updateTime, statusUpdateEvent, disableDate, additionalProperties);
   }
 
   @Override
@@ -382,6 +439,8 @@ public class WhatsappTemplate {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    statusUpdateEvent: ").append(toIndentedString(statusUpdateEvent)).append("\n");
+    sb.append("    disableDate: ").append(toIndentedString(disableDate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -414,6 +473,8 @@ public class WhatsappTemplate {
     openapiFields.add("reason");
     openapiFields.add("createTime");
     openapiFields.add("updateTime");
+    openapiFields.add("statusUpdateEvent");
+    openapiFields.add("disableDate");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -468,6 +529,9 @@ public class WhatsappTemplate {
       }
       if (jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
+      if (jsonObj.get("disableDate") != null && !jsonObj.get("disableDate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `disableDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disableDate").toString()));
       }
   }
 
