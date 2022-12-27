@@ -366,11 +366,11 @@ public class WhatsappBusinessAccount {
   }
 
    /**
-   * The timezone of the WhatsApp Business Account.
+   * The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids).
    * @return timezoneId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The timezone of the WhatsApp Business Account.")
+  @ApiModelProperty(example = "1", value = "The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids).")
 
   public String getTimezoneId() {
     return timezoneId;

@@ -36,11 +36,6 @@ public enum WhatsappBusinessAccountUpdateEventEnum {
   DISABLED_UPDATE("DISABLED_UPDATE"),
   
   /**
-   * Sandbox Number Upgraded to Verified Account.
-   */
-  VERIFIED_ACCOUNT("VERIFIED_ACCOUNT"),
-  
-  /**
    * WhatsApp Business Account Restricted Due To Policy Violations.
    */
   ACCOUNT_RESTRICTION("ACCOUNT_RESTRICTION"),
@@ -48,12 +43,7 @@ public enum WhatsappBusinessAccountUpdateEventEnum {
   /**
    * WhatsApp Business Account Violates Policy.
    */
-  ACCOUNT_VIOLATION("ACCOUNT_VIOLATION"),
-  
-  /**
-   * WhatsApp Business Account Deleted.
-   */
-  ACCOUNT_DELETED("ACCOUNT_DELETED");
+  ACCOUNT_VIOLATION("ACCOUNT_VIOLATION");
 
   private String value;
 

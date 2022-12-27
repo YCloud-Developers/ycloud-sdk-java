@@ -15,7 +15,7 @@
 |**totalSegments** | **Integer** | Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info. |  [optional] |
 |**totalPrice** | **Double** | Total price of this message. |  [optional] |
 |**currency** | **String** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). |  [optional] |
-|**status** | [**StatusEnum**](#StatusEnum) | Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;. |  [optional] |
+|**status** | [**StatusEnum**](#StatusEnum) | Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;. |  [optional] |
 |**errorCode** | **String** | Error code when the message is undeliverable. |  [optional] |
 |**createTime** | **Date** | The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-03-01T12:00:00.000Z&#x60;. |  [optional] |
 |**updateTime** | **Date** | The time at which the delivery report for this message was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-03-01T12:00:00.000Z&#x60;. |  [optional] |
@@ -32,6 +32,7 @@
 | SENT | &quot;sent&quot; |
 | DELIVERED | &quot;delivered&quot; |
 | UNDELIVERED | &quot;undelivered&quot; |
+| FAILED | &quot;failed&quot; |
 
 
 

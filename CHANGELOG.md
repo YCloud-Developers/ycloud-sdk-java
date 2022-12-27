@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.1 (2022-12-27)
+
+- Add `failed` status for SMS, Voice.
+- Add `undelivered` status for Email.
+- Add `pending` status for Webhook Endpoint.
+
 ## 1.4.0 (2022-12-13)
 
 - Add WhatsApp Business Account APIs and webhooks.

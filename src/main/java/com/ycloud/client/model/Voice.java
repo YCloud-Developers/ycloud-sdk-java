@@ -83,7 +83,7 @@ public class Voice {
   private String currency;
 
   /**
-   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;.
+   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -93,7 +93,9 @@ public class Voice {
     
     DELIVERED("delivered"),
     
-    UNDELIVERED("undelivered");
+    UNDELIVERED("undelivered"),
+    
+    FAILED("failed");
 
     private String value;
 
@@ -352,11 +354,11 @@ public class Voice {
   }
 
    /**
-   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;.
+   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "sent", value = "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`.")
+  @ApiModelProperty(example = "sent", value = "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`.")
 
   public StatusEnum getStatus() {
     return status;

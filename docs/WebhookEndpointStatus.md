@@ -9,5 +9,7 @@
 
 * `DISABLED` (value: `"disabled"`)
 
+* `PENDING` (value: `"pending"`)
+
 
 

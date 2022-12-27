@@ -69,6 +69,8 @@ public class EmailDelivery {
     
     DELIVERED("delivered"),
     
+    UNDELIVERED("undelivered"),
+    
     FAILED("failed");
 
     private String value;

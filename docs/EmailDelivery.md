@@ -24,6 +24,7 @@ Represents an email delivery report.
 | SENDING | &quot;sending&quot; |
 | SENT | &quot;sent&quot; |
 | DELIVERED | &quot;delivered&quot; |
+| UNDELIVERED | &quot;undelivered&quot; |
 | FAILED | &quot;failed&quot; |
 
 

@@ -30,9 +30,20 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(WebhookEndpointStatus.Adapter.class)
 public enum WebhookEndpointStatus {
   
+  /**
+   * Indicates that the webhook endpoint is active, and will receive notifications of events monitored.
+   */
   ACTIVE("active"),
   
-  DISABLED("disabled");
+  /**
+   * Indicates that the webhook endpoint is disabled, and will not receive notifications.
+   */
+  DISABLED("disabled"),
+  
+  /**
+   * Indicates that the webhook endpoint is pending, and will not receive notifications. If a webhook endpoint fails to receive notifications frequently, it changes to pending.
+   */
+  PENDING("pending");
 
   private String value;
 
