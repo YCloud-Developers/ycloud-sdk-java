@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.2 (2022-12-28)
+
+- Fix WhatsApp Business Accounts API response body.
+
 ## 1.4.1 (2022-12-27)
 
 - Add `failed` status for SMS, Voice.

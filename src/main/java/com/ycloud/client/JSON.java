@@ -114,6 +114,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WebhookEndpointPage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WebhookEndpointUpdateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappBusinessAccount.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappBusinessAccountPage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappBusinessAccountRestrictionInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappConversation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappInboundMessage.CustomTypeAdapterFactory());

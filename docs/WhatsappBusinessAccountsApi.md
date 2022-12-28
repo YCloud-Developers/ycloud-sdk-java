@@ -10,7 +10,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 <a name="list"></a>
 # **list**
-> WhatsappBusinessAccount list().filterAccountReviewStatus(filterAccountReviewStatus).execute();
+> WhatsappBusinessAccountPage list().filterAccountReviewStatus(filterAccountReviewStatus).execute();
 
 List WABAs
 
@@ -40,7 +40,7 @@ public class Example {
     WhatsappBusinessAccountsApi apiInstance = new WhatsappBusinessAccountsApi(defaultClient);
     String filterAccountReviewStatus = "APPROVED"; // String | WhatsApp Business Account review status.
     try {
-      WhatsappBusinessAccount result = apiInstance.list()
+      WhatsappBusinessAccountPage result = apiInstance.list()
             .filterAccountReviewStatus(filterAccountReviewStatus)
             .execute();
       System.out.println(result);
@@ -63,7 +63,7 @@ public class Example {
 
 ### Return type
 
-[**WhatsappBusinessAccount**](WhatsappBusinessAccount.md)
+[**WhatsappBusinessAccountPage**](WhatsappBusinessAccountPage.md)
 
 ### Authorization
 

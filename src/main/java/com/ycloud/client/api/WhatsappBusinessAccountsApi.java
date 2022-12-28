@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import com.ycloud.client.model.ErrorResponse;
 import com.ycloud.client.model.WhatsappBusinessAccount;
+import com.ycloud.client.model.WhatsappBusinessAccountPage;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -133,16 +134,16 @@ public class WhatsappBusinessAccountsApi {
     }
 
 
-    private ApiResponse<WhatsappBusinessAccount> listWithHttpInfo(String filterAccountReviewStatus) throws ApiException {
+    private ApiResponse<WhatsappBusinessAccountPage> listWithHttpInfo(String filterAccountReviewStatus) throws ApiException {
         okhttp3.Call localVarCall = listValidateBeforeCall(filterAccountReviewStatus, null);
-        Type localVarReturnType = new TypeToken<WhatsappBusinessAccount>(){}.getType();
+        Type localVarReturnType = new TypeToken<WhatsappBusinessAccountPage>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listAsync(String filterAccountReviewStatus, final ApiCallback<WhatsappBusinessAccount> _callback) throws ApiException {
+    private okhttp3.Call listAsync(String filterAccountReviewStatus, final ApiCallback<WhatsappBusinessAccountPage> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listValidateBeforeCall(filterAccountReviewStatus, _callback);
-        Type localVarReturnType = new TypeToken<WhatsappBusinessAccount>(){}.getType();
+        Type localVarReturnType = new TypeToken<WhatsappBusinessAccountPage>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -180,7 +181,7 @@ public class WhatsappBusinessAccountsApi {
 
         /**
          * Execute list request
-         * @return WhatsappBusinessAccount
+         * @return WhatsappBusinessAccountPage
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -188,14 +189,14 @@ public class WhatsappBusinessAccountsApi {
             <tr><td> 200 </td><td> Successfully retrieved a paginated list of objects. </td><td>  -  </td></tr>
          </table>
          */
-        public WhatsappBusinessAccount execute() throws ApiException {
-            ApiResponse<WhatsappBusinessAccount> localVarResp = listWithHttpInfo(filterAccountReviewStatus);
+        public WhatsappBusinessAccountPage execute() throws ApiException {
+            ApiResponse<WhatsappBusinessAccountPage> localVarResp = listWithHttpInfo(filterAccountReviewStatus);
             return localVarResp.getData();
         }
 
         /**
          * Execute list request with HTTP info returned
-         * @return ApiResponse&lt;WhatsappBusinessAccount&gt;
+         * @return ApiResponse&lt;WhatsappBusinessAccountPage&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -203,7 +204,7 @@ public class WhatsappBusinessAccountsApi {
             <tr><td> 200 </td><td> Successfully retrieved a paginated list of objects. </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<WhatsappBusinessAccount> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<WhatsappBusinessAccountPage> executeWithHttpInfo() throws ApiException {
             return listWithHttpInfo(filterAccountReviewStatus);
         }
 
@@ -218,7 +219,7 @@ public class WhatsappBusinessAccountsApi {
             <tr><td> 200 </td><td> Successfully retrieved a paginated list of objects. </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<WhatsappBusinessAccount> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<WhatsappBusinessAccountPage> _callback) throws ApiException {
             return listAsync(filterAccountReviewStatus, _callback);
         }
     }

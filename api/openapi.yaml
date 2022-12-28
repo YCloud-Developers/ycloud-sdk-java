@@ -547,7 +547,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WhatsappBusinessAccount'
+                $ref: '#/components/schemas/WhatsappBusinessAccountPage'
           description: Successfully retrieved a paginated list of objects.
       summary: List WABAs
       tags:
@@ -2378,6 +2378,61 @@ components:
       - DISABLE
       - REINSTATE
       type: string
+    WhatsappBusinessAccountPage:
+      allOf:
+      - $ref: '#/components/schemas/Page'
+      description: Represents a given page of WhatsApp Business Accounts.
+      example:
+        items:
+        - ownershipType: ownershipType
+          country: country
+          primaryFundingId: primaryFundingId
+          decision: null
+          businessVerificationStatus: null
+          restrictions:
+          - restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
+            expiration: 2022-06-01T12:00:00Z
+          - restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
+            expiration: 2022-06-01T12:00:00Z
+          banDate: "December 9, 2022"
+          messageTemplateNamespace: messageTemplateNamespace
+          banState: null
+          accountReviewStatus: null
+          violationType: SCAM
+          updateEvent: null
+          purchaseOrderNumber: purchaseOrderNumber
+          name: name
+          timezoneId: "1"
+          currency: currency
+          id: id
+        - ownershipType: ownershipType
+          country: country
+          primaryFundingId: primaryFundingId
+          decision: null
+          businessVerificationStatus: null
+          restrictions:
+          - restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
+            expiration: 2022-06-01T12:00:00Z
+          - restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
+            expiration: 2022-06-01T12:00:00Z
+          banDate: "December 9, 2022"
+          messageTemplateNamespace: messageTemplateNamespace
+          banState: null
+          accountReviewStatus: null
+          violationType: SCAM
+          updateEvent: null
+          purchaseOrderNumber: purchaseOrderNumber
+          name: name
+          timezoneId: "1"
+          currency: currency
+          id: id
+      properties:
+        items:
+          description: An array containing WhatsApp Business Account objects.
+          items:
+            $ref: '#/components/schemas/WhatsappBusinessAccount'
+          type: array
+      type: object
     WhatsappBusinessAccountRestrictionInfo:
       description: "Used to report restrictions imposed on a specific WABA, when that\
         \ WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement)."
