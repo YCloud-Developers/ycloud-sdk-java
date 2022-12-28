@@ -533,6 +533,41 @@ paths:
         on YCloud.
       operationId: whatsapp_business_account-list
       parameters:
+      - description: "Page number of the results to be returned, 1-based."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "A limit on the number of results to be returned, or number of\
+          \ results per page, between 1 and 100, defaults to 10."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Return results inside an object that contains the total result
+          count or not.
+        explode: true
+        in: query
+        name: includeTotal
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       - description: WhatsApp Business Account review status.
         explode: true
         in: query

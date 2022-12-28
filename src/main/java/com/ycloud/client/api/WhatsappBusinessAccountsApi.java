@@ -75,7 +75,7 @@ public class WhatsappBusinessAccountsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call listCall(String filterAccountReviewStatus, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCall(Integer page, Integer limit, Boolean includeTotal, String filterAccountReviewStatus, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -99,6 +99,18 @@ public class WhatsappBusinessAccountsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (includeTotal != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeTotal", includeTotal));
+        }
 
         if (filterAccountReviewStatus != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter.accountReviewStatus", filterAccountReviewStatus));
@@ -125,33 +137,66 @@ public class WhatsappBusinessAccountsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listValidateBeforeCall(String filterAccountReviewStatus, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterAccountReviewStatus, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = listCall(filterAccountReviewStatus, _callback);
+        okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterAccountReviewStatus, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<WhatsappBusinessAccountPage> listWithHttpInfo(String filterAccountReviewStatus) throws ApiException {
-        okhttp3.Call localVarCall = listValidateBeforeCall(filterAccountReviewStatus, null);
+    private ApiResponse<WhatsappBusinessAccountPage> listWithHttpInfo(Integer page, Integer limit, Boolean includeTotal, String filterAccountReviewStatus) throws ApiException {
+        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, filterAccountReviewStatus, null);
         Type localVarReturnType = new TypeToken<WhatsappBusinessAccountPage>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listAsync(String filterAccountReviewStatus, final ApiCallback<WhatsappBusinessAccountPage> _callback) throws ApiException {
+    private okhttp3.Call listAsync(Integer page, Integer limit, Boolean includeTotal, String filterAccountReviewStatus, final ApiCallback<WhatsappBusinessAccountPage> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listValidateBeforeCall(filterAccountReviewStatus, _callback);
+        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, filterAccountReviewStatus, _callback);
         Type localVarReturnType = new TypeToken<WhatsappBusinessAccountPage>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class ApiListRequest {
+        private Integer page;
+        private Integer limit;
+        private Boolean includeTotal;
         private String filterAccountReviewStatus;
 
         private ApiListRequest() {
+        }
+
+        /**
+         * Set page
+         * @param page Page number of the results to be returned, 1-based. (optional, default to 1)
+         * @return ApiListRequest
+         */
+        public ApiListRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. (optional, default to 10)
+         * @return ApiListRequest
+         */
+        public ApiListRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set includeTotal
+         * @param includeTotal Return results inside an object that contains the total result count or not. (optional, default to false)
+         * @return ApiListRequest
+         */
+        public ApiListRequest includeTotal(Boolean includeTotal) {
+            this.includeTotal = includeTotal;
+            return this;
         }
 
         /**
@@ -176,7 +221,7 @@ public class WhatsappBusinessAccountsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listCall(filterAccountReviewStatus, _callback);
+            return listCall(page, limit, includeTotal, filterAccountReviewStatus, _callback);
         }
 
         /**
@@ -190,7 +235,7 @@ public class WhatsappBusinessAccountsApi {
          </table>
          */
         public WhatsappBusinessAccountPage execute() throws ApiException {
-            ApiResponse<WhatsappBusinessAccountPage> localVarResp = listWithHttpInfo(filterAccountReviewStatus);
+            ApiResponse<WhatsappBusinessAccountPage> localVarResp = listWithHttpInfo(page, limit, includeTotal, filterAccountReviewStatus);
             return localVarResp.getData();
         }
 
@@ -205,7 +250,7 @@ public class WhatsappBusinessAccountsApi {
          </table>
          */
         public ApiResponse<WhatsappBusinessAccountPage> executeWithHttpInfo() throws ApiException {
-            return listWithHttpInfo(filterAccountReviewStatus);
+            return listWithHttpInfo(page, limit, includeTotal, filterAccountReviewStatus);
         }
 
         /**
@@ -220,7 +265,7 @@ public class WhatsappBusinessAccountsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<WhatsappBusinessAccountPage> _callback) throws ApiException {
-            return listAsync(filterAccountReviewStatus, _callback);
+            return listAsync(page, limit, includeTotal, filterAccountReviewStatus, _callback);
         }
     }
 

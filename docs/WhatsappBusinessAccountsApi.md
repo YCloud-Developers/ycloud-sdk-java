@@ -10,7 +10,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 <a name="list"></a>
 # **list**
-> WhatsappBusinessAccountPage list().filterAccountReviewStatus(filterAccountReviewStatus).execute();
+> WhatsappBusinessAccountPage list().page(page).limit(limit).includeTotal(includeTotal).filterAccountReviewStatus(filterAccountReviewStatus).execute();
 
 List WABAs
 
@@ -38,9 +38,15 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappBusinessAccountsApi apiInstance = new WhatsappBusinessAccountsApi(defaultClient);
+    Integer page = 1; // Integer | Page number of the results to be returned, 1-based.
+    Integer limit = 10; // Integer | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10.
+    Boolean includeTotal = false; // Boolean | Return results inside an object that contains the total result count or not.
     String filterAccountReviewStatus = "APPROVED"; // String | WhatsApp Business Account review status.
     try {
       WhatsappBusinessAccountPage result = apiInstance.list()
+            .page(page)
+            .limit(limit)
+            .includeTotal(includeTotal)
             .filterAccountReviewStatus(filterAccountReviewStatus)
             .execute();
       System.out.println(result);
@@ -59,6 +65,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| Page number of the results to be returned, 1-based. | [optional] [default to 1] |
+| **limit** | **Integer**| A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [optional] [default to 10] |
+| **includeTotal** | **Boolean**| Return results inside an object that contains the total result count or not. | [optional] [default to false] |
 | **filterAccountReviewStatus** | **String**| WhatsApp Business Account review status. | [optional] |
 
 ### Return type
