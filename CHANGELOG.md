@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.4 (2023-02-07)
+
+- Add `smsInbound` for webhook events.
+- Add `whatsappApiError` for WhatsApp templates and messages.
+
 ## 1.4.2 (2022-12-28)
 
 - Fix WhatsApp Business Accounts API response body.

@@ -19,6 +19,7 @@ See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-
 |**updateTime** | **Date** | The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
 |**statusUpdateEvent** | **WhatsappTemplateStatusUpdateEventEnum** |  |  [optional] |
 |**disableDate** | **String** | The date at which the template will be disabled. When a WhatsApp template &#x60;FLAGGED&#x60; event is received, this field is set. |  [optional] |
+|**whatsappApiError** | [**WhatsappApiError**](WhatsappApiError.md) |  |  [optional] |
 
 
 

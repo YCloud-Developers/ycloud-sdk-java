@@ -9,6 +9,8 @@
 
 * `SMS_MESSAGE_UPDATED` (value: `"sms.message.updated"`)
 
+* `SMS_INBOUND_RECEIVED` (value: `"sms.inbound.received"`)
+
 * `VOICE_MESSAGE_UPDATED` (value: `"voice.message.updated"`)
 
 * `WHATSAPP_BUSINESS_ACCOUNT_REVIEWED` (value: `"whatsapp.business_account.reviewed"`)

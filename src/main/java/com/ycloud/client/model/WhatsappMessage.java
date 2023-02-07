@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappApiError;
 import com.ycloud.client.model.WhatsappConversation;
 import com.ycloud.client.model.WhatsappMessageContact;
 import com.ycloud.client.model.WhatsappMessageInteractive;
@@ -157,6 +158,10 @@ public class WhatsappMessage {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
+
+  public static final String SERIALIZED_NAME_WHATSAPP_API_ERROR = "whatsappApiError";
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
+  private WhatsappApiError whatsappApiError;
 
   public WhatsappMessage() { 
   }
@@ -720,6 +725,29 @@ public class WhatsappMessage {
     this.currency = currency;
   }
 
+
+  public WhatsappMessage whatsappApiError(WhatsappApiError whatsappApiError) {
+    
+    this.whatsappApiError = whatsappApiError;
+    return this;
+  }
+
+   /**
+   * Get whatsappApiError
+   * @return whatsappApiError
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappApiError getWhatsappApiError() {
+    return whatsappApiError;
+  }
+
+
+  public void setWhatsappApiError(WhatsappApiError whatsappApiError) {
+    this.whatsappApiError = whatsappApiError;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -789,13 +817,14 @@ public class WhatsappMessage {
         Objects.equals(this.createTime, whatsappMessage.createTime) &&
         Objects.equals(this.updateTime, whatsappMessage.updateTime) &&
         Objects.equals(this.totalPrice, whatsappMessage.totalPrice) &&
-        Objects.equals(this.currency, whatsappMessage.currency)&&
+        Objects.equals(this.currency, whatsappMessage.currency) &&
+        Objects.equals(this.whatsappApiError, whatsappMessage.whatsappApiError)&&
         Objects.equals(this.additionalProperties, whatsappMessage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, totalPrice, currency, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, totalPrice, currency, whatsappApiError, additionalProperties);
   }
 
   @Override
@@ -826,6 +855,7 @@ public class WhatsappMessage {
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    totalPrice: ").append(toIndentedString(totalPrice)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -873,6 +903,7 @@ public class WhatsappMessage {
     openapiFields.add("updateTime");
     openapiFields.add("totalPrice");
     openapiFields.add("currency");
+    openapiFields.add("whatsappApiError");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -978,6 +1009,10 @@ public class WhatsappMessage {
       }
       if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      // validate the optional field `whatsappApiError`
+      if (jsonObj.getAsJsonObject("whatsappApiError") != null) {
+        WhatsappApiError.validateJsonObject(jsonObj.getAsJsonObject("whatsappApiError"));
       }
   }
 

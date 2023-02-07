@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappApiError;
 import com.ycloud.client.model.WhatsappTemplateCategory;
 import com.ycloud.client.model.WhatsappTemplateComponent;
 import com.ycloud.client.model.WhatsappTemplateStatus;
@@ -100,6 +101,10 @@ public class WhatsappTemplate {
   public static final String SERIALIZED_NAME_DISABLE_DATE = "disableDate";
   @SerializedName(SERIALIZED_NAME_DISABLE_DATE)
   private String disableDate;
+
+  public static final String SERIALIZED_NAME_WHATSAPP_API_ERROR = "whatsappApiError";
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
+  private WhatsappApiError whatsappApiError;
 
   public WhatsappTemplate() { 
   }
@@ -361,6 +366,29 @@ public class WhatsappTemplate {
     this.disableDate = disableDate;
   }
 
+
+  public WhatsappTemplate whatsappApiError(WhatsappApiError whatsappApiError) {
+    
+    this.whatsappApiError = whatsappApiError;
+    return this;
+  }
+
+   /**
+   * Get whatsappApiError
+   * @return whatsappApiError
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WhatsappApiError getWhatsappApiError() {
+    return whatsappApiError;
+  }
+
+
+  public void setWhatsappApiError(WhatsappApiError whatsappApiError) {
+    this.whatsappApiError = whatsappApiError;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -417,13 +445,14 @@ public class WhatsappTemplate {
         Objects.equals(this.createTime, whatsappTemplate.createTime) &&
         Objects.equals(this.updateTime, whatsappTemplate.updateTime) &&
         Objects.equals(this.statusUpdateEvent, whatsappTemplate.statusUpdateEvent) &&
-        Objects.equals(this.disableDate, whatsappTemplate.disableDate)&&
+        Objects.equals(this.disableDate, whatsappTemplate.disableDate) &&
+        Objects.equals(this.whatsappApiError, whatsappTemplate.whatsappApiError)&&
         Objects.equals(this.additionalProperties, whatsappTemplate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(wabaId, name, language, category, components, status, reason, createTime, updateTime, statusUpdateEvent, disableDate, additionalProperties);
+    return Objects.hash(wabaId, name, language, category, components, status, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
   }
 
   @Override
@@ -441,6 +470,7 @@ public class WhatsappTemplate {
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    statusUpdateEvent: ").append(toIndentedString(statusUpdateEvent)).append("\n");
     sb.append("    disableDate: ").append(toIndentedString(disableDate)).append("\n");
+    sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -475,6 +505,7 @@ public class WhatsappTemplate {
     openapiFields.add("updateTime");
     openapiFields.add("statusUpdateEvent");
     openapiFields.add("disableDate");
+    openapiFields.add("whatsappApiError");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -532,6 +563,10 @@ public class WhatsappTemplate {
       }
       if (jsonObj.get("disableDate") != null && !jsonObj.get("disableDate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `disableDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disableDate").toString()));
+      }
+      // validate the optional field `whatsappApiError`
+      if (jsonObj.getAsJsonObject("whatsappApiError") != null) {
+        WhatsappApiError.validateJsonObject(jsonObj.getAsJsonObject("whatsappApiError"));
       }
   }
 

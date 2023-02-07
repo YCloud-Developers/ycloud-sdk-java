@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.ycloud",
     name := "ycloud-sdk-java",
-    version := "1.4.3",
+    version := "1.4.4",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

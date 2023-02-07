@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.4.3</version>
+  <version>1.4.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.4.3"
+     implementation "com.ycloud:ycloud-sdk-java:1.4.4"
   }
 ```
 
@@ -137,6 +137,7 @@ Class | Method | HTTP request | Description
  - [MetaBusinessAccountVerificationStatus](docs/MetaBusinessAccountVerificationStatus.md)
  - [Page](docs/Page.md)
  - [Sms](docs/Sms.md)
+ - [SmsInbound](docs/SmsInbound.md)
  - [SmsPage](docs/SmsPage.md)
  - [SmsSendRequest](docs/SmsSendRequest.md)
  - [Verification](docs/Verification.md)
@@ -153,6 +154,7 @@ Class | Method | HTTP request | Description
  - [WebhookEndpointPage](docs/WebhookEndpointPage.md)
  - [WebhookEndpointStatus](docs/WebhookEndpointStatus.md)
  - [WebhookEndpointUpdateRequest](docs/WebhookEndpointUpdateRequest.md)
+ - [WhatsappApiError](docs/WhatsappApiError.md)
  - [WhatsappBusinessAccount](docs/WhatsappBusinessAccount.md)
  - [WhatsappBusinessAccountBanState](docs/WhatsappBusinessAccountBanState.md)
  - [WhatsappBusinessAccountPage](docs/WhatsappBusinessAccountPage.md)

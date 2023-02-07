@@ -41,6 +41,11 @@ public enum EventType {
   SMS_MESSAGE_UPDATED("sms.message.updated"),
   
   /**
+   * Occurs when an SMS inbound message is received, which means a user replies to your message.
+   */
+  SMS_INBOUND_RECEIVED("sms.inbound.received"),
+  
+  /**
    * Occurs when a voice message status is updated, and the status changes to &#x60;delivered&#x60; or &#x60;undelivered&#x60;.
    */
   VOICE_MESSAGE_UPDATED("voice.message.updated"),

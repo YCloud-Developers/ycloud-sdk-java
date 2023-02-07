@@ -1506,6 +1506,8 @@ components:
           $ref: '#/components/schemas/EmailDelivery'
         sms:
           $ref: '#/components/schemas/Sms'
+        smsInbound:
+          $ref: '#/components/schemas/SmsInbound'
         voice:
           $ref: '#/components/schemas/Voice'
         whatsappBusinessAccount:
@@ -1529,6 +1531,7 @@ components:
       enum:
       - email.delivery.updated
       - sms.message.updated
+      - sms.inbound.received
       - voice.message.updated
       - whatsapp.business_account.reviewed
       - whatsapp.business_account.updated
@@ -1543,6 +1546,8 @@ components:
         \ `delivered` or `failed`."
       - "Occurs when an SMS message status is updated, and the status changes to `delivered`\
         \ or `undelivered`."
+      - "Occurs when an SMS inbound message is received, which means a user replies\
+        \ to your message."
       - "Occurs when a voice message status is updated, and the status changes to\
         \ `delivered` or `undelivered`."
       - Occurs when a WhatsApp Business Account has been reviewed.
@@ -1718,6 +1723,33 @@ components:
       required:
       - id
       - to
+      type: object
+    SmsInbound:
+      description: "Represents an inbound SMS message, which means a user replies\
+        \ to your message."
+      properties:
+        id:
+          description: Unique ID of the message.
+          type: string
+        from:
+          description: "The user's phone number who sent the message to your registered\
+            \ sender ID, formatted in [E.164](https://en.wikipedia.org/wiki/E.164)\
+            \ format."
+          example: +447901614024
+          type: string
+        to:
+          description: "The receiver's phone number, which is one of your registered\
+            \ Sender IDs."
+          type: string
+        text:
+          description: The text of this message.
+          type: string
+        sendTime:
+          description: "The time at which this message was sent, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
       type: object
     SmsPage:
       allOf:
@@ -2321,6 +2353,62 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/WebhookEndpointStatus'
+      type: object
+    WhatsappApiError:
+      description: "The original error object returned by WhatsApp. See [Handling\
+        \ Errors](https://developers.facebook.com/docs/graph-api/guides/error-handling),\
+        \ [Cloud API Error Codes](https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes)."
+      example:
+        error_user_title: Message Cannot Be Submitted
+        code: "200002"
+        error_subcode: "2388109"
+        message: HSM Template creation failed
+        type: OAuthException
+        fbtrace_id: AVGjJ7ia2zJkrHG
+        error_user_msg: This message template cannot be created.
+        error_data: "{}"
+      properties:
+        message:
+          description: A human-readable description of the error.
+          example: HSM Template creation failed
+          type: string
+        code:
+          description: An error code.
+          example: "200002"
+          type: string
+        type:
+          description: Error type.
+          example: OAuthException
+          type: string
+        error_subcode:
+          description: Additional code about the error.
+          example: "2388109"
+          type: string
+        error_user_msg:
+          description: The message to display to the user. The language of the message
+            is based on the locale of the API request.
+          example: This message template cannot be created.
+          type: string
+        error_user_title:
+          description: "The title of the dialog, if shown. The language of the message\
+            \ is based on the locale of the API request."
+          example: Message Cannot Be Submitted
+          type: string
+        fbtrace_id:
+          description: "Internal support identifier. When reporting a bug related\
+            \ to a Graph API call, include the fbtrace_id to help us find log data\
+            \ for debugging."
+          example: AVGjJ7ia2zJkrHG
+          type: string
+        error_data:
+          description: "Additional data about the error. A string or map.\n- For template\
+            \ APIs, this field is a string describing the reason for the error.  \n\
+            - For message APIs, this field is a map with property `details` describing\
+            \ the reason for the error."
+          type: object
+      required:
+      - code
+      - message
       type: object
     WhatsappBusinessAccount:
       description: "Represents a specific [WhatsApp Business Account (WABA)](https://www.facebook.com/business/help/1499554293524119)."
@@ -3010,10 +3098,6 @@ components:
           name: sample_whatsapp_template
           language:
             code: en
-        image:
-          filename: filename
-          link: link
-          caption: caption
         wamid: wamid.BgNODYxN...
         totalPrice: 0.05
         document:
@@ -3142,26 +3226,16 @@ components:
           type: button
           body:
             text: text
-        errorMessage: errorMessage
-        externalId: externalId
         errorCode: errorCode
-        updateTime: 2022-06-01T12:00:00Z
         video:
           filename: filename
           link: link
           caption: caption
         type: null
         wabaId: whatsapp-business-account-id
-        createTime: 2022-06-01T12:00:00Z
         from: +447901614024
-        location:
-          address: address
-          latitude: 6.027456183070403
-          name: name
-          longitude: 1.4658129805029452
         currency: USD
         id: id
-        to: +447901614024
         text:
           preview_url: true
           body: body
@@ -3173,6 +3247,29 @@ components:
           originType: null
           expireTime: 2022-06-01T12:00:00Z
           id: id
+        image:
+          filename: filename
+          link: link
+          caption: caption
+        errorMessage: errorMessage
+        externalId: externalId
+        updateTime: 2022-06-01T12:00:00Z
+        createTime: 2022-06-01T12:00:00Z
+        whatsappApiError:
+          error_user_title: Message Cannot Be Submitted
+          code: "200002"
+          error_subcode: "2388109"
+          message: HSM Template creation failed
+          type: OAuthException
+          fbtrace_id: AVGjJ7ia2zJkrHG
+          error_user_msg: This message template cannot be created.
+          error_data: "{}"
+        location:
+          address: address
+          latitude: 6.027456183070403
+          name: name
+          longitude: 1.4658129805029452
+        to: +447901614024
         contacts:
         - birthday: 2022-09-27
           emails:
@@ -3343,6 +3440,8 @@ components:
           description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
           example: USD
           type: string
+        whatsappApiError:
+          $ref: '#/components/schemas/WhatsappApiError'
       required:
       - from
       - id
@@ -4435,6 +4534,15 @@ components:
             - header_url
         disableDate: "December 9, 2022"
         createTime: 2022-06-01T12:00:00Z
+        whatsappApiError:
+          error_user_title: Message Cannot Be Submitted
+          code: "200002"
+          error_subcode: "2388109"
+          message: HSM Template creation failed
+          type: OAuthException
+          fbtrace_id: AVGjJ7ia2zJkrHG
+          error_user_msg: This message template cannot be created.
+          error_data: "{}"
         name: name
         statusUpdateEvent: null
         language: en
@@ -4486,6 +4594,8 @@ components:
             \ template `FLAGGED` event is received, this field is set."
           example: "December 9, 2022"
           type: string
+        whatsappApiError:
+          $ref: '#/components/schemas/WhatsappApiError'
       required:
       - category
       - components
@@ -4885,6 +4995,15 @@ components:
               - header_url
           disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
+          whatsappApiError:
+            error_user_title: Message Cannot Be Submitted
+            code: "200002"
+            error_subcode: "2388109"
+            message: HSM Template creation failed
+            type: OAuthException
+            fbtrace_id: AVGjJ7ia2zJkrHG
+            error_user_msg: This message template cannot be created.
+            error_data: "{}"
           name: name
           statusUpdateEvent: null
           language: en
@@ -4970,6 +5089,15 @@ components:
               - header_url
           disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
+          whatsappApiError:
+            error_user_title: Message Cannot Be Submitted
+            code: "200002"
+            error_subcode: "2388109"
+            message: HSM Template creation failed
+            type: OAuthException
+            fbtrace_id: AVGjJ7ia2zJkrHG
+            error_user_msg: This message template cannot be created.
+            error_data: "{}"
           name: name
           statusUpdateEvent: null
           language: en

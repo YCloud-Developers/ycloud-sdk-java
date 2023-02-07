@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.EmailDelivery;
 import com.ycloud.client.model.EventType;
 import com.ycloud.client.model.Sms;
+import com.ycloud.client.model.SmsInbound;
 import com.ycloud.client.model.Voice;
 import com.ycloud.client.model.WhatsappBusinessAccount;
 import com.ycloud.client.model.WhatsappInboundMessage;
@@ -83,6 +84,10 @@ public class Event {
   public static final String SERIALIZED_NAME_SMS = "sms";
   @SerializedName(SERIALIZED_NAME_SMS)
   private Sms sms;
+
+  public static final String SERIALIZED_NAME_SMS_INBOUND = "smsInbound";
+  @SerializedName(SERIALIZED_NAME_SMS_INBOUND)
+  private SmsInbound smsInbound;
 
   public static final String SERIALIZED_NAME_VOICE = "voice";
   @SerializedName(SERIALIZED_NAME_VOICE)
@@ -246,6 +251,29 @@ public class Event {
 
   public void setSms(Sms sms) {
     this.sms = sms;
+  }
+
+
+  public Event smsInbound(SmsInbound smsInbound) {
+    
+    this.smsInbound = smsInbound;
+    return this;
+  }
+
+   /**
+   * Get smsInbound
+   * @return smsInbound
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SmsInbound getSmsInbound() {
+    return smsInbound;
+  }
+
+
+  public void setSmsInbound(SmsInbound smsInbound) {
+    this.smsInbound = smsInbound;
   }
 
 
@@ -438,6 +466,7 @@ public class Event {
         Objects.equals(this.createTime, event.createTime) &&
         Objects.equals(this.emailDelivery, event.emailDelivery) &&
         Objects.equals(this.sms, event.sms) &&
+        Objects.equals(this.smsInbound, event.smsInbound) &&
         Objects.equals(this.voice, event.voice) &&
         Objects.equals(this.whatsappBusinessAccount, event.whatsappBusinessAccount) &&
         Objects.equals(this.whatsappInboundMessage, event.whatsappInboundMessage) &&
@@ -449,7 +478,7 @@ public class Event {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappTemplate, additionalProperties);
+    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappTemplate, additionalProperties);
   }
 
   @Override
@@ -462,6 +491,7 @@ public class Event {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    emailDelivery: ").append(toIndentedString(emailDelivery)).append("\n");
     sb.append("    sms: ").append(toIndentedString(sms)).append("\n");
+    sb.append("    smsInbound: ").append(toIndentedString(smsInbound)).append("\n");
     sb.append("    voice: ").append(toIndentedString(voice)).append("\n");
     sb.append("    whatsappBusinessAccount: ").append(toIndentedString(whatsappBusinessAccount)).append("\n");
     sb.append("    whatsappInboundMessage: ").append(toIndentedString(whatsappInboundMessage)).append("\n");
@@ -497,6 +527,7 @@ public class Event {
     openapiFields.add("createTime");
     openapiFields.add("emailDelivery");
     openapiFields.add("sms");
+    openapiFields.add("smsInbound");
     openapiFields.add("voice");
     openapiFields.add("whatsappBusinessAccount");
     openapiFields.add("whatsappInboundMessage");
@@ -546,6 +577,10 @@ public class Event {
       // validate the optional field `sms`
       if (jsonObj.getAsJsonObject("sms") != null) {
         Sms.validateJsonObject(jsonObj.getAsJsonObject("sms"));
+      }
+      // validate the optional field `smsInbound`
+      if (jsonObj.getAsJsonObject("smsInbound") != null) {
+        SmsInbound.validateJsonObject(jsonObj.getAsJsonObject("smsInbound"));
       }
       // validate the optional field `voice`
       if (jsonObj.getAsJsonObject("voice") != null) {

@@ -32,6 +32,7 @@ WhatsApp outbound message object.
 |**updateTime** | **Date** | The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
 |**totalPrice** | **Double** | Total price of this message. |  [optional] |
 |**currency** | **String** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). |  [optional] |
+|**whatsappApiError** | [**WhatsappApiError**](WhatsappApiError.md) |  |  [optional] |
 
 
 
