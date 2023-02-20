@@ -163,6 +163,14 @@ public class WhatsappMessage {
   @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
   private WhatsappApiError whatsappApiError;
 
+  public static final String SERIALIZED_NAME_BIZ_TYPE = "bizType";
+  @SerializedName(SERIALIZED_NAME_BIZ_TYPE)
+  private String bizType;
+
+  public static final String SERIALIZED_NAME_VERIFICATION_ID = "verificationId";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
+  private String verificationId;
+
   public WhatsappMessage() { 
   }
 
@@ -748,6 +756,52 @@ public class WhatsappMessage {
     this.whatsappApiError = whatsappApiError;
   }
 
+
+  public WhatsappMessage bizType(String bizType) {
+    
+    this.bizType = bizType;
+    return this;
+  }
+
+   /**
+   * This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+   * @return bizType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "verify", value = "This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.")
+
+  public String getBizType() {
+    return bizType;
+  }
+
+
+  public void setBizType(String bizType) {
+    this.bizType = bizType;
+  }
+
+
+  public WhatsappMessage verificationId(String verificationId) {
+    
+    this.verificationId = verificationId;
+    return this;
+  }
+
+   /**
+   * The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;.
+   * @return verificationId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "VERIFICATION-ID", value = "The verification ID. Included only when `bizType` is `verify`.")
+
+  public String getVerificationId() {
+    return verificationId;
+  }
+
+
+  public void setVerificationId(String verificationId) {
+    this.verificationId = verificationId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -818,13 +872,15 @@ public class WhatsappMessage {
         Objects.equals(this.updateTime, whatsappMessage.updateTime) &&
         Objects.equals(this.totalPrice, whatsappMessage.totalPrice) &&
         Objects.equals(this.currency, whatsappMessage.currency) &&
-        Objects.equals(this.whatsappApiError, whatsappMessage.whatsappApiError)&&
+        Objects.equals(this.whatsappApiError, whatsappMessage.whatsappApiError) &&
+        Objects.equals(this.bizType, whatsappMessage.bizType) &&
+        Objects.equals(this.verificationId, whatsappMessage.verificationId)&&
         Objects.equals(this.additionalProperties, whatsappMessage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, totalPrice, currency, whatsappApiError, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, totalPrice, currency, whatsappApiError, bizType, verificationId, additionalProperties);
   }
 
   @Override
@@ -856,6 +912,8 @@ public class WhatsappMessage {
     sb.append("    totalPrice: ").append(toIndentedString(totalPrice)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
+    sb.append("    bizType: ").append(toIndentedString(bizType)).append("\n");
+    sb.append("    verificationId: ").append(toIndentedString(verificationId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -904,6 +962,8 @@ public class WhatsappMessage {
     openapiFields.add("totalPrice");
     openapiFields.add("currency");
     openapiFields.add("whatsappApiError");
+    openapiFields.add("bizType");
+    openapiFields.add("verificationId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1013,6 +1073,12 @@ public class WhatsappMessage {
       // validate the optional field `whatsappApiError`
       if (jsonObj.getAsJsonObject("whatsappApiError") != null) {
         WhatsappApiError.validateJsonObject(jsonObj.getAsJsonObject("whatsappApiError"));
+      }
+      if (jsonObj.get("bizType") != null && !jsonObj.get("bizType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bizType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bizType").toString()));
+      }
+      if (jsonObj.get("verificationId") != null && !jsonObj.get("verificationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `verificationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationId").toString()));
       }
   }
 

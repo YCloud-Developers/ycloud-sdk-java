@@ -83,19 +83,34 @@ public class Sms {
   private String currency;
 
   /**
-   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;.
+   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;. - &#x60;accepted&#x60;: The messaging request is accepted by our system. - &#x60;failed&#x60;: The message failed to be sent from our system. - &#x60;sent&#x60;: The message has been sent from our system. - &#x60;delivered&#x60;: YCloud has received a delivery receipt indicating that message is delivered. - &#x60;undelivered&#x60;: YCloud has received a delivery receipt indicating that message is not delivered.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    /**
+     * The messaging request is accepted by our system.
+     */
     ACCEPTED("accepted"),
     
+    /**
+     * The message failed to be sent from our system.
+     */
+    FAILED("failed"),
+    
+    /**
+     * The message has been sent from our system.
+     */
     SENT("sent"),
     
+    /**
+     * YCloud has received a delivery receipt indicating that message is delivered.
+     */
     DELIVERED("delivered"),
     
-    UNDELIVERED("undelivered"),
-    
-    FAILED("failed");
+    /**
+     * YCloud has received a delivery receipt indicating that message is not delivered.
+     */
+    UNDELIVERED("undelivered");
 
     private String value;
 
@@ -158,6 +173,14 @@ public class Sms {
   public static final String SERIALIZED_NAME_CALLBACK_URL = "callbackUrl";
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
+
+  public static final String SERIALIZED_NAME_BIZ_TYPE = "bizType";
+  @SerializedName(SERIALIZED_NAME_BIZ_TYPE)
+  private String bizType;
+
+  public static final String SERIALIZED_NAME_VERIFICATION_ID = "verificationId";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
+  private String verificationId;
 
   public Sms() { 
   }
@@ -354,11 +377,11 @@ public class Sms {
   }
 
    /**
-   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;.
+   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;. - &#x60;accepted&#x60;: The messaging request is accepted by our system. - &#x60;failed&#x60;: The message failed to be sent from our system. - &#x60;sent&#x60;: The message has been sent from our system. - &#x60;delivered&#x60;: YCloud has received a delivery receipt indicating that message is delivered. - &#x60;undelivered&#x60;: YCloud has received a delivery receipt indicating that message is not delivered.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "sent", value = "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`.")
+  @ApiModelProperty(example = "sent", value = "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`. - `accepted`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from our system. - `delivered`: YCloud has received a delivery receipt indicating that message is delivered. - `undelivered`: YCloud has received a delivery receipt indicating that message is not delivered.")
 
   public StatusEnum getStatus() {
     return status;
@@ -484,6 +507,52 @@ public class Sms {
     this.callbackUrl = callbackUrl;
   }
 
+
+  public Sms bizType(String bizType) {
+    
+    this.bizType = bizType;
+    return this;
+  }
+
+   /**
+   * This can be either empty or one of &#x60;sms&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;sms&#x60;. - &#x60;sms&#x60;: Indicates that the message is sent via [Email](https://www.ycloud.com/sms) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+   * @return bizType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "verify", value = "This can be either empty or one of `sms`, or `verify`. Defaults to `sms`. - `sms`: Indicates that the message is sent via [Email](https://www.ycloud.com/sms) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.")
+
+  public String getBizType() {
+    return bizType;
+  }
+
+
+  public void setBizType(String bizType) {
+    this.bizType = bizType;
+  }
+
+
+  public Sms verificationId(String verificationId) {
+    
+    this.verificationId = verificationId;
+    return this;
+  }
+
+   /**
+   * The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;.
+   * @return verificationId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "VERIFICATION-ID", value = "The verification ID. Included only when `bizType` is `verify`.")
+
+  public String getVerificationId() {
+    return verificationId;
+  }
+
+
+  public void setVerificationId(String verificationId) {
+    this.verificationId = verificationId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -543,13 +612,15 @@ public class Sms {
         Objects.equals(this.createTime, sms.createTime) &&
         Objects.equals(this.updateTime, sms.updateTime) &&
         Objects.equals(this.externalId, sms.externalId) &&
-        Objects.equals(this.callbackUrl, sms.callbackUrl)&&
+        Objects.equals(this.callbackUrl, sms.callbackUrl) &&
+        Objects.equals(this.bizType, sms.bizType) &&
+        Objects.equals(this.verificationId, sms.verificationId)&&
         Objects.equals(this.additionalProperties, sms.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, to, text, senderId, regionCode, totalSegments, totalPrice, currency, status, errorCode, createTime, updateTime, externalId, callbackUrl, additionalProperties);
+    return Objects.hash(id, to, text, senderId, regionCode, totalSegments, totalPrice, currency, status, errorCode, createTime, updateTime, externalId, callbackUrl, bizType, verificationId, additionalProperties);
   }
 
   @Override
@@ -570,6 +641,8 @@ public class Sms {
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("    bizType: ").append(toIndentedString(bizType)).append("\n");
+    sb.append("    verificationId: ").append(toIndentedString(verificationId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -607,6 +680,8 @@ public class Sms {
     openapiFields.add("updateTime");
     openapiFields.add("externalId");
     openapiFields.add("callbackUrl");
+    openapiFields.add("bizType");
+    openapiFields.add("verificationId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -664,6 +739,12 @@ public class Sms {
       }
       if (jsonObj.get("callbackUrl") != null && !jsonObj.get("callbackUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `callbackUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callbackUrl").toString()));
+      }
+      if (jsonObj.get("bizType") != null && !jsonObj.get("bizType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bizType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bizType").toString()));
+      }
+      if (jsonObj.get("verificationId") != null && !jsonObj.get("verificationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `verificationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationId").toString()));
       }
   }
 

@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.VerificationChannel;
+import com.ycloud.client.model.VerificationFallback;
 import com.ycloud.client.model.VerificationStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -79,6 +80,14 @@ public class Verification {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
+
+  public static final String SERIALIZED_NAME_SMS_FALLBACK_ENABLED = "smsFallbackEnabled";
+  @SerializedName(SERIALIZED_NAME_SMS_FALLBACK_ENABLED)
+  private Boolean smsFallbackEnabled;
+
+  public static final String SERIALIZED_NAME_SMS_FALLBACK = "smsFallback";
+  @SerializedName(SERIALIZED_NAME_SMS_FALLBACK)
+  private VerificationFallback smsFallback;
 
   public Verification() { 
   }
@@ -243,6 +252,52 @@ public class Verification {
     this.currency = currency;
   }
 
+
+  public Verification smsFallbackEnabled(Boolean smsFallbackEnabled) {
+    
+    this.smsFallbackEnabled = smsFallbackEnabled;
+    return this;
+  }
+
+   /**
+   * Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.
+   * @return smsFallbackEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.")
+
+  public Boolean getSmsFallbackEnabled() {
+    return smsFallbackEnabled;
+  }
+
+
+  public void setSmsFallbackEnabled(Boolean smsFallbackEnabled) {
+    this.smsFallbackEnabled = smsFallbackEnabled;
+  }
+
+
+  public Verification smsFallback(VerificationFallback smsFallback) {
+    
+    this.smsFallback = smsFallback;
+    return this;
+  }
+
+   /**
+   * Get smsFallback
+   * @return smsFallback
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public VerificationFallback getSmsFallback() {
+    return smsFallback;
+  }
+
+
+  public void setSmsFallback(VerificationFallback smsFallback) {
+    this.smsFallback = smsFallback;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -295,13 +350,15 @@ public class Verification {
         Objects.equals(this.channel, verification.channel) &&
         Objects.equals(this.sendTime, verification.sendTime) &&
         Objects.equals(this.totalPrice, verification.totalPrice) &&
-        Objects.equals(this.currency, verification.currency)&&
+        Objects.equals(this.currency, verification.currency) &&
+        Objects.equals(this.smsFallbackEnabled, verification.smsFallbackEnabled) &&
+        Objects.equals(this.smsFallback, verification.smsFallback)&&
         Objects.equals(this.additionalProperties, verification.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, to, channel, sendTime, totalPrice, currency, additionalProperties);
+    return Objects.hash(id, status, to, channel, sendTime, totalPrice, currency, smsFallbackEnabled, smsFallback, additionalProperties);
   }
 
   @Override
@@ -315,6 +372,8 @@ public class Verification {
     sb.append("    sendTime: ").append(toIndentedString(sendTime)).append("\n");
     sb.append("    totalPrice: ").append(toIndentedString(totalPrice)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    smsFallbackEnabled: ").append(toIndentedString(smsFallbackEnabled)).append("\n");
+    sb.append("    smsFallback: ").append(toIndentedString(smsFallback)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -345,6 +404,8 @@ public class Verification {
     openapiFields.add("sendTime");
     openapiFields.add("totalPrice");
     openapiFields.add("currency");
+    openapiFields.add("smsFallbackEnabled");
+    openapiFields.add("smsFallback");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -380,6 +441,10 @@ public class Verification {
       }
       if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      // validate the optional field `smsFallback`
+      if (jsonObj.getAsJsonObject("smsFallback") != null) {
+        VerificationFallback.validateJsonObject(jsonObj.getAsJsonObject("smsFallback"));
       }
   }
 

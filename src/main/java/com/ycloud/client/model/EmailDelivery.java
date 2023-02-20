@@ -59,19 +59,19 @@ public class EmailDelivery {
   private String recipientAddress;
 
   /**
-   * Delivery status of the email to the specific recipient address.
+   * Delivery status of the email to the specific recipient address. - &#x60;sending&#x60;: The messaging request is accepted by our system. - &#x60;failed&#x60;: The message failed to be sent from our system. - &#x60;sent&#x60;: The message has been sent from YCloud. - &#x60;delivered&#x60;: YCloud has received a delivery receipt indicating that message is delivered. - &#x60;undelivered&#x60;: YCloud has received a delivery receipt indicating that message is not delivered.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     SENDING("sending"),
     
+    FAILED("failed"),
+    
     SENT("sent"),
     
     DELIVERED("delivered"),
     
-    UNDELIVERED("undelivered"),
-    
-    FAILED("failed");
+    UNDELIVERED("undelivered");
 
     private String value;
 
@@ -126,6 +126,14 @@ public class EmailDelivery {
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
+
+  public static final String SERIALIZED_NAME_BIZ_TYPE = "bizType";
+  @SerializedName(SERIALIZED_NAME_BIZ_TYPE)
+  private String bizType;
+
+  public static final String SERIALIZED_NAME_VERIFICATION_ID = "verificationId";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
+  private String verificationId;
 
   public EmailDelivery() { 
   }
@@ -183,11 +191,11 @@ public class EmailDelivery {
   }
 
    /**
-   * Delivery status of the email to the specific recipient address.
+   * Delivery status of the email to the specific recipient address. - &#x60;sending&#x60;: The messaging request is accepted by our system. - &#x60;failed&#x60;: The message failed to be sent from our system. - &#x60;sent&#x60;: The message has been sent from YCloud. - &#x60;delivered&#x60;: YCloud has received a delivery receipt indicating that message is delivered. - &#x60;undelivered&#x60;: YCloud has received a delivery receipt indicating that message is not delivered.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "failed", value = "Delivery status of the email to the specific recipient address.")
+  @ApiModelProperty(example = "failed", value = "Delivery status of the email to the specific recipient address. - `sending`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from YCloud. - `delivered`: YCloud has received a delivery receipt indicating that message is delivered. - `undelivered`: YCloud has received a delivery receipt indicating that message is not delivered.")
 
   public StatusEnum getStatus() {
     return status;
@@ -267,6 +275,52 @@ public class EmailDelivery {
     this.externalId = externalId;
   }
 
+
+  public EmailDelivery bizType(String bizType) {
+    
+    this.bizType = bizType;
+    return this;
+  }
+
+   /**
+   * This can be either empty or one of &#x60;email&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;email&#x60;. - &#x60;email&#x60;: Indicates that the message is sent via [Email](https://www.ycloud.com/email) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+   * @return bizType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "verify", value = "This can be either empty or one of `email`, or `verify`. Defaults to `email`. - `email`: Indicates that the message is sent via [Email](https://www.ycloud.com/email) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.")
+
+  public String getBizType() {
+    return bizType;
+  }
+
+
+  public void setBizType(String bizType) {
+    this.bizType = bizType;
+  }
+
+
+  public EmailDelivery verificationId(String verificationId) {
+    
+    this.verificationId = verificationId;
+    return this;
+  }
+
+   /**
+   * The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;.
+   * @return verificationId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "VERIFICATION-ID", value = "The verification ID. Included only when `bizType` is `verify`.")
+
+  public String getVerificationId() {
+    return verificationId;
+  }
+
+
+  public void setVerificationId(String verificationId) {
+    this.verificationId = verificationId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -318,13 +372,15 @@ public class EmailDelivery {
         Objects.equals(this.status, emailDelivery.status) &&
         Objects.equals(this.errorCode, emailDelivery.errorCode) &&
         Objects.equals(this.errorMessage, emailDelivery.errorMessage) &&
-        Objects.equals(this.externalId, emailDelivery.externalId)&&
+        Objects.equals(this.externalId, emailDelivery.externalId) &&
+        Objects.equals(this.bizType, emailDelivery.bizType) &&
+        Objects.equals(this.verificationId, emailDelivery.verificationId)&&
         Objects.equals(this.additionalProperties, emailDelivery.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailId, recipientAddress, status, errorCode, errorMessage, externalId, additionalProperties);
+    return Objects.hash(emailId, recipientAddress, status, errorCode, errorMessage, externalId, bizType, verificationId, additionalProperties);
   }
 
   @Override
@@ -337,6 +393,8 @@ public class EmailDelivery {
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    bizType: ").append(toIndentedString(bizType)).append("\n");
+    sb.append("    verificationId: ").append(toIndentedString(verificationId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -366,6 +424,8 @@ public class EmailDelivery {
     openapiFields.add("errorCode");
     openapiFields.add("errorMessage");
     openapiFields.add("externalId");
+    openapiFields.add("bizType");
+    openapiFields.add("verificationId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -411,6 +471,12 @@ public class EmailDelivery {
       }
       if (jsonObj.get("externalId") != null && !jsonObj.get("externalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
+      }
+      if (jsonObj.get("bizType") != null && !jsonObj.get("bizType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bizType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bizType").toString()));
+      }
+      if (jsonObj.get("verificationId") != null && !jsonObj.get("verificationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `verificationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationId").toString()));
       }
   }
 

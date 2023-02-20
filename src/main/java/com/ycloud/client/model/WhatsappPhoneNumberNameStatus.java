@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The review status of the current display name request. See also [Get Display Name Status](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers#get-display-name-status--beta-).
+ * The review status of the current display name request. See also [Get Display Name Status](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers#get-display-name-status--beta-). - &#x60;APPROVED&#x60;: The name has been approved. You can download your certificate now. - &#x60;AVAILABLE_WITHOUT_REVIEW&#x60;: The certificate for the phone is available and display name is ready to use without review. - &#x60;DECLINED&#x60;: The name has not been approved. You cannot download your certificate. - &#x60;EXPIRED&#x60;: Your certificate has expire and can no longer be downloaded. - &#x60;PENDING_REVIEW&#x60;: Your name request is under review. You cannot download your certificate. - &#x60;NONE&#x60;: No certificate is available.
  */
 @JsonAdapter(WhatsappPhoneNumberNameStatus.Adapter.class)
 public enum WhatsappPhoneNumberNameStatus {

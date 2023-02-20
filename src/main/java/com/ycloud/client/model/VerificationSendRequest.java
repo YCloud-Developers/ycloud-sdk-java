@@ -199,11 +199,11 @@ public class VerificationSendRequest {
   }
 
    /**
-   * [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as &#x60;en&#x60; by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: &#x60;ar&#x60;: Arabic &#x60;de&#x60;: German &#x60;en&#x60;: English &#x60;es&#x60;: Spanish &#x60;fr&#x60;: French &#x60;id&#x60;: Indonesian &#x60;it&#x60;: Italian &#x60;pt_BR&#x60;: Portuguese. Not applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. &#x60;ru&#x60;: Russian &#x60;tr&#x60;: Turkish &#x60;vi&#x60;: Vietnamese &#x60;zh_CN&#x60;: Simplified Chinese &#x60;zh_HK&#x60;: Traditional Chinese
+   * [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as &#x60;en&#x60; by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: &#x60;ar&#x60;: Arabic &#x60;de&#x60;: German &#x60;en&#x60;: English &#x60;es&#x60;: Spanish &#x60;fr&#x60;: French &#x60;id&#x60;: Indonesian &#x60;it&#x60;: Italian &#x60;pt_BR&#x60;: Portuguese &#x60;ru&#x60;: Russian &#x60;tr&#x60;: Turkish &#x60;vi&#x60;: Vietnamese &#x60;zh_CN&#x60;: Simplified Chinese &#x60;zh_HK&#x60;: Traditional Chinese
    * @return language
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "en", value = "[ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt_BR`: Portuguese. Not applicable when `channel` is `whatsapp`. `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh_CN`: Simplified Chinese `zh_HK`: Traditional Chinese")
+  @ApiModelProperty(example = "en", value = "[ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt_BR`: Portuguese `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh_CN`: Simplified Chinese `zh_HK`: Traditional Chinese")
 
   public String getLanguage() {
     return language;

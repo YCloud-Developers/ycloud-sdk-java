@@ -30,6 +30,8 @@ import java.io.IOException;
 import com.ycloud.client.model.ErrorResponse;
 import com.ycloud.client.model.WhatsappPhoneNumber;
 import com.ycloud.client.model.WhatsappPhoneNumberPage;
+import com.ycloud.client.model.WhatsappPhoneNumberProfile;
+import com.ycloud.client.model.WhatsappPhoneNumberProfileUpdateRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -424,6 +426,303 @@ public class WhatsappPhoneNumbersApi {
 
         okhttp3.Call localVarCall = retrieveValidateBeforeCall(wabaId, phoneNumber, _callback);
         Type localVarReturnType = new TypeToken<WhatsappPhoneNumber>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for retrieveProfile
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveProfileCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call retrieveProfileValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveProfile(Async)");
+        }
+        
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieveProfile(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = retrieveProfileCall(wabaId, phoneNumber, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve a WhatsApp phone number profile
+     * <p>
+     * Retrieves a WhatsApp business account phone number&#39;s profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return WhatsappPhoneNumberProfile
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappPhoneNumberProfile retrieveProfile(String wabaId, String phoneNumber) throws ApiException {
+        ApiResponse<WhatsappPhoneNumberProfile> localVarResp = retrieveProfileWithHttpInfo(wabaId, phoneNumber);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve a WhatsApp phone number profile
+     * <p>
+     * Retrieves a WhatsApp business account phone number&#39;s profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return ApiResponse&lt;WhatsappPhoneNumberProfile&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappPhoneNumberProfile> retrieveProfileWithHttpInfo(String wabaId, String phoneNumber) throws ApiException {
+        okhttp3.Call localVarCall = retrieveProfileValidateBeforeCall(wabaId, phoneNumber, null);
+        Type localVarReturnType = new TypeToken<WhatsappPhoneNumberProfile>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a WhatsApp phone number profile (asynchronously)
+     * <p>
+     * Retrieves a WhatsApp business account phone number&#39;s profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveProfileAsync(String wabaId, String phoneNumber, final ApiCallback<WhatsappPhoneNumberProfile> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = retrieveProfileValidateBeforeCall(wabaId, phoneNumber, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappPhoneNumberProfile>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateProfile
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappPhoneNumberProfileUpdateRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateProfileCall(String wabaId, String phoneNumber, WhatsappPhoneNumberProfileUpdateRequest whatsappPhoneNumberProfileUpdateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = whatsappPhoneNumberProfileUpdateRequest;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateProfileValidateBeforeCall(String wabaId, String phoneNumber, WhatsappPhoneNumberProfileUpdateRequest whatsappPhoneNumberProfileUpdateRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling updateProfile(Async)");
+        }
+        
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling updateProfile(Async)");
+        }
+        
+        // verify the required parameter 'whatsappPhoneNumberProfileUpdateRequest' is set
+        if (whatsappPhoneNumberProfileUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'whatsappPhoneNumberProfileUpdateRequest' when calling updateProfile(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateProfileCall(wabaId, phoneNumber, whatsappPhoneNumberProfileUpdateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a WhatsApp phone number profile
+     * <p>
+     * Updates a WhatsApp phone number profile.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappPhoneNumberProfileUpdateRequest  (required)
+     * @return WhatsappPhoneNumberProfile
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappPhoneNumberProfile updateProfile(String wabaId, String phoneNumber, WhatsappPhoneNumberProfileUpdateRequest whatsappPhoneNumberProfileUpdateRequest) throws ApiException {
+        ApiResponse<WhatsappPhoneNumberProfile> localVarResp = updateProfileWithHttpInfo(wabaId, phoneNumber, whatsappPhoneNumberProfileUpdateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a WhatsApp phone number profile
+     * <p>
+     * Updates a WhatsApp phone number profile.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappPhoneNumberProfileUpdateRequest  (required)
+     * @return ApiResponse&lt;WhatsappPhoneNumberProfile&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappPhoneNumberProfile> updateProfileWithHttpInfo(String wabaId, String phoneNumber, WhatsappPhoneNumberProfileUpdateRequest whatsappPhoneNumberProfileUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateProfileValidateBeforeCall(wabaId, phoneNumber, whatsappPhoneNumberProfileUpdateRequest, null);
+        Type localVarReturnType = new TypeToken<WhatsappPhoneNumberProfile>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a WhatsApp phone number profile (asynchronously)
+     * <p>
+     * Updates a WhatsApp phone number profile.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappPhoneNumberProfileUpdateRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateProfileAsync(String wabaId, String phoneNumber, WhatsappPhoneNumberProfileUpdateRequest whatsappPhoneNumberProfileUpdateRequest, final ApiCallback<WhatsappPhoneNumberProfile> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateProfileValidateBeforeCall(wabaId, phoneNumber, whatsappPhoneNumberProfileUpdateRequest, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappPhoneNumberProfile>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

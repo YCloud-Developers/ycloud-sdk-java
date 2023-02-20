@@ -33,6 +33,8 @@ WhatsApp outbound message object.
 |**totalPrice** | **Double** | Total price of this message. |  [optional] |
 |**currency** | **String** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). |  [optional] |
 |**whatsappApiError** | [**WhatsappApiError**](WhatsappApiError.md) |  |  [optional] |
+|**bizType** | **String** | This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product. |  [optional] |
+|**verificationId** | **String** | The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;. |  [optional] |
 
 
 

@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.4.4</version>
+  <version>1.5.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.4.4"
+     implementation "com.ycloud:ycloud-sdk-java:1.5.0"
   }
 ```
 
@@ -115,6 +115,8 @@ Class | Method | HTTP request | Description
 *WhatsappMessagesApi* | [**send**](docs/WhatsappMessagesApi.md#send) | **POST** /whatsapp/messages | Send a WhatsApp message
 *WhatsappPhoneNumbersApi* | [**list**](docs/WhatsappPhoneNumbersApi.md#list) | **GET** /whatsapp/phoneNumbers | List WhatsApp phone numbers
 *WhatsappPhoneNumbersApi* | [**retrieve**](docs/WhatsappPhoneNumbersApi.md#retrieve) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a WhatsApp phone number
+*WhatsappPhoneNumbersApi* | [**retrieveProfile**](docs/WhatsappPhoneNumbersApi.md#retrieveProfile) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Retrieve a WhatsApp phone number profile
+*WhatsappPhoneNumbersApi* | [**updateProfile**](docs/WhatsappPhoneNumbersApi.md#updateProfile) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a WhatsApp phone number profile
 *WhatsappTemplatesApi* | [**create**](docs/WhatsappTemplatesApi.md#create) | **POST** /whatsapp/templates | Create a WhatsApp template
 *WhatsappTemplatesApi* | [**deleteByName**](docs/WhatsappTemplatesApi.md#deleteByName) | **DELETE** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name
 *WhatsappTemplatesApi* | [**editByNameAndLanguage**](docs/WhatsappTemplatesApi.md#editByNameAndLanguage) | **PATCH** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template
@@ -144,6 +146,7 @@ Class | Method | HTTP request | Description
  - [VerificationChannel](docs/VerificationChannel.md)
  - [VerificationCheck](docs/VerificationCheck.md)
  - [VerificationCheckRequest](docs/VerificationCheckRequest.md)
+ - [VerificationFallback](docs/VerificationFallback.md)
  - [VerificationSendRequest](docs/VerificationSendRequest.md)
  - [VerificationStatus](docs/VerificationStatus.md)
  - [Voice](docs/Voice.md)
@@ -211,6 +214,9 @@ Class | Method | HTTP request | Description
  - [WhatsappPhoneNumberCodeVerificationStatus](docs/WhatsappPhoneNumberCodeVerificationStatus.md)
  - [WhatsappPhoneNumberNameStatus](docs/WhatsappPhoneNumberNameStatus.md)
  - [WhatsappPhoneNumberPage](docs/WhatsappPhoneNumberPage.md)
+ - [WhatsappPhoneNumberProfile](docs/WhatsappPhoneNumberProfile.md)
+ - [WhatsappPhoneNumberProfileUpdateRequest](docs/WhatsappPhoneNumberProfileUpdateRequest.md)
+ - [WhatsappPhoneNumberProfileVertical](docs/WhatsappPhoneNumberProfileVertical.md)
  - [WhatsappPhoneNumberQualityRating](docs/WhatsappPhoneNumberQualityRating.md)
  - [WhatsappPhoneNumberStatus](docs/WhatsappPhoneNumberStatus.md)
  - [WhatsappProfile](docs/WhatsappProfile.md)

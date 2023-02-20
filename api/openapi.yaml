@@ -777,6 +777,96 @@ paths:
       tags:
       - WhatsApp Phone Numbers
       x-accepts: application/json
+  /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile:
+    get:
+      description: Retrieves a WhatsApp business account phone number's profile. Customers
+        can view your business profile by clicking your business's name or number
+        in a conversation thread.
+      operationId: whatsapp_phone_number-retrieve-profile
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: wabaId
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      - description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+          \ format."
+        explode: false
+        in: path
+        name: phoneNumber
+        required: true
+        schema:
+          example: +447901614024
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappPhoneNumberProfile'
+          description: Successfully retrieved the object.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Retrieve a WhatsApp phone number profile
+      tags:
+      - WhatsApp Phone Numbers
+      x-accepts: application/json
+    patch:
+      description: Updates a WhatsApp phone number profile.
+      operationId: whatsapp_phone_number-update-profile
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: wabaId
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      - description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+          \ format."
+        explode: false
+        in: path
+        name: phoneNumber
+        required: true
+        schema:
+          example: +447901614024
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WhatsappPhoneNumberProfileUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappPhoneNumberProfile'
+          description: Successfully updated the object.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Update a WhatsApp phone number profile
+      tags:
+      - WhatsApp Phone Numbers
+      x-content-type: application/json
+      x-accepts: application/json
   /whatsapp/templates:
     get:
       description: Returns a paginated list of WhatsApp templates you've previously
@@ -1319,13 +1409,18 @@ components:
           example: tom@example.com
           type: string
         status:
-          description: Delivery status of the email to the specific recipient address.
+          description: "Delivery status of the email to the specific recipient address.\n\
+            - `sending`: The messaging request is accepted by our system.\n- `failed`:\
+            \ The message failed to be sent from our system.\n- `sent`: The message\
+            \ has been sent from YCloud.\n- `delivered`: YCloud has received a delivery\
+            \ receipt indicating that message is delivered.\n- `undelivered`: YCloud\
+            \ has received a delivery receipt indicating that message is not delivered."
           enum:
           - sending
+          - failed
           - sent
           - delivered
           - undelivered
-          - failed
           example: failed
           type: string
         errorCode:
@@ -1338,6 +1433,17 @@ components:
           type: string
         externalId:
           description: The `externalId` you specified when you sent the email.
+          type: string
+        bizType:
+          description: "This can be either empty or one of `email`, or `verify`. Defaults\
+            \ to `email`.\n- `email`: Indicates that the message is sent via [Email](https://www.ycloud.com/email)\
+            \ product.\n- `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify)\
+            \ product."
+          example: verify
+          type: string
+        verificationId:
+          description: The verification ID. Included only when `bizType` is `verify`.
+          example: VERIFICATION-ID
           type: string
       required:
       - emailId
@@ -1629,6 +1735,7 @@ components:
       type: object
     Sms:
       example:
+        bizType: verify
         totalPrice: 0.0085
         totalSegments: 1
         errorCode: errorCode
@@ -1642,6 +1749,7 @@ components:
         id: id
         to: +447901614024
         text: Your verification code is 123456.
+        verificationId: VERIFICATION-ID
         status: sent
       properties:
         id:
@@ -1684,15 +1792,27 @@ components:
           type: string
         status:
           description: "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`,\
-            \ or `failed`."
+            \ or `failed`.\n- `accepted`: The messaging request is accepted by our\
+            \ system.\n- `failed`: The message failed to be sent from our system.\n\
+            - `sent`: The message has been sent from our system.\n- `delivered`: YCloud\
+            \ has received a delivery receipt indicating that message is delivered.\n\
+            - `undelivered`: YCloud has received a delivery receipt indicating that\
+            \ message is not delivered."
           enum:
           - accepted
+          - failed
           - sent
           - delivered
           - undelivered
-          - failed
           example: sent
           type: string
+          x-enum-descriptions:
+          - The messaging request is accepted by our system.
+          - The message failed to be sent from our system.
+          - The message has been sent from our system.
+          - YCloud has received a delivery receipt indicating that message is delivered.
+          - YCloud has received a delivery receipt indicating that message is not
+            delivered.
         errorCode:
           description: Error code when the message is undeliverable.
           type: string
@@ -1719,6 +1839,17 @@ components:
             \ the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api.\n\
             Note: We recommend configuring Webhook Endpoints instead."
           example: https://httpbin.org/anything?tag=api-sms
+          type: string
+        bizType:
+          description: "This can be either empty or one of `sms`, or `verify`. Defaults\
+            \ to `sms`.\n- `sms`: Indicates that the message is sent via [Email](https://www.ycloud.com/sms)\
+            \ product.\n- `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify)\
+            \ product."
+          example: verify
+          type: string
+        verificationId:
+          description: The verification ID. Included only when `bizType` is `verify`.
+          example: VERIFICATION-ID
           type: string
       required:
       - id
@@ -1757,7 +1888,8 @@ components:
       description: Represents a given page of SMS messages.
       example:
         items:
-        - totalPrice: 0.0085
+        - bizType: verify
+          totalPrice: 0.0085
           totalSegments: 1
           errorCode: errorCode
           externalId: externalId
@@ -1770,8 +1902,10 @@ components:
           id: id
           to: +447901614024
           text: Your verification code is 123456.
+          verificationId: VERIFICATION-ID
           status: sent
-        - totalPrice: 0.0085
+        - bizType: verify
+          totalPrice: 0.0085
           totalSegments: 1
           errorCode: errorCode
           externalId: externalId
@@ -1784,6 +1918,7 @@ components:
           id: id
           to: +447901614024
           text: Your verification code is 123456.
+          verificationId: VERIFICATION-ID
           status: sent
       properties:
         items:
@@ -1794,7 +1929,12 @@ components:
       type: object
     Verification:
       example:
+        smsFallback:
+          unsupportedReason: SENDER_ID_UNAVAILABLE
+          unsupportedDetail: This Sender ID is not registered.
+          supported: true
         totalPrice: 0.0085
+        smsFallbackEnabled: true
         channel: sms
         currency: USD
         id: ve6j7n8i
@@ -1829,6 +1969,13 @@ components:
           description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
           example: USD
           type: string
+        smsFallbackEnabled:
+          description: "Whether sms fallback is enabled or not.\nApplicable when `channel`\
+            \ is `whatsapp`. If enabled, YCloud will try to send the verification\
+            \ code via sms when the WhatsApp message is failed."
+          type: boolean
+        smsFallback:
+          $ref: '#/components/schemas/VerificationFallback'
       required:
       - id
       type: object
@@ -1894,6 +2041,29 @@ components:
           example: "123456"
           type: string
       type: object
+    VerificationFallback:
+      description: "Contains information about verification fallback. For example,\
+        \ you can enable sms fallback for WhatsApp verification messages."
+      example:
+        unsupportedReason: SENDER_ID_UNAVAILABLE
+        unsupportedDetail: This Sender ID is not registered.
+        supported: true
+      properties:
+        supported:
+          description: "Whether this fallback you requested is supported. If `false`\
+            \ is returned, it means that there are errors for this fallback, and this\
+            \ fallback will not be triggered."
+          type: boolean
+        unsupportedReason:
+          description: "The reason why the fallback is unsupported, e.g, `PARAM_INVALID`,\
+            \ `SMS_SIGNATURE_UNAVAILABLE`, `SENDER_ID_UNAVAILABLE`, or `MESSAGING_REGION_UNSUPPORTED`."
+          example: SENDER_ID_UNAVAILABLE
+          type: string
+        unsupportedDetail:
+          description: The detail message why the fallback is unsupported.
+          example: This Sender ID is not registered.
+          type: string
+      type: object
     VerificationSendRequest:
       example:
         senderId: YCloud
@@ -1937,9 +2107,9 @@ components:
             \ in certain countries or regions, language will be automatically set\
             \ as the local language due to the regional restrictions.\nApplicable\
             \ languages:\n`ar`: Arabic\n`de`: German\n`en`: English\n`es`: Spanish\n\
-            `fr`: French\n`id`: Indonesian\n`it`: Italian\n`pt_BR`: Portuguese. Not\
-            \ applicable when `channel` is `whatsapp`.\n`ru`: Russian\n`tr`: Turkish\n\
-            `vi`: Vietnamese\n`zh_CN`: Simplified Chinese\n`zh_HK`: Traditional Chinese"
+            `fr`: French\n`id`: Indonesian\n`it`: Italian\n`pt_BR`: Portuguese\n`ru`:\
+            \ Russian\n`tr`: Turkish\n`vi`: Vietnamese\n`zh_CN`: Simplified Chinese\n\
+            `zh_HK`: Traditional Chinese"
           example: en
           type: string
       required:
@@ -1947,20 +2117,20 @@ components:
       - to
       type: object
     VerificationStatus:
-      description: "Status of verification, one of `pending`, `approved`, `blocked`,\
-        \ `expired`, `undelivered`.\n`pending`: The verification message (SMS, Voice,\
-        \ etc.) is sent, waiting to be checked. This happens when you call the 'Start\
-        \ a verification' API successfully.\n`approved`: The verification has been\
-        \ successfully checked. A `pending` verification status changes to `approved`\
-        \ when you call the 'Check a verification' API and receive a response with\
-        \ the `valid` parameter is `true`. An approved verification cannot be checked\
-        \ anymore.\n`blocked`: The verification is blocked by user-defined rules such\
-        \ as denylist, and geographical permission restrictions. A blocked verification\
-        \ cannot be checked.\n`expired`: The verification has expired and cannot be\
-        \ checked anymore. The expiration can be customized in [Verify Settings](https://www.ycloud.com/console/#/app/verify/setting).\n\
-        `undelivered`: YCloud has received a delivery receipt indicating that the\
-        \ verification message was not delivered. An undelivered verification cannot\
-        \ be checked anymore."
+      description: "Status of the verification.\n- `pending`: The verification message\
+        \ (SMS, Voice, etc.) is sent, waiting to be checked. This happens when you\
+        \ call the 'Start a verification' API successfully.\n- `approved`: The verification\
+        \ has been successfully checked. A `pending` verification status changes to\
+        \ `approved` when you call the 'Check a verification' API and receive a response\
+        \ with the `valid` parameter is `true`. An approved verification cannot be\
+        \ checked anymore.\n- `blocked`: The verification is blocked by user-defined\
+        \ rules such as denylist, and geographical permission restrictions. A blocked\
+        \ verification cannot be checked.\n- `expired`: The verification has expired\
+        \ and cannot be checked anymore. The expiration can be customized in [Verify\
+        \ Settings](https://www.ycloud.com/console/#/app/verify/setting).\n- `undelivered`:\
+        \ YCloud has received a delivery receipt indicating that the verification\
+        \ message was not delivered. An undelivered verification cannot be checked\
+        \ anymore."
       enum:
       - pending
       - approved
@@ -2015,6 +2185,7 @@ components:
       type: object
     Voice:
       example:
+        bizType: verify
         totalPrice: 0.05
         totalSegments: 1
         errorCode: errorCode
@@ -2028,6 +2199,7 @@ components:
         callbackUrl: https://httpbin.org/anything?tag=api-voice
         id: id
         to: +447901614024
+        verificationId: VERIFICATION-ID
         status: sent
       properties:
         id:
@@ -2069,15 +2241,27 @@ components:
           type: string
         status:
           description: "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`,\
-            \ or `failed`."
+            \ or `failed`.\n- `accepted`: The messaging request is accepted by our\
+            \ system.\n- `failed`: The message failed to be sent from our system.\n\
+            - `sent`: The message has been sent from our system.\n- `delivered`: YCloud\
+            \ has received a delivery receipt indicating that message is delivered.\n\
+            - `undelivered`: YCloud has received a delivery receipt indicating that\
+            \ message is not delivered."
           enum:
           - accepted
+          - failed
           - sent
           - delivered
           - undelivered
-          - failed
           example: sent
           type: string
+          x-enum-descriptions:
+          - The messaging request is accepted by our system.
+          - The message failed to be sent from our system.
+          - The message has been sent from our system.
+          - YCloud has received a delivery receipt indicating that message is delivered.
+          - YCloud has received a delivery receipt indicating that message is not
+            delivered.
         errorCode:
           description: Error code when the message is undeliverable.
           type: string
@@ -2105,6 +2289,17 @@ components:
             Note: We recommend configuring Webhook Endpoints instead."
           example: https://httpbin.org/anything?tag=api-voice
           type: string
+        bizType:
+          description: "This can be either empty or one of `voice`, or `verify`. Defaults\
+            \ to `voice`.\n- `voice`: Indicates that the message is sent via [Voice](https://www.ycloud.com/voice)\
+            \ product.\n- `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify)\
+            \ product."
+          example: verify
+          type: string
+        verificationId:
+          description: The verification ID. Included only when `bizType` is `verify`.
+          example: VERIFICATION-ID
+          type: string
       required:
       - id
       - to
@@ -2115,7 +2310,8 @@ components:
       description: Represents a given page of Voice Calls.
       example:
         items:
-        - totalPrice: 0.05
+        - bizType: verify
+          totalPrice: 0.05
           totalSegments: 1
           errorCode: errorCode
           externalId: externalId
@@ -2128,8 +2324,10 @@ components:
           callbackUrl: https://httpbin.org/anything?tag=api-voice
           id: id
           to: +447901614024
+          verificationId: VERIFICATION-ID
           status: sent
-        - totalPrice: 0.05
+        - bizType: verify
+          totalPrice: 0.05
           totalSegments: 1
           errorCode: errorCode
           externalId: externalId
@@ -2142,6 +2340,7 @@ components:
           callbackUrl: https://httpbin.org/anything?tag=api-voice
           id: id
           to: +447901614024
+          verificationId: VERIFICATION-ID
           status: sent
       properties:
         items:
@@ -2314,7 +2513,12 @@ components:
           type: array
       type: object
     WebhookEndpointStatus:
-      description: Webhook endpoint status.
+      description: "Webhook endpoint status.\n- `active`: Indicates that the webhook\
+        \ endpoint is active, and will receive notifications of events monitored.\n\
+        - `disabled`: Indicates that the webhook endpoint is disabled, and will not\
+        \ receive notifications.\n- `pending`: Indicates that the webhook endpoint\
+        \ is pending, and will not receive notifications. If a webhook endpoint fails\
+        \ to receive notifications frequently, it changes to pending."
       enum:
       - active
       - disabled
@@ -3098,6 +3302,7 @@ components:
           name: sample_whatsapp_template
           language:
             code: en
+        bizType: verify
         wamid: wamid.BgNODYxN...
         totalPrice: 0.05
         document:
@@ -3359,6 +3564,7 @@ components:
           - phone: phone
             wa_id: wa_id
             type: type
+        verificationId: VERIFICATION-ID
         status: null
       properties:
         id:
@@ -3442,6 +3648,18 @@ components:
           type: string
         whatsappApiError:
           $ref: '#/components/schemas/WhatsappApiError'
+        bizType:
+          description: "This can be either empty or one of `whatsapp`, or `verify`.\
+            \ Defaults to `whatsapp`.\n- `whatsapp`: Indicates that the message is\
+            \ sent via [WhatsApp](https://www.ycloud.com/whatsapp) product.\n- `verify`:\
+            \ Indicates that the message is sent via [Verify](https://www.ycloud.com/verify)\
+            \ product."
+          example: verify
+          type: string
+        verificationId:
+          description: The verification ID. Included only when `bizType` is `verify`.
+          example: VERIFICATION-ID
+          type: string
       required:
       - from
       - id
@@ -4312,7 +4530,14 @@ components:
       type: string
     WhatsappPhoneNumberNameStatus:
       description: "The review status of the current display name request. See also\
-        \ [Get Display Name Status](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers#get-display-name-status--beta-)."
+        \ [Get Display Name Status](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers#get-display-name-status--beta-).\n\
+        - `APPROVED`: The name has been approved. You can download your certificate\
+        \ now.\n- `AVAILABLE_WITHOUT_REVIEW`: The certificate for the phone is available\
+        \ and display name is ready to use without review.\n- `DECLINED`: The name\
+        \ has not been approved. You cannot download your certificate.\n- `EXPIRED`:\
+        \ Your certificate has expire and can no longer be downloaded.\n- `PENDING_REVIEW`:\
+        \ Your name request is under review. You cannot download your certificate.\n\
+        - `NONE`: No certificate is available."
       enum:
       - APPROVED
       - AVAILABLE_WITHOUT_REVIEW
@@ -4368,6 +4593,144 @@ components:
             $ref: '#/components/schemas/WhatsappPhoneNumber'
           type: array
       type: object
+    WhatsappPhoneNumberProfile:
+      description: "WhatsApp Phone Number Business Profile. Customers can view your\
+        \ business profile by clicking your business's name or number in a conversation\
+        \ thread. See also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles)."
+      example:
+        profilePictureUrl: https://URL
+        address: ADDRESS
+        about: ABOUT
+        description: DESCRIPTION
+        vertical: OTHER
+        websites:
+        - https://WEBSITE-1
+        - https://WEBSITE-1
+        email: tom@example.com
+      properties:
+        about:
+          description: "The business's **About** text. This text appears in the business's\
+            \ profile, beneath its profile image, phone number, and contact buttons."
+          example: ABOUT
+          type: string
+        address:
+          description: Address of the business. Character limit 256.
+          example: ADDRESS
+          maxLength: 256
+          type: string
+        description:
+          description: Description of the business. Character limit 512.
+          example: DESCRIPTION
+          maxLength: 512
+          type: string
+        email:
+          description: The contact email address (in valid email format) of the business.
+            Character limit 128.
+          example: tom@example.com
+          maxLength: 128
+          type: string
+        profilePictureUrl:
+          description: URL of the profile picture used to upload to Meta.
+          example: https://URL
+          type: string
+        vertical:
+          $ref: '#/components/schemas/WhatsappPhoneNumberProfileVertical'
+        websites:
+          description: "The URLs associated with the business. For instance, a website,\
+            \ Facebook Page, or Instagram. You must include the http:// or https://\
+            \ portion of the URL.\nThere is a maximum of 2 websites with a maximum\
+            \ of 256 characters each."
+          items:
+            example: https://WEBSITE-1
+            maxLength: 256
+            type: string
+          maxItems: 2
+          type: array
+      type: object
+    WhatsappPhoneNumberProfileUpdateRequest:
+      description: "WhatsApp Phone Number Business Profile. Customers can view your\
+        \ business profile by clicking your business's name or number in a conversation\
+        \ thread. See also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles)."
+      example:
+        profilePictureUrl: https://URL
+        address: ADDRESS
+        about: ABOUT
+        description: DESCRIPTION
+        vertical: OTHER
+        websites:
+        - https://WEBSITE-1
+        - https://WEBSITE-1
+        email: tom@example.com
+      properties:
+        about:
+          description: "The business's **About** text. This text appears in the business's\
+            \ profile, beneath its profile image, phone number, and contact buttons.\n\
+            - String cannot be empty.\n- Strings must be between 1 and 139 characters.\n\
+            - Rendered emojis are supported however their unicode values are not.\
+            \ Emoji unicode values must be Java- or JavaScript-escape encoded.\n-\
+            \ Hyperlinks can be included but will not render as clickable links.\n\
+            - Markdown is not supported."
+          example: ABOUT
+          maxLength: 139
+          minLength: 1
+          type: string
+        address:
+          description: Address of the business. Character limit 256.
+          example: ADDRESS
+          maxLength: 256
+          type: string
+        description:
+          description: Description of the business. Character limit 512.
+          example: DESCRIPTION
+          maxLength: 512
+          type: string
+        email:
+          description: The contact email address (in valid email format) of the business.
+            Character limit 128.
+          example: tom@example.com
+          maxLength: 128
+          type: string
+        profilePictureUrl:
+          description: URL of the profile picture that was uploaded to Meta.
+          example: https://URL
+          type: string
+        vertical:
+          $ref: '#/components/schemas/WhatsappPhoneNumberProfileVertical'
+        websites:
+          description: "The URLs associated with the business. For instance, a website,\
+            \ Facebook Page, or Instagram. You must include the http:// or https://\
+            \ portion of the URL.\nThere is a maximum of 2 websites with a maximum\
+            \ of 256 characters each."
+          items:
+            example: https://WEBSITE-1
+            maxLength: 256
+            type: string
+          maxItems: 2
+          type: array
+      type: object
+    WhatsappPhoneNumberProfileVertical:
+      description: Industry of the WhatsApp phone number business profile. This can
+        be either an empty string or one of the accepted values.
+      enum:
+      - OTHER
+      - AUTO
+      - BEAUTY
+      - APPAREL
+      - EDU
+      - ENTERTAIN
+      - EVENT_PLAN
+      - FINANCE
+      - GROCERY
+      - GOVT
+      - HOTEL
+      - HEALTH
+      - NONPROFIT
+      - PROF_SERVICES
+      - RETAIL
+      - TRAVEL
+      - RESTAURANT
+      example: OTHER
+      type: string
     WhatsappPhoneNumberQualityRating:
       description: "Quality rating. One of `GREEN`, `YELLOW`, `RED`, or `UNKNOWN`.\
         \ See also [Quality Rating](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits).\n\
@@ -5112,7 +5475,19 @@ components:
           type: array
       type: object
     WhatsappTemplateStatus:
-      description: "One of `APPROVED`, `PENDING`, `REJECTED`, `PAUSED`, and `DISABLED`."
+      description: "The status of a WhatsApp template.\n- `PENDING`: The template\
+        \ is still under review. Review can take up to 24 hours.\n- `REJECTED`: The\
+        \ template has been rejected during review process.\n- `APPROVED`: The template\
+        \ is approved, and you may begin sending it to customers.\n- `PAUSED`: The\
+        \ template has been paused due to recurring negative feedback from customers.\
+        \ Message templates with this status cannot be sent to customers. See [Template\
+        \ Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing).\n\
+        - `DISABLED`: The template has been disabled due to recurring negative feedback\
+        \ from customers or for violating one or more of our policies. Message templates\
+        \ with this status cannot be sent to customers. You may be able to edit a\
+        \ disabled message template and request an appeal. See [Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals).\n\
+        - `IN_APPEAL`: The template is in appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals).\n\
+        - `PENDING_DELETION`: The template is pending deletion."
       enum:
       - PENDING
       - REJECTED
@@ -5137,7 +5512,13 @@ components:
       - "The template is in appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals)."
       - The template is pending deletion.
     WhatsappTemplateStatusUpdateEventEnum:
-      description: Used when an event happened on WhatsApp template status updates.
+      description: "Used when an event happened on WhatsApp template status updates.\n\
+        - `PENDING`: Pending.\n- `APPROVED`: Approved.\n- `REJECTED`: Rejected.\n\
+        - `IN_APPEAL`: In appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals).\n\
+        - `PAUSED`: Paused. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing).\n\
+        - `FLAGGED`: Flagged. The template is scheduled for disabling.\n- `DISABLED`:\
+        \ Disabled. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing).\n\
+        - `REINSTATED`: Reinstated.\n- `PENDING_DELETION`: Pending deletion."
       enum:
       - PENDING
       - APPROVED

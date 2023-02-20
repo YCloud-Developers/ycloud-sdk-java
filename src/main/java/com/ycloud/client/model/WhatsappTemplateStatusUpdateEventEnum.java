@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Used when an event happened on WhatsApp template status updates.
+ * Used when an event happened on WhatsApp template status updates. - &#x60;PENDING&#x60;: Pending. - &#x60;APPROVED&#x60;: Approved. - &#x60;REJECTED&#x60;: Rejected. - &#x60;IN_APPEAL&#x60;: In appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals). - &#x60;PAUSED&#x60;: Paused. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - &#x60;FLAGGED&#x60;: Flagged. The template is scheduled for disabling. - &#x60;DISABLED&#x60;: Disabled. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - &#x60;REINSTATED&#x60;: Reinstated. - &#x60;PENDING_DELETION&#x60;: Pending deletion.
  */
 @JsonAdapter(WhatsappTemplateStatusUpdateEventEnum.Adapter.class)
 public enum WhatsappTemplateStatusUpdateEventEnum {

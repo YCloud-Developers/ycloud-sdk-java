@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.0 (2023-02-20)
+
+- Add WhatsApp Business Phone Number Profile APIs.
+- Add `bizType` for SMS, Voice, Email, and WhatsApp messages. 
+
 ## 1.4.4 (2023-02-07)
 
 - Add `smsInbound` for webhook events.

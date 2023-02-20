@@ -106,6 +106,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.Verification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.VerificationCheck.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.VerificationCheckRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.VerificationFallback.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.VerificationSendRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.Voice.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.VoicePage.CustomTypeAdapterFactory());
@@ -162,6 +163,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappMessageText.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappPhoneNumber.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappPhoneNumberPage.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappPhoneNumberProfile.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappPhoneNumberProfileUpdateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappProfile.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateComponent.CustomTypeAdapterFactory());
