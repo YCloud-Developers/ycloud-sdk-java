@@ -45,65 +45,43 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * When a user reacts to messages with an emoji, the message type is set to &#x60;reaction&#x60;, and this field is included.
+ * WhatsappMessageInteractiveActionSectionProductItem
  */
-@ApiModel(description = "When a user reacts to messages with an emoji, the message type is set to `reaction`, and this field is included.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappInboundMessageReaction {
-  public static final String SERIALIZED_NAME_MESSAGE_ID = "message_id";
-  @SerializedName(SERIALIZED_NAME_MESSAGE_ID)
-  private String messageId;
+public class WhatsappMessageInteractiveActionSectionProductItem {
+  public static final String SERIALIZED_NAME_PRODUCT_RETAILER_ID = "product_retailer_id";
+  /**
+   * Required for Multi-Product Messages. Unique identifier of the product in a catalog.
+  **/
+  @SerializedName(SERIALIZED_NAME_PRODUCT_RETAILER_ID)
+  private String productRetailerId;
 
-  public static final String SERIALIZED_NAME_EMOJI = "emoji";
-  @SerializedName(SERIALIZED_NAME_EMOJI)
-  private String emoji;
-
-  public WhatsappInboundMessageReaction() { 
+  public WhatsappMessageInteractiveActionSectionProductItem() { 
   }
 
-  public WhatsappInboundMessageReaction messageId(String messageId) {
+  public WhatsappMessageInteractiveActionSectionProductItem productRetailerId(String productRetailerId) {
     
-    this.messageId = messageId;
+    this.productRetailerId = productRetailerId;
     return this;
   }
 
    /**
-   * Specifies the &#x60;wamid&#x60; of the message received that contained the reaction.
-   * @return messageId
+   * Required for Multi-Product Messages. Unique identifier of the product in a catalog.
+   * @return productRetailerId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "Specifies the `wamid` of the message received that contained the reaction.")
 
-  public String getMessageId() {
-    return messageId;
+  public String getProductRetailerId() {
+    return productRetailerId;
   }
 
 
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-
-  public WhatsappInboundMessageReaction emoji(String emoji) {
-    
-    this.emoji = emoji;
-    return this;
-  }
-
-   /**
-   * This field is included when a user reacts to messages with an emoji. Otherwise, it indicates a user removed the emoji.
-   * @return emoji
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "This field is included when a user reacts to messages with an emoji. Otherwise, it indicates a user removed the emoji.")
-
-  public String getEmoji() {
-    return emoji;
-  }
-
-
-  public void setEmoji(String emoji) {
-    this.emoji = emoji;
+  /**
+   * Required for Multi-Product Messages. Unique identifier of the product in a catalog.
+   **/
+  @ApiModelProperty(value = "Required for Multi-Product Messages. Unique identifier of the product in a catalog.")
+  public void setProductRetailerId(String productRetailerId) {
+    this.productRetailerId = productRetailerId;
   }
 
   /**
@@ -117,7 +95,7 @@ public class WhatsappInboundMessageReaction {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappInboundMessageReaction putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageInteractiveActionSectionProductItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -151,23 +129,21 @@ public class WhatsappInboundMessageReaction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappInboundMessageReaction whatsappInboundMessageReaction = (WhatsappInboundMessageReaction) o;
-    return Objects.equals(this.messageId, whatsappInboundMessageReaction.messageId) &&
-        Objects.equals(this.emoji, whatsappInboundMessageReaction.emoji)&&
-        Objects.equals(this.additionalProperties, whatsappInboundMessageReaction.additionalProperties);
+    WhatsappMessageInteractiveActionSectionProductItem whatsappMessageInteractiveActionSectionProductItem = (WhatsappMessageInteractiveActionSectionProductItem) o;
+    return Objects.equals(this.productRetailerId, whatsappMessageInteractiveActionSectionProductItem.productRetailerId)&&
+        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionSectionProductItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(messageId, emoji, additionalProperties);
+    return Objects.hash(productRetailerId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappInboundMessageReaction {\n");
-    sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
-    sb.append("    emoji: ").append(toIndentedString(emoji)).append("\n");
+    sb.append("class WhatsappMessageInteractiveActionSectionProductItem {\n");
+    sb.append("    productRetailerId: ").append(toIndentedString(productRetailerId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -191,8 +167,7 @@ public class WhatsappInboundMessageReaction {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("message_id");
-    openapiFields.add("emoji");
+    openapiFields.add("product_retailer_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -202,21 +177,18 @@ public class WhatsappInboundMessageReaction {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappInboundMessageReaction
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionSectionProductItem
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappInboundMessageReaction.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageInteractiveActionSectionProductItem.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappInboundMessageReaction is not found in the empty JSON string", WhatsappInboundMessageReaction.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionSectionProductItem is not found in the empty JSON string", WhatsappMessageInteractiveActionSectionProductItem.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("message_id") != null && !jsonObj.get("message_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message_id").toString()));
-      }
-      if (jsonObj.get("emoji") != null && !jsonObj.get("emoji").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `emoji` to be a primitive type in the JSON string but got `%s`", jsonObj.get("emoji").toString()));
+      if (jsonObj.get("product_retailer_id") != null && !jsonObj.get("product_retailer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `product_retailer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("product_retailer_id").toString()));
       }
   }
 
@@ -224,16 +196,16 @@ public class WhatsappInboundMessageReaction {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappInboundMessageReaction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappInboundMessageReaction' and its subtypes
+       if (!WhatsappMessageInteractiveActionSectionProductItem.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageInteractiveActionSectionProductItem' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappInboundMessageReaction> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappInboundMessageReaction.class));
+       final TypeAdapter<WhatsappMessageInteractiveActionSectionProductItem> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionSectionProductItem.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappInboundMessageReaction>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionSectionProductItem>() {
            @Override
-           public void write(JsonWriter out, WhatsappInboundMessageReaction value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageInteractiveActionSectionProductItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -256,11 +228,11 @@ public class WhatsappInboundMessageReaction {
            }
 
            @Override
-           public WhatsappInboundMessageReaction read(JsonReader in) throws IOException {
+           public WhatsappMessageInteractiveActionSectionProductItem read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappInboundMessageReaction instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageInteractiveActionSectionProductItem instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -285,18 +257,18 @@ public class WhatsappInboundMessageReaction {
   }
 
  /**
-  * Create an instance of WhatsappInboundMessageReaction given an JSON string
+  * Create an instance of WhatsappMessageInteractiveActionSectionProductItem given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappInboundMessageReaction
-  * @throws IOException if the JSON string is invalid with respect to WhatsappInboundMessageReaction
+  * @return An instance of WhatsappMessageInteractiveActionSectionProductItem
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionSectionProductItem
   */
-  public static WhatsappInboundMessageReaction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappInboundMessageReaction.class);
+  public static WhatsappMessageInteractiveActionSectionProductItem fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionSectionProductItem.class);
   }
 
  /**
-  * Convert an instance of WhatsappInboundMessageReaction to an JSON string
+  * Convert an instance of WhatsappMessageInteractiveActionSectionProductItem to an JSON string
   *
   * @return JSON string
   */

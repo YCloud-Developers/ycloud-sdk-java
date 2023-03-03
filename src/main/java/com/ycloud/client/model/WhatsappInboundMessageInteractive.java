@@ -106,14 +106,21 @@ public class WhatsappInboundMessageInteractive {
   }
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list.
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
   public static final String SERIALIZED_NAME_BUTTON_REPLY = "button_reply";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_BUTTON_REPLY)
   private WhatsappInboundMessageInteractiveButtonReply buttonReply;
 
   public static final String SERIALIZED_NAME_LIST_REPLY = "list_reply";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_LIST_REPLY)
   private WhatsappInboundMessageInteractiveListReply listReply;
 
@@ -131,13 +138,16 @@ public class WhatsappInboundMessageInteractive {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of interactive message received. - `button_reply`: Sent when a customer clicks a button. - `list_reply`: Sent when a customer selects an item from a list.")
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  /**
+   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list.
+   **/
+  @ApiModelProperty(value = "The type of interactive message received. - `button_reply`: Sent when a customer clicks a button. - `list_reply`: Sent when a customer selects an item from a list.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -154,13 +164,15 @@ public class WhatsappInboundMessageInteractive {
    * @return buttonReply
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappInboundMessageInteractiveButtonReply getButtonReply() {
     return buttonReply;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setButtonReply(WhatsappInboundMessageInteractiveButtonReply buttonReply) {
     this.buttonReply = buttonReply;
   }
@@ -177,13 +189,15 @@ public class WhatsappInboundMessageInteractive {
    * @return listReply
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappInboundMessageInteractiveListReply getListReply() {
     return listReply;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setListReply(WhatsappInboundMessageInteractiveListReply listReply) {
     this.listReply = listReply;
   }

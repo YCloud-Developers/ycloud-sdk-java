@@ -51,10 +51,16 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageButton {
   public static final String SERIALIZED_NAME_PAYLOAD = "payload";
+  /**
+   * The payload for a button set up by the business that a customer clicked as part of an interactive message.
+  **/
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   private String payload;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+   * Button text.
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
@@ -72,13 +78,16 @@ public class WhatsappInboundMessageButton {
    * @return payload
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The payload for a button set up by the business that a customer clicked as part of an interactive message.")
 
   public String getPayload() {
     return payload;
   }
 
 
+  /**
+   * The payload for a button set up by the business that a customer clicked as part of an interactive message.
+   **/
+  @ApiModelProperty(value = "The payload for a button set up by the business that a customer clicked as part of an interactive message.")
   public void setPayload(String payload) {
     this.payload = payload;
   }
@@ -95,13 +104,16 @@ public class WhatsappInboundMessageButton {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Button text.")
 
   public String getText() {
     return text;
   }
 
 
+  /**
+   * Button text.
+   **/
+  @ApiModelProperty(value = "Button text.")
   public void setText(String text) {
     this.text = text;
   }

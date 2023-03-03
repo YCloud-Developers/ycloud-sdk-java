@@ -52,22 +52,36 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageContext {
   public static final String SERIALIZED_NAME_FORWARDED = "forwarded";
+  /**
+   * **Added to Webhooks if message was forwarded.**  Set to &#x60;true&#x60; if the received message has been forwarded.
+  **/
   @SerializedName(SERIALIZED_NAME_FORWARDED)
   private Boolean forwarded;
 
   public static final String SERIALIZED_NAME_FREQUENTLY_FORWARDED = "frequently_forwarded";
+  /**
+   * **Added to Webhooks if message has been frequently forwarded.**  Set to &#x60;true&#x60; if the received message has been forwarded more than five times.
+  **/
   @SerializedName(SERIALIZED_NAME_FREQUENTLY_FORWARDED)
   private Boolean frequentlyForwarded;
 
   public static final String SERIALIZED_NAME_FROM = "from";
+  /**
+   * **Added to Webhooks if message is an inbound reply to a sent message.**  The WhatsApp ID (a phone number without the &#39;+&#39; prefix) of the sender of the sent message.
+  **/
   @SerializedName(SERIALIZED_NAME_FROM)
   private String from;
 
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_REFERRED_PRODUCT = "referred_product";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_REFERRED_PRODUCT)
   private WhatsappInboundMessageReferredProduct referredProduct;
 
@@ -85,13 +99,16 @@ public class WhatsappInboundMessageContext {
    * @return forwarded
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**Added to Webhooks if message was forwarded.**  Set to `true` if the received message has been forwarded.")
 
   public Boolean getForwarded() {
     return forwarded;
   }
 
 
+  /**
+   * **Added to Webhooks if message was forwarded.**  Set to &#x60;true&#x60; if the received message has been forwarded.
+   **/
+  @ApiModelProperty(value = "**Added to Webhooks if message was forwarded.**  Set to `true` if the received message has been forwarded.")
   public void setForwarded(Boolean forwarded) {
     this.forwarded = forwarded;
   }
@@ -108,13 +125,16 @@ public class WhatsappInboundMessageContext {
    * @return frequentlyForwarded
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**Added to Webhooks if message has been frequently forwarded.**  Set to `true` if the received message has been forwarded more than five times.")
 
   public Boolean getFrequentlyForwarded() {
     return frequentlyForwarded;
   }
 
 
+  /**
+   * **Added to Webhooks if message has been frequently forwarded.**  Set to &#x60;true&#x60; if the received message has been forwarded more than five times.
+   **/
+  @ApiModelProperty(value = "**Added to Webhooks if message has been frequently forwarded.**  Set to `true` if the received message has been forwarded more than five times.")
   public void setFrequentlyForwarded(Boolean frequentlyForwarded) {
     this.frequentlyForwarded = frequentlyForwarded;
   }
@@ -131,13 +151,16 @@ public class WhatsappInboundMessageContext {
    * @return from
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**Added to Webhooks if message is an inbound reply to a sent message.**  The WhatsApp ID (a phone number without the '+' prefix) of the sender of the sent message.")
 
   public String getFrom() {
     return from;
   }
 
 
+  /**
+   * **Added to Webhooks if message is an inbound reply to a sent message.**  The WhatsApp ID (a phone number without the &#39;+&#39; prefix) of the sender of the sent message.
+   **/
+  @ApiModelProperty(value = "**Added to Webhooks if message is an inbound reply to a sent message.**  The WhatsApp ID (a phone number without the '+' prefix) of the sender of the sent message.")
   public void setFrom(String from) {
     this.from = from;
   }
@@ -150,17 +173,20 @@ public class WhatsappInboundMessageContext {
   }
 
    /**
-   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply.
+   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "**Optional.**  The `wamid` for the sent message for an inbound reply.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform.
+   **/
+  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "**Optional.**  The `wamid` for the sent message for an inbound reply. `wamid` is the original message ID on WhatsApp’s platform.")
   public void setId(String id) {
     this.id = id;
   }
@@ -177,13 +203,15 @@ public class WhatsappInboundMessageContext {
    * @return referredProduct
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappInboundMessageReferredProduct getReferredProduct() {
     return referredProduct;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setReferredProduct(WhatsappInboundMessageReferredProduct referredProduct) {
     this.referredProduct = referredProduct;
   }

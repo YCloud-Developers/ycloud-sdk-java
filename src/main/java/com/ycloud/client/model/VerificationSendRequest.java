@@ -51,26 +51,43 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class VerificationSendRequest {
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private VerificationChannel channel;
 
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * The recipient&#39;s phone number or email address depending on &#x60;channel&#x60;. - Phone number: In [E.164](https://en.wikipedia.org/wiki/E.164) format. Applicable when &#x60;channel&#x60; is &#x60;sms&#x60; or &#x60;voice&#x60;. - Email address: For example, &#x60;tom@example.com&#x60;. Applicable when &#x60;channel&#x60; is &#x60;email_code&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
   public static final String SERIALIZED_NAME_CODE = "code";
+  /**
+   * Verification code to be sent. This field is optional. If not provided, YCloud will automatically generate a code.
+  **/
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
   public static final String SERIALIZED_NAME_SENDER_ID = "senderId";
+  /**
+   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+  **/
   @SerializedName(SERIALIZED_NAME_SENDER_ID)
   private String senderId;
 
   public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  /**
+   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;YCloud&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【YCloud】Your verification code is 123456&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
   private String signature;
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
+  /**
+   * [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as &#x60;en&#x60; by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: &#x60;ar&#x60;: Arabic &#x60;de&#x60;: German &#x60;en&#x60;: English &#x60;es&#x60;: Spanish &#x60;fr&#x60;: French &#x60;id&#x60;: Indonesian &#x60;it&#x60;: Italian &#x60;pt_BR&#x60;: Portuguese &#x60;ru&#x60;: Russian &#x60;tr&#x60;: Turkish &#x60;vi&#x60;: Vietnamese &#x60;zh_CN&#x60;: Simplified Chinese &#x60;zh_HK&#x60;: Traditional Chinese
+  **/
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   private String language;
 
@@ -88,13 +105,15 @@ public class VerificationSendRequest {
    * @return channel
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public VerificationChannel getChannel() {
     return channel;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setChannel(VerificationChannel channel) {
     this.channel = channel;
   }
@@ -111,13 +130,16 @@ public class VerificationSendRequest {
    * @return to
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number or email address depending on `channel`. - Phone number: In [E.164](https://en.wikipedia.org/wiki/E.164) format. Applicable when `channel` is `sms` or `voice`. - Email address: For example, `tom@example.com`. Applicable when `channel` is `email_code`.")
 
   public String getTo() {
     return to;
   }
 
 
+  /**
+   * The recipient&#39;s phone number or email address depending on &#x60;channel&#x60;. - Phone number: In [E.164](https://en.wikipedia.org/wiki/E.164) format. Applicable when &#x60;channel&#x60; is &#x60;sms&#x60; or &#x60;voice&#x60;. - Email address: For example, &#x60;tom@example.com&#x60;. Applicable when &#x60;channel&#x60; is &#x60;email_code&#x60;.
+   **/
+  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number or email address depending on `channel`. - Phone number: In [E.164](https://en.wikipedia.org/wiki/E.164) format. Applicable when `channel` is `sms` or `voice`. - Email address: For example, `tom@example.com`. Applicable when `channel` is `email_code`.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -134,13 +156,16 @@ public class VerificationSendRequest {
    * @return code
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "Verification code to be sent. This field is optional. If not provided, YCloud will automatically generate a code.")
 
   public String getCode() {
     return code;
   }
 
 
+  /**
+   * Verification code to be sent. This field is optional. If not provided, YCloud will automatically generate a code.
+   **/
+  @ApiModelProperty(example = "123456", value = "Verification code to be sent. This field is optional. If not provided, YCloud will automatically generate a code.")
   public void setCode(String code) {
     this.code = code;
   }
@@ -157,13 +182,16 @@ public class VerificationSendRequest {
    * @return senderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "YCloud", value = "[Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.")
 
   public String getSenderId() {
     return senderId;
   }
 
 
+  /**
+   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+   **/
+  @ApiModelProperty(example = "YCloud", value = "[Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.")
   public void setSenderId(String senderId) {
     this.senderId = senderId;
   }
@@ -180,13 +208,16 @@ public class VerificationSendRequest {
    * @return signature
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "YCloud", value = "This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `YCloud`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】Your verification code is 123456`.")
 
   public String getSignature() {
     return signature;
   }
 
 
+  /**
+   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;YCloud&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【YCloud】Your verification code is 123456&#x60;.
+   **/
+  @ApiModelProperty(example = "YCloud", value = "This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `YCloud`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】Your verification code is 123456`.")
   public void setSignature(String signature) {
     this.signature = signature;
   }
@@ -203,13 +234,16 @@ public class VerificationSendRequest {
    * @return language
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "en", value = "[ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt_BR`: Portuguese `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh_CN`: Simplified Chinese `zh_HK`: Traditional Chinese")
 
   public String getLanguage() {
     return language;
   }
 
 
+  /**
+   * [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as &#x60;en&#x60; by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: &#x60;ar&#x60;: Arabic &#x60;de&#x60;: German &#x60;en&#x60;: English &#x60;es&#x60;: Spanish &#x60;fr&#x60;: French &#x60;id&#x60;: Indonesian &#x60;it&#x60;: Italian &#x60;pt_BR&#x60;: Portuguese &#x60;ru&#x60;: Russian &#x60;tr&#x60;: Turkish &#x60;vi&#x60;: Vietnamese &#x60;zh_CN&#x60;: Simplified Chinese &#x60;zh_HK&#x60;: Traditional Chinese
+   **/
+  @ApiModelProperty(example = "en", value = "[ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt_BR`: Portuguese `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh_CN`: Simplified Chinese `zh_HK`: Traditional Chinese")
   public void setLanguage(String language) {
     this.language = language;
   }

@@ -45,64 +45,76 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappMessageContactUrlsInner
+ * WhatsappMessageInteractiveActionButtonReply
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageContactUrlsInner {
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
+public class WhatsappMessageInteractiveActionButtonReply {
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  /**
+   * Button title. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
+  **/
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique identifier for your button. This ID is returned in the webhook when the button is clicked by the user.
+  **/
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-  public WhatsappMessageContactUrlsInner() { 
+  public WhatsappMessageInteractiveActionButtonReply() { 
   }
 
-  public WhatsappMessageContactUrlsInner url(String url) {
+  public WhatsappMessageInteractiveActionButtonReply title(String title) {
     
-    this.url = url;
+    this.title = title;
     return this;
   }
 
    /**
-   * URL.
-   * @return url
+   * Button title. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
+   * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL.")
 
-  public String getUrl() {
-    return url;
+  public String getTitle() {
+    return title;
   }
 
 
-  public void setUrl(String url) {
-    this.url = url;
+  /**
+   * Button title. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
+   **/
+  @ApiModelProperty(value = "Button title. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.")
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
-  public WhatsappMessageContactUrlsInner type(String type) {
+  public WhatsappMessageInteractiveActionButtonReply id(String id) {
     
-    this.type = type;
+    this.id = id;
     return this;
   }
 
    /**
-   * Standard values are &#x60;HOME&#x60; and &#x60;WORK&#x60;.
-   * @return type
+   * Unique identifier for your button. This ID is returned in the webhook when the button is clicked by the user.
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Standard values are `HOME` and `WORK`.")
 
-  public String getType() {
-    return type;
+  public String getId() {
+    return id;
   }
 
 
-  public void setType(String type) {
-    this.type = type;
+  /**
+   * Unique identifier for your button. This ID is returned in the webhook when the button is clicked by the user.
+   **/
+  @ApiModelProperty(value = "Unique identifier for your button. This ID is returned in the webhook when the button is clicked by the user.")
+  public void setId(String id) {
+    this.id = id;
   }
 
   /**
@@ -116,7 +128,7 @@ public class WhatsappMessageContactUrlsInner {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageContactUrlsInner putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageInteractiveActionButtonReply putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -150,23 +162,23 @@ public class WhatsappMessageContactUrlsInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageContactUrlsInner whatsappMessageContactUrlsInner = (WhatsappMessageContactUrlsInner) o;
-    return Objects.equals(this.url, whatsappMessageContactUrlsInner.url) &&
-        Objects.equals(this.type, whatsappMessageContactUrlsInner.type)&&
-        Objects.equals(this.additionalProperties, whatsappMessageContactUrlsInner.additionalProperties);
+    WhatsappMessageInteractiveActionButtonReply whatsappMessageInteractiveActionButtonReply = (WhatsappMessageInteractiveActionButtonReply) o;
+    return Objects.equals(this.title, whatsappMessageInteractiveActionButtonReply.title) &&
+        Objects.equals(this.id, whatsappMessageInteractiveActionButtonReply.id)&&
+        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionButtonReply.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, type, additionalProperties);
+    return Objects.hash(title, id, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageContactUrlsInner {\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class WhatsappMessageInteractiveActionButtonReply {\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -190,8 +202,8 @@ public class WhatsappMessageContactUrlsInner {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("url");
-    openapiFields.add("type");
+    openapiFields.add("title");
+    openapiFields.add("id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -201,21 +213,21 @@ public class WhatsappMessageContactUrlsInner {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageContactUrlsInner
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionButtonReply
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageContactUrlsInner.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageInteractiveActionButtonReply.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageContactUrlsInner is not found in the empty JSON string", WhatsappMessageContactUrlsInner.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionButtonReply is not found in the empty JSON string", WhatsappMessageInteractiveActionButtonReply.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
   }
 
@@ -223,16 +235,16 @@ public class WhatsappMessageContactUrlsInner {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageContactUrlsInner.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageContactUrlsInner' and its subtypes
+       if (!WhatsappMessageInteractiveActionButtonReply.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageInteractiveActionButtonReply' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageContactUrlsInner> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageContactUrlsInner.class));
+       final TypeAdapter<WhatsappMessageInteractiveActionButtonReply> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionButtonReply.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageContactUrlsInner>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionButtonReply>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageContactUrlsInner value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageInteractiveActionButtonReply value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -255,11 +267,11 @@ public class WhatsappMessageContactUrlsInner {
            }
 
            @Override
-           public WhatsappMessageContactUrlsInner read(JsonReader in) throws IOException {
+           public WhatsappMessageInteractiveActionButtonReply read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageContactUrlsInner instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageInteractiveActionButtonReply instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -284,18 +296,18 @@ public class WhatsappMessageContactUrlsInner {
   }
 
  /**
-  * Create an instance of WhatsappMessageContactUrlsInner given an JSON string
+  * Create an instance of WhatsappMessageInteractiveActionButtonReply given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageContactUrlsInner
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageContactUrlsInner
+  * @return An instance of WhatsappMessageInteractiveActionButtonReply
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionButtonReply
   */
-  public static WhatsappMessageContactUrlsInner fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageContactUrlsInner.class);
+  public static WhatsappMessageInteractiveActionButtonReply fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionButtonReply.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageContactUrlsInner to an JSON string
+  * Convert an instance of WhatsappMessageInteractiveActionButtonReply to an JSON string
   *
   * @return JSON string
   */

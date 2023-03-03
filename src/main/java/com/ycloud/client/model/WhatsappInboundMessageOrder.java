@@ -54,14 +54,22 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageOrder {
   public static final String SERIALIZED_NAME_CATALOG_ID = "catalog_id";
+  /**
+   * The catalog ID.
+  **/
   @SerializedName(SERIALIZED_NAME_CATALOG_ID)
   private String catalogId;
 
   public static final String SERIALIZED_NAME_PRODUCT_ITEMS = "product_items";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_PRODUCT_ITEMS)
   private List<WhatsappInboundMessageOrderProductItem> productItems = null;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+   * Text message sent along with the order.
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
@@ -79,13 +87,16 @@ public class WhatsappInboundMessageOrder {
    * @return catalogId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "the-catalog_id", value = "The catalog ID.")
 
   public String getCatalogId() {
     return catalogId;
   }
 
 
+  /**
+   * The catalog ID.
+   **/
+  @ApiModelProperty(example = "the-catalog_id", value = "The catalog ID.")
   public void setCatalogId(String catalogId) {
     this.catalogId = catalogId;
   }
@@ -110,13 +121,15 @@ public class WhatsappInboundMessageOrder {
    * @return productItems
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<WhatsappInboundMessageOrderProductItem> getProductItems() {
     return productItems;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setProductItems(List<WhatsappInboundMessageOrderProductItem> productItems) {
     this.productItems = productItems;
   }
@@ -133,13 +146,16 @@ public class WhatsappInboundMessageOrder {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Text message sent along with the order.")
 
   public String getText() {
     return text;
   }
 
 
+  /**
+   * Text message sent along with the order.
+   **/
+  @ApiModelProperty(value = "Text message sent along with the order.")
   public void setText(String text) {
     this.text = text;
   }

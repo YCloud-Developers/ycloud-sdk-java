@@ -51,26 +51,44 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageContactName {
   public static final String SERIALIZED_NAME_FORMATTED_NAME = "formatted_name";
+  /**
+   * Full name, as it normally appears.
+  **/
   @SerializedName(SERIALIZED_NAME_FORMATTED_NAME)
   private String formattedName;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
+  /**
+   * First name.
+  **/
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
+  /**
+   * Last name.
+  **/
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   private String lastName;
 
   public static final String SERIALIZED_NAME_MIDDLE_NAME = "middle_name";
+  /**
+   * Middle name.
+  **/
   @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
   private String middleName;
 
   public static final String SERIALIZED_NAME_SUFFIX = "suffix";
+  /**
+   * Name suffix.
+  **/
   @SerializedName(SERIALIZED_NAME_SUFFIX)
   private String suffix;
 
   public static final String SERIALIZED_NAME_PREFIX = "prefix";
+  /**
+   * Name prefix.
+  **/
   @SerializedName(SERIALIZED_NAME_PREFIX)
   private String prefix;
 
@@ -88,13 +106,16 @@ public class WhatsappMessageContactName {
    * @return formattedName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Full name, as it normally appears.")
 
   public String getFormattedName() {
     return formattedName;
   }
 
 
+  /**
+   * Full name, as it normally appears.
+   **/
+  @ApiModelProperty(required = true, value = "Full name, as it normally appears.")
   public void setFormattedName(String formattedName) {
     this.formattedName = formattedName;
   }
@@ -111,13 +132,16 @@ public class WhatsappMessageContactName {
    * @return firstName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "First name.")
 
   public String getFirstName() {
     return firstName;
   }
 
 
+  /**
+   * First name.
+   **/
+  @ApiModelProperty(value = "First name.")
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
@@ -134,13 +158,16 @@ public class WhatsappMessageContactName {
    * @return lastName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last name.")
 
   public String getLastName() {
     return lastName;
   }
 
 
+  /**
+   * Last name.
+   **/
+  @ApiModelProperty(value = "Last name.")
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
@@ -157,13 +184,16 @@ public class WhatsappMessageContactName {
    * @return middleName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Middle name.")
 
   public String getMiddleName() {
     return middleName;
   }
 
 
+  /**
+   * Middle name.
+   **/
+  @ApiModelProperty(value = "Middle name.")
   public void setMiddleName(String middleName) {
     this.middleName = middleName;
   }
@@ -180,13 +210,16 @@ public class WhatsappMessageContactName {
    * @return suffix
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name suffix.")
 
   public String getSuffix() {
     return suffix;
   }
 
 
+  /**
+   * Name suffix.
+   **/
+  @ApiModelProperty(value = "Name suffix.")
   public void setSuffix(String suffix) {
     this.suffix = suffix;
   }
@@ -203,13 +236,16 @@ public class WhatsappMessageContactName {
    * @return prefix
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name prefix.")
 
   public String getPrefix() {
     return prefix;
   }
 
 
+  /**
+   * Name prefix.
+   **/
+  @ApiModelProperty(value = "Name prefix.")
   public void setPrefix(String prefix) {
     this.prefix = prefix;
   }

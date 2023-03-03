@@ -20,13 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.EventType;
-import com.ycloud.client.model.WebhookEndpointStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,148 +45,77 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WebhookEndpointUpdateRequest
+ * When a user reacts to messages with an emoji, the message type is set to &#x60;reaction&#x60;, and this field is included.
  */
+@ApiModel(description = "When a user reacts to messages with an emoji, the message type is set to `reaction`, and this field is included.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WebhookEndpointUpdateRequest {
-  public static final String SERIALIZED_NAME_URL = "url";
+public class WhatsappMessageReaction {
+  public static final String SERIALIZED_NAME_MESSAGE_ID = "message_id";
   /**
-   * The URL of the webhook endpoint.
+   * Specifies the &#x60;wamid&#x60; of the message received that contained the reaction.
   **/
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
+  @SerializedName(SERIALIZED_NAME_MESSAGE_ID)
+  private String messageId;
 
-  public static final String SERIALIZED_NAME_ENABLED_EVENTS = "enabledEvents";
+  public static final String SERIALIZED_NAME_EMOJI = "emoji";
   /**
-   * The list of events to enable for this endpoint.
+   * **Required** when you send a &#x60;reaction&#x60; message. Set it to &#x60;\&quot;\&quot;&#x60; if you want to remove the emoji. **Optional** when you received a message from a user. This field is included when a user reacts to messages with an emoji. Otherwise, it indicates a user removed the emoji.
   **/
-  @SerializedName(SERIALIZED_NAME_ENABLED_EVENTS)
-  private List<EventType> enabledEvents = null;
+  @SerializedName(SERIALIZED_NAME_EMOJI)
+  private String emoji;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  /**
-   * An optional description of what the webhook is used for.
-  **/
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  /**
-  **/
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private WebhookEndpointStatus status;
-
-  public WebhookEndpointUpdateRequest() { 
+  public WhatsappMessageReaction() { 
   }
 
-  public WebhookEndpointUpdateRequest url(String url) {
+  public WhatsappMessageReaction messageId(String messageId) {
     
-    this.url = url;
+    this.messageId = messageId;
     return this;
   }
 
    /**
-   * The URL of the webhook endpoint.
-   * @return url
+   * Specifies the &#x60;wamid&#x60; of the message received that contained the reaction.
+   * @return messageId
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
 
-  public String getUrl() {
-    return url;
+  public String getMessageId() {
+    return messageId;
   }
 
 
   /**
-   * The URL of the webhook endpoint.
+   * Specifies the &#x60;wamid&#x60; of the message received that contained the reaction.
    **/
-  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api", value = "The URL of the webhook endpoint.")
-  public void setUrl(String url) {
-    this.url = url;
+  @ApiModelProperty(example = "wamid.BgNODYxN...", required = true, value = "Specifies the `wamid` of the message received that contained the reaction.")
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
   }
 
 
-  public WebhookEndpointUpdateRequest enabledEvents(List<EventType> enabledEvents) {
+  public WhatsappMessageReaction emoji(String emoji) {
     
-    this.enabledEvents = enabledEvents;
-    return this;
-  }
-
-  public WebhookEndpointUpdateRequest addEnabledEventsItem(EventType enabledEventsItem) {
-    if (this.enabledEvents == null) {
-      this.enabledEvents = new ArrayList<>();
-    }
-    this.enabledEvents.add(enabledEventsItem);
+    this.emoji = emoji;
     return this;
   }
 
    /**
-   * The list of events to enable for this endpoint.
-   * @return enabledEvents
+   * **Required** when you send a &#x60;reaction&#x60; message. Set it to &#x60;\&quot;\&quot;&#x60; if you want to remove the emoji. **Optional** when you received a message from a user. This field is included when a user reacts to messages with an emoji. Otherwise, it indicates a user removed the emoji.
+   * @return emoji
   **/
   @javax.annotation.Nullable
 
-  public List<EventType> getEnabledEvents() {
-    return enabledEvents;
+  public String getEmoji() {
+    return emoji;
   }
 
 
   /**
-   * The list of events to enable for this endpoint.
+   * **Required** when you send a &#x60;reaction&#x60; message. Set it to &#x60;\&quot;\&quot;&#x60; if you want to remove the emoji. **Optional** when you received a message from a user. This field is included when a user reacts to messages with an emoji. Otherwise, it indicates a user removed the emoji.
    **/
-  @ApiModelProperty(value = "The list of events to enable for this endpoint.")
-  public void setEnabledEvents(List<EventType> enabledEvents) {
-    this.enabledEvents = enabledEvents;
-  }
-
-
-  public WebhookEndpointUpdateRequest description(String description) {
-    
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * An optional description of what the webhook is used for.
-   * @return description
-  **/
-  @javax.annotation.Nullable
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  /**
-   * An optional description of what the webhook is used for.
-   **/
-  @ApiModelProperty(example = "My first webhook endpoint.", value = "An optional description of what the webhook is used for.")
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public WebhookEndpointUpdateRequest status(WebhookEndpointStatus status) {
-    
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-
-  public WebhookEndpointStatus getStatus() {
-    return status;
-  }
-
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public void setStatus(WebhookEndpointStatus status) {
-    this.status = status;
+  @ApiModelProperty(value = "**Required** when you send a `reaction` message. Set it to `\"\"` if you want to remove the emoji. **Optional** when you received a message from a user. This field is included when a user reacts to messages with an emoji. Otherwise, it indicates a user removed the emoji.")
+  public void setEmoji(String emoji) {
+    this.emoji = emoji;
   }
 
   /**
@@ -204,7 +129,7 @@ public class WebhookEndpointUpdateRequest {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WebhookEndpointUpdateRequest putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageReaction putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -238,27 +163,23 @@ public class WebhookEndpointUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WebhookEndpointUpdateRequest webhookEndpointUpdateRequest = (WebhookEndpointUpdateRequest) o;
-    return Objects.equals(this.url, webhookEndpointUpdateRequest.url) &&
-        Objects.equals(this.enabledEvents, webhookEndpointUpdateRequest.enabledEvents) &&
-        Objects.equals(this.description, webhookEndpointUpdateRequest.description) &&
-        Objects.equals(this.status, webhookEndpointUpdateRequest.status)&&
-        Objects.equals(this.additionalProperties, webhookEndpointUpdateRequest.additionalProperties);
+    WhatsappMessageReaction whatsappMessageReaction = (WhatsappMessageReaction) o;
+    return Objects.equals(this.messageId, whatsappMessageReaction.messageId) &&
+        Objects.equals(this.emoji, whatsappMessageReaction.emoji)&&
+        Objects.equals(this.additionalProperties, whatsappMessageReaction.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, enabledEvents, description, status, additionalProperties);
+    return Objects.hash(messageId, emoji, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WebhookEndpointUpdateRequest {\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    enabledEvents: ").append(toIndentedString(enabledEvents)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("class WhatsappMessageReaction {\n");
+    sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
+    sb.append("    emoji: ").append(toIndentedString(emoji)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -282,38 +203,40 @@ public class WebhookEndpointUpdateRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("url");
-    openapiFields.add("enabledEvents");
-    openapiFields.add("description");
-    openapiFields.add("status");
+    openapiFields.add("message_id");
+    openapiFields.add("emoji");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("message_id");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WebhookEndpointUpdateRequest
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageReaction
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WebhookEndpointUpdateRequest.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageReaction.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WebhookEndpointUpdateRequest is not found in the empty JSON string", WebhookEndpointUpdateRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageReaction is not found in the empty JSON string", WhatsappMessageReaction.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WhatsappMessageReaction.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
       }
-      // ensure the json data is an array
-      if (jsonObj.get("enabledEvents") != null && !jsonObj.get("enabledEvents").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enabledEvents` to be an array in the JSON string but got `%s`", jsonObj.get("enabledEvents").toString()));
+      if (jsonObj.get("message_id") != null && !jsonObj.get("message_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message_id").toString()));
       }
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      if (jsonObj.get("emoji") != null && !jsonObj.get("emoji").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `emoji` to be a primitive type in the JSON string but got `%s`", jsonObj.get("emoji").toString()));
       }
   }
 
@@ -321,16 +244,16 @@ public class WebhookEndpointUpdateRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WebhookEndpointUpdateRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WebhookEndpointUpdateRequest' and its subtypes
+       if (!WhatsappMessageReaction.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageReaction' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WebhookEndpointUpdateRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WebhookEndpointUpdateRequest.class));
+       final TypeAdapter<WhatsappMessageReaction> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageReaction.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WebhookEndpointUpdateRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageReaction>() {
            @Override
-           public void write(JsonWriter out, WebhookEndpointUpdateRequest value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageReaction value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -353,11 +276,11 @@ public class WebhookEndpointUpdateRequest {
            }
 
            @Override
-           public WebhookEndpointUpdateRequest read(JsonReader in) throws IOException {
+           public WhatsappMessageReaction read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WebhookEndpointUpdateRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageReaction instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -382,18 +305,18 @@ public class WebhookEndpointUpdateRequest {
   }
 
  /**
-  * Create an instance of WebhookEndpointUpdateRequest given an JSON string
+  * Create an instance of WhatsappMessageReaction given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WebhookEndpointUpdateRequest
-  * @throws IOException if the JSON string is invalid with respect to WebhookEndpointUpdateRequest
+  * @return An instance of WhatsappMessageReaction
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageReaction
   */
-  public static WebhookEndpointUpdateRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WebhookEndpointUpdateRequest.class);
+  public static WhatsappMessageReaction fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageReaction.class);
   }
 
  /**
-  * Convert an instance of WebhookEndpointUpdateRequest to an JSON string
+  * Convert an instance of WhatsappMessageReaction to an JSON string
   *
   * @return JSON string
   */

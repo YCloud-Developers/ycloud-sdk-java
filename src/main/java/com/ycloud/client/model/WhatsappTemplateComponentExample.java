@@ -47,19 +47,29 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappTemplateComponentExample
+ * **Required** when: - &#x60;type&#x60; is &#x60;HEADER&#x60;, and &#x60;format&#x60; is one of &#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;. You need to provide a sample media URL in &#x60;header_url&#x60;. - &#x60;type&#x60; is &#x60;HEADER&#x60;, &#x60;format&#x60; is &#x60;TEXT&#x60;, and a variable is used in &#x60;text&#x60;. You need to provide a sample value for that variable in &#x60;header_text&#x60;. There can be at most 1 variable in &#x60;HEADER&#x60; text. - &#x60;type&#x60; is &#x60;BODY&#x60;, and variables are used in &#x60;text&#x60;. You need to provide sample values for those variables in &#x60;body_text&#x60;.
  */
+@ApiModel(description = "**Required** when: - `type` is `HEADER`, and `format` is one of `IMAGE`, `VIDEO`, or `DOCUMENT`. You need to provide a sample media URL in `header_url`. - `type` is `HEADER`, `format` is `TEXT`, and a variable is used in `text`. You need to provide a sample value for that variable in `header_text`. There can be at most 1 variable in `HEADER` text. - `type` is `BODY`, and variables are used in `text`. You need to provide sample values for those variables in `body_text`.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplateComponentExample {
   public static final String SERIALIZED_NAME_BODY_TEXT = "body_text";
+  /**
+   * Sample values for variables in &#x60;text&#x60; of a &#x60;BODY&#x60; component.
+  **/
   @SerializedName(SERIALIZED_NAME_BODY_TEXT)
   private List<List<String>> bodyText = null;
 
   public static final String SERIALIZED_NAME_HEADER_TEXT = "header_text";
+  /**
+   * Sample value for the variable in &#x60;text&#x60; of a &#x60;HEADER&#x60; component.
+  **/
   @SerializedName(SERIALIZED_NAME_HEADER_TEXT)
   private List<String> headerText = null;
 
   public static final String SERIALIZED_NAME_HEADER_URL = "header_url";
+  /**
+   * Sample media URL for a &#x60;HEADER&#x60; component whose format is one of &#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;. Supported types: - For &#x60;IMAGE&#x60;, the URL must end with one of &#x60;.jpg&#x60;, &#x60;.jpeg&#x60;, or &#x60;.png&#x60;, size limit is 5MB. - For &#x60;VIDEO&#x60;, the URL must end with &#x60;.mp4&#x60;, size limit is 16MB. - For &#x60;DOCUMENT&#x60;, the URL must end with &#x60;.pdf&#x60;, size limit is 100MB.
+  **/
   @SerializedName(SERIALIZED_NAME_HEADER_URL)
   private List<String> headerUrl = null;
 
@@ -81,17 +91,20 @@ public class WhatsappTemplateComponentExample {
   }
 
    /**
-   * Get bodyText
+   * Sample values for variables in &#x60;text&#x60; of a &#x60;BODY&#x60; component.
    * @return bodyText
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<List<String>> getBodyText() {
     return bodyText;
   }
 
 
+  /**
+   * Sample values for variables in &#x60;text&#x60; of a &#x60;BODY&#x60; component.
+   **/
+  @ApiModelProperty(value = "Sample values for variables in `text` of a `BODY` component.")
   public void setBodyText(List<List<String>> bodyText) {
     this.bodyText = bodyText;
   }
@@ -112,17 +125,20 @@ public class WhatsappTemplateComponentExample {
   }
 
    /**
-   * Get headerText
+   * Sample value for the variable in &#x60;text&#x60; of a &#x60;HEADER&#x60; component.
    * @return headerText
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getHeaderText() {
     return headerText;
   }
 
 
+  /**
+   * Sample value for the variable in &#x60;text&#x60; of a &#x60;HEADER&#x60; component.
+   **/
+  @ApiModelProperty(value = "Sample value for the variable in `text` of a `HEADER` component.")
   public void setHeaderText(List<String> headerText) {
     this.headerText = headerText;
   }
@@ -143,17 +159,20 @@ public class WhatsappTemplateComponentExample {
   }
 
    /**
-   * Get headerUrl
+   * Sample media URL for a &#x60;HEADER&#x60; component whose format is one of &#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;. Supported types: - For &#x60;IMAGE&#x60;, the URL must end with one of &#x60;.jpg&#x60;, &#x60;.jpeg&#x60;, or &#x60;.png&#x60;, size limit is 5MB. - For &#x60;VIDEO&#x60;, the URL must end with &#x60;.mp4&#x60;, size limit is 16MB. - For &#x60;DOCUMENT&#x60;, the URL must end with &#x60;.pdf&#x60;, size limit is 100MB.
    * @return headerUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getHeaderUrl() {
     return headerUrl;
   }
 
 
+  /**
+   * Sample media URL for a &#x60;HEADER&#x60; component whose format is one of &#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;. Supported types: - For &#x60;IMAGE&#x60;, the URL must end with one of &#x60;.jpg&#x60;, &#x60;.jpeg&#x60;, or &#x60;.png&#x60;, size limit is 5MB. - For &#x60;VIDEO&#x60;, the URL must end with &#x60;.mp4&#x60;, size limit is 16MB. - For &#x60;DOCUMENT&#x60;, the URL must end with &#x60;.pdf&#x60;, size limit is 100MB.
+   **/
+  @ApiModelProperty(value = "Sample media URL for a `HEADER` component whose format is one of `IMAGE`, `VIDEO`, or `DOCUMENT`. Supported types: - For `IMAGE`, the URL must end with one of `.jpg`, `.jpeg`, or `.png`, size limit is 5MB. - For `VIDEO`, the URL must end with `.mp4`, size limit is 16MB. - For `DOCUMENT`, the URL must end with `.pdf`, size limit is 100MB.")
   public void setHeaderUrl(List<String> headerUrl) {
     this.headerUrl = headerUrl;
   }

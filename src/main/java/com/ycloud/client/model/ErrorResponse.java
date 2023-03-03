@@ -51,6 +51,8 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ErrorResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_ERROR)
   private Error error;
 
@@ -68,13 +70,15 @@ public class ErrorResponse {
    * @return error
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public Error getError() {
     return error;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setError(Error error) {
     this.error = error;
   }

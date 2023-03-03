@@ -54,30 +54,51 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageMedia {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * ID of the media. Can be used to delete the media if stored locally on the client.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_LINK = "link";
+  /**
+   * The url to download the media file. Note that This link can be directly accessed in a few minutes for the convenience of the consumer, but you should always include an &#x60;X-API-Key&#x60; header to download this file within a month.
+  **/
   @SerializedName(SERIALIZED_NAME_LINK)
   private String link;
 
   public static final String SERIALIZED_NAME_CAPTION = "caption";
+  /**
+   * The provided caption for the media. Only present if specified.
+  **/
   @SerializedName(SERIALIZED_NAME_CAPTION)
   private String caption;
 
   public static final String SERIALIZED_NAME_FILENAME = "filename";
+  /**
+   * Filename on the sender&#39;s device. This will only be present in &#x60;document&#x60; media messages.
+  **/
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
+  /**
+   * Metadata pertaining to &#x60;sticker&#x60; media.
+  **/
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Map<String, Object> metadata = null;
 
   public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
+  /**
+   * Mime type of the media.
+  **/
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
   private String mimeType;
 
   public static final String SERIALIZED_NAME_SHA256 = "sha256";
+  /**
+   * Checksum.
+  **/
   @SerializedName(SERIALIZED_NAME_SHA256)
   private String sha256;
 
@@ -95,13 +116,16 @@ public class WhatsappInboundMessageMedia {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the media. Can be used to delete the media if stored locally on the client.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * ID of the media. Can be used to delete the media if stored locally on the client.
+   **/
+  @ApiModelProperty(value = "ID of the media. Can be used to delete the media if stored locally on the client.")
   public void setId(String id) {
     this.id = id;
   }
@@ -118,13 +142,16 @@ public class WhatsappInboundMessageMedia {
    * @return link
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The url to download the media file. Note that This link can be directly accessed in a few minutes for the convenience of the consumer, but you should always include an `X-API-Key` header to download this file within a month.")
 
   public String getLink() {
     return link;
   }
 
 
+  /**
+   * The url to download the media file. Note that This link can be directly accessed in a few minutes for the convenience of the consumer, but you should always include an &#x60;X-API-Key&#x60; header to download this file within a month.
+   **/
+  @ApiModelProperty(value = "The url to download the media file. Note that This link can be directly accessed in a few minutes for the convenience of the consumer, but you should always include an `X-API-Key` header to download this file within a month.")
   public void setLink(String link) {
     this.link = link;
   }
@@ -141,13 +168,16 @@ public class WhatsappInboundMessageMedia {
    * @return caption
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The provided caption for the media. Only present if specified.")
 
   public String getCaption() {
     return caption;
   }
 
 
+  /**
+   * The provided caption for the media. Only present if specified.
+   **/
+  @ApiModelProperty(value = "The provided caption for the media. Only present if specified.")
   public void setCaption(String caption) {
     this.caption = caption;
   }
@@ -164,13 +194,16 @@ public class WhatsappInboundMessageMedia {
    * @return filename
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filename on the sender's device. This will only be present in `document` media messages.")
 
   public String getFilename() {
     return filename;
   }
 
 
+  /**
+   * Filename on the sender&#39;s device. This will only be present in &#x60;document&#x60; media messages.
+   **/
+  @ApiModelProperty(value = "Filename on the sender's device. This will only be present in `document` media messages.")
   public void setFilename(String filename) {
     this.filename = filename;
   }
@@ -195,13 +228,16 @@ public class WhatsappInboundMessageMedia {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metadata pertaining to `sticker` media.")
 
   public Map<String, Object> getMetadata() {
     return metadata;
   }
 
 
+  /**
+   * Metadata pertaining to &#x60;sticker&#x60; media.
+   **/
+  @ApiModelProperty(value = "Metadata pertaining to `sticker` media.")
   public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }
@@ -218,13 +254,16 @@ public class WhatsappInboundMessageMedia {
    * @return mimeType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Mime type of the media.")
 
   public String getMimeType() {
     return mimeType;
   }
 
 
+  /**
+   * Mime type of the media.
+   **/
+  @ApiModelProperty(value = "Mime type of the media.")
   public void setMimeType(String mimeType) {
     this.mimeType = mimeType;
   }
@@ -241,13 +280,16 @@ public class WhatsappInboundMessageMedia {
    * @return sha256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Checksum.")
 
   public String getSha256() {
     return sha256;
   }
 
 
+  /**
+   * Checksum.
+   **/
+  @ApiModelProperty(value = "Checksum.")
   public void setSha256(String sha256) {
     this.sha256 = sha256;
   }

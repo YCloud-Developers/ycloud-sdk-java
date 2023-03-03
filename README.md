@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.5.0</version>
+  <version>1.6.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.5.0"
+     implementation "com.ycloud:ycloud-sdk-java:1.6.0"
   }
 ```
 
@@ -177,7 +177,6 @@ Class | Method | HTTP request | Description
  - [WhatsappInboundMessageMedia](docs/WhatsappInboundMessageMedia.md)
  - [WhatsappInboundMessageOrder](docs/WhatsappInboundMessageOrder.md)
  - [WhatsappInboundMessageOrderProductItem](docs/WhatsappInboundMessageOrderProductItem.md)
- - [WhatsappInboundMessageReaction](docs/WhatsappInboundMessageReaction.md)
  - [WhatsappInboundMessageReferral](docs/WhatsappInboundMessageReferral.md)
  - [WhatsappInboundMessageReferredProduct](docs/WhatsappInboundMessageReferredProduct.md)
  - [WhatsappInboundMessageSystem](docs/WhatsappInboundMessageSystem.md)
@@ -185,28 +184,31 @@ Class | Method | HTTP request | Description
  - [WhatsappInboundMessageType](docs/WhatsappInboundMessageType.md)
  - [WhatsappMessage](docs/WhatsappMessage.md)
  - [WhatsappMessageContact](docs/WhatsappMessageContact.md)
- - [WhatsappMessageContactAddressesInner](docs/WhatsappMessageContactAddressesInner.md)
- - [WhatsappMessageContactEmailsInner](docs/WhatsappMessageContactEmailsInner.md)
+ - [WhatsappMessageContactAddress](docs/WhatsappMessageContactAddress.md)
+ - [WhatsappMessageContactEmail](docs/WhatsappMessageContactEmail.md)
  - [WhatsappMessageContactName](docs/WhatsappMessageContactName.md)
  - [WhatsappMessageContactOrg](docs/WhatsappMessageContactOrg.md)
- - [WhatsappMessageContactPhonesInner](docs/WhatsappMessageContactPhonesInner.md)
- - [WhatsappMessageContactUrlsInner](docs/WhatsappMessageContactUrlsInner.md)
+ - [WhatsappMessageContactPhone](docs/WhatsappMessageContactPhone.md)
+ - [WhatsappMessageContactUrl](docs/WhatsappMessageContactUrl.md)
+ - [WhatsappMessageContext](docs/WhatsappMessageContext.md)
  - [WhatsappMessageInteractive](docs/WhatsappMessageInteractive.md)
  - [WhatsappMessageInteractiveAction](docs/WhatsappMessageInteractiveAction.md)
- - [WhatsappMessageInteractiveActionButtonsInner](docs/WhatsappMessageInteractiveActionButtonsInner.md)
- - [WhatsappMessageInteractiveActionButtonsInnerReply](docs/WhatsappMessageInteractiveActionButtonsInnerReply.md)
- - [WhatsappMessageInteractiveActionSectionsInner](docs/WhatsappMessageInteractiveActionSectionsInner.md)
- - [WhatsappMessageInteractiveActionSectionsInnerRowsInner](docs/WhatsappMessageInteractiveActionSectionsInnerRowsInner.md)
+ - [WhatsappMessageInteractiveActionButton](docs/WhatsappMessageInteractiveActionButton.md)
+ - [WhatsappMessageInteractiveActionButtonReply](docs/WhatsappMessageInteractiveActionButtonReply.md)
+ - [WhatsappMessageInteractiveActionSection](docs/WhatsappMessageInteractiveActionSection.md)
+ - [WhatsappMessageInteractiveActionSectionProductItem](docs/WhatsappMessageInteractiveActionSectionProductItem.md)
+ - [WhatsappMessageInteractiveActionSectionRow](docs/WhatsappMessageInteractiveActionSectionRow.md)
  - [WhatsappMessageInteractiveBody](docs/WhatsappMessageInteractiveBody.md)
  - [WhatsappMessageInteractiveFooter](docs/WhatsappMessageInteractiveFooter.md)
  - [WhatsappMessageInteractiveHeader](docs/WhatsappMessageInteractiveHeader.md)
  - [WhatsappMessageLocation](docs/WhatsappMessageLocation.md)
  - [WhatsappMessageMedia](docs/WhatsappMessageMedia.md)
+ - [WhatsappMessageReaction](docs/WhatsappMessageReaction.md)
  - [WhatsappMessageSendRequest](docs/WhatsappMessageSendRequest.md)
  - [WhatsappMessageStatus](docs/WhatsappMessageStatus.md)
  - [WhatsappMessageTemplate](docs/WhatsappMessageTemplate.md)
- - [WhatsappMessageTemplateComponentsInner](docs/WhatsappMessageTemplateComponentsInner.md)
- - [WhatsappMessageTemplateComponentsInnerParametersInner](docs/WhatsappMessageTemplateComponentsInnerParametersInner.md)
+ - [WhatsappMessageTemplateComponent](docs/WhatsappMessageTemplateComponent.md)
+ - [WhatsappMessageTemplateComponentParameter](docs/WhatsappMessageTemplateComponentParameter.md)
  - [WhatsappMessageTemplateLanguage](docs/WhatsappMessageTemplateLanguage.md)
  - [WhatsappMessageText](docs/WhatsappMessageText.md)
  - [WhatsappMessageType](docs/WhatsappMessageType.md)

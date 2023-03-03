@@ -55,22 +55,35 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplateCreateRequest {
   public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
+  /**
+   * WhatsApp Business Account ID.
+  **/
   @SerializedName(SERIALIZED_NAME_WABA_ID)
   private String wabaId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
+  /**
+   * Name of the template.
+  **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
+  /**
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+  **/
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   private String language;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private WhatsappTemplateCategory category;
 
   public static final String SERIALIZED_NAME_COMPONENTS = "components";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_COMPONENTS)
   private List<WhatsappTemplateComponent> components = new ArrayList<>();
 
@@ -88,13 +101,16 @@ public class WhatsappTemplateCreateRequest {
    * @return wabaId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "whatsapp-business-account-id", required = true, value = "WhatsApp Business Account ID.")
 
   public String getWabaId() {
     return wabaId;
   }
 
 
+  /**
+   * WhatsApp Business Account ID.
+   **/
+  @ApiModelProperty(example = "whatsapp-business-account-id", required = true, value = "WhatsApp Business Account ID.")
   public void setWabaId(String wabaId) {
     this.wabaId = wabaId;
   }
@@ -111,13 +127,16 @@ public class WhatsappTemplateCreateRequest {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "sample_whatsapp_template", required = true, value = "Name of the template.")
 
   public String getName() {
     return name;
   }
 
 
+  /**
+   * Name of the template.
+   **/
+  @ApiModelProperty(example = "sample_whatsapp_template", required = true, value = "Name of the template.")
   public void setName(String name) {
     this.name = name;
   }
@@ -134,13 +153,16 @@ public class WhatsappTemplateCreateRequest {
    * @return language
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.")
 
   public String getLanguage() {
     return language;
   }
 
 
+  /**
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+   **/
+  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.")
   public void setLanguage(String language) {
     this.language = language;
   }
@@ -157,13 +179,15 @@ public class WhatsappTemplateCreateRequest {
    * @return category
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WhatsappTemplateCategory getCategory() {
     return category;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setCategory(WhatsappTemplateCategory category) {
     this.category = category;
   }
@@ -185,13 +209,15 @@ public class WhatsappTemplateCreateRequest {
    * @return components
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<WhatsappTemplateComponent> getComponents() {
     return components;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setComponents(List<WhatsappTemplateComponent> components) {
     this.components = components;
   }

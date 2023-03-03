@@ -51,10 +51,16 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageError {
   public static final String SERIALIZED_NAME_CODE = "code";
+  /**
+   * The error code.
+  **/
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
+  /**
+   * The error title.
+  **/
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
@@ -72,13 +78,16 @@ public class WhatsappInboundMessageError {
    * @return code
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "131051", value = "The error code.")
 
   public String getCode() {
     return code;
   }
 
 
+  /**
+   * The error code.
+   **/
+  @ApiModelProperty(example = "131051", value = "The error code.")
   public void setCode(String code) {
     this.code = code;
   }
@@ -95,13 +104,16 @@ public class WhatsappInboundMessageError {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Unsupported message type", value = "The error title.")
 
   public String getTitle() {
     return title;
   }
 
 
+  /**
+   * The error title.
+   **/
+  @ApiModelProperty(example = "Unsupported message type", value = "The error title.")
   public void setTitle(String title) {
     this.title = title;
   }

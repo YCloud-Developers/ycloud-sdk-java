@@ -16,9 +16,12 @@
 |**video** | [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  |  [optional] |
 |**audio** | [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  |  [optional] |
 |**document** | [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  |  [optional] |
+|**sticker** | [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  |  [optional] |
 |**location** | [**WhatsappMessageLocation**](WhatsappMessageLocation.md) |  |  [optional] |
 |**interactive** | [**WhatsappMessageInteractive**](WhatsappMessageInteractive.md) |  |  [optional] |
 |**contacts** | [**List&lt;WhatsappMessageContact&gt;**](WhatsappMessageContact.md) | Required when &#x60;type&#x60; is &#x60;contacts&#x60;. |  [optional] |
+|**reaction** | [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  |  [optional] |
+|**context** | [**WhatsappMessageContext**](WhatsappMessageContext.md) |  |  [optional] |
 |**externalId** | **String** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. |  [optional] |
 
 

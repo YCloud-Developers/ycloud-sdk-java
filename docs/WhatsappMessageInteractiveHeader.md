@@ -2,7 +2,7 @@
 
 # WhatsappMessageInteractiveHeader
 
-[WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object).
+Required for type `product_list`. Optional for other types. See also [WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object).
 
 ## Properties
 

@@ -45,24 +45,36 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).
+ * Use for &#x60;location&#x60; messages. See also [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).
  */
-@ApiModel(description = "[WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).")
+@ApiModel(description = "Use for `location` messages. See also [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageLocation {
   public static final String SERIALIZED_NAME_LATITUDE = "latitude";
+  /**
+   * Latitude of the location.
+  **/
   @SerializedName(SERIALIZED_NAME_LATITUDE)
   private Double latitude;
 
   public static final String SERIALIZED_NAME_LONGITUDE = "longitude";
+  /**
+   * Longitude of the location.
+  **/
   @SerializedName(SERIALIZED_NAME_LONGITUDE)
   private Double longitude;
 
   public static final String SERIALIZED_NAME_NAME = "name";
+  /**
+   * Name of the location.
+  **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
+  /**
+   * Address of the location. Only displayed if &#x60;name&#x60; is present.
+  **/
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
 
@@ -80,13 +92,16 @@ public class WhatsappMessageLocation {
    * @return latitude
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Latitude of the location.")
 
   public Double getLatitude() {
     return latitude;
   }
 
 
+  /**
+   * Latitude of the location.
+   **/
+  @ApiModelProperty(required = true, value = "Latitude of the location.")
   public void setLatitude(Double latitude) {
     this.latitude = latitude;
   }
@@ -103,13 +118,16 @@ public class WhatsappMessageLocation {
    * @return longitude
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Longitude of the location.")
 
   public Double getLongitude() {
     return longitude;
   }
 
 
+  /**
+   * Longitude of the location.
+   **/
+  @ApiModelProperty(required = true, value = "Longitude of the location.")
   public void setLongitude(Double longitude) {
     this.longitude = longitude;
   }
@@ -126,13 +144,16 @@ public class WhatsappMessageLocation {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the location.")
 
   public String getName() {
     return name;
   }
 
 
+  /**
+   * Name of the location.
+   **/
+  @ApiModelProperty(value = "Name of the location.")
   public void setName(String name) {
     this.name = name;
   }
@@ -149,13 +170,16 @@ public class WhatsappMessageLocation {
    * @return address
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Address of the location. Only displayed if `name` is present.")
 
   public String getAddress() {
     return address;
   }
 
 
+  /**
+   * Address of the location. Only displayed if &#x60;name&#x60; is present.
+   **/
+  @ApiModelProperty(value = "Address of the location. Only displayed if `name` is present.")
   public void setAddress(String address) {
     this.address = address;
   }

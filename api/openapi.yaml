@@ -950,7 +950,7 @@ paths:
       x-group-parameters: true
       x-accepts: application/json
     post:
-      description: "Creates a WhatsApp template. See also [Create Message Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/#create-message-templates)."
+      description: Creates a WhatsApp template.
       operationId: whatsapp_template-create
       requestBody:
         content:
@@ -2687,7 +2687,7 @@ components:
           example: "December 9, 2022"
           type: string
         violationType:
-          description: "Used to report violations imposed on the WABA. See also [WhatsApp\
+          description: "Used to report violations imposed on the WABA.\nSee also [WhatsApp\
             \ Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations)."
           example: SCAM
           type: string
@@ -2803,7 +2803,7 @@ components:
       - WhatsApp Business Account Violates Policy.
     WhatsappConversation:
       description: "WhatsApp defines a conversation as a 24-hour session of messaging\
-        \ between a person and a business. See also [Using the Platform](https://developers.facebook.com/docs/whatsapp/conversation-types#using-the-platform)."
+        \ between a person and a business.\nSee also [Using the Platform](https://developers.facebook.com/docs/whatsapp/conversation-types#using-the-platform)."
       example:
         originType: null
         expireTime: 2022-06-01T12:00:00Z
@@ -2851,7 +2851,7 @@ components:
           description: Unique ID for the object.
           type: string
         wamid:
-          description: The native WhatsApp message ID.
+          description: The original message ID on WhatsApp's platform.
           example: wamid.BgNODYxN...
           type: string
         wabaId:
@@ -2901,7 +2901,7 @@ components:
             $ref: '#/components/schemas/WhatsappMessageContact'
           type: array
         reaction:
-          $ref: '#/components/schemas/WhatsappInboundMessageReaction'
+          $ref: '#/components/schemas/WhatsappMessageReaction'
         order:
           $ref: '#/components/schemas/WhatsappInboundMessageOrder'
         system:
@@ -2954,7 +2954,7 @@ components:
           description: |-
             **Optional.**
 
-            The `wamid` for the sent message for an inbound reply.
+            The `wamid` for the sent message for an inbound reply. `wamid` is the original message ID on WhatsApp’s platform.
           example: wamid.BgNODYxN...
           type: string
         referred_product:
@@ -3087,9 +3087,12 @@ components:
           example: USD
           type: string
       type: object
-    WhatsappInboundMessageReaction:
+    WhatsappMessageReaction:
       description: "When a user reacts to messages with an emoji, the message type\
         \ is set to `reaction`, and this field is included."
+      example:
+        emoji: emoji
+        message_id: wamid.BgNODYxN...
       properties:
         message_id:
           description: Specifies the `wamid` of the message received that contained
@@ -3097,9 +3100,13 @@ components:
           example: wamid.BgNODYxN...
           type: string
         emoji:
-          description: "This field is included when a user reacts to messages with\
-            \ an emoji. Otherwise, it indicates a user removed the emoji."
+          description: "**Required** when you send a `reaction` message. Set it to\
+            \ `\"\"` if you want to remove the emoji.\n**Optional** when you received\
+            \ a message from a user. This field is included when a user reacts to\
+            \ messages with an emoji. Otherwise, it indicates a user removed the emoji."
           type: string
+      required:
+      - message_id
       type: object
     WhatsappInboundMessageReferral:
       description: "When a user messages businesses using call-to-actions buttons\
@@ -3207,7 +3214,7 @@ components:
           type: string
       type: object
     WhatsappInboundMessageType:
-      description: "WhatsApp inbound message type. See also [WhatsApp webhook messages\
+      description: "WhatsApp inbound message type.\nSee also [WhatsApp webhook messages\
         \ object](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components#messages-object)."
       enum:
       - text
@@ -3302,6 +3309,7 @@ components:
           name: sample_whatsapp_template
           language:
             code: en
+            policy: policy
         bizType: verify
         wamid: wamid.BgNODYxN...
         totalPrice: 0.05
@@ -3314,6 +3322,7 @@ components:
             text: text
           action:
             button: button
+            catalog_id: catalog_id
             buttons:
             - type: reply
               reply:
@@ -3327,8 +3336,15 @@ components:
               reply:
                 id: id
                 title: title
+            product_retailer_id: product_retailer_id
             sections:
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -3345,7 +3361,13 @@ components:
               - description: description
                 id: id
                 title: title
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -3362,7 +3384,13 @@ components:
               - description: description
                 id: id
                 title: title
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -3379,7 +3407,13 @@ components:
               - description: description
                 id: id
                 title: title
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -3396,7 +3430,13 @@ components:
               - description: description
                 id: id
                 title: title
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -3438,6 +3478,8 @@ components:
           caption: caption
         type: null
         wabaId: whatsapp-business-account-id
+        context:
+          message_id: wamid.BgNODYxN...
         from: +447901614024
         currency: USD
         id: id
@@ -3453,6 +3495,13 @@ components:
           expireTime: 2022-06-01T12:00:00Z
           id: id
         image:
+          filename: filename
+          link: link
+          caption: caption
+        reaction:
+          emoji: emoji
+          message_id: wamid.BgNODYxN...
+        sticker:
           filename: filename
           link: link
           caption: caption
@@ -3571,7 +3620,7 @@ components:
           description: Unique ID for the object.
           type: string
         wamid:
-          description: The native WhatsApp message ID.
+          description: The original message ID on WhatsApp's platform.
           example: wamid.BgNODYxN...
           type: string
         wabaId:
@@ -3604,6 +3653,8 @@ components:
           $ref: '#/components/schemas/WhatsappMessageMedia'
         document:
           $ref: '#/components/schemas/WhatsappMessageMedia'
+        sticker:
+          $ref: '#/components/schemas/WhatsappMessageMedia'
         location:
           $ref: '#/components/schemas/WhatsappMessageLocation'
         interactive:
@@ -3612,6 +3663,10 @@ components:
           items:
             $ref: '#/components/schemas/WhatsappMessageContact'
           type: array
+        reaction:
+          $ref: '#/components/schemas/WhatsappMessageReaction'
+        context:
+          $ref: '#/components/schemas/WhatsappMessageContext'
         externalId:
           description: "A unique string to reference the object. This can be an order\
             \ number or similar, and can be used to reconcile the object with your\
@@ -3719,7 +3774,7 @@ components:
       properties:
         addresses:
           items:
-            $ref: '#/components/schemas/WhatsappMessageContact_addresses_inner'
+            $ref: '#/components/schemas/WhatsappMessageContactAddress'
           type: array
         birthday:
           description: '`YYYY-MM-DD` formatted string.'
@@ -3727,30 +3782,172 @@ components:
           type: string
         emails:
           items:
-            $ref: '#/components/schemas/WhatsappMessageContact_emails_inner'
+            $ref: '#/components/schemas/WhatsappMessageContactEmail'
           type: array
         name:
-          $ref: '#/components/schemas/WhatsappMessageContact_name'
+          $ref: '#/components/schemas/WhatsappMessageContactName'
         org:
-          $ref: '#/components/schemas/WhatsappMessageContact_org'
+          $ref: '#/components/schemas/WhatsappMessageContactOrg'
         phones:
           description: Contact phone number(s) formatted as a phone object.
           items:
-            $ref: '#/components/schemas/WhatsappMessageContact_phones_inner'
+            $ref: '#/components/schemas/WhatsappMessageContactPhone'
           type: array
         urls:
           description: Contact URL(s) formatted as a urls object.
           items:
-            $ref: '#/components/schemas/WhatsappMessageContact_urls_inner'
+            $ref: '#/components/schemas/WhatsappMessageContactUrl'
           type: array
+      required:
+      - name
+      type: object
+    WhatsappMessageContactAddress:
+      description: Full contact address(es) formatted as an addresses object.
+      example:
+        zip: zip
+        country: country
+        country_code: country_code
+        city: city
+        street: street
+        state: state
+        type: WORK
+      properties:
+        street:
+          description: Street number and name.
+          type: string
+        city:
+          description: City name.
+          type: string
+        state:
+          description: State abbreviation.
+          type: string
+        zip:
+          description: ZIP code.
+          type: string
+        country:
+          description: Full country name.
+          type: string
+        country_code:
+          description: Two-letter country abbreviation.
+          type: string
+        type:
+          description: Standard values are `HOME` and `WORK`.
+          example: WORK
+          type: string
+      type: object
+    WhatsappMessageContactEmail:
+      description: Contact email address(es) formatted as an emails object.
+      example:
+        type: WORK
+        email: email
+      properties:
+        email:
+          description: Email address.
+          type: string
+        type:
+          description: Standard values are `HOME` and `WORK`.
+          example: WORK
+          type: string
+      type: object
+    WhatsappMessageContactName:
+      description: Full contact name formatted as a name object.
+      example:
+        prefix: prefix
+        last_name: last_name
+        middle_name: middle_name
+        suffix: suffix
+        first_name: first_name
+        formatted_name: formatted_name
+      properties:
+        formatted_name:
+          description: "Full name, as it normally appears."
+          type: string
+        first_name:
+          description: First name.
+          type: string
+        last_name:
+          description: Last name.
+          type: string
+        middle_name:
+          description: Middle name.
+          type: string
+        suffix:
+          description: Name suffix.
+          type: string
+        prefix:
+          description: Name prefix.
+          type: string
+      required:
+      - formatted_name
+      type: object
+    WhatsappMessageContactOrg:
+      description: Contact organization information formatted as an org object.
+      example:
+        company: company
+        department: department
+        title: title
+      properties:
+        company:
+          description: Name of the contact's company.
+          type: string
+        department:
+          description: Name of the contact's department.
+          type: string
+        title:
+          description: Contact's business title.
+          type: string
+      type: object
+    WhatsappMessageContactPhone:
+      example:
+        phone: phone
+        wa_id: wa_id
+        type: type
+      properties:
+        phone:
+          description: Automatically populated with the `wa_id` value as a formatted
+            phone number.
+          type: string
+        type:
+          description: "Standard Values are `CELL`, `MAIN`, `IPHONE`, `HOME`, and\
+            \ `WORK`."
+          type: string
+        wa_id:
+          description: WhatsApp ID.
+          type: string
+      type: object
+    WhatsappMessageContactUrl:
+      example:
+        type: type
+        url: url
+      properties:
+        url:
+          description: URL.
+          type: string
+        type:
+          description: Standard values are `HOME` and `WORK`.
+          type: string
+      type: object
+    WhatsappMessageContext:
+      description: Used to mention a specific message you are replying to. The reply
+        can be any message type.
+      example:
+        message_id: wamid.BgNODYxN...
+      properties:
+        message_id:
+          description: Specifies the `wamid` of the message your are replying to.
+            `wamid` is the original message ID on WhatsApp’s platform.
+          example: wamid.BgNODYxN...
+          type: string
       type: object
     WhatsappMessageInteractive:
-      description: "[WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object)."
+      description: "Use for `interactive` messages.\nSee also [WhatsApp Interactive\
+        \ Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object)."
       example:
         footer:
           text: text
         action:
           button: button
+          catalog_id: catalog_id
           buttons:
           - type: reply
             reply:
@@ -3764,8 +3961,15 @@ components:
             reply:
               id: id
               title: title
+          product_retailer_id: product_retailer_id
           sections:
-          - title: title
+          - product_items:
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            title: title
             rows:
             - description: description
               id: id
@@ -3782,7 +3986,13 @@ components:
             - description: description
               id: id
               title: title
-          - title: title
+          - product_items:
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            title: title
             rows:
             - description: description
               id: id
@@ -3799,7 +4009,13 @@ components:
             - description: description
               id: id
               title: title
-          - title: title
+          - product_items:
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            title: title
             rows:
             - description: description
               id: id
@@ -3816,7 +4032,13 @@ components:
             - description: description
               id: id
               title: title
-          - title: title
+          - product_items:
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            title: title
             rows:
             - description: description
               id: id
@@ -3833,7 +4055,13 @@ components:
             - description: description
               id: id
               title: title
-          - title: title
+          - product_items:
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            - product_retailer_id: product_retailer_id
+            title: title
             rows:
             - description: description
               id: id
@@ -3871,26 +4099,359 @@ components:
       properties:
         type:
           description: "The type of interactive message you want to send.\n- `list`:\
-            \ Use it for List Messages.\n- `button`: Use it for Reply Buttons."
+            \ Use it for List Messages.\n- `button`: Use it for Reply Buttons.\n-\
+            \ `product`: Use for Single Product Messages.\n- `product_list`: Use for\
+            \ Multi-Product Messages."
           enum:
           - button
           - list
+          - product
+          - product_list
           type: string
+          x-enum-descriptions:
+          - Use it for List Messages.
+          - Use it for Reply Buttons.
+          - Use for Single Product Messages.
+          - Use for Multi-Product Messages.
         action:
-          $ref: '#/components/schemas/WhatsappMessageInteractive_action'
+          $ref: '#/components/schemas/WhatsappMessageInteractiveAction'
         body:
-          $ref: '#/components/schemas/WhatsappMessageInteractive_body'
+          $ref: '#/components/schemas/WhatsappMessageInteractiveBody'
         header:
-          $ref: '#/components/schemas/WhatsappMessageInteractive_header'
+          $ref: '#/components/schemas/WhatsappMessageInteractiveHeader'
         footer:
-          $ref: '#/components/schemas/WhatsappMessageInteractive_footer'
+          $ref: '#/components/schemas/WhatsappMessageInteractiveFooter'
       required:
       - action
-      - body
+      - type
+      type: object
+    WhatsappMessageInteractiveAction:
+      description: "Action you want the user to perform after reading the `interactive`\
+        \ message.\nSee also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object)."
+      example:
+        button: button
+        catalog_id: catalog_id
+        buttons:
+        - type: reply
+          reply:
+            id: id
+            title: title
+        - type: reply
+          reply:
+            id: id
+            title: title
+        - type: reply
+          reply:
+            id: id
+            title: title
+        product_retailer_id: product_retailer_id
+        sections:
+        - product_items:
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          title: title
+          rows:
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+        - product_items:
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          title: title
+          rows:
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+        - product_items:
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          title: title
+          rows:
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+        - product_items:
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          title: title
+          rows:
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+        - product_items:
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          - product_retailer_id: product_retailer_id
+          title: title
+          rows:
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+      properties:
+        buttons:
+          description: Required for Reply Buttons.
+          items:
+            $ref: '#/components/schemas/WhatsappMessageInteractiveActionButton'
+          maxItems: 3
+          type: array
+        button:
+          description: "Required for List Messages. Button content. It cannot be an\
+            \ empty string and must be unique within the message. Emojis are supported,\
+            \ markdown is not."
+          maxLength: 20
+          type: string
+        catalog_id:
+          description: "Required for Single Product Messages and Multi-Product Messages.\n\
+            Unique identifier of the Facebook catalog linked to your WhatsApp Business\
+            \ Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/)."
+          type: string
+        product_retailer_id:
+          description: |-
+            Required for Single Product Messages and Multi-Product Messages.
+            Unique identifier of the product in a catalog.
+          type: string
+        sections:
+          description: "Required for List Messages and Multi-Product Messages.\nArray\
+            \ of section objects. Minimum of 1, maximum of 10."
+          items:
+            $ref: '#/components/schemas/WhatsappMessageInteractiveActionSection'
+          maxItems: 10
+          minItems: 1
+          type: array
+      type: object
+    WhatsappMessageInteractiveActionButton:
+      example:
+        type: reply
+        reply:
+          id: id
+          title: title
+      properties:
+        type:
+          description: Only supported type is `reply` (for Reply Button).
+          enum:
+          - reply
+          type: string
+        reply:
+          $ref: '#/components/schemas/WhatsappMessageInteractiveActionButton_reply'
+      type: object
+    WhatsappMessageInteractiveActionSection:
+      description: "[WhatsApp Section Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#section-object)."
+      example:
+        product_items:
+        - product_retailer_id: product_retailer_id
+        - product_retailer_id: product_retailer_id
+        - product_retailer_id: product_retailer_id
+        - product_retailer_id: product_retailer_id
+        - product_retailer_id: product_retailer_id
+        title: title
+        rows:
+        - description: description
+          id: id
+          title: title
+        - description: description
+          id: id
+          title: title
+        - description: description
+          id: id
+          title: title
+        - description: description
+          id: id
+          title: title
+        - description: description
+          id: id
+          title: title
+      properties:
+        title:
+          description: Title of the section.
+          maxLength: 24
+          type: string
+        rows:
+          description: "Contains a list of rows. You can have a total of 10 rows across\
+            \ your sections.\nEach row must have a title (Maximum length: 24 characters)\
+            \ and an ID (Maximum length: 200 characters). You can add a description\
+            \ (Maximum length: 72 characters), but it is optional."
+          items:
+            $ref: '#/components/schemas/WhatsappMessageInteractiveActionSectionRow'
+          maxItems: 10
+          type: array
+        product_items:
+          description: |-
+            Required for Multi-Product Messages.
+            Array of product objects. There is a minimum of 1 product per section and a maximum of 30 products across all sections.
+          items:
+            $ref: '#/components/schemas/WhatsappMessageInteractiveActionSectionProductItem'
+          maxItems: 30
+          minItems: 1
+          type: array
+      type: object
+    WhatsappMessageInteractiveActionSectionProductItem:
+      example:
+        product_retailer_id: product_retailer_id
+      properties:
+        product_retailer_id:
+          description: |-
+            Required for Multi-Product Messages.
+            Unique identifier of the product in a catalog.
+          type: string
+      type: object
+    WhatsappMessageInteractiveActionSectionRow:
+      example:
+        description: description
+        id: id
+        title: title
+      properties:
+        id:
+          description: Unique row ID.
+          type: string
+        title:
+          description: Row title content.
+          type: string
+        description:
+          description: Row description content.
+          type: string
+      type: object
+    WhatsappMessageInteractiveBody:
+      description: "Optional for type `product`. Required for other message types.\n\
+        See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object)."
+      example:
+        text: text
+      properties:
+        text:
+          description: The body content of the message. Emojis and markdown are supported.
+            Links are supported.
+          maxLength: 1024
+          type: string
+      type: object
+    WhatsappMessageInteractiveFooter:
+      description: "Optional. An object with the footer of the message.\nSee also\
+        \ [WhatsApp Footer Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#footer-object)."
+      example:
+        text: text
+      properties:
+        text:
+          description: The footer content. Emojis and markdown are supported. Links
+            are supported.
+          maxLength: 60
+          type: string
+      type: object
+    WhatsappMessageInteractiveHeader:
+      description: "Required for type `product_list`. Optional for other types.\n\
+        See also [WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object)."
+      example:
+        image:
+          filename: filename
+          link: link
+          caption: caption
+        document:
+          filename: filename
+          link: link
+          caption: caption
+        text: text
+        video:
+          filename: filename
+          link: link
+          caption: caption
+        type: text
+      properties:
+        type:
+          description: "The header type you would like to use.\n- `text`: Used for\
+            \ List Messages and Reply Buttons.\n- `video`: Used for Reply Buttons.\n\
+            - `image`: Used for Reply Buttons.\n- `document`: Used for Reply Buttons."
+          enum:
+          - text
+          - image
+          - video
+          - document
+          type: string
+        text:
+          description: "Text for the header. Formatting allows emojis, but not markdown."
+          maxLength: 60
+          type: string
+        image:
+          $ref: '#/components/schemas/WhatsappMessageMedia'
+        video:
+          $ref: '#/components/schemas/WhatsappMessageMedia'
+        document:
+          $ref: '#/components/schemas/WhatsappMessageMedia'
+      required:
       - type
       type: object
     WhatsappMessageLocation:
-      description: "[WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object)."
+      description: "Use for `location` messages.\nSee also [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object)."
       example:
         address: address
         latitude: 6.027456183070403
@@ -3916,7 +4477,8 @@ components:
       - longitude
       type: object
     WhatsappMessageMedia:
-      description: "[WhatsApp Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)."
+      description: "Use for `image`, `video`, `audio`, `document`, or `sticker` messages.\
+        \ \nSee also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types)."
       example:
         filename: filename
         link: link
@@ -3927,7 +4489,8 @@ components:
             HTTP/HTTPS URLs.
           type: string
         caption:
-          description: Describes the specified `video` or `image` media.
+          description: "Describes the specified `image`, `video`, or `document` media.\
+            \ Not applicable in the `header` of `interactive` messages."
           type: string
         filename:
           description: Describes the filename for the specific document. Use only
@@ -4011,11 +4574,19 @@ components:
           name: sample_whatsapp_template
           language:
             code: en
+            policy: policy
         image:
           filename: filename
           link: link
           caption: caption
+        reaction:
+          emoji: emoji
+          message_id: wamid.BgNODYxN...
         document:
+          filename: filename
+          link: link
+          caption: caption
+        sticker:
           filename: filename
           link: link
           caption: caption
@@ -4024,6 +4595,7 @@ components:
             text: text
           action:
             button: button
+            catalog_id: catalog_id
             buttons:
             - type: reply
               reply:
@@ -4037,8 +4609,15 @@ components:
               reply:
                 id: id
                 title: title
+            product_retailer_id: product_retailer_id
             sections:
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -4055,7 +4634,13 @@ components:
               - description: description
                 id: id
                 title: title
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -4072,7 +4657,13 @@ components:
               - description: description
                 id: id
                 title: title
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -4089,7 +4680,13 @@ components:
               - description: description
                 id: id
                 title: title
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -4106,7 +4703,13 @@ components:
               - description: description
                 id: id
                 title: title
-            - title: title
+            - product_items:
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              - product_retailer_id: product_retailer_id
+              title: title
               rows:
               - description: description
                 id: id
@@ -4147,6 +4750,8 @@ components:
           link: link
           caption: caption
         type: null
+        context:
+          message_id: wamid.BgNODYxN...
         from: +447901614024
         location:
           address: address
@@ -4275,6 +4880,8 @@ components:
           $ref: '#/components/schemas/WhatsappMessageMedia'
         document:
           $ref: '#/components/schemas/WhatsappMessageMedia'
+        sticker:
+          $ref: '#/components/schemas/WhatsappMessageMedia'
         location:
           $ref: '#/components/schemas/WhatsappMessageLocation'
         interactive:
@@ -4284,6 +4891,10 @@ components:
           items:
             $ref: '#/components/schemas/WhatsappMessageContact'
           type: array
+        reaction:
+          $ref: '#/components/schemas/WhatsappMessageReaction'
+        context:
+          $ref: '#/components/schemas/WhatsappMessageContext'
         externalId:
           description: "A unique string to reference the object. This can be an order\
             \ number or similar, and can be used to reconcile the object with your\
@@ -4316,8 +4927,8 @@ components:
       - A message sent by your business was delivered to the user's device.
       - A message sent by your business was read by the user.
     WhatsappMessageTemplate:
-      description: "Template object when sending a WhatsApp template message. See\
-        \ also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object)."
+      description: "Use for sending a WhatsApp `template` message.\nSee also [WhatsApp\
+        \ Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object)."
       example:
         components:
         - sub_type: quick_reply
@@ -4391,6 +5002,7 @@ components:
         name: sample_whatsapp_template
         language:
           code: en
+          policy: policy
       properties:
         name:
           description: Name of the template.
@@ -4399,14 +5011,146 @@ components:
         language:
           $ref: '#/components/schemas/WhatsappMessageTemplate_language'
         components:
-          description: Array of components objects containing the parameters of the
-            message.
+          description: |-
+            **Required when the specified template contains variables or media.**
+            Array of components objects containing the parameters of the message.
           items:
-            $ref: '#/components/schemas/WhatsappMessageTemplate_components_inner'
+            $ref: '#/components/schemas/WhatsappMessageTemplateComponent'
           type: array
       required:
       - language
       - name
+      type: object
+    WhatsappMessageTemplateComponent:
+      description: Component object containing the parameters of the message.
+      example:
+        sub_type: quick_reply
+        index: 0
+        type: header
+        parameters:
+        - image:
+            filename: filename
+            link: link
+            caption: caption
+          payload: payload
+          document:
+            filename: filename
+            link: link
+            caption: caption
+          text: text
+          video:
+            filename: filename
+            link: link
+            caption: caption
+          type: text
+        - image:
+            filename: filename
+            link: link
+            caption: caption
+          payload: payload
+          document:
+            filename: filename
+            link: link
+            caption: caption
+          text: text
+          video:
+            filename: filename
+            link: link
+            caption: caption
+          type: text
+      properties:
+        type:
+          description: "Describes the component type. One of `header`, `body`, `button`.\
+            \ For text-based templates, we only support the type=body."
+          enum:
+          - header
+          - body
+          - button
+          type: string
+        sub_type:
+          description: "**Required when type is `button`.**\nType of button to create.\n\
+            `quick_reply`: Refers to a previously created quick reply button that\
+            \ allows for the customer to return a predefined message.\n`url`: Refers\
+            \ to a previously created button that allows the customer to visit the\
+            \ URL generated by appending the text parameter to the predefined prefix\
+            \ URL in the template."
+          enum:
+          - quick_reply
+          - url
+          type: string
+        index:
+          description: |-
+            **Required when `type` = `button`. Not used for the other types.**
+            Position index of the button. You can have up to 3 buttons using index values of 0 to 2.
+          format: int32
+          maximum: 2
+          minimum: 0
+          type: integer
+        parameters:
+          description: "**Required when `type` = `button`, or there are variables\
+            \ in the corresponding template component, or the template `HEADER` format\
+            \ is media (`IMAGE`, `VIDEO`, or `DOCUMENT`).**\nArray of parameter objects\
+            \ with the content of the message.\nFor components of `type` = `button`,\
+            \ see the [button parameter object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object)."
+          items:
+            $ref: '#/components/schemas/WhatsappMessageTemplateComponentParameter'
+          type: array
+      required:
+      - type
+      type: object
+    WhatsappMessageTemplateComponentParameter:
+      description: "See [Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#parameter-object),\
+        \ [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object."
+      example:
+        image:
+          filename: filename
+          link: link
+          caption: caption
+        payload: payload
+        document:
+          filename: filename
+          link: link
+          caption: caption
+        text: text
+        video:
+          filename: filename
+          link: link
+          caption: caption
+        type: text
+      properties:
+        type:
+          description: "**Required.** Describes the parameter type.\n- `text`: Used\
+            \ when the template component type is `BODY`, or the `HEADER` component\
+            \ format is `TEXT`.\n- `image`: Used when the template `HEADER` component\
+            \ is `IMAGE`.\n- `video`: Used when the template `HEADER` component is\
+            \ `VIDEO`.\n- `document`: Used when the template `HEADER` component is\
+            \ `DOCUMENT`.\n- `payload`: Used when the template component button type\
+            \ is `QUICK_REPLY`."
+          enum:
+          - text
+          - image
+          - video
+          - document
+          - payload
+          type: string
+        text:
+          description: "**Required when `type` = `text`.**\nThe message's text. For\
+            \ the header component, the character limit is 60 characters. For the\
+            \ body component, the character limit is 1024 characters.\nFor url buttons,\
+            \ it indicates the developer-provided suffix that is appended to the predefined\
+            \ prefix URL in the template."
+          type: string
+        payload:
+          description: |-
+            Required for `quick_reply` buttons.
+            Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.
+          type: string
+        image:
+          $ref: '#/components/schemas/WhatsappMessageMedia'
+        video:
+          $ref: '#/components/schemas/WhatsappMessageMedia'
+        document:
+          $ref: '#/components/schemas/WhatsappMessageMedia'
       type: object
     WhatsappMessageText:
       description: "[WhatsApp Text Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#text-object)."
@@ -4452,9 +5196,10 @@ components:
       - location
       - interactive
       - contacts
+      - reaction
       type: string
     WhatsappPhoneNumber:
-      description: "A WhatsApp Business Account (WABA) phone number. See also [WhatsApp\
+      description: "A WhatsApp Business Account (WABA) phone number.\nSee also [WhatsApp\
         \ Retrieve Phone Numbers](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers)."
       example:
         decision: null
@@ -4596,7 +5341,7 @@ components:
     WhatsappPhoneNumberProfile:
       description: "WhatsApp Phone Number Business Profile. Customers can view your\
         \ business profile by clicking your business's name or number in a conversation\
-        \ thread. See also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles)."
+        \ thread.\nSee also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles)."
       example:
         profilePictureUrl: https://URL
         address: ADDRESS
@@ -4650,7 +5395,7 @@ components:
     WhatsappPhoneNumberProfileUpdateRequest:
       description: "WhatsApp Phone Number Business Profile. Customers can view your\
         \ business profile by clicking your business's name or number in a conversation\
-        \ thread. See also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles)."
+        \ thread.\nSee also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles)."
       example:
         profilePictureUrl: https://URL
         address: ADDRESS
@@ -4930,8 +5675,12 @@ components:
         category:
           $ref: '#/components/schemas/WhatsappTemplateCategory'
         components:
+          description: "Template components. A template consists of `HEADER`, `BODY`,\
+            \ `FOOTER`, and `BUTTONS` components. `BODY` component is required, the\
+            \ other types are optional."
           items:
             $ref: '#/components/schemas/WhatsappTemplateComponent'
+          minItems: 1
           type: array
         status:
           $ref: '#/components/schemas/WhatsappTemplateStatus'
@@ -5024,6 +5773,7 @@ components:
           - header_url
       properties:
         type:
+          description: '**Required.** Template component type.'
           enum:
           - BODY
           - HEADER
@@ -5031,6 +5781,7 @@ components:
           - BUTTONS
           type: string
         format:
+          description: '**Required for type `HEADER`.**'
           enum:
           - TEXT
           - IMAGE
@@ -5038,8 +5789,14 @@ components:
           - DOCUMENT
           type: string
         text:
+          description: "**Required for type `BODY`, `FOOTER`, and format `TEXT`.**"
           type: string
         buttons:
+          description: "**Required for type `BUTTONS`.**\nThe `BUTTONS` component\
+            \ has two types of buttons: Quick Reply, and Call To Action. These button\
+            \ types are exclusive, which means you cannot use both of them in one\
+            \ template. Quick Reply buttons are limited to 3. Call To Actions buttons\
+            \ have at most 1 PHONE_NUMBER button, and at most 1 URL button."
           items:
             $ref: '#/components/schemas/WhatsappTemplateComponentButton'
           maxItems: 3
@@ -5060,15 +5817,23 @@ components:
         type:
           $ref: '#/components/schemas/WhatsappTemplateComponentButtonType'
         text:
+          description: '**Required.** Button text.'
           type: string
         url:
+          description: "**Required for button type `URL`.** \nThere can be at most\
+            \ 1 variable at the end of the URL."
           type: string
         phone_number:
+          description: '**Required for button type `PHONE_NUMBER`.**'
           type: string
         example:
+          description: Sample full URL for a `URL` button with a variable.
           items:
             type: string
           type: array
+      required:
+      - text
+      - type
       type: object
     WhatsappTemplateComponentButtonType:
       enum:
@@ -5564,133 +6329,7 @@ components:
           description: Description of the selected row.
           type: string
       type: object
-    WhatsappMessageContact_addresses_inner:
-      description: Full contact address(es) formatted as an addresses object.
-      example:
-        zip: zip
-        country: country
-        country_code: country_code
-        city: city
-        street: street
-        state: state
-        type: WORK
-      properties:
-        street:
-          description: Street number and name.
-          type: string
-        city:
-          description: City name.
-          type: string
-        state:
-          description: State abbreviation.
-          type: string
-        zip:
-          description: ZIP code.
-          type: string
-        country:
-          description: Full country name.
-          type: string
-        country_code:
-          description: Two-letter country abbreviation.
-          type: string
-        type:
-          description: Standard values are `HOME` and `WORK`.
-          example: WORK
-          type: string
-      type: object
-    WhatsappMessageContact_emails_inner:
-      description: Contact email address(es) formatted as an emails object.
-      example:
-        type: WORK
-        email: email
-      properties:
-        email:
-          description: Email address.
-          type: string
-        type:
-          description: Standard values are `HOME` and `WORK`.
-          example: WORK
-          type: string
-      type: object
-    WhatsappMessageContact_name:
-      description: Full contact name formatted as a name object.
-      example:
-        prefix: prefix
-        last_name: last_name
-        middle_name: middle_name
-        suffix: suffix
-        first_name: first_name
-        formatted_name: formatted_name
-      properties:
-        formatted_name:
-          description: "Full name, as it normally appears."
-          type: string
-        first_name:
-          description: First name.
-          type: string
-        last_name:
-          description: Last name.
-          type: string
-        middle_name:
-          description: Middle name.
-          type: string
-        suffix:
-          description: Name suffix.
-          type: string
-        prefix:
-          description: Name prefix.
-          type: string
-      required:
-      - formatted_name
-      type: object
-    WhatsappMessageContact_org:
-      description: Contact organization information formatted as an org object.
-      example:
-        company: company
-        department: department
-        title: title
-      properties:
-        company:
-          description: Name of the contact's company.
-          type: string
-        department:
-          description: Name of the contact's department.
-          type: string
-        title:
-          description: Contact's business title.
-          type: string
-      type: object
-    WhatsappMessageContact_phones_inner:
-      example:
-        phone: phone
-        wa_id: wa_id
-        type: type
-      properties:
-        phone:
-          description: Automatically populated with the `wa_id` value as a formatted
-            phone number.
-          type: string
-        type:
-          description: "Standard Values are `CELL`, `MAIN`, `IPHONE`, `HOME`, and\
-            \ `WORK`."
-          type: string
-        wa_id:
-          description: WhatsApp ID.
-          type: string
-      type: object
-    WhatsappMessageContact_urls_inner:
-      example:
-        type: type
-        url: url
-      properties:
-        url:
-          description: URL.
-          type: string
-        type:
-          description: Standard values are `HOME` and `WORK`.
-          type: string
-      type: object
-    WhatsappMessageInteractive_action_buttons_inner_reply:
+    WhatsappMessageInteractiveActionButton_reply:
       example:
         id: id
         title: title
@@ -5706,261 +6345,12 @@ components:
           maxLength: 20
           type: string
       type: object
-    WhatsappMessageInteractive_action_buttons_inner:
-      example:
-        type: reply
-        reply:
-          id: id
-          title: title
-      properties:
-        type:
-          description: Only supported type is `reply` (for Reply Button).
-          enum:
-          - reply
-          type: string
-        reply:
-          $ref: '#/components/schemas/WhatsappMessageInteractive_action_buttons_inner_reply'
-    WhatsappMessageInteractive_action_sections_inner_rows_inner:
-      example:
-        description: description
-        id: id
-        title: title
-      properties:
-        id:
-          description: Unique row ID.
-          type: string
-        title:
-          description: Row title content.
-          type: string
-        description:
-          description: Row description content.
-          type: string
-    WhatsappMessageInteractive_action_sections_inner:
-      description: "[WhatsApp Section Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#section-object)."
-      example:
-        title: title
-        rows:
-        - description: description
-          id: id
-          title: title
-        - description: description
-          id: id
-          title: title
-        - description: description
-          id: id
-          title: title
-        - description: description
-          id: id
-          title: title
-        - description: description
-          id: id
-          title: title
-      properties:
-        title:
-          description: Title of the section.
-          maxLength: 24
-          type: string
-        rows:
-          description: "Contains a list of rows. You can have a total of 10 rows across\
-            \ your sections.\nEach row must have a title (Maximum length: 24 characters)\
-            \ and an ID (Maximum length: 200 characters). You can add a description\
-            \ (Maximum length: 72 characters), but it is optional."
-          items:
-            $ref: '#/components/schemas/WhatsappMessageInteractive_action_sections_inner_rows_inner'
-          maxItems: 10
-          type: array
-    WhatsappMessageInteractive_action:
-      description: "[WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object)."
-      example:
-        button: button
-        buttons:
-        - type: reply
-          reply:
-            id: id
-            title: title
-        - type: reply
-          reply:
-            id: id
-            title: title
-        - type: reply
-          reply:
-            id: id
-            title: title
-        sections:
-        - title: title
-          rows:
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-        - title: title
-          rows:
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-        - title: title
-          rows:
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-        - title: title
-          rows:
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-        - title: title
-          rows:
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-          - description: description
-            id: id
-            title: title
-      properties:
-        buttons:
-          description: Required for Reply Buttons.
-          items:
-            $ref: '#/components/schemas/WhatsappMessageInteractive_action_buttons_inner'
-          maxItems: 3
-          type: array
-        button:
-          description: "Required for List Messages. Button content. It cannot be an\
-            \ empty string and must be unique within the message. Emojis are supported,\
-            \ markdown is not."
-          maxLength: 20
-          type: string
-        sections:
-          description: Required for List Messages.
-          items:
-            $ref: '#/components/schemas/WhatsappMessageInteractive_action_sections_inner'
-          maxItems: 10
-          minItems: 1
-          type: array
-      type: object
-    WhatsappMessageInteractive_body:
-      description: "[WhatsApp Body Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#body-object)."
-      example:
-        text: text
-      properties:
-        text:
-          description: The body content of the message. Emojis and markdown are supported.
-            Links are supported.
-          maxLength: 1024
-          type: string
-      type: object
-    WhatsappMessageInteractive_header:
-      description: "[WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object)."
-      example:
-        image:
-          filename: filename
-          link: link
-          caption: caption
-        document:
-          filename: filename
-          link: link
-          caption: caption
-        text: text
-        video:
-          filename: filename
-          link: link
-          caption: caption
-        type: text
-      properties:
-        type:
-          description: "The header type you would like to use.\n- `text`: Used for\
-            \ List Messages and Reply Buttons.\n- `video`: Used for Reply Buttons.\n\
-            - `image`: Used for Reply Buttons.\n- `document`: Used for Reply Buttons."
-          enum:
-          - text
-          - image
-          - video
-          - document
-          type: string
-        text:
-          description: "Text for the header. Formatting allows emojis, but not markdown."
-          maxLength: 60
-          type: string
-        image:
-          $ref: '#/components/schemas/WhatsappMessageMedia'
-        video:
-          $ref: '#/components/schemas/WhatsappMessageMedia'
-        document:
-          $ref: '#/components/schemas/WhatsappMessageMedia'
-      required:
-      - type
-      type: object
-    WhatsappMessageInteractive_footer:
-      description: "[WhatsApp Footer Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#footer-object)."
-      example:
-        text: text
-      properties:
-        text:
-          description: The footer content. Emojis and markdown are supported. Links
-            are supported.
-          maxLength: 60
-          type: string
-      type: object
     WhatsappMessageTemplate_language:
       description: Contains a language object. Specifies the language the template
         may be rendered in.
       example:
         code: en
+        policy: policy
       properties:
         code:
           description: "The code of the language or locale to use. Accepts both language\
@@ -5968,130 +6358,20 @@ components:
             \ for all codes."
           example: en
           type: string
+        policy:
+          description: "Default (and only supported option): `deterministic`."
+          type: string
       required:
       - code
       type: object
-    WhatsappMessageTemplate_components_inner_parameters_inner:
-      description: "See [Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#parameter-object),\
-        \ [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object."
-      example:
-        image:
-          filename: filename
-          link: link
-          caption: caption
-        payload: payload
-        document:
-          filename: filename
-          link: link
-          caption: caption
-        text: text
-        video:
-          filename: filename
-          link: link
-          caption: caption
-        type: text
-      properties:
-        type:
-          description: Describes the parameter type.
-          enum:
-          - text
-          - image
-          - video
-          - document
-          - payload
-          type: string
-        text:
-          description: "Required when `type` = `text`.\nThe message's text. For the\
-            \ header component, the character limit is 60 characters. For the body\
-            \ component, the character limit is 1024 characters.\nFor url buttons,\
-            \ it indicates the developer-provided suffix that is appended to the predefined\
-            \ prefix URL in the template."
-          type: string
-        payload:
-          description: |-
-            Required for `quick_reply` buttons.
-            Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.
-          type: string
-        image:
-          $ref: '#/components/schemas/WhatsappMessageMedia'
-        video:
-          $ref: '#/components/schemas/WhatsappMessageMedia'
-        document:
-          $ref: '#/components/schemas/WhatsappMessageMedia'
-    WhatsappMessageTemplate_components_inner:
-      description: Component object containing the parameters of the message.
-      example:
-        sub_type: quick_reply
-        index: 0
-        type: header
-        parameters:
-        - image:
-            filename: filename
-            link: link
-            caption: caption
-          payload: payload
-          document:
-            filename: filename
-            link: link
-            caption: caption
-          text: text
-          video:
-            filename: filename
-            link: link
-            caption: caption
-          type: text
-        - image:
-            filename: filename
-            link: link
-            caption: caption
-          payload: payload
-          document:
-            filename: filename
-            link: link
-            caption: caption
-          text: text
-          video:
-            filename: filename
-            link: link
-            caption: caption
-          type: text
-      properties:
-        type:
-          description: "Describes the component type. One of `header`, `body`, `button`.\
-            \ For text-based templates, we only support the type=body."
-          enum:
-          - header
-          - body
-          - button
-          type: string
-        sub_type:
-          description: "Type of button to create.\n`quick_reply`: Refers to a previously\
-            \ created quick reply button that allows for the customer to return a\
-            \ predefined message.\n`url`: Refers to a previously created button that\
-            \ allows the customer to visit the URL generated by appending the text\
-            \ parameter to the predefined prefix URL in the template."
-          enum:
-          - quick_reply
-          - url
-          type: string
-        index:
-          description: |-
-            Required when `type` = `button`. Not used for the other types.
-            Position index of the button. You can have up to 3 buttons using index values of 0 to 2.
-          format: int32
-          maximum: 2
-          minimum: 0
-          type: integer
-        parameters:
-          description: "Required when `type` = `button`.\nArray of parameter objects\
-            \ with the content of the message.\nFor components of `type` = `button`,\
-            \ see the [button parameter object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object)."
-          items:
-            $ref: '#/components/schemas/WhatsappMessageTemplate_components_inner_parameters_inner'
-          type: array
-      required:
-      - type
     WhatsappTemplateComponent_example:
+      description: "**Required** when:\n- `type` is `HEADER`, and `format` is one\
+        \ of `IMAGE`, `VIDEO`, or `DOCUMENT`. You need to provide a sample media URL\
+        \ in `header_url`.\n- `type` is `HEADER`, `format` is `TEXT`, and a variable\
+        \ is used in `text`. You need to provide a sample value for that variable\
+        \ in `header_text`. There can be at most 1 variable in `HEADER` text.\n- `type`\
+        \ is `BODY`, and variables are used in `text`. You need to provide sample\
+        \ values for those variables in `body_text`."
       example:
         body_text:
         - - body_text
@@ -6106,16 +6386,24 @@ components:
         - header_url
       properties:
         body_text:
+          description: Sample values for variables in `text` of a `BODY` component.
           items:
             items:
               type: string
             type: array
           type: array
         header_text:
+          description: Sample value for the variable in `text` of a `HEADER` component.
           items:
             type: string
           type: array
         header_url:
+          description: "Sample media URL for a `HEADER` component whose format is\
+            \ one of `IMAGE`, `VIDEO`, or `DOCUMENT`.\nSupported types:\n- For `IMAGE`,\
+            \ the URL must end with one of `.jpg`, `.jpeg`, or `.png`, size limit\
+            \ is 5MB.\n- For `VIDEO`, the URL must end with `.mp4`, size limit is\
+            \ 16MB.\n- For `DOCUMENT`, the URL must end with `.pdf`, size limit is\
+            \ 100MB."
           items:
             type: string
           type: array

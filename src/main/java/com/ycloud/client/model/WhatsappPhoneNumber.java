@@ -56,54 +56,87 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappPhoneNumber {
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phoneNumber";
+  /**
+   * Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+  **/
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
 
   public static final String SERIALIZED_NAME_DISPLAY_PHONE_NUMBER = "displayPhoneNumber";
+  /**
+   * Display phone number.
+  **/
   @SerializedName(SERIALIZED_NAME_DISPLAY_PHONE_NUMBER)
   private String displayPhoneNumber;
 
   public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
+  /**
+   * WhatsApp Business Account ID.
+  **/
   @SerializedName(SERIALIZED_NAME_WABA_ID)
   private String wabaId;
 
   public static final String SERIALIZED_NAME_QUALITY_RATING = "qualityRating";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_QUALITY_RATING)
   private WhatsappPhoneNumberQualityRating qualityRating;
 
   public static final String SERIALIZED_NAME_MESSAGING_LIMIT = "messagingLimit";
+  /**
+   * Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period.
+  **/
   @SerializedName(SERIALIZED_NAME_MESSAGING_LIMIT)
   private String messagingLimit;
 
   public static final String SERIALIZED_NAME_VERIFIED_NAME = "verifiedName";
+  /**
+   * Verified name.
+  **/
   @SerializedName(SERIALIZED_NAME_VERIFIED_NAME)
   private String verifiedName;
 
   public static final String SERIALIZED_NAME_CODE_VERIFICATION_STATUS = "codeVerificationStatus";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CODE_VERIFICATION_STATUS)
   private WhatsappPhoneNumberCodeVerificationStatus codeVerificationStatus;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private WhatsappPhoneNumberStatus status;
 
   public static final String SERIALIZED_NAME_NAME_STATUS = "nameStatus";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_NAME_STATUS)
   private WhatsappPhoneNumberNameStatus nameStatus;
 
   public static final String SERIALIZED_NAME_NEW_NAME_STATUS = "newNameStatus";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_NEW_NAME_STATUS)
   private WhatsappPhoneNumberNameStatus newNameStatus;
 
   public static final String SERIALIZED_NAME_DECISION = "decision";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_DECISION)
   private WhatsappReviewDecision decision;
 
   public static final String SERIALIZED_NAME_REQUESTED_VERIFIED_NAME = "requestedVerifiedName";
+  /**
+   * Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
+  **/
   @SerializedName(SERIALIZED_NAME_REQUESTED_VERIFIED_NAME)
   private String requestedVerifiedName;
 
   public static final String SERIALIZED_NAME_REJECTION_REASON = "rejectionReason";
+  /**
+   * Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
+  **/
   @SerializedName(SERIALIZED_NAME_REJECTION_REASON)
   private String rejectionReason;
 
@@ -121,13 +154,16 @@ public class WhatsappPhoneNumber {
    * @return phoneNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "+16315551111", value = "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
 
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
 
+  /**
+   * Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   **/
+  @ApiModelProperty(example = "+16315551111", value = "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
@@ -144,13 +180,16 @@ public class WhatsappPhoneNumber {
    * @return displayPhoneNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "+1 631-555-1111", value = "Display phone number.")
 
   public String getDisplayPhoneNumber() {
     return displayPhoneNumber;
   }
 
 
+  /**
+   * Display phone number.
+   **/
+  @ApiModelProperty(example = "+1 631-555-1111", value = "Display phone number.")
   public void setDisplayPhoneNumber(String displayPhoneNumber) {
     this.displayPhoneNumber = displayPhoneNumber;
   }
@@ -167,13 +206,16 @@ public class WhatsappPhoneNumber {
    * @return wabaId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "whatsapp-business-account-id", value = "WhatsApp Business Account ID.")
 
   public String getWabaId() {
     return wabaId;
   }
 
 
+  /**
+   * WhatsApp Business Account ID.
+   **/
+  @ApiModelProperty(example = "whatsapp-business-account-id", value = "WhatsApp Business Account ID.")
   public void setWabaId(String wabaId) {
     this.wabaId = wabaId;
   }
@@ -190,13 +232,15 @@ public class WhatsappPhoneNumber {
    * @return qualityRating
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappPhoneNumberQualityRating getQualityRating() {
     return qualityRating;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setQualityRating(WhatsappPhoneNumberQualityRating qualityRating) {
     this.qualityRating = qualityRating;
   }
@@ -213,13 +257,16 @@ public class WhatsappPhoneNumber {
    * @return messagingLimit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "TIER_1K", value = "Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.")
 
   public String getMessagingLimit() {
     return messagingLimit;
   }
 
 
+  /**
+   * Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period.
+   **/
+  @ApiModelProperty(example = "TIER_1K", value = "Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.")
   public void setMessagingLimit(String messagingLimit) {
     this.messagingLimit = messagingLimit;
   }
@@ -236,13 +283,16 @@ public class WhatsappPhoneNumber {
    * @return verifiedName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "John’s Cake Shop", value = "Verified name.")
 
   public String getVerifiedName() {
     return verifiedName;
   }
 
 
+  /**
+   * Verified name.
+   **/
+  @ApiModelProperty(example = "John’s Cake Shop", value = "Verified name.")
   public void setVerifiedName(String verifiedName) {
     this.verifiedName = verifiedName;
   }
@@ -259,13 +309,15 @@ public class WhatsappPhoneNumber {
    * @return codeVerificationStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappPhoneNumberCodeVerificationStatus getCodeVerificationStatus() {
     return codeVerificationStatus;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setCodeVerificationStatus(WhatsappPhoneNumberCodeVerificationStatus codeVerificationStatus) {
     this.codeVerificationStatus = codeVerificationStatus;
   }
@@ -282,13 +334,15 @@ public class WhatsappPhoneNumber {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappPhoneNumberStatus getStatus() {
     return status;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setStatus(WhatsappPhoneNumberStatus status) {
     this.status = status;
   }
@@ -305,13 +359,15 @@ public class WhatsappPhoneNumber {
    * @return nameStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappPhoneNumberNameStatus getNameStatus() {
     return nameStatus;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setNameStatus(WhatsappPhoneNumberNameStatus nameStatus) {
     this.nameStatus = nameStatus;
   }
@@ -328,13 +384,15 @@ public class WhatsappPhoneNumber {
    * @return newNameStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappPhoneNumberNameStatus getNewNameStatus() {
     return newNameStatus;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setNewNameStatus(WhatsappPhoneNumberNameStatus newNameStatus) {
     this.newNameStatus = newNameStatus;
   }
@@ -351,13 +409,15 @@ public class WhatsappPhoneNumber {
    * @return decision
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappReviewDecision getDecision() {
     return decision;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setDecision(WhatsappReviewDecision decision) {
     this.decision = decision;
   }
@@ -374,13 +434,16 @@ public class WhatsappPhoneNumber {
    * @return requestedVerifiedName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).")
 
   public String getRequestedVerifiedName() {
     return requestedVerifiedName;
   }
 
 
+  /**
+   * Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
+   **/
+  @ApiModelProperty(value = "Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).")
   public void setRequestedVerifiedName(String requestedVerifiedName) {
     this.requestedVerifiedName = requestedVerifiedName;
   }
@@ -397,13 +460,16 @@ public class WhatsappPhoneNumber {
    * @return rejectionReason
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).")
 
   public String getRejectionReason() {
     return rejectionReason;
   }
 
 
+  /**
+   * Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).
+   **/
+  @ApiModelProperty(value = "Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update).")
   public void setRejectionReason(String rejectionReason) {
     this.rejectionReason = rejectionReason;
   }

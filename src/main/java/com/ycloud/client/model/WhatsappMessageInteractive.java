@@ -49,19 +49,35 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
+ * Use for &#x60;interactive&#x60; messages. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
  */
-@ApiModel(description = "[WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).")
+@ApiModel(description = "Use for `interactive` messages. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractive {
   /**
-   * The type of interactive message you want to send. - &#x60;list&#x60;: Use it for List Messages. - &#x60;button&#x60;: Use it for Reply Buttons.
+   * The type of interactive message you want to send. - &#x60;list&#x60;: Use it for List Messages. - &#x60;button&#x60;: Use it for Reply Buttons. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    /**
+     * Use it for List Messages.
+     */
     BUTTON("button"),
     
-    LIST("list");
+    /**
+     * Use it for Reply Buttons.
+     */
+    LIST("list"),
+    
+    /**
+     * Use for Single Product Messages.
+     */
+    PRODUCT("product"),
+    
+    /**
+     * Use for Multi-Product Messages.
+     */
+    PRODUCT_LIST("product_list");
 
     private String value;
 
@@ -102,22 +118,33 @@ public class WhatsappMessageInteractive {
   }
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * The type of interactive message you want to send. - &#x60;list&#x60;: Use it for List Messages. - &#x60;button&#x60;: Use it for Reply Buttons. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
   public static final String SERIALIZED_NAME_ACTION = "action";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_ACTION)
   private WhatsappMessageInteractiveAction action;
 
   public static final String SERIALIZED_NAME_BODY = "body";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_BODY)
   private WhatsappMessageInteractiveBody body;
 
   public static final String SERIALIZED_NAME_HEADER = "header";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_HEADER)
   private WhatsappMessageInteractiveHeader header;
 
   public static final String SERIALIZED_NAME_FOOTER = "footer";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_FOOTER)
   private WhatsappMessageInteractiveFooter footer;
 
@@ -131,17 +158,20 @@ public class WhatsappMessageInteractive {
   }
 
    /**
-   * The type of interactive message you want to send. - &#x60;list&#x60;: Use it for List Messages. - &#x60;button&#x60;: Use it for Reply Buttons.
+   * The type of interactive message you want to send. - &#x60;list&#x60;: Use it for List Messages. - &#x60;button&#x60;: Use it for Reply Buttons. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of interactive message you want to send. - `list`: Use it for List Messages. - `button`: Use it for Reply Buttons.")
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  /**
+   * The type of interactive message you want to send. - &#x60;list&#x60;: Use it for List Messages. - &#x60;button&#x60;: Use it for Reply Buttons. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
+   **/
+  @ApiModelProperty(required = true, value = "The type of interactive message you want to send. - `list`: Use it for List Messages. - `button`: Use it for Reply Buttons. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -158,13 +188,15 @@ public class WhatsappMessageInteractive {
    * @return action
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WhatsappMessageInteractiveAction getAction() {
     return action;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setAction(WhatsappMessageInteractiveAction action) {
     this.action = action;
   }
@@ -180,14 +212,16 @@ public class WhatsappMessageInteractive {
    * Get body
    * @return body
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
 
   public WhatsappMessageInteractiveBody getBody() {
     return body;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setBody(WhatsappMessageInteractiveBody body) {
     this.body = body;
   }
@@ -204,13 +238,15 @@ public class WhatsappMessageInteractive {
    * @return header
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageInteractiveHeader getHeader() {
     return header;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setHeader(WhatsappMessageInteractiveHeader header) {
     this.header = header;
   }
@@ -227,13 +263,15 @@ public class WhatsappMessageInteractive {
    * @return footer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageInteractiveFooter getFooter() {
     return footer;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setFooter(WhatsappMessageInteractiveFooter footer) {
     this.footer = footer;
   }
@@ -339,7 +377,6 @@ public class WhatsappMessageInteractive {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("type");
     openapiRequiredFields.add("action");
-    openapiRequiredFields.add("body");
   }
 
  /**

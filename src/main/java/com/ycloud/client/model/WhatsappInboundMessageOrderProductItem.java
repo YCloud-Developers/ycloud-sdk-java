@@ -50,18 +50,30 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageOrderProductItem {
   public static final String SERIALIZED_NAME_PRODUCT_RETAILER_ID = "product_retailer_id";
+  /**
+   * The product SKU identifier.
+  **/
   @SerializedName(SERIALIZED_NAME_PRODUCT_RETAILER_ID)
   private String productRetailerId;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
+  /**
+   * Number of item.
+  **/
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   private Integer quantity;
 
   public static final String SERIALIZED_NAME_ITEM_PRICE = "item_price";
+  /**
+   * Unitary price of item.
+  **/
   @SerializedName(SERIALIZED_NAME_ITEM_PRICE)
   private String itemPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+  **/
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
@@ -79,13 +91,16 @@ public class WhatsappInboundMessageOrderProductItem {
    * @return productRetailerId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The product SKU identifier.")
 
   public String getProductRetailerId() {
     return productRetailerId;
   }
 
 
+  /**
+   * The product SKU identifier.
+   **/
+  @ApiModelProperty(value = "The product SKU identifier.")
   public void setProductRetailerId(String productRetailerId) {
     this.productRetailerId = productRetailerId;
   }
@@ -102,13 +117,16 @@ public class WhatsappInboundMessageOrderProductItem {
    * @return quantity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of item.")
 
   public Integer getQuantity() {
     return quantity;
   }
 
 
+  /**
+   * Number of item.
+   **/
+  @ApiModelProperty(value = "Number of item.")
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
@@ -125,13 +143,16 @@ public class WhatsappInboundMessageOrderProductItem {
    * @return itemPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unitary price of item.")
 
   public String getItemPrice() {
     return itemPrice;
   }
 
 
+  /**
+   * Unitary price of item.
+   **/
+  @ApiModelProperty(value = "Unitary price of item.")
   public void setItemPrice(String itemPrice) {
     this.itemPrice = itemPrice;
   }
@@ -148,13 +169,16 @@ public class WhatsappInboundMessageOrderProductItem {
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getCurrency() {
     return currency;
   }
 
 
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   **/
+  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   public void setCurrency(String currency) {
     this.currency = currency;
   }

@@ -51,34 +51,58 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappApiError {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
+  /**
+   * A human-readable description of the error.
+  **/
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
   public static final String SERIALIZED_NAME_CODE = "code";
+  /**
+   * An error code.
+  **/
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * Error type.
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
   public static final String SERIALIZED_NAME_ERROR_SUBCODE = "error_subcode";
+  /**
+   * Additional code about the error.
+  **/
   @SerializedName(SERIALIZED_NAME_ERROR_SUBCODE)
   private String errorSubcode;
 
   public static final String SERIALIZED_NAME_ERROR_USER_MSG = "error_user_msg";
+  /**
+   * The message to display to the user. The language of the message is based on the locale of the API request.
+  **/
   @SerializedName(SERIALIZED_NAME_ERROR_USER_MSG)
   private String errorUserMsg;
 
   public static final String SERIALIZED_NAME_ERROR_USER_TITLE = "error_user_title";
+  /**
+   * The title of the dialog, if shown. The language of the message is based on the locale of the API request.
+  **/
   @SerializedName(SERIALIZED_NAME_ERROR_USER_TITLE)
   private String errorUserTitle;
 
   public static final String SERIALIZED_NAME_FBTRACE_ID = "fbtrace_id";
+  /**
+   * Internal support identifier. When reporting a bug related to a Graph API call, include the fbtrace_id to help us find log data for debugging.
+  **/
   @SerializedName(SERIALIZED_NAME_FBTRACE_ID)
   private String fbtraceId;
 
   public static final String SERIALIZED_NAME_ERROR_DATA = "error_data";
+  /**
+   * Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error.
+  **/
   @SerializedName(SERIALIZED_NAME_ERROR_DATA)
   private Object errorData;
 
@@ -96,13 +120,16 @@ public class WhatsappApiError {
    * @return message
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "HSM Template creation failed", required = true, value = "A human-readable description of the error.")
 
   public String getMessage() {
     return message;
   }
 
 
+  /**
+   * A human-readable description of the error.
+   **/
+  @ApiModelProperty(example = "HSM Template creation failed", required = true, value = "A human-readable description of the error.")
   public void setMessage(String message) {
     this.message = message;
   }
@@ -119,13 +146,16 @@ public class WhatsappApiError {
    * @return code
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "200002", required = true, value = "An error code.")
 
   public String getCode() {
     return code;
   }
 
 
+  /**
+   * An error code.
+   **/
+  @ApiModelProperty(example = "200002", required = true, value = "An error code.")
   public void setCode(String code) {
     this.code = code;
   }
@@ -142,13 +172,16 @@ public class WhatsappApiError {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "OAuthException", value = "Error type.")
 
   public String getType() {
     return type;
   }
 
 
+  /**
+   * Error type.
+   **/
+  @ApiModelProperty(example = "OAuthException", value = "Error type.")
   public void setType(String type) {
     this.type = type;
   }
@@ -165,13 +198,16 @@ public class WhatsappApiError {
    * @return errorSubcode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2388109", value = "Additional code about the error.")
 
   public String getErrorSubcode() {
     return errorSubcode;
   }
 
 
+  /**
+   * Additional code about the error.
+   **/
+  @ApiModelProperty(example = "2388109", value = "Additional code about the error.")
   public void setErrorSubcode(String errorSubcode) {
     this.errorSubcode = errorSubcode;
   }
@@ -188,13 +224,16 @@ public class WhatsappApiError {
    * @return errorUserMsg
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This message template cannot be created.", value = "The message to display to the user. The language of the message is based on the locale of the API request.")
 
   public String getErrorUserMsg() {
     return errorUserMsg;
   }
 
 
+  /**
+   * The message to display to the user. The language of the message is based on the locale of the API request.
+   **/
+  @ApiModelProperty(example = "This message template cannot be created.", value = "The message to display to the user. The language of the message is based on the locale of the API request.")
   public void setErrorUserMsg(String errorUserMsg) {
     this.errorUserMsg = errorUserMsg;
   }
@@ -211,13 +250,16 @@ public class WhatsappApiError {
    * @return errorUserTitle
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Message Cannot Be Submitted", value = "The title of the dialog, if shown. The language of the message is based on the locale of the API request.")
 
   public String getErrorUserTitle() {
     return errorUserTitle;
   }
 
 
+  /**
+   * The title of the dialog, if shown. The language of the message is based on the locale of the API request.
+   **/
+  @ApiModelProperty(example = "Message Cannot Be Submitted", value = "The title of the dialog, if shown. The language of the message is based on the locale of the API request.")
   public void setErrorUserTitle(String errorUserTitle) {
     this.errorUserTitle = errorUserTitle;
   }
@@ -234,13 +276,16 @@ public class WhatsappApiError {
    * @return fbtraceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "AVGjJ7ia2zJkrHG", value = "Internal support identifier. When reporting a bug related to a Graph API call, include the fbtrace_id to help us find log data for debugging.")
 
   public String getFbtraceId() {
     return fbtraceId;
   }
 
 
+  /**
+   * Internal support identifier. When reporting a bug related to a Graph API call, include the fbtrace_id to help us find log data for debugging.
+   **/
+  @ApiModelProperty(example = "AVGjJ7ia2zJkrHG", value = "Internal support identifier. When reporting a bug related to a Graph API call, include the fbtrace_id to help us find log data for debugging.")
   public void setFbtraceId(String fbtraceId) {
     this.fbtraceId = fbtraceId;
   }
@@ -257,13 +302,16 @@ public class WhatsappApiError {
    * @return errorData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property `details` describing the reason for the error.")
 
   public Object getErrorData() {
     return errorData;
   }
 
 
+  /**
+   * Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error.
+   **/
+  @ApiModelProperty(value = "Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property `details` describing the reason for the error.")
   public void setErrorData(Object errorData) {
     this.errorData = errorData;
   }

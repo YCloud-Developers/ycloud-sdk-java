@@ -1,6 +1,6 @@
 
 
-# WhatsappMessageContactEmailsInner
+# WhatsappMessageContactEmail
 
 Contact email address(es) formatted as an emails object.
 

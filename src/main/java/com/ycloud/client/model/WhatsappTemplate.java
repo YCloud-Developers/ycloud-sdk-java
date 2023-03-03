@@ -59,50 +59,82 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplate {
   public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
+  /**
+   * WhatsApp Business Account ID.
+  **/
   @SerializedName(SERIALIZED_NAME_WABA_ID)
   private String wabaId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
+  /**
+   * Name of the template.
+  **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
+  /**
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+  **/
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   private String language;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private WhatsappTemplateCategory category;
 
   public static final String SERIALIZED_NAME_COMPONENTS = "components";
+  /**
+   * Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional.
+  **/
   @SerializedName(SERIALIZED_NAME_COMPONENTS)
   private List<WhatsappTemplateComponent> components = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private WhatsappTemplateStatus status;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
+  /**
+   * The reason why the template is rejected.
+  **/
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
 
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
+  /**
+   * The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private Date createTime;
 
   public static final String SERIALIZED_NAME_UPDATE_TIME = "updateTime";
+  /**
+   * The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
   private Date updateTime;
 
   public static final String SERIALIZED_NAME_STATUS_UPDATE_EVENT = "statusUpdateEvent";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS_UPDATE_EVENT)
   private WhatsappTemplateStatusUpdateEventEnum statusUpdateEvent;
 
   public static final String SERIALIZED_NAME_DISABLE_DATE = "disableDate";
+  /**
+   * The date at which the template will be disabled. When a WhatsApp template &#x60;FLAGGED&#x60; event is received, this field is set.
+  **/
   @SerializedName(SERIALIZED_NAME_DISABLE_DATE)
   private String disableDate;
 
   public static final String SERIALIZED_NAME_WHATSAPP_API_ERROR = "whatsappApiError";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
   private WhatsappApiError whatsappApiError;
 
@@ -120,13 +152,16 @@ public class WhatsappTemplate {
    * @return wabaId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "whatsapp-business-account-id", required = true, value = "WhatsApp Business Account ID.")
 
   public String getWabaId() {
     return wabaId;
   }
 
 
+  /**
+   * WhatsApp Business Account ID.
+   **/
+  @ApiModelProperty(example = "whatsapp-business-account-id", required = true, value = "WhatsApp Business Account ID.")
   public void setWabaId(String wabaId) {
     this.wabaId = wabaId;
   }
@@ -143,13 +178,16 @@ public class WhatsappTemplate {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the template.")
 
   public String getName() {
     return name;
   }
 
 
+  /**
+   * Name of the template.
+   **/
+  @ApiModelProperty(required = true, value = "Name of the template.")
   public void setName(String name) {
     this.name = name;
   }
@@ -166,13 +204,16 @@ public class WhatsappTemplate {
    * @return language
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.")
 
   public String getLanguage() {
     return language;
   }
 
 
+  /**
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+   **/
+  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.")
   public void setLanguage(String language) {
     this.language = language;
   }
@@ -189,13 +230,15 @@ public class WhatsappTemplate {
    * @return category
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WhatsappTemplateCategory getCategory() {
     return category;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setCategory(WhatsappTemplateCategory category) {
     this.category = category;
   }
@@ -213,17 +256,20 @@ public class WhatsappTemplate {
   }
 
    /**
-   * Get components
+   * Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional.
    * @return components
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<WhatsappTemplateComponent> getComponents() {
     return components;
   }
 
 
+  /**
+   * Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional.
+   **/
+  @ApiModelProperty(required = true, value = "Template components. A template consists of `HEADER`, `BODY`, `FOOTER`, and `BUTTONS` components. `BODY` component is required, the other types are optional.")
   public void setComponents(List<WhatsappTemplateComponent> components) {
     this.components = components;
   }
@@ -240,13 +286,15 @@ public class WhatsappTemplate {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappTemplateStatus getStatus() {
     return status;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setStatus(WhatsappTemplateStatus status) {
     this.status = status;
   }
@@ -263,13 +311,16 @@ public class WhatsappTemplate {
    * @return reason
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The reason why the template is rejected.")
 
   public String getReason() {
     return reason;
   }
 
 
+  /**
+   * The reason why the template is rejected.
+   **/
+  @ApiModelProperty(value = "The reason why the template is rejected.")
   public void setReason(String reason) {
     this.reason = reason;
   }
@@ -286,13 +337,16 @@ public class WhatsappTemplate {
    * @return createTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getCreateTime() {
     return createTime;
   }
 
 
+  /**
+   * The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
@@ -309,13 +363,16 @@ public class WhatsappTemplate {
    * @return updateTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getUpdateTime() {
     return updateTime;
   }
 
 
+  /**
+   * The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
@@ -332,13 +389,15 @@ public class WhatsappTemplate {
    * @return statusUpdateEvent
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappTemplateStatusUpdateEventEnum getStatusUpdateEvent() {
     return statusUpdateEvent;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setStatusUpdateEvent(WhatsappTemplateStatusUpdateEventEnum statusUpdateEvent) {
     this.statusUpdateEvent = statusUpdateEvent;
   }
@@ -355,13 +414,16 @@ public class WhatsappTemplate {
    * @return disableDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "December 9, 2022", value = "The date at which the template will be disabled. When a WhatsApp template `FLAGGED` event is received, this field is set.")
 
   public String getDisableDate() {
     return disableDate;
   }
 
 
+  /**
+   * The date at which the template will be disabled. When a WhatsApp template &#x60;FLAGGED&#x60; event is received, this field is set.
+   **/
+  @ApiModelProperty(example = "December 9, 2022", value = "The date at which the template will be disabled. When a WhatsApp template `FLAGGED` event is received, this field is set.")
   public void setDisableDate(String disableDate) {
     this.disableDate = disableDate;
   }
@@ -378,13 +440,15 @@ public class WhatsappTemplate {
    * @return whatsappApiError
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappApiError getWhatsappApiError() {
     return whatsappApiError;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setWhatsappApiError(WhatsappApiError whatsappApiError) {
     this.whatsappApiError = whatsappApiError;
   }

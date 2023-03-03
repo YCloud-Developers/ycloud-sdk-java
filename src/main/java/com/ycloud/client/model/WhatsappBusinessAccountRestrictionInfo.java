@@ -101,10 +101,16 @@ public class WhatsappBusinessAccountRestrictionInfo {
   }
 
   public static final String SERIALIZED_NAME_RESTRICTION_TYPE = "restrictionType";
+  /**
+   * Restriction type.
+  **/
   @SerializedName(SERIALIZED_NAME_RESTRICTION_TYPE)
   private RestrictionTypeEnum restrictionType;
 
   public static final String SERIALIZED_NAME_EXPIRATION = "expiration";
+  /**
+   * The time at which this restriction expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_EXPIRATION)
   private Date expiration;
 
@@ -122,13 +128,16 @@ public class WhatsappBusinessAccountRestrictionInfo {
    * @return restrictionType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Restriction type.")
 
   public RestrictionTypeEnum getRestrictionType() {
     return restrictionType;
   }
 
 
+  /**
+   * Restriction type.
+   **/
+  @ApiModelProperty(value = "Restriction type.")
   public void setRestrictionType(RestrictionTypeEnum restrictionType) {
     this.restrictionType = restrictionType;
   }
@@ -145,13 +154,16 @@ public class WhatsappBusinessAccountRestrictionInfo {
    * @return expiration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this restriction expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getExpiration() {
     return expiration;
   }
 
 
+  /**
+   * The time at which this restriction expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this restriction expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setExpiration(Date expiration) {
     this.expiration = expiration;
   }

@@ -50,9 +50,9 @@ import com.ycloud.client.JSON;
  */
 @ApiModel(description = "See [Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#parameter-object), [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageTemplateComponentsInnerParametersInner {
+public class WhatsappMessageTemplateComponentParameter {
   /**
-   * Describes the parameter type.
+   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -105,79 +105,100 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
   }
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+   * **Required when &#x60;type&#x60; &#x3D; &#x60;text&#x60;.** The message&#39;s text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
   public static final String SERIALIZED_NAME_PAYLOAD = "payload";
+  /**
+   * Required for &#x60;quick_reply&#x60; buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.
+  **/
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   private String payload;
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_IMAGE)
   private WhatsappMessageMedia image;
 
   public static final String SERIALIZED_NAME_VIDEO = "video";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_VIDEO)
   private WhatsappMessageMedia video;
 
   public static final String SERIALIZED_NAME_DOCUMENT = "document";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_DOCUMENT)
   private WhatsappMessageMedia document;
 
-  public WhatsappMessageTemplateComponentsInnerParametersInner() { 
+  public WhatsappMessageTemplateComponentParameter() { 
   }
 
-  public WhatsappMessageTemplateComponentsInnerParametersInner type(TypeEnum type) {
+  public WhatsappMessageTemplateComponentParameter type(TypeEnum type) {
     
     this.type = type;
     return this;
   }
 
    /**
-   * Describes the parameter type.
+   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes the parameter type.")
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  /**
+   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;.
+   **/
+  @ApiModelProperty(value = "**Required.** Describes the parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-  public WhatsappMessageTemplateComponentsInnerParametersInner text(String text) {
+  public WhatsappMessageTemplateComponentParameter text(String text) {
     
     this.text = text;
     return this;
   }
 
    /**
-   * Required when &#x60;type&#x60; &#x3D; &#x60;text&#x60;. The message&#39;s text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
+   * **Required when &#x60;type&#x60; &#x3D; &#x60;text&#x60;.** The message&#39;s text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required when `type` = `text`. The message's text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.")
 
   public String getText() {
     return text;
   }
 
 
+  /**
+   * **Required when &#x60;type&#x60; &#x3D; &#x60;text&#x60;.** The message&#39;s text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.
+   **/
+  @ApiModelProperty(value = "**Required when `type` = `text`.** The message's text. For the header component, the character limit is 60 characters. For the body component, the character limit is 1024 characters. For url buttons, it indicates the developer-provided suffix that is appended to the predefined prefix URL in the template.")
   public void setText(String text) {
     this.text = text;
   }
 
 
-  public WhatsappMessageTemplateComponentsInnerParametersInner payload(String payload) {
+  public WhatsappMessageTemplateComponentParameter payload(String payload) {
     
     this.payload = payload;
     return this;
@@ -188,19 +209,22 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
    * @return payload
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required for `quick_reply` buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.")
 
   public String getPayload() {
     return payload;
   }
 
 
+  /**
+   * Required for &#x60;quick_reply&#x60; buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.
+   **/
+  @ApiModelProperty(value = "Required for `quick_reply` buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.")
   public void setPayload(String payload) {
     this.payload = payload;
   }
 
 
-  public WhatsappMessageTemplateComponentsInnerParametersInner image(WhatsappMessageMedia image) {
+  public WhatsappMessageTemplateComponentParameter image(WhatsappMessageMedia image) {
     
     this.image = image;
     return this;
@@ -211,19 +235,21 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
    * @return image
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getImage() {
     return image;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setImage(WhatsappMessageMedia image) {
     this.image = image;
   }
 
 
-  public WhatsappMessageTemplateComponentsInnerParametersInner video(WhatsappMessageMedia video) {
+  public WhatsappMessageTemplateComponentParameter video(WhatsappMessageMedia video) {
     
     this.video = video;
     return this;
@@ -234,19 +260,21 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
    * @return video
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getVideo() {
     return video;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setVideo(WhatsappMessageMedia video) {
     this.video = video;
   }
 
 
-  public WhatsappMessageTemplateComponentsInnerParametersInner document(WhatsappMessageMedia document) {
+  public WhatsappMessageTemplateComponentParameter document(WhatsappMessageMedia document) {
     
     this.document = document;
     return this;
@@ -257,13 +285,15 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
    * @return document
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getDocument() {
     return document;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setDocument(WhatsappMessageMedia document) {
     this.document = document;
   }
@@ -279,7 +309,7 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageTemplateComponentsInnerParametersInner putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageTemplateComponentParameter putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -313,14 +343,14 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageTemplateComponentsInnerParametersInner whatsappMessageTemplateComponentsInnerParametersInner = (WhatsappMessageTemplateComponentsInnerParametersInner) o;
-    return Objects.equals(this.type, whatsappMessageTemplateComponentsInnerParametersInner.type) &&
-        Objects.equals(this.text, whatsappMessageTemplateComponentsInnerParametersInner.text) &&
-        Objects.equals(this.payload, whatsappMessageTemplateComponentsInnerParametersInner.payload) &&
-        Objects.equals(this.image, whatsappMessageTemplateComponentsInnerParametersInner.image) &&
-        Objects.equals(this.video, whatsappMessageTemplateComponentsInnerParametersInner.video) &&
-        Objects.equals(this.document, whatsappMessageTemplateComponentsInnerParametersInner.document)&&
-        Objects.equals(this.additionalProperties, whatsappMessageTemplateComponentsInnerParametersInner.additionalProperties);
+    WhatsappMessageTemplateComponentParameter whatsappMessageTemplateComponentParameter = (WhatsappMessageTemplateComponentParameter) o;
+    return Objects.equals(this.type, whatsappMessageTemplateComponentParameter.type) &&
+        Objects.equals(this.text, whatsappMessageTemplateComponentParameter.text) &&
+        Objects.equals(this.payload, whatsappMessageTemplateComponentParameter.payload) &&
+        Objects.equals(this.image, whatsappMessageTemplateComponentParameter.image) &&
+        Objects.equals(this.video, whatsappMessageTemplateComponentParameter.video) &&
+        Objects.equals(this.document, whatsappMessageTemplateComponentParameter.document)&&
+        Objects.equals(this.additionalProperties, whatsappMessageTemplateComponentParameter.additionalProperties);
   }
 
   @Override
@@ -331,7 +361,7 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageTemplateComponentsInnerParametersInner {\n");
+    sb.append("class WhatsappMessageTemplateComponentParameter {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
@@ -376,14 +406,14 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageTemplateComponentsInnerParametersInner
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageTemplateComponentParameter
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageTemplateComponentsInnerParametersInner.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageTemplateComponentParameter.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageTemplateComponentsInnerParametersInner is not found in the empty JSON string", WhatsappMessageTemplateComponentsInnerParametersInner.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageTemplateComponentParameter is not found in the empty JSON string", WhatsappMessageTemplateComponentParameter.openapiRequiredFields.toString()));
         }
       }
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
@@ -413,16 +443,16 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageTemplateComponentsInnerParametersInner.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageTemplateComponentsInnerParametersInner' and its subtypes
+       if (!WhatsappMessageTemplateComponentParameter.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageTemplateComponentParameter' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageTemplateComponentsInnerParametersInner> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageTemplateComponentsInnerParametersInner.class));
+       final TypeAdapter<WhatsappMessageTemplateComponentParameter> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageTemplateComponentParameter.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageTemplateComponentsInnerParametersInner>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageTemplateComponentParameter>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageTemplateComponentsInnerParametersInner value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageTemplateComponentParameter value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -445,11 +475,11 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
            }
 
            @Override
-           public WhatsappMessageTemplateComponentsInnerParametersInner read(JsonReader in) throws IOException {
+           public WhatsappMessageTemplateComponentParameter read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageTemplateComponentsInnerParametersInner instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageTemplateComponentParameter instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -474,18 +504,18 @@ public class WhatsappMessageTemplateComponentsInnerParametersInner {
   }
 
  /**
-  * Create an instance of WhatsappMessageTemplateComponentsInnerParametersInner given an JSON string
+  * Create an instance of WhatsappMessageTemplateComponentParameter given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageTemplateComponentsInnerParametersInner
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageTemplateComponentsInnerParametersInner
+  * @return An instance of WhatsappMessageTemplateComponentParameter
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageTemplateComponentParameter
   */
-  public static WhatsappMessageTemplateComponentsInnerParametersInner fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageTemplateComponentsInnerParametersInner.class);
+  public static WhatsappMessageTemplateComponentParameter fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageTemplateComponentParameter.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageTemplateComponentsInnerParametersInner to an JSON string
+  * Convert an instance of WhatsappMessageTemplateComponentParameter to an JSON string
   *
   * @return JSON string
   */

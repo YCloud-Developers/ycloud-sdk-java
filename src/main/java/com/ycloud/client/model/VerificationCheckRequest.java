@@ -50,14 +50,23 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class VerificationCheckRequest {
   public static final String SERIALIZED_NAME_VERIFICATION_ID = "verificationId";
+  /**
+   * ID of the verification to be checked. One of &#x60;verificationId&#x60; or &#x60;to&#x60; is required.
+  **/
   @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
   private String verificationId;
 
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * The recipient&#39;s phone number or email address. One of &#x60;verificationId&#x60; or &#x60;to&#x60; is required.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
   public static final String SERIALIZED_NAME_CODE = "code";
+  /**
+   * The verification to be checked.
+  **/
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
@@ -75,13 +84,16 @@ public class VerificationCheckRequest {
    * @return verificationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "vid", value = "ID of the verification to be checked. One of `verificationId` or `to` is required.")
 
   public String getVerificationId() {
     return verificationId;
   }
 
 
+  /**
+   * ID of the verification to be checked. One of &#x60;verificationId&#x60; or &#x60;to&#x60; is required.
+   **/
+  @ApiModelProperty(example = "vid", value = "ID of the verification to be checked. One of `verificationId` or `to` is required.")
   public void setVerificationId(String verificationId) {
     this.verificationId = verificationId;
   }
@@ -98,13 +110,16 @@ public class VerificationCheckRequest {
    * @return to
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "+447901614024", value = "The recipient's phone number or email address. One of `verificationId` or `to` is required.")
 
   public String getTo() {
     return to;
   }
 
 
+  /**
+   * The recipient&#39;s phone number or email address. One of &#x60;verificationId&#x60; or &#x60;to&#x60; is required.
+   **/
+  @ApiModelProperty(example = "+447901614024", value = "The recipient's phone number or email address. One of `verificationId` or `to` is required.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -121,13 +136,16 @@ public class VerificationCheckRequest {
    * @return code
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "The verification to be checked.")
 
   public String getCode() {
     return code;
   }
 
 
+  /**
+   * The verification to be checked.
+   **/
+  @ApiModelProperty(example = "123456", value = "The verification to be checked.")
   public void setCode(String code) {
     this.code = code;
   }

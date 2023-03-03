@@ -25,5 +25,7 @@
 
 * `CONTACTS` (value: `"contacts"`)
 
+* `REACTION` (value: `"reaction"`)
+
 
 

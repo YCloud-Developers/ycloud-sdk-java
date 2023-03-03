@@ -51,6 +51,9 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageText {
   public static final String SERIALIZED_NAME_BODY = "body";
+  /**
+   * Message text.
+  **/
   @SerializedName(SERIALIZED_NAME_BODY)
   private String body;
 
@@ -68,13 +71,16 @@ public class WhatsappInboundMessageText {
    * @return body
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message text.")
 
   public String getBody() {
     return body;
   }
 
 
+  /**
+   * Message text.
+   **/
+  @ApiModelProperty(value = "Message text.")
   public void setBody(String body) {
     this.body = body;
   }

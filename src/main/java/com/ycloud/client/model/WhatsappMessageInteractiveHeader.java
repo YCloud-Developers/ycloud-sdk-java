@@ -46,9 +46,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * [WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object).
+ * Required for type &#x60;product_list&#x60;. Optional for other types. See also [WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object).
  */
-@ApiModel(description = "[WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object).")
+@ApiModel(description = "Required for type `product_list`. Optional for other types. See also [WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveHeader {
   /**
@@ -103,22 +103,34 @@ public class WhatsappMessageInteractiveHeader {
   }
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+   * Text for the header. Formatting allows emojis, but not markdown.
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_IMAGE)
   private WhatsappMessageMedia image;
 
   public static final String SERIALIZED_NAME_VIDEO = "video";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_VIDEO)
   private WhatsappMessageMedia video;
 
   public static final String SERIALIZED_NAME_DOCUMENT = "document";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_DOCUMENT)
   private WhatsappMessageMedia document;
 
@@ -136,13 +148,16 @@ public class WhatsappMessageInteractiveHeader {
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The header type you would like to use. - `text`: Used for List Messages and Reply Buttons. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons. - `document`: Used for Reply Buttons.")
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  /**
+   * The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+   **/
+  @ApiModelProperty(required = true, value = "The header type you would like to use. - `text`: Used for List Messages and Reply Buttons. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons. - `document`: Used for Reply Buttons.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -159,13 +174,16 @@ public class WhatsappMessageInteractiveHeader {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Text for the header. Formatting allows emojis, but not markdown.")
 
   public String getText() {
     return text;
   }
 
 
+  /**
+   * Text for the header. Formatting allows emojis, but not markdown.
+   **/
+  @ApiModelProperty(value = "Text for the header. Formatting allows emojis, but not markdown.")
   public void setText(String text) {
     this.text = text;
   }
@@ -182,13 +200,15 @@ public class WhatsappMessageInteractiveHeader {
    * @return image
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getImage() {
     return image;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setImage(WhatsappMessageMedia image) {
     this.image = image;
   }
@@ -205,13 +225,15 @@ public class WhatsappMessageInteractiveHeader {
    * @return video
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getVideo() {
     return video;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setVideo(WhatsappMessageMedia video) {
     this.video = video;
   }
@@ -228,13 +250,15 @@ public class WhatsappMessageInteractiveHeader {
    * @return document
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getDocument() {
     return document;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setDocument(WhatsappMessageMedia document) {
     this.document = document;
   }

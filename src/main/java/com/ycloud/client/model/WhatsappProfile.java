@@ -51,6 +51,9 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappProfile {
   public static final String SERIALIZED_NAME_NAME = "name";
+  /**
+   * Name of the WhatsApp account.
+  **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
@@ -68,13 +71,16 @@ public class WhatsappProfile {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "John", value = "Name of the WhatsApp account.")
 
   public String getName() {
     return name;
   }
 
 
+  /**
+   * Name of the WhatsApp account.
+   **/
+  @ApiModelProperty(example = "John", value = "Name of the WhatsApp account.")
   public void setName(String name) {
     this.name = name;
   }

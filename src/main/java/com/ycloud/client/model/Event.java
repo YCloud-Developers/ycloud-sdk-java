@@ -62,54 +62,83 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Event {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique ID for the object.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private EventType type;
 
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
+  /**
+   * The API version used to render this event.
+  **/
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
+  /**
+   * The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private Date createTime;
 
   public static final String SERIALIZED_NAME_EMAIL_DELIVERY = "emailDelivery";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_EMAIL_DELIVERY)
   private EmailDelivery emailDelivery;
 
   public static final String SERIALIZED_NAME_SMS = "sms";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_SMS)
   private Sms sms;
 
   public static final String SERIALIZED_NAME_SMS_INBOUND = "smsInbound";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_SMS_INBOUND)
   private SmsInbound smsInbound;
 
   public static final String SERIALIZED_NAME_VOICE = "voice";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_VOICE)
   private Voice voice;
 
   public static final String SERIALIZED_NAME_WHATSAPP_BUSINESS_ACCOUNT = "whatsappBusinessAccount";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_BUSINESS_ACCOUNT)
   private WhatsappBusinessAccount whatsappBusinessAccount;
 
   public static final String SERIALIZED_NAME_WHATSAPP_INBOUND_MESSAGE = "whatsappInboundMessage";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_INBOUND_MESSAGE)
   private WhatsappInboundMessage whatsappInboundMessage;
 
   public static final String SERIALIZED_NAME_WHATSAPP_MESSAGE = "whatsappMessage";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_MESSAGE)
   private WhatsappMessage whatsappMessage;
 
   public static final String SERIALIZED_NAME_WHATSAPP_PHONE_NUMBER = "whatsappPhoneNumber";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_PHONE_NUMBER)
   private WhatsappPhoneNumber whatsappPhoneNumber;
 
   public static final String SERIALIZED_NAME_WHATSAPP_TEMPLATE = "whatsappTemplate";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_TEMPLATE)
   private WhatsappTemplate whatsappTemplate;
 
@@ -127,13 +156,16 @@ public class Event {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID for the object.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * Unique ID for the object.
+   **/
+  @ApiModelProperty(required = true, value = "Unique ID for the object.")
   public void setId(String id) {
     this.id = id;
   }
@@ -150,13 +182,15 @@ public class Event {
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public EventType getType() {
     return type;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setType(EventType type) {
     this.type = type;
   }
@@ -173,13 +207,16 @@ public class Event {
    * @return apiVersion
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "v2", required = true, value = "The API version used to render this event.")
 
   public String getApiVersion() {
     return apiVersion;
   }
 
 
+  /**
+   * The API version used to render this event.
+   **/
+  @ApiModelProperty(example = "v2", required = true, value = "The API version used to render this event.")
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
@@ -196,13 +233,16 @@ public class Event {
    * @return createTime
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "2022-06-01T12:00Z", required = true, value = "The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getCreateTime() {
     return createTime;
   }
 
 
+  /**
+   * The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", required = true, value = "The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
@@ -219,13 +259,15 @@ public class Event {
    * @return emailDelivery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public EmailDelivery getEmailDelivery() {
     return emailDelivery;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setEmailDelivery(EmailDelivery emailDelivery) {
     this.emailDelivery = emailDelivery;
   }
@@ -242,13 +284,15 @@ public class Event {
    * @return sms
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Sms getSms() {
     return sms;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setSms(Sms sms) {
     this.sms = sms;
   }
@@ -265,13 +309,15 @@ public class Event {
    * @return smsInbound
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public SmsInbound getSmsInbound() {
     return smsInbound;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setSmsInbound(SmsInbound smsInbound) {
     this.smsInbound = smsInbound;
   }
@@ -288,13 +334,15 @@ public class Event {
    * @return voice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Voice getVoice() {
     return voice;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setVoice(Voice voice) {
     this.voice = voice;
   }
@@ -311,13 +359,15 @@ public class Event {
    * @return whatsappBusinessAccount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappBusinessAccount getWhatsappBusinessAccount() {
     return whatsappBusinessAccount;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setWhatsappBusinessAccount(WhatsappBusinessAccount whatsappBusinessAccount) {
     this.whatsappBusinessAccount = whatsappBusinessAccount;
   }
@@ -334,13 +384,15 @@ public class Event {
    * @return whatsappInboundMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappInboundMessage getWhatsappInboundMessage() {
     return whatsappInboundMessage;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setWhatsappInboundMessage(WhatsappInboundMessage whatsappInboundMessage) {
     this.whatsappInboundMessage = whatsappInboundMessage;
   }
@@ -357,13 +409,15 @@ public class Event {
    * @return whatsappMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessage getWhatsappMessage() {
     return whatsappMessage;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setWhatsappMessage(WhatsappMessage whatsappMessage) {
     this.whatsappMessage = whatsappMessage;
   }
@@ -380,13 +434,15 @@ public class Event {
    * @return whatsappPhoneNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappPhoneNumber getWhatsappPhoneNumber() {
     return whatsappPhoneNumber;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setWhatsappPhoneNumber(WhatsappPhoneNumber whatsappPhoneNumber) {
     this.whatsappPhoneNumber = whatsappPhoneNumber;
   }
@@ -403,13 +459,15 @@ public class Event {
    * @return whatsappTemplate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappTemplate getWhatsappTemplate() {
     return whatsappTemplate;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setWhatsappTemplate(WhatsappTemplate whatsappTemplate) {
     this.whatsappTemplate = whatsappTemplate;
   }

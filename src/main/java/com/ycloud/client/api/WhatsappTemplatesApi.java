@@ -151,7 +151,7 @@ public class WhatsappTemplatesApi {
     /**
      * Create a WhatsApp template
      * <p>
-     * Creates a WhatsApp template. See also [Create Message Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/#create-message-templates).
+     * Creates a WhatsApp template.
      * @param whatsappTemplateCreateRequest  (required)
      * @return WhatsappTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -169,7 +169,7 @@ public class WhatsappTemplatesApi {
     /**
      * Create a WhatsApp template
      * <p>
-     * Creates a WhatsApp template. See also [Create Message Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/#create-message-templates).
+     * Creates a WhatsApp template.
      * @param whatsappTemplateCreateRequest  (required)
      * @return ApiResponse&lt;WhatsappTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -188,7 +188,7 @@ public class WhatsappTemplatesApi {
     /**
      * Create a WhatsApp template (asynchronously)
      * <p>
-     * Creates a WhatsApp template. See also [Create Message Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/#create-message-templates).
+     * Creates a WhatsApp template.
      * @param whatsappTemplateCreateRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

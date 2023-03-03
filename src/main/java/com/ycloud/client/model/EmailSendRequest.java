@@ -54,50 +54,85 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmailSendRequest {
   public static final String SERIALIZED_NAME_FROM = "from";
+  /**
+   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is &#x60;ycloud@ycloud-mail.com&#x60;, which only supports sending emails to your registered email address. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;ycloud@ycloud-mail.com&#x60; and &#x60;YCloud&lt;ycloud@ycloud-mail.com&gt;&#x60; work.
+  **/
   @SerializedName(SERIALIZED_NAME_FROM)
   private String from;
 
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * - The intended recipients&#39; email addresses. - Supports a comma-separated list of one or more addresses. Max items: 100.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
+  /**
+   * The email subject, which contains a short string identifying the topic of the message. Max length: 255.
+  **/
   @SerializedName(SERIALIZED_NAME_SUBJECT)
   private String subject;
 
   public static final String SERIALIZED_NAME_CONTENT = "content";
+  /**
+   * - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.
+  **/
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
 
   public static final String SERIALIZED_NAME_CONTENT_TYPE = "contentType";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
   private EmailContentType contentType;
 
   public static final String SERIALIZED_NAME_VARIABLES = "variables";
+  /**
+   * - The variable key-value pairs that will replace the variable placeholders in &#x60;content&#x60; for each recipient. Variable keys are those that are wrapped with &#x60;#&#x60; as placeholders (e.g., &#x60;#var_1#&#x60;) in &#x60;content&#x60;. The placeholders will be replaced by variable values when sending the email. - The size of the array must be the same as the number of recipients in &#x60;to&#x60;. Be aware that &#x60;cc&#x60; and &#x60;bcc&#x60; addresses are excluded, and they can not receive emails that contain variables. - This parameter&#39;s size will be calculated together with the parameter &#x60;content&#x60;. The whole size must not exceed 150 KB.
+  **/
   @SerializedName(SERIALIZED_NAME_VARIABLES)
   private List<Map<String, String>> variables = null;
 
   public static final String SERIALIZED_NAME_CC = "cc";
+  /**
+   * Recipients who will receive a copy of the email.
+  **/
   @SerializedName(SERIALIZED_NAME_CC)
   private String cc;
 
   public static final String SERIALIZED_NAME_BCC = "bcc";
+  /**
+   * Recipients who will receive a blind carbon copy of the email.
+  **/
   @SerializedName(SERIALIZED_NAME_BCC)
   private String bcc;
 
   public static final String SERIALIZED_NAME_REPLY_TO = "replyTo";
+  /**
+   * If this field exists, then the reply should go to the addresses indicated in that field and not to the address(es) indicated in the &#x60;from&#x60; field.
+  **/
   @SerializedName(SERIALIZED_NAME_REPLY_TO)
   private String replyTo;
 
   public static final String SERIALIZED_NAME_SUMMARY = "summary";
+  /**
+   * This is a summary of your email. Max length: 70.
+  **/
   @SerializedName(SERIALIZED_NAME_SUMMARY)
   private String summary;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+  **/
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
   public static final String SERIALIZED_NAME_CALLBACK_URL = "callbackUrl";
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+  **/
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
 
@@ -115,13 +150,16 @@ public class EmailSendRequest {
    * @return from
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "YCloud<ycloud@ycloud-mail.com>", required = true, value = "- The sender's email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is `ycloud@ycloud-mail.com`, which only supports sending emails to your registered email address. - The sender's email address is required while the sender's name is optional. For example, both `ycloud@ycloud-mail.com` and `YCloud<ycloud@ycloud-mail.com>` work.")
 
   public String getFrom() {
     return from;
   }
 
 
+  /**
+   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is &#x60;ycloud@ycloud-mail.com&#x60;, which only supports sending emails to your registered email address. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;ycloud@ycloud-mail.com&#x60; and &#x60;YCloud&lt;ycloud@ycloud-mail.com&gt;&#x60; work.
+   **/
+  @ApiModelProperty(example = "YCloud<ycloud@ycloud-mail.com>", required = true, value = "- The sender's email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is `ycloud@ycloud-mail.com`, which only supports sending emails to your registered email address. - The sender's email address is required while the sender's name is optional. For example, both `ycloud@ycloud-mail.com` and `YCloud<ycloud@ycloud-mail.com>` work.")
   public void setFrom(String from) {
     this.from = from;
   }
@@ -138,13 +176,16 @@ public class EmailSendRequest {
    * @return to
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "to1@example.com,Nick<to2@example.com>", required = true, value = "- The intended recipients' email addresses. - Supports a comma-separated list of one or more addresses. Max items: 100.")
 
   public String getTo() {
     return to;
   }
 
 
+  /**
+   * - The intended recipients&#39; email addresses. - Supports a comma-separated list of one or more addresses. Max items: 100.
+   **/
+  @ApiModelProperty(example = "to1@example.com,Nick<to2@example.com>", required = true, value = "- The intended recipients' email addresses. - Supports a comma-separated list of one or more addresses. Max items: 100.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -161,13 +202,16 @@ public class EmailSendRequest {
    * @return subject
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email subject, which contains a short string identifying the topic of the message. Max length: 255.")
 
   public String getSubject() {
     return subject;
   }
 
 
+  /**
+   * The email subject, which contains a short string identifying the topic of the message. Max length: 255.
+   **/
+  @ApiModelProperty(required = true, value = "The email subject, which contains a short string identifying the topic of the message. Max length: 255.")
   public void setSubject(String subject) {
     this.subject = subject;
   }
@@ -184,13 +228,16 @@ public class EmailSendRequest {
    * @return content
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "This is a test message from #nick#.", required = true, value = "- The email body. Max size: 150 KB. - Variables in the form of `#var_1#` are supported, they should be used together with the `variables` parameter. Variable keys only support letters, digits, and the underline character (`_`). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.")
 
   public String getContent() {
     return content;
   }
 
 
+  /**
+   * - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.
+   **/
+  @ApiModelProperty(example = "This is a test message from #nick#.", required = true, value = "- The email body. Max size: 150 KB. - Variables in the form of `#var_1#` are supported, they should be used together with the `variables` parameter. Variable keys only support letters, digits, and the underline character (`_`). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.")
   public void setContent(String content) {
     this.content = content;
   }
@@ -207,13 +254,15 @@ public class EmailSendRequest {
    * @return contentType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public EmailContentType getContentType() {
     return contentType;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setContentType(EmailContentType contentType) {
     this.contentType = contentType;
   }
@@ -238,13 +287,16 @@ public class EmailSendRequest {
    * @return variables
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "- The variable key-value pairs that will replace the variable placeholders in `content` for each recipient. Variable keys are those that are wrapped with `#` as placeholders (e.g., `#var_1#`) in `content`. The placeholders will be replaced by variable values when sending the email. - The size of the array must be the same as the number of recipients in `to`. Be aware that `cc` and `bcc` addresses are excluded, and they can not receive emails that contain variables. - This parameter's size will be calculated together with the parameter `content`. The whole size must not exceed 150 KB.")
 
   public List<Map<String, String>> getVariables() {
     return variables;
   }
 
 
+  /**
+   * - The variable key-value pairs that will replace the variable placeholders in &#x60;content&#x60; for each recipient. Variable keys are those that are wrapped with &#x60;#&#x60; as placeholders (e.g., &#x60;#var_1#&#x60;) in &#x60;content&#x60;. The placeholders will be replaced by variable values when sending the email. - The size of the array must be the same as the number of recipients in &#x60;to&#x60;. Be aware that &#x60;cc&#x60; and &#x60;bcc&#x60; addresses are excluded, and they can not receive emails that contain variables. - This parameter&#39;s size will be calculated together with the parameter &#x60;content&#x60;. The whole size must not exceed 150 KB.
+   **/
+  @ApiModelProperty(value = "- The variable key-value pairs that will replace the variable placeholders in `content` for each recipient. Variable keys are those that are wrapped with `#` as placeholders (e.g., `#var_1#`) in `content`. The placeholders will be replaced by variable values when sending the email. - The size of the array must be the same as the number of recipients in `to`. Be aware that `cc` and `bcc` addresses are excluded, and they can not receive emails that contain variables. - This parameter's size will be calculated together with the parameter `content`. The whole size must not exceed 150 KB.")
   public void setVariables(List<Map<String, String>> variables) {
     this.variables = variables;
   }
@@ -261,13 +313,16 @@ public class EmailSendRequest {
    * @return cc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "cc1@example.com,Nick<cc2@example.com>", value = "Recipients who will receive a copy of the email.")
 
   public String getCc() {
     return cc;
   }
 
 
+  /**
+   * Recipients who will receive a copy of the email.
+   **/
+  @ApiModelProperty(example = "cc1@example.com,Nick<cc2@example.com>", value = "Recipients who will receive a copy of the email.")
   public void setCc(String cc) {
     this.cc = cc;
   }
@@ -284,13 +339,16 @@ public class EmailSendRequest {
    * @return bcc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "bcc1@example.com,Nick<bcc2@example.com>", value = "Recipients who will receive a blind carbon copy of the email.")
 
   public String getBcc() {
     return bcc;
   }
 
 
+  /**
+   * Recipients who will receive a blind carbon copy of the email.
+   **/
+  @ApiModelProperty(example = "bcc1@example.com,Nick<bcc2@example.com>", value = "Recipients who will receive a blind carbon copy of the email.")
   public void setBcc(String bcc) {
     this.bcc = bcc;
   }
@@ -307,13 +365,16 @@ public class EmailSendRequest {
    * @return replyTo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If this field exists, then the reply should go to the addresses indicated in that field and not to the address(es) indicated in the `from` field.")
 
   public String getReplyTo() {
     return replyTo;
   }
 
 
+  /**
+   * If this field exists, then the reply should go to the addresses indicated in that field and not to the address(es) indicated in the &#x60;from&#x60; field.
+   **/
+  @ApiModelProperty(value = "If this field exists, then the reply should go to the addresses indicated in that field and not to the address(es) indicated in the `from` field.")
   public void setReplyTo(String replyTo) {
     this.replyTo = replyTo;
   }
@@ -330,13 +391,16 @@ public class EmailSendRequest {
    * @return summary
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a summary.", value = "This is a summary of your email. Max length: 70.")
 
   public String getSummary() {
     return summary;
   }
 
 
+  /**
+   * This is a summary of your email. Max length: 70.
+   **/
+  @ApiModelProperty(example = "This is a summary.", value = "This is a summary of your email. Max length: 70.")
   public void setSummary(String summary) {
     this.summary = summary;
   }
@@ -353,13 +417,16 @@ public class EmailSendRequest {
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
 
   public String getExternalId() {
     return externalId;
   }
 
 
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   **/
+  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
@@ -376,13 +443,16 @@ public class EmailSendRequest {
    * @return callbackUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-email", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
 
   public String getCallbackUrl() {
     return callbackUrl;
   }
 
 
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+   **/
+  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-email", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
   public void setCallbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
   }

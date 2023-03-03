@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,176 +45,109 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Represents an inbound SMS message, which means a user replies to your message.
+ * WhatsappMessageContactPhone
  */
-@ApiModel(description = "Represents an inbound SMS message, which means a user replies to your message.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SmsInbound {
-  public static final String SERIALIZED_NAME_ID = "id";
+public class WhatsappMessageContactPhone {
+  public static final String SERIALIZED_NAME_PHONE = "phone";
   /**
-   * Unique ID of the message.
+   * Automatically populated with the &#x60;wa_id&#x60; value as a formatted phone number.
   **/
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
+  @SerializedName(SERIALIZED_NAME_PHONE)
+  private String phone;
 
-  public static final String SERIALIZED_NAME_FROM = "from";
+  public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * The user&#39;s phone number who sent the message to your registered sender ID, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * Standard Values are &#x60;CELL&#x60;, &#x60;MAIN&#x60;, &#x60;IPHONE&#x60;, &#x60;HOME&#x60;, and &#x60;WORK&#x60;.
   **/
-  @SerializedName(SERIALIZED_NAME_FROM)
-  private String from;
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
-  public static final String SERIALIZED_NAME_TO = "to";
+  public static final String SERIALIZED_NAME_WA_ID = "wa_id";
   /**
-   * The receiver&#39;s phone number, which is one of your registered Sender IDs.
+   * WhatsApp ID.
   **/
-  @SerializedName(SERIALIZED_NAME_TO)
-  private String to;
+  @SerializedName(SERIALIZED_NAME_WA_ID)
+  private String waId;
 
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  /**
-   * The text of this message.
-  **/
-  @SerializedName(SERIALIZED_NAME_TEXT)
-  private String text;
-
-  public static final String SERIALIZED_NAME_SEND_TIME = "sendTime";
-  /**
-   * The time at which this message was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
-  **/
-  @SerializedName(SERIALIZED_NAME_SEND_TIME)
-  private Date sendTime;
-
-  public SmsInbound() { 
+  public WhatsappMessageContactPhone() { 
   }
 
-  public SmsInbound id(String id) {
+  public WhatsappMessageContactPhone phone(String phone) {
     
-    this.id = id;
+    this.phone = phone;
     return this;
   }
 
    /**
-   * Unique ID of the message.
-   * @return id
+   * Automatically populated with the &#x60;wa_id&#x60; value as a formatted phone number.
+   * @return phone
   **/
   @javax.annotation.Nullable
 
-  public String getId() {
-    return id;
+  public String getPhone() {
+    return phone;
   }
 
 
   /**
-   * Unique ID of the message.
+   * Automatically populated with the &#x60;wa_id&#x60; value as a formatted phone number.
    **/
-  @ApiModelProperty(value = "Unique ID of the message.")
-  public void setId(String id) {
-    this.id = id;
+  @ApiModelProperty(value = "Automatically populated with the `wa_id` value as a formatted phone number.")
+  public void setPhone(String phone) {
+    this.phone = phone;
   }
 
 
-  public SmsInbound from(String from) {
+  public WhatsappMessageContactPhone type(String type) {
     
-    this.from = from;
+    this.type = type;
     return this;
   }
 
    /**
-   * The user&#39;s phone number who sent the message to your registered sender ID, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-   * @return from
+   * Standard Values are &#x60;CELL&#x60;, &#x60;MAIN&#x60;, &#x60;IPHONE&#x60;, &#x60;HOME&#x60;, and &#x60;WORK&#x60;.
+   * @return type
   **/
   @javax.annotation.Nullable
 
-  public String getFrom() {
-    return from;
+  public String getType() {
+    return type;
   }
 
 
   /**
-   * The user&#39;s phone number who sent the message to your registered sender ID, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * Standard Values are &#x60;CELL&#x60;, &#x60;MAIN&#x60;, &#x60;IPHONE&#x60;, &#x60;HOME&#x60;, and &#x60;WORK&#x60;.
    **/
-  @ApiModelProperty(example = "+447901614024", value = "The user's phone number who sent the message to your registered sender ID, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
-  public void setFrom(String from) {
-    this.from = from;
+  @ApiModelProperty(value = "Standard Values are `CELL`, `MAIN`, `IPHONE`, `HOME`, and `WORK`.")
+  public void setType(String type) {
+    this.type = type;
   }
 
 
-  public SmsInbound to(String to) {
+  public WhatsappMessageContactPhone waId(String waId) {
     
-    this.to = to;
+    this.waId = waId;
     return this;
   }
 
    /**
-   * The receiver&#39;s phone number, which is one of your registered Sender IDs.
-   * @return to
+   * WhatsApp ID.
+   * @return waId
   **/
   @javax.annotation.Nullable
 
-  public String getTo() {
-    return to;
+  public String getWaId() {
+    return waId;
   }
 
 
   /**
-   * The receiver&#39;s phone number, which is one of your registered Sender IDs.
+   * WhatsApp ID.
    **/
-  @ApiModelProperty(value = "The receiver's phone number, which is one of your registered Sender IDs.")
-  public void setTo(String to) {
-    this.to = to;
-  }
-
-
-  public SmsInbound text(String text) {
-    
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * The text of this message.
-   * @return text
-  **/
-  @javax.annotation.Nullable
-
-  public String getText() {
-    return text;
-  }
-
-
-  /**
-   * The text of this message.
-   **/
-  @ApiModelProperty(value = "The text of this message.")
-  public void setText(String text) {
-    this.text = text;
-  }
-
-
-  public SmsInbound sendTime(Date sendTime) {
-    
-    this.sendTime = sendTime;
-    return this;
-  }
-
-   /**
-   * The time at which this message was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
-   * @return sendTime
-  **/
-  @javax.annotation.Nullable
-
-  public Date getSendTime() {
-    return sendTime;
-  }
-
-
-  /**
-   * The time at which this message was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
-   **/
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
-  public void setSendTime(Date sendTime) {
-    this.sendTime = sendTime;
+  @ApiModelProperty(value = "WhatsApp ID.")
+  public void setWaId(String waId) {
+    this.waId = waId;
   }
 
   /**
@@ -229,7 +161,7 @@ public class SmsInbound {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public SmsInbound putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageContactPhone putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -263,29 +195,25 @@ public class SmsInbound {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SmsInbound smsInbound = (SmsInbound) o;
-    return Objects.equals(this.id, smsInbound.id) &&
-        Objects.equals(this.from, smsInbound.from) &&
-        Objects.equals(this.to, smsInbound.to) &&
-        Objects.equals(this.text, smsInbound.text) &&
-        Objects.equals(this.sendTime, smsInbound.sendTime)&&
-        Objects.equals(this.additionalProperties, smsInbound.additionalProperties);
+    WhatsappMessageContactPhone whatsappMessageContactPhone = (WhatsappMessageContactPhone) o;
+    return Objects.equals(this.phone, whatsappMessageContactPhone.phone) &&
+        Objects.equals(this.type, whatsappMessageContactPhone.type) &&
+        Objects.equals(this.waId, whatsappMessageContactPhone.waId)&&
+        Objects.equals(this.additionalProperties, whatsappMessageContactPhone.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, from, to, text, sendTime, additionalProperties);
+    return Objects.hash(phone, type, waId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SmsInbound {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    from: ").append(toIndentedString(from)).append("\n");
-    sb.append("    to: ").append(toIndentedString(to)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
-    sb.append("    sendTime: ").append(toIndentedString(sendTime)).append("\n");
+    sb.append("class WhatsappMessageContactPhone {\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    waId: ").append(toIndentedString(waId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -309,11 +237,9 @@ public class SmsInbound {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("from");
-    openapiFields.add("to");
-    openapiFields.add("text");
-    openapiFields.add("sendTime");
+    openapiFields.add("phone");
+    openapiFields.add("type");
+    openapiFields.add("wa_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -323,27 +249,24 @@ public class SmsInbound {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SmsInbound
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageContactPhone
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (SmsInbound.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageContactPhone.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SmsInbound is not found in the empty JSON string", SmsInbound.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageContactPhone is not found in the empty JSON string", WhatsappMessageContactPhone.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      if (jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
       }
-      if (jsonObj.get("from") != null && !jsonObj.get("from").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `from` to be a primitive type in the JSON string but got `%s`", jsonObj.get("from").toString()));
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
-      }
-      if (jsonObj.get("text") != null && !jsonObj.get("text").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
+      if (jsonObj.get("wa_id") != null && !jsonObj.get("wa_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wa_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wa_id").toString()));
       }
   }
 
@@ -351,16 +274,16 @@ public class SmsInbound {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SmsInbound.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SmsInbound' and its subtypes
+       if (!WhatsappMessageContactPhone.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageContactPhone' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SmsInbound> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SmsInbound.class));
+       final TypeAdapter<WhatsappMessageContactPhone> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageContactPhone.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SmsInbound>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageContactPhone>() {
            @Override
-           public void write(JsonWriter out, SmsInbound value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageContactPhone value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -383,11 +306,11 @@ public class SmsInbound {
            }
 
            @Override
-           public SmsInbound read(JsonReader in) throws IOException {
+           public WhatsappMessageContactPhone read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             SmsInbound instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageContactPhone instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -412,18 +335,18 @@ public class SmsInbound {
   }
 
  /**
-  * Create an instance of SmsInbound given an JSON string
+  * Create an instance of WhatsappMessageContactPhone given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of SmsInbound
-  * @throws IOException if the JSON string is invalid with respect to SmsInbound
+  * @return An instance of WhatsappMessageContactPhone
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageContactPhone
   */
-  public static SmsInbound fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SmsInbound.class);
+  public static WhatsappMessageContactPhone fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageContactPhone.class);
   }
 
  /**
-  * Convert an instance of SmsInbound to an JSON string
+  * Convert an instance of WhatsappMessageContactPhone to an JSON string
   *
   * @return JSON string
   */

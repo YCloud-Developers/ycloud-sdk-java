@@ -49,39 +49,60 @@ import com.ycloud.client.JSON;
  */
 @ApiModel(description = "Full contact address(es) formatted as an addresses object.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageContactAddressesInner {
+public class WhatsappMessageContactAddress {
   public static final String SERIALIZED_NAME_STREET = "street";
+  /**
+   * Street number and name.
+  **/
   @SerializedName(SERIALIZED_NAME_STREET)
   private String street;
 
   public static final String SERIALIZED_NAME_CITY = "city";
+  /**
+   * City name.
+  **/
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
 
   public static final String SERIALIZED_NAME_STATE = "state";
+  /**
+   * State abbreviation.
+  **/
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state;
 
   public static final String SERIALIZED_NAME_ZIP = "zip";
+  /**
+   * ZIP code.
+  **/
   @SerializedName(SERIALIZED_NAME_ZIP)
   private String zip;
 
   public static final String SERIALIZED_NAME_COUNTRY = "country";
+  /**
+   * Full country name.
+  **/
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "country_code";
+  /**
+   * Two-letter country abbreviation.
+  **/
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   private String countryCode;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * Standard values are &#x60;HOME&#x60; and &#x60;WORK&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public WhatsappMessageContactAddressesInner() { 
+  public WhatsappMessageContactAddress() { 
   }
 
-  public WhatsappMessageContactAddressesInner street(String street) {
+  public WhatsappMessageContactAddress street(String street) {
     
     this.street = street;
     return this;
@@ -92,19 +113,22 @@ public class WhatsappMessageContactAddressesInner {
    * @return street
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Street number and name.")
 
   public String getStreet() {
     return street;
   }
 
 
+  /**
+   * Street number and name.
+   **/
+  @ApiModelProperty(value = "Street number and name.")
   public void setStreet(String street) {
     this.street = street;
   }
 
 
-  public WhatsappMessageContactAddressesInner city(String city) {
+  public WhatsappMessageContactAddress city(String city) {
     
     this.city = city;
     return this;
@@ -115,19 +139,22 @@ public class WhatsappMessageContactAddressesInner {
    * @return city
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "City name.")
 
   public String getCity() {
     return city;
   }
 
 
+  /**
+   * City name.
+   **/
+  @ApiModelProperty(value = "City name.")
   public void setCity(String city) {
     this.city = city;
   }
 
 
-  public WhatsappMessageContactAddressesInner state(String state) {
+  public WhatsappMessageContactAddress state(String state) {
     
     this.state = state;
     return this;
@@ -138,19 +165,22 @@ public class WhatsappMessageContactAddressesInner {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "State abbreviation.")
 
   public String getState() {
     return state;
   }
 
 
+  /**
+   * State abbreviation.
+   **/
+  @ApiModelProperty(value = "State abbreviation.")
   public void setState(String state) {
     this.state = state;
   }
 
 
-  public WhatsappMessageContactAddressesInner zip(String zip) {
+  public WhatsappMessageContactAddress zip(String zip) {
     
     this.zip = zip;
     return this;
@@ -161,19 +191,22 @@ public class WhatsappMessageContactAddressesInner {
    * @return zip
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ZIP code.")
 
   public String getZip() {
     return zip;
   }
 
 
+  /**
+   * ZIP code.
+   **/
+  @ApiModelProperty(value = "ZIP code.")
   public void setZip(String zip) {
     this.zip = zip;
   }
 
 
-  public WhatsappMessageContactAddressesInner country(String country) {
+  public WhatsappMessageContactAddress country(String country) {
     
     this.country = country;
     return this;
@@ -184,19 +217,22 @@ public class WhatsappMessageContactAddressesInner {
    * @return country
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Full country name.")
 
   public String getCountry() {
     return country;
   }
 
 
+  /**
+   * Full country name.
+   **/
+  @ApiModelProperty(value = "Full country name.")
   public void setCountry(String country) {
     this.country = country;
   }
 
 
-  public WhatsappMessageContactAddressesInner countryCode(String countryCode) {
+  public WhatsappMessageContactAddress countryCode(String countryCode) {
     
     this.countryCode = countryCode;
     return this;
@@ -207,19 +243,22 @@ public class WhatsappMessageContactAddressesInner {
    * @return countryCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Two-letter country abbreviation.")
 
   public String getCountryCode() {
     return countryCode;
   }
 
 
+  /**
+   * Two-letter country abbreviation.
+   **/
+  @ApiModelProperty(value = "Two-letter country abbreviation.")
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
 
-  public WhatsappMessageContactAddressesInner type(String type) {
+  public WhatsappMessageContactAddress type(String type) {
     
     this.type = type;
     return this;
@@ -230,13 +269,16 @@ public class WhatsappMessageContactAddressesInner {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "WORK", value = "Standard values are `HOME` and `WORK`.")
 
   public String getType() {
     return type;
   }
 
 
+  /**
+   * Standard values are &#x60;HOME&#x60; and &#x60;WORK&#x60;.
+   **/
+  @ApiModelProperty(example = "WORK", value = "Standard values are `HOME` and `WORK`.")
   public void setType(String type) {
     this.type = type;
   }
@@ -252,7 +294,7 @@ public class WhatsappMessageContactAddressesInner {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageContactAddressesInner putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageContactAddress putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -286,15 +328,15 @@ public class WhatsappMessageContactAddressesInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageContactAddressesInner whatsappMessageContactAddressesInner = (WhatsappMessageContactAddressesInner) o;
-    return Objects.equals(this.street, whatsappMessageContactAddressesInner.street) &&
-        Objects.equals(this.city, whatsappMessageContactAddressesInner.city) &&
-        Objects.equals(this.state, whatsappMessageContactAddressesInner.state) &&
-        Objects.equals(this.zip, whatsappMessageContactAddressesInner.zip) &&
-        Objects.equals(this.country, whatsappMessageContactAddressesInner.country) &&
-        Objects.equals(this.countryCode, whatsappMessageContactAddressesInner.countryCode) &&
-        Objects.equals(this.type, whatsappMessageContactAddressesInner.type)&&
-        Objects.equals(this.additionalProperties, whatsappMessageContactAddressesInner.additionalProperties);
+    WhatsappMessageContactAddress whatsappMessageContactAddress = (WhatsappMessageContactAddress) o;
+    return Objects.equals(this.street, whatsappMessageContactAddress.street) &&
+        Objects.equals(this.city, whatsappMessageContactAddress.city) &&
+        Objects.equals(this.state, whatsappMessageContactAddress.state) &&
+        Objects.equals(this.zip, whatsappMessageContactAddress.zip) &&
+        Objects.equals(this.country, whatsappMessageContactAddress.country) &&
+        Objects.equals(this.countryCode, whatsappMessageContactAddress.countryCode) &&
+        Objects.equals(this.type, whatsappMessageContactAddress.type)&&
+        Objects.equals(this.additionalProperties, whatsappMessageContactAddress.additionalProperties);
   }
 
   @Override
@@ -305,7 +347,7 @@ public class WhatsappMessageContactAddressesInner {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageContactAddressesInner {\n");
+    sb.append("class WhatsappMessageContactAddress {\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
@@ -352,14 +394,14 @@ public class WhatsappMessageContactAddressesInner {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageContactAddressesInner
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageContactAddress
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageContactAddressesInner.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageContactAddress.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageContactAddressesInner is not found in the empty JSON string", WhatsappMessageContactAddressesInner.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageContactAddress is not found in the empty JSON string", WhatsappMessageContactAddress.openapiRequiredFields.toString()));
         }
       }
       if (jsonObj.get("street") != null && !jsonObj.get("street").isJsonPrimitive()) {
@@ -389,16 +431,16 @@ public class WhatsappMessageContactAddressesInner {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageContactAddressesInner.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageContactAddressesInner' and its subtypes
+       if (!WhatsappMessageContactAddress.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageContactAddress' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageContactAddressesInner> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageContactAddressesInner.class));
+       final TypeAdapter<WhatsappMessageContactAddress> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageContactAddress.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageContactAddressesInner>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageContactAddress>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageContactAddressesInner value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageContactAddress value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -421,11 +463,11 @@ public class WhatsappMessageContactAddressesInner {
            }
 
            @Override
-           public WhatsappMessageContactAddressesInner read(JsonReader in) throws IOException {
+           public WhatsappMessageContactAddress read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageContactAddressesInner instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageContactAddress instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -450,18 +492,18 @@ public class WhatsappMessageContactAddressesInner {
   }
 
  /**
-  * Create an instance of WhatsappMessageContactAddressesInner given an JSON string
+  * Create an instance of WhatsappMessageContactAddress given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageContactAddressesInner
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageContactAddressesInner
+  * @return An instance of WhatsappMessageContactAddress
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageContactAddress
   */
-  public static WhatsappMessageContactAddressesInner fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageContactAddressesInner.class);
+  public static WhatsappMessageContactAddress fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageContactAddress.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageContactAddressesInner to an JSON string
+  * Convert an instance of WhatsappMessageContactAddress to an JSON string
   *
   * @return JSON string
   */

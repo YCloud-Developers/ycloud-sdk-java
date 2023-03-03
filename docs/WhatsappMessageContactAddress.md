@@ -1,6 +1,6 @@
 
 
-# WhatsappMessageContactAddressesInner
+# WhatsappMessageContactAddress
 
 Full contact address(es) formatted as an addresses object.
 

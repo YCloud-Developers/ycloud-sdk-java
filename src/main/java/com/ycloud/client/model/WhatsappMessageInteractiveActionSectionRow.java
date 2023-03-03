@@ -45,91 +45,109 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappMessageContactPhonesInner
+ * WhatsappMessageInteractiveActionSectionRow
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageContactPhonesInner {
-  public static final String SERIALIZED_NAME_PHONE = "phone";
-  @SerializedName(SERIALIZED_NAME_PHONE)
-  private String phone;
+public class WhatsappMessageInteractiveActionSectionRow {
+  public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique row ID.
+  **/
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  /**
+   * Row title content.
+  **/
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
-  public static final String SERIALIZED_NAME_WA_ID = "wa_id";
-  @SerializedName(SERIALIZED_NAME_WA_ID)
-  private String waId;
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  /**
+   * Row description content.
+  **/
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  public WhatsappMessageContactPhonesInner() { 
+  public WhatsappMessageInteractiveActionSectionRow() { 
   }
 
-  public WhatsappMessageContactPhonesInner phone(String phone) {
+  public WhatsappMessageInteractiveActionSectionRow id(String id) {
     
-    this.phone = phone;
+    this.id = id;
     return this;
   }
 
    /**
-   * Automatically populated with the &#x60;wa_id&#x60; value as a formatted phone number.
-   * @return phone
+   * Unique row ID.
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Automatically populated with the `wa_id` value as a formatted phone number.")
 
-  public String getPhone() {
-    return phone;
+  public String getId() {
+    return id;
   }
 
 
-  public void setPhone(String phone) {
-    this.phone = phone;
+  /**
+   * Unique row ID.
+   **/
+  @ApiModelProperty(value = "Unique row ID.")
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public WhatsappMessageContactPhonesInner type(String type) {
+  public WhatsappMessageInteractiveActionSectionRow title(String title) {
     
-    this.type = type;
+    this.title = title;
     return this;
   }
 
    /**
-   * Standard Values are &#x60;CELL&#x60;, &#x60;MAIN&#x60;, &#x60;IPHONE&#x60;, &#x60;HOME&#x60;, and &#x60;WORK&#x60;.
-   * @return type
+   * Row title content.
+   * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Standard Values are `CELL`, `MAIN`, `IPHONE`, `HOME`, and `WORK`.")
 
-  public String getType() {
-    return type;
+  public String getTitle() {
+    return title;
   }
 
 
-  public void setType(String type) {
-    this.type = type;
+  /**
+   * Row title content.
+   **/
+  @ApiModelProperty(value = "Row title content.")
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
-  public WhatsappMessageContactPhonesInner waId(String waId) {
+  public WhatsappMessageInteractiveActionSectionRow description(String description) {
     
-    this.waId = waId;
+    this.description = description;
     return this;
   }
 
    /**
-   * WhatsApp ID.
-   * @return waId
+   * Row description content.
+   * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "WhatsApp ID.")
 
-  public String getWaId() {
-    return waId;
+  public String getDescription() {
+    return description;
   }
 
 
-  public void setWaId(String waId) {
-    this.waId = waId;
+  /**
+   * Row description content.
+   **/
+  @ApiModelProperty(value = "Row description content.")
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   /**
@@ -143,7 +161,7 @@ public class WhatsappMessageContactPhonesInner {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageContactPhonesInner putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageInteractiveActionSectionRow putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -177,25 +195,25 @@ public class WhatsappMessageContactPhonesInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageContactPhonesInner whatsappMessageContactPhonesInner = (WhatsappMessageContactPhonesInner) o;
-    return Objects.equals(this.phone, whatsappMessageContactPhonesInner.phone) &&
-        Objects.equals(this.type, whatsappMessageContactPhonesInner.type) &&
-        Objects.equals(this.waId, whatsappMessageContactPhonesInner.waId)&&
-        Objects.equals(this.additionalProperties, whatsappMessageContactPhonesInner.additionalProperties);
+    WhatsappMessageInteractiveActionSectionRow whatsappMessageInteractiveActionSectionRow = (WhatsappMessageInteractiveActionSectionRow) o;
+    return Objects.equals(this.id, whatsappMessageInteractiveActionSectionRow.id) &&
+        Objects.equals(this.title, whatsappMessageInteractiveActionSectionRow.title) &&
+        Objects.equals(this.description, whatsappMessageInteractiveActionSectionRow.description)&&
+        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionSectionRow.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phone, type, waId, additionalProperties);
+    return Objects.hash(id, title, description, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageContactPhonesInner {\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    waId: ").append(toIndentedString(waId)).append("\n");
+    sb.append("class WhatsappMessageInteractiveActionSectionRow {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -219,9 +237,9 @@ public class WhatsappMessageContactPhonesInner {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("phone");
-    openapiFields.add("type");
-    openapiFields.add("wa_id");
+    openapiFields.add("id");
+    openapiFields.add("title");
+    openapiFields.add("description");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -231,24 +249,24 @@ public class WhatsappMessageContactPhonesInner {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageContactPhonesInner
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionSectionRow
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageContactPhonesInner.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageInteractiveActionSectionRow.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageContactPhonesInner is not found in the empty JSON string", WhatsappMessageContactPhonesInner.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionSectionRow is not found in the empty JSON string", WhatsappMessageInteractiveActionSectionRow.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (jsonObj.get("wa_id") != null && !jsonObj.get("wa_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wa_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wa_id").toString()));
+      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
   }
 
@@ -256,16 +274,16 @@ public class WhatsappMessageContactPhonesInner {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageContactPhonesInner.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageContactPhonesInner' and its subtypes
+       if (!WhatsappMessageInteractiveActionSectionRow.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageInteractiveActionSectionRow' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageContactPhonesInner> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageContactPhonesInner.class));
+       final TypeAdapter<WhatsappMessageInteractiveActionSectionRow> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionSectionRow.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageContactPhonesInner>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionSectionRow>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageContactPhonesInner value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageInteractiveActionSectionRow value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -288,11 +306,11 @@ public class WhatsappMessageContactPhonesInner {
            }
 
            @Override
-           public WhatsappMessageContactPhonesInner read(JsonReader in) throws IOException {
+           public WhatsappMessageInteractiveActionSectionRow read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageContactPhonesInner instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageInteractiveActionSectionRow instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -317,18 +335,18 @@ public class WhatsappMessageContactPhonesInner {
   }
 
  /**
-  * Create an instance of WhatsappMessageContactPhonesInner given an JSON string
+  * Create an instance of WhatsappMessageInteractiveActionSectionRow given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageContactPhonesInner
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageContactPhonesInner
+  * @return An instance of WhatsappMessageInteractiveActionSectionRow
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionSectionRow
   */
-  public static WhatsappMessageContactPhonesInner fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageContactPhonesInner.class);
+  public static WhatsappMessageInteractiveActionSectionRow fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionSectionRow.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageContactPhonesInner to an JSON string
+  * Convert an instance of WhatsappMessageInteractiveActionSectionRow to an JSON string
   *
   * @return JSON string
   */

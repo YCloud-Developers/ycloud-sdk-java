@@ -53,14 +53,22 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappConversation {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique ID for the object.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_ORIGIN_TYPE = "originType";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_ORIGIN_TYPE)
   private WhatsappConversationOriginType originType;
 
   public static final String SERIALIZED_NAME_EXPIRE_TIME = "expireTime";
+  /**
+   * Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_EXPIRE_TIME)
   private Date expireTime;
 
@@ -78,13 +86,16 @@ public class WhatsappConversation {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID for the object.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * Unique ID for the object.
+   **/
+  @ApiModelProperty(value = "Unique ID for the object.")
   public void setId(String id) {
     this.id = id;
   }
@@ -101,13 +112,15 @@ public class WhatsappConversation {
    * @return originType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappConversationOriginType getOriginType() {
     return originType;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setOriginType(WhatsappConversationOriginType originType) {
     this.originType = originType;
   }
@@ -124,13 +137,16 @@ public class WhatsappConversation {
    * @return expireTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getExpireTime() {
     return expireTime;
   }
 
 
+  /**
+   * Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setExpireTime(Date expireTime) {
     this.expireTime = expireTime;
   }

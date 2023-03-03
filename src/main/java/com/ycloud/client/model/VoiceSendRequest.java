@@ -50,22 +50,37 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class VoiceSendRequest {
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
   public static final String SERIALIZED_NAME_VERIFICATION_CODE = "verificationCode";
+  /**
+   * The verification code to be sent, 4 to 6 digits.
+  **/
   @SerializedName(SERIALIZED_NAME_VERIFICATION_CODE)
   private String verificationCode;
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
+  /**
+   * [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as &#x60;en&#x60; by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: &#x60;ar&#x60;: Arabic &#x60;de&#x60;: German &#x60;en&#x60;: English &#x60;es&#x60;: Spanish &#x60;fr&#x60;: French &#x60;id&#x60;: Indonesian &#x60;it&#x60;: Italian &#x60;pt&#x60;: Portuguese &#x60;ru&#x60;: Russian &#x60;tr&#x60;: Turkish &#x60;vi&#x60;: Vietnamese &#x60;zh&#x60;: Chinese
+  **/
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   private String language;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+  **/
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
   public static final String SERIALIZED_NAME_CALLBACK_URL = "callbackUrl";
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+  **/
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
 
@@ -83,13 +98,16 @@ public class VoiceSendRequest {
    * @return to
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
 
   public String getTo() {
     return to;
   }
 
 
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   **/
+  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -106,13 +124,16 @@ public class VoiceSendRequest {
    * @return verificationCode
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "123456", required = true, value = "The verification code to be sent, 4 to 6 digits.")
 
   public String getVerificationCode() {
     return verificationCode;
   }
 
 
+  /**
+   * The verification code to be sent, 4 to 6 digits.
+   **/
+  @ApiModelProperty(example = "123456", required = true, value = "The verification code to be sent, 4 to 6 digits.")
   public void setVerificationCode(String verificationCode) {
     this.verificationCode = verificationCode;
   }
@@ -129,13 +150,16 @@ public class VoiceSendRequest {
    * @return language
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "en", value = "[ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt`: Portuguese `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh`: Chinese")
 
   public String getLanguage() {
     return language;
   }
 
 
+  /**
+   * [ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as &#x60;en&#x60; by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: &#x60;ar&#x60;: Arabic &#x60;de&#x60;: German &#x60;en&#x60;: English &#x60;es&#x60;: Spanish &#x60;fr&#x60;: French &#x60;id&#x60;: Indonesian &#x60;it&#x60;: Italian &#x60;pt&#x60;: Portuguese &#x60;ru&#x60;: Russian &#x60;tr&#x60;: Turkish &#x60;vi&#x60;: Vietnamese &#x60;zh&#x60;: Chinese
+   **/
+  @ApiModelProperty(example = "en", value = "[ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html). If not specified, language will be set as `en` by default. Notably, in certain countries or regions, language will be automatically set as the local language due to the regional restrictions. Applicable languages: `ar`: Arabic `de`: German `en`: English `es`: Spanish `fr`: French `id`: Indonesian `it`: Italian `pt`: Portuguese `ru`: Russian `tr`: Turkish `vi`: Vietnamese `zh`: Chinese")
   public void setLanguage(String language) {
     this.language = language;
   }
@@ -152,13 +176,16 @@ public class VoiceSendRequest {
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
 
   public String getExternalId() {
     return externalId;
   }
 
 
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   **/
+  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
@@ -175,13 +202,16 @@ public class VoiceSendRequest {
    * @return callbackUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-voice", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
 
   public String getCallbackUrl() {
     return callbackUrl;
   }
 
 
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+   **/
+  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-voice", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
   public void setCallbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
   }

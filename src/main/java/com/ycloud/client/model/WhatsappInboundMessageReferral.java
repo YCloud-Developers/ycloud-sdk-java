@@ -51,38 +51,65 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageReferral {
   public static final String SERIALIZED_NAME_SOURCE_URL = "source_url";
+  /**
+   * Specifies the URL that leads to the ad or post clicked by the user. Opening this URL takes you to the ad viewed by your user.
+  **/
   @SerializedName(SERIALIZED_NAME_SOURCE_URL)
   private String sourceUrl;
 
   public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
+  /**
+   * Specifies the type of the ad&#39;s source. Supported values are \&quot;ad\&quot; or \&quot;post\&quot;.
+  **/
   @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
   private String sourceType;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  /**
+   * Specifies the Meta ID for an ad or post.
+  **/
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
 
   public static final String SERIALIZED_NAME_HEADLINE = "headline";
+  /**
+   * Specifies the headline used in the ad or post that generated the message.
+  **/
   @SerializedName(SERIALIZED_NAME_HEADLINE)
   private String headline;
 
   public static final String SERIALIZED_NAME_BODY = "body";
+  /**
+   * The description, or body, from the ad or post that generated the message.
+  **/
   @SerializedName(SERIALIZED_NAME_BODY)
   private String body;
 
   public static final String SERIALIZED_NAME_MEDIA_TYPE = "media_type";
+  /**
+   * Media present in the ad or post the user clicked. Supported values are \&quot;image\&quot; or \&quot;video\&quot;.
+  **/
   @SerializedName(SERIALIZED_NAME_MEDIA_TYPE)
   private String mediaType;
 
   public static final String SERIALIZED_NAME_IMAGE_URL = "image_url";
+  /**
+   * **Added if media_type is \&quot;image\&quot;.**  Contains a URL to the raw image.
+  **/
   @SerializedName(SERIALIZED_NAME_IMAGE_URL)
   private String imageUrl;
 
   public static final String SERIALIZED_NAME_VIDEO_URL = "video_url";
+  /**
+   * **Added if media_type is \&quot;video\&quot;.**  Contains a URL to the video.
+  **/
   @SerializedName(SERIALIZED_NAME_VIDEO_URL)
   private String videoUrl;
 
   public static final String SERIALIZED_NAME_THUMBNAIL_URL = "thumbnail_url";
+  /**
+   * **Added if media_type is \&quot;video\&quot;.**  Contains a URL to the thumbnail image of the clicked video.
+  **/
   @SerializedName(SERIALIZED_NAME_THUMBNAIL_URL)
   private String thumbnailUrl;
 
@@ -100,13 +127,16 @@ public class WhatsappInboundMessageReferral {
    * @return sourceUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the URL that leads to the ad or post clicked by the user. Opening this URL takes you to the ad viewed by your user.")
 
   public String getSourceUrl() {
     return sourceUrl;
   }
 
 
+  /**
+   * Specifies the URL that leads to the ad or post clicked by the user. Opening this URL takes you to the ad viewed by your user.
+   **/
+  @ApiModelProperty(value = "Specifies the URL that leads to the ad or post clicked by the user. Opening this URL takes you to the ad viewed by your user.")
   public void setSourceUrl(String sourceUrl) {
     this.sourceUrl = sourceUrl;
   }
@@ -123,13 +153,16 @@ public class WhatsappInboundMessageReferral {
    * @return sourceType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the type of the ad's source. Supported values are \"ad\" or \"post\".")
 
   public String getSourceType() {
     return sourceType;
   }
 
 
+  /**
+   * Specifies the type of the ad&#39;s source. Supported values are \&quot;ad\&quot; or \&quot;post\&quot;.
+   **/
+  @ApiModelProperty(value = "Specifies the type of the ad's source. Supported values are \"ad\" or \"post\".")
   public void setSourceType(String sourceType) {
     this.sourceType = sourceType;
   }
@@ -146,13 +179,16 @@ public class WhatsappInboundMessageReferral {
    * @return sourceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the Meta ID for an ad or post.")
 
   public String getSourceId() {
     return sourceId;
   }
 
 
+  /**
+   * Specifies the Meta ID for an ad or post.
+   **/
+  @ApiModelProperty(value = "Specifies the Meta ID for an ad or post.")
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
   }
@@ -169,13 +205,16 @@ public class WhatsappInboundMessageReferral {
    * @return headline
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the headline used in the ad or post that generated the message.")
 
   public String getHeadline() {
     return headline;
   }
 
 
+  /**
+   * Specifies the headline used in the ad or post that generated the message.
+   **/
+  @ApiModelProperty(value = "Specifies the headline used in the ad or post that generated the message.")
   public void setHeadline(String headline) {
     this.headline = headline;
   }
@@ -192,13 +231,16 @@ public class WhatsappInboundMessageReferral {
    * @return body
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The description, or body, from the ad or post that generated the message.")
 
   public String getBody() {
     return body;
   }
 
 
+  /**
+   * The description, or body, from the ad or post that generated the message.
+   **/
+  @ApiModelProperty(value = "The description, or body, from the ad or post that generated the message.")
   public void setBody(String body) {
     this.body = body;
   }
@@ -215,13 +257,16 @@ public class WhatsappInboundMessageReferral {
    * @return mediaType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Media present in the ad or post the user clicked. Supported values are \"image\" or \"video\".")
 
   public String getMediaType() {
     return mediaType;
   }
 
 
+  /**
+   * Media present in the ad or post the user clicked. Supported values are \&quot;image\&quot; or \&quot;video\&quot;.
+   **/
+  @ApiModelProperty(value = "Media present in the ad or post the user clicked. Supported values are \"image\" or \"video\".")
   public void setMediaType(String mediaType) {
     this.mediaType = mediaType;
   }
@@ -238,13 +283,16 @@ public class WhatsappInboundMessageReferral {
    * @return imageUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**Added if media_type is \"image\".**  Contains a URL to the raw image.")
 
   public String getImageUrl() {
     return imageUrl;
   }
 
 
+  /**
+   * **Added if media_type is \&quot;image\&quot;.**  Contains a URL to the raw image.
+   **/
+  @ApiModelProperty(value = "**Added if media_type is \"image\".**  Contains a URL to the raw image.")
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
   }
@@ -261,13 +309,16 @@ public class WhatsappInboundMessageReferral {
    * @return videoUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**Added if media_type is \"video\".**  Contains a URL to the video.")
 
   public String getVideoUrl() {
     return videoUrl;
   }
 
 
+  /**
+   * **Added if media_type is \&quot;video\&quot;.**  Contains a URL to the video.
+   **/
+  @ApiModelProperty(value = "**Added if media_type is \"video\".**  Contains a URL to the video.")
   public void setVideoUrl(String videoUrl) {
     this.videoUrl = videoUrl;
   }
@@ -284,13 +335,16 @@ public class WhatsappInboundMessageReferral {
    * @return thumbnailUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**Added if media_type is \"video\".**  Contains a URL to the thumbnail image of the clicked video.")
 
   public String getThumbnailUrl() {
     return thumbnailUrl;
   }
 
 
+  /**
+   * **Added if media_type is \&quot;video\&quot;.**  Contains a URL to the thumbnail image of the clicked video.
+   **/
+  @ApiModelProperty(value = "**Added if media_type is \"video\".**  Contains a URL to the thumbnail image of the clicked video.")
   public void setThumbnailUrl(String thumbnailUrl) {
     this.thumbnailUrl = thumbnailUrl;
   }

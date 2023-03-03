@@ -51,10 +51,16 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageInteractiveButtonReply {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique ID of a button.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
+  /**
+   * Title of a button.
+  **/
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
@@ -72,13 +78,16 @@ public class WhatsappInboundMessageInteractiveButtonReply {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of a button.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * Unique ID of a button.
+   **/
+  @ApiModelProperty(value = "Unique ID of a button.")
   public void setId(String id) {
     this.id = id;
   }
@@ -95,13 +104,16 @@ public class WhatsappInboundMessageInteractiveButtonReply {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of a button.")
 
   public String getTitle() {
     return title;
   }
 
 
+  /**
+   * Title of a button.
+   **/
+  @ApiModelProperty(value = "Title of a button.")
   public void setTitle(String title) {
     this.title = title;
   }

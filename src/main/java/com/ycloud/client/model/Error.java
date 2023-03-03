@@ -50,22 +50,37 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Error {
   public static final String SERIALIZED_NAME_STATUS = "status";
+  /**
+   * HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6). It conveys the HTTP status code used for the convenience of the consumer.
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private Integer status;
 
   public static final String SERIALIZED_NAME_CODE = "code";
+  /**
+   * One of a server-defined error codes. Some &#x60;4xx&#x60; errors that could be handled programmatically include an error code that briefly explains the error reported.
+  **/
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
+  /**
+   * A human-readable representation of the error. It is intended as an aid to developers and is not suitable for exposure to end users.
+  **/
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
+  /**
+   * The target of the error.
+  **/
   @SerializedName(SERIALIZED_NAME_TARGET)
   private String target;
 
   public static final String SERIALIZED_NAME_DOC_URL = "docUrl";
+  /**
+   * A URL to more information about the error.
+  **/
   @SerializedName(SERIALIZED_NAME_DOC_URL)
   private String docUrl;
 
@@ -83,13 +98,16 @@ public class Error {
    * @return status
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "404", required = true, value = "HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6). It conveys the HTTP status code used for the convenience of the consumer.")
 
   public Integer getStatus() {
     return status;
   }
 
 
+  /**
+   * HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6). It conveys the HTTP status code used for the convenience of the consumer.
+   **/
+  @ApiModelProperty(example = "404", required = true, value = "HTTP status code, [RFC 7231, Section 6](https://datatracker.ietf.org/doc/html/rfc7231#section-6). It conveys the HTTP status code used for the convenience of the consumer.")
   public void setStatus(Integer status) {
     this.status = status;
   }
@@ -106,13 +124,16 @@ public class Error {
    * @return code
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "NOT_FOUND", required = true, value = "One of a server-defined error codes. Some `4xx` errors that could be handled programmatically include an error code that briefly explains the error reported.")
 
   public String getCode() {
     return code;
   }
 
 
+  /**
+   * One of a server-defined error codes. Some &#x60;4xx&#x60; errors that could be handled programmatically include an error code that briefly explains the error reported.
+   **/
+  @ApiModelProperty(example = "NOT_FOUND", required = true, value = "One of a server-defined error codes. Some `4xx` errors that could be handled programmatically include an error code that briefly explains the error reported.")
   public void setCode(String code) {
     this.code = code;
   }
@@ -129,13 +150,16 @@ public class Error {
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "The requested resource does not exist.", value = "A human-readable representation of the error. It is intended as an aid to developers and is not suitable for exposure to end users.")
 
   public String getMessage() {
     return message;
   }
 
 
+  /**
+   * A human-readable representation of the error. It is intended as an aid to developers and is not suitable for exposure to end users.
+   **/
+  @ApiModelProperty(example = "The requested resource does not exist.", value = "A human-readable representation of the error. It is intended as an aid to developers and is not suitable for exposure to end users.")
   public void setMessage(String message) {
     this.message = message;
   }
@@ -152,13 +176,16 @@ public class Error {
    * @return target
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "", value = "The target of the error.")
 
   public String getTarget() {
     return target;
   }
 
 
+  /**
+   * The target of the error.
+   **/
+  @ApiModelProperty(example = "", value = "The target of the error.")
   public void setTarget(String target) {
     this.target = target;
   }
@@ -175,13 +202,16 @@ public class Error {
    * @return docUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "", value = "A URL to more information about the error.")
 
   public String getDocUrl() {
     return docUrl;
   }
 
 
+  /**
+   * A URL to more information about the error.
+   **/
+  @ApiModelProperty(example = "", value = "A URL to more information about the error.")
   public void setDocUrl(String docUrl) {
     this.docUrl = docUrl;
   }

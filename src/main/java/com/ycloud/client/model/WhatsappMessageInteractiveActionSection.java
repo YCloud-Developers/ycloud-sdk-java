@@ -20,7 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappMessageInteractiveActionSectionsInnerRowsInner;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionSectionProductItem;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionSectionRow;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -52,19 +53,32 @@ import com.ycloud.client.JSON;
  */
 @ApiModel(description = "[WhatsApp Section Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#section-object).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageInteractiveActionSectionsInner {
+public class WhatsappMessageInteractiveActionSection {
   public static final String SERIALIZED_NAME_TITLE = "title";
+  /**
+   * Title of the section.
+  **/
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
   public static final String SERIALIZED_NAME_ROWS = "rows";
+  /**
+   * Contains a list of rows. You can have a total of 10 rows across your sections. Each row must have a title (Maximum length: 24 characters) and an ID (Maximum length: 200 characters). You can add a description (Maximum length: 72 characters), but it is optional.
+  **/
   @SerializedName(SERIALIZED_NAME_ROWS)
-  private List<WhatsappMessageInteractiveActionSectionsInnerRowsInner> rows = null;
+  private List<WhatsappMessageInteractiveActionSectionRow> rows = null;
 
-  public WhatsappMessageInteractiveActionSectionsInner() { 
+  public static final String SERIALIZED_NAME_PRODUCT_ITEMS = "product_items";
+  /**
+   * Required for Multi-Product Messages. Array of product objects. There is a minimum of 1 product per section and a maximum of 30 products across all sections.
+  **/
+  @SerializedName(SERIALIZED_NAME_PRODUCT_ITEMS)
+  private List<WhatsappMessageInteractiveActionSectionProductItem> productItems = null;
+
+  public WhatsappMessageInteractiveActionSection() { 
   }
 
-  public WhatsappMessageInteractiveActionSectionsInner title(String title) {
+  public WhatsappMessageInteractiveActionSection title(String title) {
     
     this.title = title;
     return this;
@@ -75,25 +89,28 @@ public class WhatsappMessageInteractiveActionSectionsInner {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the section.")
 
   public String getTitle() {
     return title;
   }
 
 
+  /**
+   * Title of the section.
+   **/
+  @ApiModelProperty(value = "Title of the section.")
   public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public WhatsappMessageInteractiveActionSectionsInner rows(List<WhatsappMessageInteractiveActionSectionsInnerRowsInner> rows) {
+  public WhatsappMessageInteractiveActionSection rows(List<WhatsappMessageInteractiveActionSectionRow> rows) {
     
     this.rows = rows;
     return this;
   }
 
-  public WhatsappMessageInteractiveActionSectionsInner addRowsItem(WhatsappMessageInteractiveActionSectionsInnerRowsInner rowsItem) {
+  public WhatsappMessageInteractiveActionSection addRowsItem(WhatsappMessageInteractiveActionSectionRow rowsItem) {
     if (this.rows == null) {
       this.rows = new ArrayList<>();
     }
@@ -106,15 +123,52 @@ public class WhatsappMessageInteractiveActionSectionsInner {
    * @return rows
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains a list of rows. You can have a total of 10 rows across your sections. Each row must have a title (Maximum length: 24 characters) and an ID (Maximum length: 200 characters). You can add a description (Maximum length: 72 characters), but it is optional.")
 
-  public List<WhatsappMessageInteractiveActionSectionsInnerRowsInner> getRows() {
+  public List<WhatsappMessageInteractiveActionSectionRow> getRows() {
     return rows;
   }
 
 
-  public void setRows(List<WhatsappMessageInteractiveActionSectionsInnerRowsInner> rows) {
+  /**
+   * Contains a list of rows. You can have a total of 10 rows across your sections. Each row must have a title (Maximum length: 24 characters) and an ID (Maximum length: 200 characters). You can add a description (Maximum length: 72 characters), but it is optional.
+   **/
+  @ApiModelProperty(value = "Contains a list of rows. You can have a total of 10 rows across your sections. Each row must have a title (Maximum length: 24 characters) and an ID (Maximum length: 200 characters). You can add a description (Maximum length: 72 characters), but it is optional.")
+  public void setRows(List<WhatsappMessageInteractiveActionSectionRow> rows) {
     this.rows = rows;
+  }
+
+
+  public WhatsappMessageInteractiveActionSection productItems(List<WhatsappMessageInteractiveActionSectionProductItem> productItems) {
+    
+    this.productItems = productItems;
+    return this;
+  }
+
+  public WhatsappMessageInteractiveActionSection addProductItemsItem(WhatsappMessageInteractiveActionSectionProductItem productItemsItem) {
+    if (this.productItems == null) {
+      this.productItems = new ArrayList<>();
+    }
+    this.productItems.add(productItemsItem);
+    return this;
+  }
+
+   /**
+   * Required for Multi-Product Messages. Array of product objects. There is a minimum of 1 product per section and a maximum of 30 products across all sections.
+   * @return productItems
+  **/
+  @javax.annotation.Nullable
+
+  public List<WhatsappMessageInteractiveActionSectionProductItem> getProductItems() {
+    return productItems;
+  }
+
+
+  /**
+   * Required for Multi-Product Messages. Array of product objects. There is a minimum of 1 product per section and a maximum of 30 products across all sections.
+   **/
+  @ApiModelProperty(value = "Required for Multi-Product Messages. Array of product objects. There is a minimum of 1 product per section and a maximum of 30 products across all sections.")
+  public void setProductItems(List<WhatsappMessageInteractiveActionSectionProductItem> productItems) {
+    this.productItems = productItems;
   }
 
   /**
@@ -128,7 +182,7 @@ public class WhatsappMessageInteractiveActionSectionsInner {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageInteractiveActionSectionsInner putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageInteractiveActionSection putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -162,23 +216,25 @@ public class WhatsappMessageInteractiveActionSectionsInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageInteractiveActionSectionsInner whatsappMessageInteractiveActionSectionsInner = (WhatsappMessageInteractiveActionSectionsInner) o;
-    return Objects.equals(this.title, whatsappMessageInteractiveActionSectionsInner.title) &&
-        Objects.equals(this.rows, whatsappMessageInteractiveActionSectionsInner.rows)&&
-        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionSectionsInner.additionalProperties);
+    WhatsappMessageInteractiveActionSection whatsappMessageInteractiveActionSection = (WhatsappMessageInteractiveActionSection) o;
+    return Objects.equals(this.title, whatsappMessageInteractiveActionSection.title) &&
+        Objects.equals(this.rows, whatsappMessageInteractiveActionSection.rows) &&
+        Objects.equals(this.productItems, whatsappMessageInteractiveActionSection.productItems)&&
+        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionSection.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, rows, additionalProperties);
+    return Objects.hash(title, rows, productItems, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageInteractiveActionSectionsInner {\n");
+    sb.append("class WhatsappMessageInteractiveActionSection {\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    rows: ").append(toIndentedString(rows)).append("\n");
+    sb.append("    productItems: ").append(toIndentedString(productItems)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -204,6 +260,7 @@ public class WhatsappMessageInteractiveActionSectionsInner {
     openapiFields = new HashSet<String>();
     openapiFields.add("title");
     openapiFields.add("rows");
+    openapiFields.add("product_items");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -213,14 +270,14 @@ public class WhatsappMessageInteractiveActionSectionsInner {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionSectionsInner
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionSection
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageInteractiveActionSectionsInner.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageInteractiveActionSection.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionSectionsInner is not found in the empty JSON string", WhatsappMessageInteractiveActionSectionsInner.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionSection is not found in the empty JSON string", WhatsappMessageInteractiveActionSection.openapiRequiredFields.toString()));
         }
       }
       if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
@@ -235,7 +292,19 @@ public class WhatsappMessageInteractiveActionSectionsInner {
 
         // validate the optional field `rows` (array)
         for (int i = 0; i < jsonArrayrows.size(); i++) {
-          WhatsappMessageInteractiveActionSectionsInnerRowsInner.validateJsonObject(jsonArrayrows.get(i).getAsJsonObject());
+          WhatsappMessageInteractiveActionSectionRow.validateJsonObject(jsonArrayrows.get(i).getAsJsonObject());
+        };
+      }
+      JsonArray jsonArrayproductItems = jsonObj.getAsJsonArray("product_items");
+      if (jsonArrayproductItems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("product_items").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `product_items` to be an array in the JSON string but got `%s`", jsonObj.get("product_items").toString()));
+        }
+
+        // validate the optional field `product_items` (array)
+        for (int i = 0; i < jsonArrayproductItems.size(); i++) {
+          WhatsappMessageInteractiveActionSectionProductItem.validateJsonObject(jsonArrayproductItems.get(i).getAsJsonObject());
         };
       }
   }
@@ -244,16 +313,16 @@ public class WhatsappMessageInteractiveActionSectionsInner {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageInteractiveActionSectionsInner.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageInteractiveActionSectionsInner' and its subtypes
+       if (!WhatsappMessageInteractiveActionSection.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageInteractiveActionSection' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageInteractiveActionSectionsInner> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionSectionsInner.class));
+       final TypeAdapter<WhatsappMessageInteractiveActionSection> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionSection.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionSectionsInner>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionSection>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageInteractiveActionSectionsInner value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageInteractiveActionSection value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -276,11 +345,11 @@ public class WhatsappMessageInteractiveActionSectionsInner {
            }
 
            @Override
-           public WhatsappMessageInteractiveActionSectionsInner read(JsonReader in) throws IOException {
+           public WhatsappMessageInteractiveActionSection read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageInteractiveActionSectionsInner instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageInteractiveActionSection instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -305,18 +374,18 @@ public class WhatsappMessageInteractiveActionSectionsInner {
   }
 
  /**
-  * Create an instance of WhatsappMessageInteractiveActionSectionsInner given an JSON string
+  * Create an instance of WhatsappMessageInteractiveActionSection given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageInteractiveActionSectionsInner
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionSectionsInner
+  * @return An instance of WhatsappMessageInteractiveActionSection
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionSection
   */
-  public static WhatsappMessageInteractiveActionSectionsInner fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionSectionsInner.class);
+  public static WhatsappMessageInteractiveActionSection fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionSection.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageInteractiveActionSectionsInner to an JSON string
+  * Convert an instance of WhatsappMessageInteractiveActionSection to an JSON string
   *
   * @return JSON string
   */

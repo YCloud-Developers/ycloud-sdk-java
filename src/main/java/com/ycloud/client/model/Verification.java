@@ -54,38 +54,62 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Verification {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * ID of the verification.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private VerificationStatus status;
 
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * Recipient of the verification.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private VerificationChannel channel;
 
   public static final String SERIALIZED_NAME_SEND_TIME = "sendTime";
+  /**
+   * The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_SEND_TIME)
   private Date sendTime;
 
   public static final String SERIALIZED_NAME_TOTAL_PRICE = "totalPrice";
+  /**
+   * Total price of this verification.
+  **/
   @SerializedName(SERIALIZED_NAME_TOTAL_PRICE)
   private Double totalPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+  **/
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
   public static final String SERIALIZED_NAME_SMS_FALLBACK_ENABLED = "smsFallbackEnabled";
+  /**
+   * Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.
+  **/
   @SerializedName(SERIALIZED_NAME_SMS_FALLBACK_ENABLED)
   private Boolean smsFallbackEnabled;
 
   public static final String SERIALIZED_NAME_SMS_FALLBACK = "smsFallback";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_SMS_FALLBACK)
   private VerificationFallback smsFallback;
 
@@ -103,13 +127,16 @@ public class Verification {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ve6j7n8i", required = true, value = "ID of the verification.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * ID of the verification.
+   **/
+  @ApiModelProperty(example = "ve6j7n8i", required = true, value = "ID of the verification.")
   public void setId(String id) {
     this.id = id;
   }
@@ -126,13 +153,15 @@ public class Verification {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public VerificationStatus getStatus() {
     return status;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setStatus(VerificationStatus status) {
     this.status = status;
   }
@@ -149,13 +178,16 @@ public class Verification {
    * @return to
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "+447901614024", value = "Recipient of the verification.")
 
   public String getTo() {
     return to;
   }
 
 
+  /**
+   * Recipient of the verification.
+   **/
+  @ApiModelProperty(example = "+447901614024", value = "Recipient of the verification.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -172,13 +204,15 @@ public class Verification {
    * @return channel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public VerificationChannel getChannel() {
     return channel;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setChannel(VerificationChannel channel) {
     this.channel = channel;
   }
@@ -195,13 +229,16 @@ public class Verification {
    * @return sendTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getSendTime() {
     return sendTime;
   }
 
 
+  /**
+   * The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this verification was sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setSendTime(Date sendTime) {
     this.sendTime = sendTime;
   }
@@ -218,13 +255,16 @@ public class Verification {
    * @return totalPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.0085", value = "Total price of this verification.")
 
   public Double getTotalPrice() {
     return totalPrice;
   }
 
 
+  /**
+   * Total price of this verification.
+   **/
+  @ApiModelProperty(example = "0.0085", value = "Total price of this verification.")
   public void setTotalPrice(Double totalPrice) {
     this.totalPrice = totalPrice;
   }
@@ -241,13 +281,16 @@ public class Verification {
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getCurrency() {
     return currency;
   }
 
 
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   **/
+  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -264,13 +307,16 @@ public class Verification {
    * @return smsFallbackEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.")
 
   public Boolean getSmsFallbackEnabled() {
     return smsFallbackEnabled;
   }
 
 
+  /**
+   * Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.
+   **/
+  @ApiModelProperty(value = "Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.")
   public void setSmsFallbackEnabled(Boolean smsFallbackEnabled) {
     this.smsFallbackEnabled = smsFallbackEnabled;
   }
@@ -287,13 +333,15 @@ public class Verification {
    * @return smsFallback
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public VerificationFallback getSmsFallback() {
     return smsFallback;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setSmsFallback(VerificationFallback smsFallback) {
     this.smsFallback = smsFallback;
   }

@@ -53,22 +53,36 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplateComponentButton {
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private WhatsappTemplateComponentButtonType type;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+   * **Required.** Button text.
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
   public static final String SERIALIZED_NAME_URL = "url";
+  /**
+   * **Required for button type &#x60;URL&#x60;.**  There can be at most 1 variable at the end of the URL.
+  **/
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
+  /**
+   * **Required for button type &#x60;PHONE_NUMBER&#x60;.**
+  **/
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
 
   public static final String SERIALIZED_NAME_EXAMPLE = "example";
+  /**
+   * Sample full URL for a &#x60;URL&#x60; button with a variable.
+  **/
   @SerializedName(SERIALIZED_NAME_EXAMPLE)
   private List<String> example = null;
 
@@ -85,14 +99,16 @@ public class WhatsappTemplateComponentButton {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public WhatsappTemplateComponentButtonType getType() {
     return type;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setType(WhatsappTemplateComponentButtonType type) {
     this.type = type;
   }
@@ -105,17 +121,20 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * Get text
+   * **Required.** Button text.
    * @return text
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public String getText() {
     return text;
   }
 
 
+  /**
+   * **Required.** Button text.
+   **/
+  @ApiModelProperty(required = true, value = "**Required.** Button text.")
   public void setText(String text) {
     this.text = text;
   }
@@ -128,17 +147,20 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * Get url
+   * **Required for button type &#x60;URL&#x60;.**  There can be at most 1 variable at the end of the URL.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUrl() {
     return url;
   }
 
 
+  /**
+   * **Required for button type &#x60;URL&#x60;.**  There can be at most 1 variable at the end of the URL.
+   **/
+  @ApiModelProperty(value = "**Required for button type `URL`.**  There can be at most 1 variable at the end of the URL.")
   public void setUrl(String url) {
     this.url = url;
   }
@@ -151,17 +173,20 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * Get phoneNumber
+   * **Required for button type &#x60;PHONE_NUMBER&#x60;.**
    * @return phoneNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
 
+  /**
+   * **Required for button type &#x60;PHONE_NUMBER&#x60;.**
+   **/
+  @ApiModelProperty(value = "**Required for button type `PHONE_NUMBER`.**")
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
@@ -182,17 +207,20 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * Get example
+   * Sample full URL for a &#x60;URL&#x60; button with a variable.
    * @return example
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getExample() {
     return example;
   }
 
 
+  /**
+   * Sample full URL for a &#x60;URL&#x60; button with a variable.
+   **/
+  @ApiModelProperty(value = "Sample full URL for a `URL` button with a variable.")
   public void setExample(List<String> example) {
     this.example = example;
   }
@@ -296,6 +324,8 @@ public class WhatsappTemplateComponentButton {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("type");
+    openapiRequiredFields.add("text");
   }
 
  /**
@@ -310,6 +340,13 @@ public class WhatsappTemplateComponentButton {
           return;
         } else { // has required fields
           throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappTemplateComponentButton is not found in the empty JSON string", WhatsappTemplateComponentButton.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WhatsappTemplateComponentButton.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if (jsonObj.get("text") != null && !jsonObj.get("text").isJsonPrimitive()) {

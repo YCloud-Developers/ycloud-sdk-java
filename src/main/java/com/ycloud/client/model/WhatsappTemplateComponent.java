@@ -54,7 +54,7 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplateComponent {
   /**
-   * Gets or Sets type
+   * **Required.** Template component type.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -105,11 +105,14 @@ public class WhatsappTemplateComponent {
   }
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * **Required.** Template component type.
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
   /**
-   * Gets or Sets format
+   * **Required for type &#x60;HEADER&#x60;.**
    */
   @JsonAdapter(FormatEnum.Adapter.class)
   public enum FormatEnum {
@@ -160,18 +163,29 @@ public class WhatsappTemplateComponent {
   }
 
   public static final String SERIALIZED_NAME_FORMAT = "format";
+  /**
+   * **Required for type &#x60;HEADER&#x60;.**
+  **/
   @SerializedName(SERIALIZED_NAME_FORMAT)
   private FormatEnum format;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+   * **Required for type &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and format &#x60;TEXT&#x60;.**
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
   public static final String SERIALIZED_NAME_BUTTONS = "buttons";
+  /**
+   * **Required for type &#x60;BUTTONS&#x60;.** The &#x60;BUTTONS&#x60; component has two types of buttons: Quick Reply, and Call To Action. These button types are exclusive, which means you cannot use both of them in one template. Quick Reply buttons are limited to 3. Call To Actions buttons have at most 1 PHONE_NUMBER button, and at most 1 URL button.
+  **/
   @SerializedName(SERIALIZED_NAME_BUTTONS)
   private List<WhatsappTemplateComponentButton> buttons = null;
 
   public static final String SERIALIZED_NAME_EXAMPLE = "example";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_EXAMPLE)
   private WhatsappTemplateComponentExample example;
 
@@ -185,17 +199,20 @@ public class WhatsappTemplateComponent {
   }
 
    /**
-   * Get type
+   * **Required.** Template component type.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public TypeEnum getType() {
     return type;
   }
 
 
+  /**
+   * **Required.** Template component type.
+   **/
+  @ApiModelProperty(value = "**Required.** Template component type.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -208,17 +225,20 @@ public class WhatsappTemplateComponent {
   }
 
    /**
-   * Get format
+   * **Required for type &#x60;HEADER&#x60;.**
    * @return format
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public FormatEnum getFormat() {
     return format;
   }
 
 
+  /**
+   * **Required for type &#x60;HEADER&#x60;.**
+   **/
+  @ApiModelProperty(value = "**Required for type `HEADER`.**")
   public void setFormat(FormatEnum format) {
     this.format = format;
   }
@@ -231,17 +251,20 @@ public class WhatsappTemplateComponent {
   }
 
    /**
-   * Get text
+   * **Required for type &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and format &#x60;TEXT&#x60;.**
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getText() {
     return text;
   }
 
 
+  /**
+   * **Required for type &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and format &#x60;TEXT&#x60;.**
+   **/
+  @ApiModelProperty(value = "**Required for type `BODY`, `FOOTER`, and format `TEXT`.**")
   public void setText(String text) {
     this.text = text;
   }
@@ -262,17 +285,20 @@ public class WhatsappTemplateComponent {
   }
 
    /**
-   * Get buttons
+   * **Required for type &#x60;BUTTONS&#x60;.** The &#x60;BUTTONS&#x60; component has two types of buttons: Quick Reply, and Call To Action. These button types are exclusive, which means you cannot use both of them in one template. Quick Reply buttons are limited to 3. Call To Actions buttons have at most 1 PHONE_NUMBER button, and at most 1 URL button.
    * @return buttons
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<WhatsappTemplateComponentButton> getButtons() {
     return buttons;
   }
 
 
+  /**
+   * **Required for type &#x60;BUTTONS&#x60;.** The &#x60;BUTTONS&#x60; component has two types of buttons: Quick Reply, and Call To Action. These button types are exclusive, which means you cannot use both of them in one template. Quick Reply buttons are limited to 3. Call To Actions buttons have at most 1 PHONE_NUMBER button, and at most 1 URL button.
+   **/
+  @ApiModelProperty(value = "**Required for type `BUTTONS`.** The `BUTTONS` component has two types of buttons: Quick Reply, and Call To Action. These button types are exclusive, which means you cannot use both of them in one template. Quick Reply buttons are limited to 3. Call To Actions buttons have at most 1 PHONE_NUMBER button, and at most 1 URL button.")
   public void setButtons(List<WhatsappTemplateComponentButton> buttons) {
     this.buttons = buttons;
   }
@@ -289,13 +315,15 @@ public class WhatsappTemplateComponent {
    * @return example
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappTemplateComponentExample getExample() {
     return example;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setExample(WhatsappTemplateComponentExample example) {
     this.example = example;
   }

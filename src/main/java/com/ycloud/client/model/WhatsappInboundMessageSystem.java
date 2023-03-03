@@ -51,22 +51,37 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageSystem {
   public static final String SERIALIZED_NAME_BODY = "body";
+  /**
+   * Describes the system message event. Supported use cases are: - Phone number update: for when a user changes from an old number to a new number. - Identity update: for when a user identity has changed.
+  **/
   @SerializedName(SERIALIZED_NAME_BODY)
   private String body;
 
   public static final String SERIALIZED_NAME_NEW_WA_ID = "new_wa_id";
+  /**
+   * **Added to Webhooks for phone number updates.**  New WhatsApp ID of the customer.
+  **/
   @SerializedName(SERIALIZED_NAME_NEW_WA_ID)
   private String newWaId;
 
   public static final String SERIALIZED_NAME_IDENTITY = "identity";
+  /**
+   * **Added to Webhooks for identity updates.**  New WhatsApp ID of the customer.
+  **/
   @SerializedName(SERIALIZED_NAME_IDENTITY)
   private String identity;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * Supported types are: - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification.
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
   public static final String SERIALIZED_NAME_USER = "user";
+  /**
+   * **Added to Webhooks for identity updates.**  The new WhatsApp user ID of the customer.
+  **/
   @SerializedName(SERIALIZED_NAME_USER)
   private String user;
 
@@ -84,13 +99,16 @@ public class WhatsappInboundMessageSystem {
    * @return body
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes the system message event. Supported use cases are: - Phone number update: for when a user changes from an old number to a new number. - Identity update: for when a user identity has changed.")
 
   public String getBody() {
     return body;
   }
 
 
+  /**
+   * Describes the system message event. Supported use cases are: - Phone number update: for when a user changes from an old number to a new number. - Identity update: for when a user identity has changed.
+   **/
+  @ApiModelProperty(value = "Describes the system message event. Supported use cases are: - Phone number update: for when a user changes from an old number to a new number. - Identity update: for when a user identity has changed.")
   public void setBody(String body) {
     this.body = body;
   }
@@ -107,13 +125,16 @@ public class WhatsappInboundMessageSystem {
    * @return newWaId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**Added to Webhooks for phone number updates.**  New WhatsApp ID of the customer.")
 
   public String getNewWaId() {
     return newWaId;
   }
 
 
+  /**
+   * **Added to Webhooks for phone number updates.**  New WhatsApp ID of the customer.
+   **/
+  @ApiModelProperty(value = "**Added to Webhooks for phone number updates.**  New WhatsApp ID of the customer.")
   public void setNewWaId(String newWaId) {
     this.newWaId = newWaId;
   }
@@ -130,13 +151,16 @@ public class WhatsappInboundMessageSystem {
    * @return identity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**Added to Webhooks for identity updates.**  New WhatsApp ID of the customer.")
 
   public String getIdentity() {
     return identity;
   }
 
 
+  /**
+   * **Added to Webhooks for identity updates.**  New WhatsApp ID of the customer.
+   **/
+  @ApiModelProperty(value = "**Added to Webhooks for identity updates.**  New WhatsApp ID of the customer.")
   public void setIdentity(String identity) {
     this.identity = identity;
   }
@@ -153,13 +177,16 @@ public class WhatsappInboundMessageSystem {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Supported types are: - `user_changed_number`: for a user changed number notification. - `user_identity_changed`: for user identity changed notification.")
 
   public String getType() {
     return type;
   }
 
 
+  /**
+   * Supported types are: - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification.
+   **/
+  @ApiModelProperty(value = "Supported types are: - `user_changed_number`: for a user changed number notification. - `user_identity_changed`: for user identity changed notification.")
   public void setType(String type) {
     this.type = type;
   }
@@ -176,13 +203,16 @@ public class WhatsappInboundMessageSystem {
    * @return user
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**Added to Webhooks for identity updates.**  The new WhatsApp user ID of the customer.")
 
   public String getUser() {
     return user;
   }
 
 
+  /**
+   * **Added to Webhooks for identity updates.**  The new WhatsApp user ID of the customer.
+   **/
+  @ApiModelProperty(value = "**Added to Webhooks for identity updates.**  The new WhatsApp user ID of the customer.")
   public void setUser(String user) {
     this.user = user;
   }

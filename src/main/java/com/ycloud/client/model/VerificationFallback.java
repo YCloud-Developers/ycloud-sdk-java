@@ -51,14 +51,23 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class VerificationFallback {
   public static final String SERIALIZED_NAME_SUPPORTED = "supported";
+  /**
+   * Whether this fallback you requested is supported. If &#x60;false&#x60; is returned, it means that there are errors for this fallback, and this fallback will not be triggered.
+  **/
   @SerializedName(SERIALIZED_NAME_SUPPORTED)
   private Boolean supported;
 
   public static final String SERIALIZED_NAME_UNSUPPORTED_REASON = "unsupportedReason";
+  /**
+   * The reason why the fallback is unsupported, e.g, &#x60;PARAM_INVALID&#x60;, &#x60;SMS_SIGNATURE_UNAVAILABLE&#x60;, &#x60;SENDER_ID_UNAVAILABLE&#x60;, or &#x60;MESSAGING_REGION_UNSUPPORTED&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_UNSUPPORTED_REASON)
   private String unsupportedReason;
 
   public static final String SERIALIZED_NAME_UNSUPPORTED_DETAIL = "unsupportedDetail";
+  /**
+   * The detail message why the fallback is unsupported.
+  **/
   @SerializedName(SERIALIZED_NAME_UNSUPPORTED_DETAIL)
   private String unsupportedDetail;
 
@@ -76,13 +85,16 @@ public class VerificationFallback {
    * @return supported
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether this fallback you requested is supported. If `false` is returned, it means that there are errors for this fallback, and this fallback will not be triggered.")
 
   public Boolean getSupported() {
     return supported;
   }
 
 
+  /**
+   * Whether this fallback you requested is supported. If &#x60;false&#x60; is returned, it means that there are errors for this fallback, and this fallback will not be triggered.
+   **/
+  @ApiModelProperty(value = "Whether this fallback you requested is supported. If `false` is returned, it means that there are errors for this fallback, and this fallback will not be triggered.")
   public void setSupported(Boolean supported) {
     this.supported = supported;
   }
@@ -99,13 +111,16 @@ public class VerificationFallback {
    * @return unsupportedReason
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SENDER_ID_UNAVAILABLE", value = "The reason why the fallback is unsupported, e.g, `PARAM_INVALID`, `SMS_SIGNATURE_UNAVAILABLE`, `SENDER_ID_UNAVAILABLE`, or `MESSAGING_REGION_UNSUPPORTED`.")
 
   public String getUnsupportedReason() {
     return unsupportedReason;
   }
 
 
+  /**
+   * The reason why the fallback is unsupported, e.g, &#x60;PARAM_INVALID&#x60;, &#x60;SMS_SIGNATURE_UNAVAILABLE&#x60;, &#x60;SENDER_ID_UNAVAILABLE&#x60;, or &#x60;MESSAGING_REGION_UNSUPPORTED&#x60;.
+   **/
+  @ApiModelProperty(example = "SENDER_ID_UNAVAILABLE", value = "The reason why the fallback is unsupported, e.g, `PARAM_INVALID`, `SMS_SIGNATURE_UNAVAILABLE`, `SENDER_ID_UNAVAILABLE`, or `MESSAGING_REGION_UNSUPPORTED`.")
   public void setUnsupportedReason(String unsupportedReason) {
     this.unsupportedReason = unsupportedReason;
   }
@@ -122,13 +137,16 @@ public class VerificationFallback {
    * @return unsupportedDetail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This Sender ID is not registered.", value = "The detail message why the fallback is unsupported.")
 
   public String getUnsupportedDetail() {
     return unsupportedDetail;
   }
 
 
+  /**
+   * The detail message why the fallback is unsupported.
+   **/
+  @ApiModelProperty(example = "This Sender ID is not registered.", value = "The detail message why the fallback is unsupported.")
   public void setUnsupportedDetail(String unsupportedDetail) {
     this.unsupportedDetail = unsupportedDetail;
   }

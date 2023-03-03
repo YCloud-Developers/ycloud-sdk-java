@@ -45,20 +45,29 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * [WhatsApp Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object).
+ * Use for &#x60;image&#x60;, &#x60;video&#x60;, &#x60;audio&#x60;, &#x60;document&#x60;, or &#x60;sticker&#x60; messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).
  */
-@ApiModel(description = "[WhatsApp Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object).")
+@ApiModel(description = "Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageMedia {
   public static final String SERIALIZED_NAME_LINK = "link";
+  /**
+   * The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.
+  **/
   @SerializedName(SERIALIZED_NAME_LINK)
   private String link;
 
   public static final String SERIALIZED_NAME_CAPTION = "caption";
+  /**
+   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;interactive&#x60; messages.
+  **/
   @SerializedName(SERIALIZED_NAME_CAPTION)
   private String caption;
 
   public static final String SERIALIZED_NAME_FILENAME = "filename";
+  /**
+   * Describes the filename for the specific document. Use only with &#x60;document&#x60; media.
+  **/
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
 
@@ -76,13 +85,16 @@ public class WhatsappMessageMedia {
    * @return link
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.")
 
   public String getLink() {
     return link;
   }
 
 
+  /**
+   * The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.
+   **/
+  @ApiModelProperty(required = true, value = "The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.")
   public void setLink(String link) {
     this.link = link;
   }
@@ -95,17 +107,20 @@ public class WhatsappMessageMedia {
   }
 
    /**
-   * Describes the specified &#x60;video&#x60; or &#x60;image&#x60; media.
+   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;interactive&#x60; messages.
    * @return caption
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes the specified `video` or `image` media.")
 
   public String getCaption() {
     return caption;
   }
 
 
+  /**
+   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;interactive&#x60; messages.
+   **/
+  @ApiModelProperty(value = "Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `interactive` messages.")
   public void setCaption(String caption) {
     this.caption = caption;
   }
@@ -122,13 +137,16 @@ public class WhatsappMessageMedia {
    * @return filename
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes the filename for the specific document. Use only with `document` media.")
 
   public String getFilename() {
     return filename;
   }
 
 
+  /**
+   * Describes the filename for the specific document. Use only with &#x60;document&#x60; media.
+   **/
+  @ApiModelProperty(value = "Describes the filename for the specific document. Use only with `document` media.")
   public void setFilename(String filename) {
     this.filename = filename;
   }

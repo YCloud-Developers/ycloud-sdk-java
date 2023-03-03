@@ -50,26 +50,44 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SmsSendRequest {
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+   * The text of this message.
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
   public static final String SERIALIZED_NAME_SENDER_ID = "senderId";
+  /**
+   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+  **/
   @SerializedName(SERIALIZED_NAME_SENDER_ID)
   private String senderId;
 
   public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  /**
+   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;YCloud&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【YCloud】Your verification code is 123456&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
   private String signature;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+  **/
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
   public static final String SERIALIZED_NAME_CALLBACK_URL = "callbackUrl";
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+  **/
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
 
@@ -87,13 +105,16 @@ public class SmsSendRequest {
    * @return to
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
 
   public String getTo() {
     return to;
   }
 
 
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   **/
+  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -110,13 +131,16 @@ public class SmsSendRequest {
    * @return text
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Your verification code is 123456.", required = true, value = "The text of this message.")
 
   public String getText() {
     return text;
   }
 
 
+  /**
+   * The text of this message.
+   **/
+  @ApiModelProperty(example = "Your verification code is 123456.", required = true, value = "The text of this message.")
   public void setText(String text) {
     this.text = text;
   }
@@ -133,13 +157,16 @@ public class SmsSendRequest {
    * @return senderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "YCloud", value = "[Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.")
 
   public String getSenderId() {
     return senderId;
   }
 
 
+  /**
+   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+   **/
+  @ApiModelProperty(example = "YCloud", value = "[Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.")
   public void setSenderId(String senderId) {
     this.senderId = senderId;
   }
@@ -156,13 +183,16 @@ public class SmsSendRequest {
    * @return signature
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "YCloud", value = "This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `YCloud`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】Your verification code is 123456`.")
 
   public String getSignature() {
     return signature;
   }
 
 
+  /**
+   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;YCloud&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【YCloud】Your verification code is 123456&#x60;.
+   **/
+  @ApiModelProperty(example = "YCloud", value = "This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `YCloud`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】Your verification code is 123456`.")
   public void setSignature(String signature) {
     this.signature = signature;
   }
@@ -179,13 +209,16 @@ public class SmsSendRequest {
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
 
   public String getExternalId() {
     return externalId;
   }
 
 
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   **/
+  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
@@ -202,13 +235,16 @@ public class SmsSendRequest {
    * @return callbackUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-sms", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
 
   public String getCallbackUrl() {
     return callbackUrl;
   }
 
 
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+   **/
+  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-sms", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
   public void setCallbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
   }

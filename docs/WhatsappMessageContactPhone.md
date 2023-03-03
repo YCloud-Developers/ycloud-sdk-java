@@ -1,6 +1,6 @@
 
 
-# WhatsappMessageContactPhonesInner
+# WhatsappMessageContactPhone
 
 
 ## Properties

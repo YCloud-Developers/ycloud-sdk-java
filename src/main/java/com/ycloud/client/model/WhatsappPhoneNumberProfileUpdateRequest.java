@@ -54,30 +54,50 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappPhoneNumberProfileUpdateRequest {
   public static final String SERIALIZED_NAME_ABOUT = "about";
+  /**
+   * The business&#39;s **About** text. This text appears in the business&#39;s profile, beneath its profile image, phone number, and contact buttons. - String cannot be empty. - Strings must be between 1 and 139 characters. - Rendered emojis are supported however their unicode values are not. Emoji unicode values must be Java- or JavaScript-escape encoded. - Hyperlinks can be included but will not render as clickable links. - Markdown is not supported.
+  **/
   @SerializedName(SERIALIZED_NAME_ABOUT)
   private String about;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
+  /**
+   * Address of the business. Character limit 256.
+  **/
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  /**
+   * Description of the business. Character limit 512.
+  **/
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
+  /**
+   * The contact email address (in valid email format) of the business. Character limit 128.
+  **/
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
   public static final String SERIALIZED_NAME_PROFILE_PICTURE_URL = "profilePictureUrl";
+  /**
+   * URL of the profile picture that was uploaded to Meta.
+  **/
   @SerializedName(SERIALIZED_NAME_PROFILE_PICTURE_URL)
   private String profilePictureUrl;
 
   public static final String SERIALIZED_NAME_VERTICAL = "vertical";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_VERTICAL)
   private WhatsappPhoneNumberProfileVertical vertical;
 
   public static final String SERIALIZED_NAME_WEBSITES = "websites";
+  /**
+   * The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 256 characters each.
+  **/
   @SerializedName(SERIALIZED_NAME_WEBSITES)
   private List<String> websites = null;
 
@@ -95,13 +115,16 @@ public class WhatsappPhoneNumberProfileUpdateRequest {
    * @return about
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ABOUT", value = "The business's **About** text. This text appears in the business's profile, beneath its profile image, phone number, and contact buttons. - String cannot be empty. - Strings must be between 1 and 139 characters. - Rendered emojis are supported however their unicode values are not. Emoji unicode values must be Java- or JavaScript-escape encoded. - Hyperlinks can be included but will not render as clickable links. - Markdown is not supported.")
 
   public String getAbout() {
     return about;
   }
 
 
+  /**
+   * The business&#39;s **About** text. This text appears in the business&#39;s profile, beneath its profile image, phone number, and contact buttons. - String cannot be empty. - Strings must be between 1 and 139 characters. - Rendered emojis are supported however their unicode values are not. Emoji unicode values must be Java- or JavaScript-escape encoded. - Hyperlinks can be included but will not render as clickable links. - Markdown is not supported.
+   **/
+  @ApiModelProperty(example = "ABOUT", value = "The business's **About** text. This text appears in the business's profile, beneath its profile image, phone number, and contact buttons. - String cannot be empty. - Strings must be between 1 and 139 characters. - Rendered emojis are supported however their unicode values are not. Emoji unicode values must be Java- or JavaScript-escape encoded. - Hyperlinks can be included but will not render as clickable links. - Markdown is not supported.")
   public void setAbout(String about) {
     this.about = about;
   }
@@ -118,13 +141,16 @@ public class WhatsappPhoneNumberProfileUpdateRequest {
    * @return address
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ADDRESS", value = "Address of the business. Character limit 256.")
 
   public String getAddress() {
     return address;
   }
 
 
+  /**
+   * Address of the business. Character limit 256.
+   **/
+  @ApiModelProperty(example = "ADDRESS", value = "Address of the business. Character limit 256.")
   public void setAddress(String address) {
     this.address = address;
   }
@@ -141,13 +167,16 @@ public class WhatsappPhoneNumberProfileUpdateRequest {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "DESCRIPTION", value = "Description of the business. Character limit 512.")
 
   public String getDescription() {
     return description;
   }
 
 
+  /**
+   * Description of the business. Character limit 512.
+   **/
+  @ApiModelProperty(example = "DESCRIPTION", value = "Description of the business. Character limit 512.")
   public void setDescription(String description) {
     this.description = description;
   }
@@ -164,13 +193,16 @@ public class WhatsappPhoneNumberProfileUpdateRequest {
    * @return email
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "tom@example.com", value = "The contact email address (in valid email format) of the business. Character limit 128.")
 
   public String getEmail() {
     return email;
   }
 
 
+  /**
+   * The contact email address (in valid email format) of the business. Character limit 128.
+   **/
+  @ApiModelProperty(example = "tom@example.com", value = "The contact email address (in valid email format) of the business. Character limit 128.")
   public void setEmail(String email) {
     this.email = email;
   }
@@ -187,13 +219,16 @@ public class WhatsappPhoneNumberProfileUpdateRequest {
    * @return profilePictureUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://URL", value = "URL of the profile picture that was uploaded to Meta.")
 
   public String getProfilePictureUrl() {
     return profilePictureUrl;
   }
 
 
+  /**
+   * URL of the profile picture that was uploaded to Meta.
+   **/
+  @ApiModelProperty(example = "https://URL", value = "URL of the profile picture that was uploaded to Meta.")
   public void setProfilePictureUrl(String profilePictureUrl) {
     this.profilePictureUrl = profilePictureUrl;
   }
@@ -210,13 +245,15 @@ public class WhatsappPhoneNumberProfileUpdateRequest {
    * @return vertical
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappPhoneNumberProfileVertical getVertical() {
     return vertical;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setVertical(WhatsappPhoneNumberProfileVertical vertical) {
     this.vertical = vertical;
   }
@@ -241,13 +278,16 @@ public class WhatsappPhoneNumberProfileUpdateRequest {
    * @return websites
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 256 characters each.")
 
   public List<String> getWebsites() {
     return websites;
   }
 
 
+  /**
+   * The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 256 characters each.
+   **/
+  @ApiModelProperty(value = "The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 256 characters each.")
   public void setWebsites(List<String> websites) {
     this.websites = websites;
   }

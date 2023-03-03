@@ -45,12 +45,15 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * [WhatsApp Footer Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#footer-object).
+ * Optional. An object with the footer of the message. See also [WhatsApp Footer Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#footer-object).
  */
-@ApiModel(description = "[WhatsApp Footer Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#footer-object).")
+@ApiModel(description = "Optional. An object with the footer of the message. See also [WhatsApp Footer Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#footer-object).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveFooter {
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+   * The footer content. Emojis and markdown are supported. Links are supported.
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
@@ -68,13 +71,16 @@ public class WhatsappMessageInteractiveFooter {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The footer content. Emojis and markdown are supported. Links are supported.")
 
   public String getText() {
     return text;
   }
 
 
+  /**
+   * The footer content. Emojis and markdown are supported. Links are supported.
+   **/
+  @ApiModelProperty(value = "The footer content. Emojis and markdown are supported. Links are supported.")
   public void setText(String text) {
     this.text = text;
   }

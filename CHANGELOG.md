@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.0 (2023-03-03)
+
+- Support WhatsApp `sticker` and `reaction` messages;
+- Minor breaking changes: Models with `inner` in their name are renamed;
+
 ## 1.5.0 (2023-02-20)
 
 - Add WhatsApp Business Phone Number Profile APIs.

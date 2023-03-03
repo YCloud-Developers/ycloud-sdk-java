@@ -51,14 +51,23 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageContactOrg {
   public static final String SERIALIZED_NAME_COMPANY = "company";
+  /**
+   * Name of the contact&#39;s company.
+  **/
   @SerializedName(SERIALIZED_NAME_COMPANY)
   private String company;
 
   public static final String SERIALIZED_NAME_DEPARTMENT = "department";
+  /**
+   * Name of the contact&#39;s department.
+  **/
   @SerializedName(SERIALIZED_NAME_DEPARTMENT)
   private String department;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
+  /**
+   * Contact&#39;s business title.
+  **/
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
@@ -76,13 +85,16 @@ public class WhatsappMessageContactOrg {
    * @return company
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the contact's company.")
 
   public String getCompany() {
     return company;
   }
 
 
+  /**
+   * Name of the contact&#39;s company.
+   **/
+  @ApiModelProperty(value = "Name of the contact's company.")
   public void setCompany(String company) {
     this.company = company;
   }
@@ -99,13 +111,16 @@ public class WhatsappMessageContactOrg {
    * @return department
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the contact's department.")
 
   public String getDepartment() {
     return department;
   }
 
 
+  /**
+   * Name of the contact&#39;s department.
+   **/
+  @ApiModelProperty(value = "Name of the contact's department.")
   public void setDepartment(String department) {
     this.department = department;
   }
@@ -122,13 +137,16 @@ public class WhatsappMessageContactOrg {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contact's business title.")
 
   public String getTitle() {
     return title;
   }
 
 
+  /**
+   * Contact&#39;s business title.
+   **/
+  @ApiModelProperty(value = "Contact's business title.")
   public void setTitle(String title) {
     this.title = title;
   }

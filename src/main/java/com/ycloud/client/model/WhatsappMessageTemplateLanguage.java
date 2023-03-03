@@ -51,8 +51,18 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageTemplateLanguage {
   public static final String SERIALIZED_NAME_CODE = "code";
+  /**
+   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+  **/
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
+
+  public static final String SERIALIZED_NAME_POLICY = "policy";
+  /**
+   * Default (and only supported option): &#x60;deterministic&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_POLICY)
+  private String policy;
 
   public WhatsappMessageTemplateLanguage() { 
   }
@@ -68,15 +78,44 @@ public class WhatsappMessageTemplateLanguage {
    * @return code
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "en", required = true, value = "The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.")
 
   public String getCode() {
     return code;
   }
 
 
+  /**
+   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+   **/
+  @ApiModelProperty(example = "en", required = true, value = "The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.")
   public void setCode(String code) {
     this.code = code;
+  }
+
+
+  public WhatsappMessageTemplateLanguage policy(String policy) {
+    
+    this.policy = policy;
+    return this;
+  }
+
+   /**
+   * Default (and only supported option): &#x60;deterministic&#x60;.
+   * @return policy
+  **/
+  @javax.annotation.Nullable
+
+  public String getPolicy() {
+    return policy;
+  }
+
+
+  /**
+   * Default (and only supported option): &#x60;deterministic&#x60;.
+   **/
+  @ApiModelProperty(value = "Default (and only supported option): `deterministic`.")
+  public void setPolicy(String policy) {
+    this.policy = policy;
   }
 
   /**
@@ -125,13 +164,14 @@ public class WhatsappMessageTemplateLanguage {
       return false;
     }
     WhatsappMessageTemplateLanguage whatsappMessageTemplateLanguage = (WhatsappMessageTemplateLanguage) o;
-    return Objects.equals(this.code, whatsappMessageTemplateLanguage.code)&&
+    return Objects.equals(this.code, whatsappMessageTemplateLanguage.code) &&
+        Objects.equals(this.policy, whatsappMessageTemplateLanguage.policy)&&
         Objects.equals(this.additionalProperties, whatsappMessageTemplateLanguage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, additionalProperties);
+    return Objects.hash(code, policy, additionalProperties);
   }
 
   @Override
@@ -139,6 +179,7 @@ public class WhatsappMessageTemplateLanguage {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappMessageTemplateLanguage {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -163,6 +204,7 @@ public class WhatsappMessageTemplateLanguage {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("code");
+    openapiFields.add("policy");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -192,6 +234,9 @@ public class WhatsappMessageTemplateLanguage {
       }
       if (jsonObj.get("code") != null && !jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
+      }
+      if (jsonObj.get("policy") != null && !jsonObj.get("policy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("policy").toString()));
       }
   }
 

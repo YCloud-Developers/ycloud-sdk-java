@@ -49,19 +49,25 @@ import com.ycloud.client.JSON;
  */
 @ApiModel(description = "Contact email address(es) formatted as an emails object.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageContactEmailsInner {
+public class WhatsappMessageContactEmail {
   public static final String SERIALIZED_NAME_EMAIL = "email";
+  /**
+   * Email address.
+  **/
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * Standard values are &#x60;HOME&#x60; and &#x60;WORK&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public WhatsappMessageContactEmailsInner() { 
+  public WhatsappMessageContactEmail() { 
   }
 
-  public WhatsappMessageContactEmailsInner email(String email) {
+  public WhatsappMessageContactEmail email(String email) {
     
     this.email = email;
     return this;
@@ -72,19 +78,22 @@ public class WhatsappMessageContactEmailsInner {
    * @return email
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Email address.")
 
   public String getEmail() {
     return email;
   }
 
 
+  /**
+   * Email address.
+   **/
+  @ApiModelProperty(value = "Email address.")
   public void setEmail(String email) {
     this.email = email;
   }
 
 
-  public WhatsappMessageContactEmailsInner type(String type) {
+  public WhatsappMessageContactEmail type(String type) {
     
     this.type = type;
     return this;
@@ -95,13 +104,16 @@ public class WhatsappMessageContactEmailsInner {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "WORK", value = "Standard values are `HOME` and `WORK`.")
 
   public String getType() {
     return type;
   }
 
 
+  /**
+   * Standard values are &#x60;HOME&#x60; and &#x60;WORK&#x60;.
+   **/
+  @ApiModelProperty(example = "WORK", value = "Standard values are `HOME` and `WORK`.")
   public void setType(String type) {
     this.type = type;
   }
@@ -117,7 +129,7 @@ public class WhatsappMessageContactEmailsInner {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageContactEmailsInner putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageContactEmail putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -151,10 +163,10 @@ public class WhatsappMessageContactEmailsInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageContactEmailsInner whatsappMessageContactEmailsInner = (WhatsappMessageContactEmailsInner) o;
-    return Objects.equals(this.email, whatsappMessageContactEmailsInner.email) &&
-        Objects.equals(this.type, whatsappMessageContactEmailsInner.type)&&
-        Objects.equals(this.additionalProperties, whatsappMessageContactEmailsInner.additionalProperties);
+    WhatsappMessageContactEmail whatsappMessageContactEmail = (WhatsappMessageContactEmail) o;
+    return Objects.equals(this.email, whatsappMessageContactEmail.email) &&
+        Objects.equals(this.type, whatsappMessageContactEmail.type)&&
+        Objects.equals(this.additionalProperties, whatsappMessageContactEmail.additionalProperties);
   }
 
   @Override
@@ -165,7 +177,7 @@ public class WhatsappMessageContactEmailsInner {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageContactEmailsInner {\n");
+    sb.append("class WhatsappMessageContactEmail {\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -202,14 +214,14 @@ public class WhatsappMessageContactEmailsInner {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageContactEmailsInner
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageContactEmail
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageContactEmailsInner.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageContactEmail.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageContactEmailsInner is not found in the empty JSON string", WhatsappMessageContactEmailsInner.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageContactEmail is not found in the empty JSON string", WhatsappMessageContactEmail.openapiRequiredFields.toString()));
         }
       }
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
@@ -224,16 +236,16 @@ public class WhatsappMessageContactEmailsInner {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageContactEmailsInner.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageContactEmailsInner' and its subtypes
+       if (!WhatsappMessageContactEmail.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageContactEmail' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageContactEmailsInner> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageContactEmailsInner.class));
+       final TypeAdapter<WhatsappMessageContactEmail> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageContactEmail.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageContactEmailsInner>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageContactEmail>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageContactEmailsInner value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageContactEmail value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -256,11 +268,11 @@ public class WhatsappMessageContactEmailsInner {
            }
 
            @Override
-           public WhatsappMessageContactEmailsInner read(JsonReader in) throws IOException {
+           public WhatsappMessageContactEmail read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageContactEmailsInner instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageContactEmail instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -285,18 +297,18 @@ public class WhatsappMessageContactEmailsInner {
   }
 
  /**
-  * Create an instance of WhatsappMessageContactEmailsInner given an JSON string
+  * Create an instance of WhatsappMessageContactEmail given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageContactEmailsInner
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageContactEmailsInner
+  * @return An instance of WhatsappMessageContactEmail
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageContactEmail
   */
-  public static WhatsappMessageContactEmailsInner fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageContactEmailsInner.class);
+  public static WhatsappMessageContactEmail fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageContactEmail.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageContactEmailsInner to an JSON string
+  * Convert an instance of WhatsappMessageContactEmail to an JSON string
   *
   * @return JSON string
   */

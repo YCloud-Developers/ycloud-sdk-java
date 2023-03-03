@@ -51,14 +51,23 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageInteractiveListReply {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique ID of the selected list item.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
+  /**
+   * Title of the selected list item.
+  **/
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  /**
+   * Description of the selected row.
+  **/
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
@@ -76,13 +85,16 @@ public class WhatsappInboundMessageInteractiveListReply {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the selected list item.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * Unique ID of the selected list item.
+   **/
+  @ApiModelProperty(value = "Unique ID of the selected list item.")
   public void setId(String id) {
     this.id = id;
   }
@@ -99,13 +111,16 @@ public class WhatsappInboundMessageInteractiveListReply {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the selected list item.")
 
   public String getTitle() {
     return title;
   }
 
 
+  /**
+   * Title of the selected list item.
+   **/
+  @ApiModelProperty(value = "Title of the selected list item.")
   public void setTitle(String title) {
     this.title = title;
   }
@@ -122,13 +137,16 @@ public class WhatsappInboundMessageInteractiveListReply {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the selected row.")
 
   public String getDescription() {
     return description;
   }
 
 
+  /**
+   * Description of the selected row.
+   **/
+  @ApiModelProperty(value = "Description of the selected row.")
   public void setDescription(String description) {
     this.description = description;
   }

@@ -23,9 +23,11 @@ import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappApiError;
 import com.ycloud.client.model.WhatsappConversation;
 import com.ycloud.client.model.WhatsappMessageContact;
+import com.ycloud.client.model.WhatsappMessageContext;
 import com.ycloud.client.model.WhatsappMessageInteractive;
 import com.ycloud.client.model.WhatsappMessageLocation;
 import com.ycloud.client.model.WhatsappMessageMedia;
+import com.ycloud.client.model.WhatsappMessageReaction;
 import com.ycloud.client.model.WhatsappMessageStatus;
 import com.ycloud.client.model.WhatsappMessageTemplate;
 import com.ycloud.client.model.WhatsappMessageText;
@@ -64,110 +66,196 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessage {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique ID for the object.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_WAMID = "wamid";
+  /**
+   * The original message ID on WhatsApp&#39;s platform.
+  **/
   @SerializedName(SERIALIZED_NAME_WAMID)
   private String wamid;
 
   public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
+  /**
+   * WhatsApp Business Account ID.
+  **/
   @SerializedName(SERIALIZED_NAME_WABA_ID)
   private String wabaId;
 
   public static final String SERIALIZED_NAME_FROM = "from";
+  /**
+   * The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+  **/
   @SerializedName(SERIALIZED_NAME_FROM)
   private String from;
 
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
   public static final String SERIALIZED_NAME_CONVERSATION = "conversation";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CONVERSATION)
   private WhatsappConversation conversation;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private WhatsappMessageType type;
 
   public static final String SERIALIZED_NAME_TEMPLATE = "template";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
   private WhatsappMessageTemplate template;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private WhatsappMessageText text;
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_IMAGE)
   private WhatsappMessageMedia image;
 
   public static final String SERIALIZED_NAME_VIDEO = "video";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_VIDEO)
   private WhatsappMessageMedia video;
 
   public static final String SERIALIZED_NAME_AUDIO = "audio";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_AUDIO)
   private WhatsappMessageMedia audio;
 
   public static final String SERIALIZED_NAME_DOCUMENT = "document";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_DOCUMENT)
   private WhatsappMessageMedia document;
 
+  public static final String SERIALIZED_NAME_STICKER = "sticker";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_STICKER)
+  private WhatsappMessageMedia sticker;
+
   public static final String SERIALIZED_NAME_LOCATION = "location";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_LOCATION)
   private WhatsappMessageLocation location;
 
   public static final String SERIALIZED_NAME_INTERACTIVE = "interactive";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_INTERACTIVE)
   private WhatsappMessageInteractive interactive;
 
   public static final String SERIALIZED_NAME_CONTACTS = "contacts";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CONTACTS)
   private List<WhatsappMessageContact> contacts = null;
 
+  public static final String SERIALIZED_NAME_REACTION = "reaction";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_REACTION)
+  private WhatsappMessageReaction reaction;
+
+  public static final String SERIALIZED_NAME_CONTEXT = "context";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CONTEXT)
+  private WhatsappMessageContext context;
+
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+  **/
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private WhatsappMessageStatus status;
 
   public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
+  /**
+   * Error code when the message status is &#x60;failed&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_ERROR_CODE)
   private String errorCode;
 
   public static final String SERIALIZED_NAME_ERROR_MESSAGE = "errorMessage";
+  /**
+   * Error message when the message status is &#x60;failed&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
   private String errorMessage;
 
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
+  /**
+   * The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private Date createTime;
 
   public static final String SERIALIZED_NAME_UPDATE_TIME = "updateTime";
+  /**
+   * The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
   private Date updateTime;
 
   public static final String SERIALIZED_NAME_TOTAL_PRICE = "totalPrice";
+  /**
+   * Total price of this message.
+  **/
   @SerializedName(SERIALIZED_NAME_TOTAL_PRICE)
   private Double totalPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+  **/
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
   public static final String SERIALIZED_NAME_WHATSAPP_API_ERROR = "whatsappApiError";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
   private WhatsappApiError whatsappApiError;
 
   public static final String SERIALIZED_NAME_BIZ_TYPE = "bizType";
+  /**
+   * This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+  **/
   @SerializedName(SERIALIZED_NAME_BIZ_TYPE)
   private String bizType;
 
   public static final String SERIALIZED_NAME_VERIFICATION_ID = "verificationId";
+  /**
+   * The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
   private String verificationId;
 
@@ -185,13 +273,16 @@ public class WhatsappMessage {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID for the object.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * Unique ID for the object.
+   **/
+  @ApiModelProperty(required = true, value = "Unique ID for the object.")
   public void setId(String id) {
     this.id = id;
   }
@@ -204,17 +295,20 @@ public class WhatsappMessage {
   }
 
    /**
-   * The native WhatsApp message ID.
+   * The original message ID on WhatsApp&#39;s platform.
    * @return wamid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "The native WhatsApp message ID.")
 
   public String getWamid() {
     return wamid;
   }
 
 
+  /**
+   * The original message ID on WhatsApp&#39;s platform.
+   **/
+  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "The original message ID on WhatsApp's platform.")
   public void setWamid(String wamid) {
     this.wamid = wamid;
   }
@@ -231,13 +325,16 @@ public class WhatsappMessage {
    * @return wabaId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "whatsapp-business-account-id", required = true, value = "WhatsApp Business Account ID.")
 
   public String getWabaId() {
     return wabaId;
   }
 
 
+  /**
+   * WhatsApp Business Account ID.
+   **/
+  @ApiModelProperty(example = "whatsapp-business-account-id", required = true, value = "WhatsApp Business Account ID.")
   public void setWabaId(String wabaId) {
     this.wabaId = wabaId;
   }
@@ -254,13 +351,16 @@ public class WhatsappMessage {
    * @return from
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
 
   public String getFrom() {
     return from;
   }
 
 
+  /**
+   * The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   **/
+  @ApiModelProperty(example = "+447901614024", required = true, value = "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setFrom(String from) {
     this.from = from;
   }
@@ -277,13 +377,16 @@ public class WhatsappMessage {
    * @return to
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
 
   public String getTo() {
     return to;
   }
 
 
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   **/
+  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -300,13 +403,15 @@ public class WhatsappMessage {
    * @return conversation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappConversation getConversation() {
     return conversation;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setConversation(WhatsappConversation conversation) {
     this.conversation = conversation;
   }
@@ -323,13 +428,15 @@ public class WhatsappMessage {
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WhatsappMessageType getType() {
     return type;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setType(WhatsappMessageType type) {
     this.type = type;
   }
@@ -346,13 +453,15 @@ public class WhatsappMessage {
    * @return template
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageTemplate getTemplate() {
     return template;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setTemplate(WhatsappMessageTemplate template) {
     this.template = template;
   }
@@ -369,13 +478,15 @@ public class WhatsappMessage {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageText getText() {
     return text;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setText(WhatsappMessageText text) {
     this.text = text;
   }
@@ -392,13 +503,15 @@ public class WhatsappMessage {
    * @return image
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getImage() {
     return image;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setImage(WhatsappMessageMedia image) {
     this.image = image;
   }
@@ -415,13 +528,15 @@ public class WhatsappMessage {
    * @return video
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getVideo() {
     return video;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setVideo(WhatsappMessageMedia video) {
     this.video = video;
   }
@@ -438,13 +553,15 @@ public class WhatsappMessage {
    * @return audio
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getAudio() {
     return audio;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setAudio(WhatsappMessageMedia audio) {
     this.audio = audio;
   }
@@ -461,15 +578,42 @@ public class WhatsappMessage {
    * @return document
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageMedia getDocument() {
     return document;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setDocument(WhatsappMessageMedia document) {
     this.document = document;
+  }
+
+
+  public WhatsappMessage sticker(WhatsappMessageMedia sticker) {
+    
+    this.sticker = sticker;
+    return this;
+  }
+
+   /**
+   * Get sticker
+   * @return sticker
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageMedia getSticker() {
+    return sticker;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setSticker(WhatsappMessageMedia sticker) {
+    this.sticker = sticker;
   }
 
 
@@ -484,13 +628,15 @@ public class WhatsappMessage {
    * @return location
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageLocation getLocation() {
     return location;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setLocation(WhatsappMessageLocation location) {
     this.location = location;
   }
@@ -507,13 +653,15 @@ public class WhatsappMessage {
    * @return interactive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageInteractive getInteractive() {
     return interactive;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setInteractive(WhatsappMessageInteractive interactive) {
     this.interactive = interactive;
   }
@@ -538,15 +686,67 @@ public class WhatsappMessage {
    * @return contacts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<WhatsappMessageContact> getContacts() {
     return contacts;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setContacts(List<WhatsappMessageContact> contacts) {
     this.contacts = contacts;
+  }
+
+
+  public WhatsappMessage reaction(WhatsappMessageReaction reaction) {
+    
+    this.reaction = reaction;
+    return this;
+  }
+
+   /**
+   * Get reaction
+   * @return reaction
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageReaction getReaction() {
+    return reaction;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setReaction(WhatsappMessageReaction reaction) {
+    this.reaction = reaction;
+  }
+
+
+  public WhatsappMessage context(WhatsappMessageContext context) {
+    
+    this.context = context;
+    return this;
+  }
+
+   /**
+   * Get context
+   * @return context
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageContext getContext() {
+    return context;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setContext(WhatsappMessageContext context) {
+    this.context = context;
   }
 
 
@@ -561,13 +761,16 @@ public class WhatsappMessage {
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
 
   public String getExternalId() {
     return externalId;
   }
 
 
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   **/
+  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
@@ -584,13 +787,15 @@ public class WhatsappMessage {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageStatus getStatus() {
     return status;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setStatus(WhatsappMessageStatus status) {
     this.status = status;
   }
@@ -607,13 +812,16 @@ public class WhatsappMessage {
    * @return errorCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Error code when the message status is `failed`.")
 
   public String getErrorCode() {
     return errorCode;
   }
 
 
+  /**
+   * Error code when the message status is &#x60;failed&#x60;.
+   **/
+  @ApiModelProperty(value = "Error code when the message status is `failed`.")
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
@@ -630,13 +838,16 @@ public class WhatsappMessage {
    * @return errorMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Error message when the message status is `failed`.")
 
   public String getErrorMessage() {
     return errorMessage;
   }
 
 
+  /**
+   * Error message when the message status is &#x60;failed&#x60;.
+   **/
+  @ApiModelProperty(value = "Error message when the message status is `failed`.")
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
   }
@@ -653,13 +864,16 @@ public class WhatsappMessage {
    * @return createTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getCreateTime() {
     return createTime;
   }
 
 
+  /**
+   * The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
@@ -676,13 +890,16 @@ public class WhatsappMessage {
    * @return updateTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getUpdateTime() {
     return updateTime;
   }
 
 
+  /**
+   * The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
@@ -699,13 +916,16 @@ public class WhatsappMessage {
    * @return totalPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.05", value = "Total price of this message.")
 
   public Double getTotalPrice() {
     return totalPrice;
   }
 
 
+  /**
+   * Total price of this message.
+   **/
+  @ApiModelProperty(example = "0.05", value = "Total price of this message.")
   public void setTotalPrice(Double totalPrice) {
     this.totalPrice = totalPrice;
   }
@@ -722,13 +942,16 @@ public class WhatsappMessage {
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getCurrency() {
     return currency;
   }
 
 
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   **/
+  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -745,13 +968,15 @@ public class WhatsappMessage {
    * @return whatsappApiError
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappApiError getWhatsappApiError() {
     return whatsappApiError;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setWhatsappApiError(WhatsappApiError whatsappApiError) {
     this.whatsappApiError = whatsappApiError;
   }
@@ -768,13 +993,16 @@ public class WhatsappMessage {
    * @return bizType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "verify", value = "This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.")
 
   public String getBizType() {
     return bizType;
   }
 
 
+  /**
+   * This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+   **/
+  @ApiModelProperty(example = "verify", value = "This can be either empty or one of `whatsapp`, or `verify`. Defaults to `whatsapp`. - `whatsapp`: Indicates that the message is sent via [WhatsApp](https://www.ycloud.com/whatsapp) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.")
   public void setBizType(String bizType) {
     this.bizType = bizType;
   }
@@ -791,13 +1019,16 @@ public class WhatsappMessage {
    * @return verificationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "VERIFICATION-ID", value = "The verification ID. Included only when `bizType` is `verify`.")
 
   public String getVerificationId() {
     return verificationId;
   }
 
 
+  /**
+   * The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;.
+   **/
+  @ApiModelProperty(example = "VERIFICATION-ID", value = "The verification ID. Included only when `bizType` is `verify`.")
   public void setVerificationId(String verificationId) {
     this.verificationId = verificationId;
   }
@@ -861,9 +1092,12 @@ public class WhatsappMessage {
         Objects.equals(this.video, whatsappMessage.video) &&
         Objects.equals(this.audio, whatsappMessage.audio) &&
         Objects.equals(this.document, whatsappMessage.document) &&
+        Objects.equals(this.sticker, whatsappMessage.sticker) &&
         Objects.equals(this.location, whatsappMessage.location) &&
         Objects.equals(this.interactive, whatsappMessage.interactive) &&
         Objects.equals(this.contacts, whatsappMessage.contacts) &&
+        Objects.equals(this.reaction, whatsappMessage.reaction) &&
+        Objects.equals(this.context, whatsappMessage.context) &&
         Objects.equals(this.externalId, whatsappMessage.externalId) &&
         Objects.equals(this.status, whatsappMessage.status) &&
         Objects.equals(this.errorCode, whatsappMessage.errorCode) &&
@@ -880,7 +1114,7 @@ public class WhatsappMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, location, interactive, contacts, externalId, status, errorCode, errorMessage, createTime, updateTime, totalPrice, currency, whatsappApiError, bizType, verificationId, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, totalPrice, currency, whatsappApiError, bizType, verificationId, additionalProperties);
   }
 
   @Override
@@ -900,9 +1134,12 @@ public class WhatsappMessage {
     sb.append("    video: ").append(toIndentedString(video)).append("\n");
     sb.append("    audio: ").append(toIndentedString(audio)).append("\n");
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
+    sb.append("    sticker: ").append(toIndentedString(sticker)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
     sb.append("    contacts: ").append(toIndentedString(contacts)).append("\n");
+    sb.append("    reaction: ").append(toIndentedString(reaction)).append("\n");
+    sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
@@ -950,9 +1187,12 @@ public class WhatsappMessage {
     openapiFields.add("video");
     openapiFields.add("audio");
     openapiFields.add("document");
+    openapiFields.add("sticker");
     openapiFields.add("location");
     openapiFields.add("interactive");
     openapiFields.add("contacts");
+    openapiFields.add("reaction");
+    openapiFields.add("context");
     openapiFields.add("externalId");
     openapiFields.add("status");
     openapiFields.add("errorCode");
@@ -1038,6 +1278,10 @@ public class WhatsappMessage {
       if (jsonObj.getAsJsonObject("document") != null) {
         WhatsappMessageMedia.validateJsonObject(jsonObj.getAsJsonObject("document"));
       }
+      // validate the optional field `sticker`
+      if (jsonObj.getAsJsonObject("sticker") != null) {
+        WhatsappMessageMedia.validateJsonObject(jsonObj.getAsJsonObject("sticker"));
+      }
       // validate the optional field `location`
       if (jsonObj.getAsJsonObject("location") != null) {
         WhatsappMessageLocation.validateJsonObject(jsonObj.getAsJsonObject("location"));
@@ -1057,6 +1301,14 @@ public class WhatsappMessage {
         for (int i = 0; i < jsonArraycontacts.size(); i++) {
           WhatsappMessageContact.validateJsonObject(jsonArraycontacts.get(i).getAsJsonObject());
         };
+      }
+      // validate the optional field `reaction`
+      if (jsonObj.getAsJsonObject("reaction") != null) {
+        WhatsappMessageReaction.validateJsonObject(jsonObj.getAsJsonObject("reaction"));
+      }
+      // validate the optional field `context`
+      if (jsonObj.getAsJsonObject("context") != null) {
+        WhatsappMessageContext.validateJsonObject(jsonObj.getAsJsonObject("context"));
       }
       if (jsonObj.get("externalId") != null && !jsonObj.get("externalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));

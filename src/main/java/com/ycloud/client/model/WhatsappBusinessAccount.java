@@ -59,70 +59,116 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappBusinessAccount {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * ID of the WhatApp Business Account.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
+  /**
+   * User-friendly name to differentiate WhatsApp Business Accounts.
+  **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  /**
+   * The currency in which the payment transactions for the WhatsApp Business Account will be processed.
+  **/
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
   public static final String SERIALIZED_NAME_MESSAGE_TEMPLATE_NAMESPACE = "messageTemplateNamespace";
+  /**
+   * Namespace string for the message templates that belong to the WhatsApp Business Account.
+  **/
   @SerializedName(SERIALIZED_NAME_MESSAGE_TEMPLATE_NAMESPACE)
   private String messageTemplateNamespace;
 
   public static final String SERIALIZED_NAME_ACCOUNT_REVIEW_STATUS = "accountReviewStatus";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_ACCOUNT_REVIEW_STATUS)
   private WhatsappBusinessAccountReviewStatus accountReviewStatus;
 
   public static final String SERIALIZED_NAME_BUSINESS_VERIFICATION_STATUS = "businessVerificationStatus";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_BUSINESS_VERIFICATION_STATUS)
   private MetaBusinessAccountVerificationStatus businessVerificationStatus;
 
   public static final String SERIALIZED_NAME_COUNTRY = "country";
+  /**
+   * Country of the WhatsApp Business Account&#39;s owning Meta Business account.
+  **/
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
   public static final String SERIALIZED_NAME_OWNERSHIP_TYPE = "ownershipType";
+  /**
+   * Ownership type of the WhatsApp Business Account.
+  **/
   @SerializedName(SERIALIZED_NAME_OWNERSHIP_TYPE)
   private String ownershipType;
 
   public static final String SERIALIZED_NAME_PRIMARY_FUNDING_ID = "primaryFundingId";
+  /**
+   * Primary funding ID for the WhatsApp Business Account paid service.
+  **/
   @SerializedName(SERIALIZED_NAME_PRIMARY_FUNDING_ID)
   private String primaryFundingId;
 
   public static final String SERIALIZED_NAME_PURCHASE_ORDER_NUMBER = "purchaseOrderNumber";
+  /**
+   * The purchase order number supplied by the business for payment management purposes.
+  **/
   @SerializedName(SERIALIZED_NAME_PURCHASE_ORDER_NUMBER)
   private String purchaseOrderNumber;
 
   public static final String SERIALIZED_NAME_TIMEZONE_ID = "timezoneId";
+  /**
+   * The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids).
+  **/
   @SerializedName(SERIALIZED_NAME_TIMEZONE_ID)
   private String timezoneId;
 
   public static final String SERIALIZED_NAME_DECISION = "decision";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_DECISION)
   private WhatsappReviewDecision decision;
 
   public static final String SERIALIZED_NAME_UPDATE_EVENT = "updateEvent";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_UPDATE_EVENT)
   private WhatsappBusinessAccountUpdateEventEnum updateEvent;
 
   public static final String SERIALIZED_NAME_BAN_STATE = "banState";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_BAN_STATE)
   private WhatsappBusinessAccountBanState banState;
 
   public static final String SERIALIZED_NAME_BAN_DATE = "banDate";
+  /**
+   * The date when the WABA is banned.
+  **/
   @SerializedName(SERIALIZED_NAME_BAN_DATE)
   private String banDate;
 
   public static final String SERIALIZED_NAME_VIOLATION_TYPE = "violationType";
+  /**
+   * Used to report violations imposed on the WABA. See also [WhatsApp Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations).
+  **/
   @SerializedName(SERIALIZED_NAME_VIOLATION_TYPE)
   private String violationType;
 
   public static final String SERIALIZED_NAME_RESTRICTIONS = "restrictions";
+  /**
+   * Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement).
+  **/
   @SerializedName(SERIALIZED_NAME_RESTRICTIONS)
   private List<WhatsappBusinessAccountRestrictionInfo> restrictions = null;
 
@@ -140,13 +186,16 @@ public class WhatsappBusinessAccount {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the WhatApp Business Account.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * ID of the WhatApp Business Account.
+   **/
+  @ApiModelProperty(value = "ID of the WhatApp Business Account.")
   public void setId(String id) {
     this.id = id;
   }
@@ -163,13 +212,16 @@ public class WhatsappBusinessAccount {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "User-friendly name to differentiate WhatsApp Business Accounts.")
 
   public String getName() {
     return name;
   }
 
 
+  /**
+   * User-friendly name to differentiate WhatsApp Business Accounts.
+   **/
+  @ApiModelProperty(value = "User-friendly name to differentiate WhatsApp Business Accounts.")
   public void setName(String name) {
     this.name = name;
   }
@@ -186,13 +238,16 @@ public class WhatsappBusinessAccount {
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The currency in which the payment transactions for the WhatsApp Business Account will be processed.")
 
   public String getCurrency() {
     return currency;
   }
 
 
+  /**
+   * The currency in which the payment transactions for the WhatsApp Business Account will be processed.
+   **/
+  @ApiModelProperty(value = "The currency in which the payment transactions for the WhatsApp Business Account will be processed.")
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -209,13 +264,16 @@ public class WhatsappBusinessAccount {
    * @return messageTemplateNamespace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Namespace string for the message templates that belong to the WhatsApp Business Account.")
 
   public String getMessageTemplateNamespace() {
     return messageTemplateNamespace;
   }
 
 
+  /**
+   * Namespace string for the message templates that belong to the WhatsApp Business Account.
+   **/
+  @ApiModelProperty(value = "Namespace string for the message templates that belong to the WhatsApp Business Account.")
   public void setMessageTemplateNamespace(String messageTemplateNamespace) {
     this.messageTemplateNamespace = messageTemplateNamespace;
   }
@@ -232,13 +290,15 @@ public class WhatsappBusinessAccount {
    * @return accountReviewStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappBusinessAccountReviewStatus getAccountReviewStatus() {
     return accountReviewStatus;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setAccountReviewStatus(WhatsappBusinessAccountReviewStatus accountReviewStatus) {
     this.accountReviewStatus = accountReviewStatus;
   }
@@ -255,13 +315,15 @@ public class WhatsappBusinessAccount {
    * @return businessVerificationStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public MetaBusinessAccountVerificationStatus getBusinessVerificationStatus() {
     return businessVerificationStatus;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setBusinessVerificationStatus(MetaBusinessAccountVerificationStatus businessVerificationStatus) {
     this.businessVerificationStatus = businessVerificationStatus;
   }
@@ -278,13 +340,16 @@ public class WhatsappBusinessAccount {
    * @return country
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Country of the WhatsApp Business Account's owning Meta Business account.")
 
   public String getCountry() {
     return country;
   }
 
 
+  /**
+   * Country of the WhatsApp Business Account&#39;s owning Meta Business account.
+   **/
+  @ApiModelProperty(value = "Country of the WhatsApp Business Account's owning Meta Business account.")
   public void setCountry(String country) {
     this.country = country;
   }
@@ -301,13 +366,16 @@ public class WhatsappBusinessAccount {
    * @return ownershipType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ownership type of the WhatsApp Business Account.")
 
   public String getOwnershipType() {
     return ownershipType;
   }
 
 
+  /**
+   * Ownership type of the WhatsApp Business Account.
+   **/
+  @ApiModelProperty(value = "Ownership type of the WhatsApp Business Account.")
   public void setOwnershipType(String ownershipType) {
     this.ownershipType = ownershipType;
   }
@@ -324,13 +392,16 @@ public class WhatsappBusinessAccount {
    * @return primaryFundingId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Primary funding ID for the WhatsApp Business Account paid service.")
 
   public String getPrimaryFundingId() {
     return primaryFundingId;
   }
 
 
+  /**
+   * Primary funding ID for the WhatsApp Business Account paid service.
+   **/
+  @ApiModelProperty(value = "Primary funding ID for the WhatsApp Business Account paid service.")
   public void setPrimaryFundingId(String primaryFundingId) {
     this.primaryFundingId = primaryFundingId;
   }
@@ -347,13 +418,16 @@ public class WhatsappBusinessAccount {
    * @return purchaseOrderNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The purchase order number supplied by the business for payment management purposes.")
 
   public String getPurchaseOrderNumber() {
     return purchaseOrderNumber;
   }
 
 
+  /**
+   * The purchase order number supplied by the business for payment management purposes.
+   **/
+  @ApiModelProperty(value = "The purchase order number supplied by the business for payment management purposes.")
   public void setPurchaseOrderNumber(String purchaseOrderNumber) {
     this.purchaseOrderNumber = purchaseOrderNumber;
   }
@@ -370,13 +444,16 @@ public class WhatsappBusinessAccount {
    * @return timezoneId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids).")
 
   public String getTimezoneId() {
     return timezoneId;
   }
 
 
+  /**
+   * The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids).
+   **/
+  @ApiModelProperty(example = "1", value = "The timezone ID of the WhatsApp Business Account. See [Timezone IDs](https://developers.facebook.com/docs/marketing-api/reference/ad-account/timezone-ids).")
   public void setTimezoneId(String timezoneId) {
     this.timezoneId = timezoneId;
   }
@@ -393,13 +470,15 @@ public class WhatsappBusinessAccount {
    * @return decision
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappReviewDecision getDecision() {
     return decision;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setDecision(WhatsappReviewDecision decision) {
     this.decision = decision;
   }
@@ -416,13 +495,15 @@ public class WhatsappBusinessAccount {
    * @return updateEvent
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappBusinessAccountUpdateEventEnum getUpdateEvent() {
     return updateEvent;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setUpdateEvent(WhatsappBusinessAccountUpdateEventEnum updateEvent) {
     this.updateEvent = updateEvent;
   }
@@ -439,13 +520,15 @@ public class WhatsappBusinessAccount {
    * @return banState
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappBusinessAccountBanState getBanState() {
     return banState;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setBanState(WhatsappBusinessAccountBanState banState) {
     this.banState = banState;
   }
@@ -462,13 +545,16 @@ public class WhatsappBusinessAccount {
    * @return banDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "December 9, 2022", value = "The date when the WABA is banned.")
 
   public String getBanDate() {
     return banDate;
   }
 
 
+  /**
+   * The date when the WABA is banned.
+   **/
+  @ApiModelProperty(example = "December 9, 2022", value = "The date when the WABA is banned.")
   public void setBanDate(String banDate) {
     this.banDate = banDate;
   }
@@ -485,13 +571,16 @@ public class WhatsappBusinessAccount {
    * @return violationType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SCAM", value = "Used to report violations imposed on the WABA. See also [WhatsApp Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations).")
 
   public String getViolationType() {
     return violationType;
   }
 
 
+  /**
+   * Used to report violations imposed on the WABA. See also [WhatsApp Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations).
+   **/
+  @ApiModelProperty(example = "SCAM", value = "Used to report violations imposed on the WABA. See also [WhatsApp Business Platform Policy Violations](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement/violations).")
   public void setViolationType(String violationType) {
     this.violationType = violationType;
   }
@@ -516,13 +605,16 @@ public class WhatsappBusinessAccount {
    * @return restrictions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement).")
 
   public List<WhatsappBusinessAccountRestrictionInfo> getRestrictions() {
     return restrictions;
   }
 
 
+  /**
+   * Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement).
+   **/
+  @ApiModelProperty(value = "Used to report restrictions imposed on the WABA, when that WABA violates [WhatsApp Business Platform policies](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement).")
   public void setRestrictions(List<WhatsappBusinessAccountRestrictionInfo> restrictions) {
     this.restrictions = restrictions;
   }

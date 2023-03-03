@@ -54,34 +54,57 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WebhookEndpoint {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique ID for the object.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_URL = "url";
+  /**
+   * The URL of the webhook endpoint.
+  **/
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
   public static final String SERIALIZED_NAME_ENABLED_EVENTS = "enabledEvents";
+  /**
+   * The list of events to enable for this endpoint.
+  **/
   @SerializedName(SERIALIZED_NAME_ENABLED_EVENTS)
   private List<String> enabledEvents = null;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  /**
+   * An optional description of what the webhook is used for.
+  **/
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private WebhookEndpointStatus status;
 
   public static final String SERIALIZED_NAME_SECRET = "secret";
+  /**
+   * The endpoint&#39;s secret, used to generate webhook signatures.
+  **/
   @SerializedName(SERIALIZED_NAME_SECRET)
   private String secret;
 
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
+  /**
+   * The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private Date createTime;
 
   public static final String SERIALIZED_NAME_UPDATE_TIME = "updateTime";
+  /**
+   * The time at which this object was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
   private Date updateTime;
 
@@ -99,13 +122,16 @@ public class WebhookEndpoint {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "wh627c8640675de8fc689ab9d9", required = true, value = "Unique ID for the object.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * Unique ID for the object.
+   **/
+  @ApiModelProperty(example = "wh627c8640675de8fc689ab9d9", required = true, value = "Unique ID for the object.")
   public void setId(String id) {
     this.id = id;
   }
@@ -122,13 +148,16 @@ public class WebhookEndpoint {
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api", value = "The URL of the webhook endpoint.")
 
   public String getUrl() {
     return url;
   }
 
 
+  /**
+   * The URL of the webhook endpoint.
+   **/
+  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api", value = "The URL of the webhook endpoint.")
   public void setUrl(String url) {
     this.url = url;
   }
@@ -153,13 +182,16 @@ public class WebhookEndpoint {
    * @return enabledEvents
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"email.delivery.updated\",\"sms.message.updated\",\"voice.message.updated\"]", value = "The list of events to enable for this endpoint.")
 
   public List<String> getEnabledEvents() {
     return enabledEvents;
   }
 
 
+  /**
+   * The list of events to enable for this endpoint.
+   **/
+  @ApiModelProperty(example = "[\"email.delivery.updated\",\"sms.message.updated\",\"voice.message.updated\"]", value = "The list of events to enable for this endpoint.")
   public void setEnabledEvents(List<String> enabledEvents) {
     this.enabledEvents = enabledEvents;
   }
@@ -176,13 +208,16 @@ public class WebhookEndpoint {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "My first webhook endpoint.", value = "An optional description of what the webhook is used for.")
 
   public String getDescription() {
     return description;
   }
 
 
+  /**
+   * An optional description of what the webhook is used for.
+   **/
+  @ApiModelProperty(example = "My first webhook endpoint.", value = "An optional description of what the webhook is used for.")
   public void setDescription(String description) {
     this.description = description;
   }
@@ -199,13 +234,15 @@ public class WebhookEndpoint {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WebhookEndpointStatus getStatus() {
     return status;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setStatus(WebhookEndpointStatus status) {
     this.status = status;
   }
@@ -222,13 +259,16 @@ public class WebhookEndpoint {
    * @return secret
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "whsec_abc4147651944f02baf3be1eb45d33f1", value = "The endpoint's secret, used to generate webhook signatures.")
 
   public String getSecret() {
     return secret;
   }
 
 
+  /**
+   * The endpoint&#39;s secret, used to generate webhook signatures.
+   **/
+  @ApiModelProperty(example = "whsec_abc4147651944f02baf3be1eb45d33f1", value = "The endpoint's secret, used to generate webhook signatures.")
   public void setSecret(String secret) {
     this.secret = secret;
   }
@@ -245,13 +285,16 @@ public class WebhookEndpoint {
    * @return createTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getCreateTime() {
     return createTime;
   }
 
 
+  /**
+   * The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
@@ -268,13 +311,16 @@ public class WebhookEndpoint {
    * @return updateTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this object was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getUpdateTime() {
     return updateTime;
   }
 
 
+  /**
+   * The time at which this object was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this object was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }

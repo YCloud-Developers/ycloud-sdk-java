@@ -51,10 +51,16 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageReferredProduct {
   public static final String SERIALIZED_NAME_CATALOG_ID = "catalog_id";
+  /**
+   * The catalog ID.
+  **/
   @SerializedName(SERIALIZED_NAME_CATALOG_ID)
   private String catalogId;
 
   public static final String SERIALIZED_NAME_PRODUCT_RETAILER_ID = "product_retailer_id";
+  /**
+   * The product SKU identifier.
+  **/
   @SerializedName(SERIALIZED_NAME_PRODUCT_RETAILER_ID)
   private String productRetailerId;
 
@@ -72,13 +78,16 @@ public class WhatsappInboundMessageReferredProduct {
    * @return catalogId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The catalog ID.")
 
   public String getCatalogId() {
     return catalogId;
   }
 
 
+  /**
+   * The catalog ID.
+   **/
+  @ApiModelProperty(value = "The catalog ID.")
   public void setCatalogId(String catalogId) {
     this.catalogId = catalogId;
   }
@@ -95,13 +104,16 @@ public class WhatsappInboundMessageReferredProduct {
    * @return productRetailerId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The product SKU identifier.")
 
   public String getProductRetailerId() {
     return productRetailerId;
   }
 
 
+  /**
+   * The product SKU identifier.
+   **/
+  @ApiModelProperty(value = "The product SKU identifier.")
   public void setProductRetailerId(String productRetailerId) {
     this.productRetailerId = productRetailerId;
   }

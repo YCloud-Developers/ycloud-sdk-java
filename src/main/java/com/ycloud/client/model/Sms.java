@@ -51,34 +51,58 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Sms {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique ID for the object.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
+  /**
+   * The text of this message.
+  **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
   public static final String SERIALIZED_NAME_SENDER_ID = "senderId";
+  /**
+   * Sender ID to be used.
+  **/
   @SerializedName(SERIALIZED_NAME_SENDER_ID)
   private String senderId;
 
   public static final String SERIALIZED_NAME_REGION_CODE = "regionCode";
+  /**
+   * [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+  **/
   @SerializedName(SERIALIZED_NAME_REGION_CODE)
   private String regionCode;
 
   public static final String SERIALIZED_NAME_TOTAL_SEGMENTS = "totalSegments";
+  /**
+   * Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info.
+  **/
   @SerializedName(SERIALIZED_NAME_TOTAL_SEGMENTS)
   private Integer totalSegments;
 
   public static final String SERIALIZED_NAME_TOTAL_PRICE = "totalPrice";
+  /**
+   * Total price of this message.
+  **/
   @SerializedName(SERIALIZED_NAME_TOTAL_PRICE)
   private Double totalPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+  **/
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
@@ -151,34 +175,58 @@ public class Sms {
   }
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  /**
+   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;. - &#x60;accepted&#x60;: The messaging request is accepted by our system. - &#x60;failed&#x60;: The message failed to be sent from our system. - &#x60;sent&#x60;: The message has been sent from our system. - &#x60;delivered&#x60;: YCloud has received a delivery receipt indicating that message is delivered. - &#x60;undelivered&#x60;: YCloud has received a delivery receipt indicating that message is not delivered.
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
   public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
+  /**
+   * Error code when the message is undeliverable.
+  **/
   @SerializedName(SERIALIZED_NAME_ERROR_CODE)
   private String errorCode;
 
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
+  /**
+   * The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-03-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private Date createTime;
 
   public static final String SERIALIZED_NAME_UPDATE_TIME = "updateTime";
+  /**
+   * The time at which the delivery report for this message was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-03-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
   private Date updateTime;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+  **/
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
   public static final String SERIALIZED_NAME_CALLBACK_URL = "callbackUrl";
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+  **/
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
 
   public static final String SERIALIZED_NAME_BIZ_TYPE = "bizType";
+  /**
+   * This can be either empty or one of &#x60;sms&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;sms&#x60;. - &#x60;sms&#x60;: Indicates that the message is sent via [Email](https://www.ycloud.com/sms) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+  **/
   @SerializedName(SERIALIZED_NAME_BIZ_TYPE)
   private String bizType;
 
   public static final String SERIALIZED_NAME_VERIFICATION_ID = "verificationId";
+  /**
+   * The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
   private String verificationId;
 
@@ -196,13 +244,16 @@ public class Sms {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID for the object.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * Unique ID for the object.
+   **/
+  @ApiModelProperty(required = true, value = "Unique ID for the object.")
   public void setId(String id) {
     this.id = id;
   }
@@ -219,13 +270,16 @@ public class Sms {
    * @return to
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
 
   public String getTo() {
     return to;
   }
 
 
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   **/
+  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -242,13 +296,16 @@ public class Sms {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Your verification code is 123456.", value = "The text of this message.")
 
   public String getText() {
     return text;
   }
 
 
+  /**
+   * The text of this message.
+   **/
+  @ApiModelProperty(example = "Your verification code is 123456.", value = "The text of this message.")
   public void setText(String text) {
     this.text = text;
   }
@@ -265,13 +322,16 @@ public class Sms {
    * @return senderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "YCloud", value = "Sender ID to be used.")
 
   public String getSenderId() {
     return senderId;
   }
 
 
+  /**
+   * Sender ID to be used.
+   **/
+  @ApiModelProperty(example = "YCloud", value = "Sender ID to be used.")
   public void setSenderId(String senderId) {
     this.senderId = senderId;
   }
@@ -288,13 +348,16 @@ public class Sms {
    * @return regionCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "GB", value = "[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)")
 
   public String getRegionCode() {
     return regionCode;
   }
 
 
+  /**
+   * [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+   **/
+  @ApiModelProperty(example = "GB", value = "[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)")
   public void setRegionCode(String regionCode) {
     this.regionCode = regionCode;
   }
@@ -312,13 +375,16 @@ public class Sms {
    * @return totalSegments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info.")
 
   public Integer getTotalSegments() {
     return totalSegments;
   }
 
 
+  /**
+   * Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info.
+   **/
+  @ApiModelProperty(example = "1", value = "Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info.")
   public void setTotalSegments(Integer totalSegments) {
     this.totalSegments = totalSegments;
   }
@@ -335,13 +401,16 @@ public class Sms {
    * @return totalPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.0085", value = "Total price of this message.")
 
   public Double getTotalPrice() {
     return totalPrice;
   }
 
 
+  /**
+   * Total price of this message.
+   **/
+  @ApiModelProperty(example = "0.0085", value = "Total price of this message.")
   public void setTotalPrice(Double totalPrice) {
     this.totalPrice = totalPrice;
   }
@@ -358,13 +427,16 @@ public class Sms {
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getCurrency() {
     return currency;
   }
 
 
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   **/
+  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -381,13 +453,16 @@ public class Sms {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "sent", value = "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`. - `accepted`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from our system. - `delivered`: YCloud has received a delivery receipt indicating that message is delivered. - `undelivered`: YCloud has received a delivery receipt indicating that message is not delivered.")
 
   public StatusEnum getStatus() {
     return status;
   }
 
 
+  /**
+   * Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;. - &#x60;accepted&#x60;: The messaging request is accepted by our system. - &#x60;failed&#x60;: The message failed to be sent from our system. - &#x60;sent&#x60;: The message has been sent from our system. - &#x60;delivered&#x60;: YCloud has received a delivery receipt indicating that message is delivered. - &#x60;undelivered&#x60;: YCloud has received a delivery receipt indicating that message is not delivered.
+   **/
+  @ApiModelProperty(example = "sent", value = "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`, or `failed`. - `accepted`: The messaging request is accepted by our system. - `failed`: The message failed to be sent from our system. - `sent`: The message has been sent from our system. - `delivered`: YCloud has received a delivery receipt indicating that message is delivered. - `undelivered`: YCloud has received a delivery receipt indicating that message is not delivered.")
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
@@ -404,13 +479,16 @@ public class Sms {
    * @return errorCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Error code when the message is undeliverable.")
 
   public String getErrorCode() {
     return errorCode;
   }
 
 
+  /**
+   * Error code when the message is undeliverable.
+   **/
+  @ApiModelProperty(value = "Error code when the message is undeliverable.")
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
@@ -427,13 +505,16 @@ public class Sms {
    * @return createTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-03-01T12:00Z", value = "The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-03-01T12:00:00.000Z`.")
 
   public Date getCreateTime() {
     return createTime;
   }
 
 
+  /**
+   * The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-03-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-03-01T12:00Z", value = "The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-03-01T12:00:00.000Z`.")
   public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
@@ -450,13 +531,16 @@ public class Sms {
    * @return updateTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-03-01T12:00Z", value = "The time at which the delivery report for this message was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-03-01T12:00:00.000Z`.")
 
   public Date getUpdateTime() {
     return updateTime;
   }
 
 
+  /**
+   * The time at which the delivery report for this message was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-03-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-03-01T12:00Z", value = "The time at which the delivery report for this message was updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-03-01T12:00:00.000Z`.")
   public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
@@ -473,13 +557,16 @@ public class Sms {
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
 
   public String getExternalId() {
     return externalId;
   }
 
 
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   **/
+  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
@@ -496,13 +583,16 @@ public class Sms {
    * @return callbackUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-sms", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
 
   public String getCallbackUrl() {
     return callbackUrl;
   }
 
 
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+   **/
+  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-sms", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
   public void setCallbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
   }
@@ -519,13 +609,16 @@ public class Sms {
    * @return bizType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "verify", value = "This can be either empty or one of `sms`, or `verify`. Defaults to `sms`. - `sms`: Indicates that the message is sent via [Email](https://www.ycloud.com/sms) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.")
 
   public String getBizType() {
     return bizType;
   }
 
 
+  /**
+   * This can be either empty or one of &#x60;sms&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;sms&#x60;. - &#x60;sms&#x60;: Indicates that the message is sent via [Email](https://www.ycloud.com/sms) product. - &#x60;verify&#x60;: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.
+   **/
+  @ApiModelProperty(example = "verify", value = "This can be either empty or one of `sms`, or `verify`. Defaults to `sms`. - `sms`: Indicates that the message is sent via [Email](https://www.ycloud.com/sms) product. - `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify) product.")
   public void setBizType(String bizType) {
     this.bizType = bizType;
   }
@@ -542,13 +635,16 @@ public class Sms {
    * @return verificationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "VERIFICATION-ID", value = "The verification ID. Included only when `bizType` is `verify`.")
 
   public String getVerificationId() {
     return verificationId;
   }
 
 
+  /**
+   * The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;.
+   **/
+  @ApiModelProperty(example = "VERIFICATION-ID", value = "The verification ID. Included only when `bizType` is `verify`.")
   public void setVerificationId(String verificationId) {
     this.verificationId = verificationId;
   }

@@ -51,10 +51,16 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Mailbox {
   public static final String SERIALIZED_NAME_NAME = "name";
+  /**
+   * Name of the mailbox.
+  **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
+  /**
+   * Address of the mailbox.
+  **/
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
 
@@ -72,13 +78,16 @@ public class Mailbox {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "YCloud Team", value = "Name of the mailbox.")
 
   public String getName() {
     return name;
   }
 
 
+  /**
+   * Name of the mailbox.
+   **/
+  @ApiModelProperty(example = "YCloud Team", value = "Name of the mailbox.")
   public void setName(String name) {
     this.name = name;
   }
@@ -95,13 +104,16 @@ public class Mailbox {
    * @return address
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "team@example.com", value = "Address of the mailbox.")
 
   public String getAddress() {
     return address;
   }
 
 
+  /**
+   * Address of the mailbox.
+   **/
+  @ApiModelProperty(example = "team@example.com", value = "Address of the mailbox.")
   public void setAddress(String address) {
     this.address = address;
   }

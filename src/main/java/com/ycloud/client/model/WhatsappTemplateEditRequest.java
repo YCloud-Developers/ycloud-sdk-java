@@ -54,6 +54,8 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplateEditRequest {
   public static final String SERIALIZED_NAME_COMPONENTS = "components";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_COMPONENTS)
   private List<WhatsappTemplateComponent> components = new ArrayList<>();
 
@@ -76,13 +78,15 @@ public class WhatsappTemplateEditRequest {
    * @return components
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public List<WhatsappTemplateComponent> getComponents() {
     return components;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setComponents(List<WhatsappTemplateComponent> components) {
     this.components = components;
   }

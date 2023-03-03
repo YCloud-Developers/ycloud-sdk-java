@@ -52,22 +52,35 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class VerificationCheck {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * ID of this object.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_VALID = "valid";
+  /**
+   * Whether the verification code is valid for this check.
+  **/
   @SerializedName(SERIALIZED_NAME_VALID)
   private Boolean valid;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private VerificationStatus status;
 
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format or email address.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private VerificationChannel channel;
 
@@ -85,13 +98,16 @@ public class VerificationCheck {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "vc8f92c20", required = true, value = "ID of this object.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * ID of this object.
+   **/
+  @ApiModelProperty(example = "vc8f92c20", required = true, value = "ID of this object.")
   public void setId(String id) {
     this.id = id;
   }
@@ -108,13 +124,16 @@ public class VerificationCheck {
    * @return valid
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "false", required = true, value = "Whether the verification code is valid for this check.")
 
   public Boolean getValid() {
     return valid;
   }
 
 
+  /**
+   * Whether the verification code is valid for this check.
+   **/
+  @ApiModelProperty(example = "false", required = true, value = "Whether the verification code is valid for this check.")
   public void setValid(Boolean valid) {
     this.valid = valid;
   }
@@ -131,13 +150,15 @@ public class VerificationCheck {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public VerificationStatus getStatus() {
     return status;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setStatus(VerificationStatus status) {
     this.status = status;
   }
@@ -154,13 +175,16 @@ public class VerificationCheck {
    * @return to
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "+447901614024", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format or email address.")
 
   public String getTo() {
     return to;
   }
 
 
+  /**
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format or email address.
+   **/
+  @ApiModelProperty(example = "+447901614024", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format or email address.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -177,13 +201,15 @@ public class VerificationCheck {
    * @return channel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public VerificationChannel getChannel() {
     return channel;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setChannel(VerificationChannel channel) {
     this.channel = channel;
   }

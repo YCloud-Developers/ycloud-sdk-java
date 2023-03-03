@@ -55,62 +55,105 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Email {
   public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Unique ID for the object.
+  **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_FROM = "from";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_FROM)
   private Mailbox from;
 
   public static final String SERIALIZED_NAME_TO = "to";
+  /**
+   * The intended recipients&#39; email addresses.
+  **/
   @SerializedName(SERIALIZED_NAME_TO)
   private List<Mailbox> to = null;
 
   public static final String SERIALIZED_NAME_CC = "cc";
+  /**
+   * Recipients who will receive a copy of the email.
+  **/
   @SerializedName(SERIALIZED_NAME_CC)
   private List<Mailbox> cc = null;
 
   public static final String SERIALIZED_NAME_BCC = "bcc";
+  /**
+   * Recipients who will receive a blind carbon copy of the email.
+  **/
   @SerializedName(SERIALIZED_NAME_BCC)
   private List<Mailbox> bcc = null;
 
   public static final String SERIALIZED_NAME_REPLY_TO = "replyTo";
+  /**
+   * If this field exists, then the reply should go to the addresses indicated in that field and not to the address(es) indicated in the &#x60;from&#x60; field.
+  **/
   @SerializedName(SERIALIZED_NAME_REPLY_TO)
   private List<Mailbox> replyTo = null;
 
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
+  /**
+   * The email subject, which contains a short string identifying the topic of the message.
+  **/
   @SerializedName(SERIALIZED_NAME_SUBJECT)
   private String subject;
 
   public static final String SERIALIZED_NAME_SUMMARY = "summary";
+  /**
+   * This is a summary of your email. Max length: 70.
+  **/
   @SerializedName(SERIALIZED_NAME_SUMMARY)
   private String summary;
 
   public static final String SERIALIZED_NAME_CONTENT_TYPE = "contentType";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
   private EmailContentType contentType;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+  **/
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
   public static final String SERIALIZED_NAME_CALLBACK_URL = "callbackUrl";
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+  **/
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
 
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
+  /**
+   * The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private Date createTime;
 
   public static final String SERIALIZED_NAME_TOTAL_RECIPIENTS = "totalRecipients";
+  /**
+   * Total recipients of this message, including &#x60;to&#x60;, &#x60;cc&#x60; and &#x60;bcc&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_TOTAL_RECIPIENTS)
   private Integer totalRecipients;
 
   public static final String SERIALIZED_NAME_TOTAL_PRICE = "totalPrice";
+  /**
+   * Total price of this message.
+  **/
   @SerializedName(SERIALIZED_NAME_TOTAL_PRICE)
   private Double totalPrice;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+  **/
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
@@ -128,13 +171,16 @@ public class Email {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Unique ID for the object.")
 
   public String getId() {
     return id;
   }
 
 
+  /**
+   * Unique ID for the object.
+   **/
+  @ApiModelProperty(required = true, value = "Unique ID for the object.")
   public void setId(String id) {
     this.id = id;
   }
@@ -151,13 +197,15 @@ public class Email {
    * @return from
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Mailbox getFrom() {
     return from;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setFrom(Mailbox from) {
     this.from = from;
   }
@@ -182,13 +230,16 @@ public class Email {
    * @return to
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The intended recipients' email addresses.")
 
   public List<Mailbox> getTo() {
     return to;
   }
 
 
+  /**
+   * The intended recipients&#39; email addresses.
+   **/
+  @ApiModelProperty(value = "The intended recipients' email addresses.")
   public void setTo(List<Mailbox> to) {
     this.to = to;
   }
@@ -213,13 +264,16 @@ public class Email {
    * @return cc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Recipients who will receive a copy of the email.")
 
   public List<Mailbox> getCc() {
     return cc;
   }
 
 
+  /**
+   * Recipients who will receive a copy of the email.
+   **/
+  @ApiModelProperty(value = "Recipients who will receive a copy of the email.")
   public void setCc(List<Mailbox> cc) {
     this.cc = cc;
   }
@@ -244,13 +298,16 @@ public class Email {
    * @return bcc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Recipients who will receive a blind carbon copy of the email.")
 
   public List<Mailbox> getBcc() {
     return bcc;
   }
 
 
+  /**
+   * Recipients who will receive a blind carbon copy of the email.
+   **/
+  @ApiModelProperty(value = "Recipients who will receive a blind carbon copy of the email.")
   public void setBcc(List<Mailbox> bcc) {
     this.bcc = bcc;
   }
@@ -275,13 +332,16 @@ public class Email {
    * @return replyTo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If this field exists, then the reply should go to the addresses indicated in that field and not to the address(es) indicated in the `from` field.")
 
   public List<Mailbox> getReplyTo() {
     return replyTo;
   }
 
 
+  /**
+   * If this field exists, then the reply should go to the addresses indicated in that field and not to the address(es) indicated in the &#x60;from&#x60; field.
+   **/
+  @ApiModelProperty(value = "If this field exists, then the reply should go to the addresses indicated in that field and not to the address(es) indicated in the `from` field.")
   public void setReplyTo(List<Mailbox> replyTo) {
     this.replyTo = replyTo;
   }
@@ -298,13 +358,16 @@ public class Email {
    * @return subject
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The email subject, which contains a short string identifying the topic of the message.")
 
   public String getSubject() {
     return subject;
   }
 
 
+  /**
+   * The email subject, which contains a short string identifying the topic of the message.
+   **/
+  @ApiModelProperty(value = "The email subject, which contains a short string identifying the topic of the message.")
   public void setSubject(String subject) {
     this.subject = subject;
   }
@@ -321,13 +384,16 @@ public class Email {
    * @return summary
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a summary.", value = "This is a summary of your email. Max length: 70.")
 
   public String getSummary() {
     return summary;
   }
 
 
+  /**
+   * This is a summary of your email. Max length: 70.
+   **/
+  @ApiModelProperty(example = "This is a summary.", value = "This is a summary of your email. Max length: 70.")
   public void setSummary(String summary) {
     this.summary = summary;
   }
@@ -344,13 +410,15 @@ public class Email {
    * @return contentType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public EmailContentType getContentType() {
     return contentType;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setContentType(EmailContentType contentType) {
     this.contentType = contentType;
   }
@@ -367,13 +435,16 @@ public class Email {
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
 
   public String getExternalId() {
     return externalId;
   }
 
 
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   **/
+  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
@@ -390,13 +461,16 @@ public class Email {
    * @return callbackUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-email", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
 
   public String getCallbackUrl() {
     return callbackUrl;
   }
 
 
+  /**
+   * Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag&#x3D;api. Note: We recommend configuring Webhook Endpoints instead.
+   **/
+  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api-email", value = "Delivery report URL. You can provide a URL, and we will push the updated status report to your server in time. e.g., https://httpbin.org/anything?tag=api. Note: We recommend configuring Webhook Endpoints instead.")
   public void setCallbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
   }
@@ -413,13 +487,16 @@ public class Email {
    * @return createTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
 
   public Date getCreateTime() {
     return createTime;
   }
 
 
+  /**
+   * The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
@@ -436,13 +513,16 @@ public class Email {
    * @return totalRecipients
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3", value = "Total recipients of this message, including `to`, `cc` and `bcc`.")
 
   public Integer getTotalRecipients() {
     return totalRecipients;
   }
 
 
+  /**
+   * Total recipients of this message, including &#x60;to&#x60;, &#x60;cc&#x60; and &#x60;bcc&#x60;.
+   **/
+  @ApiModelProperty(example = "3", value = "Total recipients of this message, including `to`, `cc` and `bcc`.")
   public void setTotalRecipients(Integer totalRecipients) {
     this.totalRecipients = totalRecipients;
   }
@@ -459,13 +539,16 @@ public class Email {
    * @return totalPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.0085", value = "Total price of this message.")
 
   public Double getTotalPrice() {
     return totalPrice;
   }
 
 
+  /**
+   * Total price of this message.
+   **/
+  @ApiModelProperty(example = "0.0085", value = "Total price of this message.")
   public void setTotalPrice(Double totalPrice) {
     this.totalPrice = totalPrice;
   }
@@ -482,13 +565,16 @@ public class Email {
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getCurrency() {
     return currency;
   }
 
 
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   **/
+  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   public void setCurrency(String currency) {
     this.currency = currency;
   }

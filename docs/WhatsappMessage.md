@@ -9,7 +9,7 @@ WhatsApp outbound message object.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Unique ID for the object. |  |
-|**wamid** | **String** | The native WhatsApp message ID. |  [optional] |
+|**wamid** | **String** | The original message ID on WhatsApp&#39;s platform. |  [optional] |
 |**wabaId** | **String** | WhatsApp Business Account ID. |  |
 |**from** | **String** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
 |**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
@@ -21,9 +21,12 @@ WhatsApp outbound message object.
 |**video** | [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  |  [optional] |
 |**audio** | [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  |  [optional] |
 |**document** | [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  |  [optional] |
+|**sticker** | [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  |  [optional] |
 |**location** | [**WhatsappMessageLocation**](WhatsappMessageLocation.md) |  |  [optional] |
 |**interactive** | [**WhatsappMessageInteractive**](WhatsappMessageInteractive.md) |  |  [optional] |
 |**contacts** | [**List&lt;WhatsappMessageContact&gt;**](WhatsappMessageContact.md) |  |  [optional] |
+|**reaction** | [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  |  [optional] |
+|**context** | [**WhatsappMessageContext**](WhatsappMessageContext.md) |  |  [optional] |
 |**externalId** | **String** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. |  [optional] |
 |**status** | **WhatsappMessageStatus** |  |  [optional] |
 |**errorCode** | **String** | Error code when the message status is &#x60;failed&#x60;. |  [optional] |

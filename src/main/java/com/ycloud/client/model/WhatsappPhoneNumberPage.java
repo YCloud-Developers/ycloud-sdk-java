@@ -55,22 +55,37 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappPhoneNumberPage {
   public static final String SERIALIZED_NAME_ITEMS = "items";
+  /**
+   * An array containing WhatsApp phone number objects.
+  **/
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<WhatsappPhoneNumber> items = null;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
+  /**
+   * The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10.
+  **/
   @SerializedName(SERIALIZED_NAME_OFFSET)
   private Integer offset;
 
   public static final String SERIALIZED_NAME_LIMIT = "limit";
+  /**
+   * A limit on the number of items to be returned, between 1 and 100, defaults to 10.
+  **/
   @SerializedName(SERIALIZED_NAME_LIMIT)
   private Integer limit;
 
   public static final String SERIALIZED_NAME_LENGTH = "length";
+  /**
+   * The actual number of items in the page.
+  **/
   @SerializedName(SERIALIZED_NAME_LENGTH)
   private Integer length;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
+  /**
+   * The total number of items. This field is returned only when the request parameter &#x60;includeTotal&#x60; is set to &#x60;true&#x60;.
+  **/
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
@@ -96,13 +111,16 @@ public class WhatsappPhoneNumberPage {
    * @return items
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array containing WhatsApp phone number objects.")
 
   public List<WhatsappPhoneNumber> getItems() {
     return items;
   }
 
 
+  /**
+   * An array containing WhatsApp phone number objects.
+   **/
+  @ApiModelProperty(value = "An array containing WhatsApp phone number objects.")
   public void setItems(List<WhatsappPhoneNumber> items) {
     this.items = items;
   }
@@ -120,13 +138,16 @@ public class WhatsappPhoneNumberPage {
    * @return offset
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10.")
 
   public Integer getOffset() {
     return offset;
   }
 
 
+  /**
+   * The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10.
+   **/
+  @ApiModelProperty(required = true, value = "The position of the item this page starts from, zero-based. e.g., the 11th item is at offset 10.")
   public void setOffset(Integer offset) {
     this.offset = offset;
   }
@@ -144,13 +165,16 @@ public class WhatsappPhoneNumberPage {
    * @return limit
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A limit on the number of items to be returned, between 1 and 100, defaults to 10.")
 
   public Integer getLimit() {
     return limit;
   }
 
 
+  /**
+   * A limit on the number of items to be returned, between 1 and 100, defaults to 10.
+   **/
+  @ApiModelProperty(required = true, value = "A limit on the number of items to be returned, between 1 and 100, defaults to 10.")
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
@@ -168,13 +192,16 @@ public class WhatsappPhoneNumberPage {
    * @return length
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The actual number of items in the page.")
 
   public Integer getLength() {
     return length;
   }
 
 
+  /**
+   * The actual number of items in the page.
+   **/
+  @ApiModelProperty(required = true, value = "The actual number of items in the page.")
   public void setLength(Integer length) {
     this.length = length;
   }
@@ -192,13 +219,16 @@ public class WhatsappPhoneNumberPage {
    * @return total
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total number of items. This field is returned only when the request parameter `includeTotal` is set to `true`.")
 
   public Integer getTotal() {
     return total;
   }
 
 
+  /**
+   * The total number of items. This field is returned only when the request parameter &#x60;includeTotal&#x60; is set to &#x60;true&#x60;.
+   **/
+  @ApiModelProperty(value = "The total number of items. This field is returned only when the request parameter `includeTotal` is set to `true`.")
   public void setTotal(Integer total) {
     this.total = total;
   }

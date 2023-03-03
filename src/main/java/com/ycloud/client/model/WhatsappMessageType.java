@@ -48,7 +48,9 @@ public enum WhatsappMessageType {
   
   INTERACTIVE("interactive"),
   
-  CONTACTS("contacts");
+  CONTACTS("contacts"),
+  
+  REACTION("reaction");
 
   private String value;
 

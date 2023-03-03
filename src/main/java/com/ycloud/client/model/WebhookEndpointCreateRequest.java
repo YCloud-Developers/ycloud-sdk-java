@@ -54,18 +54,29 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WebhookEndpointCreateRequest {
   public static final String SERIALIZED_NAME_URL = "url";
+  /**
+   * The URL of the webhook endpoint.
+  **/
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
   public static final String SERIALIZED_NAME_ENABLED_EVENTS = "enabledEvents";
+  /**
+   * The list of events to enable for this endpoint.
+  **/
   @SerializedName(SERIALIZED_NAME_ENABLED_EVENTS)
   private List<EventType> enabledEvents = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  /**
+   * An optional description of what the webhook is used for.
+  **/
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private WebhookEndpointStatus status;
 
@@ -83,13 +94,16 @@ public class WebhookEndpointCreateRequest {
    * @return url
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api", required = true, value = "The URL of the webhook endpoint.")
 
   public String getUrl() {
     return url;
   }
 
 
+  /**
+   * The URL of the webhook endpoint.
+   **/
+  @ApiModelProperty(example = "https://httpbin.org/anything?tag=api", required = true, value = "The URL of the webhook endpoint.")
   public void setUrl(String url) {
     this.url = url;
   }
@@ -111,13 +125,16 @@ public class WebhookEndpointCreateRequest {
    * @return enabledEvents
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The list of events to enable for this endpoint.")
 
   public List<EventType> getEnabledEvents() {
     return enabledEvents;
   }
 
 
+  /**
+   * The list of events to enable for this endpoint.
+   **/
+  @ApiModelProperty(required = true, value = "The list of events to enable for this endpoint.")
   public void setEnabledEvents(List<EventType> enabledEvents) {
     this.enabledEvents = enabledEvents;
   }
@@ -134,13 +151,16 @@ public class WebhookEndpointCreateRequest {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "My first webhook endpoint.", value = "An optional description of what the webhook is used for.")
 
   public String getDescription() {
     return description;
   }
 
 
+  /**
+   * An optional description of what the webhook is used for.
+   **/
+  @ApiModelProperty(example = "My first webhook endpoint.", value = "An optional description of what the webhook is used for.")
   public void setDescription(String description) {
     this.description = description;
   }
@@ -157,13 +177,15 @@ public class WebhookEndpointCreateRequest {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WebhookEndpointStatus getStatus() {
     return status;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setStatus(WebhookEndpointStatus status) {
     this.status = status;
   }

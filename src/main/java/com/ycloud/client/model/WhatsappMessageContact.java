@@ -20,12 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappMessageContactAddressesInner;
-import com.ycloud.client.model.WhatsappMessageContactEmailsInner;
+import com.ycloud.client.model.WhatsappMessageContactAddress;
+import com.ycloud.client.model.WhatsappMessageContactEmail;
 import com.ycloud.client.model.WhatsappMessageContactName;
 import com.ycloud.client.model.WhatsappMessageContactOrg;
-import com.ycloud.client.model.WhatsappMessageContactPhonesInner;
-import com.ycloud.client.model.WhatsappMessageContactUrlsInner;
+import com.ycloud.client.model.WhatsappMessageContactPhone;
+import com.ycloud.client.model.WhatsappMessageContactUrl;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -59,43 +59,60 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageContact {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
-  private List<WhatsappMessageContactAddressesInner> addresses = null;
+  private List<WhatsappMessageContactAddress> addresses = null;
 
   public static final String SERIALIZED_NAME_BIRTHDAY = "birthday";
+  /**
+   * &#x60;YYYY-MM-DD&#x60; formatted string.
+  **/
   @SerializedName(SERIALIZED_NAME_BIRTHDAY)
   private String birthday;
 
   public static final String SERIALIZED_NAME_EMAILS = "emails";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_EMAILS)
-  private List<WhatsappMessageContactEmailsInner> emails = null;
+  private List<WhatsappMessageContactEmail> emails = null;
 
   public static final String SERIALIZED_NAME_NAME = "name";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private WhatsappMessageContactName name;
 
   public static final String SERIALIZED_NAME_ORG = "org";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_ORG)
   private WhatsappMessageContactOrg org;
 
   public static final String SERIALIZED_NAME_PHONES = "phones";
+  /**
+   * Contact phone number(s) formatted as a phone object.
+  **/
   @SerializedName(SERIALIZED_NAME_PHONES)
-  private List<WhatsappMessageContactPhonesInner> phones = null;
+  private List<WhatsappMessageContactPhone> phones = null;
 
   public static final String SERIALIZED_NAME_URLS = "urls";
+  /**
+   * Contact URL(s) formatted as a urls object.
+  **/
   @SerializedName(SERIALIZED_NAME_URLS)
-  private List<WhatsappMessageContactUrlsInner> urls = null;
+  private List<WhatsappMessageContactUrl> urls = null;
 
   public WhatsappMessageContact() { 
   }
 
-  public WhatsappMessageContact addresses(List<WhatsappMessageContactAddressesInner> addresses) {
+  public WhatsappMessageContact addresses(List<WhatsappMessageContactAddress> addresses) {
     
     this.addresses = addresses;
     return this;
   }
 
-  public WhatsappMessageContact addAddressesItem(WhatsappMessageContactAddressesInner addressesItem) {
+  public WhatsappMessageContact addAddressesItem(WhatsappMessageContactAddress addressesItem) {
     if (this.addresses == null) {
       this.addresses = new ArrayList<>();
     }
@@ -108,14 +125,16 @@ public class WhatsappMessageContact {
    * @return addresses
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public List<WhatsappMessageContactAddressesInner> getAddresses() {
+  public List<WhatsappMessageContactAddress> getAddresses() {
     return addresses;
   }
 
 
-  public void setAddresses(List<WhatsappMessageContactAddressesInner> addresses) {
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setAddresses(List<WhatsappMessageContactAddress> addresses) {
     this.addresses = addresses;
   }
 
@@ -131,25 +150,28 @@ public class WhatsappMessageContact {
    * @return birthday
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2022-09-27", value = "`YYYY-MM-DD` formatted string.")
 
   public String getBirthday() {
     return birthday;
   }
 
 
+  /**
+   * &#x60;YYYY-MM-DD&#x60; formatted string.
+   **/
+  @ApiModelProperty(example = "2022-09-27", value = "`YYYY-MM-DD` formatted string.")
   public void setBirthday(String birthday) {
     this.birthday = birthday;
   }
 
 
-  public WhatsappMessageContact emails(List<WhatsappMessageContactEmailsInner> emails) {
+  public WhatsappMessageContact emails(List<WhatsappMessageContactEmail> emails) {
     
     this.emails = emails;
     return this;
   }
 
-  public WhatsappMessageContact addEmailsItem(WhatsappMessageContactEmailsInner emailsItem) {
+  public WhatsappMessageContact addEmailsItem(WhatsappMessageContactEmail emailsItem) {
     if (this.emails == null) {
       this.emails = new ArrayList<>();
     }
@@ -162,14 +184,16 @@ public class WhatsappMessageContact {
    * @return emails
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public List<WhatsappMessageContactEmailsInner> getEmails() {
+  public List<WhatsappMessageContactEmail> getEmails() {
     return emails;
   }
 
 
-  public void setEmails(List<WhatsappMessageContactEmailsInner> emails) {
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setEmails(List<WhatsappMessageContactEmail> emails) {
     this.emails = emails;
   }
 
@@ -184,14 +208,16 @@ public class WhatsappMessageContact {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
 
   public WhatsappMessageContactName getName() {
     return name;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setName(WhatsappMessageContactName name) {
     this.name = name;
   }
@@ -208,25 +234,27 @@ public class WhatsappMessageContact {
    * @return org
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public WhatsappMessageContactOrg getOrg() {
     return org;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public void setOrg(WhatsappMessageContactOrg org) {
     this.org = org;
   }
 
 
-  public WhatsappMessageContact phones(List<WhatsappMessageContactPhonesInner> phones) {
+  public WhatsappMessageContact phones(List<WhatsappMessageContactPhone> phones) {
     
     this.phones = phones;
     return this;
   }
 
-  public WhatsappMessageContact addPhonesItem(WhatsappMessageContactPhonesInner phonesItem) {
+  public WhatsappMessageContact addPhonesItem(WhatsappMessageContactPhone phonesItem) {
     if (this.phones == null) {
       this.phones = new ArrayList<>();
     }
@@ -239,25 +267,28 @@ public class WhatsappMessageContact {
    * @return phones
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contact phone number(s) formatted as a phone object.")
 
-  public List<WhatsappMessageContactPhonesInner> getPhones() {
+  public List<WhatsappMessageContactPhone> getPhones() {
     return phones;
   }
 
 
-  public void setPhones(List<WhatsappMessageContactPhonesInner> phones) {
+  /**
+   * Contact phone number(s) formatted as a phone object.
+   **/
+  @ApiModelProperty(value = "Contact phone number(s) formatted as a phone object.")
+  public void setPhones(List<WhatsappMessageContactPhone> phones) {
     this.phones = phones;
   }
 
 
-  public WhatsappMessageContact urls(List<WhatsappMessageContactUrlsInner> urls) {
+  public WhatsappMessageContact urls(List<WhatsappMessageContactUrl> urls) {
     
     this.urls = urls;
     return this;
   }
 
-  public WhatsappMessageContact addUrlsItem(WhatsappMessageContactUrlsInner urlsItem) {
+  public WhatsappMessageContact addUrlsItem(WhatsappMessageContactUrl urlsItem) {
     if (this.urls == null) {
       this.urls = new ArrayList<>();
     }
@@ -270,14 +301,17 @@ public class WhatsappMessageContact {
    * @return urls
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contact URL(s) formatted as a urls object.")
 
-  public List<WhatsappMessageContactUrlsInner> getUrls() {
+  public List<WhatsappMessageContactUrl> getUrls() {
     return urls;
   }
 
 
-  public void setUrls(List<WhatsappMessageContactUrlsInner> urls) {
+  /**
+   * Contact URL(s) formatted as a urls object.
+   **/
+  @ApiModelProperty(value = "Contact URL(s) formatted as a urls object.")
+  public void setUrls(List<WhatsappMessageContactUrl> urls) {
     this.urls = urls;
   }
 
@@ -386,6 +420,7 @@ public class WhatsappMessageContact {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
   }
 
  /**
@@ -402,6 +437,13 @@ public class WhatsappMessageContact {
           throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageContact is not found in the empty JSON string", WhatsappMessageContact.openapiRequiredFields.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WhatsappMessageContact.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
       JsonArray jsonArrayaddresses = jsonObj.getAsJsonArray("addresses");
       if (jsonArrayaddresses != null) {
         // ensure the json data is an array
@@ -411,7 +453,7 @@ public class WhatsappMessageContact {
 
         // validate the optional field `addresses` (array)
         for (int i = 0; i < jsonArrayaddresses.size(); i++) {
-          WhatsappMessageContactAddressesInner.validateJsonObject(jsonArrayaddresses.get(i).getAsJsonObject());
+          WhatsappMessageContactAddress.validateJsonObject(jsonArrayaddresses.get(i).getAsJsonObject());
         };
       }
       if (jsonObj.get("birthday") != null && !jsonObj.get("birthday").isJsonPrimitive()) {
@@ -426,7 +468,7 @@ public class WhatsappMessageContact {
 
         // validate the optional field `emails` (array)
         for (int i = 0; i < jsonArrayemails.size(); i++) {
-          WhatsappMessageContactEmailsInner.validateJsonObject(jsonArrayemails.get(i).getAsJsonObject());
+          WhatsappMessageContactEmail.validateJsonObject(jsonArrayemails.get(i).getAsJsonObject());
         };
       }
       // validate the optional field `name`
@@ -446,7 +488,7 @@ public class WhatsappMessageContact {
 
         // validate the optional field `phones` (array)
         for (int i = 0; i < jsonArrayphones.size(); i++) {
-          WhatsappMessageContactPhonesInner.validateJsonObject(jsonArrayphones.get(i).getAsJsonObject());
+          WhatsappMessageContactPhone.validateJsonObject(jsonArrayphones.get(i).getAsJsonObject());
         };
       }
       JsonArray jsonArrayurls = jsonObj.getAsJsonArray("urls");
@@ -458,7 +500,7 @@ public class WhatsappMessageContact {
 
         // validate the optional field `urls` (array)
         for (int i = 0; i < jsonArrayurls.size(); i++) {
-          WhatsappMessageContactUrlsInner.validateJsonObject(jsonArrayurls.get(i).getAsJsonObject());
+          WhatsappMessageContactUrl.validateJsonObject(jsonArrayurls.get(i).getAsJsonObject());
         };
       }
   }

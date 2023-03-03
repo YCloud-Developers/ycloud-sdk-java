@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappMessageTemplateComponentsInner;
+import com.ycloud.client.model.WhatsappMessageTemplateComponent;
 import com.ycloud.client.model.WhatsappMessageTemplateLanguage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -49,22 +49,30 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Template object when sending a WhatsApp template message. See also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object).
+ * Use for sending a WhatsApp &#x60;template&#x60; message. See also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object).
  */
-@ApiModel(description = "Template object when sending a WhatsApp template message. See also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object).")
+@ApiModel(description = "Use for sending a WhatsApp `template` message. See also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageTemplate {
   public static final String SERIALIZED_NAME_NAME = "name";
+  /**
+   * Name of the template.
+  **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
+  /**
+  **/
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   private WhatsappMessageTemplateLanguage language;
 
   public static final String SERIALIZED_NAME_COMPONENTS = "components";
+  /**
+   * **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.
+  **/
   @SerializedName(SERIALIZED_NAME_COMPONENTS)
-  private List<WhatsappMessageTemplateComponentsInner> components = null;
+  private List<WhatsappMessageTemplateComponent> components = null;
 
   public WhatsappMessageTemplate() { 
   }
@@ -80,13 +88,16 @@ public class WhatsappMessageTemplate {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "sample_whatsapp_template", required = true, value = "Name of the template.")
 
   public String getName() {
     return name;
   }
 
 
+  /**
+   * Name of the template.
+   **/
+  @ApiModelProperty(example = "sample_whatsapp_template", required = true, value = "Name of the template.")
   public void setName(String name) {
     this.name = name;
   }
@@ -103,25 +114,27 @@ public class WhatsappMessageTemplate {
    * @return language
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public WhatsappMessageTemplateLanguage getLanguage() {
     return language;
   }
 
 
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public void setLanguage(WhatsappMessageTemplateLanguage language) {
     this.language = language;
   }
 
 
-  public WhatsappMessageTemplate components(List<WhatsappMessageTemplateComponentsInner> components) {
+  public WhatsappMessageTemplate components(List<WhatsappMessageTemplateComponent> components) {
     
     this.components = components;
     return this;
   }
 
-  public WhatsappMessageTemplate addComponentsItem(WhatsappMessageTemplateComponentsInner componentsItem) {
+  public WhatsappMessageTemplate addComponentsItem(WhatsappMessageTemplateComponent componentsItem) {
     if (this.components == null) {
       this.components = new ArrayList<>();
     }
@@ -130,18 +143,21 @@ public class WhatsappMessageTemplate {
   }
 
    /**
-   * Array of components objects containing the parameters of the message.
+   * **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.
    * @return components
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of components objects containing the parameters of the message.")
 
-  public List<WhatsappMessageTemplateComponentsInner> getComponents() {
+  public List<WhatsappMessageTemplateComponent> getComponents() {
     return components;
   }
 
 
-  public void setComponents(List<WhatsappMessageTemplateComponentsInner> components) {
+  /**
+   * **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.
+   **/
+  @ApiModelProperty(value = "**Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.")
+  public void setComponents(List<WhatsappMessageTemplateComponent> components) {
     this.components = components;
   }
 
@@ -279,7 +295,7 @@ public class WhatsappMessageTemplate {
 
         // validate the optional field `components` (array)
         for (int i = 0; i < jsonArraycomponents.size(); i++) {
-          WhatsappMessageTemplateComponentsInner.validateJsonObject(jsonArraycomponents.get(i).getAsJsonObject());
+          WhatsappMessageTemplateComponent.validateJsonObject(jsonArraycomponents.get(i).getAsJsonObject());
         };
       }
   }

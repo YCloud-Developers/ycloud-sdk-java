@@ -20,8 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappMessageInteractiveActionButtonsInner;
-import com.ycloud.client.model.WhatsappMessageInteractiveActionSectionsInner;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionButton;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionSection;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,33 +49,56 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
+ * Action you want the user to perform after reading the &#x60;interactive&#x60; message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
  */
-@ApiModel(description = "[WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).")
+@ApiModel(description = "Action you want the user to perform after reading the `interactive` message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveAction {
   public static final String SERIALIZED_NAME_BUTTONS = "buttons";
+  /**
+   * Required for Reply Buttons.
+  **/
   @SerializedName(SERIALIZED_NAME_BUTTONS)
-  private List<WhatsappMessageInteractiveActionButtonsInner> buttons = null;
+  private List<WhatsappMessageInteractiveActionButton> buttons = null;
 
   public static final String SERIALIZED_NAME_BUTTON = "button";
+  /**
+   * Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
+  **/
   @SerializedName(SERIALIZED_NAME_BUTTON)
   private String button;
 
+  public static final String SERIALIZED_NAME_CATALOG_ID = "catalog_id";
+  /**
+   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/).
+  **/
+  @SerializedName(SERIALIZED_NAME_CATALOG_ID)
+  private String catalogId;
+
+  public static final String SERIALIZED_NAME_PRODUCT_RETAILER_ID = "product_retailer_id";
+  /**
+   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog.
+  **/
+  @SerializedName(SERIALIZED_NAME_PRODUCT_RETAILER_ID)
+  private String productRetailerId;
+
   public static final String SERIALIZED_NAME_SECTIONS = "sections";
+  /**
+   * Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10.
+  **/
   @SerializedName(SERIALIZED_NAME_SECTIONS)
-  private List<WhatsappMessageInteractiveActionSectionsInner> sections = null;
+  private List<WhatsappMessageInteractiveActionSection> sections = null;
 
   public WhatsappMessageInteractiveAction() { 
   }
 
-  public WhatsappMessageInteractiveAction buttons(List<WhatsappMessageInteractiveActionButtonsInner> buttons) {
+  public WhatsappMessageInteractiveAction buttons(List<WhatsappMessageInteractiveActionButton> buttons) {
     
     this.buttons = buttons;
     return this;
   }
 
-  public WhatsappMessageInteractiveAction addButtonsItem(WhatsappMessageInteractiveActionButtonsInner buttonsItem) {
+  public WhatsappMessageInteractiveAction addButtonsItem(WhatsappMessageInteractiveActionButton buttonsItem) {
     if (this.buttons == null) {
       this.buttons = new ArrayList<>();
     }
@@ -88,14 +111,17 @@ public class WhatsappMessageInteractiveAction {
    * @return buttons
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required for Reply Buttons.")
 
-  public List<WhatsappMessageInteractiveActionButtonsInner> getButtons() {
+  public List<WhatsappMessageInteractiveActionButton> getButtons() {
     return buttons;
   }
 
 
-  public void setButtons(List<WhatsappMessageInteractiveActionButtonsInner> buttons) {
+  /**
+   * Required for Reply Buttons.
+   **/
+  @ApiModelProperty(value = "Required for Reply Buttons.")
+  public void setButtons(List<WhatsappMessageInteractiveActionButton> buttons) {
     this.buttons = buttons;
   }
 
@@ -111,25 +137,80 @@ public class WhatsappMessageInteractiveAction {
    * @return button
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.")
 
   public String getButton() {
     return button;
   }
 
 
+  /**
+   * Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
+   **/
+  @ApiModelProperty(value = "Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.")
   public void setButton(String button) {
     this.button = button;
   }
 
 
-  public WhatsappMessageInteractiveAction sections(List<WhatsappMessageInteractiveActionSectionsInner> sections) {
+  public WhatsappMessageInteractiveAction catalogId(String catalogId) {
+    
+    this.catalogId = catalogId;
+    return this;
+  }
+
+   /**
+   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/).
+   * @return catalogId
+  **/
+  @javax.annotation.Nullable
+
+  public String getCatalogId() {
+    return catalogId;
+  }
+
+
+  /**
+   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/).
+   **/
+  @ApiModelProperty(value = "Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/).")
+  public void setCatalogId(String catalogId) {
+    this.catalogId = catalogId;
+  }
+
+
+  public WhatsappMessageInteractiveAction productRetailerId(String productRetailerId) {
+    
+    this.productRetailerId = productRetailerId;
+    return this;
+  }
+
+   /**
+   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog.
+   * @return productRetailerId
+  **/
+  @javax.annotation.Nullable
+
+  public String getProductRetailerId() {
+    return productRetailerId;
+  }
+
+
+  /**
+   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog.
+   **/
+  @ApiModelProperty(value = "Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog.")
+  public void setProductRetailerId(String productRetailerId) {
+    this.productRetailerId = productRetailerId;
+  }
+
+
+  public WhatsappMessageInteractiveAction sections(List<WhatsappMessageInteractiveActionSection> sections) {
     
     this.sections = sections;
     return this;
   }
 
-  public WhatsappMessageInteractiveAction addSectionsItem(WhatsappMessageInteractiveActionSectionsInner sectionsItem) {
+  public WhatsappMessageInteractiveAction addSectionsItem(WhatsappMessageInteractiveActionSection sectionsItem) {
     if (this.sections == null) {
       this.sections = new ArrayList<>();
     }
@@ -138,18 +219,21 @@ public class WhatsappMessageInteractiveAction {
   }
 
    /**
-   * Required for List Messages.
+   * Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10.
    * @return sections
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required for List Messages.")
 
-  public List<WhatsappMessageInteractiveActionSectionsInner> getSections() {
+  public List<WhatsappMessageInteractiveActionSection> getSections() {
     return sections;
   }
 
 
-  public void setSections(List<WhatsappMessageInteractiveActionSectionsInner> sections) {
+  /**
+   * Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10.
+   **/
+  @ApiModelProperty(value = "Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10.")
+  public void setSections(List<WhatsappMessageInteractiveActionSection> sections) {
     this.sections = sections;
   }
 
@@ -201,13 +285,15 @@ public class WhatsappMessageInteractiveAction {
     WhatsappMessageInteractiveAction whatsappMessageInteractiveAction = (WhatsappMessageInteractiveAction) o;
     return Objects.equals(this.buttons, whatsappMessageInteractiveAction.buttons) &&
         Objects.equals(this.button, whatsappMessageInteractiveAction.button) &&
+        Objects.equals(this.catalogId, whatsappMessageInteractiveAction.catalogId) &&
+        Objects.equals(this.productRetailerId, whatsappMessageInteractiveAction.productRetailerId) &&
         Objects.equals(this.sections, whatsappMessageInteractiveAction.sections)&&
         Objects.equals(this.additionalProperties, whatsappMessageInteractiveAction.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(buttons, button, sections, additionalProperties);
+    return Objects.hash(buttons, button, catalogId, productRetailerId, sections, additionalProperties);
   }
 
   @Override
@@ -216,6 +302,8 @@ public class WhatsappMessageInteractiveAction {
     sb.append("class WhatsappMessageInteractiveAction {\n");
     sb.append("    buttons: ").append(toIndentedString(buttons)).append("\n");
     sb.append("    button: ").append(toIndentedString(button)).append("\n");
+    sb.append("    catalogId: ").append(toIndentedString(catalogId)).append("\n");
+    sb.append("    productRetailerId: ").append(toIndentedString(productRetailerId)).append("\n");
     sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -242,6 +330,8 @@ public class WhatsappMessageInteractiveAction {
     openapiFields = new HashSet<String>();
     openapiFields.add("buttons");
     openapiFields.add("button");
+    openapiFields.add("catalog_id");
+    openapiFields.add("product_retailer_id");
     openapiFields.add("sections");
 
     // a set of required properties/fields (JSON key names)
@@ -271,11 +361,17 @@ public class WhatsappMessageInteractiveAction {
 
         // validate the optional field `buttons` (array)
         for (int i = 0; i < jsonArraybuttons.size(); i++) {
-          WhatsappMessageInteractiveActionButtonsInner.validateJsonObject(jsonArraybuttons.get(i).getAsJsonObject());
+          WhatsappMessageInteractiveActionButton.validateJsonObject(jsonArraybuttons.get(i).getAsJsonObject());
         };
       }
       if (jsonObj.get("button") != null && !jsonObj.get("button").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `button` to be a primitive type in the JSON string but got `%s`", jsonObj.get("button").toString()));
+      }
+      if (jsonObj.get("catalog_id") != null && !jsonObj.get("catalog_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `catalog_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("catalog_id").toString()));
+      }
+      if (jsonObj.get("product_retailer_id") != null && !jsonObj.get("product_retailer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `product_retailer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("product_retailer_id").toString()));
       }
       JsonArray jsonArraysections = jsonObj.getAsJsonArray("sections");
       if (jsonArraysections != null) {
@@ -286,7 +382,7 @@ public class WhatsappMessageInteractiveAction {
 
         // validate the optional field `sections` (array)
         for (int i = 0; i < jsonArraysections.size(); i++) {
-          WhatsappMessageInteractiveActionSectionsInner.validateJsonObject(jsonArraysections.get(i).getAsJsonObject());
+          WhatsappMessageInteractiveActionSection.validateJsonObject(jsonArraysections.get(i).getAsJsonObject());
         };
       }
   }

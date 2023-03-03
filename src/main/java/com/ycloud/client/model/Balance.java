@@ -50,10 +50,16 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Balance {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  /**
+   * Balance of current account.
+  **/
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Double amount;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+  **/
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
@@ -71,13 +77,16 @@ public class Balance {
    * @return amount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "190.0765", required = true, value = "Balance of current account.")
 
   public Double getAmount() {
     return amount;
   }
 
 
+  /**
+   * Balance of current account.
+   **/
+  @ApiModelProperty(example = "190.0765", required = true, value = "Balance of current account.")
   public void setAmount(Double amount) {
     this.amount = amount;
   }
@@ -94,13 +103,16 @@ public class Balance {
    * @return currency
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "USD", required = true, value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getCurrency() {
     return currency;
   }
 
 
+  /**
+   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
+   **/
+  @ApiModelProperty(example = "USD", required = true, value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   public void setCurrency(String currency) {
     this.currency = currency;
   }

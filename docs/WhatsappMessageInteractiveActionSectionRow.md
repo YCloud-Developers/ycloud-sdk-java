@@ -1,6 +1,6 @@
 
 
-# WhatsappMessageInteractiveActionSectionsInnerRowsInner
+# WhatsappMessageInteractiveActionSectionRow
 
 
 ## Properties
