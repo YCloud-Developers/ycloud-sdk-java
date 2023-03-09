@@ -378,7 +378,7 @@ paths:
       x-group-parameters: true
       x-accepts: application/json
     post:
-      description: Creates a webhook endpoint listening the specified events.
+      description: Creates a webhook endpoint listening for specific events.
       operationId: webhook_endpoint-create
       requestBody:
         content:
@@ -1573,6 +1573,11 @@ components:
         docUrl:
           description: A URL to more information about the error.
           example: ""
+          type: string
+        requestId:
+          description: Each API request has an associated request ID. It conveys the
+            response header `YCloud-Request-ID` used for the convenience of the consumer.
+          example: req_1KjtKI80IKoaJNa6n6p
           type: string
       required:
       - code
@@ -5716,22 +5721,39 @@ components:
       - wabaId
       type: object
     WhatsappTemplateCategory:
-      description: "Category of WhatsApp templates.\n`TRANSACTIONAL`: Send account\
-        \ updates, order updates, alerts, and more to share important information.\n\
-        `MARKETING`: Send promotional offers, product announcements, and more to increase\
-        \ awareness and engagement.\n`OTP`: Send codes that allow your customers to\
-        \ access their accounts."
+      description: "Category of WhatsApp templates.\n- `AUTHENTICATION`: Enable businesses\
+        \ to authenticate users with one-time passcodes, potentially at multiple steps\
+        \ in the login process (e.g., account verification, account recovery, integrity\
+        \ challenges).\n- `MARKETING`: Include promotions or offers, informational\
+        \ updates, or invitations for customers to respond / take action. Any conversation\
+        \ that does not qualify as utility or authentication is a marketing conversation.\n\
+        - `UTILITY`: Facilitate a specific, agreed-upon request or transaction or\
+        \ update to a customer about an ongoing transaction, including post-purchase\
+        \ notifications and recurring billing statements.\n- `TRANSACTIONAL`: Valid\
+        \ until 2023-05-01. Send account updates, order updates, alerts, and more\
+        \ to share important information.\n- `OTP`: Valid until 2023-05-01. Send codes\
+        \ that allow your customers to access their accounts."
       enum:
-      - TRANSACTIONAL
+      - AUTHENTICATION
       - MARKETING
+      - UTILITY
+      - TRANSACTIONAL
       - OTP
       type: string
       x-enum-descriptions:
-      - "Send account updates, order updates, alerts, and more to share important\
-        \ information."
-      - "Send promotional offers, product announcements, and more to increase awareness\
-        \ and engagement."
-      - Send codes that allow your customers to access their accounts.
+      - "Enable businesses to authenticate users with one-time passcodes, potentially\
+        \ at multiple steps in the login process (e.g., account verification, account\
+        \ recovery, integrity challenges)."
+      - "Include promotions or offers, informational updates, or invitations for customers\
+        \ to respond / take action. Any conversation that does not qualify as utility\
+        \ or authentication is a marketing conversation."
+      - "Facilitate a specific, agreed-upon request or transaction or update to a\
+        \ customer about an ongoing transaction, including post-purchase notifications\
+        \ and recurring billing statements."
+      - "Valid until 2023-05-01. Send account updates, order updates, alerts, and\
+        \ more to share important information."
+      - Valid until 2023-05-01. Send codes that allow your customers to access their
+        accounts.
     WhatsappTemplateComponent:
       example:
         buttons:

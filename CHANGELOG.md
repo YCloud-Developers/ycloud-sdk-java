@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.1 (2023-03-09)
+
+- Add WhatsApp template category `AUTHENTICATION` and `UTILITY`.
+- Add `requestId` to response body `error` object.
+
 ## 1.6.0 (2023-03-03)
 
 - Support WhatsApp `sticker` and `reaction` messages;

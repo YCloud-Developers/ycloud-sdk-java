@@ -84,6 +84,13 @@ public class Error {
   @SerializedName(SERIALIZED_NAME_DOC_URL)
   private String docUrl;
 
+  public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
+  /**
+   * Each API request has an associated request ID. It conveys the response header &#x60;YCloud-Request-ID&#x60; used for the convenience of the consumer.
+  **/
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public Error() { 
   }
 
@@ -216,6 +223,32 @@ public class Error {
     this.docUrl = docUrl;
   }
 
+
+  public Error requestId(String requestId) {
+    
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Each API request has an associated request ID. It conveys the response header &#x60;YCloud-Request-ID&#x60; used for the convenience of the consumer.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+
+  public String getRequestId() {
+    return requestId;
+  }
+
+
+  /**
+   * Each API request has an associated request ID. It conveys the response header &#x60;YCloud-Request-ID&#x60; used for the convenience of the consumer.
+   **/
+  @ApiModelProperty(example = "req_1KjtKI80IKoaJNa6n6p", value = "Each API request has an associated request ID. It conveys the response header `YCloud-Request-ID` used for the convenience of the consumer.")
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -266,13 +299,14 @@ public class Error {
         Objects.equals(this.code, error.code) &&
         Objects.equals(this.message, error.message) &&
         Objects.equals(this.target, error.target) &&
-        Objects.equals(this.docUrl, error.docUrl)&&
+        Objects.equals(this.docUrl, error.docUrl) &&
+        Objects.equals(this.requestId, error.requestId)&&
         Objects.equals(this.additionalProperties, error.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, code, message, target, docUrl, additionalProperties);
+    return Objects.hash(status, code, message, target, docUrl, requestId, additionalProperties);
   }
 
   @Override
@@ -284,6 +318,7 @@ public class Error {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    docUrl: ").append(toIndentedString(docUrl)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -312,6 +347,7 @@ public class Error {
     openapiFields.add("message");
     openapiFields.add("target");
     openapiFields.add("docUrl");
+    openapiFields.add("requestId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -351,6 +387,9 @@ public class Error {
       }
       if (jsonObj.get("docUrl") != null && !jsonObj.get("docUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `docUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("docUrl").toString()));
+      }
+      if (jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `requestId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestId").toString()));
       }
   }
 

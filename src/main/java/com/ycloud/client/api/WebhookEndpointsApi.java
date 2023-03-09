@@ -151,7 +151,7 @@ public class WebhookEndpointsApi {
     /**
      * Create a webhook endpoint
      * <p>
-     * Creates a webhook endpoint listening the specified events.
+     * Creates a webhook endpoint listening for specific events.
      * @param webhookEndpointCreateRequest  (required)
      * @return WebhookEndpoint
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -169,7 +169,7 @@ public class WebhookEndpointsApi {
     /**
      * Create a webhook endpoint
      * <p>
-     * Creates a webhook endpoint listening the specified events.
+     * Creates a webhook endpoint listening for specific events.
      * @param webhookEndpointCreateRequest  (required)
      * @return ApiResponse&lt;WebhookEndpoint&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -188,7 +188,7 @@ public class WebhookEndpointsApi {
     /**
      * Create a webhook endpoint (asynchronously)
      * <p>
-     * Creates a webhook endpoint listening the specified events.
+     * Creates a webhook endpoint listening for specific events.
      * @param webhookEndpointCreateRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

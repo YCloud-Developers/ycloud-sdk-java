@@ -12,6 +12,7 @@
 |**message** | **String** | A human-readable representation of the error. It is intended as an aid to developers and is not suitable for exposure to end users. |  [optional] |
 |**target** | **String** | The target of the error. |  [optional] |
 |**docUrl** | **String** | A URL to more information about the error. |  [optional] |
+|**requestId** | **String** | Each API request has an associated request ID. It conveys the response header &#x60;YCloud-Request-ID&#x60; used for the convenience of the consumer. |  [optional] |
 
 
 

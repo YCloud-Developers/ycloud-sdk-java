@@ -25,23 +25,33 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Category of WhatsApp templates. &#x60;TRANSACTIONAL&#x60;: Send account updates, order updates, alerts, and more to share important information. &#x60;MARKETING&#x60;: Send promotional offers, product announcements, and more to increase awareness and engagement. &#x60;OTP&#x60;: Send codes that allow your customers to access their accounts.
+ * Category of WhatsApp templates. - &#x60;AUTHENTICATION&#x60;: Enable businesses to authenticate users with one-time passcodes, potentially at multiple steps in the login process (e.g., account verification, account recovery, integrity challenges). - &#x60;MARKETING&#x60;: Include promotions or offers, informational updates, or invitations for customers to respond / take action. Any conversation that does not qualify as utility or authentication is a marketing conversation. - &#x60;UTILITY&#x60;: Facilitate a specific, agreed-upon request or transaction or update to a customer about an ongoing transaction, including post-purchase notifications and recurring billing statements. - &#x60;TRANSACTIONAL&#x60;: Valid until 2023-05-01. Send account updates, order updates, alerts, and more to share important information. - &#x60;OTP&#x60;: Valid until 2023-05-01. Send codes that allow your customers to access their accounts.
  */
 @JsonAdapter(WhatsappTemplateCategory.Adapter.class)
 public enum WhatsappTemplateCategory {
   
   /**
-   * Send account updates, order updates, alerts, and more to share important information.
+   * Enable businesses to authenticate users with one-time passcodes, potentially at multiple steps in the login process (e.g., account verification, account recovery, integrity challenges).
    */
-  TRANSACTIONAL("TRANSACTIONAL"),
+  AUTHENTICATION("AUTHENTICATION"),
   
   /**
-   * Send promotional offers, product announcements, and more to increase awareness and engagement.
+   * Include promotions or offers, informational updates, or invitations for customers to respond / take action. Any conversation that does not qualify as utility or authentication is a marketing conversation.
    */
   MARKETING("MARKETING"),
   
   /**
-   * Send codes that allow your customers to access their accounts.
+   * Facilitate a specific, agreed-upon request or transaction or update to a customer about an ongoing transaction, including post-purchase notifications and recurring billing statements.
+   */
+  UTILITY("UTILITY"),
+  
+  /**
+   * Valid until 2023-05-01. Send account updates, order updates, alerts, and more to share important information.
+   */
+  TRANSACTIONAL("TRANSACTIONAL"),
+  
+  /**
+   * Valid until 2023-05-01. Send codes that allow your customers to access their accounts.
    */
   OTP("OTP");
 

@@ -18,7 +18,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 Create a webhook endpoint
 
-Creates a webhook endpoint listening the specified events.
+Creates a webhook endpoint listening for specific events.
 
 ### Example
 ```java
