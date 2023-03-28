@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Indicates who initiated the conversation. &#x60;business_initiated&#x60;: Indicates that the conversation started by a business sending the first message to a customer. This applies any time it has been more than 24 hours since the last customer message. &#x60;user_initiated&#x60;: Indicates that the conversation started by a business replying to a customer message. This applies only when the business reply is within 24 hours of the last customer message. &#x60;referral_conversion&#x60;: Indicates that the conversation originated from a free entry point. These conversations are always customer-initiated.
+ * Indicates who initiated the conversation. **Note: Starting June 1, 2023, &#x60;business_initiated&#x60; will be replaced with &#x60;authentication&#x60;, &#x60;marketing&#x60;, and &#x60;utility&#x60;, while &#x60;user_initiated&#x60; will be replaced with &#x60;service&#x60;. For more information, see also [Updates to conversation-based pricing: Effective June 1, 2023](https://developers.facebook.com/docs/whatsapp/updates-to-pricing).**  &#x60;business_initiated&#x60;: Indicates that the conversation started by a business sending the first message to a customer. This applies any time it has been more than 24 hours since the last customer message. &#x60;user_initiated&#x60;: Indicates that the conversation started by a business replying to a customer message. This applies only when the business reply is within 24 hours of the last customer message. &#x60;referral_conversion&#x60;: Indicates the user initiated the conversation by clicking a [Click to WhatsApp ad](https://www.facebook.com/business/help/447934475640650) or a [Facebook Page Call-to-Action button](https://www.facebook.com/help/977869848936797). &#x60;authentication&#x60;: Indicates the business initiated the conversation with a message template categorized as &#x60;AUTHENTICATION&#x60;. &#x60;marketing&#x60;: Indicates the business initiated the conversation with a message template categorized as &#x60;MARKETING&#x60;. &#x60;utility&#x60;: Indicates the business initiated the conversation with a message template categorized as &#x60;UTILITY&#x60;. &#x60;service&#x60;: Indicates the user initiated the conversation.
  */
 @JsonAdapter(WhatsappConversationOriginType.Adapter.class)
 public enum WhatsappConversationOriginType {
@@ -41,9 +41,29 @@ public enum WhatsappConversationOriginType {
   USER_INITIATED("user_initiated"),
   
   /**
-   * Indicates that the conversation originated from a free entry point. These conversations are always customer-initiated.
+   * Indicates the user initiated the conversation by clicking a [Click to WhatsApp ad](https://www.facebook.com/business/help/447934475640650) or a [Facebook Page Call-to-Action button](https://www.facebook.com/help/977869848936797).
    */
-  REFERRAL_CONVERSION("referral_conversion");
+  REFERRAL_CONVERSION("referral_conversion"),
+  
+  /**
+   * Indicates the business initiated the conversation with a message template categorized as &#x60;AUTHENTICATION&#x60;.
+   */
+  AUTHENTICATION("authentication"),
+  
+  /**
+   * Indicates the business initiated the conversation with a message template categorized as &#x60;MARKETING&#x60;.
+   */
+  MARKETING("marketing"),
+  
+  /**
+   * Indicates the business initiated the conversation with a message template categorized as &#x60;UTILITY&#x60;.
+   */
+  UTILITY("utility"),
+  
+  /**
+   * Indicates the user initiated the conversation.
+   */
+  SERVICE("service");
 
   private String value;
 

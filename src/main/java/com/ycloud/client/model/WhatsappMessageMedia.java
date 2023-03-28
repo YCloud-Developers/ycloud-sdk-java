@@ -59,7 +59,7 @@ public class WhatsappMessageMedia {
 
   public static final String SERIALIZED_NAME_CAPTION = "caption";
   /**
-   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;interactive&#x60; messages.
+   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
   **/
   @SerializedName(SERIALIZED_NAME_CAPTION)
   private String caption;
@@ -107,7 +107,7 @@ public class WhatsappMessageMedia {
   }
 
    /**
-   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;interactive&#x60; messages.
+   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
    * @return caption
   **/
   @javax.annotation.Nullable
@@ -118,9 +118,9 @@ public class WhatsappMessageMedia {
 
 
   /**
-   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;interactive&#x60; messages.
+   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
    **/
-  @ApiModelProperty(value = "Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `interactive` messages.")
+  @ApiModelProperty(value = "Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `template` or `interactive` messages.")
   public void setCaption(String caption) {
     this.caption = caption;
   }

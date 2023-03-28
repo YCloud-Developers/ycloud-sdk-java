@@ -1650,6 +1650,7 @@ components:
       - whatsapp.message.updated
       - whatsapp.phone_number.name_updated
       - whatsapp.phone_number.quality_updated
+      - whatsapp.template.category_updated
       - whatsapp.template.reviewed
       type: string
       x-enum-descriptions:
@@ -1671,6 +1672,7 @@ components:
         or rejected.
       - "Occurs when a WhatsApp business account phone number's quality-related status\
         \ is updated, and the status changes to `GREEN`, `YELLOW`, or `RED`."
+      - Occurs when a WhatsApp template category is updated.
       - "Occurs when a WhatsApp template status is updated, and the status changes\
         \ to REJECTED, APPROVED, PAUSED, DISABLED, or IN_APPEAL."
     Mailbox:
@@ -2827,18 +2829,33 @@ components:
           type: string
       type: object
     WhatsappConversationOriginType:
-      description: "Indicates who initiated the conversation.\n`business_initiated`:\
-        \ Indicates that the conversation started by a business sending the first\
-        \ message to a customer. This applies any time it has been more than 24 hours\
-        \ since the last customer message.\n`user_initiated`: Indicates that the conversation\
-        \ started by a business replying to a customer message. This applies only\
-        \ when the business reply is within 24 hours of the last customer message.\n\
-        `referral_conversion`: Indicates that the conversation originated from a free\
-        \ entry point. These conversations are always customer-initiated."
+      description: "Indicates who initiated the conversation.\n**Note: Starting June\
+        \ 1, 2023, `business_initiated` will be replaced with `authentication`, `marketing`,\
+        \ and `utility`, while `user_initiated` will be replaced with `service`. For\
+        \ more information, see also [Updates to conversation-based pricing: Effective\
+        \ June 1, 2023](https://developers.facebook.com/docs/whatsapp/updates-to-pricing).**\
+        \ \n`business_initiated`: Indicates that the conversation started by a business\
+        \ sending the first message to a customer. This applies any time it has been\
+        \ more than 24 hours since the last customer message.\n`user_initiated`: Indicates\
+        \ that the conversation started by a business replying to a customer message.\
+        \ This applies only when the business reply is within 24 hours of the last\
+        \ customer message.\n`referral_conversion`: Indicates the user initiated the\
+        \ conversation by clicking a [Click to WhatsApp ad](https://www.facebook.com/business/help/447934475640650)\
+        \ or a [Facebook Page Call-to-Action button](https://www.facebook.com/help/977869848936797).\n\
+        `authentication`: Indicates the business initiated the conversation with a\
+        \ message template categorized as `AUTHENTICATION`.\n`marketing`: Indicates\
+        \ the business initiated the conversation with a message template categorized\
+        \ as `MARKETING`.\n`utility`: Indicates the business initiated the conversation\
+        \ with a message template categorized as `UTILITY`.\n`service`: Indicates\
+        \ the user initiated the conversation."
       enum:
       - business_initiated
       - user_initiated
       - referral_conversion
+      - authentication
+      - marketing
+      - utility
+      - service
       type: string
       x-enum-descriptions:
       - Indicates that the conversation started by a business sending the first message
@@ -2847,8 +2864,16 @@ components:
       - Indicates that the conversation started by a business replying to a customer
         message. This applies only when the business reply is within 24 hours of the
         last customer message.
-      - Indicates that the conversation originated from a free entry point. These
-        conversations are always customer-initiated.
+      - "Indicates the user initiated the conversation by clicking a [Click to WhatsApp\
+        \ ad](https://www.facebook.com/business/help/447934475640650) or a [Facebook\
+        \ Page Call-to-Action button](https://www.facebook.com/help/977869848936797)."
+      - Indicates the business initiated the conversation with a message template
+        categorized as `AUTHENTICATION`.
+      - Indicates the business initiated the conversation with a message template
+        categorized as `MARKETING`.
+      - Indicates the business initiated the conversation with a message template
+        categorized as `UTILITY`.
+      - Indicates the user initiated the conversation.
     WhatsappInboundMessage:
       description: WhatsApp inbound message object.
       properties:
@@ -3698,7 +3723,10 @@ components:
           format: date-time
           type: string
         totalPrice:
-          description: Total price of this message.
+          description: "Total price of this message.\n**Note: It's only an estimated\
+            \ price when the `status` is `accepted` or `sent`. It becomes the final\
+            \ price after the message is delivered, i.e., the `status` is `delivered`\
+            \ or `read`.**"
           example: 0.05
           format: double
           type: number
@@ -4495,7 +4523,7 @@ components:
           type: string
         caption:
           description: "Describes the specified `image`, `video`, or `document` media.\
-            \ Not applicable in the `header` of `interactive` messages."
+            \ Not applicable in the `header` of `template` or `interactive` messages."
           type: string
         filename:
           description: Describes the filename for the specific document. Use only
@@ -5568,32 +5596,45 @@ components:
     WhatsappTemplate:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
       example:
-        wabaId: whatsapp-business-account-id
         reason: reason
         components:
         - buttons:
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
           format: TEXT
+          add_security_recommendation: true
+          code_expiration_minutes: 5
           text: text
           type: BODY
           example:
@@ -5609,28 +5650,42 @@ components:
             - header_url
             - header_url
         - buttons:
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
           format: TEXT
+          add_security_recommendation: true
+          code_expiration_minutes: 5
           text: text
           type: BODY
           example:
@@ -5645,6 +5700,10 @@ components:
             header_url:
             - header_url
             - header_url
+        previousCategory: previousCategory
+        language: en
+        updateTime: 2022-06-01T12:00:00Z
+        wabaId: whatsapp-business-account-id
         disableDate: "December 9, 2022"
         createTime: 2022-06-01T12:00:00Z
         whatsappApiError:
@@ -5658,8 +5717,6 @@ components:
           error_data: "{}"
         name: name
         statusUpdateEvent: null
-        language: en
-        updateTime: 2022-06-01T12:00:00Z
         category: null
         status: REJECTED
       properties:
@@ -5679,6 +5736,13 @@ components:
           type: string
         category:
           $ref: '#/components/schemas/WhatsappTemplateCategory'
+        previousCategory:
+          description: "This field indicates the template's previous category (or\
+            \ `null`, for newly created templates after April 1, 2023). Compare this\
+            \ value to the template's `category` field value, which indicates the\
+            \ template's current category.\nFor more information about template category\
+            \ migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration)."
+          type: string
         components:
           description: "Template components. A template consists of `HEADER`, `BODY`,\
             \ `FOOTER`, and `BUTTONS` components. `BODY` component is required, the\
@@ -5757,28 +5821,42 @@ components:
     WhatsappTemplateComponent:
       example:
         buttons:
-        - phone_number: phone_number
+        - autofill_text: Autofill
+          package_name: com.example.myapplication
+          phone_number: phone_number
           text: text
+          otp_type: null
           type: null
+          signature_hash: K8a%2FAINcGX7
           url: url
           example:
           - example
           - example
-        - phone_number: phone_number
+        - autofill_text: Autofill
+          package_name: com.example.myapplication
+          phone_number: phone_number
           text: text
+          otp_type: null
           type: null
+          signature_hash: K8a%2FAINcGX7
           url: url
           example:
           - example
           - example
-        - phone_number: phone_number
+        - autofill_text: Autofill
+          package_name: com.example.myapplication
+          phone_number: phone_number
           text: text
+          otp_type: null
           type: null
+          signature_hash: K8a%2FAINcGX7
           url: url
           example:
           - example
           - example
         format: TEXT
+        add_security_recommendation: true
+        code_expiration_minutes: 5
         text: text
         type: BODY
         example:
@@ -5823,14 +5901,34 @@ components:
             $ref: '#/components/schemas/WhatsappTemplateComponentButton'
           maxItems: 3
           type: array
+        add_security_recommendation:
+          description: "**Optional. Only applicable in the `BODY` component of an\
+            \ AUTHENTICATION template.**\nSet to `true` if you want the template to\
+            \ include the string, *For your security, do not share this code.* Set\
+            \ to `false` to exclude the string."
+          type: boolean
+        code_expiration_minutes:
+          description: "**Optional. Only applicable in the `FOOTER` component of an\
+            \ AUTHENTICATION template.**\nIndicates number of minutes the password\
+            \ or code is valid.\nIf omitted, the code expiration warning will not\
+            \ be displayed in the delivered message.\nMinimum 1, maximum 90."
+          example: 5
+          format: int32
+          maximum: 90
+          minimum: 1
+          type: integer
         example:
           $ref: '#/components/schemas/WhatsappTemplateComponent_example'
       type: object
     WhatsappTemplateComponentButton:
       example:
+        autofill_text: Autofill
+        package_name: com.example.myapplication
         phone_number: phone_number
         text: text
+        otp_type: null
         type: null
+        signature_hash: K8a%2FAINcGX7
         url: url
         example:
         - example
@@ -5839,7 +5937,11 @@ components:
         type:
           $ref: '#/components/schemas/WhatsappTemplateComponentButtonType'
         text:
-          description: '**Required.** Button text.'
+          description: "**Required.** Button text.\nFor `OTP` buttons, note that even\
+            \ if your template is using a one-tap autofill button, this value must\
+            \ still be supplied. If we are unable to validate your handshake the authentication\
+            \ template message will display a copy code button with this text instead.\
+            \ Maximum 25 characters."
           type: string
         url:
           description: "**Required for button type `URL`.** \nThere can be at most\
@@ -5847,6 +5949,26 @@ components:
           type: string
         phone_number:
           description: '**Required for button type `PHONE_NUMBER`.**'
+          type: string
+        otp_type:
+          $ref: '#/components/schemas/WhatsappTemplateComponentButtonOtpType'
+        autofill_text:
+          description: |-
+            **One-tap buttons only.**
+            One-tap button text. Maximum 25 characters.
+          example: Autofill
+          maxLength: 25
+          type: string
+        package_name:
+          description: |-
+            **One-tap buttons only.**
+            Your Android app's package name.
+          example: com.example.myapplication
+          type: string
+        signature_hash:
+          description: "**One-tap buttons only.**\nYour app signing key hash. See\
+            \ [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash)."
+          example: K8a%2FAINcGX7
           type: string
         example:
           description: Sample full URL for a `URL` button with a variable.
@@ -5857,11 +5979,20 @@ components:
       - text
       - type
       type: object
+    WhatsappTemplateComponentButtonOtpType:
+      description: "Indicates button OTP type. Set to `COPY_CODE` if you want the\
+        \ template to use a copy code button, or `ONE_TAP` to have it use a one-tap\
+        \ autofill button."
+      enum:
+      - COPY_CODE
+      - ONE_TAP
+      type: string
     WhatsappTemplateComponentButtonType:
       enum:
       - PHONE_NUMBER
       - URL
       - QUICK_REPLY
+      - OTP
       type: string
     WhatsappTemplateCreateRequest:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
@@ -5869,28 +6000,42 @@ components:
         wabaId: whatsapp-business-account-id
         components:
         - buttons:
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
           format: TEXT
+          add_security_recommendation: true
+          code_expiration_minutes: 5
           text: text
           type: BODY
           example:
@@ -5906,28 +6051,42 @@ components:
             - header_url
             - header_url
         - buttons:
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
           format: TEXT
+          add_security_recommendation: true
+          code_expiration_minutes: 5
           text: text
           type: BODY
           example:
@@ -5979,28 +6138,42 @@ components:
       example:
         components:
         - buttons:
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
           format: TEXT
+          add_security_recommendation: true
+          code_expiration_minutes: 5
           text: text
           type: BODY
           example:
@@ -6016,28 +6189,42 @@ components:
             - header_url
             - header_url
         - buttons:
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
-          - phone_number: phone_number
+          - autofill_text: Autofill
+            package_name: com.example.myapplication
+            phone_number: phone_number
             text: text
+            otp_type: null
             type: null
+            signature_hash: K8a%2FAINcGX7
             url: url
             example:
             - example
             - example
           format: TEXT
+          add_security_recommendation: true
+          code_expiration_minutes: 5
           text: text
           type: BODY
           example:
@@ -6066,32 +6253,45 @@ components:
       description: Represents a given page of WhatsApp templates.
       example:
         items:
-        - wabaId: whatsapp-business-account-id
-          reason: reason
+        - reason: reason
           components:
           - buttons:
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
             format: TEXT
+            add_security_recommendation: true
+            code_expiration_minutes: 5
             text: text
             type: BODY
             example:
@@ -6107,28 +6307,42 @@ components:
               - header_url
               - header_url
           - buttons:
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
             format: TEXT
+            add_security_recommendation: true
+            code_expiration_minutes: 5
             text: text
             type: BODY
             example:
@@ -6143,6 +6357,10 @@ components:
               header_url:
               - header_url
               - header_url
+          previousCategory: previousCategory
+          language: en
+          updateTime: 2022-06-01T12:00:00Z
+          wabaId: whatsapp-business-account-id
           disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
           whatsappApiError:
@@ -6156,36 +6374,47 @@ components:
             error_data: "{}"
           name: name
           statusUpdateEvent: null
-          language: en
-          updateTime: 2022-06-01T12:00:00Z
           category: null
           status: REJECTED
-        - wabaId: whatsapp-business-account-id
-          reason: reason
+        - reason: reason
           components:
           - buttons:
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
             format: TEXT
+            add_security_recommendation: true
+            code_expiration_minutes: 5
             text: text
             type: BODY
             example:
@@ -6201,28 +6430,42 @@ components:
               - header_url
               - header_url
           - buttons:
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
-            - phone_number: phone_number
+            - autofill_text: Autofill
+              package_name: com.example.myapplication
+              phone_number: phone_number
               text: text
+              otp_type: null
               type: null
+              signature_hash: K8a%2FAINcGX7
               url: url
               example:
               - example
               - example
             format: TEXT
+            add_security_recommendation: true
+            code_expiration_minutes: 5
             text: text
             type: BODY
             example:
@@ -6237,6 +6480,10 @@ components:
               header_url:
               - header_url
               - header_url
+          previousCategory: previousCategory
+          language: en
+          updateTime: 2022-06-01T12:00:00Z
+          wabaId: whatsapp-business-account-id
           disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
           whatsappApiError:
@@ -6250,8 +6497,6 @@ components:
             error_data: "{}"
           name: name
           statusUpdateEvent: null
-          language: en
-          updateTime: 2022-06-01T12:00:00Z
           category: null
           status: REJECTED
       properties:

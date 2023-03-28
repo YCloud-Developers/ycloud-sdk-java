@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.6.1</version>
+  <version>1.7.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.6.1"
+     implementation "com.ycloud:ycloud-sdk-java:1.7.0"
   }
 ```
 
@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateCategory](docs/WhatsappTemplateCategory.md)
  - [WhatsappTemplateComponent](docs/WhatsappTemplateComponent.md)
  - [WhatsappTemplateComponentButton](docs/WhatsappTemplateComponentButton.md)
+ - [WhatsappTemplateComponentButtonOtpType](docs/WhatsappTemplateComponentButtonOtpType.md)
  - [WhatsappTemplateComponentButtonType](docs/WhatsappTemplateComponentButtonType.md)
  - [WhatsappTemplateComponentExample](docs/WhatsappTemplateComponentExample.md)
  - [WhatsappTemplateCreateRequest](docs/WhatsappTemplateCreateRequest.md)

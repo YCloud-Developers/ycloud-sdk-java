@@ -183,6 +183,20 @@ public class WhatsappTemplateComponent {
   @SerializedName(SERIALIZED_NAME_BUTTONS)
   private List<WhatsappTemplateComponentButton> buttons = null;
 
+  public static final String SERIALIZED_NAME_ADD_SECURITY_RECOMMENDATION = "add_security_recommendation";
+  /**
+   * **Optional. Only applicable in the &#x60;BODY&#x60; component of an AUTHENTICATION template.** Set to &#x60;true&#x60; if you want the template to include the string, *For your security, do not share this code.* Set to &#x60;false&#x60; to exclude the string.
+  **/
+  @SerializedName(SERIALIZED_NAME_ADD_SECURITY_RECOMMENDATION)
+  private Boolean addSecurityRecommendation;
+
+  public static final String SERIALIZED_NAME_CODE_EXPIRATION_MINUTES = "code_expiration_minutes";
+  /**
+   * **Optional. Only applicable in the &#x60;FOOTER&#x60; component of an AUTHENTICATION template.** Indicates number of minutes the password or code is valid. If omitted, the code expiration warning will not be displayed in the delivered message. Minimum 1, maximum 90.
+  **/
+  @SerializedName(SERIALIZED_NAME_CODE_EXPIRATION_MINUTES)
+  private Integer codeExpirationMinutes;
+
   public static final String SERIALIZED_NAME_EXAMPLE = "example";
   /**
   **/
@@ -304,6 +318,60 @@ public class WhatsappTemplateComponent {
   }
 
 
+  public WhatsappTemplateComponent addSecurityRecommendation(Boolean addSecurityRecommendation) {
+    
+    this.addSecurityRecommendation = addSecurityRecommendation;
+    return this;
+  }
+
+   /**
+   * **Optional. Only applicable in the &#x60;BODY&#x60; component of an AUTHENTICATION template.** Set to &#x60;true&#x60; if you want the template to include the string, *For your security, do not share this code.* Set to &#x60;false&#x60; to exclude the string.
+   * @return addSecurityRecommendation
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getAddSecurityRecommendation() {
+    return addSecurityRecommendation;
+  }
+
+
+  /**
+   * **Optional. Only applicable in the &#x60;BODY&#x60; component of an AUTHENTICATION template.** Set to &#x60;true&#x60; if you want the template to include the string, *For your security, do not share this code.* Set to &#x60;false&#x60; to exclude the string.
+   **/
+  @ApiModelProperty(value = "**Optional. Only applicable in the `BODY` component of an AUTHENTICATION template.** Set to `true` if you want the template to include the string, *For your security, do not share this code.* Set to `false` to exclude the string.")
+  public void setAddSecurityRecommendation(Boolean addSecurityRecommendation) {
+    this.addSecurityRecommendation = addSecurityRecommendation;
+  }
+
+
+  public WhatsappTemplateComponent codeExpirationMinutes(Integer codeExpirationMinutes) {
+    
+    this.codeExpirationMinutes = codeExpirationMinutes;
+    return this;
+  }
+
+   /**
+   * **Optional. Only applicable in the &#x60;FOOTER&#x60; component of an AUTHENTICATION template.** Indicates number of minutes the password or code is valid. If omitted, the code expiration warning will not be displayed in the delivered message. Minimum 1, maximum 90.
+   * minimum: 1
+   * maximum: 90
+   * @return codeExpirationMinutes
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getCodeExpirationMinutes() {
+    return codeExpirationMinutes;
+  }
+
+
+  /**
+   * **Optional. Only applicable in the &#x60;FOOTER&#x60; component of an AUTHENTICATION template.** Indicates number of minutes the password or code is valid. If omitted, the code expiration warning will not be displayed in the delivered message. Minimum 1, maximum 90.
+   **/
+  @ApiModelProperty(example = "5", value = "**Optional. Only applicable in the `FOOTER` component of an AUTHENTICATION template.** Indicates number of minutes the password or code is valid. If omitted, the code expiration warning will not be displayed in the delivered message. Minimum 1, maximum 90.")
+  public void setCodeExpirationMinutes(Integer codeExpirationMinutes) {
+    this.codeExpirationMinutes = codeExpirationMinutes;
+  }
+
+
   public WhatsappTemplateComponent example(WhatsappTemplateComponentExample example) {
     
     this.example = example;
@@ -378,13 +446,15 @@ public class WhatsappTemplateComponent {
         Objects.equals(this.format, whatsappTemplateComponent.format) &&
         Objects.equals(this.text, whatsappTemplateComponent.text) &&
         Objects.equals(this.buttons, whatsappTemplateComponent.buttons) &&
+        Objects.equals(this.addSecurityRecommendation, whatsappTemplateComponent.addSecurityRecommendation) &&
+        Objects.equals(this.codeExpirationMinutes, whatsappTemplateComponent.codeExpirationMinutes) &&
         Objects.equals(this.example, whatsappTemplateComponent.example)&&
         Objects.equals(this.additionalProperties, whatsappTemplateComponent.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, format, text, buttons, example, additionalProperties);
+    return Objects.hash(type, format, text, buttons, addSecurityRecommendation, codeExpirationMinutes, example, additionalProperties);
   }
 
   @Override
@@ -395,6 +465,8 @@ public class WhatsappTemplateComponent {
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    buttons: ").append(toIndentedString(buttons)).append("\n");
+    sb.append("    addSecurityRecommendation: ").append(toIndentedString(addSecurityRecommendation)).append("\n");
+    sb.append("    codeExpirationMinutes: ").append(toIndentedString(codeExpirationMinutes)).append("\n");
     sb.append("    example: ").append(toIndentedString(example)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -423,6 +495,8 @@ public class WhatsappTemplateComponent {
     openapiFields.add("format");
     openapiFields.add("text");
     openapiFields.add("buttons");
+    openapiFields.add("add_security_recommendation");
+    openapiFields.add("code_expiration_minutes");
     openapiFields.add("example");
 
     // a set of required properties/fields (JSON key names)

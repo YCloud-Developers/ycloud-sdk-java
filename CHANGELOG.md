@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.7.0 (20230-3-28)
+
+- Add webhook event type `whatsapp.template.category_updated` to keep track of template category changes. See also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration).
+- Add `previousCategory` field to WhatsApp template object.
+- Add new WhatsApp conversation origin types: `authentication`, `marketing`, `utility`, and `service`. The switch to the new pricing model will be performed June 1, 2023. See also [New conversation rates](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#new-conversation-rates), effective June 1, 2023.
+- Support creation for [Authentication Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates), which will be available starting May 1, 2023.
+
 ## 1.6.1 (2023-03-09)
 
 - Add WhatsApp template category `AUTHENTICATION` and `UTILITY`.

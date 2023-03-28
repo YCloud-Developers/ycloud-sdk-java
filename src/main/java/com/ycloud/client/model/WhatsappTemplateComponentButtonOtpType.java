@@ -15,6 +15,7 @@ package com.ycloud.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -24,22 +25,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets WhatsappTemplateComponentButtonType
+ * Indicates button OTP type. Set to &#x60;COPY_CODE&#x60; if you want the template to use a copy code button, or &#x60;ONE_TAP&#x60; to have it use a one-tap autofill button.
  */
-@JsonAdapter(WhatsappTemplateComponentButtonType.Adapter.class)
-public enum WhatsappTemplateComponentButtonType {
+@JsonAdapter(WhatsappTemplateComponentButtonOtpType.Adapter.class)
+public enum WhatsappTemplateComponentButtonOtpType {
   
-  PHONE_NUMBER("PHONE_NUMBER"),
+  COPY_CODE("COPY_CODE"),
   
-  URL("URL"),
-  
-  QUICK_REPLY("QUICK_REPLY"),
-  
-  OTP("OTP");
+  ONE_TAP("ONE_TAP");
 
   private String value;
 
-  WhatsappTemplateComponentButtonType(String value) {
+  WhatsappTemplateComponentButtonOtpType(String value) {
     this.value = value;
   }
 
@@ -52,8 +49,8 @@ public enum WhatsappTemplateComponentButtonType {
     return String.valueOf(value);
   }
 
-  public static WhatsappTemplateComponentButtonType fromValue(String value) {
-    for (WhatsappTemplateComponentButtonType b : WhatsappTemplateComponentButtonType.values()) {
+  public static WhatsappTemplateComponentButtonOtpType fromValue(String value) {
+    for (WhatsappTemplateComponentButtonOtpType b : WhatsappTemplateComponentButtonOtpType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -61,16 +58,16 @@ public enum WhatsappTemplateComponentButtonType {
     return null;
   }
 
-  public static class Adapter extends TypeAdapter<WhatsappTemplateComponentButtonType> {
+  public static class Adapter extends TypeAdapter<WhatsappTemplateComponentButtonOtpType> {
     @Override
-    public void write(final JsonWriter jsonWriter, final WhatsappTemplateComponentButtonType enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final WhatsappTemplateComponentButtonOtpType enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public WhatsappTemplateComponentButtonType read(final JsonReader jsonReader) throws IOException {
+    public WhatsappTemplateComponentButtonOtpType read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return WhatsappTemplateComponentButtonType.fromValue(value);
+      return WhatsappTemplateComponentButtonOtpType.fromValue(value);
     }
   }
 }

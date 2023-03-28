@@ -11,5 +11,7 @@
 
 * `QUICK_REPLY` (value: `"QUICK_REPLY"`)
 
+* `OTP` (value: `"OTP"`)
+
 
 

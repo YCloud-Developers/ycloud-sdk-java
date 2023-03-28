@@ -85,6 +85,13 @@ public class WhatsappTemplate {
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private WhatsappTemplateCategory category;
 
+  public static final String SERIALIZED_NAME_PREVIOUS_CATEGORY = "previousCategory";
+  /**
+   * This field indicates the template&#39;s previous category (or &#x60;null&#x60;, for newly created templates after April 1, 2023). Compare this value to the template&#39;s &#x60;category&#x60; field value, which indicates the template&#39;s current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration).
+  **/
+  @SerializedName(SERIALIZED_NAME_PREVIOUS_CATEGORY)
+  private String previousCategory;
+
   public static final String SERIALIZED_NAME_COMPONENTS = "components";
   /**
    * Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional.
@@ -241,6 +248,32 @@ public class WhatsappTemplate {
   @ApiModelProperty(required = true, value = "")
   public void setCategory(WhatsappTemplateCategory category) {
     this.category = category;
+  }
+
+
+  public WhatsappTemplate previousCategory(String previousCategory) {
+    
+    this.previousCategory = previousCategory;
+    return this;
+  }
+
+   /**
+   * This field indicates the template&#39;s previous category (or &#x60;null&#x60;, for newly created templates after April 1, 2023). Compare this value to the template&#39;s &#x60;category&#x60; field value, which indicates the template&#39;s current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration).
+   * @return previousCategory
+  **/
+  @javax.annotation.Nullable
+
+  public String getPreviousCategory() {
+    return previousCategory;
+  }
+
+
+  /**
+   * This field indicates the template&#39;s previous category (or &#x60;null&#x60;, for newly created templates after April 1, 2023). Compare this value to the template&#39;s &#x60;category&#x60; field value, which indicates the template&#39;s current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration).
+   **/
+  @ApiModelProperty(value = "This field indicates the template's previous category (or `null`, for newly created templates after April 1, 2023). Compare this value to the template's `category` field value, which indicates the template's current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration).")
+  public void setPreviousCategory(String previousCategory) {
+    this.previousCategory = previousCategory;
   }
 
 
@@ -503,6 +536,7 @@ public class WhatsappTemplate {
         Objects.equals(this.name, whatsappTemplate.name) &&
         Objects.equals(this.language, whatsappTemplate.language) &&
         Objects.equals(this.category, whatsappTemplate.category) &&
+        Objects.equals(this.previousCategory, whatsappTemplate.previousCategory) &&
         Objects.equals(this.components, whatsappTemplate.components) &&
         Objects.equals(this.status, whatsappTemplate.status) &&
         Objects.equals(this.reason, whatsappTemplate.reason) &&
@@ -516,7 +550,7 @@ public class WhatsappTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(wabaId, name, language, category, components, status, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
+    return Objects.hash(wabaId, name, language, category, previousCategory, components, status, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
   }
 
   @Override
@@ -527,6 +561,7 @@ public class WhatsappTemplate {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    previousCategory: ").append(toIndentedString(previousCategory)).append("\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -562,6 +597,7 @@ public class WhatsappTemplate {
     openapiFields.add("name");
     openapiFields.add("language");
     openapiFields.add("category");
+    openapiFields.add("previousCategory");
     openapiFields.add("components");
     openapiFields.add("status");
     openapiFields.add("reason");
@@ -609,6 +645,9 @@ public class WhatsappTemplate {
       }
       if (jsonObj.get("language") != null && !jsonObj.get("language").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
+      }
+      if (jsonObj.get("previousCategory") != null && !jsonObj.get("previousCategory").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `previousCategory` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previousCategory").toString()));
       }
       JsonArray jsonArraycomponents = jsonObj.getAsJsonArray("components");
       if (jsonArraycomponents != null) {

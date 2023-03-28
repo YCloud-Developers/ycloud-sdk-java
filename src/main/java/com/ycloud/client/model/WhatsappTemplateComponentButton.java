@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappTemplateComponentButtonOtpType;
 import com.ycloud.client.model.WhatsappTemplateComponentButtonType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -60,7 +61,7 @@ public class WhatsappTemplateComponentButton {
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   /**
-   * **Required.** Button text.
+   * **Required.** Button text. For &#x60;OTP&#x60; buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.
   **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
@@ -78,6 +79,33 @@ public class WhatsappTemplateComponentButton {
   **/
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
+
+  public static final String SERIALIZED_NAME_OTP_TYPE = "otp_type";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_OTP_TYPE)
+  private WhatsappTemplateComponentButtonOtpType otpType;
+
+  public static final String SERIALIZED_NAME_AUTOFILL_TEXT = "autofill_text";
+  /**
+   * **One-tap buttons only.** One-tap button text. Maximum 25 characters.
+  **/
+  @SerializedName(SERIALIZED_NAME_AUTOFILL_TEXT)
+  private String autofillText;
+
+  public static final String SERIALIZED_NAME_PACKAGE_NAME = "package_name";
+  /**
+   * **One-tap buttons only.** Your Android app&#39;s package name.
+  **/
+  @SerializedName(SERIALIZED_NAME_PACKAGE_NAME)
+  private String packageName;
+
+  public static final String SERIALIZED_NAME_SIGNATURE_HASH = "signature_hash";
+  /**
+   * **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).
+  **/
+  @SerializedName(SERIALIZED_NAME_SIGNATURE_HASH)
+  private String signatureHash;
 
   public static final String SERIALIZED_NAME_EXAMPLE = "example";
   /**
@@ -121,7 +149,7 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **Required.** Button text.
+   * **Required.** Button text. For &#x60;OTP&#x60; buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.
    * @return text
   **/
   @javax.annotation.Nonnull
@@ -132,9 +160,9 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **Required.** Button text.
+   * **Required.** Button text. For &#x60;OTP&#x60; buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.
    **/
-  @ApiModelProperty(required = true, value = "**Required.** Button text.")
+  @ApiModelProperty(required = true, value = "**Required.** Button text. For `OTP` buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.")
   public void setText(String text) {
     this.text = text;
   }
@@ -189,6 +217,109 @@ public class WhatsappTemplateComponentButton {
   @ApiModelProperty(value = "**Required for button type `PHONE_NUMBER`.**")
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+  }
+
+
+  public WhatsappTemplateComponentButton otpType(WhatsappTemplateComponentButtonOtpType otpType) {
+    
+    this.otpType = otpType;
+    return this;
+  }
+
+   /**
+   * Get otpType
+   * @return otpType
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappTemplateComponentButtonOtpType getOtpType() {
+    return otpType;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setOtpType(WhatsappTemplateComponentButtonOtpType otpType) {
+    this.otpType = otpType;
+  }
+
+
+  public WhatsappTemplateComponentButton autofillText(String autofillText) {
+    
+    this.autofillText = autofillText;
+    return this;
+  }
+
+   /**
+   * **One-tap buttons only.** One-tap button text. Maximum 25 characters.
+   * @return autofillText
+  **/
+  @javax.annotation.Nullable
+
+  public String getAutofillText() {
+    return autofillText;
+  }
+
+
+  /**
+   * **One-tap buttons only.** One-tap button text. Maximum 25 characters.
+   **/
+  @ApiModelProperty(example = "Autofill", value = "**One-tap buttons only.** One-tap button text. Maximum 25 characters.")
+  public void setAutofillText(String autofillText) {
+    this.autofillText = autofillText;
+  }
+
+
+  public WhatsappTemplateComponentButton packageName(String packageName) {
+    
+    this.packageName = packageName;
+    return this;
+  }
+
+   /**
+   * **One-tap buttons only.** Your Android app&#39;s package name.
+   * @return packageName
+  **/
+  @javax.annotation.Nullable
+
+  public String getPackageName() {
+    return packageName;
+  }
+
+
+  /**
+   * **One-tap buttons only.** Your Android app&#39;s package name.
+   **/
+  @ApiModelProperty(example = "com.example.myapplication", value = "**One-tap buttons only.** Your Android app's package name.")
+  public void setPackageName(String packageName) {
+    this.packageName = packageName;
+  }
+
+
+  public WhatsappTemplateComponentButton signatureHash(String signatureHash) {
+    
+    this.signatureHash = signatureHash;
+    return this;
+  }
+
+   /**
+   * **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).
+   * @return signatureHash
+  **/
+  @javax.annotation.Nullable
+
+  public String getSignatureHash() {
+    return signatureHash;
+  }
+
+
+  /**
+   * **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).
+   **/
+  @ApiModelProperty(example = "K8a%2FAINcGX7", value = "**One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).")
+  public void setSignatureHash(String signatureHash) {
+    this.signatureHash = signatureHash;
   }
 
 
@@ -275,13 +406,17 @@ public class WhatsappTemplateComponentButton {
         Objects.equals(this.text, whatsappTemplateComponentButton.text) &&
         Objects.equals(this.url, whatsappTemplateComponentButton.url) &&
         Objects.equals(this.phoneNumber, whatsappTemplateComponentButton.phoneNumber) &&
+        Objects.equals(this.otpType, whatsappTemplateComponentButton.otpType) &&
+        Objects.equals(this.autofillText, whatsappTemplateComponentButton.autofillText) &&
+        Objects.equals(this.packageName, whatsappTemplateComponentButton.packageName) &&
+        Objects.equals(this.signatureHash, whatsappTemplateComponentButton.signatureHash) &&
         Objects.equals(this.example, whatsappTemplateComponentButton.example)&&
         Objects.equals(this.additionalProperties, whatsappTemplateComponentButton.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, text, url, phoneNumber, example, additionalProperties);
+    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, example, additionalProperties);
   }
 
   @Override
@@ -292,6 +427,10 @@ public class WhatsappTemplateComponentButton {
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    otpType: ").append(toIndentedString(otpType)).append("\n");
+    sb.append("    autofillText: ").append(toIndentedString(autofillText)).append("\n");
+    sb.append("    packageName: ").append(toIndentedString(packageName)).append("\n");
+    sb.append("    signatureHash: ").append(toIndentedString(signatureHash)).append("\n");
     sb.append("    example: ").append(toIndentedString(example)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -320,6 +459,10 @@ public class WhatsappTemplateComponentButton {
     openapiFields.add("text");
     openapiFields.add("url");
     openapiFields.add("phone_number");
+    openapiFields.add("otp_type");
+    openapiFields.add("autofill_text");
+    openapiFields.add("package_name");
+    openapiFields.add("signature_hash");
     openapiFields.add("example");
 
     // a set of required properties/fields (JSON key names)
@@ -357,6 +500,15 @@ public class WhatsappTemplateComponentButton {
       }
       if (jsonObj.get("phone_number") != null && !jsonObj.get("phone_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `phone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone_number").toString()));
+      }
+      if (jsonObj.get("autofill_text") != null && !jsonObj.get("autofill_text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `autofill_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("autofill_text").toString()));
+      }
+      if (jsonObj.get("package_name") != null && !jsonObj.get("package_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `package_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_name").toString()));
+      }
+      if (jsonObj.get("signature_hash") != null && !jsonObj.get("signature_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signature_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature_hash").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("example") != null && !jsonObj.get("example").isJsonArray()) {
