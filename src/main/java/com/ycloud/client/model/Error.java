@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappApiError;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -90,6 +91,12 @@ public class Error {
   **/
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
   private String requestId;
+
+  public static final String SERIALIZED_NAME_WHATSAPP_API_ERROR = "whatsappApiError";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
+  private WhatsappApiError whatsappApiError;
 
   public Error() { 
   }
@@ -249,6 +256,31 @@ public class Error {
     this.requestId = requestId;
   }
 
+
+  public Error whatsappApiError(WhatsappApiError whatsappApiError) {
+    
+    this.whatsappApiError = whatsappApiError;
+    return this;
+  }
+
+   /**
+   * Get whatsappApiError
+   * @return whatsappApiError
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappApiError getWhatsappApiError() {
+    return whatsappApiError;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setWhatsappApiError(WhatsappApiError whatsappApiError) {
+    this.whatsappApiError = whatsappApiError;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -300,13 +332,14 @@ public class Error {
         Objects.equals(this.message, error.message) &&
         Objects.equals(this.target, error.target) &&
         Objects.equals(this.docUrl, error.docUrl) &&
-        Objects.equals(this.requestId, error.requestId)&&
+        Objects.equals(this.requestId, error.requestId) &&
+        Objects.equals(this.whatsappApiError, error.whatsappApiError)&&
         Objects.equals(this.additionalProperties, error.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, code, message, target, docUrl, requestId, additionalProperties);
+    return Objects.hash(status, code, message, target, docUrl, requestId, whatsappApiError, additionalProperties);
   }
 
   @Override
@@ -319,6 +352,7 @@ public class Error {
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    docUrl: ").append(toIndentedString(docUrl)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -348,6 +382,7 @@ public class Error {
     openapiFields.add("target");
     openapiFields.add("docUrl");
     openapiFields.add("requestId");
+    openapiFields.add("whatsappApiError");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -390,6 +425,10 @@ public class Error {
       }
       if (jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `requestId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestId").toString()));
+      }
+      // validate the optional field `whatsappApiError`
+      if (jsonObj.getAsJsonObject("whatsappApiError") != null) {
+        WhatsappApiError.validateJsonObject(jsonObj.getAsJsonObject("whatsappApiError"));
       }
   }
 

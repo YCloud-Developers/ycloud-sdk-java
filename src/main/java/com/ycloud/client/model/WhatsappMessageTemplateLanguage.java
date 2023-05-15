@@ -52,14 +52,14 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageTemplateLanguage {
   public static final String SERIALIZED_NAME_CODE = "code";
   /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
   **/
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
   public static final String SERIALIZED_NAME_POLICY = "policy";
   /**
-   * Default (and only supported option): &#x60;deterministic&#x60;.
+   * The language policy the message should follow. Default (and only supported option): &#x60;deterministic&#x60;, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
   **/
   @SerializedName(SERIALIZED_NAME_POLICY)
   private String policy;
@@ -74,7 +74,7 @@ public class WhatsappMessageTemplateLanguage {
   }
 
    /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
    * @return code
   **/
   @javax.annotation.Nonnull
@@ -85,9 +85,9 @@ public class WhatsappMessageTemplateLanguage {
 
 
   /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
    **/
-  @ApiModelProperty(example = "en", required = true, value = "The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.")
+  @ApiModelProperty(example = "en", required = true, value = "The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
   public void setCode(String code) {
     this.code = code;
   }
@@ -100,7 +100,7 @@ public class WhatsappMessageTemplateLanguage {
   }
 
    /**
-   * Default (and only supported option): &#x60;deterministic&#x60;.
+   * The language policy the message should follow. Default (and only supported option): &#x60;deterministic&#x60;, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
    * @return policy
   **/
   @javax.annotation.Nullable
@@ -111,9 +111,9 @@ public class WhatsappMessageTemplateLanguage {
 
 
   /**
-   * Default (and only supported option): &#x60;deterministic&#x60;.
+   * The language policy the message should follow. Default (and only supported option): &#x60;deterministic&#x60;, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
    **/
-  @ApiModelProperty(value = "Default (and only supported option): `deterministic`.")
+  @ApiModelProperty(example = "deterministic", value = "The language policy the message should follow. Default (and only supported option): `deterministic`, which means that WhatsApp delivers the message template in exactly the language and locale asked for.")
   public void setPolicy(String policy) {
     this.policy = policy;
   }

@@ -13,6 +13,7 @@
 |**target** | **String** | The target of the error. |  [optional] |
 |**docUrl** | **String** | A URL to more information about the error. |  [optional] |
 |**requestId** | **String** | Each API request has an associated request ID. It conveys the response header &#x60;YCloud-Request-ID&#x60; used for the convenience of the consumer. |  [optional] |
+|**whatsappApiError** | [**WhatsappApiError**](WhatsappApiError.md) |  |  [optional] |
 
 
 

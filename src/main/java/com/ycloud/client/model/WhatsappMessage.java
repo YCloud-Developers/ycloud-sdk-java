@@ -225,6 +225,27 @@ public class WhatsappMessage {
   @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
   private Date updateTime;
 
+  public static final String SERIALIZED_NAME_SEND_TIME = "sendTime";
+  /**
+   * The time at which this message &#x60;status&#x60; changed to &#x60;sent&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_SEND_TIME)
+  private Date sendTime;
+
+  public static final String SERIALIZED_NAME_DELIVER_TIME = "deliverTime";
+  /**
+   * The time at which this message &#x60;status&#x60; changed to &#x60;delivered&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_DELIVER_TIME)
+  private Date deliverTime;
+
+  public static final String SERIALIZED_NAME_READ_TIME = "readTime";
+  /**
+   * The time at which this message &#x60;status&#x60; changed to &#x60;read&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_READ_TIME)
+  private Date readTime;
+
   public static final String SERIALIZED_NAME_TOTAL_PRICE = "totalPrice";
   /**
    * Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.**
@@ -905,6 +926,84 @@ public class WhatsappMessage {
   }
 
 
+  public WhatsappMessage sendTime(Date sendTime) {
+    
+    this.sendTime = sendTime;
+    return this;
+  }
+
+   /**
+   * The time at which this message &#x60;status&#x60; changed to &#x60;sent&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   * @return sendTime
+  **/
+  @javax.annotation.Nullable
+
+  public Date getSendTime() {
+    return sendTime;
+  }
+
+
+  /**
+   * The time at which this message &#x60;status&#x60; changed to &#x60;sent&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message `status` changed to `sent`, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
+  public void setSendTime(Date sendTime) {
+    this.sendTime = sendTime;
+  }
+
+
+  public WhatsappMessage deliverTime(Date deliverTime) {
+    
+    this.deliverTime = deliverTime;
+    return this;
+  }
+
+   /**
+   * The time at which this message &#x60;status&#x60; changed to &#x60;delivered&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   * @return deliverTime
+  **/
+  @javax.annotation.Nullable
+
+  public Date getDeliverTime() {
+    return deliverTime;
+  }
+
+
+  /**
+   * The time at which this message &#x60;status&#x60; changed to &#x60;delivered&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message `status` changed to `delivered`, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
+  public void setDeliverTime(Date deliverTime) {
+    this.deliverTime = deliverTime;
+  }
+
+
+  public WhatsappMessage readTime(Date readTime) {
+    
+    this.readTime = readTime;
+    return this;
+  }
+
+   /**
+   * The time at which this message &#x60;status&#x60; changed to &#x60;read&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   * @return readTime
+  **/
+  @javax.annotation.Nullable
+
+  public Date getReadTime() {
+    return readTime;
+  }
+
+
+  /**
+   * The time at which this message &#x60;status&#x60; changed to &#x60;read&#x60;, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this message `status` changed to `read`, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
+  public void setReadTime(Date readTime) {
+    this.readTime = readTime;
+  }
+
+
   public WhatsappMessage totalPrice(Double totalPrice) {
     
     this.totalPrice = totalPrice;
@@ -1104,6 +1203,9 @@ public class WhatsappMessage {
         Objects.equals(this.errorMessage, whatsappMessage.errorMessage) &&
         Objects.equals(this.createTime, whatsappMessage.createTime) &&
         Objects.equals(this.updateTime, whatsappMessage.updateTime) &&
+        Objects.equals(this.sendTime, whatsappMessage.sendTime) &&
+        Objects.equals(this.deliverTime, whatsappMessage.deliverTime) &&
+        Objects.equals(this.readTime, whatsappMessage.readTime) &&
         Objects.equals(this.totalPrice, whatsappMessage.totalPrice) &&
         Objects.equals(this.currency, whatsappMessage.currency) &&
         Objects.equals(this.whatsappApiError, whatsappMessage.whatsappApiError) &&
@@ -1114,7 +1216,7 @@ public class WhatsappMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, totalPrice, currency, whatsappApiError, bizType, verificationId, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, sendTime, deliverTime, readTime, totalPrice, currency, whatsappApiError, bizType, verificationId, additionalProperties);
   }
 
   @Override
@@ -1146,6 +1248,9 @@ public class WhatsappMessage {
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    sendTime: ").append(toIndentedString(sendTime)).append("\n");
+    sb.append("    deliverTime: ").append(toIndentedString(deliverTime)).append("\n");
+    sb.append("    readTime: ").append(toIndentedString(readTime)).append("\n");
     sb.append("    totalPrice: ").append(toIndentedString(totalPrice)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
@@ -1199,6 +1304,9 @@ public class WhatsappMessage {
     openapiFields.add("errorMessage");
     openapiFields.add("createTime");
     openapiFields.add("updateTime");
+    openapiFields.add("sendTime");
+    openapiFields.add("deliverTime");
+    openapiFields.add("readTime");
     openapiFields.add("totalPrice");
     openapiFields.add("currency");
     openapiFields.add("whatsappApiError");

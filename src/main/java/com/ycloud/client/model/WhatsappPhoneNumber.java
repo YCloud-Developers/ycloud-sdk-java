@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappPhoneNumberCodeVerificationStatus;
 import com.ycloud.client.model.WhatsappPhoneNumberNameStatus;
 import com.ycloud.client.model.WhatsappPhoneNumberQualityRating;
+import com.ycloud.client.model.WhatsappPhoneNumberQualityUpdateEventEnum;
 import com.ycloud.client.model.WhatsappPhoneNumberStatus;
 import com.ycloud.client.model.WhatsappReviewDecision;
 import io.swagger.annotations.ApiModel;
@@ -84,7 +85,7 @@ public class WhatsappPhoneNumber {
 
   public static final String SERIALIZED_NAME_MESSAGING_LIMIT = "messagingLimit";
   /**
-   * Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period.
+   * Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_NOT_SET&#x60;: Unknown limit. - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period.
   **/
   @SerializedName(SERIALIZED_NAME_MESSAGING_LIMIT)
   private String messagingLimit;
@@ -139,6 +140,12 @@ public class WhatsappPhoneNumber {
   **/
   @SerializedName(SERIALIZED_NAME_REJECTION_REASON)
   private String rejectionReason;
+
+  public static final String SERIALIZED_NAME_QUALITY_UPDATE_EVENT = "qualityUpdateEvent";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_QUALITY_UPDATE_EVENT)
+  private WhatsappPhoneNumberQualityUpdateEventEnum qualityUpdateEvent;
 
   public WhatsappPhoneNumber() { 
   }
@@ -253,7 +260,7 @@ public class WhatsappPhoneNumber {
   }
 
    /**
-   * Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period.
+   * Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_NOT_SET&#x60;: Unknown limit. - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period.
    * @return messagingLimit
   **/
   @javax.annotation.Nullable
@@ -264,9 +271,9 @@ public class WhatsappPhoneNumber {
 
 
   /**
-   * Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period.
+   * Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - &#x60;TIER_NOT_SET&#x60;: Unknown limit. - &#x60;TIER_50&#x60;: 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_1K&#x60;: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: An unlimited number of business-initiated conversations in a rolling 24-hour period.
    **/
-  @ApiModelProperty(example = "TIER_1K", value = "Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.")
+  @ApiModelProperty(example = "TIER_1K", value = "Messaging limits determine the maximum number of business-initiated conversations each phone number can start in a rolling 24-hour period. See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits). - `TIER_NOT_SET`: Unknown limit. - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: 250 business-initiated conversations in a rolling 24-hour period. - `TIER_1K`: 1K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_10K`: 10K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_100K`: 100K business-initiated conversations with unique customers in a rolling 24-hour period. - `TIER_UNLIMITED`: An unlimited number of business-initiated conversations in a rolling 24-hour period.")
   public void setMessagingLimit(String messagingLimit) {
     this.messagingLimit = messagingLimit;
   }
@@ -474,6 +481,31 @@ public class WhatsappPhoneNumber {
     this.rejectionReason = rejectionReason;
   }
 
+
+  public WhatsappPhoneNumber qualityUpdateEvent(WhatsappPhoneNumberQualityUpdateEventEnum qualityUpdateEvent) {
+    
+    this.qualityUpdateEvent = qualityUpdateEvent;
+    return this;
+  }
+
+   /**
+   * Get qualityUpdateEvent
+   * @return qualityUpdateEvent
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappPhoneNumberQualityUpdateEventEnum getQualityUpdateEvent() {
+    return qualityUpdateEvent;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setQualityUpdateEvent(WhatsappPhoneNumberQualityUpdateEventEnum qualityUpdateEvent) {
+    this.qualityUpdateEvent = qualityUpdateEvent;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -532,13 +564,14 @@ public class WhatsappPhoneNumber {
         Objects.equals(this.newNameStatus, whatsappPhoneNumber.newNameStatus) &&
         Objects.equals(this.decision, whatsappPhoneNumber.decision) &&
         Objects.equals(this.requestedVerifiedName, whatsappPhoneNumber.requestedVerifiedName) &&
-        Objects.equals(this.rejectionReason, whatsappPhoneNumber.rejectionReason)&&
+        Objects.equals(this.rejectionReason, whatsappPhoneNumber.rejectionReason) &&
+        Objects.equals(this.qualityUpdateEvent, whatsappPhoneNumber.qualityUpdateEvent)&&
         Objects.equals(this.additionalProperties, whatsappPhoneNumber.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, displayPhoneNumber, wabaId, qualityRating, messagingLimit, verifiedName, codeVerificationStatus, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, additionalProperties);
+    return Objects.hash(phoneNumber, displayPhoneNumber, wabaId, qualityRating, messagingLimit, verifiedName, codeVerificationStatus, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, additionalProperties);
   }
 
   @Override
@@ -558,6 +591,7 @@ public class WhatsappPhoneNumber {
     sb.append("    decision: ").append(toIndentedString(decision)).append("\n");
     sb.append("    requestedVerifiedName: ").append(toIndentedString(requestedVerifiedName)).append("\n");
     sb.append("    rejectionReason: ").append(toIndentedString(rejectionReason)).append("\n");
+    sb.append("    qualityUpdateEvent: ").append(toIndentedString(qualityUpdateEvent)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -594,6 +628,7 @@ public class WhatsappPhoneNumber {
     openapiFields.add("decision");
     openapiFields.add("requestedVerifiedName");
     openapiFields.add("rejectionReason");
+    openapiFields.add("qualityUpdateEvent");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

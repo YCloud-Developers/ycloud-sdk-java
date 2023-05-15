@@ -184,7 +184,7 @@ public class Example {
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
-    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
     WhatsappTemplateEditRequest whatsappTemplateEditRequest = new WhatsappTemplateEditRequest(); // WhatsappTemplateEditRequest | 
     try {
       WhatsappTemplate result = apiInstance.editByNameAndLanguage(wabaId, name, language, whatsappTemplateEditRequest);
@@ -206,7 +206,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **wabaId** | **String**| WhatsApp Business Account ID. | |
 | **name** | **String**| Name of the template. | |
-| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. | |
+| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | |
 | **whatsappTemplateEditRequest** | [**WhatsappTemplateEditRequest**](WhatsappTemplateEditRequest.md)|  | [optional] |
 
 ### Return type
@@ -346,7 +346,7 @@ public class Example {
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
-    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
     try {
       WhatsappTemplate result = apiInstance.retrieveByNameAndLanguage(wabaId, name, language);
       System.out.println(result);
@@ -367,7 +367,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **wabaId** | **String**| WhatsApp Business Account ID. | |
 | **name** | **String**| Name of the template. | |
-| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. | |
+| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | |
 
 ### Return type
 

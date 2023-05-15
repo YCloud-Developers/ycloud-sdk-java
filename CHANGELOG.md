@@ -1,6 +1,14 @@
 # Changelog
 
-## 1.7.0 (20230-3-28)
+## 1.8.0 (2023-05-15)
+
+- Add WhatsApp messaging API `/v2/whatsapp/messages/sendDirectly`.
+- Add `whatsappApiError` to response body `error` object.
+- Add `qualityUpdateEvent` to WhatsApp Phone Number object.
+- Add `sendTime`, `deliverTime` and `readTime` to WhatsApp Message object.
+- Add new value `TIER_NOT_SET` to enum WhatsApp Phone Number `messaginLimit`.
+
+## 1.7.0 (2023-3-28)
 
 - Add webhook event type `whatsapp.template.category_updated` to keep track of template category changes. See also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration).
 - Add `previousCategory` field to WhatsApp template object.

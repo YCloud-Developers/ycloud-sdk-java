@@ -70,7 +70,7 @@ public class WhatsappTemplateCreateRequest {
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
   /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
   **/
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   private String language;
@@ -149,7 +149,7 @@ public class WhatsappTemplateCreateRequest {
   }
 
    /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
    * @return language
   **/
   @javax.annotation.Nonnull
@@ -160,9 +160,9 @@ public class WhatsappTemplateCreateRequest {
 
 
   /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
    **/
-  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes.")
+  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
   public void setLanguage(String language) {
     this.language = language;
   }

@@ -620,9 +620,40 @@ paths:
       tags:
       - WhatsApp Business Accounts
       x-accepts: application/json
+  /whatsapp/messages/sendDirectly:
+    post:
+      description: "Sends an outbound WhatsApp message directly.\n\nYour message will\
+        \ be submitted to Meta WhatsApp API directly. Typically used for sending OTP\
+        \ and instant messages.\n\n**The Meta WhatsApp API supports up to 80 MPS (Messages\
+        \ Per Second) by default and up to 1,000 MPS by request. Throughput is inclusive\
+        \ of inbound and outbound messages and all message types.**\n\nThe response\
+        \ body field `error.whatsappApiError` is included if we tried to request Meta\
+        \ WhatsApp API and got an error response."
+      operationId: whatsapp_message-send-directly
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WhatsappMessageSendRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappMessage'
+          description: The request is successfully accepted.
+      summary: Send a WhatsApp message directly
+      tags:
+      - WhatsApp Messages
+      x-content-type: application/json
+      x-accepts: application/json
   /whatsapp/messages:
     post:
-      description: Sends an outbound WhatsApp message.
+      description: |-
+        Enqueues an outbound WhatsApp message for sending.
+
+        You can enqueue messages at a rate of 200 MPS (Messages Per Second). These queued messages are submitted to the Meta WhatsApp API at a rate of 60 MPS per WhatsApp business phone number.
       operationId: whatsapp_message-send
       requestBody:
         content:
@@ -637,7 +668,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WhatsappMessage'
           description: The request is successfully accepted.
-      summary: Send a WhatsApp message
+      summary: Enqueue a WhatsApp message
       tags:
       - WhatsApp Messages
       x-content-type: application/json
@@ -1043,7 +1074,7 @@ paths:
           pattern: "[a-z0-9]{1,512}"
           type: string
         style: simple
-      - description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
+      - description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
           \ for all codes."
         explode: false
         in: path
@@ -1098,7 +1129,7 @@ paths:
           pattern: "[a-z0-9]{1,512}"
           type: string
         style: simple
-      - description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
+      - description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
           \ for all codes."
         explode: false
         in: path
@@ -1579,6 +1610,8 @@ components:
             response header `YCloud-Request-ID` used for the convenience of the consumer.
           example: req_1KjtKI80IKoaJNa6n6p
           type: string
+        whatsappApiError:
+          $ref: '#/components/schemas/WhatsappApiError'
       required:
       - code
       - status
@@ -3339,7 +3372,7 @@ components:
           name: sample_whatsapp_template
           language:
             code: en
-            policy: policy
+            policy: deterministic
         bizType: verify
         wamid: wamid.BgNODYxN...
         totalPrice: 0.05
@@ -3502,6 +3535,7 @@ components:
           body:
             text: text
         errorCode: errorCode
+        readTime: 2022-06-01T12:00:00Z
         video:
           filename: filename
           link: link
@@ -3528,6 +3562,7 @@ components:
           filename: filename
           link: link
           caption: caption
+        deliverTime: 2022-06-01T12:00:00Z
         reaction:
           emoji: emoji
           message_id: wamid.BgNODYxN...
@@ -3538,6 +3573,7 @@ components:
         errorMessage: errorMessage
         externalId: externalId
         updateTime: 2022-06-01T12:00:00Z
+        sendTime: 2022-06-01T12:00:00Z
         createTime: 2022-06-01T12:00:00Z
         whatsappApiError:
           error_user_title: Message Cannot Be Submitted
@@ -3719,6 +3755,27 @@ components:
         updateTime:
           description: "The time at which this message is updated, formatted in [RFC\
             \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+        sendTime:
+          description: "The time at which this message `status` changed to `sent`,\
+            \ formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).\
+            \ e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+        deliverTime:
+          description: "The time at which this message `status` changed to `delivered`,\
+            \ formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).\
+            \ e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+        readTime:
+          description: "The time at which this message `status` changed to `read`,\
+            \ formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).\
+            \ e.g., `2022-06-01T12:00:00.000Z`."
           example: 2022-06-01T12:00:00Z
           format: date-time
           type: string
@@ -4607,7 +4664,7 @@ components:
           name: sample_whatsapp_template
           language:
             code: en
-            policy: policy
+            policy: deterministic
         image:
           filename: filename
           link: link
@@ -5035,7 +5092,7 @@ components:
         name: sample_whatsapp_template
         language:
           code: en
-          policy: policy
+          policy: deterministic
       properties:
         name:
           description: Name of the template.
@@ -5237,6 +5294,7 @@ components:
       example:
         decision: null
         messagingLimit: TIER_1K
+        qualityUpdateEvent: null
         qualityRating: null
         wabaId: whatsapp-business-account-id
         phoneNumber: +16315551111
@@ -5268,14 +5326,15 @@ components:
           description: "Messaging limits determine the maximum number of business-initiated\
             \ conversations each phone number can start in a rolling 24-hour period.\
             \ See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits).\n\
-            - `TIER_50`: 50 business-initiated conversations in a rolling 24-hour\
-            \ period.\n- `TIER_250`: 250 business-initiated conversations in a rolling\
-            \ 24-hour period.\n- `TIER_1K`: 1K business-initiated conversations with\
-            \ unique customers in a rolling 24-hour period.\n- `TIER_10K`: 10K business-initiated\
-            \ conversations with unique customers in a rolling 24-hour period.\n-\
-            \ `TIER_100K`: 100K business-initiated conversations with unique customers\
-            \ in a rolling 24-hour period.\n- `TIER_UNLIMITED`: An unlimited number\
-            \ of business-initiated conversations in a rolling 24-hour period."
+            - `TIER_NOT_SET`: Unknown limit.\n- `TIER_50`: 50 business-initiated conversations\
+            \ in a rolling 24-hour period.\n- `TIER_250`: 250 business-initiated conversations\
+            \ in a rolling 24-hour period.\n- `TIER_1K`: 1K business-initiated conversations\
+            \ with unique customers in a rolling 24-hour period.\n- `TIER_10K`: 10K\
+            \ business-initiated conversations with unique customers in a rolling\
+            \ 24-hour period.\n- `TIER_100K`: 100K business-initiated conversations\
+            \ with unique customers in a rolling 24-hour period.\n- `TIER_UNLIMITED`:\
+            \ An unlimited number of business-initiated conversations in a rolling\
+            \ 24-hour period."
           example: TIER_1K
           type: string
         verifiedName:
@@ -5298,6 +5357,8 @@ components:
         rejectionReason:
           description: "Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
           type: string
+        qualityUpdateEvent:
+          $ref: '#/components/schemas/WhatsappPhoneNumberQualityUpdateEventEnum'
       type: object
     WhatsappPhoneNumberCodeVerificationStatus:
       description: "To see if a phone number has been verified via OTP (one-time password),\
@@ -5340,6 +5401,7 @@ components:
         items:
         - decision: null
           messagingLimit: TIER_1K
+          qualityUpdateEvent: null
           qualityRating: null
           wabaId: whatsapp-business-account-id
           phoneNumber: +16315551111
@@ -5353,6 +5415,7 @@ components:
           status: null
         - decision: null
           messagingLimit: TIER_1K
+          qualityUpdateEvent: null
           qualityRating: null
           wabaId: whatsapp-business-account-id
           phoneNumber: +16315551111
@@ -5525,6 +5588,17 @@ components:
       - Medium quality
       - Low quality
       - Unknown quality
+    WhatsappPhoneNumberQualityUpdateEventEnum:
+      description: "Indicates the update event type of WhatsApp phone number quality\
+        \ when a notification is sent to you.\nFlagged status occurs when the quality\
+        \ rating reaches a low state. If the message quality improves to a high or\
+        \ medium state and maintains this for 7 days, your status will return to Connected.\
+        \ If the quality rating doesn't improve, your status will still return to\
+        \ Connected, but you'll be placed in a lower messaging limit tier."
+      enum:
+      - FLAGGED
+      - UNFLAGGED
+      type: string
     WhatsappPhoneNumberStatus:
       description: "The status of a WhatsApp business account phone number.\n`PENDING`:\
         \ Pending.\n`UNVERIFIED`: Unverified. Verify this phone number to start sending\
@@ -5730,7 +5804,7 @@ components:
           pattern: "[a-z0-9]{1,512}"
           type: string
         language:
-          description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
+          description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
             \ for all codes."
           example: en
           type: string
@@ -6116,7 +6190,7 @@ components:
           pattern: "[a-z0-9]{1,512}"
           type: string
         language:
-          description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
+          description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
             \ for all codes."
           example: en
           type: string
@@ -6617,16 +6691,19 @@ components:
         may be rendered in.
       example:
         code: en
-        policy: policy
+        policy: deterministic
       properties:
         code:
           description: "The code of the language or locale to use. Accepts both language\
-            \ and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-)\
+            \ and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
             \ for all codes."
           example: en
           type: string
         policy:
-          description: "Default (and only supported option): `deterministic`."
+          description: "The language policy the message should follow.\nDefault (and\
+            \ only supported option): `deterministic`, which means that WhatsApp delivers\
+            \ the message template in exactly the language and locale asked for."
+          example: deterministic
           type: string
       required:
       - code

@@ -354,7 +354,7 @@ public class WhatsappTemplatesApi {
      * Build call for editByNameAndLanguage
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
      * @param whatsappTemplateEditRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -444,7 +444,7 @@ public class WhatsappTemplatesApi {
      * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
      * @param whatsappTemplateEditRequest  (optional)
      * @return WhatsappTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -466,7 +466,7 @@ public class WhatsappTemplatesApi {
      * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
      * @param whatsappTemplateEditRequest  (optional)
      * @return ApiResponse&lt;WhatsappTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -489,7 +489,7 @@ public class WhatsappTemplatesApi {
      * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
      * @param whatsappTemplateEditRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -750,7 +750,7 @@ public class WhatsappTemplatesApi {
      * Build call for retrieveByNameAndLanguage
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -839,7 +839,7 @@ public class WhatsappTemplatesApi {
      * Retrieves a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
      * @return WhatsappTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -860,7 +860,7 @@ public class WhatsappTemplatesApi {
      * Retrieves a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
      * @return ApiResponse&lt;WhatsappTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -882,7 +882,7 @@ public class WhatsappTemplatesApi {
      * Retrieves a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

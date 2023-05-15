@@ -5,7 +5,8 @@ All URIs are relative to *https://api.ycloud.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**retrieve**](WhatsappMessagesApi.md#retrieve) | **GET** /whatsapp/messages/{id} | Retrieve a WhatsApp message |
-| [**send**](WhatsappMessagesApi.md#send) | **POST** /whatsapp/messages | Send a WhatsApp message |
+| [**send**](WhatsappMessagesApi.md#send) | **POST** /whatsapp/messages | Enqueue a WhatsApp message |
+| [**sendDirectly**](WhatsappMessagesApi.md#sendDirectly) | **POST** /whatsapp/messages/sendDirectly | Send a WhatsApp message directly |
 
 
 <a name="retrieve"></a>
@@ -82,9 +83,9 @@ public class Example {
 # **send**
 > WhatsappMessage send(whatsappMessageSendRequest)
 
-Send a WhatsApp message
+Enqueue a WhatsApp message
 
-Sends an outbound WhatsApp message.
+Enqueues an outbound WhatsApp message for sending.  You can enqueue messages at a rate of 200 MPS (Messages Per Second). These queued messages are submitted to the Meta WhatsApp API at a rate of 60 MPS per WhatsApp business phone number.
 
 ### Example
 ```java
@@ -114,6 +115,75 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WhatsappMessagesApi#send");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **whatsappMessageSendRequest** | [**WhatsappMessageSendRequest**](WhatsappMessageSendRequest.md)|  | |
+
+### Return type
+
+[**WhatsappMessage**](WhatsappMessage.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request is successfully accepted. |  -  |
+
+<a name="sendDirectly"></a>
+# **sendDirectly**
+> WhatsappMessage sendDirectly(whatsappMessageSendRequest)
+
+Send a WhatsApp message directly
+
+Sends an outbound WhatsApp message directly.  Your message will be submitted to Meta WhatsApp API directly. Typically used for sending OTP and instant messages.  **The Meta WhatsApp API supports up to 80 MPS (Messages Per Second) by default and up to 1,000 MPS by request. Throughput is inclusive of inbound and outbound messages and all message types.**  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappMessagesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappMessagesApi apiInstance = new WhatsappMessagesApi(defaultClient);
+    WhatsappMessageSendRequest whatsappMessageSendRequest = new WhatsappMessageSendRequest(); // WhatsappMessageSendRequest | 
+    try {
+      WhatsappMessage result = apiInstance.sendDirectly(whatsappMessageSendRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappMessagesApi#sendDirectly");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

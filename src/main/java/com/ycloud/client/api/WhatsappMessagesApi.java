@@ -281,9 +281,9 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Send a WhatsApp message
+     * Enqueue a WhatsApp message
      * <p>
-     * Sends an outbound WhatsApp message.
+     * Enqueues an outbound WhatsApp message for sending.  You can enqueue messages at a rate of 200 MPS (Messages Per Second). These queued messages are submitted to the Meta WhatsApp API at a rate of 60 MPS per WhatsApp business phone number.
      * @param whatsappMessageSendRequest  (required)
      * @return WhatsappMessage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -299,9 +299,9 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Send a WhatsApp message
+     * Enqueue a WhatsApp message
      * <p>
-     * Sends an outbound WhatsApp message.
+     * Enqueues an outbound WhatsApp message for sending.  You can enqueue messages at a rate of 200 MPS (Messages Per Second). These queued messages are submitted to the Meta WhatsApp API at a rate of 60 MPS per WhatsApp business phone number.
      * @param whatsappMessageSendRequest  (required)
      * @return ApiResponse&lt;WhatsappMessage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -318,9 +318,9 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Send a WhatsApp message (asynchronously)
+     * Enqueue a WhatsApp message (asynchronously)
      * <p>
-     * Sends an outbound WhatsApp message.
+     * Enqueues an outbound WhatsApp message for sending.  You can enqueue messages at a rate of 200 MPS (Messages Per Second). These queued messages are submitted to the Meta WhatsApp API at a rate of 60 MPS per WhatsApp business phone number.
      * @param whatsappMessageSendRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -334,6 +334,135 @@ public class WhatsappMessagesApi {
     public okhttp3.Call sendAsync(WhatsappMessageSendRequest whatsappMessageSendRequest, final ApiCallback<WhatsappMessage> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = sendValidateBeforeCall(whatsappMessageSendRequest, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappMessage>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for sendDirectly
+     * @param whatsappMessageSendRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request is successfully accepted. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendDirectlyCall(WhatsappMessageSendRequest whatsappMessageSendRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = whatsappMessageSendRequest;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/messages/sendDirectly";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call sendDirectlyValidateBeforeCall(WhatsappMessageSendRequest whatsappMessageSendRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'whatsappMessageSendRequest' is set
+        if (whatsappMessageSendRequest == null) {
+            throw new ApiException("Missing the required parameter 'whatsappMessageSendRequest' when calling sendDirectly(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = sendDirectlyCall(whatsappMessageSendRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Send a WhatsApp message directly
+     * <p>
+     * Sends an outbound WhatsApp message directly.  Your message will be submitted to Meta WhatsApp API directly. Typically used for sending OTP and instant messages.  **The Meta WhatsApp API supports up to 80 MPS (Messages Per Second) by default and up to 1,000 MPS by request. Throughput is inclusive of inbound and outbound messages and all message types.**  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
+     * @param whatsappMessageSendRequest  (required)
+     * @return WhatsappMessage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request is successfully accepted. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappMessage sendDirectly(WhatsappMessageSendRequest whatsappMessageSendRequest) throws ApiException {
+        ApiResponse<WhatsappMessage> localVarResp = sendDirectlyWithHttpInfo(whatsappMessageSendRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Send a WhatsApp message directly
+     * <p>
+     * Sends an outbound WhatsApp message directly.  Your message will be submitted to Meta WhatsApp API directly. Typically used for sending OTP and instant messages.  **The Meta WhatsApp API supports up to 80 MPS (Messages Per Second) by default and up to 1,000 MPS by request. Throughput is inclusive of inbound and outbound messages and all message types.**  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
+     * @param whatsappMessageSendRequest  (required)
+     * @return ApiResponse&lt;WhatsappMessage&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request is successfully accepted. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappMessage> sendDirectlyWithHttpInfo(WhatsappMessageSendRequest whatsappMessageSendRequest) throws ApiException {
+        okhttp3.Call localVarCall = sendDirectlyValidateBeforeCall(whatsappMessageSendRequest, null);
+        Type localVarReturnType = new TypeToken<WhatsappMessage>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Send a WhatsApp message directly (asynchronously)
+     * <p>
+     * Sends an outbound WhatsApp message directly.  Your message will be submitted to Meta WhatsApp API directly. Typically used for sending OTP and instant messages.  **The Meta WhatsApp API supports up to 80 MPS (Messages Per Second) by default and up to 1,000 MPS by request. Throughput is inclusive of inbound and outbound messages and all message types.**  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
+     * @param whatsappMessageSendRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request is successfully accepted. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendDirectlyAsync(WhatsappMessageSendRequest whatsappMessageSendRequest, final ApiCallback<WhatsappMessage> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = sendDirectlyValidateBeforeCall(whatsappMessageSendRequest, _callback);
         Type localVarReturnType = new TypeToken<WhatsappMessage>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
