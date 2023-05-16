@@ -1,12 +1,16 @@
 # Changelog
 
+## 1.8.1 (2023-05-16)
+
+- Support deleting a WhatsApp template by name and language.
+
 ## 1.8.0 (2023-05-15)
 
 - Add WhatsApp messaging API `/v2/whatsapp/messages/sendDirectly`.
 - Add `whatsappApiError` to response body `error` object.
 - Add `qualityUpdateEvent` to WhatsApp Phone Number object.
 - Add `sendTime`, `deliverTime` and `readTime` to WhatsApp Message object.
-- Add new value `TIER_NOT_SET` to enum WhatsApp Phone Number `messaginLimit`.
+- Add new value `TIER_NOT_SET` to enum WhatsApp Phone Number `messagingLimit`.
 
 ## 1.7.0 (2023-3-28)
 

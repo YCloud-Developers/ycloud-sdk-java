@@ -6,6 +6,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 |------------- | ------------- | -------------|
 | [**create**](WhatsappTemplatesApi.md#create) | **POST** /whatsapp/templates | Create a WhatsApp template |
 | [**deleteByName**](WhatsappTemplatesApi.md#deleteByName) | **DELETE** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name |
+| [**deleteByNameAndLanguage**](WhatsappTemplatesApi.md#deleteByNameAndLanguage) | **DELETE** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a WhatsApp template |
 | [**editByNameAndLanguage**](WhatsappTemplatesApi.md#editByNameAndLanguage) | **PATCH** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template |
 | [**list**](WhatsappTemplatesApi.md#list) | **GET** /whatsapp/templates | List WhatsApp templates |
 | [**retrieveByNameAndLanguage**](WhatsappTemplatesApi.md#retrieveByNameAndLanguage) | **GET** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template |
@@ -150,6 +151,80 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully deleted the template(s). |  -  |
+| **404** | The requested resource does not exist. |  -  |
+
+<a name="deleteByNameAndLanguage"></a>
+# **deleteByNameAndLanguage**
+> WhatsappTemplate deleteByNameAndLanguage(wabaId, name, language)
+
+Delete a WhatsApp template
+
+Deletes a WhatsApp template by name and language.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
+    String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String name = "sample_whatsapp_template"; // String | Name of the template.
+    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    try {
+      WhatsappTemplate result = apiInstance.deleteByNameAndLanguage(wabaId, name, language);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappTemplatesApi#deleteByNameAndLanguage");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wabaId** | **String**| WhatsApp Business Account ID. | |
+| **name** | **String**| Name of the template. | |
+| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | |
+
+### Return type
+
+[**WhatsappTemplate**](WhatsappTemplate.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully deleted the template. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
 <a name="editByNameAndLanguage"></a>

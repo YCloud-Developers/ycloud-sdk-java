@@ -1049,6 +1049,58 @@ paths:
       - WhatsApp Templates
       x-accepts: application/json
   /whatsapp/templates/{wabaId}/{name}/{language}:
+    delete:
+      description: Deletes a WhatsApp template by name and language.
+      operationId: whatsapp_template-delete-by-name-and-language
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: wabaId
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      - description: Name of the template.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          example: sample_whatsapp_template
+          maximum: 512
+          minimum: 1
+          pattern: "[a-z0-9]{1,512}"
+          type: string
+        style: simple
+      - description: "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages)\
+          \ for all codes."
+        explode: false
+        in: path
+        name: language
+        required: true
+        schema:
+          example: en
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappTemplate'
+          description: Successfully deleted the template.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Delete a WhatsApp template
+      tags:
+      - WhatsApp Templates
+      x-accepts: application/json
     get:
       description: Retrieves a WhatsApp template by name and language.
       operationId: whatsapp_template-retrieve-by-name-and-language

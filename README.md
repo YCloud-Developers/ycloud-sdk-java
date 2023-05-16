@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.8.0</version>
+  <version>1.8.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.8.0"
+     implementation "com.ycloud:ycloud-sdk-java:1.8.1"
   }
 ```
 
@@ -120,6 +120,7 @@ Class | Method | HTTP request | Description
 *WhatsappPhoneNumbersApi* | [**updateProfile**](docs/WhatsappPhoneNumbersApi.md#updateProfile) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a WhatsApp phone number profile
 *WhatsappTemplatesApi* | [**create**](docs/WhatsappTemplatesApi.md#create) | **POST** /whatsapp/templates | Create a WhatsApp template
 *WhatsappTemplatesApi* | [**deleteByName**](docs/WhatsappTemplatesApi.md#deleteByName) | **DELETE** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name
+*WhatsappTemplatesApi* | [**deleteByNameAndLanguage**](docs/WhatsappTemplatesApi.md#deleteByNameAndLanguage) | **DELETE** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a WhatsApp template
 *WhatsappTemplatesApi* | [**editByNameAndLanguage**](docs/WhatsappTemplatesApi.md#editByNameAndLanguage) | **PATCH** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template
 *WhatsappTemplatesApi* | [**list**](docs/WhatsappTemplatesApi.md#list) | **GET** /whatsapp/templates | List WhatsApp templates
 *WhatsappTemplatesApi* | [**retrieveByNameAndLanguage**](docs/WhatsappTemplatesApi.md#retrieveByNameAndLanguage) | **GET** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template

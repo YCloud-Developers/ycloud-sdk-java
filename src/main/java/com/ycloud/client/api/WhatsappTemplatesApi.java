@@ -351,6 +351,160 @@ public class WhatsappTemplatesApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteByNameAndLanguage
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param name Name of the template. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the template. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteByNameAndLanguageCall(String wabaId, String name, String language, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/templates/{wabaId}/{name}/{language}"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "language" + "\\}", localVarApiClient.escapeString(language.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteByNameAndLanguageValidateBeforeCall(String wabaId, String name, String language, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling deleteByNameAndLanguage(Async)");
+        }
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteByNameAndLanguage(Async)");
+        }
+        
+        // verify the required parameter 'language' is set
+        if (language == null) {
+            throw new ApiException("Missing the required parameter 'language' when calling deleteByNameAndLanguage(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteByNameAndLanguageCall(wabaId, name, language, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete a WhatsApp template
+     * <p>
+     * Deletes a WhatsApp template by name and language.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param name Name of the template. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @return WhatsappTemplate
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the template. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappTemplate deleteByNameAndLanguage(String wabaId, String name, String language) throws ApiException {
+        ApiResponse<WhatsappTemplate> localVarResp = deleteByNameAndLanguageWithHttpInfo(wabaId, name, language);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a WhatsApp template
+     * <p>
+     * Deletes a WhatsApp template by name and language.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param name Name of the template. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @return ApiResponse&lt;WhatsappTemplate&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the template. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappTemplate> deleteByNameAndLanguageWithHttpInfo(String wabaId, String name, String language) throws ApiException {
+        okhttp3.Call localVarCall = deleteByNameAndLanguageValidateBeforeCall(wabaId, name, language, null);
+        Type localVarReturnType = new TypeToken<WhatsappTemplate>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a WhatsApp template (asynchronously)
+     * <p>
+     * Deletes a WhatsApp template by name and language.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param name Name of the template. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the template. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteByNameAndLanguageAsync(String wabaId, String name, String language, final ApiCallback<WhatsappTemplate> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteByNameAndLanguageValidateBeforeCall(wabaId, name, language, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappTemplate>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for editByNameAndLanguage
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
