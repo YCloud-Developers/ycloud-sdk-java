@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.8.2 (2023-05-26)
+
+- Add webhook event type `whatsapp.template.quality_updated` to help you keep track of WhatsApp [Template Quality Rating](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/#quality-rating) updates.
+- Add `quaityRating` to the WhatsApp Template object.
+
 ## 1.8.1 (2023-05-16)
 
 - Support deleting a WhatsApp template by name and language.

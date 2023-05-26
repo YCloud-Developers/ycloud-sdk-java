@@ -283,7 +283,7 @@ public class WhatsappMessagesApi {
     /**
      * Enqueue a WhatsApp message
      * <p>
-     * Enqueues an outbound WhatsApp message for sending.  You can enqueue messages at a rate of 200 MPS (Messages Per Second). These queued messages are submitted to the Meta WhatsApp API at a rate of 60 MPS per WhatsApp business phone number.
+     * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the Meta WhatsApp API asynchronously.
      * @param whatsappMessageSendRequest  (required)
      * @return WhatsappMessage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -301,7 +301,7 @@ public class WhatsappMessagesApi {
     /**
      * Enqueue a WhatsApp message
      * <p>
-     * Enqueues an outbound WhatsApp message for sending.  You can enqueue messages at a rate of 200 MPS (Messages Per Second). These queued messages are submitted to the Meta WhatsApp API at a rate of 60 MPS per WhatsApp business phone number.
+     * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the Meta WhatsApp API asynchronously.
      * @param whatsappMessageSendRequest  (required)
      * @return ApiResponse&lt;WhatsappMessage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -320,7 +320,7 @@ public class WhatsappMessagesApi {
     /**
      * Enqueue a WhatsApp message (asynchronously)
      * <p>
-     * Enqueues an outbound WhatsApp message for sending.  You can enqueue messages at a rate of 200 MPS (Messages Per Second). These queued messages are submitted to the Meta WhatsApp API at a rate of 60 MPS per WhatsApp business phone number.
+     * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the Meta WhatsApp API asynchronously.
      * @param whatsappMessageSendRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -412,7 +412,7 @@ public class WhatsappMessagesApi {
     /**
      * Send a WhatsApp message directly
      * <p>
-     * Sends an outbound WhatsApp message directly.  Your message will be submitted to Meta WhatsApp API directly. Typically used for sending OTP and instant messages.  **The Meta WhatsApp API supports up to 80 MPS (Messages Per Second) by default and up to 1,000 MPS by request. Throughput is inclusive of inbound and outbound messages and all message types.**  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
+     * Sends an outbound WhatsApp message directly.  The message is submitted to the Meta WhatsApp API synchronously. Typically used for sending OTP and instant messages.  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
      * @param whatsappMessageSendRequest  (required)
      * @return WhatsappMessage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -430,7 +430,7 @@ public class WhatsappMessagesApi {
     /**
      * Send a WhatsApp message directly
      * <p>
-     * Sends an outbound WhatsApp message directly.  Your message will be submitted to Meta WhatsApp API directly. Typically used for sending OTP and instant messages.  **The Meta WhatsApp API supports up to 80 MPS (Messages Per Second) by default and up to 1,000 MPS by request. Throughput is inclusive of inbound and outbound messages and all message types.**  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
+     * Sends an outbound WhatsApp message directly.  The message is submitted to the Meta WhatsApp API synchronously. Typically used for sending OTP and instant messages.  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
      * @param whatsappMessageSendRequest  (required)
      * @return ApiResponse&lt;WhatsappMessage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -449,7 +449,7 @@ public class WhatsappMessagesApi {
     /**
      * Send a WhatsApp message directly (asynchronously)
      * <p>
-     * Sends an outbound WhatsApp message directly.  Your message will be submitted to Meta WhatsApp API directly. Typically used for sending OTP and instant messages.  **The Meta WhatsApp API supports up to 80 MPS (Messages Per Second) by default and up to 1,000 MPS by request. Throughput is inclusive of inbound and outbound messages and all message types.**  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
+     * Sends an outbound WhatsApp message directly.  The message is submitted to the Meta WhatsApp API synchronously. Typically used for sending OTP and instant messages.  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request Meta WhatsApp API and got an error response.
      * @param whatsappMessageSendRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

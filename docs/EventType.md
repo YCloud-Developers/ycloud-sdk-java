@@ -27,6 +27,8 @@
 
 * `WHATSAPP_TEMPLATE_CATEGORY_UPDATED` (value: `"whatsapp.template.category_updated"`)
 
+* `WHATSAPP_TEMPLATE_QUALITY_UPDATED` (value: `"whatsapp.template.quality_updated"`)
+
 * `WHATSAPP_TEMPLATE_REVIEWED` (value: `"whatsapp.template.reviewed"`)
 
 

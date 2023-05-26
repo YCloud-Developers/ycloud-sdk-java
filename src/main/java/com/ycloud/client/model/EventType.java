@@ -86,6 +86,11 @@ public enum EventType {
   WHATSAPP_TEMPLATE_CATEGORY_UPDATED("whatsapp.template.category_updated"),
   
   /**
+   * Occurs when a WhatsApp template quality rating is updated.
+   */
+  WHATSAPP_TEMPLATE_QUALITY_UPDATED("whatsapp.template.quality_updated"),
+  
+  /**
    * Occurs when a WhatsApp template status is updated, and the status changes to REJECTED, APPROVED, PAUSED, DISABLED, or IN_APPEAL.
    */
   WHATSAPP_TEMPLATE_REVIEWED("whatsapp.template.reviewed");

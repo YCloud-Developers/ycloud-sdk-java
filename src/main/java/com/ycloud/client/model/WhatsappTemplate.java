@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappApiError;
 import com.ycloud.client.model.WhatsappTemplateCategory;
 import com.ycloud.client.model.WhatsappTemplateComponent;
+import com.ycloud.client.model.WhatsappTemplateQualityRating;
 import com.ycloud.client.model.WhatsappTemplateStatus;
 import com.ycloud.client.model.WhatsappTemplateStatusUpdateEventEnum;
 import io.swagger.annotations.ApiModel;
@@ -104,6 +105,12 @@ public class WhatsappTemplate {
   **/
   @SerializedName(SERIALIZED_NAME_STATUS)
   private WhatsappTemplateStatus status;
+
+  public static final String SERIALIZED_NAME_QUALITY_RATING = "qualityRating";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_QUALITY_RATING)
+  private WhatsappTemplateQualityRating qualityRating;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   /**
@@ -333,6 +340,31 @@ public class WhatsappTemplate {
   }
 
 
+  public WhatsappTemplate qualityRating(WhatsappTemplateQualityRating qualityRating) {
+    
+    this.qualityRating = qualityRating;
+    return this;
+  }
+
+   /**
+   * Get qualityRating
+   * @return qualityRating
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappTemplateQualityRating getQualityRating() {
+    return qualityRating;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setQualityRating(WhatsappTemplateQualityRating qualityRating) {
+    this.qualityRating = qualityRating;
+  }
+
+
   public WhatsappTemplate reason(String reason) {
     
     this.reason = reason;
@@ -539,6 +571,7 @@ public class WhatsappTemplate {
         Objects.equals(this.previousCategory, whatsappTemplate.previousCategory) &&
         Objects.equals(this.components, whatsappTemplate.components) &&
         Objects.equals(this.status, whatsappTemplate.status) &&
+        Objects.equals(this.qualityRating, whatsappTemplate.qualityRating) &&
         Objects.equals(this.reason, whatsappTemplate.reason) &&
         Objects.equals(this.createTime, whatsappTemplate.createTime) &&
         Objects.equals(this.updateTime, whatsappTemplate.updateTime) &&
@@ -550,7 +583,7 @@ public class WhatsappTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(wabaId, name, language, category, previousCategory, components, status, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
+    return Objects.hash(wabaId, name, language, category, previousCategory, components, status, qualityRating, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
   }
 
   @Override
@@ -564,6 +597,7 @@ public class WhatsappTemplate {
     sb.append("    previousCategory: ").append(toIndentedString(previousCategory)).append("\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    qualityRating: ").append(toIndentedString(qualityRating)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
@@ -600,6 +634,7 @@ public class WhatsappTemplate {
     openapiFields.add("previousCategory");
     openapiFields.add("components");
     openapiFields.add("status");
+    openapiFields.add("qualityRating");
     openapiFields.add("reason");
     openapiFields.add("createTime");
     openapiFields.add("updateTime");

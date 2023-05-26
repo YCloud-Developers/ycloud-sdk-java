@@ -15,6 +15,7 @@ See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-
 |**previousCategory** | **String** | This field indicates the template&#39;s previous category (or &#x60;null&#x60;, for newly created templates after April 1, 2023). Compare this value to the template&#39;s &#x60;category&#x60; field value, which indicates the template&#39;s current category. For more information about template category migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration). |  [optional] |
 |**components** | [**List&lt;WhatsappTemplateComponent&gt;**](WhatsappTemplateComponent.md) | Template components. A template consists of &#x60;HEADER&#x60;, &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and &#x60;BUTTONS&#x60; components. &#x60;BODY&#x60; component is required, the other types are optional. |  |
 |**status** | **WhatsappTemplateStatus** |  |  [optional] |
+|**qualityRating** | **WhatsappTemplateQualityRating** |  |  [optional] |
 |**reason** | **String** | The reason why the template is rejected. |  [optional] |
 |**createTime** | **Date** | The time at which this object is created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
 |**updateTime** | **Date** | The time at which this object is updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |

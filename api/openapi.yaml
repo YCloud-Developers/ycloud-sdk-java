@@ -622,13 +622,12 @@ paths:
       x-accepts: application/json
   /whatsapp/messages/sendDirectly:
     post:
-      description: "Sends an outbound WhatsApp message directly.\n\nYour message will\
-        \ be submitted to Meta WhatsApp API directly. Typically used for sending OTP\
-        \ and instant messages.\n\n**The Meta WhatsApp API supports up to 80 MPS (Messages\
-        \ Per Second) by default and up to 1,000 MPS by request. Throughput is inclusive\
-        \ of inbound and outbound messages and all message types.**\n\nThe response\
-        \ body field `error.whatsappApiError` is included if we tried to request Meta\
-        \ WhatsApp API and got an error response."
+      description: |-
+        Sends an outbound WhatsApp message directly.
+
+        The message is submitted to the Meta WhatsApp API synchronously. Typically used for sending OTP and instant messages.
+
+        The response body field `error.whatsappApiError` is included if we tried to request Meta WhatsApp API and got an error response.
       operationId: whatsapp_message-send-directly
       requestBody:
         content:
@@ -653,7 +652,7 @@ paths:
       description: |-
         Enqueues an outbound WhatsApp message for sending.
 
-        You can enqueue messages at a rate of 200 MPS (Messages Per Second). These queued messages are submitted to the Meta WhatsApp API at a rate of 60 MPS per WhatsApp business phone number.
+        Queued messages will be submitted to the Meta WhatsApp API asynchronously.
       operationId: whatsapp_message-send
       requestBody:
         content:
@@ -1736,6 +1735,7 @@ components:
       - whatsapp.phone_number.name_updated
       - whatsapp.phone_number.quality_updated
       - whatsapp.template.category_updated
+      - whatsapp.template.quality_updated
       - whatsapp.template.reviewed
       type: string
       x-enum-descriptions:
@@ -1758,6 +1758,7 @@ components:
       - "Occurs when a WhatsApp business account phone number's quality-related status\
         \ is updated, and the status changes to `GREEN`, `YELLOW`, or `RED`."
       - Occurs when a WhatsApp template category is updated.
+      - Occurs when a WhatsApp template quality rating is updated.
       - "Occurs when a WhatsApp template status is updated, and the status changes\
         \ to REJECTED, APPROVED, PAUSED, DISABLED, or IN_APPEAL."
     Mailbox:
@@ -5642,15 +5643,34 @@ components:
       - Unknown quality
     WhatsappPhoneNumberQualityUpdateEventEnum:
       description: "Indicates the update event type of WhatsApp phone number quality\
-        \ when a notification is sent to you.\nFlagged status occurs when the quality\
-        \ rating reaches a low state. If the message quality improves to a high or\
-        \ medium state and maintains this for 7 days, your status will return to Connected.\
-        \ If the quality rating doesn't improve, your status will still return to\
-        \ Connected, but you'll be placed in a lower messaging limit tier."
+        \ when a notification is sent to you.\n- `ONBOARDING`: Typically when the\
+        \ messaging limit changes from `TIER_NOT_SET` to another tier. \n- `UPGRADE`:\
+        \ Messaging limit tier upgraded.\n- `DOWNGRADE`: Messaging limit tier downgraded.\n\
+        - `FLAGGED`: Flagged status occurs when the quality rating reaches a low state.\
+        \ If the message quality improves to a high or medium state and maintains\
+        \ this for 7 days, your status will return to Connected. If the quality rating\
+        \ doesn't improve, your status will still return to Connected, but you'll\
+        \ be placed in a lower messaging limit tier. Learn more on [Phone Number Quality](https://www.facebook.com/business/help/896873687365001)\
+        \ docs.\n- `UNFLAGGED`: Phone number status changes from `FLAGGED` to `CONNECTED`."
       enum:
+      - ONBOARDING
+      - UPGRADE
+      - DOWNGRADE
       - FLAGGED
       - UNFLAGGED
       type: string
+      x-enum-descriptions:
+      - Typically when the messaging limit changes from `TIER_NOT_SET` to another
+        tier.
+      - Messaging limit tier upgraded.
+      - Messaging limit tier downgraded.
+      - "Flagged status occurs when the quality rating reaches a low state. If the\
+        \ message quality improves to a high or medium state and maintains this for\
+        \ 7 days, your status will return to Connected. If the quality rating doesn't\
+        \ improve, your status will still return to Connected, but you'll be placed\
+        \ in a lower messaging limit tier. Learn more on [Phone Number Quality](https://www.facebook.com/business/help/896873687365001)\
+        \ docs."
+      - Phone number status changes from `FLAGGED` to `CONNECTED`.
     WhatsappPhoneNumberStatus:
       description: "The status of a WhatsApp business account phone number.\n`PENDING`:\
         \ Pending.\n`UNVERIFIED`: Unverified. Verify this phone number to start sending\
@@ -5829,6 +5849,7 @@ components:
         previousCategory: previousCategory
         language: en
         updateTime: 2022-06-01T12:00:00Z
+        qualityRating: null
         wabaId: whatsapp-business-account-id
         disableDate: "December 9, 2022"
         createTime: 2022-06-01T12:00:00Z
@@ -5879,6 +5900,8 @@ components:
           type: array
         status:
           $ref: '#/components/schemas/WhatsappTemplateStatus'
+        qualityRating:
+          $ref: '#/components/schemas/WhatsappTemplateQualityRating'
         reason:
           description: The reason why the template is rejected.
           type: string
@@ -6486,6 +6509,7 @@ components:
           previousCategory: previousCategory
           language: en
           updateTime: 2022-06-01T12:00:00Z
+          qualityRating: null
           wabaId: whatsapp-business-account-id
           disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
@@ -6609,6 +6633,7 @@ components:
           previousCategory: previousCategory
           language: en
           updateTime: 2022-06-01T12:00:00Z
+          qualityRating: null
           wabaId: whatsapp-business-account-id
           disableDate: "December 9, 2022"
           createTime: 2022-06-01T12:00:00Z
@@ -6632,6 +6657,22 @@ components:
             $ref: '#/components/schemas/WhatsappTemplate'
           type: array
       type: object
+    WhatsappTemplateQualityRating:
+      description: "Quality rating of WhatsApp template. One of `GREEN`, `YELLOW`,\
+        \ `RED`, or `UNKNOWN`. See also [Template Quality Rating](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/#quality-rating).\n\
+        - `GREEN`: High quality.\n- `YELLOW`: Medium quality.\n- `RED`: Low quality.\n\
+        - `UNKNOWN`: Unknown quality."
+      enum:
+      - GREEN
+      - YELLOW
+      - RED
+      - UNKNOWN
+      type: string
+      x-enum-descriptions:
+      - High quality
+      - Medium quality
+      - Low quality
+      - Unknown quality
     WhatsappTemplateStatus:
       description: "The status of a WhatsApp template.\n- `PENDING`: The template\
         \ is still under review. Review can take up to 24 hours.\n- `REJECTED`: The\
