@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappConversationOriginType;
+import com.ycloud.client.model.WhatsappConversationType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -58,6 +59,12 @@ public class WhatsappConversation {
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private WhatsappConversationType type;
 
   public static final String SERIALIZED_NAME_ORIGIN_TYPE = "originType";
   /**
@@ -98,6 +105,31 @@ public class WhatsappConversation {
   @ApiModelProperty(value = "Unique ID for the object.")
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public WhatsappConversation type(WhatsappConversationType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappConversationType getType() {
+    return type;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setType(WhatsappConversationType type) {
+    this.type = type;
   }
 
 
@@ -198,6 +230,7 @@ public class WhatsappConversation {
     }
     WhatsappConversation whatsappConversation = (WhatsappConversation) o;
     return Objects.equals(this.id, whatsappConversation.id) &&
+        Objects.equals(this.type, whatsappConversation.type) &&
         Objects.equals(this.originType, whatsappConversation.originType) &&
         Objects.equals(this.expireTime, whatsappConversation.expireTime)&&
         Objects.equals(this.additionalProperties, whatsappConversation.additionalProperties);
@@ -205,7 +238,7 @@ public class WhatsappConversation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, originType, expireTime, additionalProperties);
+    return Objects.hash(id, type, originType, expireTime, additionalProperties);
   }
 
   @Override
@@ -213,6 +246,7 @@ public class WhatsappConversation {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappConversation {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    originType: ").append(toIndentedString(originType)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -239,6 +273,7 @@ public class WhatsappConversation {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("type");
     openapiFields.add("originType");
     openapiFields.add("expireTime");
 

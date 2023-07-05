@@ -103,6 +103,13 @@ public class WhatsappPhoneNumber {
   @SerializedName(SERIALIZED_NAME_CODE_VERIFICATION_STATUS)
   private WhatsappPhoneNumberCodeVerificationStatus codeVerificationStatus;
 
+  public static final String SERIALIZED_NAME_IS_OFFICIAL_BUSINESS_ACCOUNT = "isOfficialBusinessAccount";
+  /**
+   * Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information.
+  **/
+  @SerializedName(SERIALIZED_NAME_IS_OFFICIAL_BUSINESS_ACCOUNT)
+  private Boolean isOfficialBusinessAccount;
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   /**
   **/
@@ -327,6 +334,32 @@ public class WhatsappPhoneNumber {
   @ApiModelProperty(value = "")
   public void setCodeVerificationStatus(WhatsappPhoneNumberCodeVerificationStatus codeVerificationStatus) {
     this.codeVerificationStatus = codeVerificationStatus;
+  }
+
+
+  public WhatsappPhoneNumber isOfficialBusinessAccount(Boolean isOfficialBusinessAccount) {
+    
+    this.isOfficialBusinessAccount = isOfficialBusinessAccount;
+    return this;
+  }
+
+   /**
+   * Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information.
+   * @return isOfficialBusinessAccount
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getIsOfficialBusinessAccount() {
+    return isOfficialBusinessAccount;
+  }
+
+
+  /**
+   * Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information.
+   **/
+  @ApiModelProperty(value = "Whether this phone number is an official business account or not. An official business account has a green checkmark badge in its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account) for more information.")
+  public void setIsOfficialBusinessAccount(Boolean isOfficialBusinessAccount) {
+    this.isOfficialBusinessAccount = isOfficialBusinessAccount;
   }
 
 
@@ -559,6 +592,7 @@ public class WhatsappPhoneNumber {
         Objects.equals(this.messagingLimit, whatsappPhoneNumber.messagingLimit) &&
         Objects.equals(this.verifiedName, whatsappPhoneNumber.verifiedName) &&
         Objects.equals(this.codeVerificationStatus, whatsappPhoneNumber.codeVerificationStatus) &&
+        Objects.equals(this.isOfficialBusinessAccount, whatsappPhoneNumber.isOfficialBusinessAccount) &&
         Objects.equals(this.status, whatsappPhoneNumber.status) &&
         Objects.equals(this.nameStatus, whatsappPhoneNumber.nameStatus) &&
         Objects.equals(this.newNameStatus, whatsappPhoneNumber.newNameStatus) &&
@@ -571,7 +605,7 @@ public class WhatsappPhoneNumber {
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, displayPhoneNumber, wabaId, qualityRating, messagingLimit, verifiedName, codeVerificationStatus, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, additionalProperties);
+    return Objects.hash(phoneNumber, displayPhoneNumber, wabaId, qualityRating, messagingLimit, verifiedName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, additionalProperties);
   }
 
   @Override
@@ -585,6 +619,7 @@ public class WhatsappPhoneNumber {
     sb.append("    messagingLimit: ").append(toIndentedString(messagingLimit)).append("\n");
     sb.append("    verifiedName: ").append(toIndentedString(verifiedName)).append("\n");
     sb.append("    codeVerificationStatus: ").append(toIndentedString(codeVerificationStatus)).append("\n");
+    sb.append("    isOfficialBusinessAccount: ").append(toIndentedString(isOfficialBusinessAccount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    nameStatus: ").append(toIndentedString(nameStatus)).append("\n");
     sb.append("    newNameStatus: ").append(toIndentedString(newNameStatus)).append("\n");
@@ -622,6 +657,7 @@ public class WhatsappPhoneNumber {
     openapiFields.add("messagingLimit");
     openapiFields.add("verifiedName");
     openapiFields.add("codeVerificationStatus");
+    openapiFields.add("isOfficialBusinessAccount");
     openapiFields.add("status");
     openapiFields.add("nameStatus");
     openapiFields.add("newNameStatus");

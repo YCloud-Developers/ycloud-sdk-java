@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.8.2</version>
+  <version>1.8.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.8.2"
+     implementation "com.ycloud:ycloud-sdk-java:1.8.3"
   }
 ```
 
@@ -168,6 +168,7 @@ Class | Method | HTTP request | Description
  - [WhatsappBusinessAccountUpdateEventEnum](docs/WhatsappBusinessAccountUpdateEventEnum.md)
  - [WhatsappConversation](docs/WhatsappConversation.md)
  - [WhatsappConversationOriginType](docs/WhatsappConversationOriginType.md)
+ - [WhatsappConversationType](docs/WhatsappConversationType.md)
  - [WhatsappInboundMessage](docs/WhatsappInboundMessage.md)
  - [WhatsappInboundMessageButton](docs/WhatsappInboundMessageButton.md)
  - [WhatsappInboundMessageContext](docs/WhatsappInboundMessageContext.md)

@@ -2901,10 +2901,13 @@ components:
         originType: null
         expireTime: 2022-06-01T12:00:00Z
         id: id
+        type: null
       properties:
         id:
           description: Unique ID for the object.
           type: string
+        type:
+          $ref: '#/components/schemas/WhatsappConversationType'
         originType:
           $ref: '#/components/schemas/WhatsappConversationOriginType'
         expireTime:
@@ -2960,6 +2963,26 @@ components:
       - Indicates the business initiated the conversation with a message template
         categorized as `UTILITY`.
       - Indicates the user initiated the conversation.
+    WhatsappConversationType:
+      description: "Conversation type. There is a charge when the first business message\
+        \ of this conversation is delivered, initiating the 24-hour conversation session.\
+        \ As such, the conversation type can be `null` before the first message is\
+        \ delivered.\n`FREE_ENTRY`: Conversations originating from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points).\n\
+        `FREE_TIER`: Conversations within the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations).\n\
+        `REGULAR`: Any conversations that did not originate from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points)\
+        \ or are above the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations)\
+        \ allotment."
+      enum:
+      - FREE_ENTRY
+      - FREE_TIER
+      - REGULAR
+      type: string
+      x-enum-descriptions:
+      - "Conversations originating from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points)."
+      - "Conversations within the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations)."
+      - "Any conversations that did not originate from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points)\
+        \ or are above the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations)\
+        \ allotment."
     WhatsappInboundMessage:
       description: WhatsApp inbound message object.
       properties:
@@ -3611,6 +3634,7 @@ components:
           originType: null
           expireTime: 2022-06-01T12:00:00Z
           id: id
+          type: null
         image:
           filename: filename
           link: link
@@ -5355,6 +5379,7 @@ components:
         newNameStatus: null
         nameStatus: null
         verifiedName: John’s Cake Shop
+        isOfficialBusinessAccount: true
         displayPhoneNumber: +1 631-555-1111
         rejectionReason: rejectionReason
         codeVerificationStatus: null
@@ -5396,6 +5421,12 @@ components:
           type: string
         codeVerificationStatus:
           $ref: '#/components/schemas/WhatsappPhoneNumberCodeVerificationStatus'
+        isOfficialBusinessAccount:
+          description: "Whether this phone number is an official business account\
+            \ or not.\nAn official business account has a green checkmark badge in\
+            \ its profile and chat thread headers. See [Official Business Account](https://developers.facebook.com/docs/whatsapp/overview/business-accounts#official-business-account)\
+            \ for more information."
+          type: boolean
         status:
           $ref: '#/components/schemas/WhatsappPhoneNumberStatus'
         nameStatus:
@@ -5462,6 +5493,7 @@ components:
           newNameStatus: null
           nameStatus: null
           verifiedName: John’s Cake Shop
+          isOfficialBusinessAccount: true
           displayPhoneNumber: +1 631-555-1111
           rejectionReason: rejectionReason
           codeVerificationStatus: null
@@ -5476,6 +5508,7 @@ components:
           newNameStatus: null
           nameStatus: null
           verifiedName: John’s Cake Shop
+          isOfficialBusinessAccount: true
           displayPhoneNumber: +1 631-555-1111
           rejectionReason: rejectionReason
           codeVerificationStatus: null
@@ -5533,10 +5566,10 @@ components:
           description: "The URLs associated with the business. For instance, a website,\
             \ Facebook Page, or Instagram. You must include the http:// or https://\
             \ portion of the URL.\nThere is a maximum of 2 websites with a maximum\
-            \ of 256 characters each."
+            \ of 255 characters each."
           items:
             example: https://WEBSITE-1
-            maxLength: 256
+            maxLength: 255
             type: string
           maxItems: 2
           type: array
@@ -5594,10 +5627,10 @@ components:
           description: "The URLs associated with the business. For instance, a website,\
             \ Facebook Page, or Instagram. You must include the http:// or https://\
             \ portion of the URL.\nThere is a maximum of 2 websites with a maximum\
-            \ of 256 characters each."
+            \ of 255 characters each."
           items:
             example: https://WEBSITE-1
-            maxLength: 256
+            maxLength: 255
             type: string
           maxItems: 2
           type: array

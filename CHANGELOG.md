@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.8.3 (2023-07-05)
+
+- Add `conversation.type` to the WhatsApp message object. If present, possible values are `FREE_ENTRY`, `FREE_TIER`, and `REGULAR`.
+- Add `isOfficialBusinessAccount` to the WhatsApp phone number object.
+
 ## 1.8.2 (2023-05-26)
 
 - Add webhook event type `whatsapp.template.quality_updated` to help you keep track of WhatsApp [Template Quality Rating](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/#quality-rating) updates.
