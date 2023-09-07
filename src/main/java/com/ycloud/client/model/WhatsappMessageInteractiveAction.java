@@ -56,14 +56,14 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageInteractiveAction {
   public static final String SERIALIZED_NAME_BUTTONS = "buttons";
   /**
-   * Required for Reply Buttons.
+   * Required for Reply Buttons. You can have up to 3 buttons.
   **/
   @SerializedName(SERIALIZED_NAME_BUTTONS)
   private List<WhatsappMessageInteractiveActionButton> buttons = null;
 
   public static final String SERIALIZED_NAME_BUTTON = "button";
   /**
-   * Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
+   * Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters.
   **/
   @SerializedName(SERIALIZED_NAME_BUTTON)
   private String button;
@@ -107,7 +107,7 @@ public class WhatsappMessageInteractiveAction {
   }
 
    /**
-   * Required for Reply Buttons.
+   * Required for Reply Buttons. You can have up to 3 buttons.
    * @return buttons
   **/
   @javax.annotation.Nullable
@@ -118,9 +118,9 @@ public class WhatsappMessageInteractiveAction {
 
 
   /**
-   * Required for Reply Buttons.
+   * Required for Reply Buttons. You can have up to 3 buttons.
    **/
-  @ApiModelProperty(value = "Required for Reply Buttons.")
+  @ApiModelProperty(value = "Required for Reply Buttons. You can have up to 3 buttons.")
   public void setButtons(List<WhatsappMessageInteractiveActionButton> buttons) {
     this.buttons = buttons;
   }
@@ -133,7 +133,7 @@ public class WhatsappMessageInteractiveAction {
   }
 
    /**
-   * Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
+   * Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters.
    * @return button
   **/
   @javax.annotation.Nullable
@@ -144,9 +144,9 @@ public class WhatsappMessageInteractiveAction {
 
 
   /**
-   * Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.
+   * Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters.
    **/
-  @ApiModelProperty(value = "Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not.")
+  @ApiModelProperty(value = "Required for List Messages. Button content. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters.")
   public void setButton(String button) {
     this.button = button;
   }

@@ -56,7 +56,7 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageInteractiveActionSection {
   public static final String SERIALIZED_NAME_TITLE = "title";
   /**
-   * Title of the section.
+   * **Required if the message has more than one section.** Title of the section. Maximum length: 24 characters.
   **/
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
@@ -85,7 +85,7 @@ public class WhatsappMessageInteractiveActionSection {
   }
 
    /**
-   * Title of the section.
+   * **Required if the message has more than one section.** Title of the section. Maximum length: 24 characters.
    * @return title
   **/
   @javax.annotation.Nullable
@@ -96,9 +96,9 @@ public class WhatsappMessageInteractiveActionSection {
 
 
   /**
-   * Title of the section.
+   * **Required if the message has more than one section.** Title of the section. Maximum length: 24 characters.
    **/
-  @ApiModelProperty(value = "Title of the section.")
+  @ApiModelProperty(value = "**Required if the message has more than one section.** Title of the section. Maximum length: 24 characters.")
   public void setTitle(String title) {
     this.title = title;
   }

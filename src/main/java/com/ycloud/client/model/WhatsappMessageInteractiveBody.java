@@ -52,7 +52,7 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageInteractiveBody {
   public static final String SERIALIZED_NAME_TEXT = "text";
   /**
-   * The body content of the message. Emojis and markdown are supported. Links are supported.
+   * The body content of the message. Emojis and markdown are supported. Maximum length: 1024 characters.
   **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
@@ -67,7 +67,7 @@ public class WhatsappMessageInteractiveBody {
   }
 
    /**
-   * The body content of the message. Emojis and markdown are supported. Links are supported.
+   * The body content of the message. Emojis and markdown are supported. Maximum length: 1024 characters.
    * @return text
   **/
   @javax.annotation.Nullable
@@ -78,9 +78,9 @@ public class WhatsappMessageInteractiveBody {
 
 
   /**
-   * The body content of the message. Emojis and markdown are supported. Links are supported.
+   * The body content of the message. Emojis and markdown are supported. Maximum length: 1024 characters.
    **/
-  @ApiModelProperty(value = "The body content of the message. Emojis and markdown are supported. Links are supported.")
+  @ApiModelProperty(value = "The body content of the message. Emojis and markdown are supported. Maximum length: 1024 characters.")
   public void setText(String text) {
     this.text = text;
   }

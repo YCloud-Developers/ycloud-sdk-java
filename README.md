@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.8.3</version>
+  <version>1.9.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.8.3"
+     implementation "com.ycloud:ycloud-sdk-java:1.9.0"
   }
 ```
 
@@ -96,6 +96,11 @@ All URIs are relative to *https://api.ycloud.com/v2*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BalanceApi* | [**retrieve**](docs/BalanceApi.md#retrieve) | **GET** /balance | Retrieve balance
+*ContactsApi* | [**create**](docs/ContactsApi.md#create) | **POST** /contact/contacts | Create a contact
+*ContactsApi* | [**delete**](docs/ContactsApi.md#delete) | **DELETE** /contact/contacts/{id} | Delete a contact
+*ContactsApi* | [**list**](docs/ContactsApi.md#list) | **GET** /contact/contacts | List contacts
+*ContactsApi* | [**retrieve**](docs/ContactsApi.md#retrieve) | **GET** /contact/contacts/{id} | Retrieve a contact
+*ContactsApi* | [**update**](docs/ContactsApi.md#update) | **PATCH** /contact/contacts/{id} | Update a contact
 *EmailsApi* | [**send**](docs/EmailsApi.md#send) | **POST** /emails | Send an email
 *SmsApi* | [**list**](docs/SmsApi.md#list) | **GET** /sms | List SMS records
 *SmsApi* | [**send**](docs/SmsApi.md#send) | **POST** /sms | Send an SMS
@@ -129,6 +134,12 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Balance](docs/Balance.md)
+ - [Contact](docs/Contact.md)
+ - [ContactCreateRequest](docs/ContactCreateRequest.md)
+ - [ContactCreateRequestCustomAttributesInner](docs/ContactCreateRequestCustomAttributesInner.md)
+ - [ContactCustomAttributesInner](docs/ContactCustomAttributesInner.md)
+ - [ContactPage](docs/ContactPage.md)
+ - [ContactUpdateRequest](docs/ContactUpdateRequest.md)
  - [Email](docs/Email.md)
  - [EmailContentType](docs/EmailContentType.md)
  - [EmailDelivery](docs/EmailDelivery.md)

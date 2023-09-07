@@ -18,6 +18,7 @@ security:
 - api_key: []
 tags:
 - name: Balance
+- name: Contacts
 - name: Emails
 - name: SMS
 - name: Verify
@@ -42,6 +43,217 @@ paths:
       summary: Retrieve balance
       tags:
       - Balance
+      x-accepts: application/json
+  /contact/contacts:
+    get:
+      description: Returns a paginated list of contacts.
+      operationId: contacts-list
+      parameters:
+      - description: "Page number of the results to be returned, 1-based."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "A limit on the number of results to be returned, or number of\
+          \ results per page, between 1 and 100, defaults to 10."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Return results inside an object that contains the total result
+          count or not.
+        explode: true
+        in: query
+        name: includeTotal
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: Comma-separated list of tags.
+        explode: true
+        in: query
+        name: filter.tags
+        required: false
+        schema:
+          example: "tag1,tag2"
+          type: string
+        style: form
+      - description: "Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country\
+          \ code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+        explode: true
+        in: query
+        name: filter.countryCode
+        required: false
+        schema:
+          example: GB
+          type: string
+        style: form
+      - description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+          \ format."
+        explode: true
+        in: query
+        name: filter.phoneNumber
+        required: false
+        schema:
+          example: +447901614024
+          type: string
+        style: form
+      - description: The contact's email address.
+        explode: true
+        in: query
+        name: filter.email
+        required: false
+        schema:
+          example: support@ycloud.com
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactPage'
+          description: Successfully retrieved a paginated list of objects.
+      summary: List contacts
+      tags:
+      - Contacts
+      x-group-parameters: true
+      x-accepts: application/json
+    post:
+      description: Creates a contact.
+      operationId: contacts-create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: Successfully created a contact.
+      summary: Create a contact
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts: application/json
+  /contact/contacts/{id}:
+    delete:
+      description: Deletes a contact.
+      operationId: contacts-delete
+      parameters:
+      - description: ID of the contact.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: "1693364594105000026"
+          maxLength: 255
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: Successfully deleted the contact.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Delete a contact
+      tags:
+      - Contacts
+      x-accepts: application/json
+    get:
+      description: Retrieves a contact.
+      operationId: contacts-retrieve
+      parameters:
+      - description: ID of the contact.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: "1693364594105000026"
+          maxLength: 255
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: Successfully retrieved the contact.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Retrieve a contact
+      tags:
+      - Contacts
+      x-accepts: application/json
+    patch:
+      description: Updates a contact.
+      operationId: contacts-update
+      parameters:
+      - description: ID of the contact.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: "1693364594105000026"
+          maxLength: 255
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactUpdateRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: Successfully updated the contact.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Update a contact
+      tags:
+      - Contacts
+      x-content-type: application/json
       x-accepts: application/json
   /emails:
     post:
@@ -625,9 +837,9 @@ paths:
       description: |-
         Sends an outbound WhatsApp message directly.
 
-        The message is submitted to the Meta WhatsApp API synchronously. Typically used for sending OTP and instant messages.
+        The message is submitted to the WhatsApp Business API synchronously. Typically used for sending OTP and instant messages.
 
-        The response body field `error.whatsappApiError` is included if we tried to request Meta WhatsApp API and got an error response.
+        The response body field `error.whatsappApiError` is included if we tried to request the WhatsApp Business API and got an error response.
       operationId: whatsapp_message-send-directly
       requestBody:
         content:
@@ -652,7 +864,7 @@ paths:
       description: |-
         Enqueues an outbound WhatsApp message for sending.
 
-        Queued messages will be submitted to the Meta WhatsApp API asynchronously.
+        Queued messages will be submitted to the WhatsApp Business API asynchronously.
       operationId: whatsapp_message-send
       requestBody:
         content:
@@ -1289,6 +1501,17 @@ components:
         example: wh627c8640675de8fc689ab9d9
         type: string
       style: simple
+    id-in_path_for_contact:
+      description: ID of the contact.
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        example: "1693364594105000026"
+        maxLength: 255
+        type: string
+      style: simple
     includeTotal:
       description: Return results inside an object that contains the total result
         count or not.
@@ -1355,6 +1578,246 @@ components:
       required:
       - amount
       - currency
+      type: object
+    Contact:
+      description: Represents a contact.
+      example:
+        phoneNumber: +16315551111
+        lastSeen: 2022-06-01T12:00:00Z
+        createTime: 2022-06-01T12:00:00Z
+        countryCode: GB
+        nickname: nickname
+        id: "1693364594105000026"
+        countryName: countryName
+        email: support@ycloud.com
+        tags:
+        - tags
+        - tags
+        - tags
+        - tags
+        - tags
+        customAttributes:
+        - name: name
+          value: "{}"
+        - name: name
+          value: "{}"
+      properties:
+        id:
+          description: Unique ID for the object.
+          example: "1693364594105000026"
+          maxLength: 255
+          type: string
+        nickname:
+          description: Contact's nickname.
+          example: nickname
+          type: string
+        countryCode:
+          description: "Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country\
+            \ code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+          example: GB
+          type: string
+        countryName:
+          description: Full country name.
+          type: string
+        phoneNumber:
+          description: "Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+            \ format."
+          example: +16315551111
+          type: string
+        email:
+          description: "The contact's email address.\nIf present, the email address\
+            \ must be unique."
+          example: support@ycloud.com
+          type: string
+        lastSeen:
+          description: "The time at which the latest inbound message was created,\
+            \ formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).\
+            \ e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+        tags:
+          description: Contact's tags.
+          items:
+            maxLength: 50
+            type: string
+          maxItems: 50
+          type: array
+        createTime:
+          description: "The time at which the contact was created, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+        customAttributes:
+          description: Contact's custom attributes.
+          items:
+            $ref: '#/components/schemas/Contact_customAttributes_inner'
+          type: array
+      required:
+      - id
+      type: object
+    ContactCreateRequest:
+      description: Contains the properties of the contact to be created.
+      example:
+        phoneNumber: +16315551111
+        countryCode: GB
+        nickname: nickname
+        email: support@ycloud.com
+        tags:
+        - tags
+        - tags
+        - tags
+        - tags
+        - tags
+        customAttributes:
+        - name: name
+          value: "{}"
+        - name: name
+          value: "{}"
+      properties:
+        nickname:
+          description: "Contact's nickname. Maximum length: 250 characters."
+          example: nickname
+          maxLength: 250
+          type: string
+        phoneNumber:
+          description: "Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+            \ format."
+          example: +16315551111
+          type: string
+        countryCode:
+          description: "Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country\
+            \ code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+          example: GB
+          type: string
+        email:
+          description: "Contact's email address.\nIf present, the email address must\
+            \ be unique."
+          example: support@ycloud.com
+          maxLength: 250
+          type: string
+        tags:
+          description: "Contact's tags. Max items: 50. Max characters per tag: 50."
+          items:
+            description: "Tag. Maximum length: 50 characters."
+            maxLength: 50
+            type: string
+          maxItems: 50
+          type: array
+        customAttributes:
+          description: Contact's custom attributes.
+          items:
+            $ref: '#/components/schemas/ContactCreateRequest_customAttributes_inner'
+          type: array
+      required:
+      - phoneNumber
+      type: object
+    ContactPage:
+      allOf:
+      - $ref: '#/components/schemas/Page'
+      description: Represents a given page of contacts.
+      example:
+        items:
+        - phoneNumber: +16315551111
+          lastSeen: 2022-06-01T12:00:00Z
+          createTime: 2022-06-01T12:00:00Z
+          countryCode: GB
+          nickname: nickname
+          id: "1693364594105000026"
+          countryName: countryName
+          email: support@ycloud.com
+          tags:
+          - tags
+          - tags
+          - tags
+          - tags
+          - tags
+          customAttributes:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+        - phoneNumber: +16315551111
+          lastSeen: 2022-06-01T12:00:00Z
+          createTime: 2022-06-01T12:00:00Z
+          countryCode: GB
+          nickname: nickname
+          id: "1693364594105000026"
+          countryName: countryName
+          email: support@ycloud.com
+          tags:
+          - tags
+          - tags
+          - tags
+          - tags
+          - tags
+          customAttributes:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+      properties:
+        items:
+          description: An array containing contact objects.
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+      type: object
+    ContactUpdateRequest:
+      description: Contains the properties of the contact to be updated.
+      example:
+        phoneNumber: +16315551111
+        countryCode: GB
+        nickname: nickname
+        email: support@ycloud.com
+        tags:
+        - tags
+        - tags
+        - tags
+        - tags
+        - tags
+        customAttributes:
+        - name: name
+          value: "{}"
+        - name: name
+          value: "{}"
+      properties:
+        nickname:
+          description: "Contact's nickname. Maximum length: 250 characters."
+          example: nickname
+          maxLength: 250
+          type: string
+        phoneNumber:
+          description: "Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+            \ format."
+          example: +16315551111
+          type: string
+        countryCode:
+          description: "Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country\
+            \ code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+          example: GB
+          type: string
+        email:
+          description: "The contact's email address.\nIf present, the email address\
+            \ must be unique."
+          example: support@ycloud.com
+          maxLength: 250
+          type: string
+        tags:
+          description: "Contact's tags. Maximum items: 50."
+          items:
+            description: "Tag. Maximum length: 50 characters."
+            maxLength: 50
+            type: string
+          maxItems: 50
+          type: array
+        customAttributes:
+          description: "Contact's custom attributes.\nIf present (i.e., not `null`),\
+            \ all previous attributes of this contact will be replaced."
+          items:
+            $ref: '#/components/schemas/ContactCreateRequest_customAttributes_inner'
+          type: array
       type: object
     Email:
       example:
@@ -4430,7 +4893,7 @@ components:
             title: title
       properties:
         buttons:
-          description: Required for Reply Buttons.
+          description: Required for Reply Buttons. You can have up to 3 buttons.
           items:
             $ref: '#/components/schemas/WhatsappMessageInteractiveActionButton'
           maxItems: 3
@@ -4438,7 +4901,7 @@ components:
         button:
           description: "Required for List Messages. Button content. It cannot be an\
             \ empty string and must be unique within the message. Emojis are supported,\
-            \ markdown is not."
+            \ markdown is not. Maximum length: 20 characters."
           maxLength: 20
           type: string
         catalog_id:
@@ -4461,6 +4924,7 @@ components:
           type: array
       type: object
     WhatsappMessageInteractiveActionButton:
+      description: A button object in `interactive` messages.
       example:
         type: reply
         reply:
@@ -4503,7 +4967,8 @@ components:
           title: title
       properties:
         title:
-          description: Title of the section.
+          description: "**Required if the message has more than one section.**\nTitle\
+            \ of the section. Maximum length: 24 characters."
           maxLength: 24
           type: string
         rows:
@@ -4542,13 +5007,16 @@ components:
         title: title
       properties:
         id:
-          description: Unique row ID.
+          description: "Unique row ID. Maximum length: 200 characters."
+          maxLength: 200
           type: string
         title:
-          description: Row title content.
+          description: "Row title content. Maximum length: 24 characters."
+          maxLength: 24
           type: string
         description:
-          description: Row description content.
+          description: "Row description content. Maximum length: 72 characters."
+          maxLength: 72
           type: string
       type: object
     WhatsappMessageInteractiveBody:
@@ -4558,8 +5026,8 @@ components:
         text: text
       properties:
         text:
-          description: The body content of the message. Emojis and markdown are supported.
-            Links are supported.
+          description: "The body content of the message. Emojis and markdown are supported.\
+            \ Maximum length: 1024 characters."
           maxLength: 1024
           type: string
       type: object
@@ -4570,8 +5038,8 @@ components:
         text: text
       properties:
         text:
-          description: The footer content. Emojis and markdown are supported. Links
-            are supported.
+          description: "The footer content. Emojis and markdown are supported. Links\
+            \ are supported. Maximum length: 60 characters."
           maxLength: 60
           type: string
       type: object
@@ -6772,6 +7240,30 @@ components:
       - "Disabled. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing)."
       - Reinstated.
       - Pending deletion.
+    Contact_customAttributes_inner:
+      example:
+        name: name
+        value: "{}"
+      properties:
+        name:
+          description: Attribute's name.
+          type: string
+        value:
+          description: Attribute's value.
+          type: object
+      type: object
+    ContactCreateRequest_customAttributes_inner:
+      example:
+        name: name
+        value: "{}"
+      properties:
+        name:
+          description: Name of the attribute that you've previously defined.
+          type: string
+        value:
+          description: Value of the attribute.
+          type: object
+      type: object
     WhatsappInboundMessageInteractive_button_reply:
       description: Sent when a customer clicks a button. Returned when `type` is `button_reply`.
       properties:
@@ -6803,13 +7295,16 @@ components:
       properties:
         title:
           description: "Button title. It cannot be an empty string and must be unique\
-            \ within the message. Emojis are supported, markdown is not."
+            \ within the message. Emojis are supported, markdown is not. Maximum length:\
+            \ 20 characters."
           maxLength: 20
           type: string
         id:
-          description: Unique identifier for your button. This ID is returned in the
-            webhook when the button is clicked by the user.
-          maxLength: 20
+          description: "Unique identifier for your button. This ID is returned in\
+            \ the webhook when the button is clicked by the user. Maximum length:\
+            \ 256 characters. You cannot have leading or trailing spaces when setting\
+            \ the ID."
+          maxLength: 256
           type: string
       type: object
     WhatsappMessageTemplate_language:

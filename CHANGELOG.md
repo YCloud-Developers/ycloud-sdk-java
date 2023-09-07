@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9.0 (2023-09-07)
+
+- Add Contacts API.
+
 ## 1.8.3 (2023-07-05)
 
 - Add `conversation.type` to the WhatsApp message object. If present, possible values are `FREE_ENTRY`, `FREE_TIER`, and `REGULAR`.

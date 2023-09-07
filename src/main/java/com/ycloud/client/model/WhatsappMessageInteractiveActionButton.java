@@ -46,8 +46,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappMessageInteractiveActionButton
+ * A button object in &#x60;interactive&#x60; messages.
  */
+@ApiModel(description = "A button object in `interactive` messages.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveActionButton {
   /**

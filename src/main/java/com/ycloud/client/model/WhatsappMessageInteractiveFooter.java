@@ -52,7 +52,7 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageInteractiveFooter {
   public static final String SERIALIZED_NAME_TEXT = "text";
   /**
-   * The footer content. Emojis and markdown are supported. Links are supported.
+   * The footer content. Emojis and markdown are supported. Links are supported. Maximum length: 60 characters.
   **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
@@ -67,7 +67,7 @@ public class WhatsappMessageInteractiveFooter {
   }
 
    /**
-   * The footer content. Emojis and markdown are supported. Links are supported.
+   * The footer content. Emojis and markdown are supported. Links are supported. Maximum length: 60 characters.
    * @return text
   **/
   @javax.annotation.Nullable
@@ -78,9 +78,9 @@ public class WhatsappMessageInteractiveFooter {
 
 
   /**
-   * The footer content. Emojis and markdown are supported. Links are supported.
+   * The footer content. Emojis and markdown are supported. Links are supported. Maximum length: 60 characters.
    **/
-  @ApiModelProperty(value = "The footer content. Emojis and markdown are supported. Links are supported.")
+  @ApiModelProperty(value = "The footer content. Emojis and markdown are supported. Links are supported. Maximum length: 60 characters.")
   public void setText(String text) {
     this.text = text;
   }

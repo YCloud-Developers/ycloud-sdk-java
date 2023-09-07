@@ -2,6 +2,7 @@
 
 # WhatsappMessageInteractiveActionButton
 
+A button object in `interactive` messages.
 
 ## Properties
 

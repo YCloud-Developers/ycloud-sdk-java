@@ -45,76 +45,76 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappMessageInteractiveActionButtonReply
+ * ContactCreateRequestCustomAttributesInner
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageInteractiveActionButtonReply {
-  public static final String SERIALIZED_NAME_TITLE = "title";
+public class ContactCreateRequestCustomAttributesInner {
+  public static final String SERIALIZED_NAME_NAME = "name";
   /**
-   * Button title. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters.
+   * Name of the attribute that you&#39;ve previously defined.
   **/
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String SERIALIZED_NAME_ID = "id";
+  public static final String SERIALIZED_NAME_VALUE = "value";
   /**
-   * Unique identifier for your button. This ID is returned in the webhook when the button is clicked by the user. Maximum length: 256 characters. You cannot have leading or trailing spaces when setting the ID.
+   * Value of the attribute.
   **/
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  private Object value;
 
-  public WhatsappMessageInteractiveActionButtonReply() { 
+  public ContactCreateRequestCustomAttributesInner() { 
   }
 
-  public WhatsappMessageInteractiveActionButtonReply title(String title) {
+  public ContactCreateRequestCustomAttributesInner name(String name) {
     
-    this.title = title;
+    this.name = name;
     return this;
   }
 
    /**
-   * Button title. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters.
-   * @return title
+   * Name of the attribute that you&#39;ve previously defined.
+   * @return name
   **/
   @javax.annotation.Nullable
 
-  public String getTitle() {
-    return title;
+  public String getName() {
+    return name;
   }
 
 
   /**
-   * Button title. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters.
+   * Name of the attribute that you&#39;ve previously defined.
    **/
-  @ApiModelProperty(value = "Button title. It cannot be an empty string and must be unique within the message. Emojis are supported, markdown is not. Maximum length: 20 characters.")
-  public void setTitle(String title) {
-    this.title = title;
+  @ApiModelProperty(value = "Name of the attribute that you've previously defined.")
+  public void setName(String name) {
+    this.name = name;
   }
 
 
-  public WhatsappMessageInteractiveActionButtonReply id(String id) {
+  public ContactCreateRequestCustomAttributesInner value(Object value) {
     
-    this.id = id;
+    this.value = value;
     return this;
   }
 
    /**
-   * Unique identifier for your button. This ID is returned in the webhook when the button is clicked by the user. Maximum length: 256 characters. You cannot have leading or trailing spaces when setting the ID.
-   * @return id
+   * Value of the attribute.
+   * @return value
   **/
   @javax.annotation.Nullable
 
-  public String getId() {
-    return id;
+  public Object getValue() {
+    return value;
   }
 
 
   /**
-   * Unique identifier for your button. This ID is returned in the webhook when the button is clicked by the user. Maximum length: 256 characters. You cannot have leading or trailing spaces when setting the ID.
+   * Value of the attribute.
    **/
-  @ApiModelProperty(value = "Unique identifier for your button. This ID is returned in the webhook when the button is clicked by the user. Maximum length: 256 characters. You cannot have leading or trailing spaces when setting the ID.")
-  public void setId(String id) {
-    this.id = id;
+  @ApiModelProperty(value = "Value of the attribute.")
+  public void setValue(Object value) {
+    this.value = value;
   }
 
   /**
@@ -128,7 +128,7 @@ public class WhatsappMessageInteractiveActionButtonReply {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageInteractiveActionButtonReply putAdditionalProperty(String key, Object value) {
+  public ContactCreateRequestCustomAttributesInner putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -162,23 +162,23 @@ public class WhatsappMessageInteractiveActionButtonReply {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageInteractiveActionButtonReply whatsappMessageInteractiveActionButtonReply = (WhatsappMessageInteractiveActionButtonReply) o;
-    return Objects.equals(this.title, whatsappMessageInteractiveActionButtonReply.title) &&
-        Objects.equals(this.id, whatsappMessageInteractiveActionButtonReply.id)&&
-        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionButtonReply.additionalProperties);
+    ContactCreateRequestCustomAttributesInner contactCreateRequestCustomAttributesInner = (ContactCreateRequestCustomAttributesInner) o;
+    return Objects.equals(this.name, contactCreateRequestCustomAttributesInner.name) &&
+        Objects.equals(this.value, contactCreateRequestCustomAttributesInner.value)&&
+        Objects.equals(this.additionalProperties, contactCreateRequestCustomAttributesInner.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, id, additionalProperties);
+    return Objects.hash(name, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageInteractiveActionButtonReply {\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class ContactCreateRequestCustomAttributesInner {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -202,8 +202,8 @@ public class WhatsappMessageInteractiveActionButtonReply {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("title");
-    openapiFields.add("id");
+    openapiFields.add("name");
+    openapiFields.add("value");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -213,21 +213,18 @@ public class WhatsappMessageInteractiveActionButtonReply {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionButtonReply
+  * @throws IOException if the JSON Object is invalid with respect to ContactCreateRequestCustomAttributesInner
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageInteractiveActionButtonReply.openapiRequiredFields.isEmpty()) {
+        if (ContactCreateRequestCustomAttributesInner.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionButtonReply is not found in the empty JSON string", WhatsappMessageInteractiveActionButtonReply.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ContactCreateRequestCustomAttributesInner is not found in the empty JSON string", ContactCreateRequestCustomAttributesInner.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }
 
@@ -235,16 +232,16 @@ public class WhatsappMessageInteractiveActionButtonReply {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageInteractiveActionButtonReply.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageInteractiveActionButtonReply' and its subtypes
+       if (!ContactCreateRequestCustomAttributesInner.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ContactCreateRequestCustomAttributesInner' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageInteractiveActionButtonReply> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionButtonReply.class));
+       final TypeAdapter<ContactCreateRequestCustomAttributesInner> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ContactCreateRequestCustomAttributesInner.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionButtonReply>() {
+       return (TypeAdapter<T>) new TypeAdapter<ContactCreateRequestCustomAttributesInner>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageInteractiveActionButtonReply value) throws IOException {
+           public void write(JsonWriter out, ContactCreateRequestCustomAttributesInner value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -267,11 +264,11 @@ public class WhatsappMessageInteractiveActionButtonReply {
            }
 
            @Override
-           public WhatsappMessageInteractiveActionButtonReply read(JsonReader in) throws IOException {
+           public ContactCreateRequestCustomAttributesInner read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageInteractiveActionButtonReply instance = thisAdapter.fromJsonTree(jsonObj);
+             ContactCreateRequestCustomAttributesInner instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -296,18 +293,18 @@ public class WhatsappMessageInteractiveActionButtonReply {
   }
 
  /**
-  * Create an instance of WhatsappMessageInteractiveActionButtonReply given an JSON string
+  * Create an instance of ContactCreateRequestCustomAttributesInner given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageInteractiveActionButtonReply
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionButtonReply
+  * @return An instance of ContactCreateRequestCustomAttributesInner
+  * @throws IOException if the JSON string is invalid with respect to ContactCreateRequestCustomAttributesInner
   */
-  public static WhatsappMessageInteractiveActionButtonReply fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionButtonReply.class);
+  public static ContactCreateRequestCustomAttributesInner fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ContactCreateRequestCustomAttributesInner.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageInteractiveActionButtonReply to an JSON string
+  * Convert an instance of ContactCreateRequestCustomAttributesInner to an JSON string
   *
   * @return JSON string
   */

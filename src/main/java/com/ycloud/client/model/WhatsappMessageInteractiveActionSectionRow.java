@@ -51,21 +51,21 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageInteractiveActionSectionRow {
   public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * Unique row ID.
+   * Unique row ID. Maximum length: 200 characters.
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   /**
-   * Row title content.
+   * Row title content. Maximum length: 24 characters.
   **/
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   /**
-   * Row description content.
+   * Row description content. Maximum length: 72 characters.
   **/
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -80,7 +80,7 @@ public class WhatsappMessageInteractiveActionSectionRow {
   }
 
    /**
-   * Unique row ID.
+   * Unique row ID. Maximum length: 200 characters.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -91,9 +91,9 @@ public class WhatsappMessageInteractiveActionSectionRow {
 
 
   /**
-   * Unique row ID.
+   * Unique row ID. Maximum length: 200 characters.
    **/
-  @ApiModelProperty(value = "Unique row ID.")
+  @ApiModelProperty(value = "Unique row ID. Maximum length: 200 characters.")
   public void setId(String id) {
     this.id = id;
   }
@@ -106,7 +106,7 @@ public class WhatsappMessageInteractiveActionSectionRow {
   }
 
    /**
-   * Row title content.
+   * Row title content. Maximum length: 24 characters.
    * @return title
   **/
   @javax.annotation.Nullable
@@ -117,9 +117,9 @@ public class WhatsappMessageInteractiveActionSectionRow {
 
 
   /**
-   * Row title content.
+   * Row title content. Maximum length: 24 characters.
    **/
-  @ApiModelProperty(value = "Row title content.")
+  @ApiModelProperty(value = "Row title content. Maximum length: 24 characters.")
   public void setTitle(String title) {
     this.title = title;
   }
@@ -132,7 +132,7 @@ public class WhatsappMessageInteractiveActionSectionRow {
   }
 
    /**
-   * Row description content.
+   * Row description content. Maximum length: 72 characters.
    * @return description
   **/
   @javax.annotation.Nullable
@@ -143,9 +143,9 @@ public class WhatsappMessageInteractiveActionSectionRow {
 
 
   /**
-   * Row description content.
+   * Row description content. Maximum length: 72 characters.
    **/
-  @ApiModelProperty(value = "Row description content.")
+  @ApiModelProperty(value = "Row description content. Maximum length: 72 characters.")
   public void setDescription(String description) {
     this.description = description;
   }
