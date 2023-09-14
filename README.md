@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.9.0</version>
+  <version>1.9.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.9.0"
+     implementation "com.ycloud:ycloud-sdk-java:1.9.1"
   }
 ```
 
@@ -136,8 +136,7 @@ Class | Method | HTTP request | Description
  - [Balance](docs/Balance.md)
  - [Contact](docs/Contact.md)
  - [ContactCreateRequest](docs/ContactCreateRequest.md)
- - [ContactCreateRequestCustomAttributesInner](docs/ContactCreateRequestCustomAttributesInner.md)
- - [ContactCustomAttributesInner](docs/ContactCustomAttributesInner.md)
+ - [ContactCustomAttribute](docs/ContactCustomAttribute.md)
  - [ContactPage](docs/ContactPage.md)
  - [ContactUpdateRequest](docs/ContactUpdateRequest.md)
  - [Email](docs/Email.md)

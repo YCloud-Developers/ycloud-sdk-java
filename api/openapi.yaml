@@ -47,7 +47,7 @@ paths:
   /contact/contacts:
     get:
       description: Returns a paginated list of contacts.
-      operationId: contacts-list
+      operationId: contact-list
       parameters:
       - description: "Page number of the results to be returned, 1-based."
         explode: true
@@ -136,7 +136,7 @@ paths:
       x-accepts: application/json
     post:
       description: Creates a contact.
-      operationId: contacts-create
+      operationId: contact-create
       requestBody:
         content:
           application/json:
@@ -158,7 +158,7 @@ paths:
   /contact/contacts/{id}:
     delete:
       description: Deletes a contact.
-      operationId: contacts-delete
+      operationId: contact-delete
       parameters:
       - description: ID of the contact.
         explode: false
@@ -189,7 +189,7 @@ paths:
       x-accepts: application/json
     get:
       description: Retrieves a contact.
-      operationId: contacts-retrieve
+      operationId: contact-retrieve
       parameters:
       - description: ID of the contact.
         explode: false
@@ -220,7 +220,7 @@ paths:
       x-accepts: application/json
     patch:
       description: Updates a contact.
-      operationId: contacts-update
+      operationId: contact-update
       parameters:
       - description: ID of the contact.
         explode: false
@@ -1652,10 +1652,28 @@ components:
         customAttributes:
           description: Contact's custom attributes.
           items:
-            $ref: '#/components/schemas/Contact_customAttributes_inner'
+            $ref: '#/components/schemas/ContactCustomAttribute'
           type: array
       required:
       - id
+      type: object
+    ContactCustomAttribute:
+      example:
+        name: name
+        value: "{}"
+      properties:
+        name:
+          description: Name of the attribute that you've previously defined.
+          type: string
+        value:
+          description: "Value of the attribute.\nIts data type depends on the format\
+            \ of the attribute you defined:\nFor Text, the `value` is a string with\
+            \ a maximum length of 250. \nFor Array, the `value` is an array of strings\
+            \ with a maximum length of 250.\nFor Number, the `value` is a signed decimal\
+            \ number.\nFor Boolean, the `value` is either `true` or `false`.\nFor\
+            \ Time, the `value` is a Unix timestamp in milliseconds.\nFor Long Text,\
+            \ the `value` is a string with a maximum length of 5000."
+          type: object
       type: object
     ContactCreateRequest:
       description: Contains the properties of the contact to be created.
@@ -1708,7 +1726,7 @@ components:
         customAttributes:
           description: Contact's custom attributes.
           items:
-            $ref: '#/components/schemas/ContactCreateRequest_customAttributes_inner'
+            $ref: '#/components/schemas/ContactCustomAttribute'
           type: array
       required:
       - phoneNumber
@@ -1816,7 +1834,7 @@ components:
           description: "Contact's custom attributes.\nIf present (i.e., not `null`),\
             \ all previous attributes of this contact will be replaced."
           items:
-            $ref: '#/components/schemas/ContactCreateRequest_customAttributes_inner'
+            $ref: '#/components/schemas/ContactCustomAttribute'
           type: array
       type: object
     Email:
@@ -7240,30 +7258,6 @@ components:
       - "Disabled. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing)."
       - Reinstated.
       - Pending deletion.
-    Contact_customAttributes_inner:
-      example:
-        name: name
-        value: "{}"
-      properties:
-        name:
-          description: Attribute's name.
-          type: string
-        value:
-          description: Attribute's value.
-          type: object
-      type: object
-    ContactCreateRequest_customAttributes_inner:
-      example:
-        name: name
-        value: "{}"
-      properties:
-        name:
-          description: Name of the attribute that you've previously defined.
-          type: string
-        value:
-          description: Value of the attribute.
-          type: object
-      type: object
     WhatsappInboundMessageInteractive_button_reply:
       description: Sent when a customer clicks a button. Returned when `type` is `button_reply`.
       properties:

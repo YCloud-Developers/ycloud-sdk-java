@@ -45,35 +45,35 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * ContactCustomAttributesInner
+ * ContactCustomAttribute
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ContactCustomAttributesInner {
+public class ContactCustomAttribute {
   public static final String SERIALIZED_NAME_NAME = "name";
   /**
-   * Attribute&#39;s name.
+   * Name of the attribute that you&#39;ve previously defined.
   **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   /**
-   * Attribute&#39;s value.
+   * Value of the attribute. Its data type depends on the format of the attribute you defined: For Text, the &#x60;value&#x60; is a string with a maximum length of 250.  For Array, the &#x60;value&#x60; is an array of strings with a maximum length of 250. For Number, the &#x60;value&#x60; is a signed decimal number. For Boolean, the &#x60;value&#x60; is either &#x60;true&#x60; or &#x60;false&#x60;. For Time, the &#x60;value&#x60; is a Unix timestamp in milliseconds. For Long Text, the &#x60;value&#x60; is a string with a maximum length of 5000.
   **/
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Object value;
 
-  public ContactCustomAttributesInner() { 
+  public ContactCustomAttribute() { 
   }
 
-  public ContactCustomAttributesInner name(String name) {
+  public ContactCustomAttribute name(String name) {
     
     this.name = name;
     return this;
   }
 
    /**
-   * Attribute&#39;s name.
+   * Name of the attribute that you&#39;ve previously defined.
    * @return name
   **/
   @javax.annotation.Nullable
@@ -84,22 +84,22 @@ public class ContactCustomAttributesInner {
 
 
   /**
-   * Attribute&#39;s name.
+   * Name of the attribute that you&#39;ve previously defined.
    **/
-  @ApiModelProperty(value = "Attribute's name.")
+  @ApiModelProperty(value = "Name of the attribute that you've previously defined.")
   public void setName(String name) {
     this.name = name;
   }
 
 
-  public ContactCustomAttributesInner value(Object value) {
+  public ContactCustomAttribute value(Object value) {
     
     this.value = value;
     return this;
   }
 
    /**
-   * Attribute&#39;s value.
+   * Value of the attribute. Its data type depends on the format of the attribute you defined: For Text, the &#x60;value&#x60; is a string with a maximum length of 250.  For Array, the &#x60;value&#x60; is an array of strings with a maximum length of 250. For Number, the &#x60;value&#x60; is a signed decimal number. For Boolean, the &#x60;value&#x60; is either &#x60;true&#x60; or &#x60;false&#x60;. For Time, the &#x60;value&#x60; is a Unix timestamp in milliseconds. For Long Text, the &#x60;value&#x60; is a string with a maximum length of 5000.
    * @return value
   **/
   @javax.annotation.Nullable
@@ -110,9 +110,9 @@ public class ContactCustomAttributesInner {
 
 
   /**
-   * Attribute&#39;s value.
+   * Value of the attribute. Its data type depends on the format of the attribute you defined: For Text, the &#x60;value&#x60; is a string with a maximum length of 250.  For Array, the &#x60;value&#x60; is an array of strings with a maximum length of 250. For Number, the &#x60;value&#x60; is a signed decimal number. For Boolean, the &#x60;value&#x60; is either &#x60;true&#x60; or &#x60;false&#x60;. For Time, the &#x60;value&#x60; is a Unix timestamp in milliseconds. For Long Text, the &#x60;value&#x60; is a string with a maximum length of 5000.
    **/
-  @ApiModelProperty(value = "Attribute's value.")
+  @ApiModelProperty(value = "Value of the attribute. Its data type depends on the format of the attribute you defined: For Text, the `value` is a string with a maximum length of 250.  For Array, the `value` is an array of strings with a maximum length of 250. For Number, the `value` is a signed decimal number. For Boolean, the `value` is either `true` or `false`. For Time, the `value` is a Unix timestamp in milliseconds. For Long Text, the `value` is a string with a maximum length of 5000.")
   public void setValue(Object value) {
     this.value = value;
   }
@@ -128,7 +128,7 @@ public class ContactCustomAttributesInner {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public ContactCustomAttributesInner putAdditionalProperty(String key, Object value) {
+  public ContactCustomAttribute putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -162,10 +162,10 @@ public class ContactCustomAttributesInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ContactCustomAttributesInner contactCustomAttributesInner = (ContactCustomAttributesInner) o;
-    return Objects.equals(this.name, contactCustomAttributesInner.name) &&
-        Objects.equals(this.value, contactCustomAttributesInner.value)&&
-        Objects.equals(this.additionalProperties, contactCustomAttributesInner.additionalProperties);
+    ContactCustomAttribute contactCustomAttribute = (ContactCustomAttribute) o;
+    return Objects.equals(this.name, contactCustomAttribute.name) &&
+        Objects.equals(this.value, contactCustomAttribute.value)&&
+        Objects.equals(this.additionalProperties, contactCustomAttribute.additionalProperties);
   }
 
   @Override
@@ -176,7 +176,7 @@ public class ContactCustomAttributesInner {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ContactCustomAttributesInner {\n");
+    sb.append("class ContactCustomAttribute {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -213,14 +213,14 @@ public class ContactCustomAttributesInner {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContactCustomAttributesInner
+  * @throws IOException if the JSON Object is invalid with respect to ContactCustomAttribute
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (ContactCustomAttributesInner.openapiRequiredFields.isEmpty()) {
+        if (ContactCustomAttribute.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ContactCustomAttributesInner is not found in the empty JSON string", ContactCustomAttributesInner.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ContactCustomAttribute is not found in the empty JSON string", ContactCustomAttribute.openapiRequiredFields.toString()));
         }
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
@@ -232,16 +232,16 @@ public class ContactCustomAttributesInner {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ContactCustomAttributesInner.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ContactCustomAttributesInner' and its subtypes
+       if (!ContactCustomAttribute.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ContactCustomAttribute' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ContactCustomAttributesInner> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ContactCustomAttributesInner.class));
+       final TypeAdapter<ContactCustomAttribute> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ContactCustomAttribute.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ContactCustomAttributesInner>() {
+       return (TypeAdapter<T>) new TypeAdapter<ContactCustomAttribute>() {
            @Override
-           public void write(JsonWriter out, ContactCustomAttributesInner value) throws IOException {
+           public void write(JsonWriter out, ContactCustomAttribute value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -264,11 +264,11 @@ public class ContactCustomAttributesInner {
            }
 
            @Override
-           public ContactCustomAttributesInner read(JsonReader in) throws IOException {
+           public ContactCustomAttribute read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             ContactCustomAttributesInner instance = thisAdapter.fromJsonTree(jsonObj);
+             ContactCustomAttribute instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -293,18 +293,18 @@ public class ContactCustomAttributesInner {
   }
 
  /**
-  * Create an instance of ContactCustomAttributesInner given an JSON string
+  * Create an instance of ContactCustomAttribute given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ContactCustomAttributesInner
-  * @throws IOException if the JSON string is invalid with respect to ContactCustomAttributesInner
+  * @return An instance of ContactCustomAttribute
+  * @throws IOException if the JSON string is invalid with respect to ContactCustomAttribute
   */
-  public static ContactCustomAttributesInner fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ContactCustomAttributesInner.class);
+  public static ContactCustomAttribute fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ContactCustomAttribute.class);
   }
 
  /**
-  * Convert an instance of ContactCustomAttributesInner to an JSON string
+  * Convert an instance of ContactCustomAttribute to an JSON string
   *
   * @return JSON string
   */

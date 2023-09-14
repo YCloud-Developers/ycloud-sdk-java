@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.ContactCreateRequestCustomAttributesInner;
+import com.ycloud.client.model.ContactCustomAttribute;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -93,7 +93,7 @@ public class ContactCreateRequest {
    * Contact&#39;s custom attributes.
   **/
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTES)
-  private List<ContactCreateRequestCustomAttributesInner> customAttributes = null;
+  private List<ContactCustomAttribute> customAttributes = null;
 
   public ContactCreateRequest() { 
   }
@@ -236,13 +236,13 @@ public class ContactCreateRequest {
   }
 
 
-  public ContactCreateRequest customAttributes(List<ContactCreateRequestCustomAttributesInner> customAttributes) {
+  public ContactCreateRequest customAttributes(List<ContactCustomAttribute> customAttributes) {
     
     this.customAttributes = customAttributes;
     return this;
   }
 
-  public ContactCreateRequest addCustomAttributesItem(ContactCreateRequestCustomAttributesInner customAttributesItem) {
+  public ContactCreateRequest addCustomAttributesItem(ContactCustomAttribute customAttributesItem) {
     if (this.customAttributes == null) {
       this.customAttributes = new ArrayList<>();
     }
@@ -256,7 +256,7 @@ public class ContactCreateRequest {
   **/
   @javax.annotation.Nullable
 
-  public List<ContactCreateRequestCustomAttributesInner> getCustomAttributes() {
+  public List<ContactCustomAttribute> getCustomAttributes() {
     return customAttributes;
   }
 
@@ -265,7 +265,7 @@ public class ContactCreateRequest {
    * Contact&#39;s custom attributes.
    **/
   @ApiModelProperty(value = "Contact's custom attributes.")
-  public void setCustomAttributes(List<ContactCreateRequestCustomAttributesInner> customAttributes) {
+  public void setCustomAttributes(List<ContactCustomAttribute> customAttributes) {
     this.customAttributes = customAttributes;
   }
 
@@ -420,7 +420,7 @@ public class ContactCreateRequest {
 
         // validate the optional field `customAttributes` (array)
         for (int i = 0; i < jsonArraycustomAttributes.size(); i++) {
-          ContactCreateRequestCustomAttributesInner.validateJsonObject(jsonArraycustomAttributes.get(i).getAsJsonObject());
+          ContactCustomAttribute.validateJsonObject(jsonArraycustomAttributes.get(i).getAsJsonObject());
         };
       }
   }

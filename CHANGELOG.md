@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9.1 (2023-09-14)
+
+- Minor breaking changes: Models with `inner` in their name are renamed;
+
 ## 1.9.0 (2023-09-07)
 
 - Add Contacts API.
