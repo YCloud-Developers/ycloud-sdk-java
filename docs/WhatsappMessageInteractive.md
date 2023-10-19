@@ -8,7 +8,7 @@ Use for `interactive` messages. See also [WhatsApp Interactive Object](https://d
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | [**TypeEnum**](#TypeEnum) | The type of interactive message you want to send. - &#x60;list&#x60;: Use it for List Messages. - &#x60;button&#x60;: Use it for Reply Buttons. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. |  |
+|**type** | [**TypeEnum**](#TypeEnum) | The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. |  |
 |**action** | [**WhatsappMessageInteractiveAction**](WhatsappMessageInteractiveAction.md) |  |  |
 |**body** | [**WhatsappMessageInteractiveBody**](WhatsappMessageInteractiveBody.md) |  |  [optional] |
 |**header** | [**WhatsappMessageInteractiveHeader**](WhatsappMessageInteractiveHeader.md) |  |  [optional] |
@@ -22,6 +22,7 @@ Use for `interactive` messages. See also [WhatsApp Interactive Object](https://d
 |---- | -----|
 | BUTTON | &quot;button&quot; |
 | LIST | &quot;list&quot; |
+| CTA_URL | &quot;cta_url&quot; |
 | PRODUCT | &quot;product&quot; |
 | PRODUCT_LIST | &quot;product_list&quot; |
 

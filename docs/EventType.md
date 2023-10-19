@@ -13,6 +13,8 @@
 
 * `VOICE_MESSAGE_UPDATED` (value: `"voice.message.updated"`)
 
+* `WHATSAPP_BUSINESS_ACCOUNT_DELETED` (value: `"whatsapp.business_account.deleted"`)
+
 * `WHATSAPP_BUSINESS_ACCOUNT_REVIEWED` (value: `"whatsapp.business_account.reviewed"`)
 
 * `WHATSAPP_BUSINESS_ACCOUNT_UPDATED` (value: `"whatsapp.business_account.updated"`)
@@ -20,6 +22,8 @@
 * `WHATSAPP_INBOUND_MESSAGE_RECEIVED` (value: `"whatsapp.inbound_message.received"`)
 
 * `WHATSAPP_MESSAGE_UPDATED` (value: `"whatsapp.message.updated"`)
+
+* `WHATSAPP_PHONE_NUMBER_DELETED` (value: `"whatsapp.phone_number.deleted"`)
 
 * `WHATSAPP_PHONE_NUMBER_NAME_UPDATED` (value: `"whatsapp.phone_number.name_updated"`)
 

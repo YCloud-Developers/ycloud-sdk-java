@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.9.1</version>
+  <version>1.10.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.9.1"
+     implementation "com.ycloud:ycloud-sdk-java:1.10.0"
   }
 ```
 
@@ -70,8 +70,6 @@ public class Example {
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //api_key.setApiKeyPrefix("Token");
 
     BalanceApi apiInstance = new BalanceApi(defaultClient);
     try {
@@ -208,6 +206,7 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveAction](docs/WhatsappMessageInteractiveAction.md)
  - [WhatsappMessageInteractiveActionButton](docs/WhatsappMessageInteractiveActionButton.md)
  - [WhatsappMessageInteractiveActionButtonReply](docs/WhatsappMessageInteractiveActionButtonReply.md)
+ - [WhatsappMessageInteractiveActionParameters](docs/WhatsappMessageInteractiveActionParameters.md)
  - [WhatsappMessageInteractiveActionSection](docs/WhatsappMessageInteractiveActionSection.md)
  - [WhatsappMessageInteractiveActionSectionProductItem](docs/WhatsappMessageInteractiveActionSectionProductItem.md)
  - [WhatsappMessageInteractiveActionSectionRow](docs/WhatsappMessageInteractiveActionSectionRow.md)

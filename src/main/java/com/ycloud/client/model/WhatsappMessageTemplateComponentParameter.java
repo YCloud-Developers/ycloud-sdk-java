@@ -52,7 +52,7 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageTemplateComponentParameter {
   /**
-   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;.
+   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -64,7 +64,9 @@ public class WhatsappMessageTemplateComponentParameter {
     
     DOCUMENT("document"),
     
-    PAYLOAD("payload");
+    PAYLOAD("payload"),
+    
+    COUPON_CODE("coupon_code");
 
     private String value;
 
@@ -106,7 +108,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;.
+   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -124,6 +126,13 @@ public class WhatsappMessageTemplateComponentParameter {
   **/
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   private String payload;
+
+  public static final String SERIALIZED_NAME_COUPON_CODE = "coupon_code";
+  /**
+   * **Required when &#x60;type&#x60; &#x3D; &#x60;coupon_code&#x60;.** The coupon code to be copied when the customer taps the button.
+  **/
+  @SerializedName(SERIALIZED_NAME_COUPON_CODE)
+  private String couponCode;
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   /**
@@ -153,7 +162,7 @@ public class WhatsappMessageTemplateComponentParameter {
   }
 
    /**
-   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;.
+   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -164,9 +173,9 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   /**
-   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;.
+   * **Required.** Describes the parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;.
    **/
-  @ApiModelProperty(value = "**Required.** Describes the parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`.")
+  @ApiModelProperty(value = "**Required.** Describes the parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -221,6 +230,32 @@ public class WhatsappMessageTemplateComponentParameter {
   @ApiModelProperty(value = "Required for `quick_reply` buttons. Developer-defined payload that is returned when the button is clicked in addition to the display text on the button.")
   public void setPayload(String payload) {
     this.payload = payload;
+  }
+
+
+  public WhatsappMessageTemplateComponentParameter couponCode(String couponCode) {
+    
+    this.couponCode = couponCode;
+    return this;
+  }
+
+   /**
+   * **Required when &#x60;type&#x60; &#x3D; &#x60;coupon_code&#x60;.** The coupon code to be copied when the customer taps the button.
+   * @return couponCode
+  **/
+  @javax.annotation.Nullable
+
+  public String getCouponCode() {
+    return couponCode;
+  }
+
+
+  /**
+   * **Required when &#x60;type&#x60; &#x3D; &#x60;coupon_code&#x60;.** The coupon code to be copied when the customer taps the button.
+   **/
+  @ApiModelProperty(value = "**Required when `type` = `coupon_code`.** The coupon code to be copied when the customer taps the button.")
+  public void setCouponCode(String couponCode) {
+    this.couponCode = couponCode;
   }
 
 
@@ -347,6 +382,7 @@ public class WhatsappMessageTemplateComponentParameter {
     return Objects.equals(this.type, whatsappMessageTemplateComponentParameter.type) &&
         Objects.equals(this.text, whatsappMessageTemplateComponentParameter.text) &&
         Objects.equals(this.payload, whatsappMessageTemplateComponentParameter.payload) &&
+        Objects.equals(this.couponCode, whatsappMessageTemplateComponentParameter.couponCode) &&
         Objects.equals(this.image, whatsappMessageTemplateComponentParameter.image) &&
         Objects.equals(this.video, whatsappMessageTemplateComponentParameter.video) &&
         Objects.equals(this.document, whatsappMessageTemplateComponentParameter.document)&&
@@ -355,7 +391,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, text, payload, image, video, document, additionalProperties);
+    return Objects.hash(type, text, payload, couponCode, image, video, document, additionalProperties);
   }
 
   @Override
@@ -365,6 +401,7 @@ public class WhatsappMessageTemplateComponentParameter {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
+    sb.append("    couponCode: ").append(toIndentedString(couponCode)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    video: ").append(toIndentedString(video)).append("\n");
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
@@ -394,6 +431,7 @@ public class WhatsappMessageTemplateComponentParameter {
     openapiFields.add("type");
     openapiFields.add("text");
     openapiFields.add("payload");
+    openapiFields.add("coupon_code");
     openapiFields.add("image");
     openapiFields.add("video");
     openapiFields.add("document");
@@ -424,6 +462,9 @@ public class WhatsappMessageTemplateComponentParameter {
       }
       if (jsonObj.get("payload") != null && !jsonObj.get("payload").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));
+      }
+      if (jsonObj.get("coupon_code") != null && !jsonObj.get("coupon_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `coupon_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("coupon_code").toString()));
       }
       // validate the optional field `image`
       if (jsonObj.getAsJsonObject("image") != null) {

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.10.0 (2023-10-19)
+
+- Add webhook event type `whatsapp.business_account.deleted`, `whatsapp.phone_number.deleted`;
+- Support WhatsApp [Coupon Templates](https://docs.ycloud.com/reference/whatsapp-template-creation-examples#marketing-template-with-copy-code-button);
+- Support WhatsApp [Interactive CTA URL Button messages](https://docs.ycloud.com/reference/whatsapp-messaging-examples#interactive-cta-url-message);
+
 ## 1.9.1 (2023-09-14)
 
 - Minor breaking changes: Models with `inner` in their name are renamed;

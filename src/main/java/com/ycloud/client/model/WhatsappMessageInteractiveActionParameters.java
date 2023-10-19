@@ -45,143 +45,77 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * When the message type field is set to &#x60;unknown&#x60; or &#x60;unsupported&#x60;, this object is included.
+ * Action parameters. Required for Call-To-Action (CTA) URL Button Messages.
  */
-@ApiModel(description = "When the message type field is set to `unknown` or `unsupported`, this object is included.")
+@ApiModel(description = "Action parameters. Required for Call-To-Action (CTA) URL Button Messages.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappInboundMessageError {
-  public static final String SERIALIZED_NAME_CODE = "code";
+public class WhatsappMessageInteractiveActionParameters {
+  public static final String SERIALIZED_NAME_DISPLAY_TEXT = "display_text";
   /**
-   * The error code.
+   * Text of the CTA URL button. Maximum length: 20 bytes.
   **/
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
+  @SerializedName(SERIALIZED_NAME_DISPLAY_TEXT)
+  private String displayText;
 
-  public static final String SERIALIZED_NAME_TITLE = "title";
+  public static final String SERIALIZED_NAME_URL = "url";
   /**
-   * The error title.
+   * URL of the CTA URL button.
   **/
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  /**
-   * The error message.
-  **/
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
-
-  public static final String SERIALIZED_NAME_ERROR_DATA = "error_data";
-  /**
-   * An error data object with the following properties: - &#x60;details&#x60;: A string describing the reason for the error. Example: &#x60;Message type is currently not supported.&#x60;.
-  **/
-  @SerializedName(SERIALIZED_NAME_ERROR_DATA)
-  private Object errorData;
-
-  public WhatsappInboundMessageError() { 
+  public WhatsappMessageInteractiveActionParameters() { 
   }
 
-  public WhatsappInboundMessageError code(String code) {
+  public WhatsappMessageInteractiveActionParameters displayText(String displayText) {
     
-    this.code = code;
+    this.displayText = displayText;
     return this;
   }
 
    /**
-   * The error code.
-   * @return code
+   * Text of the CTA URL button. Maximum length: 20 bytes.
+   * @return displayText
   **/
   @javax.annotation.Nullable
 
-  public String getCode() {
-    return code;
+  public String getDisplayText() {
+    return displayText;
   }
 
 
   /**
-   * The error code.
+   * Text of the CTA URL button. Maximum length: 20 bytes.
    **/
-  @ApiModelProperty(example = "131051", value = "The error code.")
-  public void setCode(String code) {
-    this.code = code;
+  @ApiModelProperty(example = "See Docs", value = "Text of the CTA URL button. Maximum length: 20 bytes.")
+  public void setDisplayText(String displayText) {
+    this.displayText = displayText;
   }
 
 
-  public WhatsappInboundMessageError title(String title) {
+  public WhatsappMessageInteractiveActionParameters url(String url) {
     
-    this.title = title;
+    this.url = url;
     return this;
   }
 
    /**
-   * The error title.
-   * @return title
+   * URL of the CTA URL button.
+   * @return url
   **/
   @javax.annotation.Nullable
 
-  public String getTitle() {
-    return title;
+  public String getUrl() {
+    return url;
   }
 
 
   /**
-   * The error title.
+   * URL of the CTA URL button.
    **/
-  @ApiModelProperty(example = "Message type unknown", value = "The error title.")
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-
-  public WhatsappInboundMessageError message(String message) {
-    
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * The error message.
-   * @return message
-  **/
-  @javax.annotation.Nullable
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  /**
-   * The error message.
-   **/
-  @ApiModelProperty(example = "Message type unknown", value = "The error message.")
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
-  public WhatsappInboundMessageError errorData(Object errorData) {
-    
-    this.errorData = errorData;
-    return this;
-  }
-
-   /**
-   * An error data object with the following properties: - &#x60;details&#x60;: A string describing the reason for the error. Example: &#x60;Message type is currently not supported.&#x60;.
-   * @return errorData
-  **/
-  @javax.annotation.Nullable
-
-  public Object getErrorData() {
-    return errorData;
-  }
-
-
-  /**
-   * An error data object with the following properties: - &#x60;details&#x60;: A string describing the reason for the error. Example: &#x60;Message type is currently not supported.&#x60;.
-   **/
-  @ApiModelProperty(value = "An error data object with the following properties: - `details`: A string describing the reason for the error. Example: `Message type is currently not supported.`.")
-  public void setErrorData(Object errorData) {
-    this.errorData = errorData;
+  @ApiModelProperty(example = "https://developers.facebook.com/docs/whatsapp", value = "URL of the CTA URL button.")
+  public void setUrl(String url) {
+    this.url = url;
   }
 
   /**
@@ -195,7 +129,7 @@ public class WhatsappInboundMessageError {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappInboundMessageError putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageInteractiveActionParameters putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -229,27 +163,23 @@ public class WhatsappInboundMessageError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappInboundMessageError whatsappInboundMessageError = (WhatsappInboundMessageError) o;
-    return Objects.equals(this.code, whatsappInboundMessageError.code) &&
-        Objects.equals(this.title, whatsappInboundMessageError.title) &&
-        Objects.equals(this.message, whatsappInboundMessageError.message) &&
-        Objects.equals(this.errorData, whatsappInboundMessageError.errorData)&&
-        Objects.equals(this.additionalProperties, whatsappInboundMessageError.additionalProperties);
+    WhatsappMessageInteractiveActionParameters whatsappMessageInteractiveActionParameters = (WhatsappMessageInteractiveActionParameters) o;
+    return Objects.equals(this.displayText, whatsappMessageInteractiveActionParameters.displayText) &&
+        Objects.equals(this.url, whatsappMessageInteractiveActionParameters.url)&&
+        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionParameters.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, title, message, errorData, additionalProperties);
+    return Objects.hash(displayText, url, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappInboundMessageError {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    errorData: ").append(toIndentedString(errorData)).append("\n");
+    sb.append("class WhatsappMessageInteractiveActionParameters {\n");
+    sb.append("    displayText: ").append(toIndentedString(displayText)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -273,10 +203,8 @@ public class WhatsappInboundMessageError {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("code");
-    openapiFields.add("title");
-    openapiFields.add("message");
-    openapiFields.add("error_data");
+    openapiFields.add("display_text");
+    openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -286,24 +214,21 @@ public class WhatsappInboundMessageError {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappInboundMessageError
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionParameters
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappInboundMessageError.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageInteractiveActionParameters.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappInboundMessageError is not found in the empty JSON string", WhatsappInboundMessageError.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionParameters is not found in the empty JSON string", WhatsappMessageInteractiveActionParameters.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("code") != null && !jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
+      if (jsonObj.get("display_text") != null && !jsonObj.get("display_text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `display_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_text").toString()));
       }
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
   }
 
@@ -311,16 +236,16 @@ public class WhatsappInboundMessageError {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappInboundMessageError.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappInboundMessageError' and its subtypes
+       if (!WhatsappMessageInteractiveActionParameters.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageInteractiveActionParameters' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappInboundMessageError> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappInboundMessageError.class));
+       final TypeAdapter<WhatsappMessageInteractiveActionParameters> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionParameters.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappInboundMessageError>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionParameters>() {
            @Override
-           public void write(JsonWriter out, WhatsappInboundMessageError value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageInteractiveActionParameters value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -343,11 +268,11 @@ public class WhatsappInboundMessageError {
            }
 
            @Override
-           public WhatsappInboundMessageError read(JsonReader in) throws IOException {
+           public WhatsappMessageInteractiveActionParameters read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappInboundMessageError instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageInteractiveActionParameters instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -372,18 +297,18 @@ public class WhatsappInboundMessageError {
   }
 
  /**
-  * Create an instance of WhatsappInboundMessageError given an JSON string
+  * Create an instance of WhatsappMessageInteractiveActionParameters given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappInboundMessageError
-  * @throws IOException if the JSON string is invalid with respect to WhatsappInboundMessageError
+  * @return An instance of WhatsappMessageInteractiveActionParameters
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionParameters
   */
-  public static WhatsappInboundMessageError fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappInboundMessageError.class);
+  public static WhatsappMessageInteractiveActionParameters fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionParameters.class);
   }
 
  /**
-  * Convert an instance of WhatsappInboundMessageError to an JSON string
+  * Convert an instance of WhatsappMessageInteractiveActionParameters to an JSON string
   *
   * @return JSON string
   */

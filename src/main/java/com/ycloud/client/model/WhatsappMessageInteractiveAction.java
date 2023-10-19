@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappMessageInteractiveActionButton;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionParameters;
 import com.ycloud.client.model.WhatsappMessageInteractiveActionSection;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -88,6 +89,67 @@ public class WhatsappMessageInteractiveAction {
   **/
   @SerializedName(SERIALIZED_NAME_SECTIONS)
   private List<WhatsappMessageInteractiveActionSection> sections = null;
+
+  /**
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages.
+   */
+  @JsonAdapter(NameEnum.Adapter.class)
+  public enum NameEnum {
+    /**
+     * Use for Call-To-Action (CTA) URL Buttons.
+     */
+    CTA_URL("cta_url");
+
+    private String value;
+
+    NameEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static NameEnum fromValue(String value) {
+      for (NameEnum b : NameEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<NameEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NameEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public NameEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return NameEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  /**
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages.
+  **/
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private NameEnum name;
+
+  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  private WhatsappMessageInteractiveActionParameters parameters;
 
   public WhatsappMessageInteractiveAction() { 
   }
@@ -237,6 +299,57 @@ public class WhatsappMessageInteractiveAction {
     this.sections = sections;
   }
 
+
+  public WhatsappMessageInteractiveAction name(NameEnum name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+
+  public NameEnum getName() {
+    return name;
+  }
+
+
+  /**
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages.
+   **/
+  @ApiModelProperty(value = "Action name. Required for Call-To-Action (CTA) URL Button Messages.")
+  public void setName(NameEnum name) {
+    this.name = name;
+  }
+
+
+  public WhatsappMessageInteractiveAction parameters(WhatsappMessageInteractiveActionParameters parameters) {
+    
+    this.parameters = parameters;
+    return this;
+  }
+
+   /**
+   * Get parameters
+   * @return parameters
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageInteractiveActionParameters getParameters() {
+    return parameters;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setParameters(WhatsappMessageInteractiveActionParameters parameters) {
+    this.parameters = parameters;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -287,13 +400,15 @@ public class WhatsappMessageInteractiveAction {
         Objects.equals(this.button, whatsappMessageInteractiveAction.button) &&
         Objects.equals(this.catalogId, whatsappMessageInteractiveAction.catalogId) &&
         Objects.equals(this.productRetailerId, whatsappMessageInteractiveAction.productRetailerId) &&
-        Objects.equals(this.sections, whatsappMessageInteractiveAction.sections)&&
+        Objects.equals(this.sections, whatsappMessageInteractiveAction.sections) &&
+        Objects.equals(this.name, whatsappMessageInteractiveAction.name) &&
+        Objects.equals(this.parameters, whatsappMessageInteractiveAction.parameters)&&
         Objects.equals(this.additionalProperties, whatsappMessageInteractiveAction.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(buttons, button, catalogId, productRetailerId, sections, additionalProperties);
+    return Objects.hash(buttons, button, catalogId, productRetailerId, sections, name, parameters, additionalProperties);
   }
 
   @Override
@@ -305,6 +420,8 @@ public class WhatsappMessageInteractiveAction {
     sb.append("    catalogId: ").append(toIndentedString(catalogId)).append("\n");
     sb.append("    productRetailerId: ").append(toIndentedString(productRetailerId)).append("\n");
     sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -333,6 +450,8 @@ public class WhatsappMessageInteractiveAction {
     openapiFields.add("catalog_id");
     openapiFields.add("product_retailer_id");
     openapiFields.add("sections");
+    openapiFields.add("name");
+    openapiFields.add("parameters");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -384,6 +503,13 @@ public class WhatsappMessageInteractiveAction {
         for (int i = 0; i < jsonArraysections.size(); i++) {
           WhatsappMessageInteractiveActionSection.validateJsonObject(jsonArraysections.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // validate the optional field `parameters`
+      if (jsonObj.getAsJsonObject("parameters") != null) {
+        WhatsappMessageInteractiveActionParameters.validateJsonObject(jsonObj.getAsJsonObject("parameters"));
       }
   }
 

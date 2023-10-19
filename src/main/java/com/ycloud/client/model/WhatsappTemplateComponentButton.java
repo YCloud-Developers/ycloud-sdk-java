@@ -61,21 +61,21 @@ public class WhatsappTemplateComponentButton {
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   /**
-   * **Required.** Button text. For &#x60;OTP&#x60; buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.
+   * **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.
   **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
   public static final String SERIALIZED_NAME_URL = "url";
   /**
-   * **Required for button type &#x60;URL&#x60;.**  There can be at most 1 variable at the end of the URL.
+   * **Required for button type &#x60;URL&#x60;.** URL of website. There can be at most 1 variable at the end of the URL. Example: &#x60;https://www.luckyshrub.com/shop?promo&#x3D;{{1}}&#x60;. 2000 characters maximum.
   **/
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   /**
-   * **Required for button type &#x60;PHONE_NUMBER&#x60;.**
+   * **Required for button type &#x60;PHONE_NUMBER&#x60;.** Alphanumeric string. Business phone number to be (display phone number) called when the user taps the button. 20 characters maximum.
   **/
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
@@ -149,10 +149,10 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **Required.** Button text. For &#x60;OTP&#x60; buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.
+   * **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.
    * @return text
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
   public String getText() {
     return text;
@@ -160,9 +160,9 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **Required.** Button text. For &#x60;OTP&#x60; buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.
+   * **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.
    **/
-  @ApiModelProperty(required = true, value = "**Required.** Button text. For `OTP` buttons, note that even if your template is using a one-tap autofill button, this value must still be supplied. If we are unable to validate your handshake the authentication template message will display a copy code button with this text instead. Maximum 25 characters.")
+  @ApiModelProperty(value = "**Required for button type `PHONE_NUMBER` or `URL`.** Button text. For `CODE_CODE` buttons, the text is a pre-set value and cannot be customized. For `OTP` buttons, if omitted, the text will default to a pre-set value localized to the template's language. For example, `Copy Code` for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.")
   public void setText(String text) {
     this.text = text;
   }
@@ -175,7 +175,7 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **Required for button type &#x60;URL&#x60;.**  There can be at most 1 variable at the end of the URL.
+   * **Required for button type &#x60;URL&#x60;.** URL of website. There can be at most 1 variable at the end of the URL. Example: &#x60;https://www.luckyshrub.com/shop?promo&#x3D;{{1}}&#x60;. 2000 characters maximum.
    * @return url
   **/
   @javax.annotation.Nullable
@@ -186,9 +186,9 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **Required for button type &#x60;URL&#x60;.**  There can be at most 1 variable at the end of the URL.
+   * **Required for button type &#x60;URL&#x60;.** URL of website. There can be at most 1 variable at the end of the URL. Example: &#x60;https://www.luckyshrub.com/shop?promo&#x3D;{{1}}&#x60;. 2000 characters maximum.
    **/
-  @ApiModelProperty(value = "**Required for button type `URL`.**  There can be at most 1 variable at the end of the URL.")
+  @ApiModelProperty(value = "**Required for button type `URL`.** URL of website. There can be at most 1 variable at the end of the URL. Example: `https://www.luckyshrub.com/shop?promo={{1}}`. 2000 characters maximum.")
   public void setUrl(String url) {
     this.url = url;
   }
@@ -201,7 +201,7 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **Required for button type &#x60;PHONE_NUMBER&#x60;.**
+   * **Required for button type &#x60;PHONE_NUMBER&#x60;.** Alphanumeric string. Business phone number to be (display phone number) called when the user taps the button. 20 characters maximum.
    * @return phoneNumber
   **/
   @javax.annotation.Nullable
@@ -212,9 +212,9 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **Required for button type &#x60;PHONE_NUMBER&#x60;.**
+   * **Required for button type &#x60;PHONE_NUMBER&#x60;.** Alphanumeric string. Business phone number to be (display phone number) called when the user taps the button. 20 characters maximum.
    **/
-  @ApiModelProperty(value = "**Required for button type `PHONE_NUMBER`.**")
+  @ApiModelProperty(example = "15550051310", value = "**Required for button type `PHONE_NUMBER`.** Alphanumeric string. Business phone number to be (display phone number) called when the user taps the button. 20 characters maximum.")
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
@@ -468,7 +468,6 @@ public class WhatsappTemplateComponentButton {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("type");
-    openapiRequiredFields.add("text");
   }
 
  /**

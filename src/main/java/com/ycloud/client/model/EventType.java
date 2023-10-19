@@ -51,6 +51,11 @@ public enum EventType {
   VOICE_MESSAGE_UPDATED("voice.message.updated"),
   
   /**
+   * Occurs when a WhatsApp Business Account is deleted.
+   */
+  WHATSAPP_BUSINESS_ACCOUNT_DELETED("whatsapp.business_account.deleted"),
+  
+  /**
    * Occurs when a WhatsApp Business Account has been reviewed.
    */
   WHATSAPP_BUSINESS_ACCOUNT_REVIEWED("whatsapp.business_account.reviewed"),
@@ -69,6 +74,11 @@ public enum EventType {
    * Occurs when a WhatsApp outbound message status is updated, and the status changes to &#x60;sent&#x60;, &#x60;failed&#x60;, &#x60;delivered&#x60;, or &#x60;read&#x60;.
    */
   WHATSAPP_MESSAGE_UPDATED("whatsapp.message.updated"),
+  
+  /**
+   * Occurs when a WhatsApp business account phone number is deleted.
+   */
+  WHATSAPP_PHONE_NUMBER_DELETED("whatsapp.phone_number.deleted"),
   
   /**
    * Occurs when a WhatsApp business account phone number&#39;s name has been approved or rejected.

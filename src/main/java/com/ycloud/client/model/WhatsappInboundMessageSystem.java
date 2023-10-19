@@ -64,13 +64,6 @@ public class WhatsappInboundMessageSystem {
   @SerializedName(SERIALIZED_NAME_NEW_WA_ID)
   private String newWaId;
 
-  public static final String SERIALIZED_NAME_IDENTITY = "identity";
-  /**
-   * **Added to Webhooks for identity updates.**  New WhatsApp ID of the customer.
-  **/
-  @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private String identity;
-
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
    * Supported types are: - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification.
@@ -137,32 +130,6 @@ public class WhatsappInboundMessageSystem {
   @ApiModelProperty(value = "**Added to Webhooks for phone number updates.**  New WhatsApp ID of the customer.")
   public void setNewWaId(String newWaId) {
     this.newWaId = newWaId;
-  }
-
-
-  public WhatsappInboundMessageSystem identity(String identity) {
-    
-    this.identity = identity;
-    return this;
-  }
-
-   /**
-   * **Added to Webhooks for identity updates.**  New WhatsApp ID of the customer.
-   * @return identity
-  **/
-  @javax.annotation.Nullable
-
-  public String getIdentity() {
-    return identity;
-  }
-
-
-  /**
-   * **Added to Webhooks for identity updates.**  New WhatsApp ID of the customer.
-   **/
-  @ApiModelProperty(value = "**Added to Webhooks for identity updates.**  New WhatsApp ID of the customer.")
-  public void setIdentity(String identity) {
-    this.identity = identity;
   }
 
 
@@ -265,7 +232,6 @@ public class WhatsappInboundMessageSystem {
     WhatsappInboundMessageSystem whatsappInboundMessageSystem = (WhatsappInboundMessageSystem) o;
     return Objects.equals(this.body, whatsappInboundMessageSystem.body) &&
         Objects.equals(this.newWaId, whatsappInboundMessageSystem.newWaId) &&
-        Objects.equals(this.identity, whatsappInboundMessageSystem.identity) &&
         Objects.equals(this.type, whatsappInboundMessageSystem.type) &&
         Objects.equals(this.user, whatsappInboundMessageSystem.user)&&
         Objects.equals(this.additionalProperties, whatsappInboundMessageSystem.additionalProperties);
@@ -273,7 +239,7 @@ public class WhatsappInboundMessageSystem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, newWaId, identity, type, user, additionalProperties);
+    return Objects.hash(body, newWaId, type, user, additionalProperties);
   }
 
   @Override
@@ -282,7 +248,6 @@ public class WhatsappInboundMessageSystem {
     sb.append("class WhatsappInboundMessageSystem {\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    newWaId: ").append(toIndentedString(newWaId)).append("\n");
-    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -310,7 +275,6 @@ public class WhatsappInboundMessageSystem {
     openapiFields = new HashSet<String>();
     openapiFields.add("body");
     openapiFields.add("new_wa_id");
-    openapiFields.add("identity");
     openapiFields.add("type");
     openapiFields.add("user");
 
@@ -337,9 +301,6 @@ public class WhatsappInboundMessageSystem {
       }
       if (jsonObj.get("new_wa_id") != null && !jsonObj.get("new_wa_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new_wa_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_wa_id").toString()));
-      }
-      if (jsonObj.get("identity") != null && !jsonObj.get("identity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity").toString()));
       }
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
