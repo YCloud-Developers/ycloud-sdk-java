@@ -2,7 +2,7 @@
 
 # WhatsappMessageInteractiveAction
 
-Action you want the user to perform after reading the `interactive` message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
+**Required.** Action you want the user to perform after reading the `interactive` message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
 
 ## Properties
 

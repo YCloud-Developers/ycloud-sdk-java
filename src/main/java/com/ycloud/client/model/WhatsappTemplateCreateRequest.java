@@ -81,6 +81,13 @@ public class WhatsappTemplateCreateRequest {
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private WhatsappTemplateCategory category;
 
+  public static final String SERIALIZED_NAME_MESSAGE_SEND_TTL_SECONDS = "messageSendTtlSeconds";
+  /**
+   * **Use only for template category is &#x60;AUTHENTICATION&#x60;.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to &#x60;600&#x60; seconds for newly created authentication templates. To override the default value, set this field to a value between &#x60;60&#x60; and &#x60;600&#x60; seconds. Or set it to &#x60;-1&#x60; resulting in a 24-hour time-to-live.
+  **/
+  @SerializedName(SERIALIZED_NAME_MESSAGE_SEND_TTL_SECONDS)
+  private Integer messageSendTtlSeconds;
+
   public static final String SERIALIZED_NAME_COMPONENTS = "components";
   /**
   **/
@@ -162,7 +169,7 @@ public class WhatsappTemplateCreateRequest {
   /**
    * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
    **/
-  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
+  @ApiModelProperty(example = "en_US", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
   public void setLanguage(String language) {
     this.language = language;
   }
@@ -190,6 +197,32 @@ public class WhatsappTemplateCreateRequest {
   @ApiModelProperty(required = true, value = "")
   public void setCategory(WhatsappTemplateCategory category) {
     this.category = category;
+  }
+
+
+  public WhatsappTemplateCreateRequest messageSendTtlSeconds(Integer messageSendTtlSeconds) {
+    
+    this.messageSendTtlSeconds = messageSendTtlSeconds;
+    return this;
+  }
+
+   /**
+   * **Use only for template category is &#x60;AUTHENTICATION&#x60;.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to &#x60;600&#x60; seconds for newly created authentication templates. To override the default value, set this field to a value between &#x60;60&#x60; and &#x60;600&#x60; seconds. Or set it to &#x60;-1&#x60; resulting in a 24-hour time-to-live.
+   * @return messageSendTtlSeconds
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getMessageSendTtlSeconds() {
+    return messageSendTtlSeconds;
+  }
+
+
+  /**
+   * **Use only for template category is &#x60;AUTHENTICATION&#x60;.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to &#x60;600&#x60; seconds for newly created authentication templates. To override the default value, set this field to a value between &#x60;60&#x60; and &#x60;600&#x60; seconds. Or set it to &#x60;-1&#x60; resulting in a 24-hour time-to-live.
+   **/
+  @ApiModelProperty(example = "600", value = "**Use only for template category is `AUTHENTICATION`.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to `600` seconds for newly created authentication templates. To override the default value, set this field to a value between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour time-to-live.")
+  public void setMessageSendTtlSeconds(Integer messageSendTtlSeconds) {
+    this.messageSendTtlSeconds = messageSendTtlSeconds;
   }
 
 
@@ -272,13 +305,14 @@ public class WhatsappTemplateCreateRequest {
         Objects.equals(this.name, whatsappTemplateCreateRequest.name) &&
         Objects.equals(this.language, whatsappTemplateCreateRequest.language) &&
         Objects.equals(this.category, whatsappTemplateCreateRequest.category) &&
+        Objects.equals(this.messageSendTtlSeconds, whatsappTemplateCreateRequest.messageSendTtlSeconds) &&
         Objects.equals(this.components, whatsappTemplateCreateRequest.components)&&
         Objects.equals(this.additionalProperties, whatsappTemplateCreateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(wabaId, name, language, category, components, additionalProperties);
+    return Objects.hash(wabaId, name, language, category, messageSendTtlSeconds, components, additionalProperties);
   }
 
   @Override
@@ -289,6 +323,7 @@ public class WhatsappTemplateCreateRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    messageSendTtlSeconds: ").append(toIndentedString(messageSendTtlSeconds)).append("\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -317,6 +352,7 @@ public class WhatsappTemplateCreateRequest {
     openapiFields.add("name");
     openapiFields.add("language");
     openapiFields.add("category");
+    openapiFields.add("messageSendTtlSeconds");
     openapiFields.add("components");
 
     // a set of required properties/fields (JSON key names)

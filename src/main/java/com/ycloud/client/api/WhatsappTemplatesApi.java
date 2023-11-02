@@ -818,7 +818,7 @@ public class WhatsappTemplatesApi {
 
         /**
          * Set filterLanguage
-         * @param filterLanguage Language of the template. (optional)
+         * @param filterLanguage Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (optional)
          * @return ApiListRequest
          */
         public ApiListRequest filterLanguage(String filterLanguage) {

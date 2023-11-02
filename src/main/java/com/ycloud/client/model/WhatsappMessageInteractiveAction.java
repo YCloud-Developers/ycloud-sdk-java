@@ -50,9 +50,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Action you want the user to perform after reading the &#x60;interactive&#x60; message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
+ * **Required.** Action you want the user to perform after reading the &#x60;interactive&#x60; message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
  */
-@ApiModel(description = "Action you want the user to perform after reading the `interactive` message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).")
+@ApiModel(description = "**Required.** Action you want the user to perform after reading the `interactive` message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveAction {
   public static final String SERIALIZED_NAME_BUTTONS = "buttons";

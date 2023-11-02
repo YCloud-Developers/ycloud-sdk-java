@@ -9,5 +9,7 @@
 
 * `ONE_TAP` (value: `"ONE_TAP"`)
 
+* `ZERO_TAP` (value: `"ZERO_TAP"`)
+
 
 

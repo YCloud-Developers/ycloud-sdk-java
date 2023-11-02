@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappMessageTemplateComponent;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,77 +48,87 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Contains a language object. Specifies the language the template may be rendered in.
+ * Card component containing the parameters of the message.
  */
-@ApiModel(description = "Contains a language object. Specifies the language the template may be rendered in.")
+@ApiModel(description = "Card component containing the parameters of the message.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageTemplateLanguage {
-  public static final String SERIALIZED_NAME_CODE = "code";
+public class WhatsappMessageTemplateComponentCard {
+  public static final String SERIALIZED_NAME_CARD_INDEX = "card_index";
   /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * **Required.** Zero-indexed order in which card appears within the card carousel. 0 indicates first card, 1 indicates second card, etc.
   **/
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
+  @SerializedName(SERIALIZED_NAME_CARD_INDEX)
+  private Integer cardIndex;
 
-  public static final String SERIALIZED_NAME_POLICY = "policy";
+  public static final String SERIALIZED_NAME_COMPONENTS = "components";
   /**
-   * The language policy the message should follow. Default (and only supported option): &#x60;deterministic&#x60;, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
+   * Card component.
   **/
-  @SerializedName(SERIALIZED_NAME_POLICY)
-  private String policy;
+  @SerializedName(SERIALIZED_NAME_COMPONENTS)
+  private List<WhatsappMessageTemplateComponent> components = null;
 
-  public WhatsappMessageTemplateLanguage() { 
+  public WhatsappMessageTemplateComponentCard() { 
   }
 
-  public WhatsappMessageTemplateLanguage code(String code) {
+  public WhatsappMessageTemplateComponentCard cardIndex(Integer cardIndex) {
     
-    this.code = code;
+    this.cardIndex = cardIndex;
     return this;
   }
 
    /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-   * @return code
-  **/
-  @javax.annotation.Nonnull
-
-  public String getCode() {
-    return code;
-  }
-
-
-  /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-   **/
-  @ApiModelProperty(example = "en_US", required = true, value = "The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public WhatsappMessageTemplateLanguage policy(String policy) {
-    
-    this.policy = policy;
-    return this;
-  }
-
-   /**
-   * The language policy the message should follow. Default (and only supported option): &#x60;deterministic&#x60;, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
-   * @return policy
+   * **Required.** Zero-indexed order in which card appears within the card carousel. 0 indicates first card, 1 indicates second card, etc.
+   * minimum: 0
+   * maximum: 9
+   * @return cardIndex
   **/
   @javax.annotation.Nullable
 
-  public String getPolicy() {
-    return policy;
+  public Integer getCardIndex() {
+    return cardIndex;
   }
 
 
   /**
-   * The language policy the message should follow. Default (and only supported option): &#x60;deterministic&#x60;, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
+   * **Required.** Zero-indexed order in which card appears within the card carousel. 0 indicates first card, 1 indicates second card, etc.
    **/
-  @ApiModelProperty(example = "deterministic", value = "The language policy the message should follow. Default (and only supported option): `deterministic`, which means that WhatsApp delivers the message template in exactly the language and locale asked for.")
-  public void setPolicy(String policy) {
-    this.policy = policy;
+  @ApiModelProperty(value = "**Required.** Zero-indexed order in which card appears within the card carousel. 0 indicates first card, 1 indicates second card, etc.")
+  public void setCardIndex(Integer cardIndex) {
+    this.cardIndex = cardIndex;
+  }
+
+
+  public WhatsappMessageTemplateComponentCard components(List<WhatsappMessageTemplateComponent> components) {
+    
+    this.components = components;
+    return this;
+  }
+
+  public WhatsappMessageTemplateComponentCard addComponentsItem(WhatsappMessageTemplateComponent componentsItem) {
+    if (this.components == null) {
+      this.components = new ArrayList<>();
+    }
+    this.components.add(componentsItem);
+    return this;
+  }
+
+   /**
+   * Card component.
+   * @return components
+  **/
+  @javax.annotation.Nullable
+
+  public List<WhatsappMessageTemplateComponent> getComponents() {
+    return components;
+  }
+
+
+  /**
+   * Card component.
+   **/
+  @ApiModelProperty(value = "Card component.")
+  public void setComponents(List<WhatsappMessageTemplateComponent> components) {
+    this.components = components;
   }
 
   /**
@@ -129,7 +142,7 @@ public class WhatsappMessageTemplateLanguage {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageTemplateLanguage putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageTemplateComponentCard putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -163,23 +176,23 @@ public class WhatsappMessageTemplateLanguage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageTemplateLanguage whatsappMessageTemplateLanguage = (WhatsappMessageTemplateLanguage) o;
-    return Objects.equals(this.code, whatsappMessageTemplateLanguage.code) &&
-        Objects.equals(this.policy, whatsappMessageTemplateLanguage.policy)&&
-        Objects.equals(this.additionalProperties, whatsappMessageTemplateLanguage.additionalProperties);
+    WhatsappMessageTemplateComponentCard whatsappMessageTemplateComponentCard = (WhatsappMessageTemplateComponentCard) o;
+    return Objects.equals(this.cardIndex, whatsappMessageTemplateComponentCard.cardIndex) &&
+        Objects.equals(this.components, whatsappMessageTemplateComponentCard.components)&&
+        Objects.equals(this.additionalProperties, whatsappMessageTemplateComponentCard.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, policy, additionalProperties);
+    return Objects.hash(cardIndex, components, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageTemplateLanguage {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("class WhatsappMessageTemplateComponentCard {\n");
+    sb.append("    cardIndex: ").append(toIndentedString(cardIndex)).append("\n");
+    sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -203,40 +216,38 @@ public class WhatsappMessageTemplateLanguage {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("code");
-    openapiFields.add("policy");
+    openapiFields.add("card_index");
+    openapiFields.add("components");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("code");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageTemplateLanguage
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageTemplateComponentCard
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageTemplateLanguage.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageTemplateComponentCard.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageTemplateLanguage is not found in the empty JSON string", WhatsappMessageTemplateLanguage.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageTemplateComponentCard is not found in the empty JSON string", WhatsappMessageTemplateComponentCard.openapiRequiredFields.toString()));
         }
       }
+      JsonArray jsonArraycomponents = jsonObj.getAsJsonArray("components");
+      if (jsonArraycomponents != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("components").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `components` to be an array in the JSON string but got `%s`", jsonObj.get("components").toString()));
+        }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WhatsappMessageTemplateLanguage.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("code") != null && !jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
-      }
-      if (jsonObj.get("policy") != null && !jsonObj.get("policy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("policy").toString()));
+        // validate the optional field `components` (array)
+        for (int i = 0; i < jsonArraycomponents.size(); i++) {
+          WhatsappMessageTemplateComponent.validateJsonObject(jsonArraycomponents.get(i).getAsJsonObject());
+        };
       }
   }
 
@@ -244,16 +255,16 @@ public class WhatsappMessageTemplateLanguage {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageTemplateLanguage.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageTemplateLanguage' and its subtypes
+       if (!WhatsappMessageTemplateComponentCard.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageTemplateComponentCard' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageTemplateLanguage> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageTemplateLanguage.class));
+       final TypeAdapter<WhatsappMessageTemplateComponentCard> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageTemplateComponentCard.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageTemplateLanguage>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageTemplateComponentCard>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageTemplateLanguage value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageTemplateComponentCard value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -276,11 +287,11 @@ public class WhatsappMessageTemplateLanguage {
            }
 
            @Override
-           public WhatsappMessageTemplateLanguage read(JsonReader in) throws IOException {
+           public WhatsappMessageTemplateComponentCard read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageTemplateLanguage instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageTemplateComponentCard instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -305,18 +316,18 @@ public class WhatsappMessageTemplateLanguage {
   }
 
  /**
-  * Create an instance of WhatsappMessageTemplateLanguage given an JSON string
+  * Create an instance of WhatsappMessageTemplateComponentCard given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageTemplateLanguage
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageTemplateLanguage
+  * @return An instance of WhatsappMessageTemplateComponentCard
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageTemplateComponentCard
   */
-  public static WhatsappMessageTemplateLanguage fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageTemplateLanguage.class);
+  public static WhatsappMessageTemplateComponentCard fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageTemplateComponentCard.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageTemplateLanguage to an JSON string
+  * Convert an instance of WhatsappMessageTemplateComponentCard to an JSON string
   *
   * @return JSON string
   */

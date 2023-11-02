@@ -59,6 +59,13 @@ public class WhatsappTemplateEditRequest {
   @SerializedName(SERIALIZED_NAME_COMPONENTS)
   private List<WhatsappTemplateComponent> components = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_MESSAGE_SEND_TTL_SECONDS = "messageSendTtlSeconds";
+  /**
+   * **Use only for template category is &#x60;AUTHENTICATION&#x60;.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to &#x60;600&#x60; seconds for newly created authentication templates. To override the default value, set this field to a value between &#x60;60&#x60; and &#x60;600&#x60; seconds. Or set it to &#x60;-1&#x60; resulting in a 24-hour time-to-live.
+  **/
+  @SerializedName(SERIALIZED_NAME_MESSAGE_SEND_TTL_SECONDS)
+  private Integer messageSendTtlSeconds;
+
   public WhatsappTemplateEditRequest() { 
   }
 
@@ -89,6 +96,32 @@ public class WhatsappTemplateEditRequest {
   @ApiModelProperty(required = true, value = "")
   public void setComponents(List<WhatsappTemplateComponent> components) {
     this.components = components;
+  }
+
+
+  public WhatsappTemplateEditRequest messageSendTtlSeconds(Integer messageSendTtlSeconds) {
+    
+    this.messageSendTtlSeconds = messageSendTtlSeconds;
+    return this;
+  }
+
+   /**
+   * **Use only for template category is &#x60;AUTHENTICATION&#x60;.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to &#x60;600&#x60; seconds for newly created authentication templates. To override the default value, set this field to a value between &#x60;60&#x60; and &#x60;600&#x60; seconds. Or set it to &#x60;-1&#x60; resulting in a 24-hour time-to-live.
+   * @return messageSendTtlSeconds
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getMessageSendTtlSeconds() {
+    return messageSendTtlSeconds;
+  }
+
+
+  /**
+   * **Use only for template category is &#x60;AUTHENTICATION&#x60;.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to &#x60;600&#x60; seconds for newly created authentication templates. To override the default value, set this field to a value between &#x60;60&#x60; and &#x60;600&#x60; seconds. Or set it to &#x60;-1&#x60; resulting in a 24-hour time-to-live.
+   **/
+  @ApiModelProperty(example = "600", value = "**Use only for template category is `AUTHENTICATION`.** If we are unable to deliver an authentication template for an amount of time that exceeds its time-to-live, we will stop retrying and drop the message. Defaults to `600` seconds for newly created authentication templates. To override the default value, set this field to a value between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour time-to-live.")
+  public void setMessageSendTtlSeconds(Integer messageSendTtlSeconds) {
+    this.messageSendTtlSeconds = messageSendTtlSeconds;
   }
 
   /**
@@ -137,13 +170,14 @@ public class WhatsappTemplateEditRequest {
       return false;
     }
     WhatsappTemplateEditRequest whatsappTemplateEditRequest = (WhatsappTemplateEditRequest) o;
-    return Objects.equals(this.components, whatsappTemplateEditRequest.components)&&
+    return Objects.equals(this.components, whatsappTemplateEditRequest.components) &&
+        Objects.equals(this.messageSendTtlSeconds, whatsappTemplateEditRequest.messageSendTtlSeconds)&&
         Objects.equals(this.additionalProperties, whatsappTemplateEditRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(components, additionalProperties);
+    return Objects.hash(components, messageSendTtlSeconds, additionalProperties);
   }
 
   @Override
@@ -151,6 +185,7 @@ public class WhatsappTemplateEditRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappTemplateEditRequest {\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
+    sb.append("    messageSendTtlSeconds: ").append(toIndentedString(messageSendTtlSeconds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -175,6 +210,7 @@ public class WhatsappTemplateEditRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("components");
+    openapiFields.add("messageSendTtlSeconds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

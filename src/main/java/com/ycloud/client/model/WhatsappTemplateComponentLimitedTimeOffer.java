@@ -45,77 +45,77 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Contains a language object. Specifies the language the template may be rendered in.
+ * Use for &#x60;LIMITED_TIME_OFFER&#x60; components.
  */
-@ApiModel(description = "Contains a language object. Specifies the language the template may be rendered in.")
+@ApiModel(description = "Use for `LIMITED_TIME_OFFER` components.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageTemplateLanguage {
-  public static final String SERIALIZED_NAME_CODE = "code";
+public class WhatsappTemplateComponentLimitedTimeOffer {
+  public static final String SERIALIZED_NAME_TEXT = "text";
   /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * **Required.** Offer details text. Maximum 16 characters.
   **/
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  private String text;
 
-  public static final String SERIALIZED_NAME_POLICY = "policy";
+  public static final String SERIALIZED_NAME_HAS_EXPIRATION = "has_expiration";
   /**
-   * The language policy the message should follow. Default (and only supported option): &#x60;deterministic&#x60;, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
+   * **Optional.** Set to &#x60;true&#x60; to have the [offer expiration details](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/limited-time-offer-templates#offer-expiration-details) appear in the delivered message. If set to &#x60;true&#x60;, the copy code button component must be included in the &#x60;buttons&#x60; array, and must appear first in the array. If set to &#x60;false&#x60;, offer expiration details will not appear in the delivered message and the copy code button component is optional. If including the copy code button, it must appear first in the &#x60;buttons&#x60; array.
   **/
-  @SerializedName(SERIALIZED_NAME_POLICY)
-  private String policy;
+  @SerializedName(SERIALIZED_NAME_HAS_EXPIRATION)
+  private Boolean hasExpiration;
 
-  public WhatsappMessageTemplateLanguage() { 
+  public WhatsappTemplateComponentLimitedTimeOffer() { 
   }
 
-  public WhatsappMessageTemplateLanguage code(String code) {
+  public WhatsappTemplateComponentLimitedTimeOffer text(String text) {
     
-    this.code = code;
+    this.text = text;
     return this;
   }
 
    /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-   * @return code
-  **/
-  @javax.annotation.Nonnull
-
-  public String getCode() {
-    return code;
-  }
-
-
-  /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-   **/
-  @ApiModelProperty(example = "en_US", required = true, value = "The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public WhatsappMessageTemplateLanguage policy(String policy) {
-    
-    this.policy = policy;
-    return this;
-  }
-
-   /**
-   * The language policy the message should follow. Default (and only supported option): &#x60;deterministic&#x60;, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
-   * @return policy
+   * **Required.** Offer details text. Maximum 16 characters.
+   * @return text
   **/
   @javax.annotation.Nullable
 
-  public String getPolicy() {
-    return policy;
+  public String getText() {
+    return text;
   }
 
 
   /**
-   * The language policy the message should follow. Default (and only supported option): &#x60;deterministic&#x60;, which means that WhatsApp delivers the message template in exactly the language and locale asked for.
+   * **Required.** Offer details text. Maximum 16 characters.
    **/
-  @ApiModelProperty(example = "deterministic", value = "The language policy the message should follow. Default (and only supported option): `deterministic`, which means that WhatsApp delivers the message template in exactly the language and locale asked for.")
-  public void setPolicy(String policy) {
-    this.policy = policy;
+  @ApiModelProperty(example = "Expiring offer!", value = "**Required.** Offer details text. Maximum 16 characters.")
+  public void setText(String text) {
+    this.text = text;
+  }
+
+
+  public WhatsappTemplateComponentLimitedTimeOffer hasExpiration(Boolean hasExpiration) {
+    
+    this.hasExpiration = hasExpiration;
+    return this;
+  }
+
+   /**
+   * **Optional.** Set to &#x60;true&#x60; to have the [offer expiration details](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/limited-time-offer-templates#offer-expiration-details) appear in the delivered message. If set to &#x60;true&#x60;, the copy code button component must be included in the &#x60;buttons&#x60; array, and must appear first in the array. If set to &#x60;false&#x60;, offer expiration details will not appear in the delivered message and the copy code button component is optional. If including the copy code button, it must appear first in the &#x60;buttons&#x60; array.
+   * @return hasExpiration
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getHasExpiration() {
+    return hasExpiration;
+  }
+
+
+  /**
+   * **Optional.** Set to &#x60;true&#x60; to have the [offer expiration details](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/limited-time-offer-templates#offer-expiration-details) appear in the delivered message. If set to &#x60;true&#x60;, the copy code button component must be included in the &#x60;buttons&#x60; array, and must appear first in the array. If set to &#x60;false&#x60;, offer expiration details will not appear in the delivered message and the copy code button component is optional. If including the copy code button, it must appear first in the &#x60;buttons&#x60; array.
+   **/
+  @ApiModelProperty(value = "**Optional.** Set to `true` to have the [offer expiration details](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/limited-time-offer-templates#offer-expiration-details) appear in the delivered message. If set to `true`, the copy code button component must be included in the `buttons` array, and must appear first in the array. If set to `false`, offer expiration details will not appear in the delivered message and the copy code button component is optional. If including the copy code button, it must appear first in the `buttons` array.")
+  public void setHasExpiration(Boolean hasExpiration) {
+    this.hasExpiration = hasExpiration;
   }
 
   /**
@@ -129,7 +129,7 @@ public class WhatsappMessageTemplateLanguage {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageTemplateLanguage putAdditionalProperty(String key, Object value) {
+  public WhatsappTemplateComponentLimitedTimeOffer putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -163,23 +163,23 @@ public class WhatsappMessageTemplateLanguage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageTemplateLanguage whatsappMessageTemplateLanguage = (WhatsappMessageTemplateLanguage) o;
-    return Objects.equals(this.code, whatsappMessageTemplateLanguage.code) &&
-        Objects.equals(this.policy, whatsappMessageTemplateLanguage.policy)&&
-        Objects.equals(this.additionalProperties, whatsappMessageTemplateLanguage.additionalProperties);
+    WhatsappTemplateComponentLimitedTimeOffer whatsappTemplateComponentLimitedTimeOffer = (WhatsappTemplateComponentLimitedTimeOffer) o;
+    return Objects.equals(this.text, whatsappTemplateComponentLimitedTimeOffer.text) &&
+        Objects.equals(this.hasExpiration, whatsappTemplateComponentLimitedTimeOffer.hasExpiration)&&
+        Objects.equals(this.additionalProperties, whatsappTemplateComponentLimitedTimeOffer.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, policy, additionalProperties);
+    return Objects.hash(text, hasExpiration, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageTemplateLanguage {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("class WhatsappTemplateComponentLimitedTimeOffer {\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    hasExpiration: ").append(toIndentedString(hasExpiration)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -203,40 +203,29 @@ public class WhatsappMessageTemplateLanguage {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("code");
-    openapiFields.add("policy");
+    openapiFields.add("text");
+    openapiFields.add("has_expiration");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("code");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageTemplateLanguage
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappTemplateComponentLimitedTimeOffer
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageTemplateLanguage.openapiRequiredFields.isEmpty()) {
+        if (WhatsappTemplateComponentLimitedTimeOffer.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageTemplateLanguage is not found in the empty JSON string", WhatsappMessageTemplateLanguage.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappTemplateComponentLimitedTimeOffer is not found in the empty JSON string", WhatsappTemplateComponentLimitedTimeOffer.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WhatsappMessageTemplateLanguage.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("code") != null && !jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
-      }
-      if (jsonObj.get("policy") != null && !jsonObj.get("policy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("policy").toString()));
+      if (jsonObj.get("text") != null && !jsonObj.get("text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
       }
   }
 
@@ -244,16 +233,16 @@ public class WhatsappMessageTemplateLanguage {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageTemplateLanguage.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageTemplateLanguage' and its subtypes
+       if (!WhatsappTemplateComponentLimitedTimeOffer.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappTemplateComponentLimitedTimeOffer' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageTemplateLanguage> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageTemplateLanguage.class));
+       final TypeAdapter<WhatsappTemplateComponentLimitedTimeOffer> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappTemplateComponentLimitedTimeOffer.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageTemplateLanguage>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappTemplateComponentLimitedTimeOffer>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageTemplateLanguage value) throws IOException {
+           public void write(JsonWriter out, WhatsappTemplateComponentLimitedTimeOffer value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -276,11 +265,11 @@ public class WhatsappMessageTemplateLanguage {
            }
 
            @Override
-           public WhatsappMessageTemplateLanguage read(JsonReader in) throws IOException {
+           public WhatsappTemplateComponentLimitedTimeOffer read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageTemplateLanguage instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappTemplateComponentLimitedTimeOffer instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -305,18 +294,18 @@ public class WhatsappMessageTemplateLanguage {
   }
 
  /**
-  * Create an instance of WhatsappMessageTemplateLanguage given an JSON string
+  * Create an instance of WhatsappTemplateComponentLimitedTimeOffer given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageTemplateLanguage
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageTemplateLanguage
+  * @return An instance of WhatsappTemplateComponentLimitedTimeOffer
+  * @throws IOException if the JSON string is invalid with respect to WhatsappTemplateComponentLimitedTimeOffer
   */
-  public static WhatsappMessageTemplateLanguage fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageTemplateLanguage.class);
+  public static WhatsappTemplateComponentLimitedTimeOffer fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappTemplateComponentLimitedTimeOffer.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageTemplateLanguage to an JSON string
+  * Convert an instance of WhatsappTemplateComponentLimitedTimeOffer to an JSON string
   *
   * @return JSON string
   */

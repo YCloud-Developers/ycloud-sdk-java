@@ -55,7 +55,7 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractive {
   /**
-   * The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -124,7 +124,7 @@ public class WhatsappMessageInteractive {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -163,10 +163,10 @@ public class WhatsappMessageInteractive {
   }
 
    /**
-   * The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
   public TypeEnum getType() {
     return type;
@@ -174,9 +174,9 @@ public class WhatsappMessageInteractive {
 
 
   /**
-   * The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages.
    **/
-  @ApiModelProperty(required = true, value = "The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages.")
+  @ApiModelProperty(value = "**Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -192,7 +192,7 @@ public class WhatsappMessageInteractive {
    * Get action
    * @return action
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
   public WhatsappMessageInteractiveAction getAction() {
     return action;
@@ -201,7 +201,7 @@ public class WhatsappMessageInteractive {
 
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public void setAction(WhatsappMessageInteractiveAction action) {
     this.action = action;
   }
@@ -380,8 +380,6 @@ public class WhatsappMessageInteractive {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("action");
   }
 
  /**
@@ -396,13 +394,6 @@ public class WhatsappMessageInteractive {
           return;
         } else { // has required fields
           throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractive is not found in the empty JSON string", WhatsappMessageInteractive.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WhatsappMessageInteractive.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {

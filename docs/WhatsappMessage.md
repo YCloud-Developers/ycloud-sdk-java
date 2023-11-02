@@ -14,7 +14,7 @@ WhatsApp outbound message object.
 |**from** | **String** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
 |**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
 |**conversation** | [**WhatsappConversation**](WhatsappConversation.md) |  |  [optional] |
-|**type** | **WhatsappMessageType** |  |  |
+|**type** | **WhatsappMessageType** |  |  [optional] |
 |**template** | [**WhatsappMessageTemplate**](WhatsappMessageTemplate.md) |  |  [optional] |
 |**text** | [**WhatsappMessageText**](WhatsappMessageText.md) |  |  [optional] |
 |**image** | [**WhatsappMessageMedia**](WhatsappMessageMedia.md) |  |  [optional] |

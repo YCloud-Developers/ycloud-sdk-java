@@ -21,7 +21,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappTemplateComponentButton;
+import com.ycloud.client.model.WhatsappTemplateComponentCard;
 import com.ycloud.client.model.WhatsappTemplateComponentExample;
+import com.ycloud.client.model.WhatsappTemplateComponentLimitedTimeOffer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -54,7 +56,7 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplateComponent {
   /**
-   * **Required.** Template component type.
+   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -64,7 +66,11 @@ public class WhatsappTemplateComponent {
     
     FOOTER("FOOTER"),
     
-    BUTTONS("BUTTONS");
+    BUTTONS("BUTTONS"),
+    
+    LIMITED_TIME_OFFER("LIMITED_TIME_OFFER"),
+    
+    CAROUSEL("CAROUSEL");
 
     private String value;
 
@@ -106,7 +112,7 @@ public class WhatsappTemplateComponent {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * **Required.** Template component type.
+   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -171,7 +177,7 @@ public class WhatsappTemplateComponent {
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   /**
-   * **Required for type &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and format &#x60;TEXT&#x60;.**
+   * For body text (type &#x3D; &#x60;BODY&#x60;), maximum 1024 characters. For header text (type &#x3D; &#x60;HEADER&#x60;, format &#x3D; &#x60;TEXT&#x60;), maximum 60 characters. For footer text (type &#x3D; &#x60;FOOTER&#x60;), maximum 60 characters. For card body text (&#x60;CAROUSEL&#x60; card component type &#x3D; &#x60;BODY&#x60;), maximum 160 characters.
   **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
@@ -197,11 +203,24 @@ public class WhatsappTemplateComponent {
   @SerializedName(SERIALIZED_NAME_CODE_EXPIRATION_MINUTES)
   private Integer codeExpirationMinutes;
 
+  public static final String SERIALIZED_NAME_LIMITED_TIME_OFFER = "limited_time_offer";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_LIMITED_TIME_OFFER)
+  private WhatsappTemplateComponentLimitedTimeOffer limitedTimeOffer;
+
   public static final String SERIALIZED_NAME_EXAMPLE = "example";
   /**
   **/
   @SerializedName(SERIALIZED_NAME_EXAMPLE)
   private WhatsappTemplateComponentExample example;
+
+  public static final String SERIALIZED_NAME_CARDS = "cards";
+  /**
+   * **Required for type &#x60;CAROUSEL&#x60;.** Carousel templates support up to 10 carousel cards.
+  **/
+  @SerializedName(SERIALIZED_NAME_CARDS)
+  private List<WhatsappTemplateComponentCard> cards = null;
 
   public WhatsappTemplateComponent() { 
   }
@@ -213,7 +232,7 @@ public class WhatsappTemplateComponent {
   }
 
    /**
-   * **Required.** Template component type.
+   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -224,9 +243,9 @@ public class WhatsappTemplateComponent {
 
 
   /**
-   * **Required.** Template component type.
+   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.
    **/
-  @ApiModelProperty(value = "**Required.** Template component type.")
+  @ApiModelProperty(value = "**Required.** Template component type. - `BODY`: Body components are text-only components and are required by all templates. Templates are limited to one body component. - `HEADER`: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - `FOOTER`: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - `BUTTONS`: Buttons are optional interactive components that perform specific actions when tapped. - `LIMITED_TIME_OFFER`: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - `CAROUSEL`: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -265,7 +284,7 @@ public class WhatsappTemplateComponent {
   }
 
    /**
-   * **Required for type &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and format &#x60;TEXT&#x60;.**
+   * For body text (type &#x3D; &#x60;BODY&#x60;), maximum 1024 characters. For header text (type &#x3D; &#x60;HEADER&#x60;, format &#x3D; &#x60;TEXT&#x60;), maximum 60 characters. For footer text (type &#x3D; &#x60;FOOTER&#x60;), maximum 60 characters. For card body text (&#x60;CAROUSEL&#x60; card component type &#x3D; &#x60;BODY&#x60;), maximum 160 characters.
    * @return text
   **/
   @javax.annotation.Nullable
@@ -276,9 +295,9 @@ public class WhatsappTemplateComponent {
 
 
   /**
-   * **Required for type &#x60;BODY&#x60;, &#x60;FOOTER&#x60;, and format &#x60;TEXT&#x60;.**
+   * For body text (type &#x3D; &#x60;BODY&#x60;), maximum 1024 characters. For header text (type &#x3D; &#x60;HEADER&#x60;, format &#x3D; &#x60;TEXT&#x60;), maximum 60 characters. For footer text (type &#x3D; &#x60;FOOTER&#x60;), maximum 60 characters. For card body text (&#x60;CAROUSEL&#x60; card component type &#x3D; &#x60;BODY&#x60;), maximum 160 characters.
    **/
-  @ApiModelProperty(value = "**Required for type `BODY`, `FOOTER`, and format `TEXT`.**")
+  @ApiModelProperty(value = "For body text (type = `BODY`), maximum 1024 characters. For header text (type = `HEADER`, format = `TEXT`), maximum 60 characters. For footer text (type = `FOOTER`), maximum 60 characters. For card body text (`CAROUSEL` card component type = `BODY`), maximum 160 characters.")
   public void setText(String text) {
     this.text = text;
   }
@@ -372,6 +391,31 @@ public class WhatsappTemplateComponent {
   }
 
 
+  public WhatsappTemplateComponent limitedTimeOffer(WhatsappTemplateComponentLimitedTimeOffer limitedTimeOffer) {
+    
+    this.limitedTimeOffer = limitedTimeOffer;
+    return this;
+  }
+
+   /**
+   * Get limitedTimeOffer
+   * @return limitedTimeOffer
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappTemplateComponentLimitedTimeOffer getLimitedTimeOffer() {
+    return limitedTimeOffer;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setLimitedTimeOffer(WhatsappTemplateComponentLimitedTimeOffer limitedTimeOffer) {
+    this.limitedTimeOffer = limitedTimeOffer;
+  }
+
+
   public WhatsappTemplateComponent example(WhatsappTemplateComponentExample example) {
     
     this.example = example;
@@ -394,6 +438,40 @@ public class WhatsappTemplateComponent {
   @ApiModelProperty(value = "")
   public void setExample(WhatsappTemplateComponentExample example) {
     this.example = example;
+  }
+
+
+  public WhatsappTemplateComponent cards(List<WhatsappTemplateComponentCard> cards) {
+    
+    this.cards = cards;
+    return this;
+  }
+
+  public WhatsappTemplateComponent addCardsItem(WhatsappTemplateComponentCard cardsItem) {
+    if (this.cards == null) {
+      this.cards = new ArrayList<>();
+    }
+    this.cards.add(cardsItem);
+    return this;
+  }
+
+   /**
+   * **Required for type &#x60;CAROUSEL&#x60;.** Carousel templates support up to 10 carousel cards.
+   * @return cards
+  **/
+  @javax.annotation.Nullable
+
+  public List<WhatsappTemplateComponentCard> getCards() {
+    return cards;
+  }
+
+
+  /**
+   * **Required for type &#x60;CAROUSEL&#x60;.** Carousel templates support up to 10 carousel cards.
+   **/
+  @ApiModelProperty(value = "**Required for type `CAROUSEL`.** Carousel templates support up to 10 carousel cards.")
+  public void setCards(List<WhatsappTemplateComponentCard> cards) {
+    this.cards = cards;
   }
 
   /**
@@ -448,13 +526,15 @@ public class WhatsappTemplateComponent {
         Objects.equals(this.buttons, whatsappTemplateComponent.buttons) &&
         Objects.equals(this.addSecurityRecommendation, whatsappTemplateComponent.addSecurityRecommendation) &&
         Objects.equals(this.codeExpirationMinutes, whatsappTemplateComponent.codeExpirationMinutes) &&
-        Objects.equals(this.example, whatsappTemplateComponent.example)&&
+        Objects.equals(this.limitedTimeOffer, whatsappTemplateComponent.limitedTimeOffer) &&
+        Objects.equals(this.example, whatsappTemplateComponent.example) &&
+        Objects.equals(this.cards, whatsappTemplateComponent.cards)&&
         Objects.equals(this.additionalProperties, whatsappTemplateComponent.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, format, text, buttons, addSecurityRecommendation, codeExpirationMinutes, example, additionalProperties);
+    return Objects.hash(type, format, text, buttons, addSecurityRecommendation, codeExpirationMinutes, limitedTimeOffer, example, cards, additionalProperties);
   }
 
   @Override
@@ -467,7 +547,9 @@ public class WhatsappTemplateComponent {
     sb.append("    buttons: ").append(toIndentedString(buttons)).append("\n");
     sb.append("    addSecurityRecommendation: ").append(toIndentedString(addSecurityRecommendation)).append("\n");
     sb.append("    codeExpirationMinutes: ").append(toIndentedString(codeExpirationMinutes)).append("\n");
+    sb.append("    limitedTimeOffer: ").append(toIndentedString(limitedTimeOffer)).append("\n");
     sb.append("    example: ").append(toIndentedString(example)).append("\n");
+    sb.append("    cards: ").append(toIndentedString(cards)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -497,7 +579,9 @@ public class WhatsappTemplateComponent {
     openapiFields.add("buttons");
     openapiFields.add("add_security_recommendation");
     openapiFields.add("code_expiration_minutes");
+    openapiFields.add("limited_time_offer");
     openapiFields.add("example");
+    openapiFields.add("cards");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -538,9 +622,25 @@ public class WhatsappTemplateComponent {
           WhatsappTemplateComponentButton.validateJsonObject(jsonArraybuttons.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field `limited_time_offer`
+      if (jsonObj.getAsJsonObject("limited_time_offer") != null) {
+        WhatsappTemplateComponentLimitedTimeOffer.validateJsonObject(jsonObj.getAsJsonObject("limited_time_offer"));
+      }
       // validate the optional field `example`
       if (jsonObj.getAsJsonObject("example") != null) {
         WhatsappTemplateComponentExample.validateJsonObject(jsonObj.getAsJsonObject("example"));
+      }
+      JsonArray jsonArraycards = jsonObj.getAsJsonArray("cards");
+      if (jsonArraycards != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("cards").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `cards` to be an array in the JSON string but got `%s`", jsonObj.get("cards").toString()));
+        }
+
+        // validate the optional field `cards` (array)
+        for (int i = 0; i < jsonArraycards.size(); i++) {
+          WhatsappTemplateComponentCard.validateJsonObject(jsonArraycards.get(i).getAsJsonObject());
+        };
       }
   }
 

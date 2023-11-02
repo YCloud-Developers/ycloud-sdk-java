@@ -185,7 +185,7 @@ public class Example {
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
-    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    String language = "en_US"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
     try {
       WhatsappTemplate result = apiInstance.deleteByNameAndLanguage(wabaId, name, language);
       System.out.println(result);
@@ -259,7 +259,7 @@ public class Example {
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
-    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    String language = "en_US"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
     WhatsappTemplateEditRequest whatsappTemplateEditRequest = new WhatsappTemplateEditRequest(); // WhatsappTemplateEditRequest | 
     try {
       WhatsappTemplate result = apiInstance.editByNameAndLanguage(wabaId, name, language, whatsappTemplateEditRequest);
@@ -338,7 +338,7 @@ public class Example {
     Boolean includeTotal = false; // Boolean | Return results inside an object that contains the total result count or not.
     String filterWabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String filterName = "sample_whatsapp_template"; // String | Name of the template.
-    String filterLanguage = "en"; // String | Language of the template.
+    String filterLanguage = "en_US"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
     try {
       WhatsappTemplatePage result = apiInstance.list()
             .page(page)
@@ -369,7 +369,7 @@ public class Example {
 | **includeTotal** | **Boolean**| Return results inside an object that contains the total result count or not. | [optional] [default to false] |
 | **filterWabaId** | **String**| WhatsApp Business Account ID. | [optional] |
 | **filterName** | **String**| Name of the template. | [optional] |
-| **filterLanguage** | **String**| Language of the template. | [optional] |
+| **filterLanguage** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | [optional] |
 
 ### Return type
 
@@ -421,7 +421,7 @@ public class Example {
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
-    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    String language = "en_US"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
     try {
       WhatsappTemplate result = apiInstance.retrieveByNameAndLanguage(wabaId, name, language);
       System.out.println(result);

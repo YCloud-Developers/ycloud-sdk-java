@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.10.1 (2023-11-02)
+
+- Support WhatsApp Interactive CTA URL Button messages. See also [Interactive CTA URL Message Example](https://docs.ycloud.com/reference/whatsapp-messaging-examples#interactive-cta-url-message).
+- Support WhatsApp [Limited-Time Offer template](https://docs.ycloud.com/reference/whatsapp-template-creation-examples#limited-time-offer-template) and [Limited-Time Offer template message](https://docs.ycloud.com/reference/whatsapp-messaging-examples#limited-time-offer-template-message).
+- Support WhatsApp [Carousel template](https://docs.ycloud.com/reference/whatsapp-template-creation-examples#carousel-template) and [Carousel template message](https://docs.ycloud.com/reference/whatsapp-messaging-examples#carousel-template-message).
+- Support WhatsApp [Zero-Tap Authentication template](https://docs.ycloud.com/reference/whatsapp-template-creation-examples#zero-tap-authentication-template).
+- Add message time-to-live for authentication templates. Defaults to 600 seconds for newly created authentication templates.
+
 ## 1.10.0 (2023-10-19)
 
 - Add webhook event type `whatsapp.business_account.deleted`, `whatsapp.phone_number.deleted`;

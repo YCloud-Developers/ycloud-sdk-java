@@ -107,6 +107,13 @@ public class WhatsappTemplateComponentButton {
   @SerializedName(SERIALIZED_NAME_SIGNATURE_HASH)
   private String signatureHash;
 
+  public static final String SERIALIZED_NAME_ZERO_TAP_TERMS_ACCEPTED = "zero_tap_terms_accepted";
+  /**
+   * **Zero-tap buttons only.** Set to &#x60;true&#x60; to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it&#39;s your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to &#x60;false&#x60;, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates.
+  **/
+  @SerializedName(SERIALIZED_NAME_ZERO_TAP_TERMS_ACCEPTED)
+  private Boolean zeroTapTermsAccepted;
+
   public static final String SERIALIZED_NAME_EXAMPLE = "example";
   /**
    * Sample full URL for a &#x60;URL&#x60; button with a variable.
@@ -323,6 +330,32 @@ public class WhatsappTemplateComponentButton {
   }
 
 
+  public WhatsappTemplateComponentButton zeroTapTermsAccepted(Boolean zeroTapTermsAccepted) {
+    
+    this.zeroTapTermsAccepted = zeroTapTermsAccepted;
+    return this;
+  }
+
+   /**
+   * **Zero-tap buttons only.** Set to &#x60;true&#x60; to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it&#39;s your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to &#x60;false&#x60;, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates.
+   * @return zeroTapTermsAccepted
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getZeroTapTermsAccepted() {
+    return zeroTapTermsAccepted;
+  }
+
+
+  /**
+   * **Zero-tap buttons only.** Set to &#x60;true&#x60; to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it&#39;s your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to &#x60;false&#x60;, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates.
+   **/
+  @ApiModelProperty(value = "**Zero-tap buttons only.** Set to `true` to indicate that you understand that your use of zero-tap authentication is subject to the WhatsApp Business Terms of Service, and that it's your responsibility to ensure your customers expect that the code will be automatically filled in on their behalf when they choose to receive the zero-tap code through WhatsApp. If set to `false`, the template will not be created as you need to accept zero-tap terms before creating zero-tap enabled message templates.")
+  public void setZeroTapTermsAccepted(Boolean zeroTapTermsAccepted) {
+    this.zeroTapTermsAccepted = zeroTapTermsAccepted;
+  }
+
+
   public WhatsappTemplateComponentButton example(List<String> example) {
     
     this.example = example;
@@ -410,13 +443,14 @@ public class WhatsappTemplateComponentButton {
         Objects.equals(this.autofillText, whatsappTemplateComponentButton.autofillText) &&
         Objects.equals(this.packageName, whatsappTemplateComponentButton.packageName) &&
         Objects.equals(this.signatureHash, whatsappTemplateComponentButton.signatureHash) &&
+        Objects.equals(this.zeroTapTermsAccepted, whatsappTemplateComponentButton.zeroTapTermsAccepted) &&
         Objects.equals(this.example, whatsappTemplateComponentButton.example)&&
         Objects.equals(this.additionalProperties, whatsappTemplateComponentButton.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, example, additionalProperties);
+    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, zeroTapTermsAccepted, example, additionalProperties);
   }
 
   @Override
@@ -431,6 +465,7 @@ public class WhatsappTemplateComponentButton {
     sb.append("    autofillText: ").append(toIndentedString(autofillText)).append("\n");
     sb.append("    packageName: ").append(toIndentedString(packageName)).append("\n");
     sb.append("    signatureHash: ").append(toIndentedString(signatureHash)).append("\n");
+    sb.append("    zeroTapTermsAccepted: ").append(toIndentedString(zeroTapTermsAccepted)).append("\n");
     sb.append("    example: ").append(toIndentedString(example)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -463,6 +498,7 @@ public class WhatsappTemplateComponentButton {
     openapiFields.add("autofill_text");
     openapiFields.add("package_name");
     openapiFields.add("signature_hash");
+    openapiFields.add("zero_tap_terms_accepted");
     openapiFields.add("example");
 
     // a set of required properties/fields (JSON key names)

@@ -448,7 +448,7 @@ public class WhatsappMessage {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
   public WhatsappMessageType getType() {
     return type;
@@ -457,7 +457,7 @@ public class WhatsappMessage {
 
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public void setType(WhatsappMessageType type) {
     this.type = type;
   }
@@ -1319,7 +1319,6 @@ public class WhatsappMessage {
     openapiRequiredFields.add("wabaId");
     openapiRequiredFields.add("from");
     openapiRequiredFields.add("to");
-    openapiRequiredFields.add("type");
   }
 
  /**

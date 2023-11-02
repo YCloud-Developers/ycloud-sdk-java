@@ -52,7 +52,7 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveHeader {
   /**
-   * The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -104,7 +104,7 @@ public class WhatsappMessageInteractiveHeader {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -144,10 +144,10 @@ public class WhatsappMessageInteractiveHeader {
   }
 
    /**
-   * The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
   public TypeEnum getType() {
     return type;
@@ -155,9 +155,9 @@ public class WhatsappMessageInteractiveHeader {
 
 
   /**
-   * The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
    **/
-  @ApiModelProperty(required = true, value = "The header type you would like to use. - `text`: Used for List Messages and Reply Buttons. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons. - `document`: Used for Reply Buttons.")
+  @ApiModelProperty(value = "**Required.** The header type you would like to use. - `text`: Used for List Messages and Reply Buttons. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons. - `document`: Used for Reply Buttons.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -362,7 +362,6 @@ public class WhatsappMessageInteractiveHeader {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
   }
 
  /**
@@ -377,13 +376,6 @@ public class WhatsappMessageInteractiveHeader {
           return;
         } else { // has required fields
           throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveHeader is not found in the empty JSON string", WhatsappMessageInteractiveHeader.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WhatsappMessageInteractiveHeader.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {

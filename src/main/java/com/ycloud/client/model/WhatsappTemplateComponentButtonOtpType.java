@@ -25,14 +25,16 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Indicates button OTP type. Set to &#x60;COPY_CODE&#x60; if you want the template to use a copy code button, or &#x60;ONE_TAP&#x60; to have it use a one-tap autofill button.
+ * Indicates button OTP type. Set to &#x60;COPY_CODE&#x60; if you want the template to use a copy code button, &#x60;ONE_TAP&#x60; to have it use a one-tap autofill button, or &#x60;ZERO_TAP&#x60; to have no button at all.
  */
 @JsonAdapter(WhatsappTemplateComponentButtonOtpType.Adapter.class)
 public enum WhatsappTemplateComponentButtonOtpType {
   
   COPY_CODE("COPY_CODE"),
   
-  ONE_TAP("ONE_TAP");
+  ONE_TAP("ONE_TAP"),
+  
+  ZERO_TAP("ZERO_TAP");
 
   private String value;
 
