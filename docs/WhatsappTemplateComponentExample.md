@@ -2,7 +2,7 @@
 
 # WhatsappTemplateComponentExample
 
-**Required** when: - `type` is `HEADER`, and `format` is one of `IMAGE`, `VIDEO`, or `DOCUMENT`. You need to provide a sample media URL in `header_url`. - `type` is `HEADER`, `format` is `TEXT`, and a variable is used in `text`. You need to provide a sample value for that variable in `header_text`. There can be at most 1 variable in `HEADER` text. - `type` is `BODY`, and variables are used in `text`. You need to provide sample values for those variables in `body_text`.
+**Required** when: - `type` is `HEADER`, and `format` is one of `IMAGE`, `VIDEO`, or `DOCUMENT`. Provide a sample media URL in `header_url`. - `type` is `HEADER`, `format` is `TEXT`, and a variable is used in `text`. Provide a sample value for that variable in `header_text`. There can be at most 1 variable in `HEADER` text. - `type` is `BODY`, and variables are used in `text`. Provide sample values for those variables in `body_text`.
 
 ## Properties
 

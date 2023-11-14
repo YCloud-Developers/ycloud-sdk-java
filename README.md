@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.10.1</version>
+  <version>1.10.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.10.1"
+     implementation "com.ycloud:ycloud-sdk-java:1.10.2"
   }
 ```
 
@@ -221,6 +221,7 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageTemplate](docs/WhatsappMessageTemplate.md)
  - [WhatsappMessageTemplateComponent](docs/WhatsappMessageTemplateComponent.md)
  - [WhatsappMessageTemplateComponentCard](docs/WhatsappMessageTemplateComponentCard.md)
+ - [WhatsappMessageTemplateComponentCardComponent](docs/WhatsappMessageTemplateComponentCardComponent.md)
  - [WhatsappMessageTemplateComponentParameter](docs/WhatsappMessageTemplateComponentParameter.md)
  - [WhatsappMessageTemplateComponentParameterLimitedTimeOffer](docs/WhatsappMessageTemplateComponentParameterLimitedTimeOffer.md)
  - [WhatsappMessageTemplateLanguage](docs/WhatsappMessageTemplateLanguage.md)
@@ -245,6 +246,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateComponentButtonOtpType](docs/WhatsappTemplateComponentButtonOtpType.md)
  - [WhatsappTemplateComponentButtonType](docs/WhatsappTemplateComponentButtonType.md)
  - [WhatsappTemplateComponentCard](docs/WhatsappTemplateComponentCard.md)
+ - [WhatsappTemplateComponentCardComponent](docs/WhatsappTemplateComponentCardComponent.md)
  - [WhatsappTemplateComponentExample](docs/WhatsappTemplateComponentExample.md)
  - [WhatsappTemplateComponentLimitedTimeOffer](docs/WhatsappTemplateComponentLimitedTimeOffer.md)
  - [WhatsappTemplateCreateRequest](docs/WhatsappTemplateCreateRequest.md)

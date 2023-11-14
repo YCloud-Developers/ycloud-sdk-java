@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.10.2 (2023-11-14)
+
+- Rename some models for the WhatsApp carousel template and message.
+
 ## 1.10.1 (2023-11-02)
 
 - Support WhatsApp Interactive CTA URL Button messages. See also [Interactive CTA URL Message Example](https://docs.ycloud.com/reference/whatsapp-messaging-examples#interactive-cta-url-message).

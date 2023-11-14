@@ -8,7 +8,7 @@ Carousel templates support up to 10 carousel cards. Cards must have a media head
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**components** | [**List&lt;WhatsappTemplateComponent&gt;**](WhatsappTemplateComponent.md) | **Required.** Card components. |  [optional] |
+|**components** | [**List&lt;WhatsappTemplateComponentCardComponent&gt;**](WhatsappTemplateComponentCardComponent.md) | **Required.** Card components. |  [optional] |
 
 
 

@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappMessageTemplateComponent;
+import com.ycloud.client.model.WhatsappMessageTemplateComponentCardComponent;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -65,7 +65,7 @@ public class WhatsappMessageTemplateComponentCard {
    * Card component.
   **/
   @SerializedName(SERIALIZED_NAME_COMPONENTS)
-  private List<WhatsappMessageTemplateComponent> components = null;
+  private List<WhatsappMessageTemplateComponentCardComponent> components = null;
 
   public WhatsappMessageTemplateComponentCard() { 
   }
@@ -98,13 +98,13 @@ public class WhatsappMessageTemplateComponentCard {
   }
 
 
-  public WhatsappMessageTemplateComponentCard components(List<WhatsappMessageTemplateComponent> components) {
+  public WhatsappMessageTemplateComponentCard components(List<WhatsappMessageTemplateComponentCardComponent> components) {
     
     this.components = components;
     return this;
   }
 
-  public WhatsappMessageTemplateComponentCard addComponentsItem(WhatsappMessageTemplateComponent componentsItem) {
+  public WhatsappMessageTemplateComponentCard addComponentsItem(WhatsappMessageTemplateComponentCardComponent componentsItem) {
     if (this.components == null) {
       this.components = new ArrayList<>();
     }
@@ -118,7 +118,7 @@ public class WhatsappMessageTemplateComponentCard {
   **/
   @javax.annotation.Nullable
 
-  public List<WhatsappMessageTemplateComponent> getComponents() {
+  public List<WhatsappMessageTemplateComponentCardComponent> getComponents() {
     return components;
   }
 
@@ -127,7 +127,7 @@ public class WhatsappMessageTemplateComponentCard {
    * Card component.
    **/
   @ApiModelProperty(value = "Card component.")
-  public void setComponents(List<WhatsappMessageTemplateComponent> components) {
+  public void setComponents(List<WhatsappMessageTemplateComponentCardComponent> components) {
     this.components = components;
   }
 
@@ -246,7 +246,7 @@ public class WhatsappMessageTemplateComponentCard {
 
         // validate the optional field `components` (array)
         for (int i = 0; i < jsonArraycomponents.size(); i++) {
-          WhatsappMessageTemplateComponent.validateJsonObject(jsonArraycomponents.get(i).getAsJsonObject());
+          WhatsappMessageTemplateComponentCardComponent.validateJsonObject(jsonArraycomponents.get(i).getAsJsonObject());
         };
       }
   }
