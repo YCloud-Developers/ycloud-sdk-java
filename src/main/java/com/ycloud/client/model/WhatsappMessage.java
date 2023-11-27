@@ -67,7 +67,7 @@ import com.ycloud.client.JSON;
 public class WhatsappMessage {
   public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * Unique ID for the object.
+   * Unique ID of the message.
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -290,7 +290,7 @@ public class WhatsappMessage {
   }
 
    /**
-   * Unique ID for the object.
+   * Unique ID of the message.
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -301,9 +301,9 @@ public class WhatsappMessage {
 
 
   /**
-   * Unique ID for the object.
+   * Unique ID of the message.
    **/
-  @ApiModelProperty(required = true, value = "Unique ID for the object.")
+  @ApiModelProperty(required = true, value = "Unique ID of the message.")
   public void setId(String id) {
     this.id = id;
   }

@@ -111,29 +111,14 @@ public class Voice {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    /**
-     * The messaging request is accepted by our system.
-     */
     ACCEPTED("accepted"),
     
-    /**
-     * The message failed to be sent from our system.
-     */
     FAILED("failed"),
     
-    /**
-     * The message has been sent from our system.
-     */
     SENT("sent"),
     
-    /**
-     * YCloud has received a delivery receipt indicating that message is delivered.
-     */
     DELIVERED("delivered"),
     
-    /**
-     * YCloud has received a delivery receipt indicating that message is not delivered.
-     */
     UNDELIVERED("undelivered");
 
     private String value;

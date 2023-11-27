@@ -149,7 +149,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Create a WhatsApp template
+     * Create a template
      * <p>
      * Creates a WhatsApp template.
      * @param whatsappTemplateCreateRequest  (required)
@@ -167,7 +167,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Create a WhatsApp template
+     * Create a template
      * <p>
      * Creates a WhatsApp template.
      * @param whatsappTemplateCreateRequest  (required)
@@ -186,7 +186,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Create a WhatsApp template (asynchronously)
+     * Create a template (asynchronously)
      * <p>
      * Creates a WhatsApp template.
      * @param whatsappTemplateCreateRequest  (required)
@@ -287,7 +287,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Delete WhatsApp templates by name
+     * Delete templates by name
      * <p>
      * Deletes WhatsApp templates by name. If that template name exists in multiple languages, all languages will be deleted. HTTP status &#x60;404&#x60; is returned if no templates are found for the specific name.
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -307,7 +307,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Delete WhatsApp templates by name
+     * Delete templates by name
      * <p>
      * Deletes WhatsApp templates by name. If that template name exists in multiple languages, all languages will be deleted. HTTP status &#x60;404&#x60; is returned if no templates are found for the specific name.
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -328,7 +328,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Delete WhatsApp templates by name (asynchronously)
+     * Delete templates by name (asynchronously)
      * <p>
      * Deletes WhatsApp templates by name. If that template name exists in multiple languages, all languages will be deleted. HTTP status &#x60;404&#x60; is returned if no templates are found for the specific name.
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -438,7 +438,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Delete a WhatsApp template
+     * Delete a template
      * <p>
      * Deletes a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -459,7 +459,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Delete a WhatsApp template
+     * Delete a template
      * <p>
      * Deletes a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -481,7 +481,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Delete a WhatsApp template (asynchronously)
+     * Delete a template (asynchronously)
      * <p>
      * Deletes a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -593,7 +593,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Edit a WhatsApp template
+     * Edit a template
      * <p>
      * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -615,7 +615,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Edit a WhatsApp template
+     * Edit a template
      * <p>
      * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -638,7 +638,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Edit a WhatsApp template (asynchronously)
+     * Edit a template (asynchronously)
      * <p>
      * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -887,7 +887,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * List WhatsApp templates
+     * List templates
      * <p>
      * Returns a paginated list of WhatsApp templates you&#39;ve previously created.
      * @return ApiListRequest
@@ -988,7 +988,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Retrieve a WhatsApp template
+     * Retrieve a template
      * <p>
      * Retrieves a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -1009,7 +1009,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Retrieve a WhatsApp template
+     * Retrieve a template
      * <p>
      * Retrieves a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
@@ -1031,7 +1031,7 @@ public class WhatsappTemplatesApi {
     }
 
     /**
-     * Retrieve a WhatsApp template (asynchronously)
+     * Retrieve a template (asynchronously)
      * <p>
      * Retrieves a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)

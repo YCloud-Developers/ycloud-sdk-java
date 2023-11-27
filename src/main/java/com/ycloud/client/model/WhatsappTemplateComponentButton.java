@@ -61,7 +61,7 @@ public class WhatsappTemplateComponentButton {
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   /**
-   * **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.
+   * **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/autofill-button-authentication-templates#handshake). Maximum 25 characters.
   **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
@@ -88,21 +88,21 @@ public class WhatsappTemplateComponentButton {
 
   public static final String SERIALIZED_NAME_AUTOFILL_TEXT = "autofill_text";
   /**
-   * **One-tap buttons only.** One-tap button text. Maximum 25 characters.
+   * **One-tap and zero-tap buttons only.** One-tap button text. Maximum 25 characters.
   **/
   @SerializedName(SERIALIZED_NAME_AUTOFILL_TEXT)
   private String autofillText;
 
   public static final String SERIALIZED_NAME_PACKAGE_NAME = "package_name";
   /**
-   * **One-tap buttons only.** Your Android app&#39;s package name.
+   * **One-tap and zero-tap buttons only.** Your Android app&#39;s package name.
   **/
   @SerializedName(SERIALIZED_NAME_PACKAGE_NAME)
   private String packageName;
 
   public static final String SERIALIZED_NAME_SIGNATURE_HASH = "signature_hash";
   /**
-   * **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).
+   * **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
   **/
   @SerializedName(SERIALIZED_NAME_SIGNATURE_HASH)
   private String signatureHash;
@@ -156,7 +156,7 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.
+   * **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/autofill-button-authentication-templates#handshake). Maximum 25 characters.
    * @return text
   **/
   @javax.annotation.Nullable
@@ -167,9 +167,9 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.
+   * **Required for button type &#x60;PHONE_NUMBER&#x60; or &#x60;URL&#x60;.** Button text. For &#x60;CODE_CODE&#x60; buttons, the text is a pre-set value and cannot be customized. For &#x60;OTP&#x60; buttons, if omitted, the text will default to a pre-set value localized to the template&#39;s language. For example, &#x60;Copy Code&#x60; for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/autofill-button-authentication-templates#handshake). Maximum 25 characters.
    **/
-  @ApiModelProperty(value = "**Required for button type `PHONE_NUMBER` or `URL`.** Button text. For `CODE_CODE` buttons, the text is a pre-set value and cannot be customized. For `OTP` buttons, if omitted, the text will default to a pre-set value localized to the template's language. For example, `Copy Code` for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#handshake). Maximum 25 characters.")
+  @ApiModelProperty(value = "**Required for button type `PHONE_NUMBER` or `URL`.** Button text. For `CODE_CODE` buttons, the text is a pre-set value and cannot be customized. For `OTP` buttons, if omitted, the text will default to a pre-set value localized to the template's language. For example, `Copy Code` for English (US). If your template is using a one-tap autofill button and you supply this value, the authentication template message will display a copy code button with this text if we are unable to validate your [handshake](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/autofill-button-authentication-templates#handshake). Maximum 25 characters.")
   public void setText(String text) {
     this.text = text;
   }
@@ -259,7 +259,7 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **One-tap buttons only.** One-tap button text. Maximum 25 characters.
+   * **One-tap and zero-tap buttons only.** One-tap button text. Maximum 25 characters.
    * @return autofillText
   **/
   @javax.annotation.Nullable
@@ -270,9 +270,9 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **One-tap buttons only.** One-tap button text. Maximum 25 characters.
+   * **One-tap and zero-tap buttons only.** One-tap button text. Maximum 25 characters.
    **/
-  @ApiModelProperty(example = "Autofill", value = "**One-tap buttons only.** One-tap button text. Maximum 25 characters.")
+  @ApiModelProperty(example = "Autofill", value = "**One-tap and zero-tap buttons only.** One-tap button text. Maximum 25 characters.")
   public void setAutofillText(String autofillText) {
     this.autofillText = autofillText;
   }
@@ -285,7 +285,7 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **One-tap buttons only.** Your Android app&#39;s package name.
+   * **One-tap and zero-tap buttons only.** Your Android app&#39;s package name.
    * @return packageName
   **/
   @javax.annotation.Nullable
@@ -296,9 +296,9 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **One-tap buttons only.** Your Android app&#39;s package name.
+   * **One-tap and zero-tap buttons only.** Your Android app&#39;s package name.
    **/
-  @ApiModelProperty(example = "com.example.myapplication", value = "**One-tap buttons only.** Your Android app's package name.")
+  @ApiModelProperty(example = "com.example.myapplication", value = "**One-tap and zero-tap buttons only.** Your Android app's package name.")
   public void setPackageName(String packageName) {
     this.packageName = packageName;
   }
@@ -311,7 +311,7 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).
+   * **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
    * @return signatureHash
   **/
   @javax.annotation.Nullable
@@ -322,9 +322,9 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).
+   * **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
    **/
-  @ApiModelProperty(example = "K8a%2FAINcGX7", value = "**One-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates#app-signing-key-hash).")
+  @ApiModelProperty(example = "K8a%2FAINcGX7", value = "**One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).")
   public void setSignatureHash(String signatureHash) {
     this.signatureHash = signatureHash;
   }

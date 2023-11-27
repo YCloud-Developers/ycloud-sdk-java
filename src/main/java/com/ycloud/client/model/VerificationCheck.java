@@ -53,7 +53,7 @@ import com.ycloud.client.JSON;
 public class VerificationCheck {
   public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * ID of this object.
+   * ID of this verification check.
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -94,7 +94,7 @@ public class VerificationCheck {
   }
 
    /**
-   * ID of this object.
+   * ID of this verification check.
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -105,9 +105,9 @@ public class VerificationCheck {
 
 
   /**
-   * ID of this object.
+   * ID of this verification check.
    **/
-  @ApiModelProperty(example = "vc8f92c20", required = true, value = "ID of this object.")
+  @ApiModelProperty(example = "vc8f92c20", required = true, value = "ID of this verification check.")
   public void setId(String id) {
     this.id = id;
   }

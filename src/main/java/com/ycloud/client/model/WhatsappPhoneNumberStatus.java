@@ -25,74 +25,35 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The status of a WhatsApp business account phone number. &#x60;PENDING&#x60;: Pending. &#x60;UNVERIFIED&#x60;: Unverified. Verify this phone number to start sending messages. &#x60;MANUAL_REVIEW&#x60;: Being reviewed. Phone number is currently being reviewed for connection to your account. &#x60;DISCONNECTED&#x60;: Offline. Phone number is currently not reachable by WhatsApp servers. &#x60;CONNECTED&#x60;: Connected. Phone number is associated with this account and working properly. &#x60;FLAGGED&#x60;: Flagged. This phone number has been flagged due to low quality messages. &#x60;WARNED&#x60;: Warned. A warning has been issued for this number, potentially due to spam reports. &#x60;RATE_LIMITED&#x60;: Rate limited. The number of messages you can send from this phone number may be restricted. &#x60;BANNED&#x60;: Banned. Phone number cannot be used with a WhatsApp account. &#x60;RESTRICTED&#x60;: Restricted. This phone number has reached its 24-hour messaging limit and can no longer send messages to customers. Please wait until the messaging limit is reset to send messages. &#x60;BLOCKED&#x60;: Message limit reached. The limit has been reached for this 24-hour period. &#x60;MIGRATED&#x60;: Transferred. This phone number has been transferred to another WhatsApp Business account. &#x60;UNKNOWN&#x60;: Unavailable. The status of this phone number can&#39;t be determined right now.
+ * The status of a WhatsApp business phone number. - &#x60;PENDING&#x60;: Pending. - &#x60;UNVERIFIED&#x60;: Unverified. Verify this phone number to start sending messages. - &#x60;MANUAL_REVIEW&#x60;: Being reviewed. Phone number is currently being reviewed for connection to your account. - &#x60;DISCONNECTED&#x60;: Offline. Phone number is currently not reachable by WhatsApp servers. - &#x60;CONNECTED&#x60;: Connected. Phone number is associated with this account and working properly. - &#x60;FLAGGED&#x60;: Flagged. This phone number has been flagged due to low quality messages. - &#x60;WARNED&#x60;: Warned. A warning has been issued for this number, potentially due to spam reports. - &#x60;RATE_LIMITED&#x60;: Rate limited. The number of messages you can send from this phone number may be restricted. - &#x60;BANNED&#x60;: Banned. Phone number cannot be used with a WhatsApp account. - &#x60;RESTRICTED&#x60;: Restricted. This phone number has reached its 24-hour messaging limit and can no longer send messages to customers. Please wait until the messaging limit is reset to send messages. - &#x60;BLOCKED&#x60;: Message limit reached. The limit has been reached for this 24-hour period. - &#x60;MIGRATED&#x60;: Transferred. This phone number has been transferred to another WhatsApp Business account. - &#x60;UNKNOWN&#x60;: Unavailable. The status of this phone number can&#39;t be determined right now.
  */
 @JsonAdapter(WhatsappPhoneNumberStatus.Adapter.class)
 public enum WhatsappPhoneNumberStatus {
   
-  /**
-   * Pending
-   */
   PENDING("PENDING"),
   
-  /**
-   * Unverified. Verify this phone number to start sending messages.
-   */
   UNVERIFIED("UNVERIFIED"),
   
-  /**
-   * Being reviewed. Phone number is currently being reviewed for connection to your account.
-   */
   MANUAL_REVIEW("MANUAL_REVIEW"),
   
-  /**
-   * Offline. Phone number is currently not reachable by WhatsApp servers.
-   */
   DISCONNECTED("DISCONNECTED"),
   
-  /**
-   * Connected. Phone number is associated with this account and working properly.
-   */
   CONNECTED("CONNECTED"),
   
-  /**
-   * Flagged. This phone number has been flagged due to low quality messages.
-   */
   FLAGGED("FLAGGED"),
   
-  /**
-   * Warned. A warning has been issued for this number, potentially due to spam reports.
-   */
   WARNED("WARNED"),
   
-  /**
-   * Rate limited. The number of messages you can send from this phone number may be restricted.
-   */
   RATE_LIMITED("RATE_LIMITED"),
   
-  /**
-   * Banned. Phone number cannot be used with a WhatsApp account.
-   */
   BANNED("BANNED"),
   
-  /**
-   * Restricted. This phone number has reached its 24-hour messaging limit and can no longer send messages to customers. Please wait until the messaging limit is reset to send messages.
-   */
   RESTRICTED("RESTRICTED"),
   
-  /**
-   * Message limit reached. The limit has been reached for this 24-hour period.
-   */
   BLOCKED("BLOCKED"),
   
-  /**
-   * Transferred. This phone number has been transferred to another WhatsApp Business account.
-   */
   MIGRATED("MIGRATED"),
   
-  /**
-   * Unavailable. The status of this phone number can&#39;t be determined right now.
-   */
   UNKNOWN("UNKNOWN");
 
   private String value;

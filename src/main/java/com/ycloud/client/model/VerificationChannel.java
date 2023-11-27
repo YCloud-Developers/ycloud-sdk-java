@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Supports several independent channels for verification: &#x60;sms&#x60;: Sends an SMS message with a verification code. &#x60;voice&#x60;: Makes a voice call with a verification code. &#x60;email_code&#x60;: Sends an email with a verification code. &#x60;whatsapp&#x60;: Sends a WhatsApp message with a verification code.
+ * Supports several independent channels for verification: - &#x60;sms&#x60;: Sends an SMS message with a verification code. - &#x60;voice&#x60;: Makes a voice call with a verification code. - &#x60;email_code&#x60;: Sends an email with a verification code. - &#x60;whatsapp&#x60;: Sends a WhatsApp message with a verification code.
  */
 @JsonAdapter(VerificationChannel.Adapter.class)
 public enum VerificationChannel {

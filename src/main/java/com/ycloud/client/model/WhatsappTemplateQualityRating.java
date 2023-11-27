@@ -30,24 +30,12 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(WhatsappTemplateQualityRating.Adapter.class)
 public enum WhatsappTemplateQualityRating {
   
-  /**
-   * High quality
-   */
   GREEN("GREEN"),
   
-  /**
-   * Medium quality
-   */
   YELLOW("YELLOW"),
   
-  /**
-   * Low quality
-   */
   RED("RED"),
   
-  /**
-   * Unknown quality
-   */
   UNKNOWN("UNKNOWN");
 
   private String value;

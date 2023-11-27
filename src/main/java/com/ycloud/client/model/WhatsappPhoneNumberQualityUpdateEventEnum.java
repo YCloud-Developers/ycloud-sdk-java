@@ -30,29 +30,14 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(WhatsappPhoneNumberQualityUpdateEventEnum.Adapter.class)
 public enum WhatsappPhoneNumberQualityUpdateEventEnum {
   
-  /**
-   * Typically when the messaging limit changes from &#x60;TIER_NOT_SET&#x60; to another tier.
-   */
   ONBOARDING("ONBOARDING"),
   
-  /**
-   * Messaging limit tier upgraded.
-   */
   UPGRADE("UPGRADE"),
   
-  /**
-   * Messaging limit tier downgraded.
-   */
   DOWNGRADE("DOWNGRADE"),
   
-  /**
-   * Flagged status occurs when the quality rating reaches a low state. If the message quality improves to a high or medium state and maintains this for 7 days, your status will return to Connected. If the quality rating doesn&#39;t improve, your status will still return to Connected, but you&#39;ll be placed in a lower messaging limit tier. Learn more on [Phone Number Quality](https://www.facebook.com/business/help/896873687365001) docs.
-   */
   FLAGGED("FLAGGED"),
   
-  /**
-   * Phone number status changes from &#x60;FLAGGED&#x60; to &#x60;CONNECTED&#x60;.
-   */
   UNFLAGGED("UNFLAGGED");
 
   private String value;

@@ -8,7 +8,7 @@ Represents a webhook event payload. Every event contains certain common properti
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | Unique ID for the object. |  |
+|**id** | **String** | Unique ID for the event. |  |
 |**type** | **EventType** |  |  |
 |**apiVersion** | **String** | The API version used to render this event. |  |
 |**createTime** | **Date** | The time at which this event was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  |

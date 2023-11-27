@@ -63,7 +63,7 @@ import com.ycloud.client.JSON;
 public class Event {
   public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * Unique ID for the object.
+   * Unique ID for the event.
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -152,7 +152,7 @@ public class Event {
   }
 
    /**
-   * Unique ID for the object.
+   * Unique ID for the event.
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -163,9 +163,9 @@ public class Event {
 
 
   /**
-   * Unique ID for the object.
+   * Unique ID for the event.
    **/
-  @ApiModelProperty(required = true, value = "Unique ID for the object.")
+  @ApiModelProperty(required = true, value = "Unique ID for the event.")
   public void setId(String id) {
     this.id = id;
   }

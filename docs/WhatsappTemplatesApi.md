@@ -4,19 +4,19 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**create**](WhatsappTemplatesApi.md#create) | **POST** /whatsapp/templates | Create a WhatsApp template |
-| [**deleteByName**](WhatsappTemplatesApi.md#deleteByName) | **DELETE** /whatsapp/templates/{wabaId}/{name} | Delete WhatsApp templates by name |
-| [**deleteByNameAndLanguage**](WhatsappTemplatesApi.md#deleteByNameAndLanguage) | **DELETE** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a WhatsApp template |
-| [**editByNameAndLanguage**](WhatsappTemplatesApi.md#editByNameAndLanguage) | **PATCH** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a WhatsApp template |
-| [**list**](WhatsappTemplatesApi.md#list) | **GET** /whatsapp/templates | List WhatsApp templates |
-| [**retrieveByNameAndLanguage**](WhatsappTemplatesApi.md#retrieveByNameAndLanguage) | **GET** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a WhatsApp template |
+| [**create**](WhatsappTemplatesApi.md#create) | **POST** /whatsapp/templates | Create a template |
+| [**deleteByName**](WhatsappTemplatesApi.md#deleteByName) | **DELETE** /whatsapp/templates/{wabaId}/{name} | Delete templates by name |
+| [**deleteByNameAndLanguage**](WhatsappTemplatesApi.md#deleteByNameAndLanguage) | **DELETE** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a template |
+| [**editByNameAndLanguage**](WhatsappTemplatesApi.md#editByNameAndLanguage) | **PATCH** /whatsapp/templates/{wabaId}/{name}/{language} | Edit a template |
+| [**list**](WhatsappTemplatesApi.md#list) | **GET** /whatsapp/templates | List templates |
+| [**retrieveByNameAndLanguage**](WhatsappTemplatesApi.md#retrieveByNameAndLanguage) | **GET** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a template |
 
 
 <a name="create"></a>
 # **create**
 > WhatsappTemplate create(whatsappTemplateCreateRequest)
 
-Create a WhatsApp template
+Create a template
 
 Creates a WhatsApp template.
 
@@ -85,7 +85,7 @@ public class Example {
 # **deleteByName**
 > List&lt;WhatsappTemplate&gt; deleteByName(wabaId, name)
 
-Delete WhatsApp templates by name
+Delete templates by name
 
 Deletes WhatsApp templates by name. If that template name exists in multiple languages, all languages will be deleted. HTTP status &#x60;404&#x60; is returned if no templates are found for the specific name.
 
@@ -157,7 +157,7 @@ public class Example {
 # **deleteByNameAndLanguage**
 > WhatsappTemplate deleteByNameAndLanguage(wabaId, name, language)
 
-Delete a WhatsApp template
+Delete a template
 
 Deletes a WhatsApp template by name and language.
 
@@ -231,7 +231,7 @@ public class Example {
 # **editByNameAndLanguage**
 > WhatsappTemplate editByNameAndLanguage(wabaId, name, language, whatsappTemplateEditRequest)
 
-Edit a WhatsApp template
+Edit a template
 
 Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
 
@@ -307,7 +307,7 @@ public class Example {
 # **list**
 > WhatsappTemplatePage list().page(page).limit(limit).includeTotal(includeTotal).filterWabaId(filterWabaId).filterName(filterName).filterLanguage(filterLanguage).execute();
 
-List WhatsApp templates
+List templates
 
 Returns a paginated list of WhatsApp templates you&#39;ve previously created.
 
@@ -393,7 +393,7 @@ public class Example {
 # **retrieveByNameAndLanguage**
 > WhatsappTemplate retrieveByNameAndLanguage(wabaId, name, language)
 
-Retrieve a WhatsApp template
+Retrieve a template
 
 Retrieves a WhatsApp template by name and language.
 

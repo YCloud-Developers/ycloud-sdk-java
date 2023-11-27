@@ -1,0 +1,15 @@
+
+
+# WhatsappMessageTemplateComponentParameterAction
+
+Required if template uses catalog or MPM (multi-product message) buttons.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**thumbnailProductRetailerId** | **String** | **Optional.** Use for catalog and MPM template messages. Item SKU number. Labeled as Content ID in the Commerce Manager. The thumbnail of this item will be used as the message&#39;s header image. If the &#x60;parameters&#x60; object is omitted, the product image of the first item in your catalog will be used. |  [optional] |
+|**sections** | [**List&lt;WhatsappMessageTemplateComponentParameterActionSection&gt;**](WhatsappMessageTemplateComponentParameterActionSection.md) | Use for MPM templates. Product sections. You can define up to 10 sections. |  [optional] |
+
+
+

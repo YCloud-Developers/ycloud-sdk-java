@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappMessageTemplateComponentParameterActionSectionProductItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,142 +48,84 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappInboundMessageOrderProductItem
+ * WhatsappMessageTemplateComponentParameterActionSection
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappInboundMessageOrderProductItem {
-  public static final String SERIALIZED_NAME_PRODUCT_RETAILER_ID = "product_retailer_id";
+public class WhatsappMessageTemplateComponentParameterActionSection {
+  public static final String SERIALIZED_NAME_TITLE = "title";
   /**
-   * The product SKU identifier.
+   * Section title text. Maximum 24 characters. Markdown is not supported.
   **/
-  @SerializedName(SERIALIZED_NAME_PRODUCT_RETAILER_ID)
-  private String productRetailerId;
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
-  public static final String SERIALIZED_NAME_QUANTITY = "quantity";
+  public static final String SERIALIZED_NAME_PRODUCT_ITEMS = "product_items";
   /**
-   * Number of item.
+   * Array of product SKU numbers. There is a minimum of 1 product per section and a maximum of 30 products across all sections.
   **/
-  @SerializedName(SERIALIZED_NAME_QUANTITY)
-  private Integer quantity;
+  @SerializedName(SERIALIZED_NAME_PRODUCT_ITEMS)
+  private List<WhatsappMessageTemplateComponentParameterActionSectionProductItem> productItems = null;
 
-  public static final String SERIALIZED_NAME_ITEM_PRICE = "item_price";
-  /**
-   * Unitary price of item.
-  **/
-  @SerializedName(SERIALIZED_NAME_ITEM_PRICE)
-  private Double itemPrice;
-
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  /**
-   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
-  **/
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private String currency;
-
-  public WhatsappInboundMessageOrderProductItem() { 
+  public WhatsappMessageTemplateComponentParameterActionSection() { 
   }
 
-  public WhatsappInboundMessageOrderProductItem productRetailerId(String productRetailerId) {
+  public WhatsappMessageTemplateComponentParameterActionSection title(String title) {
     
-    this.productRetailerId = productRetailerId;
+    this.title = title;
     return this;
   }
 
    /**
-   * The product SKU identifier.
-   * @return productRetailerId
+   * Section title text. Maximum 24 characters. Markdown is not supported.
+   * @return title
   **/
   @javax.annotation.Nullable
 
-  public String getProductRetailerId() {
-    return productRetailerId;
+  public String getTitle() {
+    return title;
   }
 
 
   /**
-   * The product SKU identifier.
+   * Section title text. Maximum 24 characters. Markdown is not supported.
    **/
-  @ApiModelProperty(value = "The product SKU identifier.")
-  public void setProductRetailerId(String productRetailerId) {
-    this.productRetailerId = productRetailerId;
+  @ApiModelProperty(value = "Section title text. Maximum 24 characters. Markdown is not supported.")
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
-  public WhatsappInboundMessageOrderProductItem quantity(Integer quantity) {
+  public WhatsappMessageTemplateComponentParameterActionSection productItems(List<WhatsappMessageTemplateComponentParameterActionSectionProductItem> productItems) {
     
-    this.quantity = quantity;
+    this.productItems = productItems;
+    return this;
+  }
+
+  public WhatsappMessageTemplateComponentParameterActionSection addProductItemsItem(WhatsappMessageTemplateComponentParameterActionSectionProductItem productItemsItem) {
+    if (this.productItems == null) {
+      this.productItems = new ArrayList<>();
+    }
+    this.productItems.add(productItemsItem);
     return this;
   }
 
    /**
-   * Number of item.
-   * @return quantity
+   * Array of product SKU numbers. There is a minimum of 1 product per section and a maximum of 30 products across all sections.
+   * @return productItems
   **/
   @javax.annotation.Nullable
 
-  public Integer getQuantity() {
-    return quantity;
+  public List<WhatsappMessageTemplateComponentParameterActionSectionProductItem> getProductItems() {
+    return productItems;
   }
 
 
   /**
-   * Number of item.
+   * Array of product SKU numbers. There is a minimum of 1 product per section and a maximum of 30 products across all sections.
    **/
-  @ApiModelProperty(value = "Number of item.")
-  public void setQuantity(Integer quantity) {
-    this.quantity = quantity;
-  }
-
-
-  public WhatsappInboundMessageOrderProductItem itemPrice(Double itemPrice) {
-    
-    this.itemPrice = itemPrice;
-    return this;
-  }
-
-   /**
-   * Unitary price of item.
-   * @return itemPrice
-  **/
-  @javax.annotation.Nullable
-
-  public Double getItemPrice() {
-    return itemPrice;
-  }
-
-
-  /**
-   * Unitary price of item.
-   **/
-  @ApiModelProperty(value = "Unitary price of item.")
-  public void setItemPrice(Double itemPrice) {
-    this.itemPrice = itemPrice;
-  }
-
-
-  public WhatsappInboundMessageOrderProductItem currency(String currency) {
-    
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-
-  public String getCurrency() {
-    return currency;
-  }
-
-
-  /**
-   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
-   **/
-  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
-  public void setCurrency(String currency) {
-    this.currency = currency;
+  @ApiModelProperty(value = "Array of product SKU numbers. There is a minimum of 1 product per section and a maximum of 30 products across all sections.")
+  public void setProductItems(List<WhatsappMessageTemplateComponentParameterActionSectionProductItem> productItems) {
+    this.productItems = productItems;
   }
 
   /**
@@ -194,7 +139,7 @@ public class WhatsappInboundMessageOrderProductItem {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappInboundMessageOrderProductItem putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageTemplateComponentParameterActionSection putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -228,27 +173,23 @@ public class WhatsappInboundMessageOrderProductItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappInboundMessageOrderProductItem whatsappInboundMessageOrderProductItem = (WhatsappInboundMessageOrderProductItem) o;
-    return Objects.equals(this.productRetailerId, whatsappInboundMessageOrderProductItem.productRetailerId) &&
-        Objects.equals(this.quantity, whatsappInboundMessageOrderProductItem.quantity) &&
-        Objects.equals(this.itemPrice, whatsappInboundMessageOrderProductItem.itemPrice) &&
-        Objects.equals(this.currency, whatsappInboundMessageOrderProductItem.currency)&&
-        Objects.equals(this.additionalProperties, whatsappInboundMessageOrderProductItem.additionalProperties);
+    WhatsappMessageTemplateComponentParameterActionSection whatsappMessageTemplateComponentParameterActionSection = (WhatsappMessageTemplateComponentParameterActionSection) o;
+    return Objects.equals(this.title, whatsappMessageTemplateComponentParameterActionSection.title) &&
+        Objects.equals(this.productItems, whatsappMessageTemplateComponentParameterActionSection.productItems)&&
+        Objects.equals(this.additionalProperties, whatsappMessageTemplateComponentParameterActionSection.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(productRetailerId, quantity, itemPrice, currency, additionalProperties);
+    return Objects.hash(title, productItems, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappInboundMessageOrderProductItem {\n");
-    sb.append("    productRetailerId: ").append(toIndentedString(productRetailerId)).append("\n");
-    sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-    sb.append("    itemPrice: ").append(toIndentedString(itemPrice)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("class WhatsappMessageTemplateComponentParameterActionSection {\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    productItems: ").append(toIndentedString(productItems)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -272,10 +213,8 @@ public class WhatsappInboundMessageOrderProductItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("product_retailer_id");
-    openapiFields.add("quantity");
-    openapiFields.add("item_price");
-    openapiFields.add("currency");
+    openapiFields.add("title");
+    openapiFields.add("product_items");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -285,21 +224,30 @@ public class WhatsappInboundMessageOrderProductItem {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappInboundMessageOrderProductItem
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageTemplateComponentParameterActionSection
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappInboundMessageOrderProductItem.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageTemplateComponentParameterActionSection.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappInboundMessageOrderProductItem is not found in the empty JSON string", WhatsappInboundMessageOrderProductItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageTemplateComponentParameterActionSection is not found in the empty JSON string", WhatsappMessageTemplateComponentParameterActionSection.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("product_retailer_id") != null && !jsonObj.get("product_retailer_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `product_retailer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("product_retailer_id").toString()));
+      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      JsonArray jsonArrayproductItems = jsonObj.getAsJsonArray("product_items");
+      if (jsonArrayproductItems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("product_items").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `product_items` to be an array in the JSON string but got `%s`", jsonObj.get("product_items").toString()));
+        }
+
+        // validate the optional field `product_items` (array)
+        for (int i = 0; i < jsonArrayproductItems.size(); i++) {
+          WhatsappMessageTemplateComponentParameterActionSectionProductItem.validateJsonObject(jsonArrayproductItems.get(i).getAsJsonObject());
+        };
       }
   }
 
@@ -307,16 +255,16 @@ public class WhatsappInboundMessageOrderProductItem {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappInboundMessageOrderProductItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappInboundMessageOrderProductItem' and its subtypes
+       if (!WhatsappMessageTemplateComponentParameterActionSection.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageTemplateComponentParameterActionSection' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappInboundMessageOrderProductItem> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappInboundMessageOrderProductItem.class));
+       final TypeAdapter<WhatsappMessageTemplateComponentParameterActionSection> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageTemplateComponentParameterActionSection.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappInboundMessageOrderProductItem>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageTemplateComponentParameterActionSection>() {
            @Override
-           public void write(JsonWriter out, WhatsappInboundMessageOrderProductItem value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageTemplateComponentParameterActionSection value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -339,11 +287,11 @@ public class WhatsappInboundMessageOrderProductItem {
            }
 
            @Override
-           public WhatsappInboundMessageOrderProductItem read(JsonReader in) throws IOException {
+           public WhatsappMessageTemplateComponentParameterActionSection read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappInboundMessageOrderProductItem instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageTemplateComponentParameterActionSection instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -368,18 +316,18 @@ public class WhatsappInboundMessageOrderProductItem {
   }
 
  /**
-  * Create an instance of WhatsappInboundMessageOrderProductItem given an JSON string
+  * Create an instance of WhatsappMessageTemplateComponentParameterActionSection given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappInboundMessageOrderProductItem
-  * @throws IOException if the JSON string is invalid with respect to WhatsappInboundMessageOrderProductItem
+  * @return An instance of WhatsappMessageTemplateComponentParameterActionSection
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageTemplateComponentParameterActionSection
   */
-  public static WhatsappInboundMessageOrderProductItem fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappInboundMessageOrderProductItem.class);
+  public static WhatsappMessageTemplateComponentParameterActionSection fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageTemplateComponentParameterActionSection.class);
   }
 
  /**
-  * Convert an instance of WhatsappInboundMessageOrderProductItem to an JSON string
+  * Convert an instance of WhatsappMessageTemplateComponentParameterActionSection to an JSON string
   *
   * @return JSON string
   */

@@ -149,7 +149,7 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Retrieve a WhatsApp message
+     * Retrieve a message
      * <p>
      * Retrieves a WhatsApp message you&#39;ve previously sent.
      * @param id ID of the object. (required)
@@ -168,7 +168,7 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Retrieve a WhatsApp message
+     * Retrieve a message
      * <p>
      * Retrieves a WhatsApp message you&#39;ve previously sent.
      * @param id ID of the object. (required)
@@ -188,7 +188,7 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Retrieve a WhatsApp message (asynchronously)
+     * Retrieve a message (asynchronously)
      * <p>
      * Retrieves a WhatsApp message you&#39;ve previously sent.
      * @param id ID of the object. (required)
@@ -281,7 +281,7 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Enqueue a WhatsApp message
+     * Enqueue a message
      * <p>
      * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.
      * @param whatsappMessageSendRequest  (required)
@@ -299,7 +299,7 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Enqueue a WhatsApp message
+     * Enqueue a message
      * <p>
      * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.
      * @param whatsappMessageSendRequest  (required)
@@ -318,7 +318,7 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Enqueue a WhatsApp message (asynchronously)
+     * Enqueue a message (asynchronously)
      * <p>
      * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.
      * @param whatsappMessageSendRequest  (required)
@@ -410,7 +410,7 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Send a WhatsApp message directly
+     * Send a message directly
      * <p>
      * Sends an outbound WhatsApp message directly.  The message is submitted to the WhatsApp Business API synchronously. Typically used for sending OTP and instant messages.  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request the WhatsApp Business API and got an error response.
      * @param whatsappMessageSendRequest  (required)
@@ -428,7 +428,7 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Send a WhatsApp message directly
+     * Send a message directly
      * <p>
      * Sends an outbound WhatsApp message directly.  The message is submitted to the WhatsApp Business API synchronously. Typically used for sending OTP and instant messages.  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request the WhatsApp Business API and got an error response.
      * @param whatsappMessageSendRequest  (required)
@@ -447,7 +447,7 @@ public class WhatsappMessagesApi {
     }
 
     /**
-     * Send a WhatsApp message directly (asynchronously)
+     * Send a message directly (asynchronously)
      * <p>
      * Sends an outbound WhatsApp message directly.  The message is submitted to the WhatsApp Business API synchronously. Typically used for sending OTP and instant messages.  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request the WhatsApp Business API and got an error response.
      * @param whatsappMessageSendRequest  (required)

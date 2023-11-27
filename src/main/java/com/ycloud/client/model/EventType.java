@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Type of webhook events.
+ * Type of event.
  */
 @JsonAdapter(EventType.Adapter.class)
 public enum EventType {
@@ -76,17 +76,17 @@ public enum EventType {
   WHATSAPP_MESSAGE_UPDATED("whatsapp.message.updated"),
   
   /**
-   * Occurs when a WhatsApp business account phone number is deleted.
+   * Occurs when a WhatsApp business phone number is deleted.
    */
   WHATSAPP_PHONE_NUMBER_DELETED("whatsapp.phone_number.deleted"),
   
   /**
-   * Occurs when a WhatsApp business account phone number&#39;s name has been approved or rejected.
+   * Occurs when a WhatsApp business phone number&#39;s name has been approved or rejected.
    */
   WHATSAPP_PHONE_NUMBER_NAME_UPDATED("whatsapp.phone_number.name_updated"),
   
   /**
-   * Occurs when a WhatsApp business account phone number&#39;s quality-related status is updated, and the status changes to &#x60;GREEN&#x60;, &#x60;YELLOW&#x60;, or &#x60;RED&#x60;.
+   * Occurs when a WhatsApp business phone number&#39;s quality-related status is updated, and the status changes to &#x60;GREEN&#x60;, &#x60;YELLOW&#x60;, or &#x60;RED&#x60;.
    */
   WHATSAPP_PHONE_NUMBER_QUALITY_UPDATED("whatsapp.phone_number.quality_updated"),
   
@@ -101,7 +101,7 @@ public enum EventType {
   WHATSAPP_TEMPLATE_QUALITY_UPDATED("whatsapp.template.quality_updated"),
   
   /**
-   * Occurs when a WhatsApp template status is updated, and the status changes to REJECTED, APPROVED, PAUSED, DISABLED, or IN_APPEAL.
+   * Occurs when a WhatsApp template status is updated, and the status changes to &#x60;REJECTED&#x60;, &#x60;APPROVED&#x60;, &#x60;PAUSED&#x60;, &#x60;DISABLED&#x60;, or &#x60;IN_APPEAL&#x60;.
    */
   WHATSAPP_TEMPLATE_REVIEWED("whatsapp.template.reviewed");
 

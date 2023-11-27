@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.10.3 (2023-11-27)
+
+- Support WhatsApp [Catalog template](https://docs.ycloud.com/reference/whatsapp-template-creation-examples#catalog-template) and [Catalog template message](https://docs.ycloud.com/reference/whatsapp-messaging-examples#catalog-template-message).
+- Support WhatsApp [Multi-Product Message template](https://docs.ycloud.com/reference/whatsapp-template-creation-examples#multi-product-message-template) and [MPM template message](https://docs.ycloud.com/reference/whatsapp-messaging-examples#mpm-template-message).
+- Support WhatsApp [Interactive Catalog message](https://docs.ycloud.com/reference/whatsapp-messaging-examples#interactive-catalog-message).
+- Add the [Update commerce settings](https://docs.ycloud.com/reference/whatsapp_phone_number-update-commerce-settings) endpoint to enable or disable the shopping cart or the product catalog for a specific business phone number.
+
 ## 1.10.2 (2023-11-14)
 
 - Rename some models for the WhatsApp carousel template and message.

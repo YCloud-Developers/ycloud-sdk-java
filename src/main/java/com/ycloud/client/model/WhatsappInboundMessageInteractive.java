@@ -57,14 +57,8 @@ public class WhatsappInboundMessageInteractive {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    /**
-     * Sent when a customer clicks a button.
-     */
     BUTTON_REPLY("button_reply"),
     
-    /**
-     * Sent when a customer selects an item from a list.
-     */
     LIST_REPLY("list_reply");
 
     private String value;

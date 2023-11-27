@@ -25,24 +25,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Conversation type. There is a charge when the first business message of this conversation is delivered, initiating the 24-hour conversation session. As such, the conversation type can be &#x60;null&#x60; before the first message is delivered. &#x60;FREE_ENTRY&#x60;: Conversations originating from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points). &#x60;FREE_TIER&#x60;: Conversations within the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations). &#x60;REGULAR&#x60;: Any conversations that did not originate from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points) or are above the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations) allotment.
+ * Conversation type. There is a charge when the first business message of this conversation is delivered, initiating the 24-hour conversation session. As such, the conversation type can be &#x60;null&#x60; before the first message is delivered. - &#x60;FREE_ENTRY&#x60;: Conversations originating from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points). - &#x60;FREE_TIER&#x60;: Conversations within the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations). - &#x60;REGULAR&#x60;: Any conversations that did not originate from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points) or are above the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations) allotment.
  */
 @JsonAdapter(WhatsappConversationType.Adapter.class)
 public enum WhatsappConversationType {
   
-  /**
-   * Conversations originating from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points).
-   */
   FREE_ENTRY("FREE_ENTRY"),
   
-  /**
-   * Conversations within the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations).
-   */
   FREE_TIER("FREE_TIER"),
   
-  /**
-   * Any conversations that did not originate from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points) or are above the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations) allotment.
-   */
   REGULAR("REGULAR");
 
   private String value;

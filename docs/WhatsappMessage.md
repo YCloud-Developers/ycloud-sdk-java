@@ -8,7 +8,7 @@ WhatsApp outbound message object.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | Unique ID for the object. |  |
+|**id** | **String** | Unique ID of the message. |  |
 |**wamid** | **String** | The original message ID on WhatsApp&#39;s platform. |  [optional] |
 |**wabaId** | **String** | WhatsApp Business Account ID. |  |
 |**from** | **String** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |

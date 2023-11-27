@@ -45,142 +45,110 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappInboundMessageOrderProductItem
+ * WhatsApp business phone number&#39;s commerce settings.
  */
+@ApiModel(description = "WhatsApp business phone number's commerce settings.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappInboundMessageOrderProductItem {
-  public static final String SERIALIZED_NAME_PRODUCT_RETAILER_ID = "product_retailer_id";
+public class WhatsappCommerceSettings {
+  public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * The product SKU identifier.
+   * Unique ID for the object.
   **/
-  @SerializedName(SERIALIZED_NAME_PRODUCT_RETAILER_ID)
-  private String productRetailerId;
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-  public static final String SERIALIZED_NAME_QUANTITY = "quantity";
+  public static final String SERIALIZED_NAME_IS_CART_ENABLED = "isCartEnabled";
   /**
-   * Number of item.
+   * When enabled, cart-related buttons appear in the conversation, catalog, and product details views. When the cart is disabled, customers can see products and their details, but all cart related buttons will not appear in any view.
   **/
-  @SerializedName(SERIALIZED_NAME_QUANTITY)
-  private Integer quantity;
+  @SerializedName(SERIALIZED_NAME_IS_CART_ENABLED)
+  private Boolean isCartEnabled;
 
-  public static final String SERIALIZED_NAME_ITEM_PRICE = "item_price";
+  public static final String SERIALIZED_NAME_IS_CATALOG_VISIBLE = "isCatalogVisible";
   /**
-   * Unitary price of item.
+   * When enabled, the catalog storefront icon and catalog-related buttons appear in conversation and business profile views. When the catalog is disabled, the storefront icon and catalog-related buttons will not appear in any views and the catalog preview with thumbnails will not appear in the business profile view.
   **/
-  @SerializedName(SERIALIZED_NAME_ITEM_PRICE)
-  private Double itemPrice;
+  @SerializedName(SERIALIZED_NAME_IS_CATALOG_VISIBLE)
+  private Boolean isCatalogVisible;
 
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  /**
-   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
-  **/
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private String currency;
-
-  public WhatsappInboundMessageOrderProductItem() { 
+  public WhatsappCommerceSettings() { 
   }
 
-  public WhatsappInboundMessageOrderProductItem productRetailerId(String productRetailerId) {
+  public WhatsappCommerceSettings id(String id) {
     
-    this.productRetailerId = productRetailerId;
+    this.id = id;
     return this;
   }
 
    /**
-   * The product SKU identifier.
-   * @return productRetailerId
+   * Unique ID for the object.
+   * @return id
   **/
   @javax.annotation.Nullable
 
-  public String getProductRetailerId() {
-    return productRetailerId;
+  public String getId() {
+    return id;
   }
 
 
   /**
-   * The product SKU identifier.
+   * Unique ID for the object.
    **/
-  @ApiModelProperty(value = "The product SKU identifier.")
-  public void setProductRetailerId(String productRetailerId) {
-    this.productRetailerId = productRetailerId;
+  @ApiModelProperty(value = "Unique ID for the object.")
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public WhatsappInboundMessageOrderProductItem quantity(Integer quantity) {
+  public WhatsappCommerceSettings isCartEnabled(Boolean isCartEnabled) {
     
-    this.quantity = quantity;
+    this.isCartEnabled = isCartEnabled;
     return this;
   }
 
    /**
-   * Number of item.
-   * @return quantity
+   * When enabled, cart-related buttons appear in the conversation, catalog, and product details views. When the cart is disabled, customers can see products and their details, but all cart related buttons will not appear in any view.
+   * @return isCartEnabled
   **/
   @javax.annotation.Nullable
 
-  public Integer getQuantity() {
-    return quantity;
+  public Boolean getIsCartEnabled() {
+    return isCartEnabled;
   }
 
 
   /**
-   * Number of item.
+   * When enabled, cart-related buttons appear in the conversation, catalog, and product details views. When the cart is disabled, customers can see products and their details, but all cart related buttons will not appear in any view.
    **/
-  @ApiModelProperty(value = "Number of item.")
-  public void setQuantity(Integer quantity) {
-    this.quantity = quantity;
+  @ApiModelProperty(value = "When enabled, cart-related buttons appear in the conversation, catalog, and product details views. When the cart is disabled, customers can see products and their details, but all cart related buttons will not appear in any view.")
+  public void setIsCartEnabled(Boolean isCartEnabled) {
+    this.isCartEnabled = isCartEnabled;
   }
 
 
-  public WhatsappInboundMessageOrderProductItem itemPrice(Double itemPrice) {
+  public WhatsappCommerceSettings isCatalogVisible(Boolean isCatalogVisible) {
     
-    this.itemPrice = itemPrice;
+    this.isCatalogVisible = isCatalogVisible;
     return this;
   }
 
    /**
-   * Unitary price of item.
-   * @return itemPrice
+   * When enabled, the catalog storefront icon and catalog-related buttons appear in conversation and business profile views. When the catalog is disabled, the storefront icon and catalog-related buttons will not appear in any views and the catalog preview with thumbnails will not appear in the business profile view.
+   * @return isCatalogVisible
   **/
   @javax.annotation.Nullable
 
-  public Double getItemPrice() {
-    return itemPrice;
+  public Boolean getIsCatalogVisible() {
+    return isCatalogVisible;
   }
 
 
   /**
-   * Unitary price of item.
+   * When enabled, the catalog storefront icon and catalog-related buttons appear in conversation and business profile views. When the catalog is disabled, the storefront icon and catalog-related buttons will not appear in any views and the catalog preview with thumbnails will not appear in the business profile view.
    **/
-  @ApiModelProperty(value = "Unitary price of item.")
-  public void setItemPrice(Double itemPrice) {
-    this.itemPrice = itemPrice;
-  }
-
-
-  public WhatsappInboundMessageOrderProductItem currency(String currency) {
-    
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-
-  public String getCurrency() {
-    return currency;
-  }
-
-
-  /**
-   * Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).
-   **/
-  @ApiModelProperty(example = "USD", value = "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217).")
-  public void setCurrency(String currency) {
-    this.currency = currency;
+  @ApiModelProperty(value = "When enabled, the catalog storefront icon and catalog-related buttons appear in conversation and business profile views. When the catalog is disabled, the storefront icon and catalog-related buttons will not appear in any views and the catalog preview with thumbnails will not appear in the business profile view.")
+  public void setIsCatalogVisible(Boolean isCatalogVisible) {
+    this.isCatalogVisible = isCatalogVisible;
   }
 
   /**
@@ -194,7 +162,7 @@ public class WhatsappInboundMessageOrderProductItem {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappInboundMessageOrderProductItem putAdditionalProperty(String key, Object value) {
+  public WhatsappCommerceSettings putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -228,27 +196,25 @@ public class WhatsappInboundMessageOrderProductItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappInboundMessageOrderProductItem whatsappInboundMessageOrderProductItem = (WhatsappInboundMessageOrderProductItem) o;
-    return Objects.equals(this.productRetailerId, whatsappInboundMessageOrderProductItem.productRetailerId) &&
-        Objects.equals(this.quantity, whatsappInboundMessageOrderProductItem.quantity) &&
-        Objects.equals(this.itemPrice, whatsappInboundMessageOrderProductItem.itemPrice) &&
-        Objects.equals(this.currency, whatsappInboundMessageOrderProductItem.currency)&&
-        Objects.equals(this.additionalProperties, whatsappInboundMessageOrderProductItem.additionalProperties);
+    WhatsappCommerceSettings whatsappCommerceSettings = (WhatsappCommerceSettings) o;
+    return Objects.equals(this.id, whatsappCommerceSettings.id) &&
+        Objects.equals(this.isCartEnabled, whatsappCommerceSettings.isCartEnabled) &&
+        Objects.equals(this.isCatalogVisible, whatsappCommerceSettings.isCatalogVisible)&&
+        Objects.equals(this.additionalProperties, whatsappCommerceSettings.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(productRetailerId, quantity, itemPrice, currency, additionalProperties);
+    return Objects.hash(id, isCartEnabled, isCatalogVisible, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappInboundMessageOrderProductItem {\n");
-    sb.append("    productRetailerId: ").append(toIndentedString(productRetailerId)).append("\n");
-    sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-    sb.append("    itemPrice: ").append(toIndentedString(itemPrice)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("class WhatsappCommerceSettings {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isCartEnabled: ").append(toIndentedString(isCartEnabled)).append("\n");
+    sb.append("    isCatalogVisible: ").append(toIndentedString(isCatalogVisible)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -272,10 +238,9 @@ public class WhatsappInboundMessageOrderProductItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("product_retailer_id");
-    openapiFields.add("quantity");
-    openapiFields.add("item_price");
-    openapiFields.add("currency");
+    openapiFields.add("id");
+    openapiFields.add("isCartEnabled");
+    openapiFields.add("isCatalogVisible");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -285,21 +250,18 @@ public class WhatsappInboundMessageOrderProductItem {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappInboundMessageOrderProductItem
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappCommerceSettings
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappInboundMessageOrderProductItem.openapiRequiredFields.isEmpty()) {
+        if (WhatsappCommerceSettings.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappInboundMessageOrderProductItem is not found in the empty JSON string", WhatsappInboundMessageOrderProductItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappCommerceSettings is not found in the empty JSON string", WhatsappCommerceSettings.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("product_retailer_id") != null && !jsonObj.get("product_retailer_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `product_retailer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("product_retailer_id").toString()));
-      }
-      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
   }
 
@@ -307,16 +269,16 @@ public class WhatsappInboundMessageOrderProductItem {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappInboundMessageOrderProductItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappInboundMessageOrderProductItem' and its subtypes
+       if (!WhatsappCommerceSettings.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappCommerceSettings' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappInboundMessageOrderProductItem> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappInboundMessageOrderProductItem.class));
+       final TypeAdapter<WhatsappCommerceSettings> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappCommerceSettings.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappInboundMessageOrderProductItem>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappCommerceSettings>() {
            @Override
-           public void write(JsonWriter out, WhatsappInboundMessageOrderProductItem value) throws IOException {
+           public void write(JsonWriter out, WhatsappCommerceSettings value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -339,11 +301,11 @@ public class WhatsappInboundMessageOrderProductItem {
            }
 
            @Override
-           public WhatsappInboundMessageOrderProductItem read(JsonReader in) throws IOException {
+           public WhatsappCommerceSettings read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappInboundMessageOrderProductItem instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappCommerceSettings instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -368,18 +330,18 @@ public class WhatsappInboundMessageOrderProductItem {
   }
 
  /**
-  * Create an instance of WhatsappInboundMessageOrderProductItem given an JSON string
+  * Create an instance of WhatsappCommerceSettings given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappInboundMessageOrderProductItem
-  * @throws IOException if the JSON string is invalid with respect to WhatsappInboundMessageOrderProductItem
+  * @return An instance of WhatsappCommerceSettings
+  * @throws IOException if the JSON string is invalid with respect to WhatsappCommerceSettings
   */
-  public static WhatsappInboundMessageOrderProductItem fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappInboundMessageOrderProductItem.class);
+  public static WhatsappCommerceSettings fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappCommerceSettings.class);
   }
 
  /**
-  * Convert an instance of WhatsappInboundMessageOrderProductItem to an JSON string
+  * Convert an instance of WhatsappCommerceSettings to an JSON string
   *
   * @return JSON string
   */

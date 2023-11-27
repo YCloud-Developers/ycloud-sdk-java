@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappMessageTemplateComponentParameterActionSection;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,95 +48,36 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Action parameters. Required for Call-To-Action (CTA) URL Button Messages.
+ * Required if template uses catalog or MPM (multi-product message) buttons.
  */
-@ApiModel(description = "Action parameters. Required for Call-To-Action (CTA) URL Button Messages.")
+@ApiModel(description = "Required if template uses catalog or MPM (multi-product message) buttons.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageInteractiveActionParameters {
-  public static final String SERIALIZED_NAME_DISPLAY_TEXT = "display_text";
-  /**
-   * Text of the CTA URL button. Maximum length: 20 bytes.
-  **/
-  @SerializedName(SERIALIZED_NAME_DISPLAY_TEXT)
-  private String displayText;
-
-  public static final String SERIALIZED_NAME_URL = "url";
-  /**
-   * URL of the CTA URL button.
-  **/
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
-
+public class WhatsappMessageTemplateComponentParameterAction {
   public static final String SERIALIZED_NAME_THUMBNAIL_PRODUCT_RETAILER_ID = "thumbnail_product_retailer_id";
   /**
-   * Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message&#39;s header image.
+   * **Optional.** Use for catalog and MPM template messages. Item SKU number. Labeled as Content ID in the Commerce Manager. The thumbnail of this item will be used as the message&#39;s header image. If the &#x60;parameters&#x60; object is omitted, the product image of the first item in your catalog will be used.
   **/
   @SerializedName(SERIALIZED_NAME_THUMBNAIL_PRODUCT_RETAILER_ID)
   private String thumbnailProductRetailerId;
 
-  public WhatsappMessageInteractiveActionParameters() { 
-  }
-
-  public WhatsappMessageInteractiveActionParameters displayText(String displayText) {
-    
-    this.displayText = displayText;
-    return this;
-  }
-
-   /**
-   * Text of the CTA URL button. Maximum length: 20 bytes.
-   * @return displayText
-  **/
-  @javax.annotation.Nullable
-
-  public String getDisplayText() {
-    return displayText;
-  }
-
-
+  public static final String SERIALIZED_NAME_SECTIONS = "sections";
   /**
-   * Text of the CTA URL button. Maximum length: 20 bytes.
-   **/
-  @ApiModelProperty(example = "See Docs", value = "Text of the CTA URL button. Maximum length: 20 bytes.")
-  public void setDisplayText(String displayText) {
-    this.displayText = displayText;
-  }
-
-
-  public WhatsappMessageInteractiveActionParameters url(String url) {
-    
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * URL of the CTA URL button.
-   * @return url
+   * Use for MPM templates. Product sections. You can define up to 10 sections.
   **/
-  @javax.annotation.Nullable
+  @SerializedName(SERIALIZED_NAME_SECTIONS)
+  private List<WhatsappMessageTemplateComponentParameterActionSection> sections = null;
 
-  public String getUrl() {
-    return url;
+  public WhatsappMessageTemplateComponentParameterAction() { 
   }
 
-
-  /**
-   * URL of the CTA URL button.
-   **/
-  @ApiModelProperty(example = "https://developers.facebook.com/docs/whatsapp", value = "URL of the CTA URL button.")
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-
-  public WhatsappMessageInteractiveActionParameters thumbnailProductRetailerId(String thumbnailProductRetailerId) {
+  public WhatsappMessageTemplateComponentParameterAction thumbnailProductRetailerId(String thumbnailProductRetailerId) {
     
     this.thumbnailProductRetailerId = thumbnailProductRetailerId;
     return this;
   }
 
    /**
-   * Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message&#39;s header image.
+   * **Optional.** Use for catalog and MPM template messages. Item SKU number. Labeled as Content ID in the Commerce Manager. The thumbnail of this item will be used as the message&#39;s header image. If the &#x60;parameters&#x60; object is omitted, the product image of the first item in your catalog will be used.
    * @return thumbnailProductRetailerId
   **/
   @javax.annotation.Nullable
@@ -144,11 +88,45 @@ public class WhatsappMessageInteractiveActionParameters {
 
 
   /**
-   * Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message&#39;s header image.
+   * **Optional.** Use for catalog and MPM template messages. Item SKU number. Labeled as Content ID in the Commerce Manager. The thumbnail of this item will be used as the message&#39;s header image. If the &#x60;parameters&#x60; object is omitted, the product image of the first item in your catalog will be used.
    **/
-  @ApiModelProperty(value = "Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message's header image.")
+  @ApiModelProperty(example = "2lc20305pt", value = "**Optional.** Use for catalog and MPM template messages. Item SKU number. Labeled as Content ID in the Commerce Manager. The thumbnail of this item will be used as the message's header image. If the `parameters` object is omitted, the product image of the first item in your catalog will be used.")
   public void setThumbnailProductRetailerId(String thumbnailProductRetailerId) {
     this.thumbnailProductRetailerId = thumbnailProductRetailerId;
+  }
+
+
+  public WhatsappMessageTemplateComponentParameterAction sections(List<WhatsappMessageTemplateComponentParameterActionSection> sections) {
+    
+    this.sections = sections;
+    return this;
+  }
+
+  public WhatsappMessageTemplateComponentParameterAction addSectionsItem(WhatsappMessageTemplateComponentParameterActionSection sectionsItem) {
+    if (this.sections == null) {
+      this.sections = new ArrayList<>();
+    }
+    this.sections.add(sectionsItem);
+    return this;
+  }
+
+   /**
+   * Use for MPM templates. Product sections. You can define up to 10 sections.
+   * @return sections
+  **/
+  @javax.annotation.Nullable
+
+  public List<WhatsappMessageTemplateComponentParameterActionSection> getSections() {
+    return sections;
+  }
+
+
+  /**
+   * Use for MPM templates. Product sections. You can define up to 10 sections.
+   **/
+  @ApiModelProperty(value = "Use for MPM templates. Product sections. You can define up to 10 sections.")
+  public void setSections(List<WhatsappMessageTemplateComponentParameterActionSection> sections) {
+    this.sections = sections;
   }
 
   /**
@@ -162,7 +140,7 @@ public class WhatsappMessageInteractiveActionParameters {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageInteractiveActionParameters putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageTemplateComponentParameterAction putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -196,25 +174,23 @@ public class WhatsappMessageInteractiveActionParameters {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageInteractiveActionParameters whatsappMessageInteractiveActionParameters = (WhatsappMessageInteractiveActionParameters) o;
-    return Objects.equals(this.displayText, whatsappMessageInteractiveActionParameters.displayText) &&
-        Objects.equals(this.url, whatsappMessageInteractiveActionParameters.url) &&
-        Objects.equals(this.thumbnailProductRetailerId, whatsappMessageInteractiveActionParameters.thumbnailProductRetailerId)&&
-        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionParameters.additionalProperties);
+    WhatsappMessageTemplateComponentParameterAction whatsappMessageTemplateComponentParameterAction = (WhatsappMessageTemplateComponentParameterAction) o;
+    return Objects.equals(this.thumbnailProductRetailerId, whatsappMessageTemplateComponentParameterAction.thumbnailProductRetailerId) &&
+        Objects.equals(this.sections, whatsappMessageTemplateComponentParameterAction.sections)&&
+        Objects.equals(this.additionalProperties, whatsappMessageTemplateComponentParameterAction.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayText, url, thumbnailProductRetailerId, additionalProperties);
+    return Objects.hash(thumbnailProductRetailerId, sections, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageInteractiveActionParameters {\n");
-    sb.append("    displayText: ").append(toIndentedString(displayText)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("class WhatsappMessageTemplateComponentParameterAction {\n");
     sb.append("    thumbnailProductRetailerId: ").append(toIndentedString(thumbnailProductRetailerId)).append("\n");
+    sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -238,9 +214,8 @@ public class WhatsappMessageInteractiveActionParameters {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("display_text");
-    openapiFields.add("url");
     openapiFields.add("thumbnail_product_retailer_id");
+    openapiFields.add("sections");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -250,24 +225,30 @@ public class WhatsappMessageInteractiveActionParameters {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionParameters
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageTemplateComponentParameterAction
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageInteractiveActionParameters.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageTemplateComponentParameterAction.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionParameters is not found in the empty JSON string", WhatsappMessageInteractiveActionParameters.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageTemplateComponentParameterAction is not found in the empty JSON string", WhatsappMessageTemplateComponentParameterAction.openapiRequiredFields.toString()));
         }
-      }
-      if (jsonObj.get("display_text") != null && !jsonObj.get("display_text").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `display_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_text").toString()));
-      }
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       if (jsonObj.get("thumbnail_product_retailer_id") != null && !jsonObj.get("thumbnail_product_retailer_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `thumbnail_product_retailer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbnail_product_retailer_id").toString()));
+      }
+      JsonArray jsonArraysections = jsonObj.getAsJsonArray("sections");
+      if (jsonArraysections != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("sections").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `sections` to be an array in the JSON string but got `%s`", jsonObj.get("sections").toString()));
+        }
+
+        // validate the optional field `sections` (array)
+        for (int i = 0; i < jsonArraysections.size(); i++) {
+          WhatsappMessageTemplateComponentParameterActionSection.validateJsonObject(jsonArraysections.get(i).getAsJsonObject());
+        };
       }
   }
 
@@ -275,16 +256,16 @@ public class WhatsappMessageInteractiveActionParameters {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageInteractiveActionParameters.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageInteractiveActionParameters' and its subtypes
+       if (!WhatsappMessageTemplateComponentParameterAction.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageTemplateComponentParameterAction' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageInteractiveActionParameters> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionParameters.class));
+       final TypeAdapter<WhatsappMessageTemplateComponentParameterAction> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageTemplateComponentParameterAction.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionParameters>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageTemplateComponentParameterAction>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageInteractiveActionParameters value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageTemplateComponentParameterAction value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -307,11 +288,11 @@ public class WhatsappMessageInteractiveActionParameters {
            }
 
            @Override
-           public WhatsappMessageInteractiveActionParameters read(JsonReader in) throws IOException {
+           public WhatsappMessageTemplateComponentParameterAction read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageInteractiveActionParameters instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageTemplateComponentParameterAction instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -336,18 +317,18 @@ public class WhatsappMessageInteractiveActionParameters {
   }
 
  /**
-  * Create an instance of WhatsappMessageInteractiveActionParameters given an JSON string
+  * Create an instance of WhatsappMessageTemplateComponentParameterAction given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageInteractiveActionParameters
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionParameters
+  * @return An instance of WhatsappMessageTemplateComponentParameterAction
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageTemplateComponentParameterAction
   */
-  public static WhatsappMessageInteractiveActionParameters fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionParameters.class);
+  public static WhatsappMessageTemplateComponentParameterAction fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageTemplateComponentParameterAction.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageInteractiveActionParameters to an JSON string
+  * Convert an instance of WhatsappMessageTemplateComponentParameterAction to an JSON string
   *
   * @return JSON string
   */

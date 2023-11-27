@@ -8,7 +8,7 @@ Sent when a customer clicks a button. Returned when `type` is `button_reply`.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | Unique ID of a button. |  [optional] |
+|**id** | **String** | Unique ID of the clicked button. |  [optional] |
 |**title** | **String** | Title of a button. |  [optional] |
 
 

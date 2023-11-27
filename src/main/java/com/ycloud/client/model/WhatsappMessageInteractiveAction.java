@@ -91,13 +91,10 @@ public class WhatsappMessageInteractiveAction {
   private List<WhatsappMessageInteractiveActionSection> sections = null;
 
   /**
-   * Action name. Required for Call-To-Action (CTA) URL Button Messages.
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons.
    */
   @JsonAdapter(NameEnum.Adapter.class)
   public enum NameEnum {
-    /**
-     * Use for Call-To-Action (CTA) URL Buttons.
-     */
     CTA_URL("cta_url");
 
     private String value;
@@ -140,7 +137,7 @@ public class WhatsappMessageInteractiveAction {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   /**
-   * Action name. Required for Call-To-Action (CTA) URL Button Messages.
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons.
   **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private NameEnum name;
@@ -307,7 +304,7 @@ public class WhatsappMessageInteractiveAction {
   }
 
    /**
-   * Action name. Required for Call-To-Action (CTA) URL Button Messages.
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons.
    * @return name
   **/
   @javax.annotation.Nullable
@@ -318,9 +315,9 @@ public class WhatsappMessageInteractiveAction {
 
 
   /**
-   * Action name. Required for Call-To-Action (CTA) URL Button Messages.
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons.
    **/
-  @ApiModelProperty(value = "Action name. Required for Call-To-Action (CTA) URL Button Messages.")
+  @ApiModelProperty(value = "Action name. Required for Call-To-Action (CTA) URL Button Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Buttons.")
   public void setName(NameEnum name) {
     this.name = name;
   }

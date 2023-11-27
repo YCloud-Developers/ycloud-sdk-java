@@ -11,9 +11,5 @@
 
 * `UTILITY` (value: `"UTILITY"`)
 
-* `TRANSACTIONAL` (value: `"TRANSACTIONAL"`)
-
-* `OTP` (value: `"OTP"`)
-
 
 

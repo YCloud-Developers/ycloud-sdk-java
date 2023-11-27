@@ -8,7 +8,7 @@ Represents a specific [WhatsApp Business Account (WABA)](https://www.facebook.co
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | ID of the WhatApp Business Account. |  [optional] |
+|**id** | **String** | WhatApp Business Account ID. |  [optional] |
 |**name** | **String** | User-friendly name to differentiate WhatsApp Business Accounts. |  [optional] |
 |**currency** | **String** | The currency in which the payment transactions for the WhatsApp Business Account will be processed. |  [optional] |
 |**messageTemplateNamespace** | **String** | Namespace string for the message templates that belong to the WhatsApp Business Account. |  [optional] |

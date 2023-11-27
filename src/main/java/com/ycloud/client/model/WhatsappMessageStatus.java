@@ -30,29 +30,14 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(WhatsappMessageStatus.Adapter.class)
 public enum WhatsappMessageStatus {
   
-  /**
-   * The messaging request is accepted by our system.
-   */
   ACCEPTED("accepted"),
   
-  /**
-   * A message sent by your business failed to send.
-   */
   FAILED("failed"),
   
-  /**
-   * A message sent by your business is in transit within WhatsApp&#39;s systems.
-   */
   SENT("sent"),
   
-  /**
-   * A message sent by your business was delivered to the user&#39;s device.
-   */
   DELIVERED("delivered"),
   
-  /**
-   * A message sent by your business was read by the user.
-   */
   READ("read");
 
   private String value;

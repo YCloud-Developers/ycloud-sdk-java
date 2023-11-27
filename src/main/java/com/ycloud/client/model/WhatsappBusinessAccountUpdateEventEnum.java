@@ -25,24 +25,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Indicates the update event type of the WABA when a notification is sent to you to report a [policy violation](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement), a WABA has been banned and more.
+ * Indicates the update event type of the WABA when a notification is sent to you to report a [policy violation](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement), a WABA has been banned and more. - &#x60;DISABLED_UPDATE&#x60;: WhatsApp Business Account Banned. - &#x60;ACCOUNT_RESTRICTION&#x60;: WhatsApp Business Account Restricted Due To Policy Violations. - &#x60;ACCOUNT_VIOLATION&#x60;: WhatsApp Business Account Violates Policy.
  */
 @JsonAdapter(WhatsappBusinessAccountUpdateEventEnum.Adapter.class)
 public enum WhatsappBusinessAccountUpdateEventEnum {
   
-  /**
-   * WhatsApp Business Account Banned.
-   */
   DISABLED_UPDATE("DISABLED_UPDATE"),
   
-  /**
-   * WhatsApp Business Account Restricted Due To Policy Violations.
-   */
   ACCOUNT_RESTRICTION("ACCOUNT_RESTRICTION"),
   
-  /**
-   * WhatsApp Business Account Violates Policy.
-   */
   ACCOUNT_VIOLATION("ACCOUNT_VIOLATION");
 
   private String value;

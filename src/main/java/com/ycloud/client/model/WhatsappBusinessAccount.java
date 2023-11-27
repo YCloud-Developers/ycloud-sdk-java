@@ -60,7 +60,7 @@ import com.ycloud.client.JSON;
 public class WhatsappBusinessAccount {
   public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * ID of the WhatApp Business Account.
+   * WhatApp Business Account ID.
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -182,7 +182,7 @@ public class WhatsappBusinessAccount {
   }
 
    /**
-   * ID of the WhatApp Business Account.
+   * WhatApp Business Account ID.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -193,9 +193,9 @@ public class WhatsappBusinessAccount {
 
 
   /**
-   * ID of the WhatApp Business Account.
+   * WhatApp Business Account ID.
    **/
-  @ApiModelProperty(value = "ID of the WhatApp Business Account.")
+  @ApiModelProperty(value = "WhatApp Business Account ID.")
   public void setId(String id) {
     this.id = id;
   }

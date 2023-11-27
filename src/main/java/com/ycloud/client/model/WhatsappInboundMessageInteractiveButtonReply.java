@@ -52,7 +52,7 @@ import com.ycloud.client.JSON;
 public class WhatsappInboundMessageInteractiveButtonReply {
   public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * Unique ID of a button.
+   * Unique ID of the clicked button.
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -74,7 +74,7 @@ public class WhatsappInboundMessageInteractiveButtonReply {
   }
 
    /**
-   * Unique ID of a button.
+   * Unique ID of the clicked button.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -85,9 +85,9 @@ public class WhatsappInboundMessageInteractiveButtonReply {
 
 
   /**
-   * Unique ID of a button.
+   * Unique ID of the clicked button.
    **/
-  @ApiModelProperty(value = "Unique ID of a button.")
+  @ApiModelProperty(value = "Unique ID of the clicked button.")
   public void setId(String id) {
     this.id = id;
   }

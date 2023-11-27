@@ -15,5 +15,9 @@
 
 * `OTP` (value: `"OTP"`)
 
+* `CATALOG` (value: `"CATALOG"`)
+
+* `MPM` (value: `"MPM"`)
+
 
 

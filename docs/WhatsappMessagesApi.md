@@ -4,16 +4,16 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**retrieve**](WhatsappMessagesApi.md#retrieve) | **GET** /whatsapp/messages/{id} | Retrieve a WhatsApp message |
-| [**send**](WhatsappMessagesApi.md#send) | **POST** /whatsapp/messages | Enqueue a WhatsApp message |
-| [**sendDirectly**](WhatsappMessagesApi.md#sendDirectly) | **POST** /whatsapp/messages/sendDirectly | Send a WhatsApp message directly |
+| [**retrieve**](WhatsappMessagesApi.md#retrieve) | **GET** /whatsapp/messages/{id} | Retrieve a message |
+| [**send**](WhatsappMessagesApi.md#send) | **POST** /whatsapp/messages | Enqueue a message |
+| [**sendDirectly**](WhatsappMessagesApi.md#sendDirectly) | **POST** /whatsapp/messages/sendDirectly | Send a message directly |
 
 
 <a name="retrieve"></a>
 # **retrieve**
 > WhatsappMessage retrieve(id)
 
-Retrieve a WhatsApp message
+Retrieve a message
 
 Retrieves a WhatsApp message you&#39;ve previously sent.
 
@@ -83,7 +83,7 @@ public class Example {
 # **send**
 > WhatsappMessage send(whatsappMessageSendRequest)
 
-Enqueue a WhatsApp message
+Enqueue a message
 
 Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.
 
@@ -152,7 +152,7 @@ public class Example {
 # **sendDirectly**
 > WhatsappMessage sendDirectly(whatsappMessageSendRequest)
 
-Send a WhatsApp message directly
+Send a message directly
 
 Sends an outbound WhatsApp message directly.  The message is submitted to the WhatsApp Business API synchronously. Typically used for sending OTP and instant messages.  The response body field &#x60;error.whatsappApiError&#x60; is included if we tried to request the WhatsApp Business API and got an error response.
 

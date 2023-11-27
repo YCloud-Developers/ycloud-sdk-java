@@ -30,49 +30,22 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(WhatsappTemplateStatusUpdateEventEnum.Adapter.class)
 public enum WhatsappTemplateStatusUpdateEventEnum {
   
-  /**
-   * Pending.
-   */
   PENDING("PENDING"),
   
-  /**
-   * Approved.
-   */
   APPROVED("APPROVED"),
   
-  /**
-   * Rejected.
-   */
   REJECTED("REJECTED"),
   
-  /**
-   * In appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals).
-   */
   IN_APPEAL("IN_APPEAL"),
   
-  /**
-   * Paused. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing).
-   */
   PAUSED("PAUSED"),
   
-  /**
-   * Flagged. The template is scheduled for disabling.
-   */
   FLAGGED("FLAGGED"),
   
-  /**
-   * Disabled. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing).
-   */
   DISABLED("DISABLED"),
   
-  /**
-   * Reinstated.
-   */
   REINSTATED("REINSTATED"),
   
-  /**
-   * Pending deletion.
-   */
   PENDING_DELETION("PENDING_DELETION");
 
   private String value;

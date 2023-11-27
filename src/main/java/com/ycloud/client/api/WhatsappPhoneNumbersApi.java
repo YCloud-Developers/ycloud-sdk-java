@@ -28,6 +28,8 @@ import java.io.IOException;
 
 
 import com.ycloud.client.model.ErrorResponse;
+import com.ycloud.client.model.WhatsappCommerceSettings;
+import com.ycloud.client.model.WhatsappCommerceSettingsUpdateRequest;
 import com.ycloud.client.model.WhatsappPhoneNumber;
 import com.ycloud.client.model.WhatsappPhoneNumberPage;
 import com.ycloud.client.model.WhatsappPhoneNumberProfile;
@@ -272,9 +274,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * List WhatsApp phone numbers
+     * List phone numbers
      * <p>
-     * Returns a paginated list of WhatsApp business account phone numbers you&#39;ve registered on YCloud.
+     * Returns a paginated list of WhatsApp business phone numbers you&#39;ve registered on YCloud.
      * @return ApiListRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -366,9 +368,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * Retrieve a WhatsApp phone number
+     * Retrieve a phone number
      * <p>
-     * Retrieves a WhatsApp business account phone number you&#39;ve registered on YCloud.
+     * Retrieves a WhatsApp business phone number you&#39;ve registered on YCloud.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @return WhatsappPhoneNumber
@@ -386,9 +388,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * Retrieve a WhatsApp phone number
+     * Retrieve a phone number
      * <p>
-     * Retrieves a WhatsApp business account phone number you&#39;ve registered on YCloud.
+     * Retrieves a WhatsApp business phone number you&#39;ve registered on YCloud.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @return ApiResponse&lt;WhatsappPhoneNumber&gt;
@@ -407,9 +409,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * Retrieve a WhatsApp phone number (asynchronously)
+     * Retrieve a phone number (asynchronously)
      * <p>
-     * Retrieves a WhatsApp business account phone number you&#39;ve registered on YCloud.
+     * Retrieves a WhatsApp business phone number you&#39;ve registered on YCloud.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -426,6 +428,150 @@ public class WhatsappPhoneNumbersApi {
 
         okhttp3.Call localVarCall = retrieveValidateBeforeCall(wabaId, phoneNumber, _callback);
         Type localVarReturnType = new TypeToken<WhatsappPhoneNumber>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for retrieveCommerceSettings
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveCommerceSettingsCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call retrieveCommerceSettingsValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveCommerceSettings(Async)");
+        }
+        
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieveCommerceSettings(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = retrieveCommerceSettingsCall(wabaId, phoneNumber, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve commerce settings
+     * <p>
+     * Retrieves a WhatsApp business phone number&#39;s commerce settings.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return WhatsappCommerceSettings
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappCommerceSettings retrieveCommerceSettings(String wabaId, String phoneNumber) throws ApiException {
+        ApiResponse<WhatsappCommerceSettings> localVarResp = retrieveCommerceSettingsWithHttpInfo(wabaId, phoneNumber);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve commerce settings
+     * <p>
+     * Retrieves a WhatsApp business phone number&#39;s commerce settings.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return ApiResponse&lt;WhatsappCommerceSettings&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappCommerceSettings> retrieveCommerceSettingsWithHttpInfo(String wabaId, String phoneNumber) throws ApiException {
+        okhttp3.Call localVarCall = retrieveCommerceSettingsValidateBeforeCall(wabaId, phoneNumber, null);
+        Type localVarReturnType = new TypeToken<WhatsappCommerceSettings>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve commerce settings (asynchronously)
+     * <p>
+     * Retrieves a WhatsApp business phone number&#39;s commerce settings.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveCommerceSettingsAsync(String wabaId, String phoneNumber, final ApiCallback<WhatsappCommerceSettings> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = retrieveCommerceSettingsValidateBeforeCall(wabaId, phoneNumber, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappCommerceSettings>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -510,9 +656,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * Retrieve a WhatsApp phone number profile
+     * Retrieve a phone number profile
      * <p>
-     * Retrieves a WhatsApp business account phone number&#39;s profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
+     * Retrieves a WhatsApp business phone number&#39;s profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @return WhatsappPhoneNumberProfile
@@ -530,9 +676,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * Retrieve a WhatsApp phone number profile
+     * Retrieve a phone number profile
      * <p>
-     * Retrieves a WhatsApp business account phone number&#39;s profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
+     * Retrieves a WhatsApp business phone number&#39;s profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @return ApiResponse&lt;WhatsappPhoneNumberProfile&gt;
@@ -551,9 +697,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * Retrieve a WhatsApp phone number profile (asynchronously)
+     * Retrieve a phone number profile (asynchronously)
      * <p>
-     * Retrieves a WhatsApp business account phone number&#39;s profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
+     * Retrieves a WhatsApp business phone number&#39;s profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -570,6 +716,159 @@ public class WhatsappPhoneNumbersApi {
 
         okhttp3.Call localVarCall = retrieveProfileValidateBeforeCall(wabaId, phoneNumber, _callback);
         Type localVarReturnType = new TypeToken<WhatsappPhoneNumberProfile>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateCommerceSettings
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappCommerceSettingsUpdateRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCommerceSettingsCall(String wabaId, String phoneNumber, WhatsappCommerceSettingsUpdateRequest whatsappCommerceSettingsUpdateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = whatsappCommerceSettingsUpdateRequest;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateCommerceSettingsValidateBeforeCall(String wabaId, String phoneNumber, WhatsappCommerceSettingsUpdateRequest whatsappCommerceSettingsUpdateRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling updateCommerceSettings(Async)");
+        }
+        
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling updateCommerceSettings(Async)");
+        }
+        
+        // verify the required parameter 'whatsappCommerceSettingsUpdateRequest' is set
+        if (whatsappCommerceSettingsUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'whatsappCommerceSettingsUpdateRequest' when calling updateCommerceSettings(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateCommerceSettingsCall(wabaId, phoneNumber, whatsappCommerceSettingsUpdateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update commerce settings
+     * <p>
+     * Updates a WhatsApp business phone number&#39;s commerce settings. Use this endpoint to enable or disable the shopping cart or the product catalog for a specific business phone number.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappCommerceSettingsUpdateRequest  (required)
+     * @return WhatsappCommerceSettings
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappCommerceSettings updateCommerceSettings(String wabaId, String phoneNumber, WhatsappCommerceSettingsUpdateRequest whatsappCommerceSettingsUpdateRequest) throws ApiException {
+        ApiResponse<WhatsappCommerceSettings> localVarResp = updateCommerceSettingsWithHttpInfo(wabaId, phoneNumber, whatsappCommerceSettingsUpdateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update commerce settings
+     * <p>
+     * Updates a WhatsApp business phone number&#39;s commerce settings. Use this endpoint to enable or disable the shopping cart or the product catalog for a specific business phone number.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappCommerceSettingsUpdateRequest  (required)
+     * @return ApiResponse&lt;WhatsappCommerceSettings&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappCommerceSettings> updateCommerceSettingsWithHttpInfo(String wabaId, String phoneNumber, WhatsappCommerceSettingsUpdateRequest whatsappCommerceSettingsUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateCommerceSettingsValidateBeforeCall(wabaId, phoneNumber, whatsappCommerceSettingsUpdateRequest, null);
+        Type localVarReturnType = new TypeToken<WhatsappCommerceSettings>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update commerce settings (asynchronously)
+     * <p>
+     * Updates a WhatsApp business phone number&#39;s commerce settings. Use this endpoint to enable or disable the shopping cart or the product catalog for a specific business phone number.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappCommerceSettingsUpdateRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCommerceSettingsAsync(String wabaId, String phoneNumber, WhatsappCommerceSettingsUpdateRequest whatsappCommerceSettingsUpdateRequest, final ApiCallback<WhatsappCommerceSettings> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateCommerceSettingsValidateBeforeCall(wabaId, phoneNumber, whatsappCommerceSettingsUpdateRequest, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappCommerceSettings>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -660,9 +959,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * Update a WhatsApp phone number profile
+     * Update a phone number profile
      * <p>
-     * Updates a WhatsApp phone number profile.
+     * Updates a WhatsApp business phone number profile.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param whatsappPhoneNumberProfileUpdateRequest  (required)
@@ -681,9 +980,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * Update a WhatsApp phone number profile
+     * Update a phone number profile
      * <p>
-     * Updates a WhatsApp phone number profile.
+     * Updates a WhatsApp business phone number profile.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param whatsappPhoneNumberProfileUpdateRequest  (required)
@@ -703,9 +1002,9 @@ public class WhatsappPhoneNumbersApi {
     }
 
     /**
-     * Update a WhatsApp phone number profile (asynchronously)
+     * Update a phone number profile (asynchronously)
      * <p>
-     * Updates a WhatsApp phone number profile.
+     * Updates a WhatsApp business phone number profile.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param whatsappPhoneNumberProfileUpdateRequest  (required)
