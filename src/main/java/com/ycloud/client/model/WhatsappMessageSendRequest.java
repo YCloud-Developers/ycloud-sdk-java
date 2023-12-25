@@ -160,6 +160,13 @@ public class WhatsappMessageSendRequest {
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
+  public static final String SERIALIZED_NAME_FILTER_UNSUBSCRIBED = "filterUnsubscribed";
+  /**
+   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_FILTER_UNSUBSCRIBED)
+  private Boolean filterUnsubscribed;
+
   public WhatsappMessageSendRequest() { 
   }
 
@@ -574,6 +581,32 @@ public class WhatsappMessageSendRequest {
     this.externalId = externalId;
   }
 
+
+  public WhatsappMessageSendRequest filterUnsubscribed(Boolean filterUnsubscribed) {
+    
+    this.filterUnsubscribed = filterUnsubscribed;
+    return this;
+  }
+
+   /**
+   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;.
+   * @return filterUnsubscribed
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getFilterUnsubscribed() {
+    return filterUnsubscribed;
+  }
+
+
+  /**
+   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;.
+   **/
+  @ApiModelProperty(value = "**Optional.** If set to `true`, the message will not be sent to users who have unsubscribed from your account. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user has unsubscribed, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_UNSUBSCRIBED`.  Not applicable to `POST /v2/whatsapp/message/sendDirectly`.")
+  public void setFilterUnsubscribed(Boolean filterUnsubscribed) {
+    this.filterUnsubscribed = filterUnsubscribed;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -635,13 +668,14 @@ public class WhatsappMessageSendRequest {
         Objects.equals(this.contacts, whatsappMessageSendRequest.contacts) &&
         Objects.equals(this.reaction, whatsappMessageSendRequest.reaction) &&
         Objects.equals(this.context, whatsappMessageSendRequest.context) &&
-        Objects.equals(this.externalId, whatsappMessageSendRequest.externalId)&&
+        Objects.equals(this.externalId, whatsappMessageSendRequest.externalId) &&
+        Objects.equals(this.filterUnsubscribed, whatsappMessageSendRequest.filterUnsubscribed)&&
         Objects.equals(this.additionalProperties, whatsappMessageSendRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, additionalProperties);
+    return Objects.hash(from, to, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, filterUnsubscribed, additionalProperties);
   }
 
   @Override
@@ -664,6 +698,7 @@ public class WhatsappMessageSendRequest {
     sb.append("    reaction: ").append(toIndentedString(reaction)).append("\n");
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    filterUnsubscribed: ").append(toIndentedString(filterUnsubscribed)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -703,6 +738,7 @@ public class WhatsappMessageSendRequest {
     openapiFields.add("reaction");
     openapiFields.add("context");
     openapiFields.add("externalId");
+    openapiFields.add("filterUnsubscribed");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

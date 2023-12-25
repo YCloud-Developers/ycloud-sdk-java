@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.0 (2023-12-25)
+
+- Add Unsubscribers API.
+- Add parameter `filterUnsubscribed` to the `POST /v2/whatsapp/messages` endpoint.
+
 ## 1.10.3 (2023-11-27)
 
 - Support WhatsApp [Catalog template](https://docs.ycloud.com/reference/whatsapp-template-creation-examples#catalog-template) and [Catalog template message](https://docs.ycloud.com/reference/whatsapp-messaging-examples#catalog-template-message).

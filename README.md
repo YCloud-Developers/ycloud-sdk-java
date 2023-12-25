@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.10.3</version>
+  <version>1.11.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.10.3"
+     implementation "com.ycloud:ycloud-sdk-java:1.11.0"
   }
 ```
 
@@ -102,6 +102,11 @@ Class | Method | HTTP request | Description
 *EmailsApi* | [**send**](docs/EmailsApi.md#send) | **POST** /emails | Send an email
 *SmsApi* | [**list**](docs/SmsApi.md#list) | **GET** /sms | List SMS records
 *SmsApi* | [**send**](docs/SmsApi.md#send) | **POST** /sms | Send an SMS
+*UnsubscribersApi* | [**create**](docs/UnsubscribersApi.md#create) | **POST** /unsubscribers | Create an unsubscriber
+*UnsubscribersApi* | [**deleteByCustomerAndChannel**](docs/UnsubscribersApi.md#deleteByCustomerAndChannel) | **DELETE** /unsubscribers/{customer}/{channel} | Delete an unsubscriber
+*UnsubscribersApi* | [**list**](docs/UnsubscribersApi.md#list) | **GET** /unsubscribers | List unsubscribers
+*UnsubscribersApi* | [**listAllByCustomer**](docs/UnsubscribersApi.md#listAllByCustomer) | **GET** /unsubscribers/{customer} | List all unsubscribers by customer
+*UnsubscribersApi* | [**retrieveByCustomerAndChannel**](docs/UnsubscribersApi.md#retrieveByCustomerAndChannel) | **GET** /unsubscribers/{customer}/{channel} | Retrieve an unsubscriber
 *VerifyApi* | [**check**](docs/VerifyApi.md#check) | **POST** /verify/verificationChecks | Check a verification
 *VerifyApi* | [**send**](docs/VerifyApi.md#send) | **POST** /verify/verifications | Start a verification
 *VoicesApi* | [**list**](docs/VoicesApi.md#list) | **GET** /voices | List voice records
@@ -150,10 +155,16 @@ Class | Method | HTTP request | Description
  - [Mailbox](docs/Mailbox.md)
  - [MetaBusinessAccountVerificationStatus](docs/MetaBusinessAccountVerificationStatus.md)
  - [Page](docs/Page.md)
+ - [PageCursor](docs/PageCursor.md)
  - [Sms](docs/Sms.md)
  - [SmsInbound](docs/SmsInbound.md)
  - [SmsPage](docs/SmsPage.md)
  - [SmsSendRequest](docs/SmsSendRequest.md)
+ - [Unsubscriber](docs/Unsubscriber.md)
+ - [UnsubscriberChannel](docs/UnsubscriberChannel.md)
+ - [UnsubscriberCreateRequest](docs/UnsubscriberCreateRequest.md)
+ - [UnsubscriberPage](docs/UnsubscriberPage.md)
+ - [UnsubscriberType](docs/UnsubscriberType.md)
  - [Verification](docs/Verification.md)
  - [VerificationChannel](docs/VerificationChannel.md)
  - [VerificationCheck](docs/VerificationCheck.md)

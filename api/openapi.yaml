@@ -21,6 +21,7 @@ tags:
 - name: Contacts
 - name: Emails
 - name: SMS
+- name: Unsubscribers
 - name: Verify
 - name: Voices
 - name: Webhook Endpoints
@@ -381,6 +382,226 @@ paths:
       tags:
       - SMS
       x-content-type: application/json
+      x-accepts: application/json
+  /unsubscribers:
+    get:
+      description: Returns a paginated list of unsubscribers.
+      operationId: unsubscriber-list
+      parameters:
+      - description: "Page number of the results to be returned, 1-based."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: "A limit on the number of results to be returned, or number of\
+          \ results per page, between 1 and 100, defaults to 10."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Return results inside an object that contains the total result
+          count or not.
+        explode: true
+        in: query
+        name: includeTotal
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: "A cursor to fetch the next page in cursor pagination.\nFor example,\
+          \ if you make a list request, receive 100 objects and `cursor.after=id:foo`,\
+          \ your subsequent call can include `pageAfter=id:foo` in order to fetch\
+          \ the next page of the list."
+        explode: true
+        in: query
+        name: pageAfter
+        required: false
+        schema:
+          example: id:foo
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filter.customer
+        required: false
+        schema:
+          description: The customer who has opted out.
+          example: +447901614024
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filter.channel
+        required: false
+        schema:
+          $ref: '#/components/schemas/UnsubscriberChannel'
+        style: form
+      - explode: true
+        in: query
+        name: filter.regionCode
+        required: false
+        schema:
+          description: "Region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsubscriberPage'
+          description: Successfully retrieved a paginated list of objects.
+      summary: List unsubscribers
+      tags:
+      - Unsubscribers
+      x-group-parameters: true
+      x-accepts: application/json
+    post:
+      description: |-
+        Creates an unsubscriber.
+        An unsubscriber is a configuration item representing that customers opt out of receiving messages from your business.
+        **A customer and a channel form a unique identifier for an unsubscriber.**
+      operationId: unsubscriber-create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnsubscriberCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unsubscriber'
+          description: Successfully created an unsubscriber.
+      summary: Create an unsubscriber
+      tags:
+      - Unsubscribers
+      x-content-type: application/json
+      x-accepts: application/json
+  /unsubscribers/{customer}:
+    get:
+      description: Returns all unsubscribers for the specified customer.
+      operationId: unsubscriber-list-all-by-customer
+      parameters:
+      - description: The customer who has opted out.
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          example: +447901614024
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Unsubscriber'
+                type: array
+          description: Successfully retrieved the unsubscribers.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: List all unsubscribers by customer
+      tags:
+      - Unsubscribers
+      x-accepts: application/json
+  /unsubscribers/{customer}/{channel}:
+    delete:
+      description: Deletes the unsubscriber for the specified customer and channel.
+      operationId: unsubscriber-delete-by-customer-and-channel
+      parameters:
+      - description: The customer who has opted out.
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          example: +447901614024
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: channel
+        required: true
+        schema:
+          $ref: '#/components/schemas/UnsubscriberChannel'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unsubscriber'
+          description: Successfully deleted the unsubscriber.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Delete an unsubscriber
+      tags:
+      - Unsubscribers
+      x-accepts: application/json
+    get:
+      description: Retrieves the unsubscriber for the specified customer and channel.
+      operationId: unsubscriber-retrieve-by-customer-and-channel
+      parameters:
+      - description: The customer who has opted out.
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          example: +447901614024
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: channel
+        required: true
+        schema:
+          $ref: '#/components/schemas/UnsubscriberChannel'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unsubscriber'
+          description: Successfully retrieved the unsubscribers.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Retrieve an unsubscriber
+      tags:
+      - Unsubscribers
       x-accepts: application/json
   /verify/verifications:
     post:
@@ -1518,6 +1739,24 @@ paths:
       x-accepts: application/json
 components:
   parameters:
+    channel-in_path_for_unsubscriber:
+      explode: false
+      in: path
+      name: channel
+      required: true
+      schema:
+        $ref: '#/components/schemas/UnsubscriberChannel'
+      style: simple
+    customer-in_path_for_unsubscriber:
+      description: The customer who has opted out.
+      explode: false
+      in: path
+      name: customer
+      required: true
+      schema:
+        example: +447901614024
+        type: string
+      style: simple
     filter_createTime_gte-default_1d:
       description: "Return results where the `createTime` field is greater than or\
         \ equal to this value. Default: One day ago from now."
@@ -1640,6 +1879,19 @@ components:
         maximum: 100
         minimum: 1
         type: integer
+      style: form
+    pageAfter:
+      description: "A cursor to fetch the next page in cursor pagination.\nFor example,\
+        \ if you make a list request, receive 100 objects and `cursor.after=id:foo`,\
+        \ your subsequent call can include `pageAfter=id:foo` in order to fetch the\
+        \ next page of the list."
+      explode: true
+      in: query
+      name: pageAfter
+      required: false
+      schema:
+        example: id:foo
+        type: string
       style: form
     wabaId-in_path:
       description: WhatsApp Business Account ID.
@@ -2401,6 +2653,21 @@ components:
       - limit
       - offset
       type: object
+    PageCursor:
+      description: A cursor object is returned only if the endpoint you requested
+        supports cursor pagination.
+      example:
+        after: id:foo
+      properties:
+        after:
+          description: "A cursor to fetch the next page in cursor pagination.\nFor\
+            \ example, if you make a list request, receive 100 objects and `cursor.after=id:foo`,\
+            \ your subsequent call can include `pageAfter=id:foo` in order to fetch\
+            \ the next page of the list.\nThis field is returned only if there are\
+            \ more items in the list."
+          example: id:foo
+          type: string
+      type: object
     Sms:
       example:
         bizType: verify
@@ -2587,6 +2854,33 @@ components:
           items:
             $ref: '#/components/schemas/Sms'
           type: array
+      type: object
+    UnsubscriberPage:
+      allOf:
+      - $ref: '#/components/schemas/Page'
+      description: Represents a given page of unsubscriber objects.
+      example:
+        cursor:
+          after: id:foo
+        items:
+        - regionCode: GB
+          createTime: 2022-06-01T12:00:00Z
+          channel: null
+          type: null
+          customer: +447901614024
+        - regionCode: GB
+          createTime: 2022-06-01T12:00:00Z
+          channel: null
+          type: null
+          customer: +447901614024
+      properties:
+        items:
+          description: An array containing unsubscriber objects.
+          items:
+            $ref: '#/components/schemas/Unsubscriber'
+          type: array
+        cursor:
+          $ref: '#/components/schemas/PageCursor'
       type: object
     Verification:
       example:
@@ -2844,6 +3138,78 @@ components:
       - text
       - to
       type: object
+    Unsubscriber:
+      description: |-
+        An unsubscriber is a configuration item representing that customers opt out of receiving messages from your business.
+        **A customer and a channel form a unique identifier for an unsubscriber.**
+      example:
+        regionCode: GB
+        createTime: 2022-06-01T12:00:00Z
+        channel: null
+        type: null
+        customer: +447901614024
+      properties:
+        type:
+          $ref: '#/components/schemas/UnsubscriberType'
+        customer:
+          description: "The customer who has opted out.\nFor `type=PHONE_NUMBER`,\
+            \ it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+            \ format."
+          example: +447901614024
+          type: string
+        channel:
+          $ref: '#/components/schemas/UnsubscriberChannel'
+        regionCode:
+          description: "The customer's region code, formatted in [ISO 3166-1 alpha-2\
+            \ country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+          example: GB
+          type: string
+        createTime:
+          description: "The time at which this object was created, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+      type: object
+    UnsubscriberCreateRequest:
+      example:
+        regionCode: GB
+        channel: null
+        type: null
+        customer: +447901614024
+      properties:
+        type:
+          $ref: '#/components/schemas/UnsubscriberType'
+        customer:
+          description: "The customer who has opted out.\nFor `type=PHONE_NUMBER`,\
+            \ it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+            \ format."
+          example: +447901614024
+          type: string
+        channel:
+          $ref: '#/components/schemas/UnsubscriberChannel'
+        regionCode:
+          description: "The customer's region code, formatted in [ISO 3166-1 alpha-2\
+            \ country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+          example: GB
+          type: string
+      required:
+      - channel
+      - customer
+      - type
+      type: object
+    UnsubscriberChannel:
+      description: "Channel of unsubscriber.\n- `whatsapp`: Indicates that the customer\
+        \ opts out of receiving WhatsApp messages from your business."
+      enum:
+      - whatsapp
+      type: string
+    UnsubscriberType:
+      description: "Type of unsubscriber.\n- `PHONE_NUMBER`: Indicates that the `customer`\
+        \ is a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format."
+      enum:
+      - PHONE_NUMBER
+      type: string
     Voice:
       example:
         bizType: verify
@@ -7749,6 +8115,7 @@ components:
           link: link
           caption: caption
         type: null
+        filterUnsubscribed: true
         context:
           message_id: wamid.BgNODYxN...
         from: +447901614024
@@ -7899,6 +8266,13 @@ components:
             \ number or similar, and can be used to reconcile the object with your\
             \ internal systems."
           type: string
+        filterUnsubscribed:
+          description: "**Optional.**\nIf set to `true`, the message will not be sent\
+            \ to users who have unsubscribed from your account. Defaults to `false`.\n\
+            \nOnly use for `POST /v2/whatsapp/messages`. If the user has unsubscribed,\
+            \ we will push webhook notifications with `whatsappMessage.errorCode`\
+            \ set to `RECIPIENT_UNSUBSCRIBED`.\n\nNot applicable to `POST /v2/whatsapp/message/sendDirectly`."
+          type: boolean
       required:
       - from
       - to
