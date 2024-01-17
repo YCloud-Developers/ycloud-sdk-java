@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * To see if a phone number has been verified via OTP (one-time password), check that number&#39;s &#x60;code_verification_status&#x60; field.
+ * To see if a phone number has been verified via OTP (one-time password).
  */
 @JsonAdapter(WhatsappPhoneNumberCodeVerificationStatus.Adapter.class)
 public enum WhatsappPhoneNumberCodeVerificationStatus {

@@ -8,6 +8,7 @@ A WhatsApp Business Account (WABA) phone number. See also [WhatsApp Retrieve Pho
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**id** | **String** | Phone number ID. |  [optional] |
 |**phoneNumber** | **String** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
 |**displayPhoneNumber** | **String** | Display phone number. |  [optional] |
 |**wabaId** | **String** | WhatsApp Business Account ID. |  [optional] |

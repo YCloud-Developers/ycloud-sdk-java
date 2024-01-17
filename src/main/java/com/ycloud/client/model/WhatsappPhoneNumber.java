@@ -56,6 +56,13 @@ import com.ycloud.client.JSON;
 @ApiModel(description = "A WhatsApp Business Account (WABA) phone number. See also [WhatsApp Retrieve Phone Numbers](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappPhoneNumber {
+  public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * Phone number ID.
+  **/
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phoneNumber";
   /**
    * Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
@@ -156,6 +163,32 @@ public class WhatsappPhoneNumber {
 
   public WhatsappPhoneNumber() { 
   }
+
+  public WhatsappPhoneNumber id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Phone number ID.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+
+  public String getId() {
+    return id;
+  }
+
+
+  /**
+   * Phone number ID.
+   **/
+  @ApiModelProperty(example = "1234567890123456", value = "Phone number ID.")
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   public WhatsappPhoneNumber phoneNumber(String phoneNumber) {
     
@@ -585,7 +618,8 @@ public class WhatsappPhoneNumber {
       return false;
     }
     WhatsappPhoneNumber whatsappPhoneNumber = (WhatsappPhoneNumber) o;
-    return Objects.equals(this.phoneNumber, whatsappPhoneNumber.phoneNumber) &&
+    return Objects.equals(this.id, whatsappPhoneNumber.id) &&
+        Objects.equals(this.phoneNumber, whatsappPhoneNumber.phoneNumber) &&
         Objects.equals(this.displayPhoneNumber, whatsappPhoneNumber.displayPhoneNumber) &&
         Objects.equals(this.wabaId, whatsappPhoneNumber.wabaId) &&
         Objects.equals(this.qualityRating, whatsappPhoneNumber.qualityRating) &&
@@ -605,13 +639,14 @@ public class WhatsappPhoneNumber {
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, displayPhoneNumber, wabaId, qualityRating, messagingLimit, verifiedName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, additionalProperties);
+    return Objects.hash(id, phoneNumber, displayPhoneNumber, wabaId, qualityRating, messagingLimit, verifiedName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappPhoneNumber {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    displayPhoneNumber: ").append(toIndentedString(displayPhoneNumber)).append("\n");
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
@@ -650,6 +685,7 @@ public class WhatsappPhoneNumber {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
     openapiFields.add("phoneNumber");
     openapiFields.add("displayPhoneNumber");
     openapiFields.add("wabaId");
@@ -683,6 +719,9 @@ public class WhatsappPhoneNumber {
         } else { // has required fields
           throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappPhoneNumber is not found in the empty JSON string", WhatsappPhoneNumber.openapiRequiredFields.toString()));
         }
+      }
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (jsonObj.get("phoneNumber") != null && !jsonObj.get("phoneNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `phoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phoneNumber").toString()));

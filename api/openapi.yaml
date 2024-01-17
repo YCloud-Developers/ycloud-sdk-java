@@ -1420,6 +1420,46 @@ paths:
       - WhatsApp Phone Numbers
       x-content-type: application/json
       x-accepts: application/json
+  /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/register:
+    post:
+      description: Registers a WhatsApp business phone number.
+      operationId: whatsapp_phone_number-register
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: wabaId
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      - description: Phone number ID.
+        explode: false
+        in: path
+        name: phoneNumber
+        required: true
+        schema:
+          example: "1234567890123456"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappPhoneNumber'
+          description: Successfully registered the phone number.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Register a phone number
+      tags:
+      - WhatsApp Phone Numbers
+      x-accepts: application/json
   /whatsapp/templates:
     get:
       description: Returns a paginated list of WhatsApp templates you've previously
@@ -2891,6 +2931,7 @@ components:
         totalPrice: 0.0085
         smsFallbackEnabled: true
         channel: sms
+        externalId: externalId
         currency: USD
         id: ve6j7n8i
         to: +447901614024
@@ -2931,6 +2972,11 @@ components:
           type: boolean
         smsFallback:
           $ref: '#/components/schemas/VerificationFallback'
+        externalId:
+          description: "A unique string to reference the object. This can be an order\
+            \ number or similar, and can be used to reconcile the object with your\
+            \ internal systems."
+          type: string
       required:
       - id
       type: object
@@ -3025,6 +3071,7 @@ components:
         code: "123456"
         signature: YCloud
         channel: sms
+        externalId: externalId
         language: en
         to: +447901614024
       properties:
@@ -3066,6 +3113,12 @@ components:
             \ Russian\n`tr`: Turkish\n`vi`: Vietnamese\n`zh_CN`: Simplified Chinese\n\
             `zh_HK`: Traditional Chinese"
           example: en
+          type: string
+        externalId:
+          description: "A unique string to reference the object. This can be an order\
+            \ number or similar, and can be used to reconcile the object with your\
+            \ internal systems.\nIf present, this value will also be attached to the\
+            \ `externalId` of message objects."
           type: string
       required:
       - channel
@@ -3644,6 +3697,7 @@ components:
         messageTemplateNamespace: messageTemplateNamespace
         banState: null
         accountReviewStatus: null
+        paymentMethodAttached: true
         violationType: SCAM
         updateEvent: null
         purchaseOrderNumber: purchaseOrderNumber
@@ -3677,6 +3731,10 @@ components:
         ownershipType:
           description: Ownership type of the WhatsApp Business Account.
           type: string
+        paymentMethodAttached:
+          description: Whether we have attached a payment method to the WhatsApp Business
+            Account.
+          type: boolean
         primaryFundingId:
           description: Primary funding ID for the WhatsApp Business Account paid service.
           type: string
@@ -3738,6 +3796,7 @@ components:
           messageTemplateNamespace: messageTemplateNamespace
           banState: null
           accountReviewStatus: null
+          paymentMethodAttached: true
           violationType: SCAM
           updateEvent: null
           purchaseOrderNumber: purchaseOrderNumber
@@ -3759,6 +3818,7 @@ components:
           messageTemplateNamespace: messageTemplateNamespace
           banState: null
           accountReviewStatus: null
+          paymentMethodAttached: true
           violationType: SCAM
           updateEvent: null
           purchaseOrderNumber: purchaseOrderNumber
@@ -10820,6 +10880,7 @@ components:
         requestedVerifiedName: requestedVerifiedName
         newNameStatus: null
         nameStatus: null
+        id: "1234567890123456"
         verifiedName: John’s Cake Shop
         isOfficialBusinessAccount: true
         displayPhoneNumber: +1 631-555-1111
@@ -10827,6 +10888,10 @@ components:
         codeVerificationStatus: null
         status: null
       properties:
+        id:
+          description: Phone number ID.
+          example: "1234567890123456"
+          type: string
         phoneNumber:
           description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
@@ -10887,8 +10952,7 @@ components:
           $ref: '#/components/schemas/WhatsappPhoneNumberQualityUpdateEventEnum'
       type: object
     WhatsappPhoneNumberCodeVerificationStatus:
-      description: "To see if a phone number has been verified via OTP (one-time password),\
-        \ check that number's `code_verification_status` field."
+      description: To see if a phone number has been verified via OTP (one-time password).
       enum:
       - VERIFIED
       - NOT_VERIFIED
@@ -10926,6 +10990,7 @@ components:
           requestedVerifiedName: requestedVerifiedName
           newNameStatus: null
           nameStatus: null
+          id: "1234567890123456"
           verifiedName: John’s Cake Shop
           isOfficialBusinessAccount: true
           displayPhoneNumber: +1 631-555-1111
@@ -10941,6 +11006,7 @@ components:
           requestedVerifiedName: requestedVerifiedName
           newNameStatus: null
           nameStatus: null
+          id: "1234567890123456"
           verifiedName: John’s Cake Shop
           isOfficialBusinessAccount: true
           displayPhoneNumber: +1 631-555-1111
@@ -13091,10 +13157,10 @@ components:
       properties:
         type:
           description: "**Required.**\nCard component type.\n- `BODY`: Body components\
-            \ are text-only components. Cards can optionally include body text.\n\
-            - `HEADER`: Cards must have a media header (image or video).\n- `BUTTONS`:\
-            \ Buttons are optional interactive components that perform specific actions\
-            \ when tapped."
+            \ are text-only components. Cards must have body text.\n- `HEADER`: Cards\
+            \ must have a media header (image or video).\n- `BUTTONS`: Buttons are\
+            \ interactive components that perform specific actions when tapped. Cards\
+            \ must have at least one button, up to 2 buttons."
           enum:
           - BODY
           - HEADER
@@ -13109,18 +13175,19 @@ components:
           - VIDEO
           type: string
         text:
-          description: "Card body text supports variables. There is no maximum character\
-            \ limit on variables, but they count against the card body text limit\
-            \ of 160 characters."
+          description: |-
+            **Required for type `BODY`.**
+            Card body text supports variables. Maximum 160 characters.
           maxLength: 160
           type: string
         buttons:
-          description: "**Required for type `BUTTONS`.**\nCards can optionally include\
-            \ up to 2 quick reply buttons, phone number buttons, or URL buttons (button\
-            \ types can be mixed)."
+          description: "**Required for type `BUTTONS`.**\nCards must have at least\
+            \ one button. Supports 2 buttons. Buttons can be the same or a mix of\
+            \ quick reply buttons, phone number buttons, or URL buttons."
           items:
             $ref: '#/components/schemas/WhatsappTemplateComponentButton'
           maxItems: 2
+          minItems: 1
           type: array
         example:
           $ref: '#/components/schemas/WhatsappTemplateComponentExample'

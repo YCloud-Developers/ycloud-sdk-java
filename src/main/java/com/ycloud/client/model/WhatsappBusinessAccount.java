@@ -112,6 +112,13 @@ public class WhatsappBusinessAccount {
   @SerializedName(SERIALIZED_NAME_OWNERSHIP_TYPE)
   private String ownershipType;
 
+  public static final String SERIALIZED_NAME_PAYMENT_METHOD_ATTACHED = "paymentMethodAttached";
+  /**
+   * Whether we have attached a payment method to the WhatsApp Business Account.
+  **/
+  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD_ATTACHED)
+  private Boolean paymentMethodAttached;
+
   public static final String SERIALIZED_NAME_PRIMARY_FUNDING_ID = "primaryFundingId";
   /**
    * Primary funding ID for the WhatsApp Business Account paid service.
@@ -378,6 +385,32 @@ public class WhatsappBusinessAccount {
   @ApiModelProperty(value = "Ownership type of the WhatsApp Business Account.")
   public void setOwnershipType(String ownershipType) {
     this.ownershipType = ownershipType;
+  }
+
+
+  public WhatsappBusinessAccount paymentMethodAttached(Boolean paymentMethodAttached) {
+    
+    this.paymentMethodAttached = paymentMethodAttached;
+    return this;
+  }
+
+   /**
+   * Whether we have attached a payment method to the WhatsApp Business Account.
+   * @return paymentMethodAttached
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getPaymentMethodAttached() {
+    return paymentMethodAttached;
+  }
+
+
+  /**
+   * Whether we have attached a payment method to the WhatsApp Business Account.
+   **/
+  @ApiModelProperty(value = "Whether we have attached a payment method to the WhatsApp Business Account.")
+  public void setPaymentMethodAttached(Boolean paymentMethodAttached) {
+    this.paymentMethodAttached = paymentMethodAttached;
   }
 
 
@@ -673,6 +706,7 @@ public class WhatsappBusinessAccount {
         Objects.equals(this.businessVerificationStatus, whatsappBusinessAccount.businessVerificationStatus) &&
         Objects.equals(this.country, whatsappBusinessAccount.country) &&
         Objects.equals(this.ownershipType, whatsappBusinessAccount.ownershipType) &&
+        Objects.equals(this.paymentMethodAttached, whatsappBusinessAccount.paymentMethodAttached) &&
         Objects.equals(this.primaryFundingId, whatsappBusinessAccount.primaryFundingId) &&
         Objects.equals(this.purchaseOrderNumber, whatsappBusinessAccount.purchaseOrderNumber) &&
         Objects.equals(this.timezoneId, whatsappBusinessAccount.timezoneId) &&
@@ -687,7 +721,7 @@ public class WhatsappBusinessAccount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, currency, messageTemplateNamespace, accountReviewStatus, businessVerificationStatus, country, ownershipType, primaryFundingId, purchaseOrderNumber, timezoneId, decision, updateEvent, banState, banDate, violationType, restrictions, additionalProperties);
+    return Objects.hash(id, name, currency, messageTemplateNamespace, accountReviewStatus, businessVerificationStatus, country, ownershipType, paymentMethodAttached, primaryFundingId, purchaseOrderNumber, timezoneId, decision, updateEvent, banState, banDate, violationType, restrictions, additionalProperties);
   }
 
   @Override
@@ -702,6 +736,7 @@ public class WhatsappBusinessAccount {
     sb.append("    businessVerificationStatus: ").append(toIndentedString(businessVerificationStatus)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    ownershipType: ").append(toIndentedString(ownershipType)).append("\n");
+    sb.append("    paymentMethodAttached: ").append(toIndentedString(paymentMethodAttached)).append("\n");
     sb.append("    primaryFundingId: ").append(toIndentedString(primaryFundingId)).append("\n");
     sb.append("    purchaseOrderNumber: ").append(toIndentedString(purchaseOrderNumber)).append("\n");
     sb.append("    timezoneId: ").append(toIndentedString(timezoneId)).append("\n");
@@ -742,6 +777,7 @@ public class WhatsappBusinessAccount {
     openapiFields.add("businessVerificationStatus");
     openapiFields.add("country");
     openapiFields.add("ownershipType");
+    openapiFields.add("paymentMethodAttached");
     openapiFields.add("primaryFundingId");
     openapiFields.add("purchaseOrderNumber");
     openapiFields.add("timezoneId");

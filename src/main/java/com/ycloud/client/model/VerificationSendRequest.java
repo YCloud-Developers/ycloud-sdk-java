@@ -91,6 +91,13 @@ public class VerificationSendRequest {
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   private String language;
 
+  public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the &#x60;externalId&#x60; of message objects.
+  **/
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
+  private String externalId;
+
   public VerificationSendRequest() { 
   }
 
@@ -248,6 +255,32 @@ public class VerificationSendRequest {
     this.language = language;
   }
 
+
+  public VerificationSendRequest externalId(String externalId) {
+    
+    this.externalId = externalId;
+    return this;
+  }
+
+   /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the &#x60;externalId&#x60; of message objects.
+   * @return externalId
+  **/
+  @javax.annotation.Nullable
+
+  public String getExternalId() {
+    return externalId;
+  }
+
+
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the &#x60;externalId&#x60; of message objects.
+   **/
+  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the `externalId` of message objects.")
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -299,13 +332,14 @@ public class VerificationSendRequest {
         Objects.equals(this.code, verificationSendRequest.code) &&
         Objects.equals(this.senderId, verificationSendRequest.senderId) &&
         Objects.equals(this.signature, verificationSendRequest.signature) &&
-        Objects.equals(this.language, verificationSendRequest.language)&&
+        Objects.equals(this.language, verificationSendRequest.language) &&
+        Objects.equals(this.externalId, verificationSendRequest.externalId)&&
         Objects.equals(this.additionalProperties, verificationSendRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(channel, to, code, senderId, signature, language, additionalProperties);
+    return Objects.hash(channel, to, code, senderId, signature, language, externalId, additionalProperties);
   }
 
   @Override
@@ -318,6 +352,7 @@ public class VerificationSendRequest {
     sb.append("    senderId: ").append(toIndentedString(senderId)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -347,6 +382,7 @@ public class VerificationSendRequest {
     openapiFields.add("senderId");
     openapiFields.add("signature");
     openapiFields.add("language");
+    openapiFields.add("externalId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -389,6 +425,9 @@ public class VerificationSendRequest {
       }
       if (jsonObj.get("language") != null && !jsonObj.get("language").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
+      }
+      if (jsonObj.get("externalId") != null && !jsonObj.get("externalId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
       }
   }
 

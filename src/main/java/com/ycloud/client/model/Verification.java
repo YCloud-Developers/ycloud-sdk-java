@@ -113,6 +113,13 @@ public class Verification {
   @SerializedName(SERIALIZED_NAME_SMS_FALLBACK)
   private VerificationFallback smsFallback;
 
+  public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+  **/
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
+  private String externalId;
+
   public Verification() { 
   }
 
@@ -346,6 +353,32 @@ public class Verification {
     this.smsFallback = smsFallback;
   }
 
+
+  public Verification externalId(String externalId) {
+    
+    this.externalId = externalId;
+    return this;
+  }
+
+   /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   * @return externalId
+  **/
+  @javax.annotation.Nullable
+
+  public String getExternalId() {
+    return externalId;
+  }
+
+
+  /**
+   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   **/
+  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -400,13 +433,14 @@ public class Verification {
         Objects.equals(this.totalPrice, verification.totalPrice) &&
         Objects.equals(this.currency, verification.currency) &&
         Objects.equals(this.smsFallbackEnabled, verification.smsFallbackEnabled) &&
-        Objects.equals(this.smsFallback, verification.smsFallback)&&
+        Objects.equals(this.smsFallback, verification.smsFallback) &&
+        Objects.equals(this.externalId, verification.externalId)&&
         Objects.equals(this.additionalProperties, verification.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, to, channel, sendTime, totalPrice, currency, smsFallbackEnabled, smsFallback, additionalProperties);
+    return Objects.hash(id, status, to, channel, sendTime, totalPrice, currency, smsFallbackEnabled, smsFallback, externalId, additionalProperties);
   }
 
   @Override
@@ -422,6 +456,7 @@ public class Verification {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    smsFallbackEnabled: ").append(toIndentedString(smsFallbackEnabled)).append("\n");
     sb.append("    smsFallback: ").append(toIndentedString(smsFallback)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -454,6 +489,7 @@ public class Verification {
     openapiFields.add("currency");
     openapiFields.add("smsFallbackEnabled");
     openapiFields.add("smsFallback");
+    openapiFields.add("externalId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -493,6 +529,9 @@ public class Verification {
       // validate the optional field `smsFallback`
       if (jsonObj.getAsJsonObject("smsFallback") != null) {
         VerificationFallback.validateJsonObject(jsonObj.getAsJsonObject("smsFallback"));
+      }
+      if (jsonObj.get("externalId") != null && !jsonObj.get("externalId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
       }
   }
 

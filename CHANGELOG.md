@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.1 (2024-01-17)
+
+- Add [Register a phone number](https://docs.ycloud.com/reference/whatsapp_phone_number-register) endpoint.
+- Add parameter `externalId` to [Start a verification](https://docs.ycloud.com/reference/verification-send) endpoint.
+
 ## 1.11.0 (2023-12-25)
 
 - Add Unsubscribers API.

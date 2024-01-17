@@ -16,6 +16,7 @@
 |**currency** | **String** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). |  [optional] |
 |**smsFallbackEnabled** | **Boolean** | Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed. |  [optional] |
 |**smsFallback** | [**VerificationFallback**](VerificationFallback.md) |  |  [optional] |
+|**externalId** | **String** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. |  [optional] |
 
 
 

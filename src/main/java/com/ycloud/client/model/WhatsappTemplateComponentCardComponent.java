@@ -54,7 +54,7 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplateComponentCardComponent {
   /**
-   * **Required.** Card component type. - &#x60;BODY&#x60;: Body components are text-only components. Cards can optionally include body text. - &#x60;HEADER&#x60;: Cards must have a media header (image or video). - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped.
+   * **Required.** Card component type. - &#x60;BODY&#x60;: Body components are text-only components. Cards must have body text. - &#x60;HEADER&#x60;: Cards must have a media header (image or video). - &#x60;BUTTONS&#x60;: Buttons are interactive components that perform specific actions when tapped. Cards must have at least one button, up to 2 buttons.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -104,7 +104,7 @@ public class WhatsappTemplateComponentCardComponent {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * **Required.** Card component type. - &#x60;BODY&#x60;: Body components are text-only components. Cards can optionally include body text. - &#x60;HEADER&#x60;: Cards must have a media header (image or video). - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped.
+   * **Required.** Card component type. - &#x60;BODY&#x60;: Body components are text-only components. Cards must have body text. - &#x60;HEADER&#x60;: Cards must have a media header (image or video). - &#x60;BUTTONS&#x60;: Buttons are interactive components that perform specific actions when tapped. Cards must have at least one button, up to 2 buttons.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -165,14 +165,14 @@ public class WhatsappTemplateComponentCardComponent {
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   /**
-   * Card body text supports variables. There is no maximum character limit on variables, but they count against the card body text limit of 160 characters.
+   * **Required for type &#x60;BODY&#x60;.** Card body text supports variables. Maximum 160 characters.
   **/
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
   public static final String SERIALIZED_NAME_BUTTONS = "buttons";
   /**
-   * **Required for type &#x60;BUTTONS&#x60;.** Cards can optionally include up to 2 quick reply buttons, phone number buttons, or URL buttons (button types can be mixed).
+   * **Required for type &#x60;BUTTONS&#x60;.** Cards must have at least one button. Supports 2 buttons. Buttons can be the same or a mix of quick reply buttons, phone number buttons, or URL buttons.
   **/
   @SerializedName(SERIALIZED_NAME_BUTTONS)
   private List<WhatsappTemplateComponentButton> buttons = null;
@@ -193,7 +193,7 @@ public class WhatsappTemplateComponentCardComponent {
   }
 
    /**
-   * **Required.** Card component type. - &#x60;BODY&#x60;: Body components are text-only components. Cards can optionally include body text. - &#x60;HEADER&#x60;: Cards must have a media header (image or video). - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped.
+   * **Required.** Card component type. - &#x60;BODY&#x60;: Body components are text-only components. Cards must have body text. - &#x60;HEADER&#x60;: Cards must have a media header (image or video). - &#x60;BUTTONS&#x60;: Buttons are interactive components that perform specific actions when tapped. Cards must have at least one button, up to 2 buttons.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -204,9 +204,9 @@ public class WhatsappTemplateComponentCardComponent {
 
 
   /**
-   * **Required.** Card component type. - &#x60;BODY&#x60;: Body components are text-only components. Cards can optionally include body text. - &#x60;HEADER&#x60;: Cards must have a media header (image or video). - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped.
+   * **Required.** Card component type. - &#x60;BODY&#x60;: Body components are text-only components. Cards must have body text. - &#x60;HEADER&#x60;: Cards must have a media header (image or video). - &#x60;BUTTONS&#x60;: Buttons are interactive components that perform specific actions when tapped. Cards must have at least one button, up to 2 buttons.
    **/
-  @ApiModelProperty(value = "**Required.** Card component type. - `BODY`: Body components are text-only components. Cards can optionally include body text. - `HEADER`: Cards must have a media header (image or video). - `BUTTONS`: Buttons are optional interactive components that perform specific actions when tapped.")
+  @ApiModelProperty(value = "**Required.** Card component type. - `BODY`: Body components are text-only components. Cards must have body text. - `HEADER`: Cards must have a media header (image or video). - `BUTTONS`: Buttons are interactive components that perform specific actions when tapped. Cards must have at least one button, up to 2 buttons.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -245,7 +245,7 @@ public class WhatsappTemplateComponentCardComponent {
   }
 
    /**
-   * Card body text supports variables. There is no maximum character limit on variables, but they count against the card body text limit of 160 characters.
+   * **Required for type &#x60;BODY&#x60;.** Card body text supports variables. Maximum 160 characters.
    * @return text
   **/
   @javax.annotation.Nullable
@@ -256,9 +256,9 @@ public class WhatsappTemplateComponentCardComponent {
 
 
   /**
-   * Card body text supports variables. There is no maximum character limit on variables, but they count against the card body text limit of 160 characters.
+   * **Required for type &#x60;BODY&#x60;.** Card body text supports variables. Maximum 160 characters.
    **/
-  @ApiModelProperty(value = "Card body text supports variables. There is no maximum character limit on variables, but they count against the card body text limit of 160 characters.")
+  @ApiModelProperty(value = "**Required for type `BODY`.** Card body text supports variables. Maximum 160 characters.")
   public void setText(String text) {
     this.text = text;
   }
@@ -279,7 +279,7 @@ public class WhatsappTemplateComponentCardComponent {
   }
 
    /**
-   * **Required for type &#x60;BUTTONS&#x60;.** Cards can optionally include up to 2 quick reply buttons, phone number buttons, or URL buttons (button types can be mixed).
+   * **Required for type &#x60;BUTTONS&#x60;.** Cards must have at least one button. Supports 2 buttons. Buttons can be the same or a mix of quick reply buttons, phone number buttons, or URL buttons.
    * @return buttons
   **/
   @javax.annotation.Nullable
@@ -290,9 +290,9 @@ public class WhatsappTemplateComponentCardComponent {
 
 
   /**
-   * **Required for type &#x60;BUTTONS&#x60;.** Cards can optionally include up to 2 quick reply buttons, phone number buttons, or URL buttons (button types can be mixed).
+   * **Required for type &#x60;BUTTONS&#x60;.** Cards must have at least one button. Supports 2 buttons. Buttons can be the same or a mix of quick reply buttons, phone number buttons, or URL buttons.
    **/
-  @ApiModelProperty(value = "**Required for type `BUTTONS`.** Cards can optionally include up to 2 quick reply buttons, phone number buttons, or URL buttons (button types can be mixed).")
+  @ApiModelProperty(value = "**Required for type `BUTTONS`.** Cards must have at least one button. Supports 2 buttons. Buttons can be the same or a mix of quick reply buttons, phone number buttons, or URL buttons.")
   public void setButtons(List<WhatsappTemplateComponentButton> buttons) {
     this.buttons = buttons;
   }
