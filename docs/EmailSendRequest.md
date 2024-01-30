@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**from** | **String** | - The sender&#39;s email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is &#x60;ycloud@ycloud-mail.com&#x60;, which only supports sending emails to your registered email address. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;ycloud@ycloud-mail.com&#x60; and &#x60;YCloud&lt;ycloud@ycloud-mail.com&gt;&#x60; work. |  |
+|**from** | **String** | - The sender&#39;s email. Its domain should be one that has been registered and activated in your account. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;support@example.com&#x60; and &#x60;Sender&lt;support@example.com&gt;&#x60; work. |  |
 |**to** | **String** | - The intended recipients&#39; email addresses. - Supports a comma-separated list of one or more addresses. Max items: 100. |  |
 |**subject** | **String** | The email subject, which contains a short string identifying the topic of the message. Max length: 255. |  |
 |**content** | **String** | - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing. |  |

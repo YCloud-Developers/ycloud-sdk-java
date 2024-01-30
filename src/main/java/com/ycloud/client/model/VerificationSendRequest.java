@@ -65,7 +65,7 @@ public class VerificationSendRequest {
 
   public static final String SERIALIZED_NAME_CODE = "code";
   /**
-   * Verification code to be sent. This field is optional. If not provided, YCloud will automatically generate a code.
+   * Verification code to be sent. This field is optional. If not provided, we will automatically generate a code.
   **/
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
@@ -79,7 +79,7 @@ public class VerificationSendRequest {
 
   public static final String SERIALIZED_NAME_SIGNATURE = "signature";
   /**
-   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;YCloud&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【YCloud】Your verification code is 123456&#x60;.
+   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;Brand&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【Brand】Your verification code is 123456&#x60;.
   **/
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
   private String signature;
@@ -159,7 +159,7 @@ public class VerificationSendRequest {
   }
 
    /**
-   * Verification code to be sent. This field is optional. If not provided, YCloud will automatically generate a code.
+   * Verification code to be sent. This field is optional. If not provided, we will automatically generate a code.
    * @return code
   **/
   @javax.annotation.Nullable
@@ -170,9 +170,9 @@ public class VerificationSendRequest {
 
 
   /**
-   * Verification code to be sent. This field is optional. If not provided, YCloud will automatically generate a code.
+   * Verification code to be sent. This field is optional. If not provided, we will automatically generate a code.
    **/
-  @ApiModelProperty(example = "123456", value = "Verification code to be sent. This field is optional. If not provided, YCloud will automatically generate a code.")
+  @ApiModelProperty(example = "123456", value = "Verification code to be sent. This field is optional. If not provided, we will automatically generate a code.")
   public void setCode(String code) {
     this.code = code;
   }
@@ -198,7 +198,7 @@ public class VerificationSendRequest {
   /**
    * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
    **/
-  @ApiModelProperty(example = "YCloud", value = "[Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.")
+  @ApiModelProperty(example = "Brand", value = "[Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.")
   public void setSenderId(String senderId) {
     this.senderId = senderId;
   }
@@ -211,7 +211,7 @@ public class VerificationSendRequest {
   }
 
    /**
-   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;YCloud&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【YCloud】Your verification code is 123456&#x60;.
+   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;Brand&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【Brand】Your verification code is 123456&#x60;.
    * @return signature
   **/
   @javax.annotation.Nullable
@@ -222,9 +222,9 @@ public class VerificationSendRequest {
 
 
   /**
-   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;YCloud&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【YCloud】Your verification code is 123456&#x60;.
+   * This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as &#x60;Brand&#x60;. It will be added to the beginning of SMS body and wrapped with &#x60;【】&#x60;, e.g. &#x60;【Brand】Your verification code is 123456&#x60;.
    **/
-  @ApiModelProperty(example = "YCloud", value = "This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `YCloud`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】Your verification code is 123456`.")
+  @ApiModelProperty(example = "Brand", value = "This parameter is only required for Chinese mainland SMS messages. You must specify an approved signature such as `Brand`. It will be added to the beginning of SMS body and wrapped with `【】`, e.g. `【Brand】Your verification code is 123456`.")
   public void setSignature(String signature) {
     this.signature = signature;
   }

@@ -276,7 +276,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * List phone numbers
      * <p>
-     * Returns a paginated list of WhatsApp business phone numbers you&#39;ve registered on YCloud.
+     * Returns a paginated list of WhatsApp business phone numbers you&#39;ve registered.
      * @return ApiListRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -514,7 +514,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Retrieve a phone number
      * <p>
-     * Retrieves a WhatsApp business phone number you&#39;ve registered on YCloud.
+     * Retrieves a WhatsApp business phone number you&#39;ve registered.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @return WhatsappPhoneNumber
@@ -534,7 +534,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Retrieve a phone number
      * <p>
-     * Retrieves a WhatsApp business phone number you&#39;ve registered on YCloud.
+     * Retrieves a WhatsApp business phone number you&#39;ve registered.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @return ApiResponse&lt;WhatsappPhoneNumber&gt;
@@ -555,7 +555,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Retrieve a phone number (asynchronously)
      * <p>
-     * Retrieves a WhatsApp business phone number you&#39;ve registered on YCloud.
+     * Retrieves a WhatsApp business phone number you&#39;ve registered.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param _callback The callback to be executed when the API call finishes

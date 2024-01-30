@@ -32,7 +32,9 @@ public enum WhatsappPhoneNumberCodeVerificationStatus {
   
   VERIFIED("VERIFIED"),
   
-  NOT_VERIFIED("NOT_VERIFIED");
+  NOT_VERIFIED("NOT_VERIFIED"),
+  
+  EXPIRED("EXPIRED");
 
   private String value;
 

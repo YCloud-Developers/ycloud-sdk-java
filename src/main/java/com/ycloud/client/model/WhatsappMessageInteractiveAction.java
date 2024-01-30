@@ -91,11 +91,13 @@ public class WhatsappMessageInteractiveAction {
   private List<WhatsappMessageInteractiveActionSection> sections = null;
 
   /**
-   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons.
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons. - &#x60;send_location&#x60;: Use for Location Request Messages.
    */
   @JsonAdapter(NameEnum.Adapter.class)
   public enum NameEnum {
-    CTA_URL("cta_url");
+    CTA_URL("cta_url"),
+    
+    SEND_LOCATION("send_location");
 
     private String value;
 
@@ -137,7 +139,7 @@ public class WhatsappMessageInteractiveAction {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   /**
-   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons.
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons. - &#x60;send_location&#x60;: Use for Location Request Messages.
   **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private NameEnum name;
@@ -304,7 +306,7 @@ public class WhatsappMessageInteractiveAction {
   }
 
    /**
-   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons.
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons. - &#x60;send_location&#x60;: Use for Location Request Messages.
    * @return name
   **/
   @javax.annotation.Nullable
@@ -315,9 +317,9 @@ public class WhatsappMessageInteractiveAction {
 
 
   /**
-   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons.
+   * Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons. - &#x60;send_location&#x60;: Use for Location Request Messages.
    **/
-  @ApiModelProperty(value = "Action name. Required for Call-To-Action (CTA) URL Button Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Buttons.")
+  @ApiModelProperty(value = "Action name. Required for Call-To-Action (CTA) URL Button Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Buttons. - `send_location`: Use for Location Request Messages.")
   public void setName(NameEnum name) {
     this.name = name;
   }

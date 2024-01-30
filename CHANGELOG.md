@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.2 (2024-01-30)
+
+- Support WhatsApp [Interactive Location Request message](https://docs.ycloud.com/reference/whatsapp-messaging-examples#interactive-location-request-message).
+- Support WhatsApp [Inbound Request Welcome message](https://docs.ycloud.com/reference/whatsapp-inbound-message-webhook-examples#inbound-request-welcome-message).
+
 ## 1.11.1 (2024-01-17)
 
 - Add [Register a phone number](https://docs.ycloud.com/reference/whatsapp_phone_number-register) endpoint.

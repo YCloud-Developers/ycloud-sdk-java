@@ -52,6 +52,8 @@ public enum WhatsappInboundMessageType {
   
   REACTION("reaction"),
   
+  REQUEST_WELCOME("request_welcome"),
+  
   ORDER("order"),
   
   SYSTEM("system"),

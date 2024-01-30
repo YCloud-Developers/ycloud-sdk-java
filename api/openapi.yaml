@@ -9,10 +9,10 @@ info:
   title: YCloud API
   version: v2
 externalDocs:
-  description: YCloud Homepage
+  description: Homepage
   url: https://ycloud.com
 servers:
-- description: YCloud API base URL
+- description: Base URL
   url: https://api.ycloud.com/v2
 security:
 - api_key: []
@@ -120,7 +120,7 @@ paths:
         name: filter.email
         required: false
         schema:
-          example: support@ycloud.com
+          example: support@example.com
           type: string
         style: form
       responses:
@@ -962,8 +962,7 @@ paths:
       x-accepts: application/json
   /whatsapp/businessAccounts:
     get:
-      description: Returns a paginated list of WhatsApp business accounts you've registered
-        on YCloud.
+      description: Returns a paginated list of WhatsApp business accounts you've registered.
       operationId: whatsapp_business_account-list
       parameters:
       - description: "Page number of the results to be returned, 1-based."
@@ -1024,7 +1023,7 @@ paths:
       x-accepts: application/json
   /whatsapp/businessAccounts/{id}:
     get:
-      description: Retrieves a WABA you've registered on YCloud.
+      description: Retrieves a WABA you've registered.
       operationId: whatsapp_business_account-retrieve
       parameters:
       - description: WhatsApp Business Account ID.
@@ -1139,7 +1138,7 @@ paths:
   /whatsapp/phoneNumbers:
     get:
       description: Returns a paginated list of WhatsApp business phone numbers you've
-        registered on YCloud.
+        registered.
       operationId: whatsapp_phone_number-list
       parameters:
       - description: "Page number of the results to be returned, 1-based."
@@ -1200,8 +1199,7 @@ paths:
       x-accepts: application/json
   /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}:
     get:
-      description: Retrieves a WhatsApp business phone number you've registered on
-        YCloud.
+      description: Retrieves a WhatsApp business phone number you've registered.
       operationId: whatsapp_phone_number-retrieve
       parameters:
       - description: WhatsApp Business Account ID.
@@ -1972,7 +1970,7 @@ components:
         nickname: nickname
         id: "1693364594105000026"
         countryName: countryName
-        email: support@ycloud.com
+        email: support@example.com
         tags:
         - tags
         - tags
@@ -2010,7 +2008,7 @@ components:
         email:
           description: "The contact's email address.\nIf present, the email address\
             \ must be unique."
-          example: support@ycloud.com
+          example: support@example.com
           type: string
         lastSeen:
           description: "The time at which the latest inbound message was created,\
@@ -2064,7 +2062,7 @@ components:
         phoneNumber: +16315551111
         countryCode: GB
         nickname: nickname
-        email: support@ycloud.com
+        email: support@example.com
         tags:
         - tags
         - tags
@@ -2095,7 +2093,7 @@ components:
         email:
           description: "Contact's email address.\nIf present, the email address must\
             \ be unique."
-          example: support@ycloud.com
+          example: support@example.com
           maxLength: 250
           type: string
         tags:
@@ -2127,7 +2125,7 @@ components:
           nickname: nickname
           id: "1693364594105000026"
           countryName: countryName
-          email: support@ycloud.com
+          email: support@example.com
           tags:
           - tags
           - tags
@@ -2146,7 +2144,7 @@ components:
           nickname: nickname
           id: "1693364594105000026"
           countryName: countryName
-          email: support@ycloud.com
+          email: support@example.com
           tags:
           - tags
           - tags
@@ -2171,7 +2169,7 @@ components:
         phoneNumber: +16315551111
         countryCode: GB
         nickname: nickname
-        email: support@ycloud.com
+        email: support@example.com
         tags:
         - tags
         - tags
@@ -2202,7 +2200,7 @@ components:
         email:
           description: "The contact's email address.\nIf present, the email address\
             \ must be unique."
-          example: support@ycloud.com
+          example: support@example.com
           maxLength: 250
           type: string
         tags:
@@ -2224,36 +2222,36 @@ components:
       example:
         cc:
         - address: team@example.com
-          name: YCloud Team
+          name: Support Team
         - address: team@example.com
-          name: YCloud Team
+          name: Support Team
         summary: This is a summary.
         totalRecipients: 3
         bcc:
         - address: team@example.com
-          name: YCloud Team
+          name: Support Team
         - address: team@example.com
-          name: YCloud Team
+          name: Support Team
         totalPrice: 0.0085
         subject: subject
         externalId: externalId
         createTime: 2022-06-01T12:00:00Z
         replyTo:
         - address: team@example.com
-          name: YCloud Team
+          name: Support Team
         - address: team@example.com
-          name: YCloud Team
+          name: Support Team
         from:
           address: team@example.com
-          name: YCloud Team
+          name: Support Team
         callbackUrl: https://httpbin.org/anything?tag=api-email
         currency: USD
         id: id
         to:
         - address: team@example.com
-          name: YCloud Team
+          name: Support Team
         - address: team@example.com
-          name: YCloud Team
+          name: Support Team
         contentType: null
       properties:
         id:
@@ -2358,9 +2356,10 @@ components:
           description: "Delivery status of the email to the specific recipient address.\n\
             - `sending`: The messaging request is accepted by our system.\n- `failed`:\
             \ The message failed to be sent from our system.\n- `sent`: The message\
-            \ has been sent from YCloud.\n- `delivered`: YCloud has received a delivery\
-            \ receipt indicating that message is delivered.\n- `undelivered`: YCloud\
-            \ has received a delivery receipt indicating that message is not delivered."
+            \ has been sent from our system.\n- `delivered`: Our system has received\
+            \ a delivery receipt indicating that message is delivered.\n- `undelivered`:\
+            \ Our system has received a delivery receipt indicating that message is\
+            \ not delivered."
           enum:
           - sending
           - failed
@@ -2382,10 +2381,10 @@ components:
           type: string
         bizType:
           description: "This can be either empty or one of `email`, or `verify`. Defaults\
-            \ to `email`.\n- `email`: Indicates that the message is sent via [Email](https://www.ycloud.com/email)\
-            \ product.\n- `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify)\
+            \ to `email`.\n- `email`: Indicates that the message is sent via the **Email**\
+            \ product.\n- `verify`: Indicates that the message is sent via the **Verify**\
             \ product."
-          example: verify
+          example: email
           type: string
         verificationId:
           description: The verification ID. Included only when `bizType` is `verify`.
@@ -2406,7 +2405,7 @@ components:
         subject: subject
         replyTo: replyTo
         externalId: externalId
-        from: YCloud<ycloud@ycloud-mail.com>
+        from: SupportTeam<support@example.com>
         callbackUrl: https://httpbin.org/anything?tag=api-email
         to: "to1@example.com,Nick<to2@example.com>"
         contentType: null
@@ -2414,12 +2413,10 @@ components:
       properties:
         from:
           description: "- The sender's email. Its domain should be one that has been\
-            \ registered and activated in your YCloud account.\n- The test address\
-            \ provided by YCloud is `ycloud@ycloud-mail.com`, which only supports\
-            \ sending emails to your registered email address.\n- The sender's email\
-            \ address is required while the sender's name is optional. For example,\
-            \ both `ycloud@ycloud-mail.com` and `YCloud<ycloud@ycloud-mail.com>` work."
-          example: YCloud<ycloud@ycloud-mail.com>
+            \ registered and activated in your account.\n- The sender's email address\
+            \ is required while the sender's name is optional. For example, both `support@example.com`\
+            \ and `Sender<support@example.com>` work."
+          example: SupportTeam<support@example.com>
           type: string
         to:
           description: "- The intended recipients' email addresses.\n- Supports a\
@@ -2632,11 +2629,11 @@ components:
       description: Represents a mailbox.
       example:
         address: team@example.com
-        name: YCloud Team
+        name: Support Team
       properties:
         name:
           description: Name of the mailbox.
-          example: YCloud Team
+          example: Support Team
           type: string
         address:
           description: Address of the mailbox.
@@ -2710,13 +2707,13 @@ components:
       type: object
     Sms:
       example:
-        bizType: verify
+        bizType: sms
         totalPrice: 0.0085
         totalSegments: 1
         errorCode: errorCode
         externalId: externalId
         updateTime: 2022-03-01T12:00:00Z
-        senderId: YCloud
+        senderId: Brand
         regionCode: GB
         createTime: 2022-03-01T12:00:00Z
         currency: USD
@@ -2743,7 +2740,7 @@ components:
           type: string
         senderId:
           description: Sender ID to be used.
-          example: YCloud
+          example: Brand
           type: string
         regionCode:
           description: "[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)"
@@ -2769,10 +2766,10 @@ components:
           description: "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`,\
             \ or `failed`.\n- `accepted`: The messaging request is accepted by our\
             \ system.\n- `failed`: The message failed to be sent from our system.\n\
-            - `sent`: The message has been sent from our system.\n- `delivered`: YCloud\
-            \ has received a delivery receipt indicating that message is delivered.\n\
-            - `undelivered`: YCloud has received a delivery receipt indicating that\
-            \ message is not delivered."
+            - `sent`: The message has been sent from our system.\n- `delivered`: Our\
+            \ system has received a delivery receipt indicating that message is delivered.\n\
+            - `undelivered`: Our system has received a delivery receipt indicating\
+            \ that message is not delivered."
           enum:
           - accepted
           - failed
@@ -2810,10 +2807,10 @@ components:
           type: string
         bizType:
           description: "This can be either empty or one of `sms`, or `verify`. Defaults\
-            \ to `sms`.\n- `sms`: Indicates that the message is sent via [Email](https://www.ycloud.com/sms)\
-            \ product.\n- `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify)\
+            \ to `sms`.\n- `sms`: Indicates that the message is sent via the **SMS**\
+            \ product.\n- `verify`: Indicates that the message is sent via the **Verify**\
             \ product."
-          example: verify
+          example: sms
           type: string
         verificationId:
           description: The verification ID. Included only when `bizType` is `verify`.
@@ -2856,13 +2853,13 @@ components:
       description: Represents a given page of SMS messages.
       example:
         items:
-        - bizType: verify
+        - bizType: sms
           totalPrice: 0.0085
           totalSegments: 1
           errorCode: errorCode
           externalId: externalId
           updateTime: 2022-03-01T12:00:00Z
-          senderId: YCloud
+          senderId: Brand
           regionCode: GB
           createTime: 2022-03-01T12:00:00Z
           currency: USD
@@ -2872,13 +2869,13 @@ components:
           text: Your verification code is 123456.
           verificationId: VERIFICATION-ID
           status: sent
-        - bizType: verify
+        - bizType: sms
           totalPrice: 0.0085
           totalSegments: 1
           errorCode: errorCode
           externalId: externalId
           updateTime: 2022-03-01T12:00:00Z
-          senderId: YCloud
+          senderId: Brand
           regionCode: GB
           createTime: 2022-03-01T12:00:00Z
           currency: USD
@@ -2967,8 +2964,8 @@ components:
           type: string
         smsFallbackEnabled:
           description: "Whether sms fallback is enabled or not.\nApplicable when `channel`\
-            \ is `whatsapp`. If enabled, YCloud will try to send the verification\
-            \ code via sms when the WhatsApp message is failed."
+            \ is `whatsapp`. If enabled, we will try to send the verification code\
+            \ via sms when the WhatsApp message is failed."
           type: boolean
         smsFallback:
           $ref: '#/components/schemas/VerificationFallback'
@@ -3067,9 +3064,9 @@ components:
       type: object
     VerificationSendRequest:
       example:
-        senderId: YCloud
+        senderId: Brand
         code: "123456"
-        signature: YCloud
+        signature: Brand
         channel: sms
         externalId: externalId
         language: en
@@ -3086,7 +3083,7 @@ components:
           type: string
         code:
           description: "Verification code to be sent. This field is optional. If not\
-            \ provided, YCloud will automatically generate a code."
+            \ provided, we will automatically generate a code."
           example: "123456"
           maxLength: 8
           minLength: 4
@@ -3094,14 +3091,14 @@ components:
         senderId:
           description: "[Sender ID](https://help.ycloud.com/en/articles/3080386) to\
             \ be used."
-          example: YCloud
+          example: Brand
           type: string
         signature:
           description: "This parameter is only required for Chinese mainland SMS messages.\
-            \ You must specify an approved signature such as `YCloud`. It will be\
-            \ added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】\
-            Your verification code is 123456`."
-          example: YCloud
+            \ You must specify an approved signature such as `Brand`. It will be added\
+            \ to the beginning of SMS body and wrapped with `【】`, e.g. `【Brand】Your\
+            \ verification code is 123456`."
+          example: Brand
           type: string
         language:
           description: "[ISO 639 Language Code](https://www.iso.org/iso-639-language-codes.html).\
@@ -3134,11 +3131,9 @@ components:
         \ checked anymore.\n- `blocked`: The verification is blocked by user-defined\
         \ rules such as denylist, and geographical permission restrictions. A blocked\
         \ verification cannot be checked.\n- `expired`: The verification has expired\
-        \ and cannot be checked anymore. The expiration can be customized in [Verify\
-        \ Settings](https://www.ycloud.com/console/#/app/verify/setting).\n- `undelivered`:\
-        \ YCloud has received a delivery receipt indicating that the verification\
-        \ message was not delivered. An undelivered verification cannot be checked\
-        \ anymore."
+        \ and cannot be checked anymore.\n- `undelivered`: Our system has received\
+        \ a delivery receipt indicating that the verification message was not delivered.\
+        \ An undelivered verification cannot be checked anymore."
       enum:
       - pending
       - approved
@@ -3148,8 +3143,8 @@ components:
       type: string
     SmsSendRequest:
       example:
-        senderId: YCloud
-        signature: YCloud
+        senderId: Brand
+        signature: Brand
         externalId: externalId
         callbackUrl: https://httpbin.org/anything?tag=api-sms
         to: +447901614024
@@ -3167,14 +3162,14 @@ components:
         senderId:
           description: "[Sender ID](https://help.ycloud.com/en/articles/3080386) to\
             \ be used."
-          example: YCloud
+          example: Brand
           type: string
         signature:
           description: "This parameter is only required for Chinese mainland SMS messages.\
-            \ You must specify an approved signature such as `YCloud`. It will be\
-            \ added to the beginning of SMS body and wrapped with `【】`, e.g. `【YCloud】\
-            Your verification code is 123456`."
-          example: YCloud
+            \ You must specify an approved signature such as `Brand`. It will be added\
+            \ to the beginning of SMS body and wrapped with `【】`, e.g. `【Brand】Your\
+            \ verification code is 123456`."
+          example: Brand
           type: string
         externalId:
           description: "A unique string to reference the object. This can be an order\
@@ -3265,7 +3260,7 @@ components:
       type: string
     Voice:
       example:
-        bizType: verify
+        bizType: voice
         totalPrice: 0.05
         totalSegments: 1
         errorCode: errorCode
@@ -3323,10 +3318,10 @@ components:
           description: "Delivery status. One of `accepted`, `sent`, `delivered`, `undelivered`,\
             \ or `failed`.\n- `accepted`: The messaging request is accepted by our\
             \ system.\n- `failed`: The message failed to be sent from our system.\n\
-            - `sent`: The message has been sent from our system.\n- `delivered`: YCloud\
-            \ has received a delivery receipt indicating that message is delivered.\n\
-            - `undelivered`: YCloud has received a delivery receipt indicating that\
-            \ message is not delivered."
+            - `sent`: The message has been sent from our system.\n- `delivered`: Our\
+            \ system has received a delivery receipt indicating that message is delivered.\n\
+            - `undelivered`: Our system has received a delivery receipt indicating\
+            \ that message is not delivered."
           enum:
           - accepted
           - failed
@@ -3364,10 +3359,10 @@ components:
           type: string
         bizType:
           description: "This can be either empty or one of `voice`, or `verify`. Defaults\
-            \ to `voice`.\n- `voice`: Indicates that the message is sent via [Voice](https://www.ycloud.com/voice)\
-            \ product.\n- `verify`: Indicates that the message is sent via [Verify](https://www.ycloud.com/verify)\
+            \ to `voice`.\n- `voice`: Indicates that the message is sent via the **Voice**\
+            \ product.\n- `verify`: Indicates that the message is sent via **Verify**\
             \ product."
-          example: verify
+          example: voice
           type: string
         verificationId:
           description: The verification ID. Included only when `bizType` is `verify`.
@@ -3383,7 +3378,7 @@ components:
       description: Represents a given page of Voice Calls.
       example:
         items:
-        - bizType: verify
+        - bizType: voice
           totalPrice: 0.05
           totalSegments: 1
           errorCode: errorCode
@@ -3399,7 +3394,7 @@ components:
           to: +447901614024
           verificationId: VERIFICATION-ID
           status: sent
-        - bizType: verify
+        - bizType: voice
           totalPrice: 0.05
           totalSegments: 1
           errorCode: errorCode
@@ -4371,6 +4366,7 @@ components:
       - interactive
       - button
       - reaction
+      - request_welcome
       - order
       - system
       - unsupported
@@ -5555,7 +5551,7 @@ components:
           language:
             code: en_US
             policy: deterministic
-        bizType: verify
+        bizType: whatsapp
         wamid: wamid.BgNODYxN...
         totalPrice: 0.05
         document:
@@ -5984,10 +5980,9 @@ components:
         bizType:
           description: "This can be either empty or one of `whatsapp`, or `verify`.\
             \ Defaults to `whatsapp`.\n- `whatsapp`: Indicates that the message is\
-            \ sent via [WhatsApp](https://www.ycloud.com/whatsapp) product.\n- `verify`:\
-            \ Indicates that the message is sent via [Verify](https://www.ycloud.com/verify)\
-            \ product."
-          example: verify
+            \ sent via the **WhatsApp** product.\n- `verify`: Indicates that the message\
+            \ is sent via the **Verify** product."
+          example: whatsapp
           type: string
         verificationId:
           description: The verification ID. Included only when `bizType` is `verify`.
@@ -6384,7 +6379,8 @@ components:
             \ send.\n- `button`: Use for Reply Buttons.\n- `list`: Use for List Messages.\n\
             - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages.\n- `product`:\
             \ Use for Single Product Messages.\n- `product_list`: Use for Multi-Product\
-            \ Messages.\n- `catalog_message`: Use for Catalog Messages."
+            \ Messages.\n- `catalog_message`: Use for Catalog Messages.\n- `location_request_message`:\
+            \ Use for Location Request Messages."
           enum:
           - button
           - list
@@ -6392,6 +6388,7 @@ components:
           - product
           - product_list
           - catalog_message
+          - location_request_message
           type: string
         action:
           $ref: '#/components/schemas/WhatsappMessageInteractiveAction'
@@ -6576,9 +6573,11 @@ components:
           type: array
         name:
           description: "Action name.\nRequired for Call-To-Action (CTA) URL Button\
-            \ Messages.\n- `cta_url`: Use for Call-To-Action (CTA) URL Buttons."
+            \ Messages.\n- `cta_url`: Use for Call-To-Action (CTA) URL Buttons.\n\
+            - `send_location`: Use for Location Request Messages."
           enum:
           - cta_url
+          - send_location
           type: string
         parameters:
           $ref: '#/components/schemas/WhatsappMessageInteractiveActionParameters'
@@ -10956,6 +10955,7 @@ components:
       enum:
       - VERIFIED
       - NOT_VERIFIED
+      - EXPIRED
       type: string
     WhatsappPhoneNumberNameStatus:
       description: "The review status of the current display name request. See also\
@@ -12266,8 +12266,11 @@ components:
             \ time that exceeds its time-to-live, we will stop retrying and drop the\
             \ message.\nDefaults to `600` seconds for newly created authentication\
             \ templates.\nTo override the default value, set this field to a value\
-            \ between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour\
-            \ time-to-live."
+            \ between `60` and `600` seconds. Or set it to `-1` resulting in a 30-day\
+            \ time-to-live.\nWe encourage you to set a time-to-live for all of your\
+            \ authentication templates, preferably equal to or less than your code\
+            \ expiration time, to ensure your customers only get a message when a\
+            \ code is still usable."
           example: 600
           format: int32
           type: integer
@@ -14267,8 +14270,11 @@ components:
             \ time that exceeds its time-to-live, we will stop retrying and drop the\
             \ message.\nDefaults to `600` seconds for newly created authentication\
             \ templates.\nTo override the default value, set this field to a value\
-            \ between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour\
-            \ time-to-live."
+            \ between `60` and `600` seconds. Or set it to `-1` resulting in a 30-day\
+            \ time-to-live.\nWe encourage you to set a time-to-live for all of your\
+            \ authentication templates, preferably equal to or less than your code\
+            \ expiration time, to ensure your customers only get a message when a\
+            \ code is still usable."
           example: 600
           format: int32
           type: integer
@@ -15273,8 +15279,11 @@ components:
             \ time that exceeds its time-to-live, we will stop retrying and drop the\
             \ message.\nDefaults to `600` seconds for newly created authentication\
             \ templates.\nTo override the default value, set this field to a value\
-            \ between `60` and `600` seconds. Or set it to `-1` resulting in a 24-hour\
-            \ time-to-live."
+            \ between `60` and `600` seconds. Or set it to `-1` resulting in a 30-day\
+            \ time-to-live.\nWe encourage you to set a time-to-live for all of your\
+            \ authentication templates, preferably equal to or less than your code\
+            \ expiration time, to ensure your customers only get a message when a\
+            \ code is still usable."
           example: 600
           format: int32
           type: integer

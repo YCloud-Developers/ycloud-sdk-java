@@ -186,7 +186,7 @@ public class Example {
     String filterTags = "tag1,tag2"; // String | Comma-separated list of tags.
     String filterCountryCode = "GB"; // String | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
     String filterPhoneNumber = "+447901614024"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    String filterEmail = "support@ycloud.com"; // String | The contact's email address.
+    String filterEmail = "support@example.com"; // String | The contact's email address.
     try {
       ContactPage result = apiInstance.list()
             .page(page)

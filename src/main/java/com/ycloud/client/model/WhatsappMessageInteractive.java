@@ -55,7 +55,7 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractive {
   /**
-   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -69,7 +69,9 @@ public class WhatsappMessageInteractive {
     
     PRODUCT_LIST("product_list"),
     
-    CATALOG_MESSAGE("catalog_message");
+    CATALOG_MESSAGE("catalog_message"),
+    
+    LOCATION_REQUEST_MESSAGE("location_request_message");
 
     private String value;
 
@@ -111,7 +113,7 @@ public class WhatsappMessageInteractive {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -150,7 +152,7 @@ public class WhatsappMessageInteractive {
   }
 
    /**
-   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -161,9 +163,9 @@ public class WhatsappMessageInteractive {
 
 
   /**
-   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages.
    **/
-  @ApiModelProperty(value = "**Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages. - `catalog_message`: Use for Catalog Messages.")
+  @ApiModelProperty(value = "**Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages. - `catalog_message`: Use for Catalog Messages. - `location_request_message`: Use for Location Request Messages.")
   public void setType(TypeEnum type) {
     this.type = type;
   }

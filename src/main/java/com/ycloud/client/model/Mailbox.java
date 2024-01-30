@@ -87,7 +87,7 @@ public class Mailbox {
   /**
    * Name of the mailbox.
    **/
-  @ApiModelProperty(example = "YCloud Team", value = "Name of the mailbox.")
+  @ApiModelProperty(example = "Support Team", value = "Name of the mailbox.")
   public void setName(String name) {
     this.name = name;
   }

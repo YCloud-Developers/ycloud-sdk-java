@@ -55,7 +55,7 @@ import com.ycloud.client.JSON;
 public class EmailSendRequest {
   public static final String SERIALIZED_NAME_FROM = "from";
   /**
-   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is &#x60;ycloud@ycloud-mail.com&#x60;, which only supports sending emails to your registered email address. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;ycloud@ycloud-mail.com&#x60; and &#x60;YCloud&lt;ycloud@ycloud-mail.com&gt;&#x60; work.
+   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your account. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;support@example.com&#x60; and &#x60;Sender&lt;support@example.com&gt;&#x60; work.
   **/
   @SerializedName(SERIALIZED_NAME_FROM)
   private String from;
@@ -146,7 +146,7 @@ public class EmailSendRequest {
   }
 
    /**
-   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is &#x60;ycloud@ycloud-mail.com&#x60;, which only supports sending emails to your registered email address. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;ycloud@ycloud-mail.com&#x60; and &#x60;YCloud&lt;ycloud@ycloud-mail.com&gt;&#x60; work.
+   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your account. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;support@example.com&#x60; and &#x60;Sender&lt;support@example.com&gt;&#x60; work.
    * @return from
   **/
   @javax.annotation.Nonnull
@@ -157,9 +157,9 @@ public class EmailSendRequest {
 
 
   /**
-   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is &#x60;ycloud@ycloud-mail.com&#x60;, which only supports sending emails to your registered email address. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;ycloud@ycloud-mail.com&#x60; and &#x60;YCloud&lt;ycloud@ycloud-mail.com&gt;&#x60; work.
+   * - The sender&#39;s email. Its domain should be one that has been registered and activated in your account. - The sender&#39;s email address is required while the sender&#39;s name is optional. For example, both &#x60;support@example.com&#x60; and &#x60;Sender&lt;support@example.com&gt;&#x60; work.
    **/
-  @ApiModelProperty(example = "YCloud<ycloud@ycloud-mail.com>", required = true, value = "- The sender's email. Its domain should be one that has been registered and activated in your YCloud account. - The test address provided by YCloud is `ycloud@ycloud-mail.com`, which only supports sending emails to your registered email address. - The sender's email address is required while the sender's name is optional. For example, both `ycloud@ycloud-mail.com` and `YCloud<ycloud@ycloud-mail.com>` work.")
+  @ApiModelProperty(example = "SupportTeam<support@example.com>", required = true, value = "- The sender's email. Its domain should be one that has been registered and activated in your account. - The sender's email address is required while the sender's name is optional. For example, both `support@example.com` and `Sender<support@example.com>` work.")
   public void setFrom(String from) {
     this.from = from;
   }

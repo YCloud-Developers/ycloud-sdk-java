@@ -272,7 +272,7 @@ public class WhatsappBusinessAccountsApi {
     /**
      * List WABAs
      * <p>
-     * Returns a paginated list of WhatsApp business accounts you&#39;ve registered on YCloud.
+     * Returns a paginated list of WhatsApp business accounts you&#39;ve registered.
      * @return ApiListRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -359,7 +359,7 @@ public class WhatsappBusinessAccountsApi {
     /**
      * Retrieve a WABA
      * <p>
-     * Retrieves a WABA you&#39;ve registered on YCloud.
+     * Retrieves a WABA you&#39;ve registered.
      * @param id WhatsApp Business Account ID. (required)
      * @return WhatsappBusinessAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -378,7 +378,7 @@ public class WhatsappBusinessAccountsApi {
     /**
      * Retrieve a WABA
      * <p>
-     * Retrieves a WABA you&#39;ve registered on YCloud.
+     * Retrieves a WABA you&#39;ve registered.
      * @param id WhatsApp Business Account ID. (required)
      * @return ApiResponse&lt;WhatsappBusinessAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -398,7 +398,7 @@ public class WhatsappBusinessAccountsApi {
     /**
      * Retrieve a WABA (asynchronously)
      * <p>
-     * Retrieves a WABA you&#39;ve registered on YCloud.
+     * Retrieves a WABA you&#39;ve registered.
      * @param id WhatsApp Business Account ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

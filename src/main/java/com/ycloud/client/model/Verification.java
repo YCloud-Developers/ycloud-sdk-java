@@ -102,7 +102,7 @@ public class Verification {
 
   public static final String SERIALIZED_NAME_SMS_FALLBACK_ENABLED = "smsFallbackEnabled";
   /**
-   * Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.
+   * Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, we will try to send the verification code via sms when the WhatsApp message is failed.
   **/
   @SerializedName(SERIALIZED_NAME_SMS_FALLBACK_ENABLED)
   private Boolean smsFallbackEnabled;
@@ -310,7 +310,7 @@ public class Verification {
   }
 
    /**
-   * Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.
+   * Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, we will try to send the verification code via sms when the WhatsApp message is failed.
    * @return smsFallbackEnabled
   **/
   @javax.annotation.Nullable
@@ -321,9 +321,9 @@ public class Verification {
 
 
   /**
-   * Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.
+   * Whether sms fallback is enabled or not. Applicable when &#x60;channel&#x60; is &#x60;whatsapp&#x60;. If enabled, we will try to send the verification code via sms when the WhatsApp message is failed.
    **/
-  @ApiModelProperty(value = "Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, YCloud will try to send the verification code via sms when the WhatsApp message is failed.")
+  @ApiModelProperty(value = "Whether sms fallback is enabled or not. Applicable when `channel` is `whatsapp`. If enabled, we will try to send the verification code via sms when the WhatsApp message is failed.")
   public void setSmsFallbackEnabled(Boolean smsFallbackEnabled) {
     this.smsFallbackEnabled = smsFallbackEnabled;
   }

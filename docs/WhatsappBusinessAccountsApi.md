@@ -14,7 +14,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 List WABAs
 
-Returns a paginated list of WhatsApp business accounts you&#39;ve registered on YCloud.
+Returns a paginated list of WhatsApp business accounts you&#39;ve registered.
 
 ### Example
 ```java
@@ -94,7 +94,7 @@ public class Example {
 
 Retrieve a WABA
 
-Retrieves a WABA you&#39;ve registered on YCloud.
+Retrieves a WABA you&#39;ve registered.
 
 ### Example
 ```java

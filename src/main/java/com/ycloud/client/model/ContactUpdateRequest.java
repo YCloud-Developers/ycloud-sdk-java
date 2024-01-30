@@ -196,7 +196,7 @@ public class ContactUpdateRequest {
   /**
    * The contact&#39;s email address. If present, the email address must be unique.
    **/
-  @ApiModelProperty(example = "support@ycloud.com", value = "The contact's email address. If present, the email address must be unique.")
+  @ApiModelProperty(example = "support@example.com", value = "The contact's email address. If present, the email address must be unique.")
   public void setEmail(String email) {
     this.email = email;
   }
