@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.12.0 (2024-02-22)
+
+- Add WhatsApp [Mark message as read](https://docs.ycloud.com/reference/whatsapp_inbound_message-mark-as-read) endpoint.
+
 ## 1.11.2 (2024-01-30)
 
 - Support WhatsApp [Interactive Location Request message](https://docs.ycloud.com/reference/whatsapp-messaging-examples#interactive-location-request-message).

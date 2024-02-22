@@ -26,6 +26,7 @@ tags:
 - name: Voices
 - name: Webhook Endpoints
 - name: WhatsApp Business Accounts
+- name: WhatsApp Inbound Messages
 - name: WhatsApp Messages
 - name: WhatsApp Phone Numbers
 - name: WhatsApp Templates
@@ -1051,6 +1052,37 @@ paths:
       summary: Retrieve a WABA
       tags:
       - WhatsApp Business Accounts
+      x-accepts: application/json
+  /whatsapp/inboundMessages/{id}/markAsRead:
+    post:
+      description: "When you receive an inbound message from webhooks, you can use\
+        \ this endpoint to mark the message as read. Messages marked as read display\
+        \ two blue check marks alongside their timestamp.\n\nMarking a message as\
+        \ read will also mark earlier messages in the conversation as read."
+      operationId: whatsapp_inbound_message-mark-as-read
+      parameters:
+      - description: "ID of the message.\n\nA wamid (i.e., the original message ID\
+          \ on WhatsApp's platform) is also acceptable."
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 627c8640675de8fc689ab9d9
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Successfully marked the message as read.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Mark message as read
+      tags:
+      - WhatsApp Inbound Messages
       x-accepts: application/json
   /whatsapp/messages/sendDirectly:
     post:
