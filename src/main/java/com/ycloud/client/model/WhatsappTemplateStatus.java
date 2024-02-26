@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The status of a WhatsApp template. - &#x60;PENDING&#x60;: The template is still under review. Review can take up to 24 hours. - &#x60;REJECTED&#x60;: The template has been rejected during review process. - &#x60;APPROVED&#x60;: The template is approved, and you may begin sending it to customers. - &#x60;PAUSED&#x60;: The template has been paused due to recurring negative feedback from customers. Message templates with this status cannot be sent to customers. See [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - &#x60;DISABLED&#x60;: The template has been disabled due to recurring negative feedback from customers or for violating one or more of our policies. Message templates with this status cannot be sent to customers. You may be able to edit a disabled message template and request an appeal. See [Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals). - &#x60;IN_APPEAL&#x60;: The template is in appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals). - &#x60;PENDING_DELETION&#x60;: The template is pending deletion.
+ * The status of a WhatsApp template. - &#x60;PENDING&#x60;: The template is still under review. Review can take up to 24 hours. - &#x60;REJECTED&#x60;: The template has been rejected during review process. - &#x60;APPROVED&#x60;: The template is approved, and you may begin sending it to customers. - &#x60;PAUSED&#x60;: The template has been paused due to recurring negative feedback from customers. Message templates with this status cannot be sent to customers. See [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - &#x60;DISABLED&#x60;: The template has been disabled due to recurring negative feedback from customers or for violating one or more of our policies. Message templates with this status cannot be sent to customers. You may be able to edit a disabled message template and request an appeal. See [Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals). - &#x60;IN_APPEAL&#x60;: The template is in appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals). - &#x60;DELETED&#x60;: The template is deleted.
  */
 @JsonAdapter(WhatsappTemplateStatus.Adapter.class)
 public enum WhatsappTemplateStatus {
@@ -42,7 +42,7 @@ public enum WhatsappTemplateStatus {
   
   IN_APPEAL("IN_APPEAL"),
   
-  PENDING_DELETION("PENDING_DELETION");
+  DELETED("DELETED");
 
   private String value;
 

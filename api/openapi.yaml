@@ -17353,7 +17353,7 @@ components:
         \ with this status cannot be sent to customers. You may be able to edit a\
         \ disabled message template and request an appeal. See [Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals).\n\
         - `IN_APPEAL`: The template is in appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals).\n\
-        - `PENDING_DELETION`: The template is pending deletion."
+        - `DELETED`: The template is deleted."
       enum:
       - PENDING
       - REJECTED
@@ -17361,7 +17361,7 @@ components:
       - PAUSED
       - DISABLED
       - IN_APPEAL
-      - PENDING_DELETION
+      - DELETED
       example: REJECTED
       type: string
     WhatsappTemplateStatusUpdateEventEnum:

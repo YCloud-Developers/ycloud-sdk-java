@@ -17,7 +17,7 @@
 
 * `IN_APPEAL` (value: `"IN_APPEAL"`)
 
-* `PENDING_DELETION` (value: `"PENDING_DELETION"`)
+* `DELETED` (value: `"DELETED"`)
 
 
 
