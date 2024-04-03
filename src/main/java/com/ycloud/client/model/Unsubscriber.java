@@ -134,7 +134,7 @@ public class Unsubscriber {
   /**
    * The customer who has opted out. For &#x60;type&#x3D;PHONE_NUMBER&#x60;, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    **/
-  @ApiModelProperty(example = "+447901614024", value = "The customer who has opted out. For `type=PHONE_NUMBER`, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", value = "The customer who has opted out. For `type=PHONE_NUMBER`, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setCustomer(String customer) {
     this.customer = customer;
   }
@@ -185,7 +185,7 @@ public class Unsubscriber {
   /**
    * The customer&#39;s region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
    **/
-  @ApiModelProperty(example = "GB", value = "The customer's region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).")
+  @ApiModelProperty(example = "US", value = "The customer's region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).")
   public void setRegionCode(String regionCode) {
     this.regionCode = regionCode;
   }

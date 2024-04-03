@@ -194,7 +194,7 @@ public class Verification {
   /**
    * Recipient of the verification.
    **/
-  @ApiModelProperty(example = "+447901614024", value = "Recipient of the verification.")
+  @ApiModelProperty(example = "+16315551111", value = "Recipient of the verification.")
   public void setTo(String to) {
     this.to = to;
   }

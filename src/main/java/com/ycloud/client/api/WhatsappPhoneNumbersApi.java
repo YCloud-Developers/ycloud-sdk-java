@@ -205,7 +205,7 @@ public class WhatsappPhoneNumbersApi {
 
         /**
          * Set filterWabaId
-         * @param filterWabaId WhatsApp Business Account ID. (optional)
+         * @param filterWabaId **Required**. WhatsApp Business Account ID. (optional)
          * @return ApiListRequest
          */
         public ApiListRequest filterWabaId(String filterWabaId) {

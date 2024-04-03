@@ -318,7 +318,7 @@ public class WhatsappInboundMessage {
   /**
    * The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    **/
-  @ApiModelProperty(example = "+447901614024", value = "The customer's phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", value = "The customer's phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setFrom(String from) {
     this.from = from;
   }
@@ -369,7 +369,7 @@ public class WhatsappInboundMessage {
   /**
    * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    **/
-  @ApiModelProperty(example = "+447901614024", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setTo(String to) {
     this.to = to;
   }

@@ -135,7 +135,7 @@ public class SmsInbound {
   /**
    * The user&#39;s phone number who sent the message to your registered sender ID, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    **/
-  @ApiModelProperty(example = "+447901614024", value = "The user's phone number who sent the message to your registered sender ID, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", value = "The user's phone number who sent the message to your registered sender ID, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setFrom(String from) {
     this.from = from;
   }

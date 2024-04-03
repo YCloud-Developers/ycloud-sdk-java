@@ -102,7 +102,7 @@ paths:
         name: filter.countryCode
         required: false
         schema:
-          example: GB
+          example: US
           type: string
         style: form
       - description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
@@ -112,7 +112,7 @@ paths:
         name: filter.phoneNumber
         required: false
         schema:
-          example: +447901614024
+          example: +16315551111
           type: string
         style: form
       - description: The contact's email address.
@@ -442,7 +442,7 @@ paths:
         required: false
         schema:
           description: The customer who has opted out.
-          example: +447901614024
+          example: +16315551111
           type: string
         style: form
       - explode: true
@@ -507,7 +507,7 @@ paths:
         name: customer
         required: true
         schema:
-          example: +447901614024
+          example: +16315551111
           type: string
         style: simple
       responses:
@@ -540,7 +540,7 @@ paths:
         name: customer
         required: true
         schema:
-          example: +447901614024
+          example: +16315551111
           type: string
         style: simple
       - explode: false
@@ -577,7 +577,7 @@ paths:
         name: customer
         required: true
         schema:
-          example: +447901614024
+          example: +16315551111
           type: string
         style: simple
       - explode: false
@@ -1208,7 +1208,9 @@ paths:
           default: false
           type: boolean
         style: form
-      - description: WhatsApp Business Account ID.
+      - description: |-
+          **Required**.
+          WhatsApp Business Account ID.
         explode: true
         in: query
         name: filter.wabaId
@@ -1250,7 +1252,7 @@ paths:
         name: phoneNumber
         required: true
         schema:
-          example: +447901614024
+          example: +16315551111
           type: string
         style: simple
       responses:
@@ -1293,7 +1295,7 @@ paths:
         name: phoneNumber
         required: true
         schema:
-          example: +447901614024
+          example: +16315551111
           type: string
         style: simple
       responses:
@@ -1333,7 +1335,7 @@ paths:
         name: phoneNumber
         required: true
         schema:
-          example: +447901614024
+          example: +16315551111
           type: string
         style: simple
       requestBody:
@@ -1381,7 +1383,7 @@ paths:
         name: phoneNumber
         required: true
         schema:
-          example: +447901614024
+          example: +16315551111
           type: string
         style: simple
       responses:
@@ -1423,7 +1425,7 @@ paths:
         name: phoneNumber
         required: true
         schema:
-          example: +447901614024
+          example: +16315551111
           type: string
         style: simple
       requestBody:
@@ -1531,7 +1533,9 @@ paths:
           default: false
           type: boolean
         style: form
-      - description: WhatsApp Business Account ID.
+      - description: |-
+          **Required**.
+          WhatsApp Business Account ID.
         explode: true
         in: query
         name: filter.wabaId
@@ -1824,7 +1828,7 @@ components:
       name: customer
       required: true
       schema:
-        example: +447901614024
+        example: +16315551111
         type: string
       style: simple
     filter_createTime_gte-default_1d:
@@ -1862,7 +1866,9 @@ components:
         type: string
       style: form
     filter_wabaId:
-      description: WhatsApp Business Account ID.
+      description: |-
+        **Required**.
+        WhatsApp Business Account ID.
       explode: true
       in: query
       name: filter.wabaId
@@ -1998,7 +2004,7 @@ components:
         phoneNumber: +16315551111
         lastSeen: 2022-06-01T12:00:00Z
         createTime: 2022-06-01T12:00:00Z
-        countryCode: GB
+        countryCode: US
         nickname: nickname
         id: "1693364594105000026"
         countryName: countryName
@@ -2014,6 +2020,7 @@ components:
           value: "{}"
         - name: name
           value: "{}"
+        ownerEmail: support@example.com
       properties:
         id:
           description: Unique ID for the object.
@@ -2027,7 +2034,7 @@ components:
         countryCode:
           description: "Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country\
             \ code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
-          example: GB
+          example: US
           type: string
         countryName:
           description: Full country name.
@@ -2067,6 +2074,11 @@ components:
           items:
             $ref: '#/components/schemas/ContactCustomAttribute'
           type: array
+        ownerEmail:
+          description: The email address of the contact's owner.
+          example: support@example.com
+          maxLength: 250
+          type: string
       required:
       - id
       type: object
@@ -2092,7 +2104,7 @@ components:
       description: Contains the properties of the contact to be created.
       example:
         phoneNumber: +16315551111
-        countryCode: GB
+        countryCode: US
         nickname: nickname
         email: support@example.com
         tags:
@@ -2106,6 +2118,7 @@ components:
           value: "{}"
         - name: name
           value: "{}"
+        ownerEmail: support@example.com
       properties:
         nickname:
           description: "Contact's nickname. Maximum length: 250 characters."
@@ -2120,7 +2133,7 @@ components:
         countryCode:
           description: "Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country\
             \ code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
-          example: GB
+          example: US
           type: string
         email:
           description: "Contact's email address.\nIf present, the email address must\
@@ -2141,6 +2154,11 @@ components:
           items:
             $ref: '#/components/schemas/ContactCustomAttribute'
           type: array
+        ownerEmail:
+          description: The email address of the contact's owner.
+          example: support@example.com
+          maxLength: 250
+          type: string
       required:
       - phoneNumber
       type: object
@@ -2153,7 +2171,7 @@ components:
         - phoneNumber: +16315551111
           lastSeen: 2022-06-01T12:00:00Z
           createTime: 2022-06-01T12:00:00Z
-          countryCode: GB
+          countryCode: US
           nickname: nickname
           id: "1693364594105000026"
           countryName: countryName
@@ -2169,10 +2187,11 @@ components:
             value: "{}"
           - name: name
             value: "{}"
+          ownerEmail: support@example.com
         - phoneNumber: +16315551111
           lastSeen: 2022-06-01T12:00:00Z
           createTime: 2022-06-01T12:00:00Z
-          countryCode: GB
+          countryCode: US
           nickname: nickname
           id: "1693364594105000026"
           countryName: countryName
@@ -2188,6 +2207,7 @@ components:
             value: "{}"
           - name: name
             value: "{}"
+          ownerEmail: support@example.com
       properties:
         items:
           description: An array containing contact objects.
@@ -2199,7 +2219,7 @@ components:
       description: Contains the properties of the contact to be updated.
       example:
         phoneNumber: +16315551111
-        countryCode: GB
+        countryCode: US
         nickname: nickname
         email: support@example.com
         tags:
@@ -2213,6 +2233,7 @@ components:
           value: "{}"
         - name: name
           value: "{}"
+        ownerEmail: support@example.com
       properties:
         nickname:
           description: "Contact's nickname. Maximum length: 250 characters."
@@ -2227,7 +2248,7 @@ components:
         countryCode:
           description: "Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country\
             \ code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
-          example: GB
+          example: US
           type: string
         email:
           description: "The contact's email address.\nIf present, the email address\
@@ -2249,6 +2270,11 @@ components:
           items:
             $ref: '#/components/schemas/ContactCustomAttribute'
           type: array
+        ownerEmail:
+          description: The email address of the contact's owner.
+          example: support@example.com
+          maxLength: 250
+          type: string
       type: object
     Email:
       example:
@@ -2746,12 +2772,12 @@ components:
         externalId: externalId
         updateTime: 2022-03-01T12:00:00Z
         senderId: Brand
-        regionCode: GB
+        regionCode: US
         createTime: 2022-03-01T12:00:00Z
         currency: USD
         callbackUrl: https://httpbin.org/anything?tag=api-sms
         id: id
-        to: +447901614024
+        to: +16315551111
         text: Your verification code is 123456.
         verificationId: VERIFICATION-ID
         status: sent
@@ -2764,7 +2790,7 @@ components:
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         text:
           description: The text of this message.
@@ -2776,7 +2802,7 @@ components:
           type: string
         regionCode:
           description: "[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)"
-          example: GB
+          example: US
           type: string
         totalSegments:
           description: "Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding)\
@@ -2863,7 +2889,7 @@ components:
           description: "The user's phone number who sent the message to your registered\
             \ sender ID, formatted in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         to:
           description: "The receiver's phone number, which is one of your registered\
@@ -2892,12 +2918,12 @@ components:
           externalId: externalId
           updateTime: 2022-03-01T12:00:00Z
           senderId: Brand
-          regionCode: GB
+          regionCode: US
           createTime: 2022-03-01T12:00:00Z
           currency: USD
           callbackUrl: https://httpbin.org/anything?tag=api-sms
           id: id
-          to: +447901614024
+          to: +16315551111
           text: Your verification code is 123456.
           verificationId: VERIFICATION-ID
           status: sent
@@ -2908,12 +2934,12 @@ components:
           externalId: externalId
           updateTime: 2022-03-01T12:00:00Z
           senderId: Brand
-          regionCode: GB
+          regionCode: US
           createTime: 2022-03-01T12:00:00Z
           currency: USD
           callbackUrl: https://httpbin.org/anything?tag=api-sms
           id: id
-          to: +447901614024
+          to: +16315551111
           text: Your verification code is 123456.
           verificationId: VERIFICATION-ID
           status: sent
@@ -2932,16 +2958,16 @@ components:
         cursor:
           after: id:foo
         items:
-        - regionCode: GB
+        - regionCode: US
           createTime: 2022-06-01T12:00:00Z
           channel: null
           type: null
-          customer: +447901614024
-        - regionCode: GB
+          customer: +16315551111
+        - regionCode: US
           createTime: 2022-06-01T12:00:00Z
           channel: null
           type: null
-          customer: +447901614024
+          customer: +16315551111
       properties:
         items:
           description: An array containing unsubscriber objects.
@@ -2963,7 +2989,7 @@ components:
         externalId: externalId
         currency: USD
         id: ve6j7n8i
-        to: +447901614024
+        to: +16315551111
         status: null
         sendTime: 2022-06-01T12:00:00Z
       properties:
@@ -2975,7 +3001,7 @@ components:
           $ref: '#/components/schemas/VerificationStatus'
         to:
           description: Recipient of the verification.
-          example: +447901614024
+          example: +16315551111
           type: string
         channel:
           $ref: '#/components/schemas/VerificationChannel'
@@ -3026,7 +3052,7 @@ components:
         valid: false
         channel: sms
         id: vc8f92c20
-        to: +447901614024
+        to: +16315551111
         status: null
       properties:
         id:
@@ -3042,7 +3068,7 @@ components:
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format or email address."
-          example: +447901614024
+          example: +16315551111
           type: string
         channel:
           $ref: '#/components/schemas/VerificationChannel'
@@ -3053,7 +3079,7 @@ components:
     VerificationCheckRequest:
       example:
         code: "123456"
-        to: +447901614024
+        to: +16315551111
         verificationId: vid
       properties:
         verificationId:
@@ -3064,7 +3090,7 @@ components:
         to:
           description: The recipient's phone number or email address. One of `verificationId`
             or `to` is required.
-          example: +447901614024
+          example: +16315551111
           type: string
         code:
           description: The verification to be checked.
@@ -3102,7 +3128,7 @@ components:
         channel: sms
         externalId: externalId
         language: en
-        to: +447901614024
+        to: +16315551111
       properties:
         channel:
           $ref: '#/components/schemas/VerificationChannel'
@@ -3111,7 +3137,7 @@ components:
             \ `channel`.\n- Phone number: In [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format. Applicable when `channel` is `sms` or `voice`.\n- Email address:\
             \ For example, `tom@example.com`. Applicable when `channel` is `email_code`."
-          example: +447901614024
+          example: +16315551111
           type: string
         code:
           description: "Verification code to be sent. This field is optional. If not\
@@ -3179,13 +3205,13 @@ components:
         signature: Brand
         externalId: externalId
         callbackUrl: https://httpbin.org/anything?tag=api-sms
-        to: +447901614024
+        to: +16315551111
         text: Your verification code is 123456.
       properties:
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         text:
           description: The text of this message.
@@ -3223,11 +3249,11 @@ components:
         An unsubscriber is a configuration item representing that customers opt out of receiving messages from your business.
         **A customer and a channel form a unique identifier for an unsubscriber.**
       example:
-        regionCode: GB
+        regionCode: US
         createTime: 2022-06-01T12:00:00Z
         channel: null
         type: null
-        customer: +447901614024
+        customer: +16315551111
       properties:
         type:
           $ref: '#/components/schemas/UnsubscriberType'
@@ -3235,14 +3261,14 @@ components:
           description: "The customer who has opted out.\nFor `type=PHONE_NUMBER`,\
             \ it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         channel:
           $ref: '#/components/schemas/UnsubscriberChannel'
         regionCode:
           description: "The customer's region code, formatted in [ISO 3166-1 alpha-2\
             \ country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
-          example: GB
+          example: US
           type: string
         createTime:
           description: "The time at which this object was created, formatted in [RFC\
@@ -3253,10 +3279,10 @@ components:
       type: object
     UnsubscriberCreateRequest:
       example:
-        regionCode: GB
+        regionCode: US
         channel: null
         type: null
-        customer: +447901614024
+        customer: +16315551111
       properties:
         type:
           $ref: '#/components/schemas/UnsubscriberType'
@@ -3264,14 +3290,14 @@ components:
           description: "The customer who has opted out.\nFor `type=PHONE_NUMBER`,\
             \ it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         channel:
           $ref: '#/components/schemas/UnsubscriberChannel'
         regionCode:
           description: "The customer's region code, formatted in [ISO 3166-1 alpha-2\
             \ country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
-          example: GB
+          example: US
           type: string
       required:
       - channel
@@ -3300,12 +3326,12 @@ components:
         language: en
         updateTime: 2022-03-01T12:00:00Z
         verificationCode: "123456"
-        regionCode: GB
+        regionCode: US
         createTime: 2022-03-01T12:00:00Z
         currency: USD
         callbackUrl: https://httpbin.org/anything?tag=api-voice
         id: id
-        to: +447901614024
+        to: +16315551111
         verificationId: VERIFICATION-ID
         status: sent
       properties:
@@ -3317,7 +3343,7 @@ components:
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         verificationCode:
           description: "The verification code to be sent, 4 to 6 digits."
@@ -3329,7 +3355,7 @@ components:
           type: string
         regionCode:
           description: "[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
-          example: GB
+          example: US
           type: string
         totalSegments:
           description: Number of message segments. It's always 1 for voice calls.
@@ -3418,12 +3444,12 @@ components:
           language: en
           updateTime: 2022-03-01T12:00:00Z
           verificationCode: "123456"
-          regionCode: GB
+          regionCode: US
           createTime: 2022-03-01T12:00:00Z
           currency: USD
           callbackUrl: https://httpbin.org/anything?tag=api-voice
           id: id
-          to: +447901614024
+          to: +16315551111
           verificationId: VERIFICATION-ID
           status: sent
         - bizType: voice
@@ -3434,12 +3460,12 @@ components:
           language: en
           updateTime: 2022-03-01T12:00:00Z
           verificationCode: "123456"
-          regionCode: GB
+          regionCode: US
           createTime: 2022-03-01T12:00:00Z
           currency: USD
           callbackUrl: https://httpbin.org/anything?tag=api-voice
           id: id
-          to: +447901614024
+          to: +16315551111
           verificationId: VERIFICATION-ID
           status: sent
       properties:
@@ -3454,13 +3480,13 @@ components:
         externalId: externalId
         language: en
         callbackUrl: https://httpbin.org/anything?tag=api-voice
-        to: +447901614024
+        to: +16315551111
         verificationCode: "123456"
       properties:
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         verificationCode:
           description: "The verification code to be sent, 4 to 6 digits."
@@ -4027,14 +4053,14 @@ components:
         from:
           description: "The customer's phone number who sent the message to the business,\
             \ formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format."
-          example: +447901614024
+          example: +16315551111
           type: string
         customerProfile:
           $ref: '#/components/schemas/WhatsappProfile'
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         sendTime:
           description: "The time at which this message is sent, formatted in [RFC\
@@ -4333,7 +4359,7 @@ components:
           type: string
       type: object
     WhatsappInboundMessageReferredProduct:
-      description: "A Product Enquiry Message is received when a user is asking for\
+      description: "A Product Inquiry Message is received when a user is asking for\
         \ more information about a specific product.\nThese can be received as in\
         \ two scenarios:\n1. When a customer replies to Single or Multi-Product Messages.\n\
         2. When a customer accesses a business’ catalog through another entry point,\
@@ -5757,9 +5783,10 @@ components:
           caption: caption
         type: null
         wabaId: whatsapp-business-account-id
+        regionCode: US
         context:
           message_id: wamid.BgNODYxN...
-        from: +447901614024
+        from: +16315551111
         currency: USD
         id: id
         text:
@@ -5805,7 +5832,7 @@ components:
           latitude: 5.962133916683182
           name: name
           longitude: 5.637376656633329
-        to: +447901614024
+        to: +16315551111
         contacts:
         - birthday: 2022-09-27
           emails:
@@ -5912,12 +5939,12 @@ components:
         from:
           description: "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         conversation:
           $ref: '#/components/schemas/WhatsappConversation'
@@ -6006,6 +6033,11 @@ components:
         currency:
           description: "Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)."
           example: USD
+          type: string
+        regionCode:
+          description: "The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)\
+            \ of the recipient phone number."
+          example: US
           type: string
         whatsappApiError:
           $ref: '#/components/schemas/WhatsappApiError'
@@ -8209,13 +8241,13 @@ components:
         filterUnsubscribed: true
         context:
           message_id: wamid.BgNODYxN...
-        from: +447901614024
+        from: +16315551111
         location:
           address: address
           latitude: 5.962133916683182
           name: name
           longitude: 5.637376656633329
-        to: +447901614024
+        to: +16315551111
         text:
           preview_url: true
           body: body
@@ -8316,12 +8348,12 @@ components:
         from:
           description: "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         to:
           description: "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
             \ format."
-          example: +447901614024
+          example: +16315551111
           type: string
         type:
           $ref: '#/components/schemas/WhatsappMessageType'

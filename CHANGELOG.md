@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.12.2 (2024-04-03)
+
+- Add `regionCode` to the WhatsApp message object.
+
+## 1.12.1 (2024-02-26)
+
+- Rename WhatsApp template status `PENDING_DELETION` to `DELETED`.
+
 ## 1.12.0 (2024-02-22)
 
 - Add WhatsApp [Mark message as read](https://docs.ycloud.com/reference/whatsapp_inbound_message-mark-as-read) endpoint.

@@ -14,6 +14,7 @@ Contains the properties of the contact to be updated.
 |**email** | **String** | The contact&#39;s email address. If present, the email address must be unique. |  [optional] |
 |**tags** | **List&lt;String&gt;** | Contact&#39;s tags. Maximum items: 50. |  [optional] |
 |**customAttributes** | [**List&lt;ContactCustomAttribute&gt;**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. If present (i.e., not &#x60;null&#x60;), all previous attributes of this contact will be replaced. |  [optional] |
+|**ownerEmail** | **String** | The email address of the contact&#39;s owner. |  [optional] |
 
 
 

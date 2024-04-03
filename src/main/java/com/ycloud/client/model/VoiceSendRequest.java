@@ -107,7 +107,7 @@ public class VoiceSendRequest {
   /**
    * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    **/
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setTo(String to) {
     this.to = to;
   }

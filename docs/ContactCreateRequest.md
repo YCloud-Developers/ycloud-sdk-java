@@ -14,6 +14,7 @@ Contains the properties of the contact to be created.
 |**email** | **String** | Contact&#39;s email address. If present, the email address must be unique. |  [optional] |
 |**tags** | **List&lt;String&gt;** | Contact&#39;s tags. Max items: 50. Max characters per tag: 50. |  [optional] |
 |**customAttributes** | [**List&lt;ContactCustomAttribute&gt;**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. |  [optional] |
+|**ownerEmail** | **String** | The email address of the contact&#39;s owner. |  [optional] |
 
 
 

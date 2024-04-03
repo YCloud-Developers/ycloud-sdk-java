@@ -18,6 +18,7 @@ Represents a contact.
 |**tags** | **List&lt;String&gt;** | Contact&#39;s tags. |  [optional] |
 |**createTime** | **Date** | The time at which the contact was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
 |**customAttributes** | [**List&lt;ContactCustomAttribute&gt;**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. |  [optional] |
+|**ownerEmail** | **String** | The email address of the contact&#39;s owner. |  [optional] |
 
 
 

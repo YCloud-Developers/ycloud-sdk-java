@@ -146,7 +146,7 @@ public class VerificationSendRequest {
   /**
    * The recipient&#39;s phone number or email address depending on &#x60;channel&#x60;. - Phone number: In [E.164](https://en.wikipedia.org/wiki/E.164) format. Applicable when &#x60;channel&#x60; is &#x60;sms&#x60; or &#x60;voice&#x60;. - Email address: For example, &#x60;tom@example.com&#x60;. Applicable when &#x60;channel&#x60; is &#x60;email_code&#x60;.
    **/
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number or email address depending on `channel`. - Phone number: In [E.164](https://en.wikipedia.org/wiki/E.164) format. Applicable when `channel` is `sms` or `voice`. - Email address: For example, `tom@example.com`. Applicable when `channel` is `email_code`.")
+  @ApiModelProperty(example = "+16315551111", required = true, value = "The recipient's phone number or email address depending on `channel`. - Phone number: In [E.164](https://en.wikipedia.org/wiki/E.164) format. Applicable when `channel` is `sms` or `voice`. - Email address: For example, `tom@example.com`. Applicable when `channel` is `email_code`.")
   public void setTo(String to) {
     this.to = to;
   }

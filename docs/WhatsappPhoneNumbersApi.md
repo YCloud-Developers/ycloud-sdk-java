@@ -46,7 +46,7 @@ public class Example {
     Integer page = 1; // Integer | Page number of the results to be returned, 1-based.
     Integer limit = 10; // Integer | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10.
     Boolean includeTotal = false; // Boolean | Return results inside an object that contains the total result count or not.
-    String filterWabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String filterWabaId = "whatsapp-business-account-id"; // String | **Required**. WhatsApp Business Account ID.
     try {
       WhatsappPhoneNumberPage result = apiInstance.list()
             .page(page)
@@ -73,7 +73,7 @@ public class Example {
 | **page** | **Integer**| Page number of the results to be returned, 1-based. | [optional] [default to 1] |
 | **limit** | **Integer**| A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [optional] [default to 10] |
 | **includeTotal** | **Boolean**| Return results inside an object that contains the total result count or not. | [optional] [default to false] |
-| **filterWabaId** | **String**| WhatsApp Business Account ID. | [optional] |
+| **filterWabaId** | **String**| **Required**. WhatsApp Business Account ID. | [optional] |
 
 ### Return type
 
@@ -196,7 +196,7 @@ public class Example {
 
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
-    String phoneNumber = "+447901614024"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     try {
       WhatsappPhoneNumber result = apiInstance.retrieve(wabaId, phoneNumber);
       System.out.println(result);
@@ -268,7 +268,7 @@ public class Example {
 
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
-    String phoneNumber = "+447901614024"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     try {
       WhatsappCommerceSettings result = apiInstance.retrieveCommerceSettings(wabaId, phoneNumber);
       System.out.println(result);
@@ -340,7 +340,7 @@ public class Example {
 
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
-    String phoneNumber = "+447901614024"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     try {
       WhatsappPhoneNumberProfile result = apiInstance.retrieveProfile(wabaId, phoneNumber);
       System.out.println(result);
@@ -412,7 +412,7 @@ public class Example {
 
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
-    String phoneNumber = "+447901614024"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     WhatsappCommerceSettingsUpdateRequest whatsappCommerceSettingsUpdateRequest = new WhatsappCommerceSettingsUpdateRequest(); // WhatsappCommerceSettingsUpdateRequest | 
     try {
       WhatsappCommerceSettings result = apiInstance.updateCommerceSettings(wabaId, phoneNumber, whatsappCommerceSettingsUpdateRequest);
@@ -486,7 +486,7 @@ public class Example {
 
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
-    String phoneNumber = "+447901614024"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     WhatsappPhoneNumberProfileUpdateRequest whatsappPhoneNumberProfileUpdateRequest = new WhatsappPhoneNumberProfileUpdateRequest(); // WhatsappPhoneNumberProfileUpdateRequest | 
     try {
       WhatsappPhoneNumberProfile result = apiInstance.updateProfile(wabaId, phoneNumber, whatsappPhoneNumberProfileUpdateRequest);

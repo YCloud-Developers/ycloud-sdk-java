@@ -110,7 +110,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     UnsubscribersApi apiInstance = new UnsubscribersApi(defaultClient);
-    String customer = "+447901614024"; // String | The customer who has opted out.
+    String customer = "+16315551111"; // String | The customer who has opted out.
     UnsubscriberChannel channel = UnsubscriberChannel.fromValue("whatsapp"); // UnsubscriberChannel | 
     try {
       Unsubscriber result = apiInstance.deleteByCustomerAndChannel(customer, channel);
@@ -186,7 +186,7 @@ public class Example {
     Integer limit = 10; // Integer | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10.
     Boolean includeTotal = false; // Boolean | Return results inside an object that contains the total result count or not.
     String pageAfter = "id:foo"; // String | A cursor to fetch the next page in cursor pagination. For example, if you make a list request, receive 100 objects and `cursor.after=id:foo`, your subsequent call can include `pageAfter=id:foo` in order to fetch the next page of the list.
-    String filterCustomer = "+447901614024"; // String | 
+    String filterCustomer = "+16315551111"; // String | 
     UnsubscriberChannel filterChannel = UnsubscriberChannel.fromValue("whatsapp"); // UnsubscriberChannel | 
     String filterRegionCode = "filterRegionCode_example"; // String | 
     try {
@@ -271,7 +271,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     UnsubscribersApi apiInstance = new UnsubscribersApi(defaultClient);
-    String customer = "+447901614024"; // String | The customer who has opted out.
+    String customer = "+16315551111"; // String | The customer who has opted out.
     try {
       List<Unsubscriber> result = apiInstance.listAllByCustomer(customer);
       System.out.println(result);
@@ -341,7 +341,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     UnsubscribersApi apiInstance = new UnsubscribersApi(defaultClient);
-    String customer = "+447901614024"; // String | The customer who has opted out.
+    String customer = "+16315551111"; // String | The customer who has opted out.
     UnsubscriberChannel channel = UnsubscriberChannel.fromValue("whatsapp"); // UnsubscriberChannel | 
     try {
       Unsubscriber result = apiInstance.retrieveByCustomerAndChannel(customer, channel);

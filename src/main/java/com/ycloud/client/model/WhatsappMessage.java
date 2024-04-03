@@ -260,6 +260,13 @@ public class WhatsappMessage {
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
+  public static final String SERIALIZED_NAME_REGION_CODE = "regionCode";
+  /**
+   * The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number.
+  **/
+  @SerializedName(SERIALIZED_NAME_REGION_CODE)
+  private String regionCode;
+
   public static final String SERIALIZED_NAME_WHATSAPP_API_ERROR = "whatsappApiError";
   /**
   **/
@@ -381,7 +388,7 @@ public class WhatsappMessage {
   /**
    * The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    **/
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", required = true, value = "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setFrom(String from) {
     this.from = from;
   }
@@ -407,7 +414,7 @@ public class WhatsappMessage {
   /**
    * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    **/
-  @ApiModelProperty(example = "+447901614024", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setTo(String to) {
     this.to = to;
   }
@@ -1056,6 +1063,32 @@ public class WhatsappMessage {
   }
 
 
+  public WhatsappMessage regionCode(String regionCode) {
+    
+    this.regionCode = regionCode;
+    return this;
+  }
+
+   /**
+   * The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number.
+   * @return regionCode
+  **/
+  @javax.annotation.Nullable
+
+  public String getRegionCode() {
+    return regionCode;
+  }
+
+
+  /**
+   * The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number.
+   **/
+  @ApiModelProperty(example = "US", value = "The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number.")
+  public void setRegionCode(String regionCode) {
+    this.regionCode = regionCode;
+  }
+
+
   public WhatsappMessage whatsappApiError(WhatsappApiError whatsappApiError) {
     
     this.whatsappApiError = whatsappApiError;
@@ -1208,6 +1241,7 @@ public class WhatsappMessage {
         Objects.equals(this.readTime, whatsappMessage.readTime) &&
         Objects.equals(this.totalPrice, whatsappMessage.totalPrice) &&
         Objects.equals(this.currency, whatsappMessage.currency) &&
+        Objects.equals(this.regionCode, whatsappMessage.regionCode) &&
         Objects.equals(this.whatsappApiError, whatsappMessage.whatsappApiError) &&
         Objects.equals(this.bizType, whatsappMessage.bizType) &&
         Objects.equals(this.verificationId, whatsappMessage.verificationId)&&
@@ -1216,7 +1250,7 @@ public class WhatsappMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, sendTime, deliverTime, readTime, totalPrice, currency, whatsappApiError, bizType, verificationId, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, sendTime, deliverTime, readTime, totalPrice, currency, regionCode, whatsappApiError, bizType, verificationId, additionalProperties);
   }
 
   @Override
@@ -1253,6 +1287,7 @@ public class WhatsappMessage {
     sb.append("    readTime: ").append(toIndentedString(readTime)).append("\n");
     sb.append("    totalPrice: ").append(toIndentedString(totalPrice)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
     sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
     sb.append("    bizType: ").append(toIndentedString(bizType)).append("\n");
     sb.append("    verificationId: ").append(toIndentedString(verificationId)).append("\n");
@@ -1309,6 +1344,7 @@ public class WhatsappMessage {
     openapiFields.add("readTime");
     openapiFields.add("totalPrice");
     openapiFields.add("currency");
+    openapiFields.add("regionCode");
     openapiFields.add("whatsappApiError");
     openapiFields.add("bizType");
     openapiFields.add("verificationId");
@@ -1428,6 +1464,9 @@ public class WhatsappMessage {
       }
       if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      if (jsonObj.get("regionCode") != null && !jsonObj.get("regionCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `regionCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("regionCode").toString()));
       }
       // validate the optional field `whatsappApiError`
       if (jsonObj.getAsJsonObject("whatsappApiError") != null) {

@@ -184,7 +184,7 @@ public class VerificationCheck {
   /**
    * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format or email address.
    **/
-  @ApiModelProperty(example = "+447901614024", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format or email address.")
+  @ApiModelProperty(example = "+16315551111", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format or email address.")
   public void setTo(String to) {
     this.to = to;
   }

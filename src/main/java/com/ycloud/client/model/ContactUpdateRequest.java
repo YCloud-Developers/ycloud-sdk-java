@@ -95,6 +95,13 @@ public class ContactUpdateRequest {
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTES)
   private List<ContactCustomAttribute> customAttributes = null;
 
+  public static final String SERIALIZED_NAME_OWNER_EMAIL = "ownerEmail";
+  /**
+   * The email address of the contact&#39;s owner.
+  **/
+  @SerializedName(SERIALIZED_NAME_OWNER_EMAIL)
+  private String ownerEmail;
+
   public ContactUpdateRequest() { 
   }
 
@@ -170,7 +177,7 @@ public class ContactUpdateRequest {
   /**
    * Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
    **/
-  @ApiModelProperty(example = "GB", value = "Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).")
+  @ApiModelProperty(example = "US", value = "Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).")
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
@@ -269,6 +276,32 @@ public class ContactUpdateRequest {
     this.customAttributes = customAttributes;
   }
 
+
+  public ContactUpdateRequest ownerEmail(String ownerEmail) {
+    
+    this.ownerEmail = ownerEmail;
+    return this;
+  }
+
+   /**
+   * The email address of the contact&#39;s owner.
+   * @return ownerEmail
+  **/
+  @javax.annotation.Nullable
+
+  public String getOwnerEmail() {
+    return ownerEmail;
+  }
+
+
+  /**
+   * The email address of the contact&#39;s owner.
+   **/
+  @ApiModelProperty(example = "support@example.com", value = "The email address of the contact's owner.")
+  public void setOwnerEmail(String ownerEmail) {
+    this.ownerEmail = ownerEmail;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -320,13 +353,14 @@ public class ContactUpdateRequest {
         Objects.equals(this.countryCode, contactUpdateRequest.countryCode) &&
         Objects.equals(this.email, contactUpdateRequest.email) &&
         Objects.equals(this.tags, contactUpdateRequest.tags) &&
-        Objects.equals(this.customAttributes, contactUpdateRequest.customAttributes)&&
+        Objects.equals(this.customAttributes, contactUpdateRequest.customAttributes) &&
+        Objects.equals(this.ownerEmail, contactUpdateRequest.ownerEmail)&&
         Objects.equals(this.additionalProperties, contactUpdateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nickname, phoneNumber, countryCode, email, tags, customAttributes, additionalProperties);
+    return Objects.hash(nickname, phoneNumber, countryCode, email, tags, customAttributes, ownerEmail, additionalProperties);
   }
 
   @Override
@@ -339,6 +373,7 @@ public class ContactUpdateRequest {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
+    sb.append("    ownerEmail: ").append(toIndentedString(ownerEmail)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -368,6 +403,7 @@ public class ContactUpdateRequest {
     openapiFields.add("email");
     openapiFields.add("tags");
     openapiFields.add("customAttributes");
+    openapiFields.add("ownerEmail");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -414,6 +450,9 @@ public class ContactUpdateRequest {
         for (int i = 0; i < jsonArraycustomAttributes.size(); i++) {
           ContactCustomAttribute.validateJsonObject(jsonArraycustomAttributes.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("ownerEmail") != null && !jsonObj.get("ownerEmail").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ownerEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerEmail").toString()));
       }
   }
 

@@ -119,7 +119,7 @@ public class VerificationCheckRequest {
   /**
    * The recipient&#39;s phone number or email address. One of &#x60;verificationId&#x60; or &#x60;to&#x60; is required.
    **/
-  @ApiModelProperty(example = "+447901614024", value = "The recipient's phone number or email address. One of `verificationId` or `to` is required.")
+  @ApiModelProperty(example = "+16315551111", value = "The recipient's phone number or email address. One of `verificationId` or `to` is required.")
   public void setTo(String to) {
     this.to = to;
   }

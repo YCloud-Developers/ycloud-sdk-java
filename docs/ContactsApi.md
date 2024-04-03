@@ -184,8 +184,8 @@ public class Example {
     Integer limit = 10; // Integer | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10.
     Boolean includeTotal = false; // Boolean | Return results inside an object that contains the total result count or not.
     String filterTags = "tag1,tag2"; // String | Comma-separated list of tags.
-    String filterCountryCode = "GB"; // String | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-    String filterPhoneNumber = "+447901614024"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    String filterCountryCode = "US"; // String | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+    String filterPhoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     String filterEmail = "support@example.com"; // String | The contact's email address.
     try {
       ContactPage result = apiInstance.list()
