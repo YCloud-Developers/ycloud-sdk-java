@@ -2,7 +2,7 @@
 
 # WhatsappMessageInteractiveBody
 
-Optional for type `product`. Required for other message types. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
+Optional for type `product`. Required for other message types.
 
 ## Properties
 

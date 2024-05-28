@@ -183,7 +183,7 @@ public class WhatsappMessageTemplateComponent {
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   /**
-   * **Required when &#x60;type&#x60; &#x3D; &#x60;button&#x60;, or there are variables in the corresponding template component, or the template &#x60;HEADER&#x60; format is media (&#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;).** Array of parameter objects with the content of the message. For components of &#x60;type&#x60; &#x3D; &#x60;button&#x60;, see the [button parameter object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object).
+   * **Required when &#x60;type&#x60; &#x3D; &#x60;button&#x60;, or there are variables in the corresponding template component, or the template &#x60;HEADER&#x60; format is media (&#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;).** Array of parameter objects with the content of the message.
   **/
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private List<WhatsappMessageTemplateComponentParameter> parameters = null;
@@ -293,7 +293,7 @@ public class WhatsappMessageTemplateComponent {
   }
 
    /**
-   * **Required when &#x60;type&#x60; &#x3D; &#x60;button&#x60;, or there are variables in the corresponding template component, or the template &#x60;HEADER&#x60; format is media (&#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;).** Array of parameter objects with the content of the message. For components of &#x60;type&#x60; &#x3D; &#x60;button&#x60;, see the [button parameter object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object).
+   * **Required when &#x60;type&#x60; &#x3D; &#x60;button&#x60;, or there are variables in the corresponding template component, or the template &#x60;HEADER&#x60; format is media (&#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;).** Array of parameter objects with the content of the message.
    * @return parameters
   **/
   @javax.annotation.Nullable
@@ -304,9 +304,9 @@ public class WhatsappMessageTemplateComponent {
 
 
   /**
-   * **Required when &#x60;type&#x60; &#x3D; &#x60;button&#x60;, or there are variables in the corresponding template component, or the template &#x60;HEADER&#x60; format is media (&#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;).** Array of parameter objects with the content of the message. For components of &#x60;type&#x60; &#x3D; &#x60;button&#x60;, see the [button parameter object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object).
+   * **Required when &#x60;type&#x60; &#x3D; &#x60;button&#x60;, or there are variables in the corresponding template component, or the template &#x60;HEADER&#x60; format is media (&#x60;IMAGE&#x60;, &#x60;VIDEO&#x60;, or &#x60;DOCUMENT&#x60;).** Array of parameter objects with the content of the message.
    **/
-  @ApiModelProperty(value = "**Required when `type` = `button`, or there are variables in the corresponding template component, or the template `HEADER` format is media (`IMAGE`, `VIDEO`, or `DOCUMENT`).** Array of parameter objects with the content of the message. For components of `type` = `button`, see the [button parameter object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object).")
+  @ApiModelProperty(value = "**Required when `type` = `button`, or there are variables in the corresponding template component, or the template `HEADER` format is media (`IMAGE`, `VIDEO`, or `DOCUMENT`).** Array of parameter objects with the content of the message.")
   public void setParameters(List<WhatsappMessageTemplateComponentParameter> parameters) {
     this.parameters = parameters;
   }

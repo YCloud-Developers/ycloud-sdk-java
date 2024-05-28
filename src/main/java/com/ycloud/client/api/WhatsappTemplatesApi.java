@@ -595,7 +595,7 @@ public class WhatsappTemplatesApi {
     /**
      * Edit a template
      * <p>
-     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
+     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
      * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
@@ -617,7 +617,7 @@ public class WhatsappTemplatesApi {
     /**
      * Edit a template
      * <p>
-     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
+     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
      * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
@@ -640,7 +640,7 @@ public class WhatsappTemplatesApi {
     /**
      * Edit a template (asynchronously)
      * <p>
-     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter. See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template).
+     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
      * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
@@ -798,7 +798,7 @@ public class WhatsappTemplatesApi {
 
         /**
          * Set filterWabaId
-         * @param filterWabaId **Required**. WhatsApp Business Account ID. (optional)
+         * @param filterWabaId **Required if you have more than 100 WABAs.** WhatsApp Business Account ID. (optional)
          * @return ApiListRequest
          */
         public ApiListRequest filterWabaId(String filterWabaId) {

@@ -50,9 +50,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * **Required.** Action you want the user to perform after reading the &#x60;interactive&#x60; message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).
+ * **Required.** Action you want the user to perform after reading the &#x60;interactive&#x60; message.
  */
-@ApiModel(description = "**Required.** Action you want the user to perform after reading the `interactive` message. See also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object).")
+@ApiModel(description = "**Required.** Action you want the user to perform after reading the `interactive` message.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveAction {
   public static final String SERIALIZED_NAME_BUTTONS = "buttons";
@@ -71,7 +71,7 @@ public class WhatsappMessageInteractiveAction {
 
   public static final String SERIALIZED_NAME_CATALOG_ID = "catalog_id";
   /**
-   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/).
+   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce).
   **/
   @SerializedName(SERIALIZED_NAME_CATALOG_ID)
   private String catalogId;
@@ -220,7 +220,7 @@ public class WhatsappMessageInteractiveAction {
   }
 
    /**
-   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/).
+   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce).
    * @return catalogId
   **/
   @javax.annotation.Nullable
@@ -231,9 +231,9 @@ public class WhatsappMessageInteractiveAction {
 
 
   /**
-   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/).
+   * Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce).
    **/
-  @ApiModelProperty(value = "Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/).")
+  @ApiModelProperty(value = "Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce).")
   public void setCatalogId(String catalogId) {
     this.catalogId = catalogId;
   }

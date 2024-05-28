@@ -45,9 +45,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Optional for type &#x60;product&#x60;. Required for other message types. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
+ * Optional for type &#x60;product&#x60;. Required for other message types.
  */
-@ApiModel(description = "Optional for type `product`. Required for other message types. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).")
+@ApiModel(description = "Optional for type `product`. Required for other message types.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveBody {
   public static final String SERIALIZED_NAME_TEXT = "text";

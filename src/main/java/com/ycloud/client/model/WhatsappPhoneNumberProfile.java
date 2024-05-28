@@ -48,9 +48,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsApp Phone Number Business Profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread. See also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles).
+ * WhatsApp Phone Number Business Profile. Customers can view your business profile by clicking your business&#39;s name or number in a conversation thread.
  */
-@ApiModel(description = "WhatsApp Phone Number Business Profile. Customers can view your business profile by clicking your business's name or number in a conversation thread. See also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles).")
+@ApiModel(description = "WhatsApp Phone Number Business Profile. Customers can view your business profile by clicking your business's name or number in a conversation thread.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappPhoneNumberProfile {
   public static final String SERIALIZED_NAME_ABOUT = "about";

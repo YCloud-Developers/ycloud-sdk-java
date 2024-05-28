@@ -53,9 +53,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * When the message type filed is set to &#x60;contacts&#x60;, this object is included in the message object. See also [WhatsApp message contacts object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#contacts-object).
+ * When the message type filed is set to &#x60;contacts&#x60;, this object is included in the message object.
  */
-@ApiModel(description = "When the message type filed is set to `contacts`, this object is included in the message object. See also [WhatsApp message contacts object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#contacts-object).")
+@ApiModel(description = "When the message type filed is set to `contacts`, this object is included in the message object.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageContact {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";

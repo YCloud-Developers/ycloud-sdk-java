@@ -35,7 +35,5 @@
 
 * `UNSUPPORTED` (value: `"unsupported"`)
 
-* `UNKNOWN` (value: `"unknown"`)
-
 
 

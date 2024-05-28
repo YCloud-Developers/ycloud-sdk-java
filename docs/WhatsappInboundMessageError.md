@@ -2,7 +2,7 @@
 
 # WhatsappInboundMessageError
 
-When the message type field is set to `unknown` or `unsupported`, this object is included.
+When the message type `unsupported`, this object is included.
 
 ## Properties
 

@@ -47,9 +47,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * When a customer has interacted with your message, this object is included in the message object. See also [WhatsApp webhook messages object](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components#messages-object), and [payload examples](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#webhook-notification-payload-examples).
+ * When a customer has interacted with your message, this object is included in the message object.
  */
-@ApiModel(description = "When a customer has interacted with your message, this object is included in the message object. See also [WhatsApp webhook messages object](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components#messages-object), and [payload examples](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#webhook-notification-payload-examples).")
+@ApiModel(description = "When a customer has interacted with your message, this object is included in the message object.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageInteractive {
   /**

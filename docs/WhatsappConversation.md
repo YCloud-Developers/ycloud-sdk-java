@@ -2,7 +2,7 @@
 
 # WhatsappConversation
 
-WhatsApp defines a conversation as a 24-hour session of messaging between a person and a business. See also [Using the Platform](https://developers.facebook.com/docs/whatsapp/conversation-types#using-the-platform).
+WhatsApp defines a conversation as a 24-hour session of messaging between a person and a business. See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
 ## Properties
 

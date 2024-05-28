@@ -49,9 +49,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Use for sending a WhatsApp &#x60;template&#x60; message. See also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object).
+ * Use for sending a WhatsApp &#x60;template&#x60; message.
  */
-@ApiModel(description = "Use for sending a WhatsApp `template` message. See also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object).")
+@ApiModel(description = "Use for sending a WhatsApp `template` message.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageTemplate {
   public static final String SERIALIZED_NAME_NAME = "name";

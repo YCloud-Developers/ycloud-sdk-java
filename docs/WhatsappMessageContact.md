@@ -2,7 +2,7 @@
 
 # WhatsappMessageContact
 
-When the message type filed is set to `contacts`, this object is included in the message object. See also [WhatsApp message contacts object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#contacts-object).
+When the message type filed is set to `contacts`, this object is included in the message object.
 
 ## Properties
 

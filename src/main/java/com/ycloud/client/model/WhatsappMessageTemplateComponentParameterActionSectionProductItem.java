@@ -51,7 +51,7 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageTemplateComponentParameterActionSectionProductItem {
   public static final String SERIALIZED_NAME_PRODUCT_RETAILER_ID = "product_retailer_id";
   /**
-   * SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/).
+   * SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce).
   **/
   @SerializedName(SERIALIZED_NAME_PRODUCT_RETAILER_ID)
   private String productRetailerId;
@@ -66,7 +66,7 @@ public class WhatsappMessageTemplateComponentParameterActionSectionProductItem {
   }
 
    /**
-   * SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/).
+   * SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce).
    * @return productRetailerId
   **/
   @javax.annotation.Nullable
@@ -77,9 +77,9 @@ public class WhatsappMessageTemplateComponentParameterActionSectionProductItem {
 
 
   /**
-   * SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/).
+   * SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce).
    **/
-  @ApiModelProperty(value = "SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/).")
+  @ApiModelProperty(value = "SKU number of the item you want to appear in the section. SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce).")
   public void setProductRetailerId(String productRetailerId) {
     this.productRetailerId = productRetailerId;
   }

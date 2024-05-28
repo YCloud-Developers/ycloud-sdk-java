@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappConversationOriginType;
-import com.ycloud.client.model.WhatsappConversationType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -48,139 +46,77 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsApp defines a conversation as a 24-hour session of messaging between a person and a business. See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+ * Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).
  */
-@ApiModel(description = "WhatsApp defines a conversation as a 24-hour session of messaging between a person and a business. See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).")
+@ApiModel(description = "Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code `ID`) - July 1, 2024 – India (country calling code +91, country code `IN`)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappConversation {
-  public static final String SERIALIZED_NAME_ID = "id";
+public class WhatsappAuthIntlRateEligibilityCountry {
+  public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   /**
-   * Unique ID for the object.
+   * [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
   **/
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
+  @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
+  private String countryCode;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
+  public static final String SERIALIZED_NAME_START_TIME = "startTime";
   /**
+   * Date when newly-opened authentication conversations are subject to authentication-international rates, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2024-07-01T00:00:00.000Z&#x60;.
   **/
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private WhatsappConversationType type;
+  @SerializedName(SERIALIZED_NAME_START_TIME)
+  private Date startTime;
 
-  public static final String SERIALIZED_NAME_ORIGIN_TYPE = "originType";
-  /**
-  **/
-  @SerializedName(SERIALIZED_NAME_ORIGIN_TYPE)
-  private WhatsappConversationOriginType originType;
-
-  public static final String SERIALIZED_NAME_EXPIRE_TIME = "expireTime";
-  /**
-   * Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
-  **/
-  @SerializedName(SERIALIZED_NAME_EXPIRE_TIME)
-  private Date expireTime;
-
-  public WhatsappConversation() { 
+  public WhatsappAuthIntlRateEligibilityCountry() { 
   }
 
-  public WhatsappConversation id(String id) {
+  public WhatsappAuthIntlRateEligibilityCountry countryCode(String countryCode) {
     
-    this.id = id;
+    this.countryCode = countryCode;
     return this;
   }
 
    /**
-   * Unique ID for the object.
-   * @return id
+   * [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+   * @return countryCode
   **/
   @javax.annotation.Nullable
 
-  public String getId() {
-    return id;
+  public String getCountryCode() {
+    return countryCode;
   }
 
 
   /**
-   * Unique ID for the object.
+   * [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
    **/
-  @ApiModelProperty(value = "Unique ID for the object.")
-  public void setId(String id) {
-    this.id = id;
+  @ApiModelProperty(example = "IN", value = "[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).")
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
   }
 
 
-  public WhatsappConversation type(WhatsappConversationType type) {
+  public WhatsappAuthIntlRateEligibilityCountry startTime(Date startTime) {
     
-    this.type = type;
+    this.startTime = startTime;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Date when newly-opened authentication conversations are subject to authentication-international rates, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2024-07-01T00:00:00.000Z&#x60;.
+   * @return startTime
   **/
   @javax.annotation.Nullable
 
-  public WhatsappConversationType getType() {
-    return type;
+  public Date getStartTime() {
+    return startTime;
   }
 
 
   /**
+   * Date when newly-opened authentication conversations are subject to authentication-international rates, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2024-07-01T00:00:00.000Z&#x60;.
    **/
-  @ApiModelProperty(value = "")
-  public void setType(WhatsappConversationType type) {
-    this.type = type;
-  }
-
-
-  public WhatsappConversation originType(WhatsappConversationOriginType originType) {
-    
-    this.originType = originType;
-    return this;
-  }
-
-   /**
-   * Get originType
-   * @return originType
-  **/
-  @javax.annotation.Nullable
-
-  public WhatsappConversationOriginType getOriginType() {
-    return originType;
-  }
-
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public void setOriginType(WhatsappConversationOriginType originType) {
-    this.originType = originType;
-  }
-
-
-  public WhatsappConversation expireTime(Date expireTime) {
-    
-    this.expireTime = expireTime;
-    return this;
-  }
-
-   /**
-   * Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
-   * @return expireTime
-  **/
-  @javax.annotation.Nullable
-
-  public Date getExpireTime() {
-    return expireTime;
-  }
-
-
-  /**
-   * Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
-   **/
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "Date when the conversation expires, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
-  public void setExpireTime(Date expireTime) {
-    this.expireTime = expireTime;
+  @ApiModelProperty(example = "2024-07-01T00:00Z", value = "Date when newly-opened authentication conversations are subject to authentication-international rates, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2024-07-01T00:00:00.000Z`.")
+  public void setStartTime(Date startTime) {
+    this.startTime = startTime;
   }
 
   /**
@@ -194,7 +130,7 @@ public class WhatsappConversation {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappConversation putAdditionalProperty(String key, Object value) {
+  public WhatsappAuthIntlRateEligibilityCountry putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -228,27 +164,23 @@ public class WhatsappConversation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappConversation whatsappConversation = (WhatsappConversation) o;
-    return Objects.equals(this.id, whatsappConversation.id) &&
-        Objects.equals(this.type, whatsappConversation.type) &&
-        Objects.equals(this.originType, whatsappConversation.originType) &&
-        Objects.equals(this.expireTime, whatsappConversation.expireTime)&&
-        Objects.equals(this.additionalProperties, whatsappConversation.additionalProperties);
+    WhatsappAuthIntlRateEligibilityCountry whatsappAuthIntlRateEligibilityCountry = (WhatsappAuthIntlRateEligibilityCountry) o;
+    return Objects.equals(this.countryCode, whatsappAuthIntlRateEligibilityCountry.countryCode) &&
+        Objects.equals(this.startTime, whatsappAuthIntlRateEligibilityCountry.startTime)&&
+        Objects.equals(this.additionalProperties, whatsappAuthIntlRateEligibilityCountry.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, originType, expireTime, additionalProperties);
+    return Objects.hash(countryCode, startTime, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappConversation {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    originType: ").append(toIndentedString(originType)).append("\n");
-    sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
+    sb.append("class WhatsappAuthIntlRateEligibilityCountry {\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -272,10 +204,8 @@ public class WhatsappConversation {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("type");
-    openapiFields.add("originType");
-    openapiFields.add("expireTime");
+    openapiFields.add("countryCode");
+    openapiFields.add("startTime");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -285,18 +215,18 @@ public class WhatsappConversation {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappConversation
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappAuthIntlRateEligibilityCountry
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappConversation.openapiRequiredFields.isEmpty()) {
+        if (WhatsappAuthIntlRateEligibilityCountry.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappConversation is not found in the empty JSON string", WhatsappConversation.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappAuthIntlRateEligibilityCountry is not found in the empty JSON string", WhatsappAuthIntlRateEligibilityCountry.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
   }
 
@@ -304,16 +234,16 @@ public class WhatsappConversation {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappConversation.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappConversation' and its subtypes
+       if (!WhatsappAuthIntlRateEligibilityCountry.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappAuthIntlRateEligibilityCountry' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappConversation> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappConversation.class));
+       final TypeAdapter<WhatsappAuthIntlRateEligibilityCountry> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappAuthIntlRateEligibilityCountry.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappConversation>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappAuthIntlRateEligibilityCountry>() {
            @Override
-           public void write(JsonWriter out, WhatsappConversation value) throws IOException {
+           public void write(JsonWriter out, WhatsappAuthIntlRateEligibilityCountry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -336,11 +266,11 @@ public class WhatsappConversation {
            }
 
            @Override
-           public WhatsappConversation read(JsonReader in) throws IOException {
+           public WhatsappAuthIntlRateEligibilityCountry read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappConversation instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappAuthIntlRateEligibilityCountry instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -365,18 +295,18 @@ public class WhatsappConversation {
   }
 
  /**
-  * Create an instance of WhatsappConversation given an JSON string
+  * Create an instance of WhatsappAuthIntlRateEligibilityCountry given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappConversation
-  * @throws IOException if the JSON string is invalid with respect to WhatsappConversation
+  * @return An instance of WhatsappAuthIntlRateEligibilityCountry
+  * @throws IOException if the JSON string is invalid with respect to WhatsappAuthIntlRateEligibilityCountry
   */
-  public static WhatsappConversation fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappConversation.class);
+  public static WhatsappAuthIntlRateEligibilityCountry fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappAuthIntlRateEligibilityCountry.class);
   }
 
  /**
-  * Convert an instance of WhatsappConversation to an JSON string
+  * Convert an instance of WhatsappAuthIntlRateEligibilityCountry to an JSON string
   *
   * @return JSON string
   */

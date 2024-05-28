@@ -45,9 +45,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Use for &#x60;location&#x60; messages. See also [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).
+ * Use for &#x60;location&#x60; messages.
  */
-@ApiModel(description = "Use for `location` messages. See also [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object).")
+@ApiModel(description = "Use for `location` messages.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageLocation {
   public static final String SERIALIZED_NAME_LATITUDE = "latitude";

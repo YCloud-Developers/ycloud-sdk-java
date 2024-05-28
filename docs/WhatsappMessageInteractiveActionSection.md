@@ -2,7 +2,7 @@
 
 # WhatsappMessageInteractiveActionSection
 
-[WhatsApp Section Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#section-object).
+WhatsApp Message Interactive Section Object.
 
 ## Properties
 

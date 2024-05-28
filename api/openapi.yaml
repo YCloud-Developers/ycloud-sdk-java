@@ -1209,7 +1209,7 @@ paths:
           type: boolean
         style: form
       - description: |-
-          **Required**.
+          **Required if you have more than 100 WABAs.**
           WhatsApp Business Account ID.
         explode: true
         in: query
@@ -1534,7 +1534,7 @@ paths:
           type: boolean
         style: form
       - description: |-
-          **Required**.
+          **Required if you have more than 100 WABAs.**
           WhatsApp Business Account ID.
         explode: true
         in: query
@@ -1753,8 +1753,7 @@ paths:
     patch:
       description: "Edits a WhatsApp template by name and language.\nEditing a template\
         \ replaces its old contents entirely, so include any components you wish to\
-        \ preserve as well as components you wish to update using the components parameter.\n\
-        See also [Edit a Message Template](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates#edit-a-message-template)."
+        \ preserve as well as components you wish to update using the components parameter."
       operationId: whatsapp_template-edit-by-name-and-language
       parameters:
       - description: WhatsApp Business Account ID.
@@ -1867,7 +1866,7 @@ components:
       style: form
     filter_wabaId:
       description: |-
-        **Required**.
+        **Required if you have more than 100 WABAs.**
         WhatsApp Business Account ID.
       explode: true
       in: query
@@ -3733,14 +3732,41 @@ components:
       - code
       - message
       type: object
+    WhatsappAuthIntlRateEligibilityCountry:
+      description: "Starting June 1, 2024, we are updating our authentication rate\
+        \ card and introducing a new authentication-international rate. This rate\
+        \ will apply in the the following countries:\n- June 1, 2024 – Indonesia (country\
+        \ calling code +62, country code `ID`)\n- July 1, 2024 – India (country calling\
+        \ code +91, country code `IN`)\n\nSee also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates)."
+      example:
+        countryCode: IN
+        startTime: 2024-07-01T00:00:00Z
+      properties:
+        countryCode:
+          description: "[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+          example: IN
+          type: string
+        startTime:
+          description: "Date when newly-opened authentication conversations are subject\
+            \ to authentication-international rates, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).\
+            \ e.g., `2024-07-01T00:00:00.000Z`."
+          example: 2024-07-01T00:00:00Z
+          format: date-time
+          type: string
+      type: object
     WhatsappBusinessAccount:
-      description: "Represents a specific [WhatsApp Business Account (WABA)](https://www.facebook.com/business/help/1499554293524119)."
+      description: "Represents a specific [WhatsApp Business Account (WABA)](https://developers.facebook.com/docs/whatsapp/overview/business-accounts)."
       example:
         ownershipType: ownershipType
         country: country
         primaryFundingId: primaryFundingId
         decision: null
         businessVerificationStatus: null
+        authIntlRateEligibilityCountries:
+        - countryCode: IN
+          startTime: 2024-07-01T00:00:00Z
+        - countryCode: IN
+          startTime: 2024-07-01T00:00:00Z
         restrictions:
         - restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
           expiration: 2022-06-01T12:00:00Z
@@ -3758,6 +3784,7 @@ components:
         timezoneId: "1"
         currency: currency
         id: id
+        primaryBusinessLocation: US
       properties:
         id:
           description: WhatApp Business Account ID.
@@ -3821,6 +3848,22 @@ components:
           items:
             $ref: '#/components/schemas/WhatsappBusinessAccountRestrictionInfo'
           type: array
+        authIntlRateEligibilityCountries:
+          description: "Starting June 1, 2024, we are updating our authentication\
+            \ rate card and introducing a new authentication-international rate. This\
+            \ rate will apply in the the following countries:\n- June 1, 2024 – Indonesia\
+            \ (country calling code +62, country code `ID`)\n- July 1, 2024 – India\
+            \ (country calling code +91, country code `IN`)\n\nSee also [Authentication-International\
+            \ Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates)."
+          items:
+            $ref: '#/components/schemas/WhatsappAuthIntlRateEligibilityCountry'
+          type: array
+        primaryBusinessLocation:
+          description: "Your primary business location is the country where your business\
+            \ is based. It will appear in the Business Manager under the Primary Business\
+            \ Location field starting May 1, 2024.\n[ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)."
+          example: US
+          type: string
       type: object
     WhatsappBusinessAccountBanState:
       description: The ban state of the WhatsApp Business Account.
@@ -3840,6 +3883,11 @@ components:
           primaryFundingId: primaryFundingId
           decision: null
           businessVerificationStatus: null
+          authIntlRateEligibilityCountries:
+          - countryCode: IN
+            startTime: 2024-07-01T00:00:00Z
+          - countryCode: IN
+            startTime: 2024-07-01T00:00:00Z
           restrictions:
           - restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
             expiration: 2022-06-01T12:00:00Z
@@ -3857,11 +3905,17 @@ components:
           timezoneId: "1"
           currency: currency
           id: id
+          primaryBusinessLocation: US
         - ownershipType: ownershipType
           country: country
           primaryFundingId: primaryFundingId
           decision: null
           businessVerificationStatus: null
+          authIntlRateEligibilityCountries:
+          - countryCode: IN
+            startTime: 2024-07-01T00:00:00Z
+          - countryCode: IN
+            startTime: 2024-07-01T00:00:00Z
           restrictions:
           - restrictionType: RESTRICTED_ADD_PHONE_NUMBER_ACTION
             expiration: 2022-06-01T12:00:00Z
@@ -3879,6 +3933,7 @@ components:
           timezoneId: "1"
           currency: currency
           id: id
+          primaryBusinessLocation: US
       properties:
         items:
           description: An array containing WhatsApp Business Account objects.
@@ -3971,7 +4026,7 @@ components:
       type: object
     WhatsappConversation:
       description: "WhatsApp defines a conversation as a 24-hour session of messaging\
-        \ between a person and a business.\nSee also [Using the Platform](https://developers.facebook.com/docs/whatsapp/conversation-types#using-the-platform)."
+        \ between a person and a business.\nSee also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing)."
       example:
         originType: null
         expireTime: 2022-06-01T12:00:00Z
@@ -3993,28 +4048,21 @@ components:
           type: string
       type: object
     WhatsappConversationOriginType:
-      description: "Indicates who initiated the conversation.\n**Note: Starting June\
-        \ 1, 2023, `business_initiated` will be replaced with `authentication`, `marketing`,\
-        \ and `utility`, while `user_initiated` will be replaced with `service`. For\
-        \ more information, see also [Updates to conversation-based pricing: Effective\
-        \ June 1, 2023](https://developers.facebook.com/docs/whatsapp/updates-to-pricing).**\
-        \ \n- `business_initiated`: Indicates that the conversation started by a business\
-        \ sending the first message to a customer. This applies any time it has been\
-        \ more than 24 hours since the last customer message.\n- `user_initiated`:\
-        \ Indicates that the conversation started by a business replying to a customer\
-        \ message. This applies only when the business reply is within 24 hours of\
-        \ the last customer message.\n- `referral_conversion`: Indicates the user\
-        \ initiated the conversation by clicking a [Click to WhatsApp ad](https://www.facebook.com/business/help/447934475640650)\
-        \ or a [Facebook Page Call-to-Action button](https://www.facebook.com/help/977869848936797).\n\
-        - `authentication`: Indicates the business initiated the conversation with\
-        \ a message template categorized as `AUTHENTICATION`.\n- `marketing`: Indicates\
-        \ the business initiated the conversation with a message template categorized\
-        \ as `MARKETING`.\n- `utility`: Indicates the business initiated the conversation\
-        \ with a message template categorized as `UTILITY`.\n- `service`: Indicates\
-        \ the user initiated the conversation."
+      description: "Indicates [conversation category](https://developers.facebook.com/docs/whatsapp/pricing#conversation-categories).\
+        \ This can also be referred to as a conversation entry point.\n- `referral_conversion`:\
+        \ Indicates a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations).\n\
+        - `authentication`: Indicates the conversation was opened by a business sending\
+        \ template categorized as `AUTHENTICATION` to the customer. This applies any\
+        \ time it has been more than 24 hours since the last customer message.\n-\
+        \ `marketing`: Indicates the conversation was opened by a business sending\
+        \ template categorized as `MARKETING` to the customer. This applies any time\
+        \ it has been more than 24 hours since the last customer message.\n- `utility`:\
+        \ Indicates the conversation was opened by a business sending template categorized\
+        \ as `UTILITY` to the customer. This applies any time it has been more than\
+        \ 24 hours since the last customer message.\n- `service`: Indicates that the\
+        \ conversation opened by a business replying to a customer within a [customer\
+        \ service window](https://developers.facebook.com/docs/whatsapp/pricing#customer-service-windows)."
       enum:
-      - business_initiated
-      - user_initiated
       - referral_conversion
       - authentication
       - marketing
@@ -4026,9 +4074,9 @@ components:
         \ of this conversation is delivered, initiating the 24-hour conversation session.\
         \ As such, the conversation type can be `null` before the first message is\
         \ delivered.\n- `FREE_ENTRY`: Conversations originating from a [free entry\
-        \ point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points).\n\
+        \ point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations).\n\
         - `FREE_TIER`: Conversations within the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations).\n\
-        - `REGULAR`: Any conversations that did not originate from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-points)\
+        - `REGULAR`: Any conversations that did not originate from a [free entry point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations)\
         \ or are above the monthly [free tier](https://developers.facebook.com/docs/whatsapp/pricing#free-tier-conversations)\
         \ allotment."
       enum:
@@ -4153,8 +4201,7 @@ components:
           $ref: '#/components/schemas/WhatsappInboundMessageReferredProduct'
       type: object
     WhatsappInboundMessageError:
-      description: "When the message type field is set to `unknown` or `unsupported`,\
-        \ this object is included."
+      description: "When the message type `unsupported`, this object is included."
       properties:
         code:
           description: The error code.
@@ -4176,9 +4223,7 @@ components:
       type: object
     WhatsappInboundMessageInteractive:
       description: "When a customer has interacted with your message, this object\
-        \ is included in the message object.\nSee also [WhatsApp webhook messages\
-        \ object](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components#messages-object),\
-        \ and [payload examples](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#webhook-notification-payload-examples)."
+        \ is included in the message object."
       properties:
         type:
           description: "The type of interactive message received.\n- `button_reply`:\
@@ -4428,7 +4473,6 @@ components:
       - order
       - system
       - unsupported
-      - unknown
       type: string
     WhatsappMessage:
       description: WhatsApp outbound message object.
@@ -5782,6 +5826,7 @@ components:
           link: link
           caption: caption
         type: null
+        pricingCategory: null
         wabaId: whatsapp-business-account-id
         regionCode: US
         context:
@@ -6039,6 +6084,8 @@ components:
             \ of the recipient phone number."
           example: US
           type: string
+        pricingCategory:
+          $ref: '#/components/schemas/WhatsappPricingCategory'
         whatsappApiError:
           $ref: '#/components/schemas/WhatsappApiError'
         bizType:
@@ -6060,8 +6107,7 @@ components:
       type: object
     WhatsappMessageContact:
       description: "When the message type filed is set to `contacts`, this object\
-        \ is included in the message object.\nSee also [WhatsApp message contacts\
-        \ object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#contacts-object)."
+        \ is included in the message object."
       example:
         birthday: 2022-09-27
         emails:
@@ -6276,8 +6322,7 @@ components:
           type: string
       type: object
     WhatsappMessageInteractive:
-      description: "Use for `interactive` messages.\nSee also [WhatsApp Interactive\
-        \ Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object)."
+      description: Use for `interactive` messages.
       example:
         footer:
           text: text
@@ -6464,8 +6509,9 @@ components:
           $ref: '#/components/schemas/WhatsappMessageInteractiveFooter'
       type: object
     WhatsappMessageInteractiveAction:
-      description: "**Required.**\nAction you want the user to perform after reading\
-        \ the `interactive` message.\nSee also [WhatsApp Interactive Action Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#action-object)."
+      description: |-
+        **Required.**
+        Action you want the user to perform after reading the `interactive` message.
       example:
         button: button
         catalog_id: catalog_id
@@ -6620,7 +6666,7 @@ components:
         catalog_id:
           description: "Required for Single Product Messages and Multi-Product Messages.\n\
             Unique identifier of the Facebook catalog linked to your WhatsApp Business\
-            \ Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce/)."
+            \ Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce)."
           type: string
         product_retailer_id:
           description: |-
@@ -6682,12 +6728,12 @@ components:
           type: string
         thumbnail_product_retailer_id:
           description: "Item SKU number. Labeled as **Content ID** in the [Commerce\
-            \ Manager](https://business.facebook.com/commerce/).\nThe thumbnail of\
+            \ Manager](https://business.facebook.com/commerce).\nThe thumbnail of\
             \ this item will be used as the message's header image."
           type: string
       type: object
     WhatsappMessageInteractiveActionSection:
-      description: "[WhatsApp Section Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#section-object)."
+      description: WhatsApp Message Interactive Section Object.
       example:
         product_items:
         - product_retailer_id: product_retailer_id
@@ -6767,8 +6813,7 @@ components:
           type: string
       type: object
     WhatsappMessageInteractiveBody:
-      description: "Optional for type `product`. Required for other message types.\n\
-        See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object)."
+      description: Optional for type `product`. Required for other message types.
       example:
         text: text
       properties:
@@ -6779,8 +6824,7 @@ components:
           type: string
       type: object
     WhatsappMessageInteractiveFooter:
-      description: "Optional. An object with the footer of the message.\nSee also\
-        \ [WhatsApp Footer Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#footer-object)."
+      description: Optional. An object with the footer of the message.
       example:
         text: text
       properties:
@@ -6791,8 +6835,7 @@ components:
           type: string
       type: object
     WhatsappMessageInteractiveHeader:
-      description: "Required for type `product_list`. Optional for other types.\n\
-        See also [WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object)."
+      description: Required for type `product_list`. Optional for other types.
       example:
         image:
           filename: filename
@@ -6811,9 +6854,9 @@ components:
       properties:
         type:
           description: "**Required.**\nThe header type you would like to use.\n- `text`:\
-            \ Used for List Messages and Reply Buttons.\n- `video`: Used for Reply\
-            \ Buttons.\n- `image`: Used for Reply Buttons.\n- `document`: Used for\
-            \ Reply Buttons."
+            \ Used for List Messages, Reply Buttons, and Multi-Product Messages.\n\
+            - `video`: Used for Reply Buttons.\n- `image`: Used for Reply Buttons.\n\
+            - `document`: Used for Reply Buttons."
           enum:
           - text
           - image
@@ -6832,7 +6875,7 @@ components:
           $ref: '#/components/schemas/WhatsappMessageMedia'
       type: object
     WhatsappMessageLocation:
-      description: "Use for `location` messages.\nSee also [WhatsApp Location Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#location-object)."
+      description: Use for `location` messages.
       example:
         address: address
         latitude: 5.962133916683182
@@ -8417,8 +8460,7 @@ components:
       - read
       type: string
     WhatsappMessageTemplate:
-      description: "Use for sending a WhatsApp `template` message.\nSee also [WhatsApp\
-        \ Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object)."
+      description: Use for sending a WhatsApp `template` message.
       example:
         components:
         - cards:
@@ -10245,8 +10287,7 @@ components:
           description: "**Required when `type` = `button`, or there are variables\
             \ in the corresponding template component, or the template `HEADER` format\
             \ is media (`IMAGE`, `VIDEO`, or `DOCUMENT`).**\nArray of parameter objects\
-            \ with the content of the message.\nFor components of `type` = `button`,\
-            \ see the [button parameter object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object)."
+            \ with the content of the message."
           items:
             $ref: '#/components/schemas/WhatsappMessageTemplateComponentParameter'
           type: array
@@ -10663,8 +10704,7 @@ components:
           description: "**Required when `type` = `button`, or there are variables\
             \ in the corresponding template component, or the card component `HEADER`\
             \ format is media (`IMAGE`, `VIDEO`).**\nArray of parameter objects with\
-            \ the content of the message.\nFor components of `type` = `button`, see\
-            \ the [button parameter object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object)."
+            \ the content of the message."
           items:
             $ref: '#/components/schemas/WhatsappMessageTemplateComponentParameter'
           type: array
@@ -10868,7 +10908,7 @@ components:
       properties:
         product_retailer_id:
           description: "SKU number of the item you want to appear in the section.\n\
-            SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/)."
+            SKU numbers are labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce)."
           type: string
       type: object
     WhatsappMessageTemplateComponentParameterLimitedTimeOffer:
@@ -10885,7 +10925,7 @@ components:
           type: integer
       type: object
     WhatsappMessageText:
-      description: "[WhatsApp Text Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#text-object)."
+      description: WhatsApp Message Text Object.
       example:
         preview_url: true
         body: body
@@ -10916,7 +10956,7 @@ components:
       - body
       type: object
     WhatsappMessageType:
-      description: "WhatsApp outbound message type. See also [WhatsApp messages](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages)."
+      description: "WhatsApp outbound message type.\nSee also [WhatsApp messages](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages)."
       enum:
       - template
       - text
@@ -10931,8 +10971,7 @@ components:
       - reaction
       type: string
     WhatsappPhoneNumber:
-      description: "A WhatsApp Business Account (WABA) phone number.\nSee also [WhatsApp\
-        \ Retrieve Phone Numbers](https://developers.facebook.com/docs/whatsapp/business-management-api/manage-phone-numbers)."
+      description: "See [WhatsApp Business Phone Number](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)"
       example:
         decision: null
         messagingLimit: TIER_1K
@@ -10973,7 +11012,7 @@ components:
         messagingLimit:
           description: "Messaging limits determine the maximum number of business-initiated\
             \ conversations each phone number can start in a rolling 24-hour period.\
-            \ See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#messaging-limits).\n\
+            \ See also [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits).\n\
             - `TIER_NOT_SET`: Unknown limit.\n- `TIER_50`: 50 business-initiated conversations\
             \ in a rolling 24-hour period.\n- `TIER_250`: 250 business-initiated conversations\
             \ in a rolling 24-hour period.\n- `TIER_1K`: 1K business-initiated conversations\
@@ -11006,10 +11045,10 @@ components:
         decision:
           $ref: '#/components/schemas/WhatsappReviewDecision'
         requestedVerifiedName:
-          description: "Last requested verified name. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
+          description: Last requested verified name.
           type: string
         rejectionReason:
-          description: "Rejection reason. See [Phone Number Name Update](https://developers.facebook.com/docs/graph-api/webhooks/reference/whatsapp-business-account/#phone_number_name_update)."
+          description: Rejection reason.
           type: string
         qualityUpdateEvent:
           $ref: '#/components/schemas/WhatsappPhoneNumberQualityUpdateEventEnum'
@@ -11085,9 +11124,9 @@ components:
           type: array
       type: object
     WhatsappPhoneNumberProfile:
-      description: "WhatsApp Phone Number Business Profile. Customers can view your\
-        \ business profile by clicking your business's name or number in a conversation\
-        \ thread.\nSee also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles)."
+      description: WhatsApp Phone Number Business Profile. Customers can view your
+        business profile by clicking your business's name or number in a conversation
+        thread.
       example:
         profilePictureUrl: https://URL
         address: ADDRESS
@@ -11139,11 +11178,11 @@ components:
           type: array
       type: object
     WhatsappPhoneNumberProfileUpdateRequest:
-      description: "WhatsApp Phone Number Business Profile. Customers can view your\
-        \ business profile by clicking your business's name or number in a conversation\
-        \ thread.\nSee also [Business Profiles](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles)."
+      description: WhatsApp Phone Number Business Profile. Customers can view your
+        business profile by clicking your business's name or number in a conversation
+        thread.
       example:
-        profilePictureUrl: https://URL
+        profilePictureUrl: https://PICTURE-URL
         address: ADDRESS
         about: ABOUT
         description: DESCRIPTION
@@ -11183,7 +11222,7 @@ components:
           type: string
         profilePictureUrl:
           description: URL of the profile picture that was uploaded to Meta.
-          example: https://URL
+          example: https://PICTURE-URL
           type: string
         vertical:
           $ref: '#/components/schemas/WhatsappPhoneNumberProfileVertical'
@@ -11224,7 +11263,7 @@ components:
       type: string
     WhatsappPhoneNumberQualityRating:
       description: "Quality rating. One of `GREEN`, `YELLOW`, `RED`, or `UNKNOWN`.\
-        \ See also [Quality Rating](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits).\n\
+        \ See also [Phone Number Quality Rating](https://www.facebook.com/business/help/896873687365001).\n\
         - `GREEN`: High quality.\n- `YELLOW`: Medium quality.\n- `RED`: Low quality.\n\
         - `UNKNOWN`: Unknown quality."
       enum:
@@ -11242,8 +11281,9 @@ components:
         \ If the message quality improves to a high or medium state and maintains\
         \ this for 7 days, your status will return to Connected. If the quality rating\
         \ doesn't improve, your status will still return to Connected, but you'll\
-        \ be placed in a lower messaging limit tier. Learn more on [Phone Number Quality](https://www.facebook.com/business/help/896873687365001)\
-        \ docs.\n- `UNFLAGGED`: Phone number status changes from `FLAGGED` to `CONNECTED`."
+        \ be placed in a lower messaging limit tier. Learn more on [Phone Number Quality\
+        \ Rating](https://www.facebook.com/business/help/896873687365001) docs.\n\
+        - `UNFLAGGED`: Phone number status changes from `FLAGGED` to `CONNECTED`."
       enum:
       - ONBOARDING
       - UPGRADE
@@ -11253,23 +11293,24 @@ components:
       type: string
     WhatsappPhoneNumberStatus:
       description: "The status of a WhatsApp business phone number.\n- `PENDING`:\
-        \ Pending.\n- `UNVERIFIED`: Unverified. Verify this phone number to start\
-        \ sending messages.\n- `MANUAL_REVIEW`: Being reviewed. Phone number is currently\
-        \ being reviewed for connection to your account.\n- `DISCONNECTED`: Offline.\
-        \ Phone number is currently not reachable by WhatsApp servers.\n- `CONNECTED`:\
-        \ Connected. Phone number is associated with this account and working properly.\n\
-        - `FLAGGED`: Flagged. This phone number has been flagged due to low quality\
-        \ messages.\n- `WARNED`: Warned. A warning has been issued for this number,\
-        \ potentially due to spam reports.\n- `RATE_LIMITED`: Rate limited. The number\
-        \ of messages you can send from this phone number may be restricted.\n- `BANNED`:\
-        \ Banned. Phone number cannot be used with a WhatsApp account.\n- `RESTRICTED`:\
-        \ Restricted. This phone number has reached its 24-hour messaging limit and\
-        \ can no longer send messages to customers. Please wait until the messaging\
-        \ limit is reset to send messages.\n- `BLOCKED`: Message limit reached. The\
-        \ limit has been reached for this 24-hour period.\n- `MIGRATED`: Transferred.\
-        \ This phone number has been transferred to another WhatsApp Business account.\n\
-        - `UNKNOWN`: Unavailable. The status of this phone number can't be determined\
-        \ right now."
+        \ Pending. Phone number is newly added. Verify and register this phone number\
+        \ so it can be connected to your account.\n- `UNVERIFIED`: Unverified. Verify\
+        \ this phone number to start sending messages.\n- `MANUAL_REVIEW`: Being reviewed.\
+        \ Phone number is currently being reviewed for connection to your account.\n\
+        - `DISCONNECTED`: Offline. Phone number is currently not reachable by WhatsApp\
+        \ servers.\n- `CONNECTED`: Connected. Phone number is associated with this\
+        \ account and working properly.\n- `FLAGGED`: Flagged. This phone number has\
+        \ been flagged due to low quality messages.\n- `WARNED`: Warned. A warning\
+        \ has been issued for this number, potentially due to spam reports.\n- `RATE_LIMITED`:\
+        \ Rate limited. The number of messages you can send from this phone number\
+        \ may be restricted.\n- `BANNED`: Banned. Phone number cannot be used with\
+        \ a WhatsApp account.\n- `RESTRICTED`: Restricted. This phone number has reached\
+        \ its 24-hour messaging limit and can no longer send messages to customers.\
+        \ Please wait until the messaging limit is reset to send messages.\n- `BLOCKED`:\
+        \ Message limit reached. The limit has been reached for this 24-hour period.\n\
+        - `MIGRATED`: Transferred. This phone number has been transferred to another\
+        \ WhatsApp Business account.\n- `UNKNOWN`: Unavailable. The status of this\
+        \ phone number can't be determined right now."
       enum:
       - PENDING
       - UNVERIFIED
@@ -11284,6 +11325,24 @@ components:
       - BLOCKED
       - MIGRATED
       - UNKNOWN
+      type: string
+    WhatsappPricingCategory:
+      description: "WhatsApp pricing category.\n- `referral_conversion`: Indicates\
+        \ a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations).\n\
+        - `authentication`: Indicates the conversation was billed at authentication\
+        \ rate.\n- `authentication_international`: Indicates the conversation was\
+        \ conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).\n\
+        - `marketing`: Indicates the conversation was billed at authentication rate.\n\
+        - `utility`: Indicates the conversation was billed at utility rate.\n- `service`:\
+        \ Indicates the conversation was billed at service rate.\n\nSee also [Conversation-Based\
+        \ Pricing](https://developers.facebook.com/docs/whatsapp/pricing)."
+      enum:
+      - referral_conversion
+      - authentication
+      - authentication_international
+      - marketing
+      - utility
+      - service
       type: string
     WhatsappProfile:
       description: Represents the profile of a WhatsApp account.
@@ -12321,8 +12380,7 @@ components:
           description: "This field indicates the template's previous category (or\
             \ `null`, for newly created templates after April 1, 2023). Compare this\
             \ value to the template's `category` field value, which indicates the\
-            \ template's current category.\nFor more information about template category\
-            \ migration, see also [First template category migration](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/launch-timeline#first-template-category-migration)."
+            \ template's current category."
           type: string
         messageSendTtlSeconds:
           description: "**Use only for template category is `AUTHENTICATION`.**\n\

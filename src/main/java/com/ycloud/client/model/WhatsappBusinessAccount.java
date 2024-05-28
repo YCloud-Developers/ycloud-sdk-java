@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.MetaBusinessAccountVerificationStatus;
+import com.ycloud.client.model.WhatsappAuthIntlRateEligibilityCountry;
 import com.ycloud.client.model.WhatsappBusinessAccountBanState;
 import com.ycloud.client.model.WhatsappBusinessAccountRestrictionInfo;
 import com.ycloud.client.model.WhatsappBusinessAccountReviewStatus;
@@ -53,9 +54,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Represents a specific [WhatsApp Business Account (WABA)](https://www.facebook.com/business/help/1499554293524119).
+ * Represents a specific [WhatsApp Business Account (WABA)](https://developers.facebook.com/docs/whatsapp/overview/business-accounts).
  */
-@ApiModel(description = "Represents a specific [WhatsApp Business Account (WABA)](https://www.facebook.com/business/help/1499554293524119).")
+@ApiModel(description = "Represents a specific [WhatsApp Business Account (WABA)](https://developers.facebook.com/docs/whatsapp/overview/business-accounts).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappBusinessAccount {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -178,6 +179,20 @@ public class WhatsappBusinessAccount {
   **/
   @SerializedName(SERIALIZED_NAME_RESTRICTIONS)
   private List<WhatsappBusinessAccountRestrictionInfo> restrictions = null;
+
+  public static final String SERIALIZED_NAME_AUTH_INTL_RATE_ELIGIBILITY_COUNTRIES = "authIntlRateEligibilityCountries";
+  /**
+   * Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).
+  **/
+  @SerializedName(SERIALIZED_NAME_AUTH_INTL_RATE_ELIGIBILITY_COUNTRIES)
+  private List<WhatsappAuthIntlRateEligibilityCountry> authIntlRateEligibilityCountries = null;
+
+  public static final String SERIALIZED_NAME_PRIMARY_BUSINESS_LOCATION = "primaryBusinessLocation";
+  /**
+   * Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+  **/
+  @SerializedName(SERIALIZED_NAME_PRIMARY_BUSINESS_LOCATION)
+  private String primaryBusinessLocation;
 
   public WhatsappBusinessAccount() { 
   }
@@ -652,6 +667,66 @@ public class WhatsappBusinessAccount {
     this.restrictions = restrictions;
   }
 
+
+  public WhatsappBusinessAccount authIntlRateEligibilityCountries(List<WhatsappAuthIntlRateEligibilityCountry> authIntlRateEligibilityCountries) {
+    
+    this.authIntlRateEligibilityCountries = authIntlRateEligibilityCountries;
+    return this;
+  }
+
+  public WhatsappBusinessAccount addAuthIntlRateEligibilityCountriesItem(WhatsappAuthIntlRateEligibilityCountry authIntlRateEligibilityCountriesItem) {
+    if (this.authIntlRateEligibilityCountries == null) {
+      this.authIntlRateEligibilityCountries = new ArrayList<>();
+    }
+    this.authIntlRateEligibilityCountries.add(authIntlRateEligibilityCountriesItem);
+    return this;
+  }
+
+   /**
+   * Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).
+   * @return authIntlRateEligibilityCountries
+  **/
+  @javax.annotation.Nullable
+
+  public List<WhatsappAuthIntlRateEligibilityCountry> getAuthIntlRateEligibilityCountries() {
+    return authIntlRateEligibilityCountries;
+  }
+
+
+  /**
+   * Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).
+   **/
+  @ApiModelProperty(value = "Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code `ID`) - July 1, 2024 – India (country calling code +91, country code `IN`)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).")
+  public void setAuthIntlRateEligibilityCountries(List<WhatsappAuthIntlRateEligibilityCountry> authIntlRateEligibilityCountries) {
+    this.authIntlRateEligibilityCountries = authIntlRateEligibilityCountries;
+  }
+
+
+  public WhatsappBusinessAccount primaryBusinessLocation(String primaryBusinessLocation) {
+    
+    this.primaryBusinessLocation = primaryBusinessLocation;
+    return this;
+  }
+
+   /**
+   * Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+   * @return primaryBusinessLocation
+  **/
+  @javax.annotation.Nullable
+
+  public String getPrimaryBusinessLocation() {
+    return primaryBusinessLocation;
+  }
+
+
+  /**
+   * Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+   **/
+  @ApiModelProperty(example = "US", value = "Your primary business location is the country where your business is based. It will appear in the Business Manager under the Primary Business Location field starting May 1, 2024. [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).")
+  public void setPrimaryBusinessLocation(String primaryBusinessLocation) {
+    this.primaryBusinessLocation = primaryBusinessLocation;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -715,13 +790,15 @@ public class WhatsappBusinessAccount {
         Objects.equals(this.banState, whatsappBusinessAccount.banState) &&
         Objects.equals(this.banDate, whatsappBusinessAccount.banDate) &&
         Objects.equals(this.violationType, whatsappBusinessAccount.violationType) &&
-        Objects.equals(this.restrictions, whatsappBusinessAccount.restrictions)&&
+        Objects.equals(this.restrictions, whatsappBusinessAccount.restrictions) &&
+        Objects.equals(this.authIntlRateEligibilityCountries, whatsappBusinessAccount.authIntlRateEligibilityCountries) &&
+        Objects.equals(this.primaryBusinessLocation, whatsappBusinessAccount.primaryBusinessLocation)&&
         Objects.equals(this.additionalProperties, whatsappBusinessAccount.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, currency, messageTemplateNamespace, accountReviewStatus, businessVerificationStatus, country, ownershipType, paymentMethodAttached, primaryFundingId, purchaseOrderNumber, timezoneId, decision, updateEvent, banState, banDate, violationType, restrictions, additionalProperties);
+    return Objects.hash(id, name, currency, messageTemplateNamespace, accountReviewStatus, businessVerificationStatus, country, ownershipType, paymentMethodAttached, primaryFundingId, purchaseOrderNumber, timezoneId, decision, updateEvent, banState, banDate, violationType, restrictions, authIntlRateEligibilityCountries, primaryBusinessLocation, additionalProperties);
   }
 
   @Override
@@ -746,6 +823,8 @@ public class WhatsappBusinessAccount {
     sb.append("    banDate: ").append(toIndentedString(banDate)).append("\n");
     sb.append("    violationType: ").append(toIndentedString(violationType)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
+    sb.append("    authIntlRateEligibilityCountries: ").append(toIndentedString(authIntlRateEligibilityCountries)).append("\n");
+    sb.append("    primaryBusinessLocation: ").append(toIndentedString(primaryBusinessLocation)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -787,6 +866,8 @@ public class WhatsappBusinessAccount {
     openapiFields.add("banDate");
     openapiFields.add("violationType");
     openapiFields.add("restrictions");
+    openapiFields.add("authIntlRateEligibilityCountries");
+    openapiFields.add("primaryBusinessLocation");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -850,6 +931,21 @@ public class WhatsappBusinessAccount {
         for (int i = 0; i < jsonArrayrestrictions.size(); i++) {
           WhatsappBusinessAccountRestrictionInfo.validateJsonObject(jsonArrayrestrictions.get(i).getAsJsonObject());
         };
+      }
+      JsonArray jsonArrayauthIntlRateEligibilityCountries = jsonObj.getAsJsonArray("authIntlRateEligibilityCountries");
+      if (jsonArrayauthIntlRateEligibilityCountries != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("authIntlRateEligibilityCountries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `authIntlRateEligibilityCountries` to be an array in the JSON string but got `%s`", jsonObj.get("authIntlRateEligibilityCountries").toString()));
+        }
+
+        // validate the optional field `authIntlRateEligibilityCountries` (array)
+        for (int i = 0; i < jsonArrayauthIntlRateEligibilityCountries.size(); i++) {
+          WhatsappAuthIntlRateEligibilityCountry.validateJsonObject(jsonArrayauthIntlRateEligibilityCountries.get(i).getAsJsonObject());
+        };
+      }
+      if (jsonObj.get("primaryBusinessLocation") != null && !jsonObj.get("primaryBusinessLocation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `primaryBusinessLocation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("primaryBusinessLocation").toString()));
       }
   }
 

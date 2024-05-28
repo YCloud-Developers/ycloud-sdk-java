@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Quality rating. One of &#x60;GREEN&#x60;, &#x60;YELLOW&#x60;, &#x60;RED&#x60;, or &#x60;UNKNOWN&#x60;. See also [Quality Rating](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits). - &#x60;GREEN&#x60;: High quality. - &#x60;YELLOW&#x60;: Medium quality. - &#x60;RED&#x60;: Low quality. - &#x60;UNKNOWN&#x60;: Unknown quality.
+ * Quality rating. One of &#x60;GREEN&#x60;, &#x60;YELLOW&#x60;, &#x60;RED&#x60;, or &#x60;UNKNOWN&#x60;. See also [Phone Number Quality Rating](https://www.facebook.com/business/help/896873687365001). - &#x60;GREEN&#x60;: High quality. - &#x60;YELLOW&#x60;: Medium quality. - &#x60;RED&#x60;: Low quality. - &#x60;UNKNOWN&#x60;: Unknown quality.
  */
 @JsonAdapter(WhatsappPhoneNumberQualityRating.Adapter.class)
 public enum WhatsappPhoneNumberQualityRating {

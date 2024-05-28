@@ -45,9 +45,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * [WhatsApp Text Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#text-object).
+ * WhatsApp Message Text Object.
  */
-@ApiModel(description = "[WhatsApp Text Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#text-object).")
+@ApiModel(description = "WhatsApp Message Text Object.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageText {
   public static final String SERIALIZED_NAME_BODY = "body";

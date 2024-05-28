@@ -49,9 +49,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Use for &#x60;interactive&#x60; messages. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).
+ * Use for &#x60;interactive&#x60; messages.
  */
-@ApiModel(description = "Use for `interactive` messages. See also [WhatsApp Interactive Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#interactive-object).")
+@ApiModel(description = "Use for `interactive` messages.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractive {
   /**

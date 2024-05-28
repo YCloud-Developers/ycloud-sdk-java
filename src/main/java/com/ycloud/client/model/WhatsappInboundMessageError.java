@@ -45,9 +45,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * When the message type field is set to &#x60;unknown&#x60; or &#x60;unsupported&#x60;, this object is included.
+ * When the message type &#x60;unsupported&#x60;, this object is included.
  */
-@ApiModel(description = "When the message type field is set to `unknown` or `unsupported`, this object is included.")
+@ApiModel(description = "When the message type `unsupported`, this object is included.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageError {
   public static final String SERIALIZED_NAME_CODE = "code";

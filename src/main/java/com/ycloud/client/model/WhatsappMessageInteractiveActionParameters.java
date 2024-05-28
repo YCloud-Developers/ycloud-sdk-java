@@ -66,7 +66,7 @@ public class WhatsappMessageInteractiveActionParameters {
 
   public static final String SERIALIZED_NAME_THUMBNAIL_PRODUCT_RETAILER_ID = "thumbnail_product_retailer_id";
   /**
-   * Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message&#39;s header image.
+   * Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce). The thumbnail of this item will be used as the message&#39;s header image.
   **/
   @SerializedName(SERIALIZED_NAME_THUMBNAIL_PRODUCT_RETAILER_ID)
   private String thumbnailProductRetailerId;
@@ -133,7 +133,7 @@ public class WhatsappMessageInteractiveActionParameters {
   }
 
    /**
-   * Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message&#39;s header image.
+   * Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce). The thumbnail of this item will be used as the message&#39;s header image.
    * @return thumbnailProductRetailerId
   **/
   @javax.annotation.Nullable
@@ -144,9 +144,9 @@ public class WhatsappMessageInteractiveActionParameters {
 
 
   /**
-   * Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message&#39;s header image.
+   * Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce). The thumbnail of this item will be used as the message&#39;s header image.
    **/
-  @ApiModelProperty(value = "Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce/). The thumbnail of this item will be used as the message's header image.")
+  @ApiModelProperty(value = "Item SKU number. Labeled as **Content ID** in the [Commerce Manager](https://business.facebook.com/commerce). The thumbnail of this item will be used as the message's header image.")
   public void setThumbnailProductRetailerId(String thumbnailProductRetailerId) {
     this.thumbnailProductRetailerId = thumbnailProductRetailerId;
   }

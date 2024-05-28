@@ -49,9 +49,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * [WhatsApp Section Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#section-object).
+ * WhatsApp Message Interactive Section Object.
  */
-@ApiModel(description = "[WhatsApp Section Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#section-object).")
+@ApiModel(description = "WhatsApp Message Interactive Section Object.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveActionSection {
   public static final String SERIALIZED_NAME_TITLE = "title";

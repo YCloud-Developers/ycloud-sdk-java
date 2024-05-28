@@ -58,9 +58,7 @@ public enum WhatsappInboundMessageType {
   
   SYSTEM("system"),
   
-  UNSUPPORTED("unsupported"),
-  
-  UNKNOWN("unknown");
+  UNSUPPORTED("unsupported");
 
   private String value;
 

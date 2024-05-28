@@ -2,7 +2,7 @@
 
 # WhatsappMessageTemplate
 
-Use for sending a WhatsApp `template` message. See also [WhatsApp Template Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#template-object).
+Use for sending a WhatsApp `template` message.
 
 ## Properties
 

@@ -46,13 +46,13 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Required for type &#x60;product_list&#x60;. Optional for other types. See also [WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object).
+ * Required for type &#x60;product_list&#x60;. Optional for other types.
  */
-@ApiModel(description = "Required for type `product_list`. Optional for other types. See also [WhatsApp Header Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#header-object).")
+@ApiModel(description = "Required for type `product_list`. Optional for other types.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractiveHeader {
   /**
-   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages, Reply Buttons, and Multi-Product Messages. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -104,7 +104,7 @@ public class WhatsappMessageInteractiveHeader {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages, Reply Buttons, and Multi-Product Messages. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -144,7 +144,7 @@ public class WhatsappMessageInteractiveHeader {
   }
 
    /**
-   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages, Reply Buttons, and Multi-Product Messages. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -155,9 +155,9 @@ public class WhatsappMessageInteractiveHeader {
 
 
   /**
-   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages and Reply Buttons. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
+   * **Required.** The header type you would like to use. - &#x60;text&#x60;: Used for List Messages, Reply Buttons, and Multi-Product Messages. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons. - &#x60;document&#x60;: Used for Reply Buttons.
    **/
-  @ApiModelProperty(value = "**Required.** The header type you would like to use. - `text`: Used for List Messages and Reply Buttons. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons. - `document`: Used for Reply Buttons.")
+  @ApiModelProperty(value = "**Required.** The header type you would like to use. - `text`: Used for List Messages, Reply Buttons, and Multi-Product Messages. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons. - `document`: Used for Reply Buttons.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
