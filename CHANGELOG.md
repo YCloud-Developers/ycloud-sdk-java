@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.13.1 (2024-07-18)
+
+- Add `filterBlocked` to the [Enqueue a WhatsApp Message](https://docs.ycloud.com/reference/whatsapp_message-send) endpoint.
+
 ## 1.13.0 (2024-05-28)
 
 - Add `pricingCategory` to the WhatsApp Message object.

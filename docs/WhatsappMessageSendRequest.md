@@ -24,6 +24,7 @@
 |**context** | [**WhatsappMessageContext**](WhatsappMessageContext.md) |  |  [optional] |
 |**externalId** | **String** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. |  [optional] |
 |**filterUnsubscribed** | **Boolean** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. |  [optional] |
+|**filterBlocked** | **Boolean** | **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;. |  [optional] |
 
 
 

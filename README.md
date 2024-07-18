@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.13.0</version>
+  <version>1.13.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.13.0"
+     implementation "com.ycloud:ycloud-sdk-java:1.13.1"
   }
 ```
 

@@ -856,7 +856,7 @@ public class WhatsappMessage {
   /**
    * Error code when the message status is &#x60;failed&#x60;.
    **/
-  @ApiModelProperty(value = "Error code when the message status is `failed`.")
+  @ApiModelProperty(example = "INTERNAL_SERVER_ERROR", value = "Error code when the message status is `failed`.")
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }

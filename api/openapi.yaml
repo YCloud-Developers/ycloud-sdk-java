@@ -5819,7 +5819,7 @@ components:
           type: button
           body:
             text: text
-        errorCode: errorCode
+        errorCode: INTERNAL_SERVER_ERROR
         readTime: 2022-06-01T12:00:00Z
         video:
           filename: filename
@@ -6030,6 +6030,7 @@ components:
           $ref: '#/components/schemas/WhatsappMessageStatus'
         errorCode:
           description: Error code when the message status is `failed`.
+          example: INTERNAL_SERVER_ERROR
           type: string
         errorMessage:
           description: Error message when the message status is `failed`.
@@ -8387,6 +8388,7 @@ components:
           - phone: phone
             wa_id: wa_id
             type: type
+        filterBlocked: true
       properties:
         from:
           description: "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
@@ -8438,6 +8440,13 @@ components:
             \nOnly use for `POST /v2/whatsapp/messages`. If the user has unsubscribed,\
             \ we will push webhook notifications with `whatsappMessage.errorCode`\
             \ set to `RECIPIENT_UNSUBSCRIBED`.\n\nNot applicable to `POST /v2/whatsapp/message/sendDirectly`."
+          type: boolean
+        filterBlocked:
+          description: "**Optional.**\nIf set to `true`, the message will not be sent\
+            \ to users in your block list. Defaults to `false`.\n\nOnly use for `POST\
+            \ /v2/whatsapp/messages`. If the user is in your block list, we will push\
+            \ webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.\n\
+            \nNot applicable to `POST /v2/whatsapp/message/sendDirectly`."
           type: boolean
       required:
       - from
