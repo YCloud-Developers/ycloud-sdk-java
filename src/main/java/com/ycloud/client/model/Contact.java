@@ -98,10 +98,17 @@ public class Contact {
 
   public static final String SERIALIZED_NAME_LAST_SEEN = "lastSeen";
   /**
-   * The time at which the latest inbound message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   * The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
   **/
   @SerializedName(SERIALIZED_NAME_LAST_SEEN)
   private Date lastSeen;
+
+  public static final String SERIALIZED_NAME_LAST_MESSAGE_TO_PHONE_NUMBER = "lastMessageToPhoneNumber";
+  /**
+   * The business phone number that the contact last sent a message to.
+  **/
+  @SerializedName(SERIALIZED_NAME_LAST_MESSAGE_TO_PHONE_NUMBER)
+  private String lastMessageToPhoneNumber;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   /**
@@ -297,7 +304,7 @@ public class Contact {
   }
 
    /**
-   * The time at which the latest inbound message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   * The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
    * @return lastSeen
   **/
   @javax.annotation.Nullable
@@ -308,11 +315,37 @@ public class Contact {
 
 
   /**
-   * The time at which the latest inbound message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   * The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
    **/
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which the latest inbound message was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
+  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which the contact last sent a message to your business, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
   public void setLastSeen(Date lastSeen) {
     this.lastSeen = lastSeen;
+  }
+
+
+  public Contact lastMessageToPhoneNumber(String lastMessageToPhoneNumber) {
+    
+    this.lastMessageToPhoneNumber = lastMessageToPhoneNumber;
+    return this;
+  }
+
+   /**
+   * The business phone number that the contact last sent a message to.
+   * @return lastMessageToPhoneNumber
+  **/
+  @javax.annotation.Nullable
+
+  public String getLastMessageToPhoneNumber() {
+    return lastMessageToPhoneNumber;
+  }
+
+
+  /**
+   * The business phone number that the contact last sent a message to.
+   **/
+  @ApiModelProperty(example = "+16315551111", value = "The business phone number that the contact last sent a message to.")
+  public void setLastMessageToPhoneNumber(String lastMessageToPhoneNumber) {
+    this.lastMessageToPhoneNumber = lastMessageToPhoneNumber;
   }
 
 
@@ -488,6 +521,7 @@ public class Contact {
         Objects.equals(this.phoneNumber, contact.phoneNumber) &&
         Objects.equals(this.email, contact.email) &&
         Objects.equals(this.lastSeen, contact.lastSeen) &&
+        Objects.equals(this.lastMessageToPhoneNumber, contact.lastMessageToPhoneNumber) &&
         Objects.equals(this.tags, contact.tags) &&
         Objects.equals(this.createTime, contact.createTime) &&
         Objects.equals(this.customAttributes, contact.customAttributes) &&
@@ -497,7 +531,7 @@ public class Contact {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, nickname, countryCode, countryName, phoneNumber, email, lastSeen, tags, createTime, customAttributes, ownerEmail, additionalProperties);
+    return Objects.hash(id, nickname, countryCode, countryName, phoneNumber, email, lastSeen, lastMessageToPhoneNumber, tags, createTime, customAttributes, ownerEmail, additionalProperties);
   }
 
   @Override
@@ -511,6 +545,7 @@ public class Contact {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    lastSeen: ").append(toIndentedString(lastSeen)).append("\n");
+    sb.append("    lastMessageToPhoneNumber: ").append(toIndentedString(lastMessageToPhoneNumber)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
@@ -545,6 +580,7 @@ public class Contact {
     openapiFields.add("phoneNumber");
     openapiFields.add("email");
     openapiFields.add("lastSeen");
+    openapiFields.add("lastMessageToPhoneNumber");
     openapiFields.add("tags");
     openapiFields.add("createTime");
     openapiFields.add("customAttributes");
@@ -593,6 +629,9 @@ public class Contact {
       }
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if (jsonObj.get("lastMessageToPhoneNumber") != null && !jsonObj.get("lastMessageToPhoneNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lastMessageToPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastMessageToPhoneNumber").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {

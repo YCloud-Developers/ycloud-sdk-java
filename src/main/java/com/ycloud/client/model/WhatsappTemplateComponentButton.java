@@ -121,6 +121,27 @@ public class WhatsappTemplateComponentButton {
   @SerializedName(SERIALIZED_NAME_EXAMPLE)
   private List<String> example = null;
 
+  public static final String SERIALIZED_NAME_FLOW_ID = "flow_id";
+  /**
+   * **Required for button type &#x60;FLOW&#x60;.** The unique ID of a Flow.
+  **/
+  @SerializedName(SERIALIZED_NAME_FLOW_ID)
+  private String flowId;
+
+  public static final String SERIALIZED_NAME_FLOW_ACTION = "flow_action";
+  /**
+   * **Use for button type &#x60;FLOW&#x60;.** Either &#x60;navigate&#x60; or &#x60;data_exchange&#x60;. Defaults to &#x60;navigate&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_FLOW_ACTION)
+  private String flowAction;
+
+  public static final String SERIALIZED_NAME_NAVIGATE_SCREEN = "navigate_screen";
+  /**
+   * **Required if &#x60;flow_action&#x60; is &#x60;navigate&#x60;.** The unique ID of the Screen in the Flow.
+  **/
+  @SerializedName(SERIALIZED_NAME_NAVIGATE_SCREEN)
+  private String navigateScreen;
+
   public WhatsappTemplateComponentButton() { 
   }
 
@@ -389,6 +410,84 @@ public class WhatsappTemplateComponentButton {
     this.example = example;
   }
 
+
+  public WhatsappTemplateComponentButton flowId(String flowId) {
+    
+    this.flowId = flowId;
+    return this;
+  }
+
+   /**
+   * **Required for button type &#x60;FLOW&#x60;.** The unique ID of a Flow.
+   * @return flowId
+  **/
+  @javax.annotation.Nullable
+
+  public String getFlowId() {
+    return flowId;
+  }
+
+
+  /**
+   * **Required for button type &#x60;FLOW&#x60;.** The unique ID of a Flow.
+   **/
+  @ApiModelProperty(example = "1", value = "**Required for button type `FLOW`.** The unique ID of a Flow.")
+  public void setFlowId(String flowId) {
+    this.flowId = flowId;
+  }
+
+
+  public WhatsappTemplateComponentButton flowAction(String flowAction) {
+    
+    this.flowAction = flowAction;
+    return this;
+  }
+
+   /**
+   * **Use for button type &#x60;FLOW&#x60;.** Either &#x60;navigate&#x60; or &#x60;data_exchange&#x60;. Defaults to &#x60;navigate&#x60;.
+   * @return flowAction
+  **/
+  @javax.annotation.Nullable
+
+  public String getFlowAction() {
+    return flowAction;
+  }
+
+
+  /**
+   * **Use for button type &#x60;FLOW&#x60;.** Either &#x60;navigate&#x60; or &#x60;data_exchange&#x60;. Defaults to &#x60;navigate&#x60;.
+   **/
+  @ApiModelProperty(example = "navigate", value = "**Use for button type `FLOW`.** Either `navigate` or `data_exchange`. Defaults to `navigate`.")
+  public void setFlowAction(String flowAction) {
+    this.flowAction = flowAction;
+  }
+
+
+  public WhatsappTemplateComponentButton navigateScreen(String navigateScreen) {
+    
+    this.navigateScreen = navigateScreen;
+    return this;
+  }
+
+   /**
+   * **Required if &#x60;flow_action&#x60; is &#x60;navigate&#x60;.** The unique ID of the Screen in the Flow.
+   * @return navigateScreen
+  **/
+  @javax.annotation.Nullable
+
+  public String getNavigateScreen() {
+    return navigateScreen;
+  }
+
+
+  /**
+   * **Required if &#x60;flow_action&#x60; is &#x60;navigate&#x60;.** The unique ID of the Screen in the Flow.
+   **/
+  @ApiModelProperty(example = "WELCOME_SCREEN", value = "**Required if `flow_action` is `navigate`.** The unique ID of the Screen in the Flow.")
+  public void setNavigateScreen(String navigateScreen) {
+    this.navigateScreen = navigateScreen;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -444,13 +543,16 @@ public class WhatsappTemplateComponentButton {
         Objects.equals(this.packageName, whatsappTemplateComponentButton.packageName) &&
         Objects.equals(this.signatureHash, whatsappTemplateComponentButton.signatureHash) &&
         Objects.equals(this.zeroTapTermsAccepted, whatsappTemplateComponentButton.zeroTapTermsAccepted) &&
-        Objects.equals(this.example, whatsappTemplateComponentButton.example)&&
+        Objects.equals(this.example, whatsappTemplateComponentButton.example) &&
+        Objects.equals(this.flowId, whatsappTemplateComponentButton.flowId) &&
+        Objects.equals(this.flowAction, whatsappTemplateComponentButton.flowAction) &&
+        Objects.equals(this.navigateScreen, whatsappTemplateComponentButton.navigateScreen)&&
         Objects.equals(this.additionalProperties, whatsappTemplateComponentButton.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, zeroTapTermsAccepted, example, additionalProperties);
+    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, zeroTapTermsAccepted, example, flowId, flowAction, navigateScreen, additionalProperties);
   }
 
   @Override
@@ -467,6 +569,9 @@ public class WhatsappTemplateComponentButton {
     sb.append("    signatureHash: ").append(toIndentedString(signatureHash)).append("\n");
     sb.append("    zeroTapTermsAccepted: ").append(toIndentedString(zeroTapTermsAccepted)).append("\n");
     sb.append("    example: ").append(toIndentedString(example)).append("\n");
+    sb.append("    flowId: ").append(toIndentedString(flowId)).append("\n");
+    sb.append("    flowAction: ").append(toIndentedString(flowAction)).append("\n");
+    sb.append("    navigateScreen: ").append(toIndentedString(navigateScreen)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -500,6 +605,9 @@ public class WhatsappTemplateComponentButton {
     openapiFields.add("signature_hash");
     openapiFields.add("zero_tap_terms_accepted");
     openapiFields.add("example");
+    openapiFields.add("flow_id");
+    openapiFields.add("flow_action");
+    openapiFields.add("navigate_screen");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -548,6 +656,15 @@ public class WhatsappTemplateComponentButton {
       // ensure the json data is an array
       if (jsonObj.get("example") != null && !jsonObj.get("example").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `example` to be an array in the JSON string but got `%s`", jsonObj.get("example").toString()));
+      }
+      if (jsonObj.get("flow_id") != null && !jsonObj.get("flow_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `flow_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_id").toString()));
+      }
+      if (jsonObj.get("flow_action") != null && !jsonObj.get("flow_action").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `flow_action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_action").toString()));
+      }
+      if (jsonObj.get("navigate_screen") != null && !jsonObj.get("navigate_screen").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `navigate_screen` to be a primitive type in the JSON string but got `%s`", jsonObj.get("navigate_screen").toString()));
       }
   }
 

@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.13.1</version>
+  <version>1.14.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.13.1"
+     implementation "com.ycloud:ycloud-sdk-java:1.14.0"
   }
 ```
 
@@ -99,6 +99,13 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**list**](docs/ContactsApi.md#list) | **GET** /contact/contacts | List contacts
 *ContactsApi* | [**retrieve**](docs/ContactsApi.md#retrieve) | **GET** /contact/contacts/{id} | Retrieve a contact
 *ContactsApi* | [**update**](docs/ContactsApi.md#update) | **PATCH** /contact/contacts/{id} | Update a contact
+*CustomEventsApi* | [**createDefinition**](docs/CustomEventsApi.md#createDefinition) | **POST** /event/definitions | Create an event definition
+*CustomEventsApi* | [**createPropertyDefinition**](docs/CustomEventsApi.md#createPropertyDefinition) | **POST** /event/definitions/{name}/properties | Create an event property definition
+*CustomEventsApi* | [**propertyDefinition**](docs/CustomEventsApi.md#propertyDefinition) | **DELETE** /event/definitions/{name}/properties/{propertyName} | Delete an event property definition
+*CustomEventsApi* | [**propertyDefinition_0**](docs/CustomEventsApi.md#propertyDefinition_0) | **PATCH** /event/definitions/{name}/properties/{propertyName} | Update an event property definition
+*CustomEventsApi* | [**retrieveDefinition**](docs/CustomEventsApi.md#retrieveDefinition) | **GET** /event/definitions/{name} | Retrieve an event definition
+*CustomEventsApi* | [**sendEvent**](docs/CustomEventsApi.md#sendEvent) | **POST** /event/events | Send an event
+*CustomEventsApi* | [**updateDefinition**](docs/CustomEventsApi.md#updateDefinition) | **PATCH** /event/definitions/{name} | Update an event definition
 *EmailsApi* | [**send**](docs/EmailsApi.md#send) | **POST** /emails | Send an email
 *SmsApi* | [**list**](docs/SmsApi.md#list) | **GET** /sms | List SMS records
 *SmsApi* | [**send**](docs/SmsApi.md#send) | **POST** /sms | Send an SMS
@@ -146,6 +153,13 @@ Class | Method | HTTP request | Description
  - [ContactCustomAttribute](docs/ContactCustomAttribute.md)
  - [ContactPage](docs/ContactPage.md)
  - [ContactUpdateRequest](docs/ContactUpdateRequest.md)
+ - [CustomEventDefinition](docs/CustomEventDefinition.md)
+ - [CustomEventDefinitionCreateRequest](docs/CustomEventDefinitionCreateRequest.md)
+ - [CustomEventDefinitionProperty](docs/CustomEventDefinitionProperty.md)
+ - [CustomEventDefinitionPropertyCreateRequest](docs/CustomEventDefinitionPropertyCreateRequest.md)
+ - [CustomEventDefinitionPropertyUpdateRequest](docs/CustomEventDefinitionPropertyUpdateRequest.md)
+ - [CustomEventDefinitionUpdateRequest](docs/CustomEventDefinitionUpdateRequest.md)
+ - [CustomEventSendRequest](docs/CustomEventSendRequest.md)
  - [Email](docs/Email.md)
  - [EmailContentType](docs/EmailContentType.md)
  - [EmailDelivery](docs/EmailDelivery.md)
@@ -225,6 +239,7 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveActionButton](docs/WhatsappMessageInteractiveActionButton.md)
  - [WhatsappMessageInteractiveActionButtonReply](docs/WhatsappMessageInteractiveActionButtonReply.md)
  - [WhatsappMessageInteractiveActionParameters](docs/WhatsappMessageInteractiveActionParameters.md)
+ - [WhatsappMessageInteractiveActionParametersFlowActionPayload](docs/WhatsappMessageInteractiveActionParametersFlowActionPayload.md)
  - [WhatsappMessageInteractiveActionSection](docs/WhatsappMessageInteractiveActionSection.md)
  - [WhatsappMessageInteractiveActionSectionProductItem](docs/WhatsappMessageInteractiveActionSectionProductItem.md)
  - [WhatsappMessageInteractiveActionSectionRow](docs/WhatsappMessageInteractiveActionSectionRow.md)

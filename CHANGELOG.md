@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.14.0 (2024-09-13)
+
+- Add Custom Events API.
+- Support sending messages with [WhatsApp Flows](https://developers.facebook.com/docs/whatsapp/flows).
+
 ## 1.13.1 (2024-07-18)
 
 - Add `filterBlocked` to the [Enqueue a WhatsApp Message](https://docs.ycloud.com/reference/whatsapp_message-send) endpoint.

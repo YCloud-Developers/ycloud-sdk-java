@@ -13,7 +13,7 @@
 |**catalogId** | **String** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce). |  [optional] |
 |**productRetailerId** | **String** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog. |  [optional] |
 |**sections** | [**List&lt;WhatsappMessageInteractiveActionSection&gt;**](WhatsappMessageInteractiveActionSection.md) | Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10. |  [optional] |
-|**name** | [**NameEnum**](#NameEnum) | Action name. Required for Call-To-Action (CTA) URL Button Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Buttons. - &#x60;send_location&#x60;: Use for Location Request Messages. |  [optional] |
+|**name** | [**NameEnum**](#NameEnum) | Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. |  [optional] |
 |**parameters** | [**WhatsappMessageInteractiveActionParameters**](WhatsappMessageInteractiveActionParameters.md) |  |  [optional] |
 
 
@@ -24,6 +24,7 @@
 |---- | -----|
 | CTA_URL | &quot;cta_url&quot; |
 | SEND_LOCATION | &quot;send_location&quot; |
+| FLOW | &quot;flow&quot; |
 
 
 

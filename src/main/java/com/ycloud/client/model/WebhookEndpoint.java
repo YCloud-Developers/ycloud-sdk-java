@@ -191,7 +191,7 @@ public class WebhookEndpoint {
   /**
    * The list of events to enable for this endpoint.
    **/
-  @ApiModelProperty(example = "[\"email.delivery.updated\",\"sms.message.updated\",\"voice.message.updated\"]", value = "The list of events to enable for this endpoint.")
+  @ApiModelProperty(example = "[\"whatsapp.message.updated\",\"whatsapp.inbound_message.received\"]", value = "The list of events to enable for this endpoint.")
   public void setEnabledEvents(List<String> enabledEvents) {
     this.enabledEvents = enabledEvents;
   }
