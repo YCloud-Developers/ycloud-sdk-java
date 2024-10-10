@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.15.0 (2024-10-10)
+
+- Support WhatsApp Order Details messages and Order Status messages.
+- Add new webhook event type `whatsapp.payment.updated`.
+
 ## 1.14.0 (2024-09-13)
 
 - Add Custom Events API.

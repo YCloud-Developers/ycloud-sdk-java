@@ -69,7 +69,7 @@ public class WhatsappMessageTemplate {
 
   public static final String SERIALIZED_NAME_COMPONENTS = "components";
   /**
-   * **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.
+   * **Required when the specified template contains variables or media.** Array of component objects containing the parameters of the message.
   **/
   @SerializedName(SERIALIZED_NAME_COMPONENTS)
   private List<WhatsappMessageTemplateComponent> components = null;
@@ -143,7 +143,7 @@ public class WhatsappMessageTemplate {
   }
 
    /**
-   * **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.
+   * **Required when the specified template contains variables or media.** Array of component objects containing the parameters of the message.
    * @return components
   **/
   @javax.annotation.Nullable
@@ -154,9 +154,9 @@ public class WhatsappMessageTemplate {
 
 
   /**
-   * **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.
+   * **Required when the specified template contains variables or media.** Array of component objects containing the parameters of the message.
    **/
-  @ApiModelProperty(value = "**Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message.")
+  @ApiModelProperty(value = "**Required when the specified template contains variables or media.** Array of component objects containing the parameters of the message.")
   public void setComponents(List<WhatsappMessageTemplateComponent> components) {
     this.components = components;
   }

@@ -10,7 +10,7 @@ Use for sending a WhatsApp `template` message.
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** | Name of the template. |  |
 |**language** | [**WhatsappMessageTemplateLanguage**](WhatsappMessageTemplateLanguage.md) |  |  |
-|**components** | [**List&lt;WhatsappMessageTemplateComponent&gt;**](WhatsappMessageTemplateComponent.md) | **Required when the specified template contains variables or media.** Array of components objects containing the parameters of the message. |  [optional] |
+|**components** | [**List&lt;WhatsappMessageTemplateComponent&gt;**](WhatsappMessageTemplateComponent.md) | **Required when the specified template contains variables or media.** Array of component objects containing the parameters of the message. |  [optional] |
 
 
 

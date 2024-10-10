@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappTemplateCategory;
 import com.ycloud.client.model.WhatsappTemplateComponent;
+import com.ycloud.client.model.WhatsappTemplateSubCategory;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -80,6 +81,12 @@ public class WhatsappTemplateCreateRequest {
   **/
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private WhatsappTemplateCategory category;
+
+  public static final String SERIALIZED_NAME_SUB_CATEGORY = "subCategory";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_SUB_CATEGORY)
+  private WhatsappTemplateSubCategory subCategory;
 
   public static final String SERIALIZED_NAME_MESSAGE_SEND_TTL_SECONDS = "messageSendTtlSeconds";
   /**
@@ -200,6 +207,31 @@ public class WhatsappTemplateCreateRequest {
   }
 
 
+  public WhatsappTemplateCreateRequest subCategory(WhatsappTemplateSubCategory subCategory) {
+    
+    this.subCategory = subCategory;
+    return this;
+  }
+
+   /**
+   * Get subCategory
+   * @return subCategory
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappTemplateSubCategory getSubCategory() {
+    return subCategory;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setSubCategory(WhatsappTemplateSubCategory subCategory) {
+    this.subCategory = subCategory;
+  }
+
+
   public WhatsappTemplateCreateRequest messageSendTtlSeconds(Integer messageSendTtlSeconds) {
     
     this.messageSendTtlSeconds = messageSendTtlSeconds;
@@ -305,6 +337,7 @@ public class WhatsappTemplateCreateRequest {
         Objects.equals(this.name, whatsappTemplateCreateRequest.name) &&
         Objects.equals(this.language, whatsappTemplateCreateRequest.language) &&
         Objects.equals(this.category, whatsappTemplateCreateRequest.category) &&
+        Objects.equals(this.subCategory, whatsappTemplateCreateRequest.subCategory) &&
         Objects.equals(this.messageSendTtlSeconds, whatsappTemplateCreateRequest.messageSendTtlSeconds) &&
         Objects.equals(this.components, whatsappTemplateCreateRequest.components)&&
         Objects.equals(this.additionalProperties, whatsappTemplateCreateRequest.additionalProperties);
@@ -312,7 +345,7 @@ public class WhatsappTemplateCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(wabaId, name, language, category, messageSendTtlSeconds, components, additionalProperties);
+    return Objects.hash(wabaId, name, language, category, subCategory, messageSendTtlSeconds, components, additionalProperties);
   }
 
   @Override
@@ -323,6 +356,7 @@ public class WhatsappTemplateCreateRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    subCategory: ").append(toIndentedString(subCategory)).append("\n");
     sb.append("    messageSendTtlSeconds: ").append(toIndentedString(messageSendTtlSeconds)).append("\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -352,6 +386,7 @@ public class WhatsappTemplateCreateRequest {
     openapiFields.add("name");
     openapiFields.add("language");
     openapiFields.add("category");
+    openapiFields.add("subCategory");
     openapiFields.add("messageSendTtlSeconds");
     openapiFields.add("components");
 

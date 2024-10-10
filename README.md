@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.14.0</version>
+  <version>1.15.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.14.0"
+     implementation "com.ycloud:ycloud-sdk-java:1.15.0"
   }
 ```
 
@@ -248,6 +248,20 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveHeader](docs/WhatsappMessageInteractiveHeader.md)
  - [WhatsappMessageLocation](docs/WhatsappMessageLocation.md)
  - [WhatsappMessageMedia](docs/WhatsappMessageMedia.md)
+ - [WhatsappMessageOrderAmount](docs/WhatsappMessageOrderAmount.md)
+ - [WhatsappMessageOrderBeneficiary](docs/WhatsappMessageOrderBeneficiary.md)
+ - [WhatsappMessageOrderDetails](docs/WhatsappMessageOrderDetails.md)
+ - [WhatsappMessageOrderExpiration](docs/WhatsappMessageOrderExpiration.md)
+ - [WhatsappMessageOrderInfo](docs/WhatsappMessageOrderInfo.md)
+ - [WhatsappMessageOrderItem](docs/WhatsappMessageOrderItem.md)
+ - [WhatsappMessageOrderPaymentGateway](docs/WhatsappMessageOrderPaymentGateway.md)
+ - [WhatsappMessageOrderPaymentSetting](docs/WhatsappMessageOrderPaymentSetting.md)
+ - [WhatsappMessageOrderPaymentSettingPaymentGatewayBilldesk](docs/WhatsappMessageOrderPaymentSettingPaymentGatewayBilldesk.md)
+ - [WhatsappMessageOrderPaymentSettingPaymentGatewayPayu](docs/WhatsappMessageOrderPaymentSettingPaymentGatewayPayu.md)
+ - [WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay](docs/WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay.md)
+ - [WhatsappMessageOrderPaymentSettingPaymentGatewayZaakpay](docs/WhatsappMessageOrderPaymentSettingPaymentGatewayZaakpay.md)
+ - [WhatsappMessageOrderStatus](docs/WhatsappMessageOrderStatus.md)
+ - [WhatsappMessageOrderStatusEnum](docs/WhatsappMessageOrderStatusEnum.md)
  - [WhatsappMessageReaction](docs/WhatsappMessageReaction.md)
  - [WhatsappMessageSendRequest](docs/WhatsappMessageSendRequest.md)
  - [WhatsappMessageStatus](docs/WhatsappMessageStatus.md)
@@ -263,6 +277,10 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageTemplateLanguage](docs/WhatsappMessageTemplateLanguage.md)
  - [WhatsappMessageText](docs/WhatsappMessageText.md)
  - [WhatsappMessageType](docs/WhatsappMessageType.md)
+ - [WhatsappPayment](docs/WhatsappPayment.md)
+ - [WhatsappPaymentStatus](docs/WhatsappPaymentStatus.md)
+ - [WhatsappPaymentTransaction](docs/WhatsappPaymentTransaction.md)
+ - [WhatsappPaymentTransactionError](docs/WhatsappPaymentTransactionError.md)
  - [WhatsappPhoneNumber](docs/WhatsappPhoneNumber.md)
  - [WhatsappPhoneNumberCodeVerificationStatus](docs/WhatsappPhoneNumberCodeVerificationStatus.md)
  - [WhatsappPhoneNumberNameStatus](docs/WhatsappPhoneNumberNameStatus.md)
@@ -292,6 +310,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateQualityRating](docs/WhatsappTemplateQualityRating.md)
  - [WhatsappTemplateStatus](docs/WhatsappTemplateStatus.md)
  - [WhatsappTemplateStatusUpdateEventEnum](docs/WhatsappTemplateStatusUpdateEventEnum.md)
+ - [WhatsappTemplateSubCategory](docs/WhatsappTemplateSubCategory.md)
 
 
 ## Documentation for Authorization

@@ -91,7 +91,7 @@ public class WhatsappMessageInteractiveAction {
   private List<WhatsappMessageInteractiveActionSection> sections = null;
 
   /**
-   * Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons.
+   * Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. - &#x60;review_and_pay&#x60;: Use for Order Details buttons. - &#x60;review_order&#x60;: Use for Order Status buttons.
    */
   @JsonAdapter(NameEnum.Adapter.class)
   public enum NameEnum {
@@ -99,7 +99,11 @@ public class WhatsappMessageInteractiveAction {
     
     SEND_LOCATION("send_location"),
     
-    FLOW("flow");
+    FLOW("flow"),
+    
+    REVIEW_AND_PAY("review_and_pay"),
+    
+    REVIEW_ORDER("review_order");
 
     private String value;
 
@@ -141,7 +145,7 @@ public class WhatsappMessageInteractiveAction {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   /**
-   * Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons.
+   * Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. - &#x60;review_and_pay&#x60;: Use for Order Details buttons. - &#x60;review_order&#x60;: Use for Order Status buttons.
   **/
   @SerializedName(SERIALIZED_NAME_NAME)
   private NameEnum name;
@@ -308,7 +312,7 @@ public class WhatsappMessageInteractiveAction {
   }
 
    /**
-   * Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons.
+   * Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. - &#x60;review_and_pay&#x60;: Use for Order Details buttons. - &#x60;review_order&#x60;: Use for Order Status buttons.
    * @return name
   **/
   @javax.annotation.Nullable
@@ -319,9 +323,9 @@ public class WhatsappMessageInteractiveAction {
 
 
   /**
-   * Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons.
+   * Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. - &#x60;review_and_pay&#x60;: Use for Order Details buttons. - &#x60;review_order&#x60;: Use for Order Status buttons.
    **/
-  @ApiModelProperty(value = "Action name. Required for Call-To-Action (CTA) buttons. - `cta_url`: Use for Call-To-Action (CTA) URL buttons. - `send_location`: Use for Location Request buttons. - `flow`: Use for Flow buttons.")
+  @ApiModelProperty(value = "Action name. Required for Call-To-Action (CTA) buttons. - `cta_url`: Use for Call-To-Action (CTA) URL buttons. - `send_location`: Use for Location Request buttons. - `flow`: Use for Flow buttons. - `review_and_pay`: Use for Order Details buttons. - `review_order`: Use for Order Status buttons.")
   public void setName(NameEnum name) {
     this.name = name;
   }

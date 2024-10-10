@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Indicates the update event type of the WABA when a notification is sent to you to report a [policy violation](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement), a WABA has been banned and more. - &#x60;DISABLED_UPDATE&#x60;: WhatsApp Business Account Banned. - &#x60;ACCOUNT_RESTRICTION&#x60;: WhatsApp Business Account Restricted Due To Policy Violations. - &#x60;ACCOUNT_VIOLATION&#x60;: WhatsApp Business Account Violates Policy.
+ * Indicates the update event type of the WABA when a notification is sent to you to report a [policy violation](https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement), a WABA has been banned and more. - &#x60;DISABLED_UPDATE&#x60;: WhatsApp Business Account Banned. - &#x60;ACCOUNT_RESTRICTION&#x60;: WhatsApp Business Account Restricted Due To Policy Violations. - &#x60;ACCOUNT_VIOLATION&#x60;: WhatsApp Business Account Violates Policy. - &#x60;AUTH_INTL_PRICE_ELIGIBILITY_UPDATE&#x60;: WhatsApp Business Account is eligible for the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - &#x60;BUSINESS_PRIMARY_LOCATION_COUNTRY_UPDATE&#x60;: Business&#39;s [primary business location](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates#primary-business-location) is set.
  */
 @JsonAdapter(WhatsappBusinessAccountUpdateEventEnum.Adapter.class)
 public enum WhatsappBusinessAccountUpdateEventEnum {
@@ -34,7 +34,11 @@ public enum WhatsappBusinessAccountUpdateEventEnum {
   
   ACCOUNT_RESTRICTION("ACCOUNT_RESTRICTION"),
   
-  ACCOUNT_VIOLATION("ACCOUNT_VIOLATION");
+  ACCOUNT_VIOLATION("ACCOUNT_VIOLATION"),
+  
+  AUTH_INTL_PRICE_ELIGIBILITY_UPDATE("AUTH_INTL_PRICE_ELIGIBILITY_UPDATE"),
+  
+  BUSINESS_PRIMARY_LOCATION_COUNTRY_UPDATE("BUSINESS_PRIMARY_LOCATION_COUNTRY_UPDATE");
 
   private String value;
 

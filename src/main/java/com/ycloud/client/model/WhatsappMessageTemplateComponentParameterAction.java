@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappMessageOrderDetails;
 import com.ycloud.client.model.WhatsappMessageTemplateComponentParameterActionSection;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -82,6 +83,12 @@ public class WhatsappMessageTemplateComponentParameterAction {
   **/
   @SerializedName(SERIALIZED_NAME_FLOW_ACTION_DATA)
   private Map<String, Object> flowActionData = null;
+
+  public static final String SERIALIZED_NAME_ORDER_DETAILS = "order_details";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_ORDER_DETAILS)
+  private WhatsappMessageOrderDetails orderDetails;
 
   public WhatsappMessageTemplateComponentParameterAction() { 
   }
@@ -205,6 +212,31 @@ public class WhatsappMessageTemplateComponentParameterAction {
     this.flowActionData = flowActionData;
   }
 
+
+  public WhatsappMessageTemplateComponentParameterAction orderDetails(WhatsappMessageOrderDetails orderDetails) {
+    
+    this.orderDetails = orderDetails;
+    return this;
+  }
+
+   /**
+   * Get orderDetails
+   * @return orderDetails
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageOrderDetails getOrderDetails() {
+    return orderDetails;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setOrderDetails(WhatsappMessageOrderDetails orderDetails) {
+    this.orderDetails = orderDetails;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -254,13 +286,14 @@ public class WhatsappMessageTemplateComponentParameterAction {
     return Objects.equals(this.thumbnailProductRetailerId, whatsappMessageTemplateComponentParameterAction.thumbnailProductRetailerId) &&
         Objects.equals(this.sections, whatsappMessageTemplateComponentParameterAction.sections) &&
         Objects.equals(this.flowToken, whatsappMessageTemplateComponentParameterAction.flowToken) &&
-        Objects.equals(this.flowActionData, whatsappMessageTemplateComponentParameterAction.flowActionData)&&
+        Objects.equals(this.flowActionData, whatsappMessageTemplateComponentParameterAction.flowActionData) &&
+        Objects.equals(this.orderDetails, whatsappMessageTemplateComponentParameterAction.orderDetails)&&
         Objects.equals(this.additionalProperties, whatsappMessageTemplateComponentParameterAction.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(thumbnailProductRetailerId, sections, flowToken, flowActionData, additionalProperties);
+    return Objects.hash(thumbnailProductRetailerId, sections, flowToken, flowActionData, orderDetails, additionalProperties);
   }
 
   @Override
@@ -271,6 +304,7 @@ public class WhatsappMessageTemplateComponentParameterAction {
     sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
     sb.append("    flowToken: ").append(toIndentedString(flowToken)).append("\n");
     sb.append("    flowActionData: ").append(toIndentedString(flowActionData)).append("\n");
+    sb.append("    orderDetails: ").append(toIndentedString(orderDetails)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -298,6 +332,7 @@ public class WhatsappMessageTemplateComponentParameterAction {
     openapiFields.add("sections");
     openapiFields.add("flow_token");
     openapiFields.add("flow_action_data");
+    openapiFields.add("order_details");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -334,6 +369,10 @@ public class WhatsappMessageTemplateComponentParameterAction {
       }
       if (jsonObj.get("flow_token") != null && !jsonObj.get("flow_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `flow_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_token").toString()));
+      }
+      // validate the optional field `order_details`
+      if (jsonObj.getAsJsonObject("order_details") != null) {
+        WhatsappMessageOrderDetails.validateJsonObject(jsonObj.getAsJsonObject("order_details"));
       }
   }
 

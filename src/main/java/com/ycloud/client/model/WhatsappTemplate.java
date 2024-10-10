@@ -26,6 +26,7 @@ import com.ycloud.client.model.WhatsappTemplateComponent;
 import com.ycloud.client.model.WhatsappTemplateQualityRating;
 import com.ycloud.client.model.WhatsappTemplateStatus;
 import com.ycloud.client.model.WhatsappTemplateStatusUpdateEventEnum;
+import com.ycloud.client.model.WhatsappTemplateSubCategory;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -85,6 +86,12 @@ public class WhatsappTemplate {
   **/
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private WhatsappTemplateCategory category;
+
+  public static final String SERIALIZED_NAME_SUB_CATEGORY = "subCategory";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_SUB_CATEGORY)
+  private WhatsappTemplateSubCategory subCategory;
 
   public static final String SERIALIZED_NAME_PREVIOUS_CATEGORY = "previousCategory";
   /**
@@ -262,6 +269,31 @@ public class WhatsappTemplate {
   @ApiModelProperty(value = "")
   public void setCategory(WhatsappTemplateCategory category) {
     this.category = category;
+  }
+
+
+  public WhatsappTemplate subCategory(WhatsappTemplateSubCategory subCategory) {
+    
+    this.subCategory = subCategory;
+    return this;
+  }
+
+   /**
+   * Get subCategory
+   * @return subCategory
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappTemplateSubCategory getSubCategory() {
+    return subCategory;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setSubCategory(WhatsappTemplateSubCategory subCategory) {
+    this.subCategory = subCategory;
   }
 
 
@@ -604,6 +636,7 @@ public class WhatsappTemplate {
         Objects.equals(this.name, whatsappTemplate.name) &&
         Objects.equals(this.language, whatsappTemplate.language) &&
         Objects.equals(this.category, whatsappTemplate.category) &&
+        Objects.equals(this.subCategory, whatsappTemplate.subCategory) &&
         Objects.equals(this.previousCategory, whatsappTemplate.previousCategory) &&
         Objects.equals(this.messageSendTtlSeconds, whatsappTemplate.messageSendTtlSeconds) &&
         Objects.equals(this.components, whatsappTemplate.components) &&
@@ -620,7 +653,7 @@ public class WhatsappTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(wabaId, name, language, category, previousCategory, messageSendTtlSeconds, components, status, qualityRating, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
+    return Objects.hash(wabaId, name, language, category, subCategory, previousCategory, messageSendTtlSeconds, components, status, qualityRating, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
   }
 
   @Override
@@ -631,6 +664,7 @@ public class WhatsappTemplate {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    subCategory: ").append(toIndentedString(subCategory)).append("\n");
     sb.append("    previousCategory: ").append(toIndentedString(previousCategory)).append("\n");
     sb.append("    messageSendTtlSeconds: ").append(toIndentedString(messageSendTtlSeconds)).append("\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
@@ -669,6 +703,7 @@ public class WhatsappTemplate {
     openapiFields.add("name");
     openapiFields.add("language");
     openapiFields.add("category");
+    openapiFields.add("subCategory");
     openapiFields.add("previousCategory");
     openapiFields.add("messageSendTtlSeconds");
     openapiFields.add("components");

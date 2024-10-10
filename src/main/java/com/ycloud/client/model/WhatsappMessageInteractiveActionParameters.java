@@ -21,9 +21,15 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappMessageInteractiveActionParametersFlowActionPayload;
+import com.ycloud.client.model.WhatsappMessageOrderAmount;
+import com.ycloud.client.model.WhatsappMessageOrderBeneficiary;
+import com.ycloud.client.model.WhatsappMessageOrderInfo;
+import com.ycloud.client.model.WhatsappMessageOrderPaymentSetting;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -112,6 +118,53 @@ public class WhatsappMessageInteractiveActionParameters {
   **/
   @SerializedName(SERIALIZED_NAME_FLOW_ACTION_PAYLOAD)
   private WhatsappMessageInteractiveActionParametersFlowActionPayload flowActionPayload;
+
+  public static final String SERIALIZED_NAME_REFERENCE_ID = "reference_id";
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. Unique identifier for the order provided by the business. It is case sensitive and cannot be an empty string and can only contain English letters, numbers, underscores, dashes, or dots, and should not exceed 35 characters.  The &#x60;reference_id&#x60; must be unique for each order_details message for a given business. If there is a need to send multiple order_details messages for the same order, it is recommended to include a sequence number in the reference_id (for example, \&quot;BM345A-12\&quot;) to ensure reference_id uniqueness.
+  **/
+  @SerializedName(SERIALIZED_NAME_REFERENCE_ID)
+  private String referenceId;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. The type of goods being paid for in this order. Current supported options are &#x60;digital-goods&#x60; and &#x60;physical-goods&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
+  public static final String SERIALIZED_NAME_BENEFICIARIES = "beneficiaries";
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. An array of beneficiaries for this order. A beneficiary is an intended recipient for shipping the physical goods in the order. Beneficiary information isn&#39;t shown to users but is needed for legal and compliance reasons.
+  **/
+  @SerializedName(SERIALIZED_NAME_BENEFICIARIES)
+  private List<WhatsappMessageOrderBeneficiary> beneficiaries = null;
+
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. The currency for this order. Currently the only supported value is &#x60;INR&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private String currency;
+
+  public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "total_amount";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
+  private WhatsappMessageOrderAmount totalAmount;
+
+  public static final String SERIALIZED_NAME_ORDER = "order";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_ORDER)
+  private WhatsappMessageOrderInfo order;
+
+  public static final String SERIALIZED_NAME_PAYMENT_SETTINGS = "payment_settings";
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. Payment settings for the order.
+  **/
+  @SerializedName(SERIALIZED_NAME_PAYMENT_SETTINGS)
+  private List<WhatsappMessageOrderPaymentSetting> paymentSettings = null;
 
   public WhatsappMessageInteractiveActionParameters() { 
   }
@@ -348,6 +401,202 @@ public class WhatsappMessageInteractiveActionParameters {
     this.flowActionPayload = flowActionPayload;
   }
 
+
+  public WhatsappMessageInteractiveActionParameters referenceId(String referenceId) {
+    
+    this.referenceId = referenceId;
+    return this;
+  }
+
+   /**
+   * Required for &#x60;review_and_pay&#x60; buttons. Unique identifier for the order provided by the business. It is case sensitive and cannot be an empty string and can only contain English letters, numbers, underscores, dashes, or dots, and should not exceed 35 characters.  The &#x60;reference_id&#x60; must be unique for each order_details message for a given business. If there is a need to send multiple order_details messages for the same order, it is recommended to include a sequence number in the reference_id (for example, \&quot;BM345A-12\&quot;) to ensure reference_id uniqueness.
+   * @return referenceId
+  **/
+  @javax.annotation.Nullable
+
+  public String getReferenceId() {
+    return referenceId;
+  }
+
+
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. Unique identifier for the order provided by the business. It is case sensitive and cannot be an empty string and can only contain English letters, numbers, underscores, dashes, or dots, and should not exceed 35 characters.  The &#x60;reference_id&#x60; must be unique for each order_details message for a given business. If there is a need to send multiple order_details messages for the same order, it is recommended to include a sequence number in the reference_id (for example, \&quot;BM345A-12\&quot;) to ensure reference_id uniqueness.
+   **/
+  @ApiModelProperty(value = "Required for `review_and_pay` buttons. Unique identifier for the order provided by the business. It is case sensitive and cannot be an empty string and can only contain English letters, numbers, underscores, dashes, or dots, and should not exceed 35 characters.  The `reference_id` must be unique for each order_details message for a given business. If there is a need to send multiple order_details messages for the same order, it is recommended to include a sequence number in the reference_id (for example, \"BM345A-12\") to ensure reference_id uniqueness.")
+  public void setReferenceId(String referenceId) {
+    this.referenceId = referenceId;
+  }
+
+
+  public WhatsappMessageInteractiveActionParameters type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Required for &#x60;review_and_pay&#x60; buttons. The type of goods being paid for in this order. Current supported options are &#x60;digital-goods&#x60; and &#x60;physical-goods&#x60;.
+   * @return type
+  **/
+  @javax.annotation.Nullable
+
+  public String getType() {
+    return type;
+  }
+
+
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. The type of goods being paid for in this order. Current supported options are &#x60;digital-goods&#x60; and &#x60;physical-goods&#x60;.
+   **/
+  @ApiModelProperty(value = "Required for `review_and_pay` buttons. The type of goods being paid for in this order. Current supported options are `digital-goods` and `physical-goods`.")
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
+  public WhatsappMessageInteractiveActionParameters beneficiaries(List<WhatsappMessageOrderBeneficiary> beneficiaries) {
+    
+    this.beneficiaries = beneficiaries;
+    return this;
+  }
+
+  public WhatsappMessageInteractiveActionParameters addBeneficiariesItem(WhatsappMessageOrderBeneficiary beneficiariesItem) {
+    if (this.beneficiaries == null) {
+      this.beneficiaries = new ArrayList<>();
+    }
+    this.beneficiaries.add(beneficiariesItem);
+    return this;
+  }
+
+   /**
+   * Required for &#x60;review_and_pay&#x60; buttons. An array of beneficiaries for this order. A beneficiary is an intended recipient for shipping the physical goods in the order. Beneficiary information isn&#39;t shown to users but is needed for legal and compliance reasons.
+   * @return beneficiaries
+  **/
+  @javax.annotation.Nullable
+
+  public List<WhatsappMessageOrderBeneficiary> getBeneficiaries() {
+    return beneficiaries;
+  }
+
+
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. An array of beneficiaries for this order. A beneficiary is an intended recipient for shipping the physical goods in the order. Beneficiary information isn&#39;t shown to users but is needed for legal and compliance reasons.
+   **/
+  @ApiModelProperty(value = "Required for `review_and_pay` buttons. An array of beneficiaries for this order. A beneficiary is an intended recipient for shipping the physical goods in the order. Beneficiary information isn't shown to users but is needed for legal and compliance reasons.")
+  public void setBeneficiaries(List<WhatsappMessageOrderBeneficiary> beneficiaries) {
+    this.beneficiaries = beneficiaries;
+  }
+
+
+  public WhatsappMessageInteractiveActionParameters currency(String currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Required for &#x60;review_and_pay&#x60; buttons. The currency for this order. Currently the only supported value is &#x60;INR&#x60;.
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. The currency for this order. Currently the only supported value is &#x60;INR&#x60;.
+   **/
+  @ApiModelProperty(value = "Required for `review_and_pay` buttons. The currency for this order. Currently the only supported value is `INR`.")
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
+  public WhatsappMessageInteractiveActionParameters totalAmount(WhatsappMessageOrderAmount totalAmount) {
+    
+    this.totalAmount = totalAmount;
+    return this;
+  }
+
+   /**
+   * Get totalAmount
+   * @return totalAmount
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageOrderAmount getTotalAmount() {
+    return totalAmount;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setTotalAmount(WhatsappMessageOrderAmount totalAmount) {
+    this.totalAmount = totalAmount;
+  }
+
+
+  public WhatsappMessageInteractiveActionParameters order(WhatsappMessageOrderInfo order) {
+    
+    this.order = order;
+    return this;
+  }
+
+   /**
+   * Get order
+   * @return order
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageOrderInfo getOrder() {
+    return order;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setOrder(WhatsappMessageOrderInfo order) {
+    this.order = order;
+  }
+
+
+  public WhatsappMessageInteractiveActionParameters paymentSettings(List<WhatsappMessageOrderPaymentSetting> paymentSettings) {
+    
+    this.paymentSettings = paymentSettings;
+    return this;
+  }
+
+  public WhatsappMessageInteractiveActionParameters addPaymentSettingsItem(WhatsappMessageOrderPaymentSetting paymentSettingsItem) {
+    if (this.paymentSettings == null) {
+      this.paymentSettings = new ArrayList<>();
+    }
+    this.paymentSettings.add(paymentSettingsItem);
+    return this;
+  }
+
+   /**
+   * Required for &#x60;review_and_pay&#x60; buttons. Payment settings for the order.
+   * @return paymentSettings
+  **/
+  @javax.annotation.Nullable
+
+  public List<WhatsappMessageOrderPaymentSetting> getPaymentSettings() {
+    return paymentSettings;
+  }
+
+
+  /**
+   * Required for &#x60;review_and_pay&#x60; buttons. Payment settings for the order.
+   **/
+  @ApiModelProperty(value = "Required for `review_and_pay` buttons. Payment settings for the order.")
+  public void setPaymentSettings(List<WhatsappMessageOrderPaymentSetting> paymentSettings) {
+    this.paymentSettings = paymentSettings;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -402,13 +651,20 @@ public class WhatsappMessageInteractiveActionParameters {
         Objects.equals(this.flowId, whatsappMessageInteractiveActionParameters.flowId) &&
         Objects.equals(this.flowCta, whatsappMessageInteractiveActionParameters.flowCta) &&
         Objects.equals(this.flowAction, whatsappMessageInteractiveActionParameters.flowAction) &&
-        Objects.equals(this.flowActionPayload, whatsappMessageInteractiveActionParameters.flowActionPayload)&&
+        Objects.equals(this.flowActionPayload, whatsappMessageInteractiveActionParameters.flowActionPayload) &&
+        Objects.equals(this.referenceId, whatsappMessageInteractiveActionParameters.referenceId) &&
+        Objects.equals(this.type, whatsappMessageInteractiveActionParameters.type) &&
+        Objects.equals(this.beneficiaries, whatsappMessageInteractiveActionParameters.beneficiaries) &&
+        Objects.equals(this.currency, whatsappMessageInteractiveActionParameters.currency) &&
+        Objects.equals(this.totalAmount, whatsappMessageInteractiveActionParameters.totalAmount) &&
+        Objects.equals(this.order, whatsappMessageInteractiveActionParameters.order) &&
+        Objects.equals(this.paymentSettings, whatsappMessageInteractiveActionParameters.paymentSettings)&&
         Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionParameters.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayText, url, thumbnailProductRetailerId, flowMessageVersion, flowToken, flowId, flowCta, flowAction, flowActionPayload, additionalProperties);
+    return Objects.hash(displayText, url, thumbnailProductRetailerId, flowMessageVersion, flowToken, flowId, flowCta, flowAction, flowActionPayload, referenceId, type, beneficiaries, currency, totalAmount, order, paymentSettings, additionalProperties);
   }
 
   @Override
@@ -424,6 +680,13 @@ public class WhatsappMessageInteractiveActionParameters {
     sb.append("    flowCta: ").append(toIndentedString(flowCta)).append("\n");
     sb.append("    flowAction: ").append(toIndentedString(flowAction)).append("\n");
     sb.append("    flowActionPayload: ").append(toIndentedString(flowActionPayload)).append("\n");
+    sb.append("    referenceId: ").append(toIndentedString(referenceId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    beneficiaries: ").append(toIndentedString(beneficiaries)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    paymentSettings: ").append(toIndentedString(paymentSettings)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -456,6 +719,13 @@ public class WhatsappMessageInteractiveActionParameters {
     openapiFields.add("flow_cta");
     openapiFields.add("flow_action");
     openapiFields.add("flow_action_payload");
+    openapiFields.add("reference_id");
+    openapiFields.add("type");
+    openapiFields.add("beneficiaries");
+    openapiFields.add("currency");
+    openapiFields.add("total_amount");
+    openapiFields.add("order");
+    openapiFields.add("payment_settings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -502,6 +772,47 @@ public class WhatsappMessageInteractiveActionParameters {
       // validate the optional field `flow_action_payload`
       if (jsonObj.getAsJsonObject("flow_action_payload") != null) {
         WhatsappMessageInteractiveActionParametersFlowActionPayload.validateJsonObject(jsonObj.getAsJsonObject("flow_action_payload"));
+      }
+      if (jsonObj.get("reference_id") != null && !jsonObj.get("reference_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reference_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference_id").toString()));
+      }
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      JsonArray jsonArraybeneficiaries = jsonObj.getAsJsonArray("beneficiaries");
+      if (jsonArraybeneficiaries != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("beneficiaries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `beneficiaries` to be an array in the JSON string but got `%s`", jsonObj.get("beneficiaries").toString()));
+        }
+
+        // validate the optional field `beneficiaries` (array)
+        for (int i = 0; i < jsonArraybeneficiaries.size(); i++) {
+          WhatsappMessageOrderBeneficiary.validateJsonObject(jsonArraybeneficiaries.get(i).getAsJsonObject());
+        };
+      }
+      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      // validate the optional field `total_amount`
+      if (jsonObj.getAsJsonObject("total_amount") != null) {
+        WhatsappMessageOrderAmount.validateJsonObject(jsonObj.getAsJsonObject("total_amount"));
+      }
+      // validate the optional field `order`
+      if (jsonObj.getAsJsonObject("order") != null) {
+        WhatsappMessageOrderInfo.validateJsonObject(jsonObj.getAsJsonObject("order"));
+      }
+      JsonArray jsonArraypaymentSettings = jsonObj.getAsJsonArray("payment_settings");
+      if (jsonArraypaymentSettings != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("payment_settings").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `payment_settings` to be an array in the JSON string but got `%s`", jsonObj.get("payment_settings").toString()));
+        }
+
+        // validate the optional field `payment_settings` (array)
+        for (int i = 0; i < jsonArraypaymentSettings.size(); i++) {
+          WhatsappMessageOrderPaymentSetting.validateJsonObject(jsonArraypaymentSettings.get(i).getAsJsonObject());
+        };
       }
   }
 
