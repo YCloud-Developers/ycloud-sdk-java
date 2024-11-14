@@ -40,6 +40,7 @@
 | IMAGE | &quot;IMAGE&quot; |
 | VIDEO | &quot;VIDEO&quot; |
 | DOCUMENT | &quot;DOCUMENT&quot; |
+| LOCATION | &quot;LOCATION&quot; |
 
 
 

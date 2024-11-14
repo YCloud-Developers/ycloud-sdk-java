@@ -27,7 +27,7 @@ WhatsApp outbound message object.
 |**contacts** | [**List&lt;WhatsappMessageContact&gt;**](WhatsappMessageContact.md) |  |  [optional] |
 |**reaction** | [**WhatsappMessageReaction**](WhatsappMessageReaction.md) |  |  [optional] |
 |**context** | [**WhatsappMessageContext**](WhatsappMessageContext.md) |  |  [optional] |
-|**externalId** | **String** | A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. |  [optional] |
+|**externalId** | **String** | A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. |  [optional] |
 |**status** | **WhatsappMessageStatus** |  |  [optional] |
 |**errorCode** | **String** | Error code when the message status is &#x60;failed&#x60;. |  [optional] |
 |**errorMessage** | **String** | Error message when the message status is &#x60;failed&#x60;. |  [optional] |

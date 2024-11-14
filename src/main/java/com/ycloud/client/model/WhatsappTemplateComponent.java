@@ -128,7 +128,9 @@ public class WhatsappTemplateComponent {
     
     VIDEO("VIDEO"),
     
-    DOCUMENT("DOCUMENT");
+    DOCUMENT("DOCUMENT"),
+    
+    LOCATION("LOCATION");
 
     private String value;
 

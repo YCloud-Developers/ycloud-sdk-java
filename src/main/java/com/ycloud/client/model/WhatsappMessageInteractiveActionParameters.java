@@ -94,10 +94,17 @@ public class WhatsappMessageInteractiveActionParameters {
 
   public static final String SERIALIZED_NAME_FLOW_ID = "flow_id";
   /**
-   * Required for &#x60;flow&#x60; buttons. Unique ID of the Flow provided by WhatsApp.
+   * Conditionally required for &#x60;flow&#x60; buttons. Unique ID of the Flow provided by WhatsApp. Cannot be used with the &#x60;flow_name&#x60; parameter.
   **/
   @SerializedName(SERIALIZED_NAME_FLOW_ID)
   private String flowId;
+
+  public static final String SERIALIZED_NAME_FLOW_NAME = "flow_name";
+  /**
+   * Conditionally required for &#x60;flow&#x60; buttons. The name of the Flow that you created. Cannot be used with the &#x60;flow_id&#x60; parameter. Changing the Flow name will require updating this parameter to match the new name.
+  **/
+  @SerializedName(SERIALIZED_NAME_FLOW_NAME)
+  private String flowName;
 
   public static final String SERIALIZED_NAME_FLOW_CTA = "flow_cta";
   /**
@@ -306,7 +313,7 @@ public class WhatsappMessageInteractiveActionParameters {
   }
 
    /**
-   * Required for &#x60;flow&#x60; buttons. Unique ID of the Flow provided by WhatsApp.
+   * Conditionally required for &#x60;flow&#x60; buttons. Unique ID of the Flow provided by WhatsApp. Cannot be used with the &#x60;flow_name&#x60; parameter.
    * @return flowId
   **/
   @javax.annotation.Nullable
@@ -317,11 +324,37 @@ public class WhatsappMessageInteractiveActionParameters {
 
 
   /**
-   * Required for &#x60;flow&#x60; buttons. Unique ID of the Flow provided by WhatsApp.
+   * Conditionally required for &#x60;flow&#x60; buttons. Unique ID of the Flow provided by WhatsApp. Cannot be used with the &#x60;flow_name&#x60; parameter.
    **/
-  @ApiModelProperty(value = "Required for `flow` buttons. Unique ID of the Flow provided by WhatsApp.")
+  @ApiModelProperty(value = "Conditionally required for `flow` buttons. Unique ID of the Flow provided by WhatsApp. Cannot be used with the `flow_name` parameter.")
   public void setFlowId(String flowId) {
     this.flowId = flowId;
+  }
+
+
+  public WhatsappMessageInteractiveActionParameters flowName(String flowName) {
+    
+    this.flowName = flowName;
+    return this;
+  }
+
+   /**
+   * Conditionally required for &#x60;flow&#x60; buttons. The name of the Flow that you created. Cannot be used with the &#x60;flow_id&#x60; parameter. Changing the Flow name will require updating this parameter to match the new name.
+   * @return flowName
+  **/
+  @javax.annotation.Nullable
+
+  public String getFlowName() {
+    return flowName;
+  }
+
+
+  /**
+   * Conditionally required for &#x60;flow&#x60; buttons. The name of the Flow that you created. Cannot be used with the &#x60;flow_id&#x60; parameter. Changing the Flow name will require updating this parameter to match the new name.
+   **/
+  @ApiModelProperty(value = "Conditionally required for `flow` buttons. The name of the Flow that you created. Cannot be used with the `flow_id` parameter. Changing the Flow name will require updating this parameter to match the new name.")
+  public void setFlowName(String flowName) {
+    this.flowName = flowName;
   }
 
 
@@ -649,6 +682,7 @@ public class WhatsappMessageInteractiveActionParameters {
         Objects.equals(this.flowMessageVersion, whatsappMessageInteractiveActionParameters.flowMessageVersion) &&
         Objects.equals(this.flowToken, whatsappMessageInteractiveActionParameters.flowToken) &&
         Objects.equals(this.flowId, whatsappMessageInteractiveActionParameters.flowId) &&
+        Objects.equals(this.flowName, whatsappMessageInteractiveActionParameters.flowName) &&
         Objects.equals(this.flowCta, whatsappMessageInteractiveActionParameters.flowCta) &&
         Objects.equals(this.flowAction, whatsappMessageInteractiveActionParameters.flowAction) &&
         Objects.equals(this.flowActionPayload, whatsappMessageInteractiveActionParameters.flowActionPayload) &&
@@ -664,7 +698,7 @@ public class WhatsappMessageInteractiveActionParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayText, url, thumbnailProductRetailerId, flowMessageVersion, flowToken, flowId, flowCta, flowAction, flowActionPayload, referenceId, type, beneficiaries, currency, totalAmount, order, paymentSettings, additionalProperties);
+    return Objects.hash(displayText, url, thumbnailProductRetailerId, flowMessageVersion, flowToken, flowId, flowName, flowCta, flowAction, flowActionPayload, referenceId, type, beneficiaries, currency, totalAmount, order, paymentSettings, additionalProperties);
   }
 
   @Override
@@ -677,6 +711,7 @@ public class WhatsappMessageInteractiveActionParameters {
     sb.append("    flowMessageVersion: ").append(toIndentedString(flowMessageVersion)).append("\n");
     sb.append("    flowToken: ").append(toIndentedString(flowToken)).append("\n");
     sb.append("    flowId: ").append(toIndentedString(flowId)).append("\n");
+    sb.append("    flowName: ").append(toIndentedString(flowName)).append("\n");
     sb.append("    flowCta: ").append(toIndentedString(flowCta)).append("\n");
     sb.append("    flowAction: ").append(toIndentedString(flowAction)).append("\n");
     sb.append("    flowActionPayload: ").append(toIndentedString(flowActionPayload)).append("\n");
@@ -716,6 +751,7 @@ public class WhatsappMessageInteractiveActionParameters {
     openapiFields.add("flow_message_version");
     openapiFields.add("flow_token");
     openapiFields.add("flow_id");
+    openapiFields.add("flow_name");
     openapiFields.add("flow_cta");
     openapiFields.add("flow_action");
     openapiFields.add("flow_action_payload");
@@ -762,6 +798,9 @@ public class WhatsappMessageInteractiveActionParameters {
       }
       if (jsonObj.get("flow_id") != null && !jsonObj.get("flow_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `flow_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_id").toString()));
+      }
+      if (jsonObj.get("flow_name") != null && !jsonObj.get("flow_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `flow_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_name").toString()));
       }
       if (jsonObj.get("flow_cta") != null && !jsonObj.get("flow_cta").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `flow_cta` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_cta").toString()));

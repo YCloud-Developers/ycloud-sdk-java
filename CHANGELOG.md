@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.15.1 (2024-11-14)
+
+- Support location header for WhatsApp templates.
+
 ## 1.15.0 (2024-10-10)
 
 - Support WhatsApp Order Details messages and Order Status messages.

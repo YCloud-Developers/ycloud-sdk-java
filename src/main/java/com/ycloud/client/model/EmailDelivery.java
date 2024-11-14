@@ -140,7 +140,7 @@ public class EmailDelivery {
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   /**
-   * The &#x60;externalId&#x60; you specified when you sent the email.
+   * The &#x60;externalId&#x60; you set when you sent the email.
   **/
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
@@ -299,7 +299,7 @@ public class EmailDelivery {
   }
 
    /**
-   * The &#x60;externalId&#x60; you specified when you sent the email.
+   * The &#x60;externalId&#x60; you set when you sent the email.
    * @return externalId
   **/
   @javax.annotation.Nullable
@@ -310,9 +310,9 @@ public class EmailDelivery {
 
 
   /**
-   * The &#x60;externalId&#x60; you specified when you sent the email.
+   * The &#x60;externalId&#x60; you set when you sent the email.
    **/
-  @ApiModelProperty(value = "The `externalId` you specified when you sent the email.")
+  @ApiModelProperty(value = "The `externalId` you set when you sent the email.")
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }

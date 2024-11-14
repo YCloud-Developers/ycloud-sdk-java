@@ -93,7 +93,7 @@ public class VerificationSendRequest {
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   /**
-   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the &#x60;externalId&#x60; of message objects.
+   * A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the &#x60;externalId&#x60; of message objects.
   **/
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
@@ -263,7 +263,7 @@ public class VerificationSendRequest {
   }
 
    /**
-   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the &#x60;externalId&#x60; of message objects.
+   * A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the &#x60;externalId&#x60; of message objects.
    * @return externalId
   **/
   @javax.annotation.Nullable
@@ -274,9 +274,9 @@ public class VerificationSendRequest {
 
 
   /**
-   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the &#x60;externalId&#x60; of message objects.
+   * A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the &#x60;externalId&#x60; of message objects.
    **/
-  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the `externalId` of message objects.")
+  @ApiModelProperty(value = "A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems. If present, this value will also be attached to the `externalId` of message objects.")
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }

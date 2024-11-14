@@ -115,7 +115,7 @@ public class Verification {
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   /**
-   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   * A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
   **/
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
@@ -361,7 +361,7 @@ public class Verification {
   }
 
    /**
-   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   * A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
    * @return externalId
   **/
   @javax.annotation.Nullable
@@ -372,9 +372,9 @@ public class Verification {
 
 
   /**
-   * A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
+   * A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.
    **/
-  @ApiModelProperty(value = "A unique string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
+  @ApiModelProperty(value = "A unique (recommended) string to reference the object. This can be an order number or similar, and can be used to reconcile the object with your internal systems.")
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }

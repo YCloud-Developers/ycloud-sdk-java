@@ -123,10 +123,24 @@ public class WhatsappTemplateComponentButton {
 
   public static final String SERIALIZED_NAME_FLOW_ID = "flow_id";
   /**
-   * **Required for button type &#x60;FLOW&#x60;.** The unique ID of a Flow.
+   * **Conditionally required for button type &#x60;FLOW&#x60;.** The unique ID of the Flow. Cannot be used if &#x60;flow_name&#x60; or &#x60;flow_json&#x60; parameters are provided. Only one of these parameters is allowed.
   **/
   @SerializedName(SERIALIZED_NAME_FLOW_ID)
   private String flowId;
+
+  public static final String SERIALIZED_NAME_FLOW_NAME = "flow_name";
+  /**
+   * **Conditionally required for button type &#x60;FLOW&#x60;.** The name of the Flow. Cannot be used if &#x60;flow_id&#x60; or &#x60;flow_json&#x60; parameters are provided. Only one of these parameters is allowed. The Flow ID is stored in the message template, not the name, so changing the Flow name will not affect existing message templates.
+  **/
+  @SerializedName(SERIALIZED_NAME_FLOW_NAME)
+  private String flowName;
+
+  public static final String SERIALIZED_NAME_FLOW_JSON = "flow_json";
+  /**
+   * **Conditionally required for button type &#x60;FLOW&#x60;.** The Flow JSON encoded as string with escaping. The Flow JSON specifies the content of the Flow. Cannot be used if &#x60;flow_id&#x60; or &#x60;flow_name&#x60; parameters are provided. Only one of these parameters is allowed.
+  **/
+  @SerializedName(SERIALIZED_NAME_FLOW_JSON)
+  private String flowJson;
 
   public static final String SERIALIZED_NAME_FLOW_ACTION = "flow_action";
   /**
@@ -418,7 +432,7 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **Required for button type &#x60;FLOW&#x60;.** The unique ID of a Flow.
+   * **Conditionally required for button type &#x60;FLOW&#x60;.** The unique ID of the Flow. Cannot be used if &#x60;flow_name&#x60; or &#x60;flow_json&#x60; parameters are provided. Only one of these parameters is allowed.
    * @return flowId
   **/
   @javax.annotation.Nullable
@@ -429,11 +443,63 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **Required for button type &#x60;FLOW&#x60;.** The unique ID of a Flow.
+   * **Conditionally required for button type &#x60;FLOW&#x60;.** The unique ID of the Flow. Cannot be used if &#x60;flow_name&#x60; or &#x60;flow_json&#x60; parameters are provided. Only one of these parameters is allowed.
    **/
-  @ApiModelProperty(example = "1", value = "**Required for button type `FLOW`.** The unique ID of a Flow.")
+  @ApiModelProperty(example = "1", value = "**Conditionally required for button type `FLOW`.** The unique ID of the Flow. Cannot be used if `flow_name` or `flow_json` parameters are provided. Only one of these parameters is allowed.")
   public void setFlowId(String flowId) {
     this.flowId = flowId;
+  }
+
+
+  public WhatsappTemplateComponentButton flowName(String flowName) {
+    
+    this.flowName = flowName;
+    return this;
+  }
+
+   /**
+   * **Conditionally required for button type &#x60;FLOW&#x60;.** The name of the Flow. Cannot be used if &#x60;flow_id&#x60; or &#x60;flow_json&#x60; parameters are provided. Only one of these parameters is allowed. The Flow ID is stored in the message template, not the name, so changing the Flow name will not affect existing message templates.
+   * @return flowName
+  **/
+  @javax.annotation.Nullable
+
+  public String getFlowName() {
+    return flowName;
+  }
+
+
+  /**
+   * **Conditionally required for button type &#x60;FLOW&#x60;.** The name of the Flow. Cannot be used if &#x60;flow_id&#x60; or &#x60;flow_json&#x60; parameters are provided. Only one of these parameters is allowed. The Flow ID is stored in the message template, not the name, so changing the Flow name will not affect existing message templates.
+   **/
+  @ApiModelProperty(value = "**Conditionally required for button type `FLOW`.** The name of the Flow. Cannot be used if `flow_id` or `flow_json` parameters are provided. Only one of these parameters is allowed. The Flow ID is stored in the message template, not the name, so changing the Flow name will not affect existing message templates.")
+  public void setFlowName(String flowName) {
+    this.flowName = flowName;
+  }
+
+
+  public WhatsappTemplateComponentButton flowJson(String flowJson) {
+    
+    this.flowJson = flowJson;
+    return this;
+  }
+
+   /**
+   * **Conditionally required for button type &#x60;FLOW&#x60;.** The Flow JSON encoded as string with escaping. The Flow JSON specifies the content of the Flow. Cannot be used if &#x60;flow_id&#x60; or &#x60;flow_name&#x60; parameters are provided. Only one of these parameters is allowed.
+   * @return flowJson
+  **/
+  @javax.annotation.Nullable
+
+  public String getFlowJson() {
+    return flowJson;
+  }
+
+
+  /**
+   * **Conditionally required for button type &#x60;FLOW&#x60;.** The Flow JSON encoded as string with escaping. The Flow JSON specifies the content of the Flow. Cannot be used if &#x60;flow_id&#x60; or &#x60;flow_name&#x60; parameters are provided. Only one of these parameters is allowed.
+   **/
+  @ApiModelProperty(value = "**Conditionally required for button type `FLOW`.** The Flow JSON encoded as string with escaping. The Flow JSON specifies the content of the Flow. Cannot be used if `flow_id` or `flow_name` parameters are provided. Only one of these parameters is allowed.")
+  public void setFlowJson(String flowJson) {
+    this.flowJson = flowJson;
   }
 
 
@@ -545,6 +611,8 @@ public class WhatsappTemplateComponentButton {
         Objects.equals(this.zeroTapTermsAccepted, whatsappTemplateComponentButton.zeroTapTermsAccepted) &&
         Objects.equals(this.example, whatsappTemplateComponentButton.example) &&
         Objects.equals(this.flowId, whatsappTemplateComponentButton.flowId) &&
+        Objects.equals(this.flowName, whatsappTemplateComponentButton.flowName) &&
+        Objects.equals(this.flowJson, whatsappTemplateComponentButton.flowJson) &&
         Objects.equals(this.flowAction, whatsappTemplateComponentButton.flowAction) &&
         Objects.equals(this.navigateScreen, whatsappTemplateComponentButton.navigateScreen)&&
         Objects.equals(this.additionalProperties, whatsappTemplateComponentButton.additionalProperties);
@@ -552,7 +620,7 @@ public class WhatsappTemplateComponentButton {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, zeroTapTermsAccepted, example, flowId, flowAction, navigateScreen, additionalProperties);
+    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, zeroTapTermsAccepted, example, flowId, flowName, flowJson, flowAction, navigateScreen, additionalProperties);
   }
 
   @Override
@@ -570,6 +638,8 @@ public class WhatsappTemplateComponentButton {
     sb.append("    zeroTapTermsAccepted: ").append(toIndentedString(zeroTapTermsAccepted)).append("\n");
     sb.append("    example: ").append(toIndentedString(example)).append("\n");
     sb.append("    flowId: ").append(toIndentedString(flowId)).append("\n");
+    sb.append("    flowName: ").append(toIndentedString(flowName)).append("\n");
+    sb.append("    flowJson: ").append(toIndentedString(flowJson)).append("\n");
     sb.append("    flowAction: ").append(toIndentedString(flowAction)).append("\n");
     sb.append("    navigateScreen: ").append(toIndentedString(navigateScreen)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -606,6 +676,8 @@ public class WhatsappTemplateComponentButton {
     openapiFields.add("zero_tap_terms_accepted");
     openapiFields.add("example");
     openapiFields.add("flow_id");
+    openapiFields.add("flow_name");
+    openapiFields.add("flow_json");
     openapiFields.add("flow_action");
     openapiFields.add("navigate_screen");
 
@@ -659,6 +731,12 @@ public class WhatsappTemplateComponentButton {
       }
       if (jsonObj.get("flow_id") != null && !jsonObj.get("flow_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `flow_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_id").toString()));
+      }
+      if (jsonObj.get("flow_name") != null && !jsonObj.get("flow_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `flow_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_name").toString()));
+      }
+      if (jsonObj.get("flow_json") != null && !jsonObj.get("flow_json").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `flow_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_json").toString()));
       }
       if (jsonObj.get("flow_action") != null && !jsonObj.get("flow_action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `flow_action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_action").toString()));
