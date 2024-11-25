@@ -8,7 +8,7 @@ Use for `interactive` messages.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | [**TypeEnum**](#TypeEnum) | **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) | **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. - &#x60;voice_call&#x60;: Use for Voice Call Messages. |  [optional] |
 |**action** | [**WhatsappMessageInteractiveAction**](WhatsappMessageInteractiveAction.md) |  |  [optional] |
 |**body** | [**WhatsappMessageInteractiveBody**](WhatsappMessageInteractiveBody.md) |  |  [optional] |
 |**header** | [**WhatsappMessageInteractiveHeader**](WhatsappMessageInteractiveHeader.md) |  |  [optional] |
@@ -29,6 +29,7 @@ Use for `interactive` messages.
 | LOCATION_REQUEST_MESSAGE | &quot;location_request_message&quot; |
 | ORDER_DETAILS | &quot;order_details&quot; |
 | ORDER_STATUS | &quot;order_status&quot; |
+| VOICE_CALL | &quot;voice_call&quot; |
 
 
 

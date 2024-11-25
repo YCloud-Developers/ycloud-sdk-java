@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.15.2 (2024-11-25)
+
+- Support WhatsApp Voice Call messages;
+
 ## 1.15.1 (2024-11-14)
 
 - Support location header for WhatsApp templates.

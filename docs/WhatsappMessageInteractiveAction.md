@@ -13,7 +13,7 @@
 |**catalogId** | **String** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the Facebook catalog linked to your WhatsApp Business Account. This ID can be retrieved via the [Meta Commerce Manager](https://business.facebook.com/commerce). |  [optional] |
 |**productRetailerId** | **String** | Required for Single Product Messages and Multi-Product Messages. Unique identifier of the product in a catalog. |  [optional] |
 |**sections** | [**List&lt;WhatsappMessageInteractiveActionSection&gt;**](WhatsappMessageInteractiveActionSection.md) | Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10. |  [optional] |
-|**name** | [**NameEnum**](#NameEnum) | Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. - &#x60;review_and_pay&#x60;: Use for Order Details buttons. - &#x60;review_order&#x60;: Use for Order Status buttons. |  [optional] |
+|**name** | [**NameEnum**](#NameEnum) | Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. - &#x60;review_and_pay&#x60;: Use for Order Details buttons. - &#x60;review_order&#x60;: Use for Order Status buttons. - &#x60;voice_call&#x60;: Use for Voice Call buttons. |  [optional] |
 |**parameters** | [**WhatsappMessageInteractiveActionParameters**](WhatsappMessageInteractiveActionParameters.md) |  |  [optional] |
 
 
@@ -27,6 +27,7 @@
 | FLOW | &quot;flow&quot; |
 | REVIEW_AND_PAY | &quot;review_and_pay&quot; |
 | REVIEW_ORDER | &quot;review_order&quot; |
+| VOICE_CALL | &quot;voice_call&quot; |
 
 
 

@@ -11445,7 +11445,8 @@ components:
             \ Use for Single Product Messages.\n- `product_list`: Use for Multi-Product\
             \ Messages.\n- `catalog_message`: Use for Catalog Messages.\n- `location_request_message`:\
             \ Use for Location Request Messages.\n- `order_details`: Use for Order\
-            \ Details Messages.\n- `order_status`: Use for Order Status Messages."
+            \ Details Messages.\n- `order_status`: Use for Order Status Messages.\n\
+            - `voice_call`: Use for Voice Call Messages."
           enum:
           - button
           - list
@@ -11456,6 +11457,7 @@ components:
           - location_request_message
           - order_details
           - order_status
+          - voice_call
           type: string
         action:
           $ref: '#/components/schemas/WhatsappMessageInteractiveAction'
@@ -11795,13 +11797,14 @@ components:
             - `cta_url`: Use for Call-To-Action (CTA) URL buttons.\n- `send_location`:\
             \ Use for Location Request buttons.\n- `flow`: Use for Flow buttons.\n\
             - `review_and_pay`: Use for Order Details buttons.\n- `review_order`:\
-            \ Use for Order Status buttons."
+            \ Use for Order Status buttons.\n- `voice_call`: Use for Voice Call buttons."
           enum:
           - cta_url
           - send_location
           - flow
           - review_and_pay
           - review_order
+          - voice_call
           type: string
         parameters:
           $ref: '#/components/schemas/WhatsappMessageInteractiveActionParameters'
@@ -30826,19 +30829,20 @@ components:
             \ template's current category."
           type: string
         messageSendTtlSeconds:
-          description: "**Use only for template category is `AUTHENTICATION` or `UTILITY`.**\n\
-            If we are unable to deliver a message for an amount of time that exceeds\
-            \ its time-to-live, we will stop retrying and drop the message.\nBy default,\
-            \ messages that use an authentication template have a default TTL of **10\
-            \ minutes**, and messages that use a utility template have a default TTL\
-            \ of **30 days**.\nSet its value between `60` and `600` seconds (i.e.,\
-            \ 1 to 10 minutes) for authentication templates, or `60` and `3600` seconds\
-            \ (i.e., 1 to 60 minutes) for utility templates. Alternatively, you can\
-            \ set this value to `-1`, which will set a custom TTL of 30 days for either\
-            \ type of template.\nWe encourage you to set a time-to-live for all of\
-            \ your authentication templates, preferably equal to or less than your\
-            \ code expiration time, to ensure your customers only get a message when\
-            \ a code is still usable.\nAuthentication templates created before October\
+          description: "If we are unable to deliver a message for an amount of time\
+            \ that exceeds its time-to-live, we will stop retrying and drop the message.\n\
+            By default, messages that use an authentication template have a default\
+            \ TTL of **10 minutes**, and messages that use a utility or marketing\
+            \ template have a default TTL of **30 days**.\nSet its value between `30`\
+            \ and `900` seconds (i.e., 30 seconds to 15 minutes) for authentication\
+            \ templates, or `30` and `43200` seconds (i.e., 30 seconds to 12 hours)\
+            \ for utility templates, or `43200` and `2592000` seconds (i.e., 12 hours\
+            \ to 30 days) for marketing templates. Alternatively, you can set this\
+            \ value to `-1`, which will set a custom TTL of 30 days for either type\
+            \ of template.\nWe encourage you to set a time-to-live for all of your\
+            \ authentication templates, preferably equal to or less than your code\
+            \ expiration time, to ensure your customers only get a message when a\
+            \ code is still usable.\nAuthentication templates created before October\
             \ 23, 2024, have a default TTL of 30 days."
           example: 600
           format: int32
@@ -31740,7 +31744,9 @@ components:
         \ catalog appears within WhatsApp.\n- `MPM`: Customers can browse products\
         \ and sections by tapping the **View items** button in a multi-product template\
         \ message.\n- `FLOW`: Use this type to specify the [Flow](https://developers.facebook.com/docs/whatsapp/flows)\
-        \ to be sent with the template message."
+        \ to be sent with the template message.\n- `ORDER_DETAILS`: Provides a order\
+        \ details button with `Review and Pay` text.\n- `VOICE_CALL`: Triggers a WhatsApp\
+        \ call, when clicked by a WhatsApp customer."
       enum:
       - PHONE_NUMBER
       - URL
@@ -31750,6 +31756,8 @@ components:
       - CATALOG
       - MPM
       - FLOW
+      - ORDER_DETAILS
+      - VOICE_CALL
       type: string
     WhatsappTemplateComponentCard:
       description: "Carousel templates support up to 10 carousel cards. Cards must\
@@ -33280,19 +33288,20 @@ components:
         subCategory:
           $ref: '#/components/schemas/WhatsappTemplateSubCategory'
         messageSendTtlSeconds:
-          description: "**Use only for template category is `AUTHENTICATION` or `UTILITY`.**\n\
-            If we are unable to deliver a message for an amount of time that exceeds\
-            \ its time-to-live, we will stop retrying and drop the message.\nBy default,\
-            \ messages that use an authentication template have a default TTL of **10\
-            \ minutes**, and messages that use a utility template have a default TTL\
-            \ of **30 days**.\nSet its value between `60` and `600` seconds (i.e.,\
-            \ 1 to 10 minutes) for authentication templates, or `60` and `3600` seconds\
-            \ (i.e., 1 to 60 minutes) for utility templates. Alternatively, you can\
-            \ set this value to `-1`, which will set a custom TTL of 30 days for either\
-            \ type of template.\nWe encourage you to set a time-to-live for all of\
-            \ your authentication templates, preferably equal to or less than your\
-            \ code expiration time, to ensure your customers only get a message when\
-            \ a code is still usable.\nAuthentication templates created before October\
+          description: "If we are unable to deliver a message for an amount of time\
+            \ that exceeds its time-to-live, we will stop retrying and drop the message.\n\
+            By default, messages that use an authentication template have a default\
+            \ TTL of **10 minutes**, and messages that use a utility or marketing\
+            \ template have a default TTL of **30 days**.\nSet its value between `30`\
+            \ and `900` seconds (i.e., 30 seconds to 15 minutes) for authentication\
+            \ templates, or `30` and `43200` seconds (i.e., 30 seconds to 12 hours)\
+            \ for utility templates, or `43200` and `2592000` seconds (i.e., 12 hours\
+            \ to 30 days) for marketing templates. Alternatively, you can set this\
+            \ value to `-1`, which will set a custom TTL of 30 days for either type\
+            \ of template.\nWe encourage you to set a time-to-live for all of your\
+            \ authentication templates, preferably equal to or less than your code\
+            \ expiration time, to ensure your customers only get a message when a\
+            \ code is still usable.\nAuthentication templates created before October\
             \ 23, 2024, have a default TTL of 30 days."
           example: 600
           format: int32
@@ -34543,19 +34552,20 @@ components:
             $ref: '#/components/schemas/WhatsappTemplateComponent'
           type: array
         messageSendTtlSeconds:
-          description: "**Use only for template category is `AUTHENTICATION` or `UTILITY`.**\n\
-            If we are unable to deliver a message for an amount of time that exceeds\
-            \ its time-to-live, we will stop retrying and drop the message.\nBy default,\
-            \ messages that use an authentication template have a default TTL of **10\
-            \ minutes**, and messages that use a utility template have a default TTL\
-            \ of **30 days**.\nSet its value between `60` and `600` seconds (i.e.,\
-            \ 1 to 10 minutes) for authentication templates, or `60` and `3600` seconds\
-            \ (i.e., 1 to 60 minutes) for utility templates. Alternatively, you can\
-            \ set this value to `-1`, which will set a custom TTL of 30 days for either\
-            \ type of template.\nWe encourage you to set a time-to-live for all of\
-            \ your authentication templates, preferably equal to or less than your\
-            \ code expiration time, to ensure your customers only get a message when\
-            \ a code is still usable.\nAuthentication templates created before October\
+          description: "If we are unable to deliver a message for an amount of time\
+            \ that exceeds its time-to-live, we will stop retrying and drop the message.\n\
+            By default, messages that use an authentication template have a default\
+            \ TTL of **10 minutes**, and messages that use a utility or marketing\
+            \ template have a default TTL of **30 days**.\nSet its value between `30`\
+            \ and `900` seconds (i.e., 30 seconds to 15 minutes) for authentication\
+            \ templates, or `30` and `43200` seconds (i.e., 30 seconds to 12 hours)\
+            \ for utility templates, or `43200` and `2592000` seconds (i.e., 12 hours\
+            \ to 30 days) for marketing templates. Alternatively, you can set this\
+            \ value to `-1`, which will set a custom TTL of 30 days for either type\
+            \ of template.\nWe encourage you to set a time-to-live for all of your\
+            \ authentication templates, preferably equal to or less than your code\
+            \ expiration time, to ensure your customers only get a message when a\
+            \ code is still usable.\nAuthentication templates created before October\
             \ 23, 2024, have a default TTL of 30 days."
           example: 600
           format: int32

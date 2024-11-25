@@ -21,5 +21,9 @@
 
 * `FLOW` (value: `"FLOW"`)
 
+* `ORDER_DETAILS` (value: `"ORDER_DETAILS"`)
+
+* `VOICE_CALL` (value: `"VOICE_CALL"`)
+
 
 
