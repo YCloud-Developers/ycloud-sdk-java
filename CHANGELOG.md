@@ -1,5 +1,9 @@
 # Changelog
-
+## 1.15.3 (2025-04-03)
+- Support [Media Upload](https://docs.ycloud.com/reference/whatsapp_media-upload) endpoint.
+- Add `FLOW` to Type enum
+- Add `MARKETING_LITE` to WhatsAppPricingCategory enum.
+- Add `DEFERRED` to WhatsappReviewDecision enum.
 ## 1.15.2 (2024-11-25)
 
 - Support WhatsApp Voice Call messages;
