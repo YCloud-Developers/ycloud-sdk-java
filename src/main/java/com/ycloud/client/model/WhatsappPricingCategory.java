@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * WhatsApp pricing category. - &#x60;referral_conversion&#x60;: Indicates a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations). - &#x60;authentication&#x60;: Indicates the conversation was billed at authentication rate. - &#x60;authentication_international&#x60;: Indicates the conversation was conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - &#x60;marketing&#x60;: Indicates the conversation was billed at authentication rate. - &#x60;utility&#x60;: Indicates the conversation was billed at utility rate. - &#x60;service&#x60;: Indicates the conversation was billed at service rate.  See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+ * WhatsApp pricing category. - &#x60;referral_conversion&#x60;: Indicates a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations). - &#x60;authentication&#x60;: Indicates the conversation was billed at authentication rate. - &#x60;authentication_international&#x60;: Indicates the conversation was conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - &#x60;marketing&#x60;: Indicates the conversation was billed at authentication rate. - &#x60;marketing_lite&#x60;: Indicates the conversation was billed at marketing-lite rate. - &#x60;utility&#x60;: Indicates the conversation was billed at utility rate. - &#x60;service&#x60;: Indicates the conversation was billed at service rate.  See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
  */
 @JsonAdapter(WhatsappPricingCategory.Adapter.class)
 public enum WhatsappPricingCategory {
@@ -37,6 +37,8 @@ public enum WhatsappPricingCategory {
   AUTHENTICATION_INTERNATIONAL("authentication_international"),
   
   MARKETING("marketing"),
+  
+  MARKETING_LITE("marketing_lite"),
   
   UTILITY("utility"),
   

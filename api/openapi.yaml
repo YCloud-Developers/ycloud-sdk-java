@@ -28,6 +28,7 @@ tags:
 - name: Webhook Endpoints
 - name: WhatsApp Business Accounts
 - name: WhatsApp Inbound Messages
+- name: WhatsApp Media
 - name: WhatsApp Messages
 - name: WhatsApp Phone Numbers
 - name: WhatsApp Templates
@@ -1319,6 +1320,56 @@ paths:
       summary: Mark message as read
       tags:
       - WhatsApp Inbound Messages
+      x-accepts: application/json
+  /whatsapp/media/{phoneNumber}/upload:
+    post:
+      description: "Uploads media that can later be sent in WhatsApp messages. This\
+        \ endpoint interfaces with Meta's WhatsApp Business API media endpoints. All\
+        \ media files sent through this endpoint are encrypted and persist for 30\
+        \ days.\n\nFor supported media types and size limitations, please refer to\
+        \ [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).\n\
+        \nFor more information, refer to [Meta's WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media)."
+      operationId: whatsapp_media-upload
+      parameters:
+      - description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+          \ format to use for the upload."
+        explode: false
+        in: path
+        name: phoneNumber
+        required: true
+        schema:
+          example: +16315551111
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/whatsapp_media_upload_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/whatsapp_media_upload_200_response'
+          description: Successfully uploaded the media.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request. The file may be invalid or exceed size limits.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Upload media
+      tags:
+      - WhatsApp Media
+      x-content-type: multipart/form-data
       x-accepts: application/json
   /whatsapp/messages/sendDirectly:
     post:
@@ -11446,7 +11497,7 @@ components:
             \ Messages.\n- `catalog_message`: Use for Catalog Messages.\n- `location_request_message`:\
             \ Use for Location Request Messages.\n- `order_details`: Use for Order\
             \ Details Messages.\n- `order_status`: Use for Order Status Messages.\n\
-            - `voice_call`: Use for Voice Call Messages."
+            - `voice_call`: Use for Voice Call Messages.\n- `flow`: Use for Flow Messages."
           enum:
           - button
           - list
@@ -11458,6 +11509,7 @@ components:
           - order_details
           - order_status
           - voice_call
+          - flow
           type: string
         action:
           $ref: '#/components/schemas/WhatsappMessageInteractiveAction'
@@ -12241,6 +12293,15 @@ components:
       required:
       - latitude
       - longitude
+      type: object
+    WhatsappMedia:
+      description: Represents a WhatsApp media object that has been uploaded via the
+        media upload API.
+      properties:
+        id:
+          description: Unique identifier for the uploaded media. This ID can be used
+            in subsequent message requests.
+          type: string
       type: object
     WhatsappMessageMedia:
       description: "Use for `image`, `video`, `audio`, `document`, or `sticker` messages.\
@@ -29526,14 +29587,16 @@ components:
         \ rate.\n- `authentication_international`: Indicates the conversation was\
         \ conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).\n\
         - `marketing`: Indicates the conversation was billed at authentication rate.\n\
-        - `utility`: Indicates the conversation was billed at utility rate.\n- `service`:\
-        \ Indicates the conversation was billed at service rate.\n\nSee also [Conversation-Based\
-        \ Pricing](https://developers.facebook.com/docs/whatsapp/pricing)."
+        - `marketing_lite`: Indicates the conversation was billed at marketing-lite\
+        \ rate.\n- `utility`: Indicates the conversation was billed at utility rate.\n\
+        - `service`: Indicates the conversation was billed at service rate.\n\nSee\
+        \ also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing)."
       enum:
       - referral_conversion
       - authentication
       - authentication_international
       - marketing
+      - marketing_lite
       - utility
       - service
       type: string
@@ -29551,6 +29614,7 @@ components:
       enum:
       - APPROVED
       - REJECTED
+      - DEFERRED
       type: string
     WhatsappTemplate:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
@@ -37144,6 +37208,25 @@ components:
       enum:
       - ORDER_STATUS
       type: string
+    whatsapp_media_upload_request:
+      properties:
+        file:
+          description: "The media file to upload. Only one file is supported. If multiple\
+            \ files are uploaded, only the first file will be processed."
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    whatsapp_media_upload_200_response:
+      example:
+        id: id
+      properties:
+        id:
+          description: The ID of the uploaded media that can be used in subsequent
+            message requests.
+          type: string
+      type: object
     WhatsappInboundMessageInteractive_button_reply:
       description: Sent when a customer clicks a button. Returned when `type` is `button_reply`.
       properties:

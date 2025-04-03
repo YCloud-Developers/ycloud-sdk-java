@@ -32,7 +32,9 @@ public enum WhatsappReviewDecision {
   
   APPROVED("APPROVED"),
   
-  REJECTED("REJECTED");
+  REJECTED("REJECTED"),
+  
+  DEFERRED("DEFERRED");
 
   private String value;
 

@@ -9,5 +9,7 @@
 
 * `REJECTED` (value: `"REJECTED"`)
 
+* `DEFERRED` (value: `"DEFERRED"`)
+
 
 

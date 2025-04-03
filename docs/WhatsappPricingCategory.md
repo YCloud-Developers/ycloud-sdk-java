@@ -13,6 +13,8 @@
 
 * `MARKETING` (value: `"marketing"`)
 
+* `MARKETING_LITE` (value: `"marketing_lite"`)
+
 * `UTILITY` (value: `"utility"`)
 
 * `SERVICE` (value: `"service"`)
