@@ -33,6 +33,8 @@ import com.ycloud.client.model.WhatsappMessageTemplate;
 import com.ycloud.client.model.WhatsappMessageText;
 import com.ycloud.client.model.WhatsappMessageType;
 import com.ycloud.client.model.WhatsappPricingCategory;
+import com.ycloud.client.model.WhatsappPricingModel;
+import com.ycloud.client.model.WhatsappPricingType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -273,6 +275,18 @@ public class WhatsappMessage {
   **/
   @SerializedName(SERIALIZED_NAME_PRICING_CATEGORY)
   private WhatsappPricingCategory pricingCategory;
+
+  public static final String SERIALIZED_NAME_PRICING_MODEL = "pricingModel";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_PRICING_MODEL)
+  private WhatsappPricingModel pricingModel;
+
+  public static final String SERIALIZED_NAME_PRICING_TYPE = "pricingType";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_PRICING_TYPE)
+  private WhatsappPricingType pricingType;
 
   public static final String SERIALIZED_NAME_WHATSAPP_API_ERROR = "whatsappApiError";
   /**
@@ -1121,6 +1135,56 @@ public class WhatsappMessage {
   }
 
 
+  public WhatsappMessage pricingModel(WhatsappPricingModel pricingModel) {
+    
+    this.pricingModel = pricingModel;
+    return this;
+  }
+
+   /**
+   * Get pricingModel
+   * @return pricingModel
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappPricingModel getPricingModel() {
+    return pricingModel;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setPricingModel(WhatsappPricingModel pricingModel) {
+    this.pricingModel = pricingModel;
+  }
+
+
+  public WhatsappMessage pricingType(WhatsappPricingType pricingType) {
+    
+    this.pricingType = pricingType;
+    return this;
+  }
+
+   /**
+   * Get pricingType
+   * @return pricingType
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappPricingType getPricingType() {
+    return pricingType;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setPricingType(WhatsappPricingType pricingType) {
+    this.pricingType = pricingType;
+  }
+
+
   public WhatsappMessage whatsappApiError(WhatsappApiError whatsappApiError) {
     
     this.whatsappApiError = whatsappApiError;
@@ -1275,6 +1339,8 @@ public class WhatsappMessage {
         Objects.equals(this.currency, whatsappMessage.currency) &&
         Objects.equals(this.regionCode, whatsappMessage.regionCode) &&
         Objects.equals(this.pricingCategory, whatsappMessage.pricingCategory) &&
+        Objects.equals(this.pricingModel, whatsappMessage.pricingModel) &&
+        Objects.equals(this.pricingType, whatsappMessage.pricingType) &&
         Objects.equals(this.whatsappApiError, whatsappMessage.whatsappApiError) &&
         Objects.equals(this.bizType, whatsappMessage.bizType) &&
         Objects.equals(this.verificationId, whatsappMessage.verificationId)&&
@@ -1283,7 +1349,7 @@ public class WhatsappMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, sendTime, deliverTime, readTime, totalPrice, currency, regionCode, pricingCategory, whatsappApiError, bizType, verificationId, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, sendTime, deliverTime, readTime, totalPrice, currency, regionCode, pricingCategory, pricingModel, pricingType, whatsappApiError, bizType, verificationId, additionalProperties);
   }
 
   @Override
@@ -1322,6 +1388,8 @@ public class WhatsappMessage {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
     sb.append("    pricingCategory: ").append(toIndentedString(pricingCategory)).append("\n");
+    sb.append("    pricingModel: ").append(toIndentedString(pricingModel)).append("\n");
+    sb.append("    pricingType: ").append(toIndentedString(pricingType)).append("\n");
     sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
     sb.append("    bizType: ").append(toIndentedString(bizType)).append("\n");
     sb.append("    verificationId: ").append(toIndentedString(verificationId)).append("\n");
@@ -1380,6 +1448,8 @@ public class WhatsappMessage {
     openapiFields.add("currency");
     openapiFields.add("regionCode");
     openapiFields.add("pricingCategory");
+    openapiFields.add("pricingModel");
+    openapiFields.add("pricingType");
     openapiFields.add("whatsappApiError");
     openapiFields.add("bizType");
     openapiFields.add("verificationId");

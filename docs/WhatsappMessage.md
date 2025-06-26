@@ -40,6 +40,8 @@ WhatsApp outbound message object.
 |**currency** | **String** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). |  [optional] |
 |**regionCode** | **String** | The [region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the recipient phone number. |  [optional] |
 |**pricingCategory** | **WhatsappPricingCategory** |  |  [optional] |
+|**pricingModel** | **WhatsappPricingModel** |  |  [optional] |
+|**pricingType** | **WhatsappPricingType** |  |  [optional] |
 |**whatsappApiError** | [**WhatsappApiError**](WhatsappApiError.md) |  |  [optional] |
 |**bizType** | **String** | This can be either empty or one of &#x60;whatsapp&#x60;, or &#x60;verify&#x60;. Defaults to &#x60;whatsapp&#x60;. - &#x60;whatsapp&#x60;: Indicates that the message is sent via the **WhatsApp** product. - &#x60;verify&#x60;: Indicates that the message is sent via the **Verify** product. |  [optional] |
 |**verificationId** | **String** | The verification ID. Included only when &#x60;bizType&#x60; is &#x60;verify&#x60;. |  [optional] |

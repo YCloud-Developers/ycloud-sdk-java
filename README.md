@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.15.3</version>
+  <version>1.15.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.15.3"
+     implementation "com.ycloud:ycloud-sdk-java:1.15.4"
   }
 ```
 
@@ -127,6 +127,7 @@ Class | Method | HTTP request | Description
 *WhatsappBusinessAccountsApi* | [**list**](docs/WhatsappBusinessAccountsApi.md#list) | **GET** /whatsapp/businessAccounts | List WABAs
 *WhatsappBusinessAccountsApi* | [**retrieve**](docs/WhatsappBusinessAccountsApi.md#retrieve) | **GET** /whatsapp/businessAccounts/{id} | Retrieve a WABA
 *WhatsappInboundMessagesApi* | [**markAsRead**](docs/WhatsappInboundMessagesApi.md#markAsRead) | **POST** /whatsapp/inboundMessages/{id}/markAsRead | Mark message as read
+*WhatsappInboundMessagesApi* | [**typingIndicator**](docs/WhatsappInboundMessagesApi.md#typingIndicator) | **POST** /whatsapp/inboundMessages/{id}/typingIndicator | Mark message as read and display a typing indicator
 *WhatsappMediaApi* | [**upload**](docs/WhatsappMediaApi.md#upload) | **POST** /whatsapp/media/{phoneNumber}/upload | Upload media
 *WhatsappMessagesApi* | [**retrieve**](docs/WhatsappMessagesApi.md#retrieve) | **GET** /whatsapp/messages/{id} | Retrieve a message
 *WhatsappMessagesApi* | [**send**](docs/WhatsappMessagesApi.md#send) | **POST** /whatsapp/messages | Enqueue a message
@@ -295,6 +296,8 @@ Class | Method | HTTP request | Description
  - [WhatsappPhoneNumberQualityUpdateEventEnum](docs/WhatsappPhoneNumberQualityUpdateEventEnum.md)
  - [WhatsappPhoneNumberStatus](docs/WhatsappPhoneNumberStatus.md)
  - [WhatsappPricingCategory](docs/WhatsappPricingCategory.md)
+ - [WhatsappPricingModel](docs/WhatsappPricingModel.md)
+ - [WhatsappPricingType](docs/WhatsappPricingType.md)
  - [WhatsappProfile](docs/WhatsappProfile.md)
  - [WhatsappReviewDecision](docs/WhatsappReviewDecision.md)
  - [WhatsappTemplate](docs/WhatsappTemplate.md)

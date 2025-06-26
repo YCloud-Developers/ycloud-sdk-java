@@ -162,7 +162,7 @@ public class WhatsappMediaApi {
     /**
      * Upload media
      * <p>
-     * Uploads media that can later be sent in WhatsApp messages. This endpoint interfaces with Meta&#39;s WhatsApp Business API media endpoints. All media files sent through this endpoint are encrypted and persist for 30 days.  For supported media types and size limitations, please refer to [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  For more information, refer to [Meta&#39;s WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media).
+     * Uploads media that can later be sent in WhatsApp messages. This endpoint interfaces with Meta&#39;s WhatsApp Business API media endpoints. All media files sent through this endpoint are encrypted and persist for 30 days.  For supported media types and size limitations, please refer to [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  For more information, refer to [Meta&#39;s WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media).  Note that all interactive messages cannot send images, documents, videos, or audio using a Media ID in the header section. These elements must be sent using a link.
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format to use for the upload. (required)
      * @param file The media file to upload. Only one file is supported. If multiple files are uploaded, only the first file will be processed. (required)
      * @return WhatsappMediaUpload200Response
@@ -183,7 +183,7 @@ public class WhatsappMediaApi {
     /**
      * Upload media
      * <p>
-     * Uploads media that can later be sent in WhatsApp messages. This endpoint interfaces with Meta&#39;s WhatsApp Business API media endpoints. All media files sent through this endpoint are encrypted and persist for 30 days.  For supported media types and size limitations, please refer to [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  For more information, refer to [Meta&#39;s WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media).
+     * Uploads media that can later be sent in WhatsApp messages. This endpoint interfaces with Meta&#39;s WhatsApp Business API media endpoints. All media files sent through this endpoint are encrypted and persist for 30 days.  For supported media types and size limitations, please refer to [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  For more information, refer to [Meta&#39;s WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media).  Note that all interactive messages cannot send images, documents, videos, or audio using a Media ID in the header section. These elements must be sent using a link.
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format to use for the upload. (required)
      * @param file The media file to upload. Only one file is supported. If multiple files are uploaded, only the first file will be processed. (required)
      * @return ApiResponse&lt;WhatsappMediaUpload200Response&gt;
@@ -205,7 +205,7 @@ public class WhatsappMediaApi {
     /**
      * Upload media (asynchronously)
      * <p>
-     * Uploads media that can later be sent in WhatsApp messages. This endpoint interfaces with Meta&#39;s WhatsApp Business API media endpoints. All media files sent through this endpoint are encrypted and persist for 30 days.  For supported media types and size limitations, please refer to [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  For more information, refer to [Meta&#39;s WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media).
+     * Uploads media that can later be sent in WhatsApp messages. This endpoint interfaces with Meta&#39;s WhatsApp Business API media endpoints. All media files sent through this endpoint are encrypted and persist for 30 days.  For supported media types and size limitations, please refer to [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  For more information, refer to [Meta&#39;s WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media).  Note that all interactive messages cannot send images, documents, videos, or audio using a Media ID in the header section. These elements must be sent using a link.
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format to use for the upload. (required)
      * @param file The media file to upload. Only one file is supported. If multiple files are uploaded, only the first file will be processed. (required)
      * @param _callback The callback to be executed when the API call finishes

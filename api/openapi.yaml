@@ -1321,6 +1321,41 @@ paths:
       tags:
       - WhatsApp Inbound Messages
       x-accepts: application/json
+  /whatsapp/inboundMessages/{id}/typingIndicator:
+    post:
+      description: "When you receive an inbound message from webhooks, you can use\
+        \ this endpoint to mark the message as read and display a typing indicator\
+        \ so the WhatsApp user knows you are preparing a response.\nMessages marked\
+        \ as read display two blue check marks alongside their timestamp.The typing\
+        \ indicator will be dismissed once you respond, or after 25 seconds, whichever\
+        \ comes first. To prevent a poor user experience, only display a typing indicator\
+        \ if you are going to respond.\n\nMarking a message as read will also mark\
+        \ earlier messages in the conversation as read."
+      operationId: whatsapp_inbound_message-typing-indicator
+      parameters:
+      - description: "ID of the message.\n\nA wamid (i.e., the original message ID\
+          \ on WhatsApp's platform) is also acceptable."
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 627c8640675de8fc689ab9d9
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Successfully marked the message as read.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: Mark message as read and display a typing indicator
+      tags:
+      - WhatsApp Inbound Messages
+      x-accepts: application/json
   /whatsapp/media/{phoneNumber}/upload:
     post:
       description: "Uploads media that can later be sent in WhatsApp messages. This\
@@ -1328,7 +1363,10 @@ paths:
         \ media files sent through this endpoint are encrypted and persist for 30\
         \ days.\n\nFor supported media types and size limitations, please refer to\
         \ [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).\n\
-        \nFor more information, refer to [Meta's WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media)."
+        \nFor more information, refer to [Meta's WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media).\n\
+        \nNote that all interactive messages cannot send images, documents, videos,\
+        \ or audio using a Media ID in the header section. These elements must be\
+        \ sent using a link."
       operationId: whatsapp_media-upload
       parameters:
       - description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
@@ -10700,6 +10738,7 @@ components:
           expireTime: 2022-06-01T12:00:00Z
           id: id
           type: null
+        pricingModel: null
         image:
           filename: filename
           link: link
@@ -10823,6 +10862,7 @@ components:
             type: type
         verificationId: VERIFICATION-ID
         status: null
+        pricingType: null
       properties:
         id:
           description: Unique ID of the message.
@@ -10941,6 +10981,10 @@ components:
           type: string
         pricingCategory:
           $ref: '#/components/schemas/WhatsappPricingCategory'
+        pricingModel:
+          $ref: '#/components/schemas/WhatsappPricingModel'
+        pricingType:
+          $ref: '#/components/schemas/WhatsappPricingType'
         whatsappApiError:
           $ref: '#/components/schemas/WhatsappApiError'
         bizType:
@@ -29599,6 +29643,24 @@ components:
       - marketing_lite
       - utility
       - service
+      type: string
+    WhatsappPricingModel:
+      description: "WhatsApp pricing model.\n- `PMP`: Per-message pricing applies.\n\
+        - `CBP`: Conversation-based pricing applies."
+      enum:
+      - PMP
+      - CBP
+      type: string
+    WhatsappPricingType:
+      description: "WhatsApp pricing type. This field is only available in PMP (Per-Message\
+        \ Pricing) mode.\n- `regular`: Indicates the message is billable.\n- `free_customer_service`:\
+        \ Indicates the message is free because it was either a utility template message\
+        \ or non-template message sent within a customer service window.\n- `free_entry_point`:\
+        \ Indicates the message is free because it is part of a free-entry point conversation."
+      enum:
+      - regular
+      - free_customer_service
+      - free_entry_point
       type: string
     WhatsappProfile:
       description: Represents the profile of a WhatsApp account.

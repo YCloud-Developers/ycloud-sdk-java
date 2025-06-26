@@ -203,4 +203,134 @@ public class WhatsappInboundMessagesApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+    /**
+     * Build call for typingIndicator
+     * @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully marked the message as read. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call typingIndicatorCall(String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/inboundMessages/{id}/typingIndicator"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call typingIndicatorValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling typingIndicator(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = typingIndicatorCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Mark message as read and display a typing indicator
+     * <p>
+     * When you receive an inbound message from webhooks, you can use this endpoint to mark the message as read and display a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp.The typing indicator will be dismissed once you respond, or after 25 seconds, whichever comes first. To prevent a poor user experience, only display a typing indicator if you are going to respond.  Marking a message as read will also mark earlier messages in the conversation as read.
+     * @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully marked the message as read. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void typingIndicator(String id) throws ApiException {
+        typingIndicatorWithHttpInfo(id);
+    }
+
+    /**
+     * Mark message as read and display a typing indicator
+     * <p>
+     * When you receive an inbound message from webhooks, you can use this endpoint to mark the message as read and display a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp.The typing indicator will be dismissed once you respond, or after 25 seconds, whichever comes first. To prevent a poor user experience, only display a typing indicator if you are going to respond.  Marking a message as read will also mark earlier messages in the conversation as read.
+     * @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully marked the message as read. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> typingIndicatorWithHttpInfo(String id) throws ApiException {
+        okhttp3.Call localVarCall = typingIndicatorValidateBeforeCall(id, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Mark message as read and display a typing indicator (asynchronously)
+     * <p>
+     * When you receive an inbound message from webhooks, you can use this endpoint to mark the message as read and display a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp.The typing indicator will be dismissed once you respond, or after 25 seconds, whichever comes first. To prevent a poor user experience, only display a typing indicator if you are going to respond.  Marking a message as read will also mark earlier messages in the conversation as read.
+     * @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully marked the message as read. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call typingIndicatorAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = typingIndicatorValidateBeforeCall(id, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
 }

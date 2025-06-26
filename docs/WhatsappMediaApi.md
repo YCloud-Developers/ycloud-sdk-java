@@ -13,7 +13,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 Upload media
 
-Uploads media that can later be sent in WhatsApp messages. This endpoint interfaces with Meta&#39;s WhatsApp Business API media endpoints. All media files sent through this endpoint are encrypted and persist for 30 days.  For supported media types and size limitations, please refer to [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  For more information, refer to [Meta&#39;s WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media).
+Uploads media that can later be sent in WhatsApp messages. This endpoint interfaces with Meta&#39;s WhatsApp Business API media endpoints. All media files sent through this endpoint are encrypted and persist for 30 days.  For supported media types and size limitations, please refer to [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  For more information, refer to [Meta&#39;s WhatsApp Cloud API Media documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media).  Note that all interactive messages cannot send images, documents, videos, or audio using a Media ID in the header section. These elements must be sent using a link.
 
 ### Example
 ```java
