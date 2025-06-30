@@ -1,4 +1,7 @@
 # Changelog
+## 1.15.4 (2025-06-30)
+- Add `pricingModel` to the WhatsApp Message object.
+- Add `pricingType` to the WhatsApp Message object.
 ## 1.15.3 (2025-04-03)
 - Support [Media Upload](https://docs.ycloud.com/reference/whatsapp_media-upload) endpoint.
 - Add `FLOW` to Type enum
