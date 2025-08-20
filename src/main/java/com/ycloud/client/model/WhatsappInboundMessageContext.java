@@ -74,7 +74,7 @@ public class WhatsappInboundMessageContext {
 
   public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform.
+   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp&#39;s platform.
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -173,7 +173,7 @@ public class WhatsappInboundMessageContext {
   }
 
    /**
-   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform.
+   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp&#39;s platform.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -184,9 +184,9 @@ public class WhatsappInboundMessageContext {
 
 
   /**
-   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform.
+   * **Optional.**  The &#x60;wamid&#x60; for the sent message for an inbound reply. &#x60;wamid&#x60; is the original message ID on WhatsApp&#39;s platform.
    **/
-  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "**Optional.**  The `wamid` for the sent message for an inbound reply. `wamid` is the original message ID on WhatsApp’s platform.")
+  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "**Optional.**  The `wamid` for the sent message for an inbound reply. `wamid` is the original message ID on WhatsApp's platform.")
   public void setId(String id) {
     this.id = id;
   }

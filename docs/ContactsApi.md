@@ -4,12 +4,78 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**attributesList**](ContactsApi.md#attributesList) | **GET** /contact/contacts/attributes | List contact attributes |
 | [**create**](ContactsApi.md#create) | **POST** /contact/contacts | Create a contact |
 | [**delete**](ContactsApi.md#delete) | **DELETE** /contact/contacts/{id} | Delete a contact |
 | [**list**](ContactsApi.md#list) | **GET** /contact/contacts | List contacts |
 | [**retrieve**](ContactsApi.md#retrieve) | **GET** /contact/contacts/{id} | Retrieve a contact |
 | [**update**](ContactsApi.md#update) | **PATCH** /contact/contacts/{id} | Update a contact |
 
+
+<a name="attributesList"></a>
+# **attributesList**
+> List&lt;ContactAttribute&gt; attributesList()
+
+List contact attributes
+
+Returns a list of all available contact attributes and their configurations.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    try {
+      List<ContactAttribute> result = apiInstance.attributesList();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#attributesList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;ContactAttribute&gt;**](ContactAttribute.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved contact attributes. |  -  |
 
 <a name="create"></a>
 # **create**

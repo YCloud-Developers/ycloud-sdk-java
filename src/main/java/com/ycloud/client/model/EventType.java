@@ -76,6 +76,16 @@ public enum EventType {
   WHATSAPP_MESSAGE_UPDATED("whatsapp.message.updated"),
   
   /**
+   * Occurs when WhatsApp Business app sync history message.
+   */
+  WHATSAPP_SMB_HISTORY("whatsapp.smb.history"),
+  
+  /**
+   * Occurs when WhatsApp Business app send message.
+   */
+  WHATSAPP_SMB_MESSAGE_CREATED("whatsapp.smb.message.created"),
+  
+  /**
    * Occurs when a WhatsApp business phone number is deleted.
    */
   WHATSAPP_PHONE_NUMBER_DELETED("whatsapp.phone_number.deleted"),
@@ -103,7 +113,22 @@ public enum EventType {
   /**
    * Occurs when a WhatsApp template status is updated, and the status changes to &#x60;REJECTED&#x60;, &#x60;APPROVED&#x60;, &#x60;PAUSED&#x60;, &#x60;DISABLED&#x60;, or &#x60;IN_APPEAL&#x60;.
    */
-  WHATSAPP_TEMPLATE_REVIEWED("whatsapp.template.reviewed");
+  WHATSAPP_TEMPLATE_REVIEWED("whatsapp.template.reviewed"),
+  
+  /**
+   * Occurs when a contact&#39;s attributes are changed.
+   */
+  CONTACT_ATTRIBUTES_CHANGED("contact.attributes_changed"),
+  
+  /**
+   * Occurs when a contact is created.
+   */
+  CONTACT_CREATED("contact.created"),
+  
+  /**
+   * Occurs when a contact is deleted.
+   */
+  CONTACT_DELETED("contact.deleted");
 
   private String value;
 

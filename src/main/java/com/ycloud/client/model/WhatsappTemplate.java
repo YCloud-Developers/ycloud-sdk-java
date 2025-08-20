@@ -60,6 +60,13 @@ import com.ycloud.client.JSON;
 @ApiModel(description = "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplate {
+  public static final String SERIALIZED_NAME_OFFICIAL_TEMPLATE_ID = "officialTemplateId";
+  /**
+   * Official template ID assigned by WhatsApp. This ID is used to identify the template in WhatsApp&#39;s system.
+  **/
+  @SerializedName(SERIALIZED_NAME_OFFICIAL_TEMPLATE_ID)
+  private String officialTemplateId;
+
   public static final String SERIALIZED_NAME_WABA_ID = "wabaId";
   /**
    * WhatsApp Business Account ID.
@@ -168,6 +175,32 @@ public class WhatsappTemplate {
 
   public WhatsappTemplate() { 
   }
+
+  public WhatsappTemplate officialTemplateId(String officialTemplateId) {
+    
+    this.officialTemplateId = officialTemplateId;
+    return this;
+  }
+
+   /**
+   * Official template ID assigned by WhatsApp. This ID is used to identify the template in WhatsApp&#39;s system.
+   * @return officialTemplateId
+  **/
+  @javax.annotation.Nullable
+
+  public String getOfficialTemplateId() {
+    return officialTemplateId;
+  }
+
+
+  /**
+   * Official template ID assigned by WhatsApp. This ID is used to identify the template in WhatsApp&#39;s system.
+   **/
+  @ApiModelProperty(example = "official-template-id", value = "Official template ID assigned by WhatsApp. This ID is used to identify the template in WhatsApp's system.")
+  public void setOfficialTemplateId(String officialTemplateId) {
+    this.officialTemplateId = officialTemplateId;
+  }
+
 
   public WhatsappTemplate wabaId(String wabaId) {
     
@@ -632,7 +665,8 @@ public class WhatsappTemplate {
       return false;
     }
     WhatsappTemplate whatsappTemplate = (WhatsappTemplate) o;
-    return Objects.equals(this.wabaId, whatsappTemplate.wabaId) &&
+    return Objects.equals(this.officialTemplateId, whatsappTemplate.officialTemplateId) &&
+        Objects.equals(this.wabaId, whatsappTemplate.wabaId) &&
         Objects.equals(this.name, whatsappTemplate.name) &&
         Objects.equals(this.language, whatsappTemplate.language) &&
         Objects.equals(this.category, whatsappTemplate.category) &&
@@ -653,13 +687,14 @@ public class WhatsappTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(wabaId, name, language, category, subCategory, previousCategory, messageSendTtlSeconds, components, status, qualityRating, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
+    return Objects.hash(officialTemplateId, wabaId, name, language, category, subCategory, previousCategory, messageSendTtlSeconds, components, status, qualityRating, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappTemplate {\n");
+    sb.append("    officialTemplateId: ").append(toIndentedString(officialTemplateId)).append("\n");
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
@@ -699,6 +734,7 @@ public class WhatsappTemplate {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("officialTemplateId");
     openapiFields.add("wabaId");
     openapiFields.add("name");
     openapiFields.add("language");
@@ -743,6 +779,9 @@ public class WhatsappTemplate {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("officialTemplateId") != null && !jsonObj.get("officialTemplateId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `officialTemplateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("officialTemplateId").toString()));
       }
       if (jsonObj.get("wabaId") != null && !jsonObj.get("wabaId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wabaId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wabaId").toString()));

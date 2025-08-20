@@ -45,9 +45,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * When the message type is set to &#x60;system&#x60;, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user’s identity has potentially changed on WhatsApp.
+ * When the message type is set to &#x60;system&#x60;, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user&#39;s identity has potentially changed on WhatsApp.
  */
-@ApiModel(description = "When the message type is set to `system`, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user’s identity has potentially changed on WhatsApp.")
+@ApiModel(description = "When the message type is set to `system`, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user's identity has potentially changed on WhatsApp.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageSystem {
   public static final String SERIALIZED_NAME_BODY = "body";

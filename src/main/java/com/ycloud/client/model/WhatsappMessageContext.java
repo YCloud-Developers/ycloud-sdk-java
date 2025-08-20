@@ -52,7 +52,7 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageContext {
   public static final String SERIALIZED_NAME_MESSAGE_ID = "message_id";
   /**
-   * Specifies the &#x60;wamid&#x60; of the message your are replying to. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform.
+   * Specifies the &#x60;wamid&#x60; of the message your are replying to. &#x60;wamid&#x60; is the original message ID on WhatsApp&#39;s platform.
   **/
   @SerializedName(SERIALIZED_NAME_MESSAGE_ID)
   private String messageId;
@@ -67,7 +67,7 @@ public class WhatsappMessageContext {
   }
 
    /**
-   * Specifies the &#x60;wamid&#x60; of the message your are replying to. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform.
+   * Specifies the &#x60;wamid&#x60; of the message your are replying to. &#x60;wamid&#x60; is the original message ID on WhatsApp&#39;s platform.
    * @return messageId
   **/
   @javax.annotation.Nullable
@@ -78,9 +78,9 @@ public class WhatsappMessageContext {
 
 
   /**
-   * Specifies the &#x60;wamid&#x60; of the message your are replying to. &#x60;wamid&#x60; is the original message ID on WhatsApp’s platform.
+   * Specifies the &#x60;wamid&#x60; of the message your are replying to. &#x60;wamid&#x60; is the original message ID on WhatsApp&#39;s platform.
    **/
-  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "Specifies the `wamid` of the message your are replying to. `wamid` is the original message ID on WhatsApp’s platform.")
+  @ApiModelProperty(example = "wamid.BgNODYxN...", value = "Specifies the `wamid` of the message your are replying to. `wamid` is the original message ID on WhatsApp's platform.")
   public void setMessageId(String messageId) {
     this.messageId = messageId;
   }

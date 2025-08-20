@@ -20,6 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.ContactAttributesChanged;
+import com.ycloud.client.model.ContactCreated;
+import com.ycloud.client.model.ContactDeleted;
 import com.ycloud.client.model.EmailDelivery;
 import com.ycloud.client.model.EventType;
 import com.ycloud.client.model.Sms;
@@ -148,6 +151,24 @@ public class Event {
   **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_TEMPLATE)
   private WhatsappTemplate whatsappTemplate;
+
+  public static final String SERIALIZED_NAME_CONTACT_ATTRIBUTES_CHANGED = "contactAttributesChanged";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CONTACT_ATTRIBUTES_CHANGED)
+  private ContactAttributesChanged contactAttributesChanged;
+
+  public static final String SERIALIZED_NAME_CONTACT_CREATED = "contactCreated";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CONTACT_CREATED)
+  private ContactCreated contactCreated;
+
+  public static final String SERIALIZED_NAME_CONTACT_DELETED = "contactDeleted";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CONTACT_DELETED)
+  private ContactDeleted contactDeleted;
 
   public Event() { 
   }
@@ -504,6 +525,81 @@ public class Event {
     this.whatsappTemplate = whatsappTemplate;
   }
 
+
+  public Event contactAttributesChanged(ContactAttributesChanged contactAttributesChanged) {
+    
+    this.contactAttributesChanged = contactAttributesChanged;
+    return this;
+  }
+
+   /**
+   * Get contactAttributesChanged
+   * @return contactAttributesChanged
+  **/
+  @javax.annotation.Nullable
+
+  public ContactAttributesChanged getContactAttributesChanged() {
+    return contactAttributesChanged;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setContactAttributesChanged(ContactAttributesChanged contactAttributesChanged) {
+    this.contactAttributesChanged = contactAttributesChanged;
+  }
+
+
+  public Event contactCreated(ContactCreated contactCreated) {
+    
+    this.contactCreated = contactCreated;
+    return this;
+  }
+
+   /**
+   * Get contactCreated
+   * @return contactCreated
+  **/
+  @javax.annotation.Nullable
+
+  public ContactCreated getContactCreated() {
+    return contactCreated;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setContactCreated(ContactCreated contactCreated) {
+    this.contactCreated = contactCreated;
+  }
+
+
+  public Event contactDeleted(ContactDeleted contactDeleted) {
+    
+    this.contactDeleted = contactDeleted;
+    return this;
+  }
+
+   /**
+   * Get contactDeleted
+   * @return contactDeleted
+  **/
+  @javax.annotation.Nullable
+
+  public ContactDeleted getContactDeleted() {
+    return contactDeleted;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setContactDeleted(ContactDeleted contactDeleted) {
+    this.contactDeleted = contactDeleted;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -563,13 +659,16 @@ public class Event {
         Objects.equals(this.whatsappMessage, event.whatsappMessage) &&
         Objects.equals(this.whatsappPhoneNumber, event.whatsappPhoneNumber) &&
         Objects.equals(this.whatsappPayment, event.whatsappPayment) &&
-        Objects.equals(this.whatsappTemplate, event.whatsappTemplate)&&
+        Objects.equals(this.whatsappTemplate, event.whatsappTemplate) &&
+        Objects.equals(this.contactAttributesChanged, event.contactAttributesChanged) &&
+        Objects.equals(this.contactCreated, event.contactCreated) &&
+        Objects.equals(this.contactDeleted, event.contactDeleted)&&
         Objects.equals(this.additionalProperties, event.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, additionalProperties);
+    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, contactAttributesChanged, contactCreated, contactDeleted, additionalProperties);
   }
 
   @Override
@@ -590,6 +689,9 @@ public class Event {
     sb.append("    whatsappPhoneNumber: ").append(toIndentedString(whatsappPhoneNumber)).append("\n");
     sb.append("    whatsappPayment: ").append(toIndentedString(whatsappPayment)).append("\n");
     sb.append("    whatsappTemplate: ").append(toIndentedString(whatsappTemplate)).append("\n");
+    sb.append("    contactAttributesChanged: ").append(toIndentedString(contactAttributesChanged)).append("\n");
+    sb.append("    contactCreated: ").append(toIndentedString(contactCreated)).append("\n");
+    sb.append("    contactDeleted: ").append(toIndentedString(contactDeleted)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -627,6 +729,9 @@ public class Event {
     openapiFields.add("whatsappPhoneNumber");
     openapiFields.add("whatsappPayment");
     openapiFields.add("whatsappTemplate");
+    openapiFields.add("contactAttributesChanged");
+    openapiFields.add("contactCreated");
+    openapiFields.add("contactDeleted");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -702,6 +807,18 @@ public class Event {
       // validate the optional field `whatsappTemplate`
       if (jsonObj.getAsJsonObject("whatsappTemplate") != null) {
         WhatsappTemplate.validateJsonObject(jsonObj.getAsJsonObject("whatsappTemplate"));
+      }
+      // validate the optional field `contactAttributesChanged`
+      if (jsonObj.getAsJsonObject("contactAttributesChanged") != null) {
+        ContactAttributesChanged.validateJsonObject(jsonObj.getAsJsonObject("contactAttributesChanged"));
+      }
+      // validate the optional field `contactCreated`
+      if (jsonObj.getAsJsonObject("contactCreated") != null) {
+        ContactCreated.validateJsonObject(jsonObj.getAsJsonObject("contactCreated"));
+      }
+      // validate the optional field `contactDeleted`
+      if (jsonObj.getAsJsonObject("contactDeleted") != null) {
+        ContactDeleted.validateJsonObject(jsonObj.getAsJsonObject("contactDeleted"));
       }
   }
 

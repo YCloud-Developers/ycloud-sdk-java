@@ -339,7 +339,7 @@ public class WhatsappPhoneNumber {
   /**
    * Verified name.
    **/
-  @ApiModelProperty(example = "John’s Cake Shop", value = "Verified name.")
+  @ApiModelProperty(example = "John's Cake Shop", value = "Verified name.")
   public void setVerifiedName(String verifiedName) {
     this.verifiedName = verifiedName;
   }

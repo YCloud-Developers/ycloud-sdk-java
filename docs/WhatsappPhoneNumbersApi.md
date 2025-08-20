@@ -9,6 +9,8 @@ All URIs are relative to *https://api.ycloud.com/v2*
 | [**retrieve**](WhatsappPhoneNumbersApi.md#retrieve) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number |
 | [**retrieveCommerceSettings**](WhatsappPhoneNumbersApi.md#retrieveCommerceSettings) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Retrieve commerce settings |
 | [**retrieveProfile**](WhatsappPhoneNumbersApi.md#retrieveProfile) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Retrieve a phone number profile |
+| [**retrieveSettings**](WhatsappPhoneNumbersApi.md#retrieveSettings) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Retrieve phone number settings |
+| [**saveSettings**](WhatsappPhoneNumbersApi.md#saveSettings) | **POST** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Save phone number settings |
 | [**updateCommerceSettings**](WhatsappPhoneNumbersApi.md#updateCommerceSettings) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Update commerce settings |
 | [**updateProfile**](WhatsappPhoneNumbersApi.md#updateProfile) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a phone number profile |
 
@@ -379,6 +381,152 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the object. |  -  |
+| **404** | The requested resource does not exist. |  -  |
+
+<a name="retrieveSettings"></a>
+# **retrieveSettings**
+> WhatsappPhoneNumberSettings retrieveSettings(wabaId, phoneNumber)
+
+Retrieve phone number settings
+
+Retrieves phone number specific settings.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappPhoneNumbersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
+    String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String phoneNumber = "+6283138205170"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    try {
+      WhatsappPhoneNumberSettings result = apiInstance.retrieveSettings(wabaId, phoneNumber);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappPhoneNumbersApi#retrieveSettings");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wabaId** | **String**| WhatsApp Business Account ID. | |
+| **phoneNumber** | **String**| Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | |
+
+### Return type
+
+[**WhatsappPhoneNumberSettings**](WhatsappPhoneNumberSettings.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the phone number settings. |  -  |
+| **404** | The requested resource does not exist. |  -  |
+
+<a name="saveSettings"></a>
+# **saveSettings**
+> WhatsappPhoneNumberSettings saveSettings(wabaId, phoneNumber, whatsappPhoneNumberSettings)
+
+Save phone number settings
+
+Saves phone number specific settings.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappPhoneNumbersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
+    String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String phoneNumber = "+6283138205150"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    WhatsappPhoneNumberSettings whatsappPhoneNumberSettings = new WhatsappPhoneNumberSettings(); // WhatsappPhoneNumberSettings | Phone number settings to save.
+    try {
+      WhatsappPhoneNumberSettings result = apiInstance.saveSettings(wabaId, phoneNumber, whatsappPhoneNumberSettings);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappPhoneNumbersApi#saveSettings");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wabaId** | **String**| WhatsApp Business Account ID. | |
+| **phoneNumber** | **String**| Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | |
+| **whatsappPhoneNumberSettings** | [**WhatsappPhoneNumberSettings**](WhatsappPhoneNumberSettings.md)| Phone number settings to save. | |
+
+### Return type
+
+[**WhatsappPhoneNumberSettings**](WhatsappPhoneNumberSettings.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully saved the phone number settings. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
 <a name="updateCommerceSettings"></a>

@@ -2,7 +2,7 @@
 
 # WhatsappInboundMessageSystem
 
-When the message type is set to `system`, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user’s identity has potentially changed on WhatsApp.
+When the message type is set to `system`, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user's identity has potentially changed on WhatsApp.
 
 ## Properties
 

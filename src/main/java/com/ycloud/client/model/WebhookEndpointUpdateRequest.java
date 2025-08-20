@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.EventProperty;
 import com.ycloud.client.model.EventType;
 import com.ycloud.client.model.WebhookEndpointStatus;
 import io.swagger.annotations.ApiModel;
@@ -66,6 +67,13 @@ public class WebhookEndpointUpdateRequest {
   **/
   @SerializedName(SERIALIZED_NAME_ENABLED_EVENTS)
   private List<EventType> enabledEvents = null;
+
+  public static final String SERIALIZED_NAME_EVENT_PROPERTIES = "eventProperties";
+  /**
+   * Optional configuration for event properties in webhook payloads. Specifies which properties should be included for specific event types. When &#x60;enabledEvents&#x60; contains &#x60;contact.attributes_changed&#x60;, this field is required and must contain at least one event property configuration for that event type.
+  **/
+  @SerializedName(SERIALIZED_NAME_EVENT_PROPERTIES)
+  private List<EventProperty> eventProperties = null;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   /**
@@ -140,6 +148,40 @@ public class WebhookEndpointUpdateRequest {
   @ApiModelProperty(value = "The list of events to enable for this endpoint.")
   public void setEnabledEvents(List<EventType> enabledEvents) {
     this.enabledEvents = enabledEvents;
+  }
+
+
+  public WebhookEndpointUpdateRequest eventProperties(List<EventProperty> eventProperties) {
+    
+    this.eventProperties = eventProperties;
+    return this;
+  }
+
+  public WebhookEndpointUpdateRequest addEventPropertiesItem(EventProperty eventPropertiesItem) {
+    if (this.eventProperties == null) {
+      this.eventProperties = new ArrayList<>();
+    }
+    this.eventProperties.add(eventPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Optional configuration for event properties in webhook payloads. Specifies which properties should be included for specific event types. When &#x60;enabledEvents&#x60; contains &#x60;contact.attributes_changed&#x60;, this field is required and must contain at least one event property configuration for that event type.
+   * @return eventProperties
+  **/
+  @javax.annotation.Nullable
+
+  public List<EventProperty> getEventProperties() {
+    return eventProperties;
+  }
+
+
+  /**
+   * Optional configuration for event properties in webhook payloads. Specifies which properties should be included for specific event types. When &#x60;enabledEvents&#x60; contains &#x60;contact.attributes_changed&#x60;, this field is required and must contain at least one event property configuration for that event type.
+   **/
+  @ApiModelProperty(example = "[{\"event\":\"contact.attributes_changed\",\"properties\":[\"attr1\",\"attr2\"]}]", value = "Optional configuration for event properties in webhook payloads. Specifies which properties should be included for specific event types. When `enabledEvents` contains `contact.attributes_changed`, this field is required and must contain at least one event property configuration for that event type.")
+  public void setEventProperties(List<EventProperty> eventProperties) {
+    this.eventProperties = eventProperties;
   }
 
 
@@ -241,6 +283,7 @@ public class WebhookEndpointUpdateRequest {
     WebhookEndpointUpdateRequest webhookEndpointUpdateRequest = (WebhookEndpointUpdateRequest) o;
     return Objects.equals(this.url, webhookEndpointUpdateRequest.url) &&
         Objects.equals(this.enabledEvents, webhookEndpointUpdateRequest.enabledEvents) &&
+        Objects.equals(this.eventProperties, webhookEndpointUpdateRequest.eventProperties) &&
         Objects.equals(this.description, webhookEndpointUpdateRequest.description) &&
         Objects.equals(this.status, webhookEndpointUpdateRequest.status)&&
         Objects.equals(this.additionalProperties, webhookEndpointUpdateRequest.additionalProperties);
@@ -248,7 +291,7 @@ public class WebhookEndpointUpdateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, enabledEvents, description, status, additionalProperties);
+    return Objects.hash(url, enabledEvents, eventProperties, description, status, additionalProperties);
   }
 
   @Override
@@ -257,6 +300,7 @@ public class WebhookEndpointUpdateRequest {
     sb.append("class WebhookEndpointUpdateRequest {\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    enabledEvents: ").append(toIndentedString(enabledEvents)).append("\n");
+    sb.append("    eventProperties: ").append(toIndentedString(eventProperties)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -284,6 +328,7 @@ public class WebhookEndpointUpdateRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("url");
     openapiFields.add("enabledEvents");
+    openapiFields.add("eventProperties");
     openapiFields.add("description");
     openapiFields.add("status");
 
@@ -311,6 +356,18 @@ public class WebhookEndpointUpdateRequest {
       // ensure the json data is an array
       if (jsonObj.get("enabledEvents") != null && !jsonObj.get("enabledEvents").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `enabledEvents` to be an array in the JSON string but got `%s`", jsonObj.get("enabledEvents").toString()));
+      }
+      JsonArray jsonArrayeventProperties = jsonObj.getAsJsonArray("eventProperties");
+      if (jsonArrayeventProperties != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("eventProperties").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `eventProperties` to be an array in the JSON string but got `%s`", jsonObj.get("eventProperties").toString()));
+        }
+
+        // validate the optional field `eventProperties` (array)
+        for (int i = 0; i < jsonArrayeventProperties.size(); i++) {
+          EventProperty.validateJsonObject(jsonArrayeventProperties.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

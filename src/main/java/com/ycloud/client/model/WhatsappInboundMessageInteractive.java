@@ -21,7 +21,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappInboundMessageInteractiveButtonReply;
+import com.ycloud.client.model.WhatsappInboundMessageInteractiveCallPermissionReply;
 import com.ycloud.client.model.WhatsappInboundMessageInteractiveListReply;
+import com.ycloud.client.model.WhatsappInboundMessageInteractiveNfmReply;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -53,13 +55,17 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageInteractive {
   /**
-   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list.
+   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list. - &#x60;nfm_reply&#x60;: Sent when a customer responds to a WhatsApp Flow (Next Feature Messaging). - &#x60;call_permission_reply&#x60;: Sent when a customer responds to a call permission request.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     BUTTON_REPLY("button_reply"),
     
-    LIST_REPLY("list_reply");
+    LIST_REPLY("list_reply"),
+    
+    NFM_REPLY("nfm_reply"),
+    
+    CALL_PERMISSION_REPLY("call_permission_reply");
 
     private String value;
 
@@ -101,7 +107,7 @@ public class WhatsappInboundMessageInteractive {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list.
+   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list. - &#x60;nfm_reply&#x60;: Sent when a customer responds to a WhatsApp Flow (Next Feature Messaging). - &#x60;call_permission_reply&#x60;: Sent when a customer responds to a call permission request.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -118,6 +124,18 @@ public class WhatsappInboundMessageInteractive {
   @SerializedName(SERIALIZED_NAME_LIST_REPLY)
   private WhatsappInboundMessageInteractiveListReply listReply;
 
+  public static final String SERIALIZED_NAME_NFM_REPLY = "nfm_reply";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_NFM_REPLY)
+  private WhatsappInboundMessageInteractiveNfmReply nfmReply;
+
+  public static final String SERIALIZED_NAME_CALL_PERMISSION_REPLY = "call_permission_reply";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CALL_PERMISSION_REPLY)
+  private WhatsappInboundMessageInteractiveCallPermissionReply callPermissionReply;
+
   public WhatsappInboundMessageInteractive() { 
   }
 
@@ -128,7 +146,7 @@ public class WhatsappInboundMessageInteractive {
   }
 
    /**
-   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list.
+   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list. - &#x60;nfm_reply&#x60;: Sent when a customer responds to a WhatsApp Flow (Next Feature Messaging). - &#x60;call_permission_reply&#x60;: Sent when a customer responds to a call permission request.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -139,9 +157,9 @@ public class WhatsappInboundMessageInteractive {
 
 
   /**
-   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list.
+   * The type of interactive message received. - &#x60;button_reply&#x60;: Sent when a customer clicks a button. - &#x60;list_reply&#x60;: Sent when a customer selects an item from a list. - &#x60;nfm_reply&#x60;: Sent when a customer responds to a WhatsApp Flow (Next Feature Messaging). - &#x60;call_permission_reply&#x60;: Sent when a customer responds to a call permission request.
    **/
-  @ApiModelProperty(value = "The type of interactive message received. - `button_reply`: Sent when a customer clicks a button. - `list_reply`: Sent when a customer selects an item from a list.")
+  @ApiModelProperty(value = "The type of interactive message received. - `button_reply`: Sent when a customer clicks a button. - `list_reply`: Sent when a customer selects an item from a list. - `nfm_reply`: Sent when a customer responds to a WhatsApp Flow (Next Feature Messaging). - `call_permission_reply`: Sent when a customer responds to a call permission request.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -196,6 +214,56 @@ public class WhatsappInboundMessageInteractive {
     this.listReply = listReply;
   }
 
+
+  public WhatsappInboundMessageInteractive nfmReply(WhatsappInboundMessageInteractiveNfmReply nfmReply) {
+    
+    this.nfmReply = nfmReply;
+    return this;
+  }
+
+   /**
+   * Get nfmReply
+   * @return nfmReply
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappInboundMessageInteractiveNfmReply getNfmReply() {
+    return nfmReply;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setNfmReply(WhatsappInboundMessageInteractiveNfmReply nfmReply) {
+    this.nfmReply = nfmReply;
+  }
+
+
+  public WhatsappInboundMessageInteractive callPermissionReply(WhatsappInboundMessageInteractiveCallPermissionReply callPermissionReply) {
+    
+    this.callPermissionReply = callPermissionReply;
+    return this;
+  }
+
+   /**
+   * Get callPermissionReply
+   * @return callPermissionReply
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappInboundMessageInteractiveCallPermissionReply getCallPermissionReply() {
+    return callPermissionReply;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setCallPermissionReply(WhatsappInboundMessageInteractiveCallPermissionReply callPermissionReply) {
+    this.callPermissionReply = callPermissionReply;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -244,13 +312,15 @@ public class WhatsappInboundMessageInteractive {
     WhatsappInboundMessageInteractive whatsappInboundMessageInteractive = (WhatsappInboundMessageInteractive) o;
     return Objects.equals(this.type, whatsappInboundMessageInteractive.type) &&
         Objects.equals(this.buttonReply, whatsappInboundMessageInteractive.buttonReply) &&
-        Objects.equals(this.listReply, whatsappInboundMessageInteractive.listReply)&&
+        Objects.equals(this.listReply, whatsappInboundMessageInteractive.listReply) &&
+        Objects.equals(this.nfmReply, whatsappInboundMessageInteractive.nfmReply) &&
+        Objects.equals(this.callPermissionReply, whatsappInboundMessageInteractive.callPermissionReply)&&
         Objects.equals(this.additionalProperties, whatsappInboundMessageInteractive.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, buttonReply, listReply, additionalProperties);
+    return Objects.hash(type, buttonReply, listReply, nfmReply, callPermissionReply, additionalProperties);
   }
 
   @Override
@@ -260,6 +330,8 @@ public class WhatsappInboundMessageInteractive {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    buttonReply: ").append(toIndentedString(buttonReply)).append("\n");
     sb.append("    listReply: ").append(toIndentedString(listReply)).append("\n");
+    sb.append("    nfmReply: ").append(toIndentedString(nfmReply)).append("\n");
+    sb.append("    callPermissionReply: ").append(toIndentedString(callPermissionReply)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -286,6 +358,8 @@ public class WhatsappInboundMessageInteractive {
     openapiFields.add("type");
     openapiFields.add("button_reply");
     openapiFields.add("list_reply");
+    openapiFields.add("nfm_reply");
+    openapiFields.add("call_permission_reply");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -315,6 +389,14 @@ public class WhatsappInboundMessageInteractive {
       // validate the optional field `list_reply`
       if (jsonObj.getAsJsonObject("list_reply") != null) {
         WhatsappInboundMessageInteractiveListReply.validateJsonObject(jsonObj.getAsJsonObject("list_reply"));
+      }
+      // validate the optional field `nfm_reply`
+      if (jsonObj.getAsJsonObject("nfm_reply") != null) {
+        WhatsappInboundMessageInteractiveNfmReply.validateJsonObject(jsonObj.getAsJsonObject("nfm_reply"));
+      }
+      // validate the optional field `call_permission_reply`
+      if (jsonObj.getAsJsonObject("call_permission_reply") != null) {
+        WhatsappInboundMessageInteractiveCallPermissionReply.validateJsonObject(jsonObj.getAsJsonObject("call_permission_reply"));
       }
   }
 

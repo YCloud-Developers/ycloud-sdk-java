@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.ContactCustomAttribute;
+import com.ycloud.client.model.ContactSourceType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -137,6 +138,26 @@ public class Contact {
   **/
   @SerializedName(SERIALIZED_NAME_OWNER_EMAIL)
   private String ownerEmail;
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "sourceType";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  private ContactSourceType sourceType;
+
+  public static final String SERIALIZED_NAME_SOURCE_ID = "sourceId";
+  /**
+   * 来源标识符。与联系人创建来源相关的唯一标识符。
+  **/
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
+
+  public static final String SERIALIZED_NAME_SOURCE_URL = "sourceUrl";
+  /**
+   * 来源URL。联系人创建时的来源链接地址。
+  **/
+  @SerializedName(SERIALIZED_NAME_SOURCE_URL)
+  private String sourceUrl;
 
   public Contact() { 
   }
@@ -468,6 +489,83 @@ public class Contact {
     this.ownerEmail = ownerEmail;
   }
 
+
+  public Contact sourceType(ContactSourceType sourceType) {
+    
+    this.sourceType = sourceType;
+    return this;
+  }
+
+   /**
+   * Get sourceType
+   * @return sourceType
+  **/
+  @javax.annotation.Nullable
+
+  public ContactSourceType getSourceType() {
+    return sourceType;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setSourceType(ContactSourceType sourceType) {
+    this.sourceType = sourceType;
+  }
+
+
+  public Contact sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * 来源标识符。与联系人创建来源相关的唯一标识符。
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  /**
+   * 来源标识符。与联系人创建来源相关的唯一标识符。
+   **/
+  @ApiModelProperty(example = "batch_import_123", value = "来源标识符。与联系人创建来源相关的唯一标识符。")
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
+
+  public Contact sourceUrl(String sourceUrl) {
+    
+    this.sourceUrl = sourceUrl;
+    return this;
+  }
+
+   /**
+   * 来源URL。联系人创建时的来源链接地址。
+   * @return sourceUrl
+  **/
+  @javax.annotation.Nullable
+
+  public String getSourceUrl() {
+    return sourceUrl;
+  }
+
+
+  /**
+   * 来源URL。联系人创建时的来源链接地址。
+   **/
+  @ApiModelProperty(example = "https://example.com/signup", value = "来源URL。联系人创建时的来源链接地址。")
+  public void setSourceUrl(String sourceUrl) {
+    this.sourceUrl = sourceUrl;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -525,13 +623,16 @@ public class Contact {
         Objects.equals(this.tags, contact.tags) &&
         Objects.equals(this.createTime, contact.createTime) &&
         Objects.equals(this.customAttributes, contact.customAttributes) &&
-        Objects.equals(this.ownerEmail, contact.ownerEmail)&&
+        Objects.equals(this.ownerEmail, contact.ownerEmail) &&
+        Objects.equals(this.sourceType, contact.sourceType) &&
+        Objects.equals(this.sourceId, contact.sourceId) &&
+        Objects.equals(this.sourceUrl, contact.sourceUrl)&&
         Objects.equals(this.additionalProperties, contact.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, nickname, countryCode, countryName, phoneNumber, email, lastSeen, lastMessageToPhoneNumber, tags, createTime, customAttributes, ownerEmail, additionalProperties);
+    return Objects.hash(id, nickname, countryCode, countryName, phoneNumber, email, lastSeen, lastMessageToPhoneNumber, tags, createTime, customAttributes, ownerEmail, sourceType, sourceId, sourceUrl, additionalProperties);
   }
 
   @Override
@@ -550,6 +651,9 @@ public class Contact {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
     sb.append("    ownerEmail: ").append(toIndentedString(ownerEmail)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
+    sb.append("    sourceUrl: ").append(toIndentedString(sourceUrl)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -585,6 +689,9 @@ public class Contact {
     openapiFields.add("createTime");
     openapiFields.add("customAttributes");
     openapiFields.add("ownerEmail");
+    openapiFields.add("sourceType");
+    openapiFields.add("sourceId");
+    openapiFields.add("sourceUrl");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -651,6 +758,12 @@ public class Contact {
       }
       if (jsonObj.get("ownerEmail") != null && !jsonObj.get("ownerEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ownerEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerEmail").toString()));
+      }
+      if (jsonObj.get("sourceId") != null && !jsonObj.get("sourceId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sourceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sourceId").toString()));
+      }
+      if (jsonObj.get("sourceUrl") != null && !jsonObj.get("sourceUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sourceUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sourceUrl").toString()));
       }
   }
 

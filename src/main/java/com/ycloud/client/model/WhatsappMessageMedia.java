@@ -20,232 +20,217 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappMessageMediaOneOf;
+import com.ycloud.client.model.WhatsappMessageMediaOneOf1;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
+import javax.ws.rs.core.GenericType;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import com.ycloud.client.JSON;
 
-/**
- * Use for &#x60;image&#x60;, &#x60;video&#x60;, &#x60;audio&#x60;, &#x60;document&#x60;, or &#x60;sticker&#x60; messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).
- */
-@ApiModel(description = "Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageMedia {
-  public static final String SERIALIZED_NAME_LINK = "link";
-  /**
-   * The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.
-  **/
-  @SerializedName(SERIALIZED_NAME_LINK)
-  private String link;
+public class WhatsappMessageMedia extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(WhatsappMessageMedia.class.getName());
 
-  public static final String SERIALIZED_NAME_CAPTION = "caption";
-  /**
-   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
-  **/
-  @SerializedName(SERIALIZED_NAME_CAPTION)
-  private String caption;
+    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        @SuppressWarnings("unchecked")
+        @Override
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+            if (!WhatsappMessageMedia.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'WhatsappMessageMedia' and its subtypes
+            }
+            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<WhatsappMessageMediaOneOf> adapterWhatsappMessageMediaOneOf = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageMediaOneOf.class));
+            final TypeAdapter<WhatsappMessageMediaOneOf1> adapterWhatsappMessageMediaOneOf1 = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageMediaOneOf1.class));
 
-  public static final String SERIALIZED_NAME_FILENAME = "filename";
-  /**
-   * Describes the filename for the specific document. Use only with &#x60;document&#x60; media.
-  **/
-  @SerializedName(SERIALIZED_NAME_FILENAME)
-  private String filename;
+            return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageMedia>() {
+                @Override
+                public void write(JsonWriter out, WhatsappMessageMedia value) throws IOException {
+                    if (value == null || value.getActualInstance() == null) {
+                        elementAdapter.write(out, null);
+                        return;
+                    }
 
-  public WhatsappMessageMedia() { 
-  }
+                    // check if the actual instance is of the type `WhatsappMessageMediaOneOf`
+                    if (value.getActualInstance() instanceof WhatsappMessageMediaOneOf) {
+                        JsonObject obj = adapterWhatsappMessageMediaOneOf.toJsonTree((WhatsappMessageMediaOneOf)value.getActualInstance()).getAsJsonObject();
+                        elementAdapter.write(out, obj);
+                        return;
+                    }
 
-  public WhatsappMessageMedia link(String link) {
-    
-    this.link = link;
-    return this;
-  }
+                    // check if the actual instance is of the type `WhatsappMessageMediaOneOf1`
+                    if (value.getActualInstance() instanceof WhatsappMessageMediaOneOf1) {
+                        JsonObject obj = adapterWhatsappMessageMediaOneOf1.toJsonTree((WhatsappMessageMediaOneOf1)value.getActualInstance()).getAsJsonObject();
+                        elementAdapter.write(out, obj);
+                        return;
+                    }
 
-   /**
-   * The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.
-   * @return link
-  **/
-  @javax.annotation.Nonnull
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: WhatsappMessageMediaOneOf, WhatsappMessageMediaOneOf1");
+                }
 
-  public String getLink() {
-    return link;
-  }
+                @Override
+                public WhatsappMessageMedia read(JsonReader in) throws IOException {
+                    Object deserialized = null;
+                    JsonObject jsonObject = elementAdapter.read(in).getAsJsonObject();
 
+                    int match = 0;
+                    ArrayList<String> errorMessages = new ArrayList<>();
+                    TypeAdapter actualAdapter = elementAdapter;
 
-  /**
-   * The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.
-   **/
-  @ApiModelProperty(required = true, value = "The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.")
-  public void setLink(String link) {
-    this.link = link;
-  }
+                    // deserialize WhatsappMessageMediaOneOf
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        WhatsappMessageMediaOneOf.validateJsonObject(jsonObject);
+                        actualAdapter = adapterWhatsappMessageMediaOneOf;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'WhatsappMessageMediaOneOf'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for WhatsappMessageMediaOneOf failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'WhatsappMessageMediaOneOf'", e);
+                    }
 
+                    // deserialize WhatsappMessageMediaOneOf1
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        WhatsappMessageMediaOneOf1.validateJsonObject(jsonObject);
+                        actualAdapter = adapterWhatsappMessageMediaOneOf1;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'WhatsappMessageMediaOneOf1'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for WhatsappMessageMediaOneOf1 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'WhatsappMessageMediaOneOf1'", e);
+                    }
 
-  public WhatsappMessageMedia caption(String caption) {
-    
-    this.caption = caption;
-    return this;
-  }
+                    if (match == 1) {
+                        WhatsappMessageMedia ret = new WhatsappMessageMedia();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
+                        return ret;
+                    }
 
-   /**
-   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
-   * @return caption
-  **/
-  @javax.annotation.Nullable
-
-  public String getCaption() {
-    return caption;
-  }
-
-
-  /**
-   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
-   **/
-  @ApiModelProperty(value = "Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `template` or `interactive` messages.")
-  public void setCaption(String caption) {
-    this.caption = caption;
-  }
-
-
-  public WhatsappMessageMedia filename(String filename) {
-    
-    this.filename = filename;
-    return this;
-  }
-
-   /**
-   * Describes the filename for the specific document. Use only with &#x60;document&#x60; media.
-   * @return filename
-  **/
-  @javax.annotation.Nullable
-
-  public String getFilename() {
-    return filename;
-  }
-
-
-  /**
-   * Describes the filename for the specific document. Use only with &#x60;document&#x60; media.
-   **/
-  @ApiModelProperty(value = "Describes the filename for the specific document. Use only with `document` media.")
-  public void setFilename(String filename) {
-    this.filename = filename;
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   */
-  public WhatsappMessageMedia putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+                    throw new IOException(String.format("Failed deserialization for WhatsappMessageMedia: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonObject.toString()));
+                }
+            }.nullSafe();
+        }
     }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
 
-  /**
-   * Return the additional (undeclared) property.
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
+    // store a list of schema names defined in oneOf
+    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
+    public WhatsappMessageMedia() {
+        super("oneOf", Boolean.FALSE);
     }
-    return this.additionalProperties.get(key);
-  }
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public WhatsappMessageMedia(WhatsappMessageMediaOneOf o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public WhatsappMessageMedia(WhatsappMessageMediaOneOf1 o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
     }
-    WhatsappMessageMedia whatsappMessageMedia = (WhatsappMessageMedia) o;
-    return Objects.equals(this.link, whatsappMessageMedia.link) &&
-        Objects.equals(this.caption, whatsappMessageMedia.caption) &&
-        Objects.equals(this.filename, whatsappMessageMedia.filename)&&
-        Objects.equals(this.additionalProperties, whatsappMessageMedia.additionalProperties);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(link, caption, filename, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageMedia {\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    caption: ").append(toIndentedString(caption)).append("\n");
-    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    static {
+        schemas.put("WhatsappMessageMediaOneOf", new GenericType<WhatsappMessageMediaOneOf>() {
+        });
+        schemas.put("WhatsappMessageMediaOneOf1", new GenericType<WhatsappMessageMediaOneOf1>() {
+        });
     }
-    return o.toString().replace("\n", "\n    ");
-  }
 
+    @Override
+    public Map<String, GenericType> getSchemas() {
+        return WhatsappMessageMedia.schemas;
+    }
 
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * WhatsappMessageMediaOneOf, WhatsappMessageMediaOneOf1
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof WhatsappMessageMediaOneOf) {
+            super.setActualInstance(instance);
+            return;
+        }
 
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("link");
-    openapiFields.add("caption");
-    openapiFields.add("filename");
+        if (instance instanceof WhatsappMessageMediaOneOf1) {
+            super.setActualInstance(instance);
+            return;
+        }
 
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("link");
-  }
+        throw new RuntimeException("Invalid instance type. Must be WhatsappMessageMediaOneOf, WhatsappMessageMediaOneOf1");
+    }
+
+    /**
+     * Get the actual instance, which can be the following:
+     * WhatsappMessageMediaOneOf, WhatsappMessageMediaOneOf1
+     *
+     * @return The actual instance (WhatsappMessageMediaOneOf, WhatsappMessageMediaOneOf1)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `WhatsappMessageMediaOneOf`. If the actual instance is not `WhatsappMessageMediaOneOf`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `WhatsappMessageMediaOneOf`
+     * @throws ClassCastException if the instance is not `WhatsappMessageMediaOneOf`
+     */
+    public WhatsappMessageMediaOneOf getWhatsappMessageMediaOneOf() throws ClassCastException {
+        return (WhatsappMessageMediaOneOf)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `WhatsappMessageMediaOneOf1`. If the actual instance is not `WhatsappMessageMediaOneOf1`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `WhatsappMessageMediaOneOf1`
+     * @throws ClassCastException if the instance is not `WhatsappMessageMediaOneOf1`
+     */
+    public WhatsappMessageMediaOneOf1 getWhatsappMessageMediaOneOf1() throws ClassCastException {
+        return (WhatsappMessageMediaOneOf1)super.getActualInstance();
+    }
+
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -254,92 +239,27 @@ public class WhatsappMessageMedia {
   * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageMedia
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (WhatsappMessageMedia.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageMedia is not found in the empty JSON string", WhatsappMessageMedia.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WhatsappMessageMedia.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
-      }
-      if (jsonObj.get("caption") != null && !jsonObj.get("caption").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `caption` to be a primitive type in the JSON string but got `%s`", jsonObj.get("caption").toString()));
-      }
-      if (jsonObj.get("filename") != null && !jsonObj.get("filename").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageMedia.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageMedia' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageMedia> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageMedia.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageMedia>() {
-           @Override
-           public void write(JsonWriter out, WhatsappMessageMedia value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additonal properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WhatsappMessageMedia read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             // store additional fields in the deserialized instance
-             WhatsappMessageMedia instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format("The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else { // non-primitive type
-                   instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
-           }
-
-       }.nullSafe();
+    // validate oneOf schemas one by one
+    int validCount = 0;
+    ArrayList<String> errorMessages = new ArrayList<>();
+    // validate the json string with WhatsappMessageMediaOneOf
+    try {
+      WhatsappMessageMediaOneOf.validateJsonObject(jsonObj);
+      validCount++;
+    } catch (Exception e) {
+      errorMessages.add(String.format("Deserialization for WhatsappMessageMediaOneOf failed with `%s`.", e.getMessage()));
+      // continue to the next one
+    }
+    // validate the json string with WhatsappMessageMediaOneOf1
+    try {
+      WhatsappMessageMediaOneOf1.validateJsonObject(jsonObj);
+      validCount++;
+    } catch (Exception e) {
+      errorMessages.add(String.format("Deserialization for WhatsappMessageMediaOneOf1 failed with `%s`.", e.getMessage()));
+      // continue to the next one
+    }
+    if (validCount != 1) {
+      throw new IOException(String.format("The JSON string is invalid for WhatsappMessageMedia with oneOf schemas: WhatsappMessageMediaOneOf, WhatsappMessageMediaOneOf1. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
     }
   }
 

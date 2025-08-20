@@ -22,6 +22,9 @@ Represents a webhook event payload. Every event contains certain common properti
 |**whatsappPhoneNumber** | [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  |  [optional] |
 |**whatsappPayment** | [**WhatsappPayment**](WhatsappPayment.md) |  |  [optional] |
 |**whatsappTemplate** | [**WhatsappTemplate**](WhatsappTemplate.md) |  |  [optional] |
+|**contactAttributesChanged** | [**ContactAttributesChanged**](ContactAttributesChanged.md) |  |  [optional] |
+|**contactCreated** | [**ContactCreated**](ContactCreated.md) |  |  [optional] |
+|**contactDeleted** | [**ContactDeleted**](ContactDeleted.md) |  |  [optional] |
 
 
 

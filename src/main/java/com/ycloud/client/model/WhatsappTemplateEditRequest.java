@@ -66,6 +66,13 @@ public class WhatsappTemplateEditRequest {
   @SerializedName(SERIALIZED_NAME_MESSAGE_SEND_TTL_SECONDS)
   private Integer messageSendTtlSeconds;
 
+  public static final String SERIALIZED_NAME_CTA_URL_LINK_TRACKING_OPTED_OUT = "ctaUrlLinkTrackingOptedOut";
+  /**
+   * **Optional.** Indicates if template button click tracking is disabled. Set to &#x60;true&#x60; to disable button click tracking on the template, or &#x60;false&#x60; to enable. You can disable button click tracking on an individual template by setting this field to &#x60;true&#x60;. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template&#39;s insights.
+  **/
+  @SerializedName(SERIALIZED_NAME_CTA_URL_LINK_TRACKING_OPTED_OUT)
+  private Boolean ctaUrlLinkTrackingOptedOut;
+
   public WhatsappTemplateEditRequest() { 
   }
 
@@ -124,6 +131,32 @@ public class WhatsappTemplateEditRequest {
     this.messageSendTtlSeconds = messageSendTtlSeconds;
   }
 
+
+  public WhatsappTemplateEditRequest ctaUrlLinkTrackingOptedOut(Boolean ctaUrlLinkTrackingOptedOut) {
+    
+    this.ctaUrlLinkTrackingOptedOut = ctaUrlLinkTrackingOptedOut;
+    return this;
+  }
+
+   /**
+   * **Optional.** Indicates if template button click tracking is disabled. Set to &#x60;true&#x60; to disable button click tracking on the template, or &#x60;false&#x60; to enable. You can disable button click tracking on an individual template by setting this field to &#x60;true&#x60;. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template&#39;s insights.
+   * @return ctaUrlLinkTrackingOptedOut
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getCtaUrlLinkTrackingOptedOut() {
+    return ctaUrlLinkTrackingOptedOut;
+  }
+
+
+  /**
+   * **Optional.** Indicates if template button click tracking is disabled. Set to &#x60;true&#x60; to disable button click tracking on the template, or &#x60;false&#x60; to enable. You can disable button click tracking on an individual template by setting this field to &#x60;true&#x60;. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template&#39;s insights.
+   **/
+  @ApiModelProperty(example = "true", value = "**Optional.** Indicates if template button click tracking is disabled. Set to `true` to disable button click tracking on the template, or `false` to enable. You can disable button click tracking on an individual template by setting this field to `true`. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template's insights.")
+  public void setCtaUrlLinkTrackingOptedOut(Boolean ctaUrlLinkTrackingOptedOut) {
+    this.ctaUrlLinkTrackingOptedOut = ctaUrlLinkTrackingOptedOut;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -171,13 +204,14 @@ public class WhatsappTemplateEditRequest {
     }
     WhatsappTemplateEditRequest whatsappTemplateEditRequest = (WhatsappTemplateEditRequest) o;
     return Objects.equals(this.components, whatsappTemplateEditRequest.components) &&
-        Objects.equals(this.messageSendTtlSeconds, whatsappTemplateEditRequest.messageSendTtlSeconds)&&
+        Objects.equals(this.messageSendTtlSeconds, whatsappTemplateEditRequest.messageSendTtlSeconds) &&
+        Objects.equals(this.ctaUrlLinkTrackingOptedOut, whatsappTemplateEditRequest.ctaUrlLinkTrackingOptedOut)&&
         Objects.equals(this.additionalProperties, whatsappTemplateEditRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(components, messageSendTtlSeconds, additionalProperties);
+    return Objects.hash(components, messageSendTtlSeconds, ctaUrlLinkTrackingOptedOut, additionalProperties);
   }
 
   @Override
@@ -186,6 +220,7 @@ public class WhatsappTemplateEditRequest {
     sb.append("class WhatsappTemplateEditRequest {\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    messageSendTtlSeconds: ").append(toIndentedString(messageSendTtlSeconds)).append("\n");
+    sb.append("    ctaUrlLinkTrackingOptedOut: ").append(toIndentedString(ctaUrlLinkTrackingOptedOut)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -211,6 +246,7 @@ public class WhatsappTemplateEditRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("components");
     openapiFields.add("messageSendTtlSeconds");
+    openapiFields.add("ctaUrlLinkTrackingOptedOut");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

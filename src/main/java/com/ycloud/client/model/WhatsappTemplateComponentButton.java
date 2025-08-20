@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappTemplateComponentButtonOtpSupportedApp;
 import com.ycloud.client.model.WhatsappTemplateComponentButtonOtpType;
 import com.ycloud.client.model.WhatsappTemplateComponentButtonType;
 import io.swagger.annotations.ApiModel;
@@ -95,17 +96,24 @@ public class WhatsappTemplateComponentButton {
 
   public static final String SERIALIZED_NAME_PACKAGE_NAME = "package_name";
   /**
-   * **One-tap and zero-tap buttons only.** Your Android app&#39;s package name.
+   * **Deprecated since 2025-07-23. Use &#x60;supported_apps&#x60; instead.** **One-tap and zero-tap buttons only.** Your Android app&#39;s package name.
   **/
   @SerializedName(SERIALIZED_NAME_PACKAGE_NAME)
   private String packageName;
 
   public static final String SERIALIZED_NAME_SIGNATURE_HASH = "signature_hash";
   /**
-   * **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
+   * **Deprecated since 2025-07-23. Use &#x60;supported_apps&#x60; instead.** **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
   **/
   @SerializedName(SERIALIZED_NAME_SIGNATURE_HASH)
   private String signatureHash;
+
+  public static final String SERIALIZED_NAME_SUPPORTED_APPS = "supported_apps";
+  /**
+   * **One-tap and zero-tap buttons only.** List of supported apps.
+  **/
+  @SerializedName(SERIALIZED_NAME_SUPPORTED_APPS)
+  private List<WhatsappTemplateComponentButtonOtpSupportedApp> supportedApps = null;
 
   public static final String SERIALIZED_NAME_ZERO_TAP_TERMS_ACCEPTED = "zero_tap_terms_accepted";
   /**
@@ -320,9 +328,11 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **One-tap and zero-tap buttons only.** Your Android app&#39;s package name.
+   * **Deprecated since 2025-07-23. Use &#x60;supported_apps&#x60; instead.** **One-tap and zero-tap buttons only.** Your Android app&#39;s package name.
    * @return packageName
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
 
   public String getPackageName() {
@@ -331,9 +341,9 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **One-tap and zero-tap buttons only.** Your Android app&#39;s package name.
+   * **Deprecated since 2025-07-23. Use &#x60;supported_apps&#x60; instead.** **One-tap and zero-tap buttons only.** Your Android app&#39;s package name.
    **/
-  @ApiModelProperty(example = "com.example.myapplication", value = "**One-tap and zero-tap buttons only.** Your Android app's package name.")
+  @ApiModelProperty(example = "com.example.myapplication", value = "**Deprecated since 2025-07-23. Use `supported_apps` instead.** **One-tap and zero-tap buttons only.** Your Android app's package name.")
   public void setPackageName(String packageName) {
     this.packageName = packageName;
   }
@@ -346,9 +356,11 @@ public class WhatsappTemplateComponentButton {
   }
 
    /**
-   * **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
+   * **Deprecated since 2025-07-23. Use &#x60;supported_apps&#x60; instead.** **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
    * @return signatureHash
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
 
   public String getSignatureHash() {
@@ -357,11 +369,45 @@ public class WhatsappTemplateComponentButton {
 
 
   /**
-   * **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
+   * **Deprecated since 2025-07-23. Use &#x60;supported_apps&#x60; instead.** **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).
    **/
-  @ApiModelProperty(example = "K8a%2FAINcGX7", value = "**One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).")
+  @ApiModelProperty(example = "K8a%2FAINcGX7", value = "**Deprecated since 2025-07-23. Use `supported_apps` instead.** **One-tap and zero-tap buttons only.** Your app signing key hash. See [App Signing Key Hash](https://developers.facebook.com/docs/whatsapp/business-management-api/authentication-templates/zero-tap-authentication-templates#app-signing-key-hash).")
   public void setSignatureHash(String signatureHash) {
     this.signatureHash = signatureHash;
+  }
+
+
+  public WhatsappTemplateComponentButton supportedApps(List<WhatsappTemplateComponentButtonOtpSupportedApp> supportedApps) {
+    
+    this.supportedApps = supportedApps;
+    return this;
+  }
+
+  public WhatsappTemplateComponentButton addSupportedAppsItem(WhatsappTemplateComponentButtonOtpSupportedApp supportedAppsItem) {
+    if (this.supportedApps == null) {
+      this.supportedApps = new ArrayList<>();
+    }
+    this.supportedApps.add(supportedAppsItem);
+    return this;
+  }
+
+   /**
+   * **One-tap and zero-tap buttons only.** List of supported apps.
+   * @return supportedApps
+  **/
+  @javax.annotation.Nullable
+
+  public List<WhatsappTemplateComponentButtonOtpSupportedApp> getSupportedApps() {
+    return supportedApps;
+  }
+
+
+  /**
+   * **One-tap and zero-tap buttons only.** List of supported apps.
+   **/
+  @ApiModelProperty(value = "**One-tap and zero-tap buttons only.** List of supported apps.")
+  public void setSupportedApps(List<WhatsappTemplateComponentButtonOtpSupportedApp> supportedApps) {
+    this.supportedApps = supportedApps;
   }
 
 
@@ -608,6 +654,7 @@ public class WhatsappTemplateComponentButton {
         Objects.equals(this.autofillText, whatsappTemplateComponentButton.autofillText) &&
         Objects.equals(this.packageName, whatsappTemplateComponentButton.packageName) &&
         Objects.equals(this.signatureHash, whatsappTemplateComponentButton.signatureHash) &&
+        Objects.equals(this.supportedApps, whatsappTemplateComponentButton.supportedApps) &&
         Objects.equals(this.zeroTapTermsAccepted, whatsappTemplateComponentButton.zeroTapTermsAccepted) &&
         Objects.equals(this.example, whatsappTemplateComponentButton.example) &&
         Objects.equals(this.flowId, whatsappTemplateComponentButton.flowId) &&
@@ -620,7 +667,7 @@ public class WhatsappTemplateComponentButton {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, zeroTapTermsAccepted, example, flowId, flowName, flowJson, flowAction, navigateScreen, additionalProperties);
+    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, supportedApps, zeroTapTermsAccepted, example, flowId, flowName, flowJson, flowAction, navigateScreen, additionalProperties);
   }
 
   @Override
@@ -635,6 +682,7 @@ public class WhatsappTemplateComponentButton {
     sb.append("    autofillText: ").append(toIndentedString(autofillText)).append("\n");
     sb.append("    packageName: ").append(toIndentedString(packageName)).append("\n");
     sb.append("    signatureHash: ").append(toIndentedString(signatureHash)).append("\n");
+    sb.append("    supportedApps: ").append(toIndentedString(supportedApps)).append("\n");
     sb.append("    zeroTapTermsAccepted: ").append(toIndentedString(zeroTapTermsAccepted)).append("\n");
     sb.append("    example: ").append(toIndentedString(example)).append("\n");
     sb.append("    flowId: ").append(toIndentedString(flowId)).append("\n");
@@ -673,6 +721,7 @@ public class WhatsappTemplateComponentButton {
     openapiFields.add("autofill_text");
     openapiFields.add("package_name");
     openapiFields.add("signature_hash");
+    openapiFields.add("supported_apps");
     openapiFields.add("zero_tap_terms_accepted");
     openapiFields.add("example");
     openapiFields.add("flow_id");
@@ -724,6 +773,18 @@ public class WhatsappTemplateComponentButton {
       }
       if (jsonObj.get("signature_hash") != null && !jsonObj.get("signature_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signature_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature_hash").toString()));
+      }
+      JsonArray jsonArraysupportedApps = jsonObj.getAsJsonArray("supported_apps");
+      if (jsonArraysupportedApps != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("supported_apps").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `supported_apps` to be an array in the JSON string but got `%s`", jsonObj.get("supported_apps").toString()));
+        }
+
+        // validate the optional field `supported_apps` (array)
+        for (int i = 0; i < jsonArraysupportedApps.size(); i++) {
+          WhatsappTemplateComponentButtonOtpSupportedApp.validateJsonObject(jsonArraysupportedApps.get(i).getAsJsonObject());
+        };
       }
       // ensure the json data is an array
       if (jsonObj.get("example") != null && !jsonObj.get("example").isJsonArray()) {
