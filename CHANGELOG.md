@@ -1,4 +1,6 @@
 # Changelog
+## 1.15.5 (2025-08-20)
+- Support [Calling](https://docs.ycloud.com/reference/whatsapp-calling-examples)
 ## 1.15.4 (2025-06-30)
 - Add `pricingModel` to the WhatsApp Message object.
 - Add `pricingType` to the WhatsApp Message object.
