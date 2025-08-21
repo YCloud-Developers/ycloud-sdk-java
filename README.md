@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.15.5</version>
+  <version>1.15.6</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.15.5"
+     implementation "com.ycloud:ycloud-sdk-java:1.15.6"
   }
 ```
 
@@ -171,8 +171,6 @@ Class | Method | HTTP request | Description
  - [Contact](docs/Contact.md)
  - [ContactAttribute](docs/ContactAttribute.md)
  - [ContactAttributeChange](docs/ContactAttributeChange.md)
- - [ContactAttributeChangeNewValue](docs/ContactAttributeChangeNewValue.md)
- - [ContactAttributeChangeOldValue](docs/ContactAttributeChangeOldValue.md)
  - [ContactAttributesChanged](docs/ContactAttributesChanged.md)
  - [ContactCreateRequest](docs/ContactCreateRequest.md)
  - [ContactCreated](docs/ContactCreated.md)

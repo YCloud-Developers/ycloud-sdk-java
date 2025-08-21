@@ -3014,12 +3014,13 @@ components:
         sourceType:
           $ref: '#/components/schemas/ContactSourceType'
         sourceId:
-          description: 来源标识符。与联系人创建来源相关的唯一标识符。
+          description: Source identifier. A unique identifier related to the contact
+            creation source.
           example: batch_import_123
           maxLength: 255
           type: string
         sourceUrl:
-          description: 来源URL。联系人创建时的来源链接地址。
+          description: Source URL. The source link address where the contact was created.
           example: https://example.com/signup
           maxLength: 500
           type: string
@@ -3229,8 +3230,10 @@ components:
           type: string
       type: object
     ContactSourceType:
-      description: "联系人来源类型的枚举值。此为内部类型标识，非页面显示名称。\n每个枚举值对应的显示名称如下：\n- WHATSAPP: \"\
-        Inbound message\"\n- GROWTH_TOOL: \"Link/QR Code\"\n- MANUALLY_ADDED: \"Manually\
+      description: "Contact source type enumeration values. These are internal type\
+        \ identifiers, not the display names shown on the contact page.\nEach enumeration\
+        \ value corresponds to the following display names:\n- WHATSAPP: \"Inbound\
+        \ message\"\n- GROWTH_TOOL: \"Link/QR Code\"\n- MANUALLY_ADDED: \"Manually\
         \ added\"\n- FILE_IMPORT: \"File import\"\n- SHOPIFY: \"Shopify\"\n- API:\
         \ \"API added\"\n- AD: \"AD\"\n- POST: \"Post\"\n- CALLING: \"Calling\"\n\
         - SMB: \"Whatsapp Business App\"\n- UNKNOWN: \"Unknown\""
@@ -3273,14 +3276,25 @@ components:
           example:
             tags:
               newValue:
-              - fsadf
+              - customer
+              - vip
               extra:
               - action: ADDED
                 id: 686dd294334be8606a5bfxxx
-                value: tag1
+                value: customer
             waba_id:
               oldValue: wabaId1
               newValue: wabaId2
+              extra:
+              - action: CHANGED
+            age:
+              oldValue: 25
+              newValue: 26
+              extra:
+              - action: CHANGED
+            is_verified:
+              oldValue: false
+              newValue: true
               extra:
               - action: CHANGED
           type: object
@@ -3294,9 +3308,17 @@ components:
         \ new value, and change actions."
       properties:
         oldValue:
-          $ref: '#/components/schemas/ContactAttributeChange_oldValue'
+          description: "The previous value of the attribute before the change.\nCan\
+            \ be a string, number, array, or boolean depending on the attribute type.\n\
+            This field is not included when the value is null."
+          example: previous_value
         newValue:
-          $ref: '#/components/schemas/ContactAttributeChange_newValue'
+          description: "The new value of the attribute after the change.\nCan be a\
+            \ string, number, array, or boolean depending on the attribute type.\n\
+            This field is not included when the value is null."
+          example:
+          - tag1
+          - tag2
         extra:
           description: An array of change actions that describe what operations were
             performed on this attribute.
@@ -40930,24 +40952,6 @@ components:
       required:
       - flowJson
       type: object
-    ContactAttributeChange_oldValue:
-      description: "The previous value of the attribute before the change.\nCan be\
-        \ a string, number, array, or null. Not included when the value is null."
-      oneOf:
-      - type: string
-      - type: number
-      - items:
-          type: string
-        type: array
-    ContactAttributeChange_newValue:
-      description: "The new value of the attribute after the change.\nCan be a string,\
-        \ number, array, or null. Not included when the value is null."
-      oneOf:
-      - type: string
-      - type: number
-      - items:
-          type: string
-        type: array
     WhatsappInboundMessageInteractive_button_reply:
       description: Sent when a customer clicks a button. Returned when `type` is `button_reply`.
       properties:

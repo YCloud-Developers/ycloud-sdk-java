@@ -131,7 +131,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("ycloud-sdk-java/1.15.5");
+        setUserAgent("ycloud-sdk-java/1.15.6");
 
         authentications = new HashMap<String, Authentication>();
     }

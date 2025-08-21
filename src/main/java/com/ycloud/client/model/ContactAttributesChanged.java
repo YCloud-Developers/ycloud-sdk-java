@@ -156,7 +156,7 @@ public class ContactAttributesChanged {
   /**
    * An object containing the changed attributes. Each key represents the name of the changed attribute, and the value contains the old value, new value, and change actions.
    **/
-  @ApiModelProperty(example = "{\"tags\":{\"newValue\":[\"fsadf\"],\"extra\":[{\"action\":\"ADDED\",\"id\":\"686dd294334be8606a5bfxxx\",\"value\":\"tag1\"}]},\"waba_id\":{\"oldValue\":\"wabaId1\",\"newValue\":\"wabaId2\",\"extra\":[{\"action\":\"CHANGED\"}]}}", required = true, value = "An object containing the changed attributes. Each key represents the name of the changed attribute, and the value contains the old value, new value, and change actions.")
+  @ApiModelProperty(example = "{\"tags\":{\"newValue\":[\"customer\",\"vip\"],\"extra\":[{\"action\":\"ADDED\",\"id\":\"686dd294334be8606a5bfxxx\",\"value\":\"customer\"}]},\"waba_id\":{\"oldValue\":\"wabaId1\",\"newValue\":\"wabaId2\",\"extra\":[{\"action\":\"CHANGED\"}]},\"age\":{\"oldValue\":25,\"newValue\":26,\"extra\":[{\"action\":\"CHANGED\"}]},\"is_verified\":{\"oldValue\":false,\"newValue\":true,\"extra\":[{\"action\":\"CHANGED\"}]}}", required = true, value = "An object containing the changed attributes. Each key represents the name of the changed attribute, and the value contains the old value, new value, and change actions.")
   public void setChangedAttributes(Map<String, ContactAttributeChange> changedAttributes) {
     this.changedAttributes = changedAttributes;
   }

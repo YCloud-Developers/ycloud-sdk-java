@@ -21,8 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.AttributeChangeAction;
-import com.ycloud.client.model.ContactAttributeChangeNewValue;
-import com.ycloud.client.model.ContactAttributeChangeOldValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -57,15 +55,17 @@ import com.ycloud.client.JSON;
 public class ContactAttributeChange {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   /**
+   * The previous value of the attribute before the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.
   **/
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private ContactAttributeChangeOldValue oldValue;
+  private Object oldValue = null;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   /**
+   * The new value of the attribute after the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.
   **/
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private ContactAttributeChangeNewValue newValue;
+  private Object newValue = null;
 
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   /**
@@ -77,52 +77,54 @@ public class ContactAttributeChange {
   public ContactAttributeChange() { 
   }
 
-  public ContactAttributeChange oldValue(ContactAttributeChangeOldValue oldValue) {
+  public ContactAttributeChange oldValue(Object oldValue) {
     
     this.oldValue = oldValue;
     return this;
   }
 
    /**
-   * Get oldValue
+   * The previous value of the attribute before the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.
    * @return oldValue
   **/
   @javax.annotation.Nullable
 
-  public ContactAttributeChangeOldValue getOldValue() {
+  public Object getOldValue() {
     return oldValue;
   }
 
 
   /**
+   * The previous value of the attribute before the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.
    **/
-  @ApiModelProperty(value = "")
-  public void setOldValue(ContactAttributeChangeOldValue oldValue) {
+  @ApiModelProperty(example = "previous_value", value = "The previous value of the attribute before the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.")
+  public void setOldValue(Object oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public ContactAttributeChange newValue(ContactAttributeChangeNewValue newValue) {
+  public ContactAttributeChange newValue(Object newValue) {
     
     this.newValue = newValue;
     return this;
   }
 
    /**
-   * Get newValue
+   * The new value of the attribute after the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.
    * @return newValue
   **/
   @javax.annotation.Nullable
 
-  public ContactAttributeChangeNewValue getNewValue() {
+  public Object getNewValue() {
     return newValue;
   }
 
 
   /**
+   * The new value of the attribute after the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.
    **/
-  @ApiModelProperty(value = "")
-  public void setNewValue(ContactAttributeChangeNewValue newValue) {
+  @ApiModelProperty(example = "[\"tag1\",\"tag2\"]", value = "The new value of the attribute after the change. Can be a string, number, array, or boolean depending on the attribute type. This field is not included when the value is null.")
+  public void setNewValue(Object newValue) {
     this.newValue = newValue;
   }
 
@@ -268,14 +270,6 @@ public class ContactAttributeChange {
         } else { // has required fields
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContactAttributeChange is not found in the empty JSON string", ContactAttributeChange.openapiRequiredFields.toString()));
         }
-      }
-      // validate the optional field `oldValue`
-      if (jsonObj.getAsJsonObject("oldValue") != null) {
-        ContactAttributeChangeOldValue.validateJsonObject(jsonObj.getAsJsonObject("oldValue"));
-      }
-      // validate the optional field `newValue`
-      if (jsonObj.getAsJsonObject("newValue") != null) {
-        ContactAttributeChangeNewValue.validateJsonObject(jsonObj.getAsJsonObject("newValue"));
       }
       JsonArray jsonArrayextra = jsonObj.getAsJsonArray("extra");
       if (jsonArrayextra != null) {

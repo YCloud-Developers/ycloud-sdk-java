@@ -147,14 +147,14 @@ public class Contact {
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "sourceId";
   /**
-   * 来源标识符。与联系人创建来源相关的唯一标识符。
+   * Source identifier. A unique identifier related to the contact creation source.
   **/
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
 
   public static final String SERIALIZED_NAME_SOURCE_URL = "sourceUrl";
   /**
-   * 来源URL。联系人创建时的来源链接地址。
+   * Source URL. The source link address where the contact was created.
   **/
   @SerializedName(SERIALIZED_NAME_SOURCE_URL)
   private String sourceUrl;
@@ -522,7 +522,7 @@ public class Contact {
   }
 
    /**
-   * 来源标识符。与联系人创建来源相关的唯一标识符。
+   * Source identifier. A unique identifier related to the contact creation source.
    * @return sourceId
   **/
   @javax.annotation.Nullable
@@ -533,9 +533,9 @@ public class Contact {
 
 
   /**
-   * 来源标识符。与联系人创建来源相关的唯一标识符。
+   * Source identifier. A unique identifier related to the contact creation source.
    **/
-  @ApiModelProperty(example = "batch_import_123", value = "来源标识符。与联系人创建来源相关的唯一标识符。")
+  @ApiModelProperty(example = "batch_import_123", value = "Source identifier. A unique identifier related to the contact creation source.")
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
   }
@@ -548,7 +548,7 @@ public class Contact {
   }
 
    /**
-   * 来源URL。联系人创建时的来源链接地址。
+   * Source URL. The source link address where the contact was created.
    * @return sourceUrl
   **/
   @javax.annotation.Nullable
@@ -559,9 +559,9 @@ public class Contact {
 
 
   /**
-   * 来源URL。联系人创建时的来源链接地址。
+   * Source URL. The source link address where the contact was created.
    **/
-  @ApiModelProperty(example = "https://example.com/signup", value = "来源URL。联系人创建时的来源链接地址。")
+  @ApiModelProperty(example = "https://example.com/signup", value = "Source URL. The source link address where the contact was created.")
   public void setSourceUrl(String sourceUrl) {
     this.sourceUrl = sourceUrl;
   }

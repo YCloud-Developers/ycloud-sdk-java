@@ -95,8 +95,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.Contact.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactAttribute.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactAttributeChange.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactAttributeChangeNewValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactAttributeChangeOldValue.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactAttributesChanged.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactCreateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactCreated.CustomTypeAdapterFactory());

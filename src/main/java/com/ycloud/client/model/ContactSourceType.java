@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * 联系人来源类型的枚举值。此为内部类型标识，非页面显示名称。 每个枚举值对应的显示名称如下： - WHATSAPP: \&quot;Inbound message\&quot; - GROWTH_TOOL: \&quot;Link/QR Code\&quot; - MANUALLY_ADDED: \&quot;Manually added\&quot; - FILE_IMPORT: \&quot;File import\&quot; - SHOPIFY: \&quot;Shopify\&quot; - API: \&quot;API added\&quot; - AD: \&quot;AD\&quot; - POST: \&quot;Post\&quot; - CALLING: \&quot;Calling\&quot; - SMB: \&quot;Whatsapp Business App\&quot; - UNKNOWN: \&quot;Unknown\&quot;
+ * Contact source type enumeration values. These are internal type identifiers, not the display names shown on the contact page. Each enumeration value corresponds to the following display names: - WHATSAPP: \&quot;Inbound message\&quot; - GROWTH_TOOL: \&quot;Link/QR Code\&quot; - MANUALLY_ADDED: \&quot;Manually added\&quot; - FILE_IMPORT: \&quot;File import\&quot; - SHOPIFY: \&quot;Shopify\&quot; - API: \&quot;API added\&quot; - AD: \&quot;AD\&quot; - POST: \&quot;Post\&quot; - CALLING: \&quot;Calling\&quot; - SMB: \&quot;Whatsapp Business App\&quot; - UNKNOWN: \&quot;Unknown\&quot;
  */
 @JsonAdapter(ContactSourceType.Adapter.class)
 public enum ContactSourceType {

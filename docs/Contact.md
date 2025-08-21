@@ -21,8 +21,8 @@ Represents a contact.
 |**customAttributes** | [**List&lt;ContactCustomAttribute&gt;**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. |  [optional] |
 |**ownerEmail** | **String** | The email address of the contact&#39;s owner. |  [optional] |
 |**sourceType** | **ContactSourceType** |  |  [optional] |
-|**sourceId** | **String** | 来源标识符。与联系人创建来源相关的唯一标识符。 |  [optional] |
-|**sourceUrl** | **String** | 来源URL。联系人创建时的来源链接地址。 |  [optional] |
+|**sourceId** | **String** | Source identifier. A unique identifier related to the contact creation source. |  [optional] |
+|**sourceUrl** | **String** | Source URL. The source link address where the contact was created. |  [optional] |
 
 
 
