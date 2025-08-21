@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <servers>
+    <server>
+      <id>central</id> 
+      <username>w3VWIz</username>
+      <password>NINL29n8tkBfLw8CzpodiMGnqfevqFdt9</password>
+    </server>
+  </servers>
+
+  <!-- 禁用mirrors以直接访问OSSRH -->
+  <mirrors>
+    <!-- 注释掉公司的mirror配置 -->
+    <!--
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>central</mirrorOf>
+      <name>privaty repository</name>
+      <url>http://nexus.taovip.com/nexus/content/groups/public</url>
+    </mirror>
+    -->
+  </mirrors>
+
+</settings>
