@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.15.6</version>
+  <version>1.15.7</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.15.6"
+     implementation "com.ycloud:ycloud-sdk-java:1.15.7"
   }
 ```
 
@@ -155,6 +155,7 @@ Class | Method | HTTP request | Description
 *WhatsappPhoneNumbersApi* | [**retrieveSettings**](docs/WhatsappPhoneNumbersApi.md#retrieveSettings) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Retrieve phone number settings
 *WhatsappPhoneNumbersApi* | [**saveSettings**](docs/WhatsappPhoneNumbersApi.md#saveSettings) | **POST** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Save phone number settings
 *WhatsappPhoneNumbersApi* | [**updateCommerceSettings**](docs/WhatsappPhoneNumbersApi.md#updateCommerceSettings) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Update commerce settings
+*WhatsappPhoneNumbersApi* | [**updateDisplayName**](docs/WhatsappPhoneNumbersApi.md#updateDisplayName) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/displayName | Update a phone number display name
 *WhatsappPhoneNumbersApi* | [**updateProfile**](docs/WhatsappPhoneNumbersApi.md#updateProfile) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a phone number profile
 *WhatsappTemplatesApi* | [**create**](docs/WhatsappTemplatesApi.md#create) | **POST** /whatsapp/templates | Create a template
 *WhatsappTemplatesApi* | [**deleteByName**](docs/WhatsappTemplatesApi.md#deleteByName) | **DELETE** /whatsapp/templates/{wabaId}/{name} | Delete templates by name
@@ -178,6 +179,8 @@ Class | Method | HTTP request | Description
  - [ContactDeleted](docs/ContactDeleted.md)
  - [ContactPage](docs/ContactPage.md)
  - [ContactSourceType](docs/ContactSourceType.md)
+ - [ContactUnsubscribeCreated](docs/ContactUnsubscribeCreated.md)
+ - [ContactUnsubscribeDeleted](docs/ContactUnsubscribeDeleted.md)
  - [ContactUpdateRequest](docs/ContactUpdateRequest.md)
  - [CustomEventDefinition](docs/CustomEventDefinition.md)
  - [CustomEventDefinitionCreateRequest](docs/CustomEventDefinitionCreateRequest.md)
@@ -272,6 +275,7 @@ Class | Method | HTTP request | Description
  - [WhatsappInboundMessageSystem](docs/WhatsappInboundMessageSystem.md)
  - [WhatsappInboundMessageText](docs/WhatsappInboundMessageText.md)
  - [WhatsappInboundMessageType](docs/WhatsappInboundMessageType.md)
+ - [WhatsappListFlowItem](docs/WhatsappListFlowItem.md)
  - [WhatsappMedia](docs/WhatsappMedia.md)
  - [WhatsappMediaUpload200Response](docs/WhatsappMediaUpload200Response.md)
  - [WhatsappMessage](docs/WhatsappMessage.md)
@@ -297,8 +301,7 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveHeader](docs/WhatsappMessageInteractiveHeader.md)
  - [WhatsappMessageLocation](docs/WhatsappMessageLocation.md)
  - [WhatsappMessageMedia](docs/WhatsappMessageMedia.md)
- - [WhatsappMessageMediaOneOf](docs/WhatsappMessageMediaOneOf.md)
- - [WhatsappMessageMediaOneOf1](docs/WhatsappMessageMediaOneOf1.md)
+ - [WhatsappMessageMediaAllOf](docs/WhatsappMessageMediaAllOf.md)
  - [WhatsappMessageOrderAmount](docs/WhatsappMessageOrderAmount.md)
  - [WhatsappMessageOrderBeneficiary](docs/WhatsappMessageOrderBeneficiary.md)
  - [WhatsappMessageOrderDetails](docs/WhatsappMessageOrderDetails.md)
@@ -332,6 +335,8 @@ Class | Method | HTTP request | Description
  - [WhatsappPaymentStatus](docs/WhatsappPaymentStatus.md)
  - [WhatsappPaymentTransaction](docs/WhatsappPaymentTransaction.md)
  - [WhatsappPaymentTransactionError](docs/WhatsappPaymentTransactionError.md)
+ - [WhatsappPhoneNameUpdateRequest](docs/WhatsappPhoneNameUpdateRequest.md)
+ - [WhatsappPhoneNameUpdateResponse](docs/WhatsappPhoneNameUpdateResponse.md)
  - [WhatsappPhoneNumber](docs/WhatsappPhoneNumber.md)
  - [WhatsappPhoneNumberCodeVerificationStatus](docs/WhatsappPhoneNumberCodeVerificationStatus.md)
  - [WhatsappPhoneNumberNameStatus](docs/WhatsappPhoneNumberNameStatus.md)

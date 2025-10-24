@@ -13,6 +13,7 @@
 |**flowJson** | **String** | JSON string of the Flow structure. |  [optional] |
 |**publish** | **Boolean** | If true, the Flow will be created in PUBLISHED state. |  [optional] |
 |**cloneFlowId** | **String** | ID of source Flow to clone. You must have permission to access the specified Flow. |  [optional] |
+|**endpointUri** | **String** | The endpoint URI for the Flow. |  [optional] |
 
 
 

@@ -97,12 +97,26 @@ public class WhatsappPhoneNumber {
   @SerializedName(SERIALIZED_NAME_MESSAGING_LIMIT)
   private String messagingLimit;
 
+  public static final String SERIALIZED_NAME_WHATSAPP_BUSINESS_MANAGER_MESSAGING_LIMIT = "whatsappBusinessManagerMessagingLimit";
+  /**
+   * The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations.
+  **/
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_BUSINESS_MANAGER_MESSAGING_LIMIT)
+  private String whatsappBusinessManagerMessagingLimit;
+
   public static final String SERIALIZED_NAME_VERIFIED_NAME = "verifiedName";
   /**
    * Verified name.
   **/
   @SerializedName(SERIALIZED_NAME_VERIFIED_NAME)
   private String verifiedName;
+
+  public static final String SERIALIZED_NAME_NEW_NAME = "newName";
+  /**
+   * The modified name
+  **/
+  @SerializedName(SERIALIZED_NAME_NEW_NAME)
+  private String newName;
 
   public static final String SERIALIZED_NAME_CODE_VERIFICATION_STATUS = "codeVerificationStatus";
   /**
@@ -319,6 +333,32 @@ public class WhatsappPhoneNumber {
   }
 
 
+  public WhatsappPhoneNumber whatsappBusinessManagerMessagingLimit(String whatsappBusinessManagerMessagingLimit) {
+    
+    this.whatsappBusinessManagerMessagingLimit = whatsappBusinessManagerMessagingLimit;
+    return this;
+  }
+
+   /**
+   * The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations.
+   * @return whatsappBusinessManagerMessagingLimit
+  **/
+  @javax.annotation.Nullable
+
+  public String getWhatsappBusinessManagerMessagingLimit() {
+    return whatsappBusinessManagerMessagingLimit;
+  }
+
+
+  /**
+   * The owning business portfolio&#39;s messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - &#x60;TIER_NOT_SET&#x60;: The business phone number has not been used to send a message yet. - &#x60;TIER_50&#x60;: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_250&#x60;: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_2K&#x60;: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_10K&#x60;: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_100K&#x60;: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - &#x60;TIER_UNLIMITED&#x60;: The business phone number has higher throughput with unlimited business-initiated conversations.
+   **/
+  @ApiModelProperty(example = "TIER_2K", value = "The owning business portfolio's messaging limit. Starting October 7, 2025, messaging limits will instead be calculated and set on a business portfolio basis, and will be shared by all business phone numbers within each portfolio. See also [phone_number_quality_update webhook reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/reference/phone_number_quality_update). - `TIER_NOT_SET`: The business phone number has not been used to send a message yet. - `TIER_50`: Messaging limit of 50 business-initiated conversations in a rolling 24-hour period. - `TIER_250`: Messaging limit of 250 business-initiated conversations in a rolling 24-hour period. - `TIER_2K`: Messaging limit of 2,000 business-initiated conversations in a rolling 24-hour period. - `TIER_10K`: Messaging limit of 10,000 business-initiated conversations in a rolling 24-hour period. - `TIER_100K`: Messaging limit of 100,000 business-initiated conversations in a rolling 24-hour period. - `TIER_UNLIMITED`: The business phone number has higher throughput with unlimited business-initiated conversations.")
+  public void setWhatsappBusinessManagerMessagingLimit(String whatsappBusinessManagerMessagingLimit) {
+    this.whatsappBusinessManagerMessagingLimit = whatsappBusinessManagerMessagingLimit;
+  }
+
+
   public WhatsappPhoneNumber verifiedName(String verifiedName) {
     
     this.verifiedName = verifiedName;
@@ -342,6 +382,32 @@ public class WhatsappPhoneNumber {
   @ApiModelProperty(example = "John's Cake Shop", value = "Verified name.")
   public void setVerifiedName(String verifiedName) {
     this.verifiedName = verifiedName;
+  }
+
+
+  public WhatsappPhoneNumber newName(String newName) {
+    
+    this.newName = newName;
+    return this;
+  }
+
+   /**
+   * The modified name
+   * @return newName
+  **/
+  @javax.annotation.Nullable
+
+  public String getNewName() {
+    return newName;
+  }
+
+
+  /**
+   * The modified name
+   **/
+  @ApiModelProperty(example = "John's Cake", value = "The modified name")
+  public void setNewName(String newName) {
+    this.newName = newName;
   }
 
 
@@ -624,7 +690,9 @@ public class WhatsappPhoneNumber {
         Objects.equals(this.wabaId, whatsappPhoneNumber.wabaId) &&
         Objects.equals(this.qualityRating, whatsappPhoneNumber.qualityRating) &&
         Objects.equals(this.messagingLimit, whatsappPhoneNumber.messagingLimit) &&
+        Objects.equals(this.whatsappBusinessManagerMessagingLimit, whatsappPhoneNumber.whatsappBusinessManagerMessagingLimit) &&
         Objects.equals(this.verifiedName, whatsappPhoneNumber.verifiedName) &&
+        Objects.equals(this.newName, whatsappPhoneNumber.newName) &&
         Objects.equals(this.codeVerificationStatus, whatsappPhoneNumber.codeVerificationStatus) &&
         Objects.equals(this.isOfficialBusinessAccount, whatsappPhoneNumber.isOfficialBusinessAccount) &&
         Objects.equals(this.status, whatsappPhoneNumber.status) &&
@@ -639,7 +707,7 @@ public class WhatsappPhoneNumber {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, phoneNumber, displayPhoneNumber, wabaId, qualityRating, messagingLimit, verifiedName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, additionalProperties);
+    return Objects.hash(id, phoneNumber, displayPhoneNumber, wabaId, qualityRating, messagingLimit, whatsappBusinessManagerMessagingLimit, verifiedName, newName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, additionalProperties);
   }
 
   @Override
@@ -652,7 +720,9 @@ public class WhatsappPhoneNumber {
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    qualityRating: ").append(toIndentedString(qualityRating)).append("\n");
     sb.append("    messagingLimit: ").append(toIndentedString(messagingLimit)).append("\n");
+    sb.append("    whatsappBusinessManagerMessagingLimit: ").append(toIndentedString(whatsappBusinessManagerMessagingLimit)).append("\n");
     sb.append("    verifiedName: ").append(toIndentedString(verifiedName)).append("\n");
+    sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    codeVerificationStatus: ").append(toIndentedString(codeVerificationStatus)).append("\n");
     sb.append("    isOfficialBusinessAccount: ").append(toIndentedString(isOfficialBusinessAccount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -691,7 +761,9 @@ public class WhatsappPhoneNumber {
     openapiFields.add("wabaId");
     openapiFields.add("qualityRating");
     openapiFields.add("messagingLimit");
+    openapiFields.add("whatsappBusinessManagerMessagingLimit");
     openapiFields.add("verifiedName");
+    openapiFields.add("newName");
     openapiFields.add("codeVerificationStatus");
     openapiFields.add("isOfficialBusinessAccount");
     openapiFields.add("status");
@@ -735,8 +807,14 @@ public class WhatsappPhoneNumber {
       if (jsonObj.get("messagingLimit") != null && !jsonObj.get("messagingLimit").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `messagingLimit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("messagingLimit").toString()));
       }
+      if (jsonObj.get("whatsappBusinessManagerMessagingLimit") != null && !jsonObj.get("whatsappBusinessManagerMessagingLimit").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `whatsappBusinessManagerMessagingLimit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("whatsappBusinessManagerMessagingLimit").toString()));
+      }
       if (jsonObj.get("verifiedName") != null && !jsonObj.get("verifiedName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `verifiedName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verifiedName").toString()));
+      }
+      if (jsonObj.get("newName") != null && !jsonObj.get("newName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `newName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newName").toString()));
       }
       if (jsonObj.get("requestedVerifiedName") != null && !jsonObj.get("requestedVerifiedName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `requestedVerifiedName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestedVerifiedName").toString()));

@@ -94,6 +94,13 @@ public class WhatsappFlowCreateRequest {
   @SerializedName(SERIALIZED_NAME_CLONE_FLOW_ID)
   private String cloneFlowId;
 
+  public static final String SERIALIZED_NAME_ENDPOINT_URI = "endpointUri";
+  /**
+   * The endpoint URI for the Flow.
+  **/
+  @SerializedName(SERIALIZED_NAME_ENDPOINT_URI)
+  private String endpointUri;
+
   public WhatsappFlowCreateRequest() { 
   }
 
@@ -257,6 +264,32 @@ public class WhatsappFlowCreateRequest {
     this.cloneFlowId = cloneFlowId;
   }
 
+
+  public WhatsappFlowCreateRequest endpointUri(String endpointUri) {
+    
+    this.endpointUri = endpointUri;
+    return this;
+  }
+
+   /**
+   * The endpoint URI for the Flow.
+   * @return endpointUri
+  **/
+  @javax.annotation.Nullable
+
+  public String getEndpointUri() {
+    return endpointUri;
+  }
+
+
+  /**
+   * The endpoint URI for the Flow.
+   **/
+  @ApiModelProperty(example = "https://example.com/flow-endpoint", value = "The endpoint URI for the Flow.")
+  public void setEndpointUri(String endpointUri) {
+    this.endpointUri = endpointUri;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -308,13 +341,14 @@ public class WhatsappFlowCreateRequest {
         Objects.equals(this.categories, whatsappFlowCreateRequest.categories) &&
         Objects.equals(this.flowJson, whatsappFlowCreateRequest.flowJson) &&
         Objects.equals(this.publish, whatsappFlowCreateRequest.publish) &&
-        Objects.equals(this.cloneFlowId, whatsappFlowCreateRequest.cloneFlowId)&&
+        Objects.equals(this.cloneFlowId, whatsappFlowCreateRequest.cloneFlowId) &&
+        Objects.equals(this.endpointUri, whatsappFlowCreateRequest.endpointUri)&&
         Objects.equals(this.additionalProperties, whatsappFlowCreateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(wabaId, name, categories, flowJson, publish, cloneFlowId, additionalProperties);
+    return Objects.hash(wabaId, name, categories, flowJson, publish, cloneFlowId, endpointUri, additionalProperties);
   }
 
   @Override
@@ -327,6 +361,7 @@ public class WhatsappFlowCreateRequest {
     sb.append("    flowJson: ").append(toIndentedString(flowJson)).append("\n");
     sb.append("    publish: ").append(toIndentedString(publish)).append("\n");
     sb.append("    cloneFlowId: ").append(toIndentedString(cloneFlowId)).append("\n");
+    sb.append("    endpointUri: ").append(toIndentedString(endpointUri)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -356,6 +391,7 @@ public class WhatsappFlowCreateRequest {
     openapiFields.add("flowJson");
     openapiFields.add("publish");
     openapiFields.add("cloneFlowId");
+    openapiFields.add("endpointUri");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -400,6 +436,9 @@ public class WhatsappFlowCreateRequest {
       }
       if (jsonObj.get("cloneFlowId") != null && !jsonObj.get("cloneFlowId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cloneFlowId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cloneFlowId").toString()));
+      }
+      if (jsonObj.get("endpointUri") != null && !jsonObj.get("endpointUri").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `endpointUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endpointUri").toString()));
       }
   }
 

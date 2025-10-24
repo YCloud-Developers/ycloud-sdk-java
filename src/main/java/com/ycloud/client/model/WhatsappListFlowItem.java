@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappFlowCategory;
 import com.ycloud.client.model.WhatsappFlowStatus;
 import com.ycloud.client.model.WhatsappFlowValidationError;
-import com.ycloud.client.model.WhatsappFlowWhatsappBusinessAccount;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -51,11 +50,11 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Represents a WhatsApp Flow.
+ * Represents a list item of WhatsApp Flows.
  */
-@ApiModel(description = "Represents a WhatsApp Flow.")
+@ApiModel(description = "Represents a list item of WhatsApp Flows.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappFlow {
+public class WhatsappListFlowItem {
   public static final String SERIALIZED_NAME_ID = "id";
   /**
    * Flow ID.
@@ -83,12 +82,6 @@ public class WhatsappFlow {
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private List<WhatsappFlowCategory> categories = null;
 
-  public static final String SERIALIZED_NAME_WHATSAPP_BUSINESS_ACCOUNT = "whatsappBusinessAccount";
-  /**
-  **/
-  @SerializedName(SERIALIZED_NAME_WHATSAPP_BUSINESS_ACCOUNT)
-  private WhatsappFlowWhatsappBusinessAccount whatsappBusinessAccount;
-
   public static final String SERIALIZED_NAME_VALIDATION_ERRORS = "validationErrors";
   /**
    * List of validation errors.
@@ -96,31 +89,10 @@ public class WhatsappFlow {
   @SerializedName(SERIALIZED_NAME_VALIDATION_ERRORS)
   private List<WhatsappFlowValidationError> validationErrors = null;
 
-  public static final String SERIALIZED_NAME_JSON_VERSION = "jsonVersion";
-  /**
-   * Version of the Flow JSON structure.
-  **/
-  @SerializedName(SERIALIZED_NAME_JSON_VERSION)
-  private String jsonVersion;
-
-  public static final String SERIALIZED_NAME_DATA_API_VERSION = "dataApiVersion";
-  /**
-   * Version of the Data API.
-  **/
-  @SerializedName(SERIALIZED_NAME_DATA_API_VERSION)
-  private String dataApiVersion;
-
-  public static final String SERIALIZED_NAME_ENDPOINT_URI = "endpointUri";
-  /**
-   * The endpoint URI for the Flow.
-  **/
-  @SerializedName(SERIALIZED_NAME_ENDPOINT_URI)
-  private String endpointUri;
-
-  public WhatsappFlow() { 
+  public WhatsappListFlowItem() { 
   }
 
-  public WhatsappFlow id(String id) {
+  public WhatsappListFlowItem id(String id) {
     
     this.id = id;
     return this;
@@ -146,7 +118,7 @@ public class WhatsappFlow {
   }
 
 
-  public WhatsappFlow name(String name) {
+  public WhatsappListFlowItem name(String name) {
     
     this.name = name;
     return this;
@@ -172,7 +144,7 @@ public class WhatsappFlow {
   }
 
 
-  public WhatsappFlow status(WhatsappFlowStatus status) {
+  public WhatsappListFlowItem status(WhatsappFlowStatus status) {
     
     this.status = status;
     return this;
@@ -197,13 +169,13 @@ public class WhatsappFlow {
   }
 
 
-  public WhatsappFlow categories(List<WhatsappFlowCategory> categories) {
+  public WhatsappListFlowItem categories(List<WhatsappFlowCategory> categories) {
     
     this.categories = categories;
     return this;
   }
 
-  public WhatsappFlow addCategoriesItem(WhatsappFlowCategory categoriesItem) {
+  public WhatsappListFlowItem addCategoriesItem(WhatsappFlowCategory categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
     }
@@ -231,38 +203,13 @@ public class WhatsappFlow {
   }
 
 
-  public WhatsappFlow whatsappBusinessAccount(WhatsappFlowWhatsappBusinessAccount whatsappBusinessAccount) {
-    
-    this.whatsappBusinessAccount = whatsappBusinessAccount;
-    return this;
-  }
-
-   /**
-   * Get whatsappBusinessAccount
-   * @return whatsappBusinessAccount
-  **/
-  @javax.annotation.Nullable
-
-  public WhatsappFlowWhatsappBusinessAccount getWhatsappBusinessAccount() {
-    return whatsappBusinessAccount;
-  }
-
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public void setWhatsappBusinessAccount(WhatsappFlowWhatsappBusinessAccount whatsappBusinessAccount) {
-    this.whatsappBusinessAccount = whatsappBusinessAccount;
-  }
-
-
-  public WhatsappFlow validationErrors(List<WhatsappFlowValidationError> validationErrors) {
+  public WhatsappListFlowItem validationErrors(List<WhatsappFlowValidationError> validationErrors) {
     
     this.validationErrors = validationErrors;
     return this;
   }
 
-  public WhatsappFlow addValidationErrorsItem(WhatsappFlowValidationError validationErrorsItem) {
+  public WhatsappListFlowItem addValidationErrorsItem(WhatsappFlowValidationError validationErrorsItem) {
     if (this.validationErrors == null) {
       this.validationErrors = new ArrayList<>();
     }
@@ -289,84 +236,6 @@ public class WhatsappFlow {
     this.validationErrors = validationErrors;
   }
 
-
-  public WhatsappFlow jsonVersion(String jsonVersion) {
-    
-    this.jsonVersion = jsonVersion;
-    return this;
-  }
-
-   /**
-   * Version of the Flow JSON structure.
-   * @return jsonVersion
-  **/
-  @javax.annotation.Nullable
-
-  public String getJsonVersion() {
-    return jsonVersion;
-  }
-
-
-  /**
-   * Version of the Flow JSON structure.
-   **/
-  @ApiModelProperty(example = "3.0", value = "Version of the Flow JSON structure.")
-  public void setJsonVersion(String jsonVersion) {
-    this.jsonVersion = jsonVersion;
-  }
-
-
-  public WhatsappFlow dataApiVersion(String dataApiVersion) {
-    
-    this.dataApiVersion = dataApiVersion;
-    return this;
-  }
-
-   /**
-   * Version of the Data API.
-   * @return dataApiVersion
-  **/
-  @javax.annotation.Nullable
-
-  public String getDataApiVersion() {
-    return dataApiVersion;
-  }
-
-
-  /**
-   * Version of the Data API.
-   **/
-  @ApiModelProperty(example = "3.0", value = "Version of the Data API.")
-  public void setDataApiVersion(String dataApiVersion) {
-    this.dataApiVersion = dataApiVersion;
-  }
-
-
-  public WhatsappFlow endpointUri(String endpointUri) {
-    
-    this.endpointUri = endpointUri;
-    return this;
-  }
-
-   /**
-   * The endpoint URI for the Flow.
-   * @return endpointUri
-  **/
-  @javax.annotation.Nullable
-
-  public String getEndpointUri() {
-    return endpointUri;
-  }
-
-
-  /**
-   * The endpoint URI for the Flow.
-   **/
-  @ApiModelProperty(example = "https://example.com/flow-endpoint", value = "The endpoint URI for the Flow.")
-  public void setEndpointUri(String endpointUri) {
-    this.endpointUri = endpointUri;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -378,7 +247,7 @@ public class WhatsappFlow {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappFlow putAdditionalProperty(String key, Object value) {
+  public WhatsappListFlowItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -412,37 +281,29 @@ public class WhatsappFlow {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappFlow whatsappFlow = (WhatsappFlow) o;
-    return Objects.equals(this.id, whatsappFlow.id) &&
-        Objects.equals(this.name, whatsappFlow.name) &&
-        Objects.equals(this.status, whatsappFlow.status) &&
-        Objects.equals(this.categories, whatsappFlow.categories) &&
-        Objects.equals(this.whatsappBusinessAccount, whatsappFlow.whatsappBusinessAccount) &&
-        Objects.equals(this.validationErrors, whatsappFlow.validationErrors) &&
-        Objects.equals(this.jsonVersion, whatsappFlow.jsonVersion) &&
-        Objects.equals(this.dataApiVersion, whatsappFlow.dataApiVersion) &&
-        Objects.equals(this.endpointUri, whatsappFlow.endpointUri)&&
-        Objects.equals(this.additionalProperties, whatsappFlow.additionalProperties);
+    WhatsappListFlowItem whatsappListFlowItem = (WhatsappListFlowItem) o;
+    return Objects.equals(this.id, whatsappListFlowItem.id) &&
+        Objects.equals(this.name, whatsappListFlowItem.name) &&
+        Objects.equals(this.status, whatsappListFlowItem.status) &&
+        Objects.equals(this.categories, whatsappListFlowItem.categories) &&
+        Objects.equals(this.validationErrors, whatsappListFlowItem.validationErrors)&&
+        Objects.equals(this.additionalProperties, whatsappListFlowItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, status, categories, whatsappBusinessAccount, validationErrors, jsonVersion, dataApiVersion, endpointUri, additionalProperties);
+    return Objects.hash(id, name, status, categories, validationErrors, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappFlow {\n");
+    sb.append("class WhatsappListFlowItem {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
-    sb.append("    whatsappBusinessAccount: ").append(toIndentedString(whatsappBusinessAccount)).append("\n");
     sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
-    sb.append("    jsonVersion: ").append(toIndentedString(jsonVersion)).append("\n");
-    sb.append("    dataApiVersion: ").append(toIndentedString(dataApiVersion)).append("\n");
-    sb.append("    endpointUri: ").append(toIndentedString(endpointUri)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -470,11 +331,7 @@ public class WhatsappFlow {
     openapiFields.add("name");
     openapiFields.add("status");
     openapiFields.add("categories");
-    openapiFields.add("whatsappBusinessAccount");
     openapiFields.add("validationErrors");
-    openapiFields.add("jsonVersion");
-    openapiFields.add("dataApiVersion");
-    openapiFields.add("endpointUri");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -484,14 +341,14 @@ public class WhatsappFlow {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappFlow
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappListFlowItem
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappFlow.openapiRequiredFields.isEmpty()) {
+        if (WhatsappListFlowItem.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappFlow is not found in the empty JSON string", WhatsappFlow.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappListFlowItem is not found in the empty JSON string", WhatsappListFlowItem.openapiRequiredFields.toString()));
         }
       }
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
@@ -503,10 +360,6 @@ public class WhatsappFlow {
       // ensure the json data is an array
       if (jsonObj.get("categories") != null && !jsonObj.get("categories").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `categories` to be an array in the JSON string but got `%s`", jsonObj.get("categories").toString()));
-      }
-      // validate the optional field `whatsappBusinessAccount`
-      if (jsonObj.getAsJsonObject("whatsappBusinessAccount") != null) {
-        WhatsappFlowWhatsappBusinessAccount.validateJsonObject(jsonObj.getAsJsonObject("whatsappBusinessAccount"));
       }
       JsonArray jsonArrayvalidationErrors = jsonObj.getAsJsonArray("validationErrors");
       if (jsonArrayvalidationErrors != null) {
@@ -520,31 +373,22 @@ public class WhatsappFlow {
           WhatsappFlowValidationError.validateJsonObject(jsonArrayvalidationErrors.get(i).getAsJsonObject());
         };
       }
-      if (jsonObj.get("jsonVersion") != null && !jsonObj.get("jsonVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jsonVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jsonVersion").toString()));
-      }
-      if (jsonObj.get("dataApiVersion") != null && !jsonObj.get("dataApiVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dataApiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dataApiVersion").toString()));
-      }
-      if (jsonObj.get("endpointUri") != null && !jsonObj.get("endpointUri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `endpointUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endpointUri").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappFlow.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappFlow' and its subtypes
+       if (!WhatsappListFlowItem.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappListFlowItem' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappFlow> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappFlow.class));
+       final TypeAdapter<WhatsappListFlowItem> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappListFlowItem.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappFlow>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappListFlowItem>() {
            @Override
-           public void write(JsonWriter out, WhatsappFlow value) throws IOException {
+           public void write(JsonWriter out, WhatsappListFlowItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -567,11 +411,11 @@ public class WhatsappFlow {
            }
 
            @Override
-           public WhatsappFlow read(JsonReader in) throws IOException {
+           public WhatsappListFlowItem read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappFlow instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappListFlowItem instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -596,18 +440,18 @@ public class WhatsappFlow {
   }
 
  /**
-  * Create an instance of WhatsappFlow given an JSON string
+  * Create an instance of WhatsappListFlowItem given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappFlow
-  * @throws IOException if the JSON string is invalid with respect to WhatsappFlow
+  * @return An instance of WhatsappListFlowItem
+  * @throws IOException if the JSON string is invalid with respect to WhatsappListFlowItem
   */
-  public static WhatsappFlow fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappFlow.class);
+  public static WhatsappListFlowItem fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappListFlowItem.class);
   }
 
  /**
-  * Convert an instance of WhatsappFlow to an JSON string
+  * Convert an instance of WhatsappListFlowItem to an JSON string
   *
   * @return JSON string
   */

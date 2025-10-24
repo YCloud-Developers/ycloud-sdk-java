@@ -128,7 +128,11 @@ public enum EventType {
   /**
    * Occurs when a contact is deleted.
    */
-  CONTACT_DELETED("contact.deleted");
+  CONTACT_DELETED("contact.deleted"),
+  
+  CONTACT_UNSUBSCRIBE_CREATED("contact.unsubscribe.created"),
+  
+  CONTACT_UNSUBSCRIBE_DELETED("contact.unsubscribe.deleted");
 
   private String value;
 

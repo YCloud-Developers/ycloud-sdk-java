@@ -12,6 +12,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 | [**retrieveSettings**](WhatsappPhoneNumbersApi.md#retrieveSettings) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Retrieve phone number settings |
 | [**saveSettings**](WhatsappPhoneNumbersApi.md#saveSettings) | **POST** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/settings | Save phone number settings |
 | [**updateCommerceSettings**](WhatsappPhoneNumbersApi.md#updateCommerceSettings) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings | Update commerce settings |
+| [**updateDisplayName**](WhatsappPhoneNumbersApi.md#updateDisplayName) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/displayName | Update a phone number display name |
 | [**updateProfile**](WhatsappPhoneNumbersApi.md#updateProfile) | **PATCH** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/profile | Update a phone number profile |
 
 
@@ -587,6 +588,80 @@ public class Example {
 ### Return type
 
 [**WhatsappCommerceSettings**](WhatsappCommerceSettings.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully updated the object. |  -  |
+| **404** | The requested resource does not exist. |  -  |
+
+<a name="updateDisplayName"></a>
+# **updateDisplayName**
+> WhatsappPhoneNameUpdateResponse updateDisplayName(wabaId, phoneNumber, whatsappPhoneNameUpdateRequest)
+
+Update a phone number display name
+
+Updates a WhatsApp business phone number display name.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappPhoneNumbersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
+    String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest = new WhatsappPhoneNameUpdateRequest(); // WhatsappPhoneNameUpdateRequest | 
+    try {
+      WhatsappPhoneNameUpdateResponse result = apiInstance.updateDisplayName(wabaId, phoneNumber, whatsappPhoneNameUpdateRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappPhoneNumbersApi#updateDisplayName");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wabaId** | **String**| WhatsApp Business Account ID. | |
+| **phoneNumber** | **String**| Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | |
+| **whatsappPhoneNameUpdateRequest** | [**WhatsappPhoneNameUpdateRequest**](WhatsappPhoneNameUpdateRequest.md)|  | |
+
+### Return type
+
+[**WhatsappPhoneNameUpdateResponse**](WhatsappPhoneNameUpdateResponse.md)
 
 ### Authorization
 

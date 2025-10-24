@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappFlow;
+import com.ycloud.client.model.WhatsappListFlowItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -57,18 +57,18 @@ public class WhatsappFlowList200Response {
    * List of flows.
   **/
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<WhatsappFlow> items = null;
+  private List<WhatsappListFlowItem> items = null;
 
   public WhatsappFlowList200Response() { 
   }
 
-  public WhatsappFlowList200Response items(List<WhatsappFlow> items) {
+  public WhatsappFlowList200Response items(List<WhatsappListFlowItem> items) {
     
     this.items = items;
     return this;
   }
 
-  public WhatsappFlowList200Response addItemsItem(WhatsappFlow itemsItem) {
+  public WhatsappFlowList200Response addItemsItem(WhatsappListFlowItem itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -82,7 +82,7 @@ public class WhatsappFlowList200Response {
   **/
   @javax.annotation.Nullable
 
-  public List<WhatsappFlow> getItems() {
+  public List<WhatsappListFlowItem> getItems() {
     return items;
   }
 
@@ -91,7 +91,7 @@ public class WhatsappFlowList200Response {
    * List of flows.
    **/
   @ApiModelProperty(value = "List of flows.")
-  public void setItems(List<WhatsappFlow> items) {
+  public void setItems(List<WhatsappListFlowItem> items) {
     this.items = items;
   }
 
@@ -207,7 +207,7 @@ public class WhatsappFlowList200Response {
 
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
-          WhatsappFlow.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
+          WhatsappListFlowItem.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
         };
       }
   }

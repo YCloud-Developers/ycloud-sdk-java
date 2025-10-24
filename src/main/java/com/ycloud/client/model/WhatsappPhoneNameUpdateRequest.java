@@ -20,12 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappFlowCategory;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,117 +45,44 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappFlowUpdateMetadataRequest
+ * WhatsApp Phone Number Display Name
  */
+@ApiModel(description = "WhatsApp Phone Number Display Name")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappFlowUpdateMetadataRequest {
-  public static final String SERIALIZED_NAME_NAME = "name";
+public class WhatsappPhoneNameUpdateRequest {
+  public static final String SERIALIZED_NAME_NEW_NAME = "newName";
   /**
-   * Flow name.
+   * The new name you want to modify
   **/
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  @SerializedName(SERIALIZED_NAME_NEW_NAME)
+  private String newName;
 
-  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
-  /**
-   * Flow categories.
-  **/
-  @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<WhatsappFlowCategory> categories = null;
-
-  public static final String SERIALIZED_NAME_ENDPOINT_URI = "endpointUri";
-  /**
-   * The endpoint URI for the Flow.
-  **/
-  @SerializedName(SERIALIZED_NAME_ENDPOINT_URI)
-  private String endpointUri;
-
-  public WhatsappFlowUpdateMetadataRequest() { 
+  public WhatsappPhoneNameUpdateRequest() { 
   }
 
-  public WhatsappFlowUpdateMetadataRequest name(String name) {
+  public WhatsappPhoneNameUpdateRequest newName(String newName) {
     
-    this.name = name;
+    this.newName = newName;
     return this;
   }
 
    /**
-   * Flow name.
-   * @return name
+   * The new name you want to modify
+   * @return newName
   **/
   @javax.annotation.Nullable
 
-  public String getName() {
-    return name;
+  public String getNewName() {
+    return newName;
   }
 
 
   /**
-   * Flow name.
+   * The new name you want to modify
    **/
-  @ApiModelProperty(example = "New flow name", value = "Flow name.")
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public WhatsappFlowUpdateMetadataRequest categories(List<WhatsappFlowCategory> categories) {
-    
-    this.categories = categories;
-    return this;
-  }
-
-  public WhatsappFlowUpdateMetadataRequest addCategoriesItem(WhatsappFlowCategory categoriesItem) {
-    if (this.categories == null) {
-      this.categories = new ArrayList<>();
-    }
-    this.categories.add(categoriesItem);
-    return this;
-  }
-
-   /**
-   * Flow categories.
-   * @return categories
-  **/
-  @javax.annotation.Nullable
-
-  public List<WhatsappFlowCategory> getCategories() {
-    return categories;
-  }
-
-
-  /**
-   * Flow categories.
-   **/
-  @ApiModelProperty(value = "Flow categories.")
-  public void setCategories(List<WhatsappFlowCategory> categories) {
-    this.categories = categories;
-  }
-
-
-  public WhatsappFlowUpdateMetadataRequest endpointUri(String endpointUri) {
-    
-    this.endpointUri = endpointUri;
-    return this;
-  }
-
-   /**
-   * The endpoint URI for the Flow.
-   * @return endpointUri
-  **/
-  @javax.annotation.Nullable
-
-  public String getEndpointUri() {
-    return endpointUri;
-  }
-
-
-  /**
-   * The endpoint URI for the Flow.
-   **/
-  @ApiModelProperty(example = "https://example.com/flow-endpoint", value = "The endpoint URI for the Flow.")
-  public void setEndpointUri(String endpointUri) {
-    this.endpointUri = endpointUri;
+  @ApiModelProperty(example = "newName", value = "The new name you want to modify")
+  public void setNewName(String newName) {
+    this.newName = newName;
   }
 
   /**
@@ -172,7 +96,7 @@ public class WhatsappFlowUpdateMetadataRequest {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappFlowUpdateMetadataRequest putAdditionalProperty(String key, Object value) {
+  public WhatsappPhoneNameUpdateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -206,25 +130,21 @@ public class WhatsappFlowUpdateMetadataRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappFlowUpdateMetadataRequest whatsappFlowUpdateMetadataRequest = (WhatsappFlowUpdateMetadataRequest) o;
-    return Objects.equals(this.name, whatsappFlowUpdateMetadataRequest.name) &&
-        Objects.equals(this.categories, whatsappFlowUpdateMetadataRequest.categories) &&
-        Objects.equals(this.endpointUri, whatsappFlowUpdateMetadataRequest.endpointUri)&&
-        Objects.equals(this.additionalProperties, whatsappFlowUpdateMetadataRequest.additionalProperties);
+    WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest = (WhatsappPhoneNameUpdateRequest) o;
+    return Objects.equals(this.newName, whatsappPhoneNameUpdateRequest.newName)&&
+        Objects.equals(this.additionalProperties, whatsappPhoneNameUpdateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, categories, endpointUri, additionalProperties);
+    return Objects.hash(newName, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappFlowUpdateMetadataRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
-    sb.append("    endpointUri: ").append(toIndentedString(endpointUri)).append("\n");
+    sb.append("class WhatsappPhoneNameUpdateRequest {\n");
+    sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -248,9 +168,7 @@ public class WhatsappFlowUpdateMetadataRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("categories");
-    openapiFields.add("endpointUri");
+    openapiFields.add("newName");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -260,25 +178,18 @@ public class WhatsappFlowUpdateMetadataRequest {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappFlowUpdateMetadataRequest
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappPhoneNameUpdateRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappFlowUpdateMetadataRequest.openapiRequiredFields.isEmpty()) {
+        if (WhatsappPhoneNameUpdateRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappFlowUpdateMetadataRequest is not found in the empty JSON string", WhatsappFlowUpdateMetadataRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappPhoneNameUpdateRequest is not found in the empty JSON string", WhatsappPhoneNameUpdateRequest.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("categories") != null && !jsonObj.get("categories").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `categories` to be an array in the JSON string but got `%s`", jsonObj.get("categories").toString()));
-      }
-      if (jsonObj.get("endpointUri") != null && !jsonObj.get("endpointUri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `endpointUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endpointUri").toString()));
+      if (jsonObj.get("newName") != null && !jsonObj.get("newName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `newName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newName").toString()));
       }
   }
 
@@ -286,16 +197,16 @@ public class WhatsappFlowUpdateMetadataRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappFlowUpdateMetadataRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappFlowUpdateMetadataRequest' and its subtypes
+       if (!WhatsappPhoneNameUpdateRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappPhoneNameUpdateRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappFlowUpdateMetadataRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappFlowUpdateMetadataRequest.class));
+       final TypeAdapter<WhatsappPhoneNameUpdateRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappPhoneNameUpdateRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappFlowUpdateMetadataRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappPhoneNameUpdateRequest>() {
            @Override
-           public void write(JsonWriter out, WhatsappFlowUpdateMetadataRequest value) throws IOException {
+           public void write(JsonWriter out, WhatsappPhoneNameUpdateRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -318,11 +229,11 @@ public class WhatsappFlowUpdateMetadataRequest {
            }
 
            @Override
-           public WhatsappFlowUpdateMetadataRequest read(JsonReader in) throws IOException {
+           public WhatsappPhoneNameUpdateRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappFlowUpdateMetadataRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappPhoneNameUpdateRequest instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -347,18 +258,18 @@ public class WhatsappFlowUpdateMetadataRequest {
   }
 
  /**
-  * Create an instance of WhatsappFlowUpdateMetadataRequest given an JSON string
+  * Create an instance of WhatsappPhoneNameUpdateRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappFlowUpdateMetadataRequest
-  * @throws IOException if the JSON string is invalid with respect to WhatsappFlowUpdateMetadataRequest
+  * @return An instance of WhatsappPhoneNameUpdateRequest
+  * @throws IOException if the JSON string is invalid with respect to WhatsappPhoneNameUpdateRequest
   */
-  public static WhatsappFlowUpdateMetadataRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappFlowUpdateMetadataRequest.class);
+  public static WhatsappPhoneNameUpdateRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappPhoneNameUpdateRequest.class);
   }
 
  /**
-  * Convert an instance of WhatsappFlowUpdateMetadataRequest to an JSON string
+  * Convert an instance of WhatsappPhoneNameUpdateRequest to an JSON string
   *
   * @return JSON string
   */

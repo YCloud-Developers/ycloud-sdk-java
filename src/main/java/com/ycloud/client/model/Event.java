@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.ContactAttributesChanged;
 import com.ycloud.client.model.ContactCreated;
 import com.ycloud.client.model.ContactDeleted;
+import com.ycloud.client.model.ContactUnsubscribeCreated;
+import com.ycloud.client.model.ContactUnsubscribeDeleted;
 import com.ycloud.client.model.EmailDelivery;
 import com.ycloud.client.model.EventType;
 import com.ycloud.client.model.Sms;
@@ -169,6 +171,18 @@ public class Event {
   **/
   @SerializedName(SERIALIZED_NAME_CONTACT_DELETED)
   private ContactDeleted contactDeleted;
+
+  public static final String SERIALIZED_NAME_CONTACT_UNSUBSCRIBE_CREATED = "contactUnsubscribeCreated";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CONTACT_UNSUBSCRIBE_CREATED)
+  private ContactUnsubscribeCreated contactUnsubscribeCreated;
+
+  public static final String SERIALIZED_NAME_CONTACT_UNSUBSCRIBE_DELETED = "contactUnsubscribeDeleted";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CONTACT_UNSUBSCRIBE_DELETED)
+  private ContactUnsubscribeDeleted contactUnsubscribeDeleted;
 
   public Event() { 
   }
@@ -600,6 +614,56 @@ public class Event {
     this.contactDeleted = contactDeleted;
   }
 
+
+  public Event contactUnsubscribeCreated(ContactUnsubscribeCreated contactUnsubscribeCreated) {
+    
+    this.contactUnsubscribeCreated = contactUnsubscribeCreated;
+    return this;
+  }
+
+   /**
+   * Get contactUnsubscribeCreated
+   * @return contactUnsubscribeCreated
+  **/
+  @javax.annotation.Nullable
+
+  public ContactUnsubscribeCreated getContactUnsubscribeCreated() {
+    return contactUnsubscribeCreated;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setContactUnsubscribeCreated(ContactUnsubscribeCreated contactUnsubscribeCreated) {
+    this.contactUnsubscribeCreated = contactUnsubscribeCreated;
+  }
+
+
+  public Event contactUnsubscribeDeleted(ContactUnsubscribeDeleted contactUnsubscribeDeleted) {
+    
+    this.contactUnsubscribeDeleted = contactUnsubscribeDeleted;
+    return this;
+  }
+
+   /**
+   * Get contactUnsubscribeDeleted
+   * @return contactUnsubscribeDeleted
+  **/
+  @javax.annotation.Nullable
+
+  public ContactUnsubscribeDeleted getContactUnsubscribeDeleted() {
+    return contactUnsubscribeDeleted;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setContactUnsubscribeDeleted(ContactUnsubscribeDeleted contactUnsubscribeDeleted) {
+    this.contactUnsubscribeDeleted = contactUnsubscribeDeleted;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -662,13 +726,15 @@ public class Event {
         Objects.equals(this.whatsappTemplate, event.whatsappTemplate) &&
         Objects.equals(this.contactAttributesChanged, event.contactAttributesChanged) &&
         Objects.equals(this.contactCreated, event.contactCreated) &&
-        Objects.equals(this.contactDeleted, event.contactDeleted)&&
+        Objects.equals(this.contactDeleted, event.contactDeleted) &&
+        Objects.equals(this.contactUnsubscribeCreated, event.contactUnsubscribeCreated) &&
+        Objects.equals(this.contactUnsubscribeDeleted, event.contactUnsubscribeDeleted)&&
         Objects.equals(this.additionalProperties, event.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, contactAttributesChanged, contactCreated, contactDeleted, additionalProperties);
+    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, contactAttributesChanged, contactCreated, contactDeleted, contactUnsubscribeCreated, contactUnsubscribeDeleted, additionalProperties);
   }
 
   @Override
@@ -692,6 +758,8 @@ public class Event {
     sb.append("    contactAttributesChanged: ").append(toIndentedString(contactAttributesChanged)).append("\n");
     sb.append("    contactCreated: ").append(toIndentedString(contactCreated)).append("\n");
     sb.append("    contactDeleted: ").append(toIndentedString(contactDeleted)).append("\n");
+    sb.append("    contactUnsubscribeCreated: ").append(toIndentedString(contactUnsubscribeCreated)).append("\n");
+    sb.append("    contactUnsubscribeDeleted: ").append(toIndentedString(contactUnsubscribeDeleted)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -732,6 +800,8 @@ public class Event {
     openapiFields.add("contactAttributesChanged");
     openapiFields.add("contactCreated");
     openapiFields.add("contactDeleted");
+    openapiFields.add("contactUnsubscribeCreated");
+    openapiFields.add("contactUnsubscribeDeleted");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -819,6 +889,14 @@ public class Event {
       // validate the optional field `contactDeleted`
       if (jsonObj.getAsJsonObject("contactDeleted") != null) {
         ContactDeleted.validateJsonObject(jsonObj.getAsJsonObject("contactDeleted"));
+      }
+      // validate the optional field `contactUnsubscribeCreated`
+      if (jsonObj.getAsJsonObject("contactUnsubscribeCreated") != null) {
+        ContactUnsubscribeCreated.validateJsonObject(jsonObj.getAsJsonObject("contactUnsubscribeCreated"));
+      }
+      // validate the optional field `contactUnsubscribeDeleted`
+      if (jsonObj.getAsJsonObject("contactUnsubscribeDeleted") != null) {
+        ContactUnsubscribeDeleted.validateJsonObject(jsonObj.getAsJsonObject("contactUnsubscribeDeleted"));
       }
   }
 

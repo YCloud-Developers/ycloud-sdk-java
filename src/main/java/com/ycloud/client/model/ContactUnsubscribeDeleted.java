@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.UnsubscriberChannel;
-import com.ycloud.client.model.UnsubscriberType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -48,36 +46,17 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * An unsubscriber is a configuration item representing that customers opt out of receiving messages from your business. **A customer and a channel form a unique identifier for an unsubscriber.**
+ * Represents a customer resumed their subscription event.
  */
-@ApiModel(description = "An unsubscriber is a configuration item representing that customers opt out of receiving messages from your business. **A customer and a channel form a unique identifier for an unsubscriber.**")
+@ApiModel(description = "Represents a customer resumed their subscription event.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Unsubscriber {
-  public static final String SERIALIZED_NAME_TYPE = "type";
+public class ContactUnsubscribeDeleted {
+  public static final String SERIALIZED_NAME_PHONE_NUMBER = "phoneNumber";
   /**
+   * Unique Customer Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
   **/
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private UnsubscriberType type;
-
-  public static final String SERIALIZED_NAME_CUSTOMER = "customer";
-  /**
-   * The customer who has opted out. For &#x60;type&#x3D;PHONE_NUMBER&#x60;, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-  **/
-  @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private String customer;
-
-  public static final String SERIALIZED_NAME_CHANNEL = "channel";
-  /**
-  **/
-  @SerializedName(SERIALIZED_NAME_CHANNEL)
-  private UnsubscriberChannel channel;
-
-  public static final String SERIALIZED_NAME_REGION_CODE = "regionCode";
-  /**
-   * The customer&#39;s region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-  **/
-  @SerializedName(SERIALIZED_NAME_REGION_CODE)
-  private String regionCode;
+  @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
+  private String phoneNumber;
 
   /**
    * The source from which a customer resumed their subscription - &#x60;Whatsapp&#x60;: The customer resumed their subscription on the whatsapp client - &#x60;API&#x60;: You remove the customer from the unsubscribe list through the OpenAPI of YCloud - &#x60;Manual&#x60;: You remove the customer from the unsubscribe list on the Contact page of YCloud.
@@ -135,119 +114,43 @@ public class Unsubscriber {
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private SourceEnum source;
 
-  public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
+  public static final String SERIALIZED_NAME_UPDATE_TIME = "updateTime";
   /**
-   * The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   * The time when customers cancel unsubscribe, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
   **/
-  @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-  private Date createTime;
+  @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
+  private Date updateTime;
 
-  public Unsubscriber() { 
+  public ContactUnsubscribeDeleted() { 
   }
 
-  public Unsubscriber type(UnsubscriberType type) {
+  public ContactUnsubscribeDeleted phoneNumber(String phoneNumber) {
     
-    this.type = type;
+    this.phoneNumber = phoneNumber;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Unique Customer Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * @return phoneNumber
   **/
   @javax.annotation.Nullable
 
-  public UnsubscriberType getType() {
-    return type;
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
 
   /**
+   * Unique Customer Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    **/
-  @ApiModelProperty(value = "")
-  public void setType(UnsubscriberType type) {
-    this.type = type;
+  @ApiModelProperty(example = "+16475551234", value = "Unique Customer Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
   }
 
 
-  public Unsubscriber customer(String customer) {
-    
-    this.customer = customer;
-    return this;
-  }
-
-   /**
-   * The customer who has opted out. For &#x60;type&#x3D;PHONE_NUMBER&#x60;, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-   * @return customer
-  **/
-  @javax.annotation.Nullable
-
-  public String getCustomer() {
-    return customer;
-  }
-
-
-  /**
-   * The customer who has opted out. For &#x60;type&#x3D;PHONE_NUMBER&#x60;, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-   **/
-  @ApiModelProperty(example = "+16315551111", value = "The customer who has opted out. For `type=PHONE_NUMBER`, it should be a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
-  public void setCustomer(String customer) {
-    this.customer = customer;
-  }
-
-
-  public Unsubscriber channel(UnsubscriberChannel channel) {
-    
-    this.channel = channel;
-    return this;
-  }
-
-   /**
-   * Get channel
-   * @return channel
-  **/
-  @javax.annotation.Nullable
-
-  public UnsubscriberChannel getChannel() {
-    return channel;
-  }
-
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public void setChannel(UnsubscriberChannel channel) {
-    this.channel = channel;
-  }
-
-
-  public Unsubscriber regionCode(String regionCode) {
-    
-    this.regionCode = regionCode;
-    return this;
-  }
-
-   /**
-   * The customer&#39;s region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-   * @return regionCode
-  **/
-  @javax.annotation.Nullable
-
-  public String getRegionCode() {
-    return regionCode;
-  }
-
-
-  /**
-   * The customer&#39;s region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-   **/
-  @ApiModelProperty(example = "US", value = "The customer's region code, formatted in [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).")
-  public void setRegionCode(String regionCode) {
-    this.regionCode = regionCode;
-  }
-
-
-  public Unsubscriber source(SourceEnum source) {
+  public ContactUnsubscribeDeleted source(SourceEnum source) {
     
     this.source = source;
     return this;
@@ -273,29 +176,29 @@ public class Unsubscriber {
   }
 
 
-  public Unsubscriber createTime(Date createTime) {
+  public ContactUnsubscribeDeleted updateTime(Date updateTime) {
     
-    this.createTime = createTime;
+    this.updateTime = updateTime;
     return this;
   }
 
    /**
-   * The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
-   * @return createTime
+   * The time when customers cancel unsubscribe, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   * @return updateTime
   **/
   @javax.annotation.Nullable
 
-  public Date getCreateTime() {
-    return createTime;
+  public Date getUpdateTime() {
+    return updateTime;
   }
 
 
   /**
-   * The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
+   * The time when customers cancel unsubscribe, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
    **/
-  @ApiModelProperty(example = "2022-06-01T12:00Z", value = "The time at which this object was created, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
-  public void setCreateTime(Date createTime) {
-    this.createTime = createTime;
+  @ApiModelProperty(example = "2025-07-08T15:25Z", value = "The time when customers cancel unsubscribe, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`.")
+  public void setUpdateTime(Date updateTime) {
+    this.updateTime = updateTime;
   }
 
   /**
@@ -309,7 +212,7 @@ public class Unsubscriber {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public Unsubscriber putAdditionalProperty(String key, Object value) {
+  public ContactUnsubscribeDeleted putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -343,31 +246,25 @@ public class Unsubscriber {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Unsubscriber unsubscriber = (Unsubscriber) o;
-    return Objects.equals(this.type, unsubscriber.type) &&
-        Objects.equals(this.customer, unsubscriber.customer) &&
-        Objects.equals(this.channel, unsubscriber.channel) &&
-        Objects.equals(this.regionCode, unsubscriber.regionCode) &&
-        Objects.equals(this.source, unsubscriber.source) &&
-        Objects.equals(this.createTime, unsubscriber.createTime)&&
-        Objects.equals(this.additionalProperties, unsubscriber.additionalProperties);
+    ContactUnsubscribeDeleted contactUnsubscribeDeleted = (ContactUnsubscribeDeleted) o;
+    return Objects.equals(this.phoneNumber, contactUnsubscribeDeleted.phoneNumber) &&
+        Objects.equals(this.source, contactUnsubscribeDeleted.source) &&
+        Objects.equals(this.updateTime, contactUnsubscribeDeleted.updateTime)&&
+        Objects.equals(this.additionalProperties, contactUnsubscribeDeleted.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, customer, channel, regionCode, source, createTime, additionalProperties);
+    return Objects.hash(phoneNumber, source, updateTime, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Unsubscriber {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
-    sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-    sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
+    sb.append("class ContactUnsubscribeDeleted {\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -391,12 +288,9 @@ public class Unsubscriber {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-    openapiFields.add("customer");
-    openapiFields.add("channel");
-    openapiFields.add("regionCode");
+    openapiFields.add("phoneNumber");
     openapiFields.add("source");
-    openapiFields.add("createTime");
+    openapiFields.add("updateTime");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -406,21 +300,18 @@ public class Unsubscriber {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Unsubscriber
+  * @throws IOException if the JSON Object is invalid with respect to ContactUnsubscribeDeleted
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Unsubscriber.openapiRequiredFields.isEmpty()) {
+        if (ContactUnsubscribeDeleted.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Unsubscriber is not found in the empty JSON string", Unsubscriber.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ContactUnsubscribeDeleted is not found in the empty JSON string", ContactUnsubscribeDeleted.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("customer") != null && !jsonObj.get("customer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer").toString()));
-      }
-      if (jsonObj.get("regionCode") != null && !jsonObj.get("regionCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `regionCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("regionCode").toString()));
+      if (jsonObj.get("phoneNumber") != null && !jsonObj.get("phoneNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `phoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phoneNumber").toString()));
       }
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
@@ -431,16 +322,16 @@ public class Unsubscriber {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Unsubscriber.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Unsubscriber' and its subtypes
+       if (!ContactUnsubscribeDeleted.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ContactUnsubscribeDeleted' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Unsubscriber> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Unsubscriber.class));
+       final TypeAdapter<ContactUnsubscribeDeleted> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ContactUnsubscribeDeleted.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Unsubscriber>() {
+       return (TypeAdapter<T>) new TypeAdapter<ContactUnsubscribeDeleted>() {
            @Override
-           public void write(JsonWriter out, Unsubscriber value) throws IOException {
+           public void write(JsonWriter out, ContactUnsubscribeDeleted value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -463,11 +354,11 @@ public class Unsubscriber {
            }
 
            @Override
-           public Unsubscriber read(JsonReader in) throws IOException {
+           public ContactUnsubscribeDeleted read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             Unsubscriber instance = thisAdapter.fromJsonTree(jsonObj);
+             ContactUnsubscribeDeleted instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -492,18 +383,18 @@ public class Unsubscriber {
   }
 
  /**
-  * Create an instance of Unsubscriber given an JSON string
+  * Create an instance of ContactUnsubscribeDeleted given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Unsubscriber
-  * @throws IOException if the JSON string is invalid with respect to Unsubscriber
+  * @return An instance of ContactUnsubscribeDeleted
+  * @throws IOException if the JSON string is invalid with respect to ContactUnsubscribeDeleted
   */
-  public static Unsubscriber fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Unsubscriber.class);
+  public static ContactUnsubscribeDeleted fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ContactUnsubscribeDeleted.class);
   }
 
  /**
-  * Convert an instance of Unsubscriber to an JSON string
+  * Convert an instance of ContactUnsubscribeDeleted to an JSON string
   *
   * @return JSON string
   */

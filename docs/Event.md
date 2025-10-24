@@ -25,6 +25,8 @@ Represents a webhook event payload. Every event contains certain common properti
 |**contactAttributesChanged** | [**ContactAttributesChanged**](ContactAttributesChanged.md) |  |  [optional] |
 |**contactCreated** | [**ContactCreated**](ContactCreated.md) |  |  [optional] |
 |**contactDeleted** | [**ContactDeleted**](ContactDeleted.md) |  |  [optional] |
+|**contactUnsubscribeCreated** | [**ContactUnsubscribeCreated**](ContactUnsubscribeCreated.md) |  |  [optional] |
+|**contactUnsubscribeDeleted** | [**ContactUnsubscribeDeleted**](ContactUnsubscribeDeleted.md) |  |  [optional] |
 
 
 

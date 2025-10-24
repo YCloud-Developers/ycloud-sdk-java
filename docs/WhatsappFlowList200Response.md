@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**items** | [**List&lt;WhatsappFlow&gt;**](WhatsappFlow.md) | List of flows. |  [optional] |
+|**items** | [**List&lt;WhatsappListFlowItem&gt;**](WhatsappListFlowItem.md) | List of flows. |  [optional] |
 
 
 

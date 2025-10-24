@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappMessageMediaAllOf;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -46,11 +45,10 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Use for &#x60;image&#x60;, &#x60;video&#x60;, &#x60;audio&#x60;, &#x60;document&#x60;, or &#x60;sticker&#x60; messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)
+ * WhatsappMessageMediaAllOf
  */
-@ApiModel(description = "Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either `id` or `link` must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageMedia {
+public class WhatsappMessageMediaAllOf {
   public static final String SERIALIZED_NAME_CAPTION = "caption";
   /**
    * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
@@ -65,24 +63,10 @@ public class WhatsappMessageMedia {
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  /**
-   * Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).
-  **/
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_LINK = "link";
-  /**
-   * Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
-  **/
-  @SerializedName(SERIALIZED_NAME_LINK)
-  private String link;
-
-  public WhatsappMessageMedia() { 
+  public WhatsappMessageMediaAllOf() { 
   }
 
-  public WhatsappMessageMedia caption(String caption) {
+  public WhatsappMessageMediaAllOf caption(String caption) {
     
     this.caption = caption;
     return this;
@@ -108,7 +92,7 @@ public class WhatsappMessageMedia {
   }
 
 
-  public WhatsappMessageMedia filename(String filename) {
+  public WhatsappMessageMediaAllOf filename(String filename) {
     
     this.filename = filename;
     return this;
@@ -133,58 +117,6 @@ public class WhatsappMessageMedia {
     this.filename = filename;
   }
 
-
-  public WhatsappMessageMedia id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).
-   * @return id
-  **/
-  @javax.annotation.Nonnull
-
-  public String getId() {
-    return id;
-  }
-
-
-  /**
-   * Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).
-   **/
-  @ApiModelProperty(required = true, value = "Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).")
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public WhatsappMessageMedia link(String link) {
-    
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
-   * @return link
-  **/
-  @javax.annotation.Nonnull
-
-  public String getLink() {
-    return link;
-  }
-
-
-  /**
-   * Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
-   **/
-  @ApiModelProperty(required = true, value = "Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.")
-  public void setLink(String link) {
-    this.link = link;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -196,7 +128,7 @@ public class WhatsappMessageMedia {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageMedia putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageMediaAllOf putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -230,27 +162,23 @@ public class WhatsappMessageMedia {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageMedia whatsappMessageMedia = (WhatsappMessageMedia) o;
-    return Objects.equals(this.caption, whatsappMessageMedia.caption) &&
-        Objects.equals(this.filename, whatsappMessageMedia.filename) &&
-        Objects.equals(this.id, whatsappMessageMedia.id) &&
-        Objects.equals(this.link, whatsappMessageMedia.link)&&
-        Objects.equals(this.additionalProperties, whatsappMessageMedia.additionalProperties);
+    WhatsappMessageMediaAllOf whatsappMessageMediaAllOf = (WhatsappMessageMediaAllOf) o;
+    return Objects.equals(this.caption, whatsappMessageMediaAllOf.caption) &&
+        Objects.equals(this.filename, whatsappMessageMediaAllOf.filename)&&
+        Objects.equals(this.additionalProperties, whatsappMessageMediaAllOf.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caption, filename, id, link, additionalProperties);
+    return Objects.hash(caption, filename, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageMedia {\n");
+    sb.append("class WhatsappMessageMediaAllOf {\n");
     sb.append("    caption: ").append(toIndentedString(caption)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -276,34 +204,23 @@ public class WhatsappMessageMedia {
     openapiFields = new HashSet<String>();
     openapiFields.add("caption");
     openapiFields.add("filename");
-    openapiFields.add("id");
-    openapiFields.add("link");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("link");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageMedia
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageMediaAllOf
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageMedia.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageMediaAllOf.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageMedia is not found in the empty JSON string", WhatsappMessageMedia.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WhatsappMessageMedia.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageMediaAllOf is not found in the empty JSON string", WhatsappMessageMediaAllOf.openapiRequiredFields.toString()));
         }
       }
       if (jsonObj.get("caption") != null && !jsonObj.get("caption").isJsonPrimitive()) {
@@ -312,28 +229,22 @@ public class WhatsappMessageMedia {
       if (jsonObj.get("filename") != null && !jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
       }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageMedia.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageMedia' and its subtypes
+       if (!WhatsappMessageMediaAllOf.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageMediaAllOf' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageMedia> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageMedia.class));
+       final TypeAdapter<WhatsappMessageMediaAllOf> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageMediaAllOf.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageMedia>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageMediaAllOf>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageMedia value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageMediaAllOf value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -356,11 +267,11 @@ public class WhatsappMessageMedia {
            }
 
            @Override
-           public WhatsappMessageMedia read(JsonReader in) throws IOException {
+           public WhatsappMessageMediaAllOf read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageMedia instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageMediaAllOf instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -385,18 +296,18 @@ public class WhatsappMessageMedia {
   }
 
  /**
-  * Create an instance of WhatsappMessageMedia given an JSON string
+  * Create an instance of WhatsappMessageMediaAllOf given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageMedia
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageMedia
+  * @return An instance of WhatsappMessageMediaAllOf
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageMediaAllOf
   */
-  public static WhatsappMessageMedia fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageMedia.class);
+  public static WhatsappMessageMediaAllOf fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageMediaAllOf.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageMedia to an JSON string
+  * Convert an instance of WhatsappMessageMediaAllOf to an JSON string
   *
   * @return JSON string
   */

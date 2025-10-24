@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappPhoneNumberNameStatus;
 import com.ycloud.client.model.WhatsappPhoneNumberProfileVertical;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -59,6 +60,32 @@ public class WhatsappPhoneNumberProfile {
   **/
   @SerializedName(SERIALIZED_NAME_ABOUT)
   private String about;
+
+  public static final String SERIALIZED_NAME_VERIFIED_NAME = "verifiedName";
+  /**
+   * The verified name
+  **/
+  @SerializedName(SERIALIZED_NAME_VERIFIED_NAME)
+  private String verifiedName;
+
+  public static final String SERIALIZED_NAME_NAME_STATUS = "nameStatus";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_NAME_STATUS)
+  private WhatsappPhoneNumberNameStatus nameStatus;
+
+  public static final String SERIALIZED_NAME_NEW_NAME = "newName";
+  /**
+   * The modified name
+  **/
+  @SerializedName(SERIALIZED_NAME_NEW_NAME)
+  private String newName;
+
+  public static final String SERIALIZED_NAME_NEW_NAME_STATUS = "newNameStatus";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_NEW_NAME_STATUS)
+  private WhatsappPhoneNumberNameStatus newNameStatus;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   /**
@@ -127,6 +154,108 @@ public class WhatsappPhoneNumberProfile {
   @ApiModelProperty(example = "ABOUT", value = "The business's **About** text. This text appears in the business's profile, beneath its profile image, phone number, and contact buttons.")
   public void setAbout(String about) {
     this.about = about;
+  }
+
+
+  public WhatsappPhoneNumberProfile verifiedName(String verifiedName) {
+    
+    this.verifiedName = verifiedName;
+    return this;
+  }
+
+   /**
+   * The verified name
+   * @return verifiedName
+  **/
+  @javax.annotation.Nullable
+
+  public String getVerifiedName() {
+    return verifiedName;
+  }
+
+
+  /**
+   * The verified name
+   **/
+  @ApiModelProperty(example = "verifiedName", value = "The verified name")
+  public void setVerifiedName(String verifiedName) {
+    this.verifiedName = verifiedName;
+  }
+
+
+  public WhatsappPhoneNumberProfile nameStatus(WhatsappPhoneNumberNameStatus nameStatus) {
+    
+    this.nameStatus = nameStatus;
+    return this;
+  }
+
+   /**
+   * Get nameStatus
+   * @return nameStatus
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappPhoneNumberNameStatus getNameStatus() {
+    return nameStatus;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setNameStatus(WhatsappPhoneNumberNameStatus nameStatus) {
+    this.nameStatus = nameStatus;
+  }
+
+
+  public WhatsappPhoneNumberProfile newName(String newName) {
+    
+    this.newName = newName;
+    return this;
+  }
+
+   /**
+   * The modified name
+   * @return newName
+  **/
+  @javax.annotation.Nullable
+
+  public String getNewName() {
+    return newName;
+  }
+
+
+  /**
+   * The modified name
+   **/
+  @ApiModelProperty(example = "John's Cake", value = "The modified name")
+  public void setNewName(String newName) {
+    this.newName = newName;
+  }
+
+
+  public WhatsappPhoneNumberProfile newNameStatus(WhatsappPhoneNumberNameStatus newNameStatus) {
+    
+    this.newNameStatus = newNameStatus;
+    return this;
+  }
+
+   /**
+   * Get newNameStatus
+   * @return newNameStatus
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappPhoneNumberNameStatus getNewNameStatus() {
+    return newNameStatus;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setNewNameStatus(WhatsappPhoneNumberNameStatus newNameStatus) {
+    this.newNameStatus = newNameStatus;
   }
 
 
@@ -339,6 +468,10 @@ public class WhatsappPhoneNumberProfile {
     }
     WhatsappPhoneNumberProfile whatsappPhoneNumberProfile = (WhatsappPhoneNumberProfile) o;
     return Objects.equals(this.about, whatsappPhoneNumberProfile.about) &&
+        Objects.equals(this.verifiedName, whatsappPhoneNumberProfile.verifiedName) &&
+        Objects.equals(this.nameStatus, whatsappPhoneNumberProfile.nameStatus) &&
+        Objects.equals(this.newName, whatsappPhoneNumberProfile.newName) &&
+        Objects.equals(this.newNameStatus, whatsappPhoneNumberProfile.newNameStatus) &&
         Objects.equals(this.address, whatsappPhoneNumberProfile.address) &&
         Objects.equals(this.description, whatsappPhoneNumberProfile.description) &&
         Objects.equals(this.email, whatsappPhoneNumberProfile.email) &&
@@ -350,7 +483,7 @@ public class WhatsappPhoneNumberProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(about, address, description, email, profilePictureUrl, vertical, websites, additionalProperties);
+    return Objects.hash(about, verifiedName, nameStatus, newName, newNameStatus, address, description, email, profilePictureUrl, vertical, websites, additionalProperties);
   }
 
   @Override
@@ -358,6 +491,10 @@ public class WhatsappPhoneNumberProfile {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappPhoneNumberProfile {\n");
     sb.append("    about: ").append(toIndentedString(about)).append("\n");
+    sb.append("    verifiedName: ").append(toIndentedString(verifiedName)).append("\n");
+    sb.append("    nameStatus: ").append(toIndentedString(nameStatus)).append("\n");
+    sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    newNameStatus: ").append(toIndentedString(newNameStatus)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -388,6 +525,10 @@ public class WhatsappPhoneNumberProfile {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("about");
+    openapiFields.add("verifiedName");
+    openapiFields.add("nameStatus");
+    openapiFields.add("newName");
+    openapiFields.add("newNameStatus");
     openapiFields.add("address");
     openapiFields.add("description");
     openapiFields.add("email");
@@ -415,6 +556,12 @@ public class WhatsappPhoneNumberProfile {
       }
       if (jsonObj.get("about") != null && !jsonObj.get("about").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `about` to be a primitive type in the JSON string but got `%s`", jsonObj.get("about").toString()));
+      }
+      if (jsonObj.get("verifiedName") != null && !jsonObj.get("verifiedName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `verifiedName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verifiedName").toString()));
+      }
+      if (jsonObj.get("newName") != null && !jsonObj.get("newName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `newName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newName").toString()));
       }
       if (jsonObj.get("address") != null && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));

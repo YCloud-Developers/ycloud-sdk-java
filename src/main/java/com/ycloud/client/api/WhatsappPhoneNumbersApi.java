@@ -30,6 +30,8 @@ import java.io.IOException;
 import com.ycloud.client.model.ErrorResponse;
 import com.ycloud.client.model.WhatsappCommerceSettings;
 import com.ycloud.client.model.WhatsappCommerceSettingsUpdateRequest;
+import com.ycloud.client.model.WhatsappPhoneNameUpdateRequest;
+import com.ycloud.client.model.WhatsappPhoneNameUpdateResponse;
 import com.ycloud.client.model.WhatsappPhoneNumber;
 import com.ycloud.client.model.WhatsappPhoneNumberPage;
 import com.ycloud.client.model.WhatsappPhoneNumberProfile;
@@ -1311,6 +1313,159 @@ public class WhatsappPhoneNumbersApi {
 
         okhttp3.Call localVarCall = updateCommerceSettingsValidateBeforeCall(wabaId, phoneNumber, whatsappCommerceSettingsUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<WhatsappCommerceSettings>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateDisplayName
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappPhoneNameUpdateRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDisplayNameCall(String wabaId, String phoneNumber, WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = whatsappPhoneNameUpdateRequest;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/displayName"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateDisplayNameValidateBeforeCall(String wabaId, String phoneNumber, WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling updateDisplayName(Async)");
+        }
+        
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling updateDisplayName(Async)");
+        }
+        
+        // verify the required parameter 'whatsappPhoneNameUpdateRequest' is set
+        if (whatsappPhoneNameUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'whatsappPhoneNameUpdateRequest' when calling updateDisplayName(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateDisplayNameCall(wabaId, phoneNumber, whatsappPhoneNameUpdateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a phone number display name
+     * <p>
+     * Updates a WhatsApp business phone number display name.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappPhoneNameUpdateRequest  (required)
+     * @return WhatsappPhoneNameUpdateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappPhoneNameUpdateResponse updateDisplayName(String wabaId, String phoneNumber, WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest) throws ApiException {
+        ApiResponse<WhatsappPhoneNameUpdateResponse> localVarResp = updateDisplayNameWithHttpInfo(wabaId, phoneNumber, whatsappPhoneNameUpdateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a phone number display name
+     * <p>
+     * Updates a WhatsApp business phone number display name.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappPhoneNameUpdateRequest  (required)
+     * @return ApiResponse&lt;WhatsappPhoneNameUpdateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappPhoneNameUpdateResponse> updateDisplayNameWithHttpInfo(String wabaId, String phoneNumber, WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateDisplayNameValidateBeforeCall(wabaId, phoneNumber, whatsappPhoneNameUpdateRequest, null);
+        Type localVarReturnType = new TypeToken<WhatsappPhoneNameUpdateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a phone number display name (asynchronously)
+     * <p>
+     * Updates a WhatsApp business phone number display name.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappPhoneNameUpdateRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDisplayNameAsync(String wabaId, String phoneNumber, WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest, final ApiCallback<WhatsappPhoneNameUpdateResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateDisplayNameValidateBeforeCall(wabaId, phoneNumber, whatsappPhoneNameUpdateRequest, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappPhoneNameUpdateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

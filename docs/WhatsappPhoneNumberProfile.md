@@ -9,6 +9,10 @@ WhatsApp Phone Number Business Profile. Customers can view your business profile
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**about** | **String** | The business&#39;s **About** text. This text appears in the business&#39;s profile, beneath its profile image, phone number, and contact buttons. |  [optional] |
+|**verifiedName** | **String** | The verified name |  [optional] |
+|**nameStatus** | **WhatsappPhoneNumberNameStatus** |  |  [optional] |
+|**newName** | **String** | The modified name |  [optional] |
+|**newNameStatus** | **WhatsappPhoneNumberNameStatus** |  |  [optional] |
 |**address** | **String** | Address of the business. Character limit 256. |  [optional] |
 |**description** | **String** | Description of the business. Character limit 512. |  [optional] |
 |**email** | **String** | The contact email address (in valid email format) of the business. Character limit 128. |  [optional] |

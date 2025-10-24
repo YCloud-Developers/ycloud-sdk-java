@@ -45,5 +45,9 @@
 
 * `CONTACT_DELETED` (value: `"contact.deleted"`)
 
+* `CONTACT_UNSUBSCRIBE_CREATED` (value: `"contact.unsubscribe.created"`)
+
+* `CONTACT_UNSUBSCRIBE_DELETED` (value: `"contact.unsubscribe.deleted"`)
+
 
 
