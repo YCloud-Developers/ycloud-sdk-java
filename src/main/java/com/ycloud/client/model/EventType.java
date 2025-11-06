@@ -116,6 +116,31 @@ public enum EventType {
   WHATSAPP_TEMPLATE_REVIEWED("whatsapp.template.reviewed"),
   
   /**
+   * Occurs when a WhatsApp call is connected.
+   */
+  WHATSAPP_CALL_CONNECT("whatsapp.call.connect"),
+  
+  /**
+   * Occurs when a WhatsApp call is terminated.
+   */
+  WHATSAPP_CALL_TERMINATE("whatsapp.call.terminate"),
+  
+  /**
+   * Occurs when a WhatsApp call status is updated.
+   */
+  WHATSAPP_CALL_STATUS_UPDATED("whatsapp.call.status.updated"),
+  
+  /**
+   * Occurs when a WhatsApp flow status is updated.
+   */
+  WHATSAPP_FLOW_STATUS_CHANGE("whatsapp.flow.status_change"),
+  
+  /**
+   * Occurs when a WhatsApp payment transaction changes.
+   */
+  WHATSAPP_PAYMENT_UPDATED("whatsapp.payment.updated"),
+  
+  /**
    * Occurs when a contact&#39;s attributes are changed.
    */
   CONTACT_ATTRIBUTES_CHANGED("contact.attributes_changed"),

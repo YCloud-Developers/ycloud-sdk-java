@@ -39,6 +39,16 @@
 
 * `WHATSAPP_TEMPLATE_REVIEWED` (value: `"whatsapp.template.reviewed"`)
 
+* `WHATSAPP_CALL_CONNECT` (value: `"whatsapp.call.connect"`)
+
+* `WHATSAPP_CALL_TERMINATE` (value: `"whatsapp.call.terminate"`)
+
+* `WHATSAPP_CALL_STATUS_UPDATED` (value: `"whatsapp.call.status.updated"`)
+
+* `WHATSAPP_FLOW_STATUS_CHANGE` (value: `"whatsapp.flow.status_change"`)
+
+* `WHATSAPP_PAYMENT_UPDATED` (value: `"whatsapp.payment.updated"`)
+
 * `CONTACT_ATTRIBUTES_CHANGED` (value: `"contact.attributes_changed"`)
 
 * `CONTACT_CREATED` (value: `"contact.created"`)

@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.15.7</version>
+  <version>1.15.8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.15.7"
+     implementation "com.ycloud:ycloud-sdk-java:1.15.8"
   }
 ```
 
@@ -301,7 +301,6 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveHeader](docs/WhatsappMessageInteractiveHeader.md)
  - [WhatsappMessageLocation](docs/WhatsappMessageLocation.md)
  - [WhatsappMessageMedia](docs/WhatsappMessageMedia.md)
- - [WhatsappMessageMediaAllOf](docs/WhatsappMessageMediaAllOf.md)
  - [WhatsappMessageOrderAmount](docs/WhatsappMessageOrderAmount.md)
  - [WhatsappMessageOrderBeneficiary](docs/WhatsappMessageOrderBeneficiary.md)
  - [WhatsappMessageOrderDetails](docs/WhatsappMessageOrderDetails.md)

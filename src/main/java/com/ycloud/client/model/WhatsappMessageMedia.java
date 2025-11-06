@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.ycloud.client.model.WhatsappMessageMediaAllOf;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -46,11 +45,25 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Use for &#x60;image&#x60;, &#x60;video&#x60;, &#x60;audio&#x60;, &#x60;document&#x60;, or &#x60;sticker&#x60; messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)
+ * Use for &#x60;image&#x60;, &#x60;video&#x60;, &#x60;audio&#x60;, &#x60;document&#x60;, or &#x60;sticker&#x60; messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Important**: You must provide either &#x60;id&#x60; OR &#x60;link&#x60;, but not both. These parameters are mutually exclusive: - Use &#x60;id&#x60; when the media has been uploaded to WhatsApp servers - Use &#x60;link&#x60; when sending media directly from your server - If both are provided, the system will use &#x60;id&#x60; and ignore &#x60;link&#x60;  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)
  */
-@ApiModel(description = "Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either `id` or `link` must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)")
+@ApiModel(description = "Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Important**: You must provide either `id` OR `link`, but not both. These parameters are mutually exclusive: - Use `id` when the media has been uploaded to WhatsApp servers - Use `link` when sending media directly from your server - If both are provided, the system will use `id` and ignore `link`  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageMedia {
+  public static final String SERIALIZED_NAME_ID = "id";
+  /**
+   * **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence.
+  **/
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_LINK = "link";
+  /**
+   * **Use this when sending media directly from your server.**  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.  Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence and &#x60;link&#x60; will be ignored.
+  **/
+  @SerializedName(SERIALIZED_NAME_LINK)
+  private String link;
+
   public static final String SERIALIZED_NAME_CAPTION = "caption";
   /**
    * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
@@ -65,22 +78,60 @@ public class WhatsappMessageMedia {
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  /**
-   * Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).
-  **/
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_LINK = "link";
-  /**
-   * Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
-  **/
-  @SerializedName(SERIALIZED_NAME_LINK)
-  private String link;
-
   public WhatsappMessageMedia() { 
   }
+
+  public WhatsappMessageMedia id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+
+  public String getId() {
+    return id;
+  }
+
+
+  /**
+   * **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence.
+   **/
+  @ApiModelProperty(value = "**Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either `id` or `link` must be provided. If both are provided, `id` takes precedence.")
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public WhatsappMessageMedia link(String link) {
+    
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * **Use this when sending media directly from your server.**  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.  Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence and &#x60;link&#x60; will be ignored.
+   * @return link
+  **/
+  @javax.annotation.Nullable
+
+  public String getLink() {
+    return link;
+  }
+
+
+  /**
+   * **Use this when sending media directly from your server.**  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.  Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence and &#x60;link&#x60; will be ignored.
+   **/
+  @ApiModelProperty(value = "**Use this when sending media directly from your server.**  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs.  Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.  Note: Either `id` or `link` must be provided. If both are provided, `id` takes precedence and `link` will be ignored.")
+  public void setLink(String link) {
+    this.link = link;
+  }
+
 
   public WhatsappMessageMedia caption(String caption) {
     
@@ -133,58 +184,6 @@ public class WhatsappMessageMedia {
     this.filename = filename;
   }
 
-
-  public WhatsappMessageMedia id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).
-   * @return id
-  **/
-  @javax.annotation.Nonnull
-
-  public String getId() {
-    return id;
-  }
-
-
-  /**
-   * Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).
-   **/
-  @ApiModelProperty(required = true, value = "Required when using media that has been uploaded to WhatsApp servers.  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).")
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public WhatsappMessageMedia link(String link) {
-    
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
-   * @return link
-  **/
-  @javax.annotation.Nonnull
-
-  public String getLink() {
-    return link;
-  }
-
-
-  /**
-   * Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
-   **/
-  @ApiModelProperty(required = true, value = "Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.")
-  public void setLink(String link) {
-    this.link = link;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -231,26 +230,26 @@ public class WhatsappMessageMedia {
       return false;
     }
     WhatsappMessageMedia whatsappMessageMedia = (WhatsappMessageMedia) o;
-    return Objects.equals(this.caption, whatsappMessageMedia.caption) &&
-        Objects.equals(this.filename, whatsappMessageMedia.filename) &&
-        Objects.equals(this.id, whatsappMessageMedia.id) &&
-        Objects.equals(this.link, whatsappMessageMedia.link)&&
+    return Objects.equals(this.id, whatsappMessageMedia.id) &&
+        Objects.equals(this.link, whatsappMessageMedia.link) &&
+        Objects.equals(this.caption, whatsappMessageMedia.caption) &&
+        Objects.equals(this.filename, whatsappMessageMedia.filename)&&
         Objects.equals(this.additionalProperties, whatsappMessageMedia.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caption, filename, id, link, additionalProperties);
+    return Objects.hash(id, link, caption, filename, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappMessageMedia {\n");
-    sb.append("    caption: ").append(toIndentedString(caption)).append("\n");
-    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    caption: ").append(toIndentedString(caption)).append("\n");
+    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -274,15 +273,13 @@ public class WhatsappMessageMedia {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("caption");
-    openapiFields.add("filename");
     openapiFields.add("id");
     openapiFields.add("link");
+    openapiFields.add("caption");
+    openapiFields.add("filename");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("link");
   }
 
  /**
@@ -299,24 +296,17 @@ public class WhatsappMessageMedia {
           throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageMedia is not found in the empty JSON string", WhatsappMessageMedia.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WhatsappMessageMedia.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
       }
       if (jsonObj.get("caption") != null && !jsonObj.get("caption").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `caption` to be a primitive type in the JSON string but got `%s`", jsonObj.get("caption").toString()));
       }
       if (jsonObj.get("filename") != null && !jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
-      }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
       }
   }
 
