@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappMessageInteractiveActionButton;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionCard;
 import com.ycloud.client.model.WhatsappMessageInteractiveActionParameters;
 import com.ycloud.client.model.WhatsappMessageInteractiveActionSection;
 import io.swagger.annotations.ApiModel;
@@ -96,15 +97,15 @@ public class WhatsappMessageInteractiveAction {
   @JsonAdapter(NameEnum.Adapter.class)
   public enum NameEnum {
     CTA_URL("cta_url"),
-    
+
     SEND_LOCATION("send_location"),
-    
+
     FLOW("flow"),
-    
+
     REVIEW_AND_PAY("review_and_pay"),
-    
+
     REVIEW_ORDER("review_order"),
-    
+
     VOICE_CALL("voice_call");
 
     private String value;
@@ -158,11 +159,18 @@ public class WhatsappMessageInteractiveAction {
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private WhatsappMessageInteractiveActionParameters parameters;
 
-  public WhatsappMessageInteractiveAction() { 
+  public static final String SERIALIZED_NAME_CARDS = "cards";
+  /**
+   * Required for Carousel Messages. Array of card objects. Minimum of 2, maximum of 10.
+  **/
+  @SerializedName(SERIALIZED_NAME_CARDS)
+  private List<WhatsappMessageInteractiveActionCard> cards = null;
+
+  public WhatsappMessageInteractiveAction() {
   }
 
   public WhatsappMessageInteractiveAction buttons(List<WhatsappMessageInteractiveActionButton> buttons) {
-    
+
     this.buttons = buttons;
     return this;
   }
@@ -196,7 +204,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction button(String button) {
-    
+
     this.button = button;
     return this;
   }
@@ -222,7 +230,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction catalogId(String catalogId) {
-    
+
     this.catalogId = catalogId;
     return this;
   }
@@ -248,7 +256,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction productRetailerId(String productRetailerId) {
-    
+
     this.productRetailerId = productRetailerId;
     return this;
   }
@@ -274,7 +282,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction sections(List<WhatsappMessageInteractiveActionSection> sections) {
-    
+
     this.sections = sections;
     return this;
   }
@@ -308,7 +316,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction name(NameEnum name) {
-    
+
     this.name = name;
     return this;
   }
@@ -334,7 +342,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction parameters(WhatsappMessageInteractiveActionParameters parameters) {
-    
+
     this.parameters = parameters;
     return this;
   }
@@ -355,6 +363,40 @@ public class WhatsappMessageInteractiveAction {
   @ApiModelProperty(value = "")
   public void setParameters(WhatsappMessageInteractiveActionParameters parameters) {
     this.parameters = parameters;
+  }
+
+
+  public WhatsappMessageInteractiveAction cards(List<WhatsappMessageInteractiveActionCard> cards) {
+
+    this.cards = cards;
+    return this;
+  }
+
+  public WhatsappMessageInteractiveAction addCardsItem(WhatsappMessageInteractiveActionCard cardsItem) {
+    if (this.cards == null) {
+      this.cards = new ArrayList<>();
+    }
+    this.cards.add(cardsItem);
+    return this;
+  }
+
+   /**
+   * Required for Carousel Messages. Array of card objects. Minimum of 2, maximum of 10.
+   * @return cards
+  **/
+  @javax.annotation.Nullable
+
+  public List<WhatsappMessageInteractiveActionCard> getCards() {
+    return cards;
+  }
+
+
+  /**
+   * Required for Carousel Messages. Array of card objects. Minimum of 2, maximum of 10.
+   **/
+  @ApiModelProperty(value = "Required for Carousel Messages. Array of card objects. Minimum of 2, maximum of 10.")
+  public void setCards(List<WhatsappMessageInteractiveActionCard> cards) {
+    this.cards = cards;
   }
 
   /**
@@ -409,13 +451,14 @@ public class WhatsappMessageInteractiveAction {
         Objects.equals(this.productRetailerId, whatsappMessageInteractiveAction.productRetailerId) &&
         Objects.equals(this.sections, whatsappMessageInteractiveAction.sections) &&
         Objects.equals(this.name, whatsappMessageInteractiveAction.name) &&
-        Objects.equals(this.parameters, whatsappMessageInteractiveAction.parameters)&&
+        Objects.equals(this.parameters, whatsappMessageInteractiveAction.parameters) &&
+        Objects.equals(this.cards, whatsappMessageInteractiveAction.cards)&&
         Objects.equals(this.additionalProperties, whatsappMessageInteractiveAction.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(buttons, button, catalogId, productRetailerId, sections, name, parameters, additionalProperties);
+    return Objects.hash(buttons, button, catalogId, productRetailerId, sections, name, parameters, cards, additionalProperties);
   }
 
   @Override
@@ -429,6 +472,7 @@ public class WhatsappMessageInteractiveAction {
     sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    cards: ").append(toIndentedString(cards)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -459,6 +503,7 @@ public class WhatsappMessageInteractiveAction {
     openapiFields.add("sections");
     openapiFields.add("name");
     openapiFields.add("parameters");
+    openapiFields.add("cards");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -517,6 +562,18 @@ public class WhatsappMessageInteractiveAction {
       // validate the optional field `parameters`
       if (jsonObj.getAsJsonObject("parameters") != null) {
         WhatsappMessageInteractiveActionParameters.validateJsonObject(jsonObj.getAsJsonObject("parameters"));
+      }
+      JsonArray jsonArraycards = jsonObj.getAsJsonArray("cards");
+      if (jsonArraycards != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("cards").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `cards` to be an array in the JSON string but got `%s`", jsonObj.get("cards").toString()));
+        }
+
+        // validate the optional field `cards` (array)
+        for (int i = 0; i < jsonArraycards.size(); i++) {
+          WhatsappMessageInteractiveActionCard.validateJsonObject(jsonArraycards.get(i).getAsJsonObject());
+        };
       }
   }
 

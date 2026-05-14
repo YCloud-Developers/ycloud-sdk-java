@@ -20,9 +20,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionCardAction;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionCardBody;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionCardHeader;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,159 +49,170 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Represents a single change action performed on an attribute. For tag attributes, includes additional id and value fields.
+ * A card object in &#x60;interactive&#x60; messages. All cards must have the same structure.
  */
-@ApiModel(description = "Represents a single change action performed on an attribute. For tag attributes, includes additional id and value fields.")
+@ApiModel(description = "A card object in `interactive` messages. All cards must have the same structure.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AttributeChangeAction {
+public class WhatsappMessageInteractiveActionCard {
+  public static final String SERIALIZED_NAME_CARD_INDEX = "card_index";
   /**
-   * The type of change action performed.
-   */
-  @JsonAdapter(ActionEnum.Adapter.class)
-  public enum ActionEnum {
-    ADDED("ADDED"),
+   * Card index. Unique index for each card (0-9).
+  **/
+  @SerializedName(SERIALIZED_NAME_CARD_INDEX)
+  private BigDecimal cardIndex;
 
-    REMOVED("REMOVED"),
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * Must be \&quot;cta_url\&quot;.
+  **/
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
-    CHANGED("CHANGED");
+  public static final String SERIALIZED_NAME_HEADER = "header";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_HEADER)
+  private WhatsappMessageInteractiveActionCardHeader header;
 
-    private String value;
-
-    ActionEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ActionEnum fromValue(String value) {
-      for (ActionEnum b : ActionEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<ActionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ActionEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ActionEnum.fromValue(value);
-      }
-    }
-  }
+  public static final String SERIALIZED_NAME_BODY = "body";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_BODY)
+  private WhatsappMessageInteractiveActionCardBody body;
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   /**
-   * The type of change action performed.
   **/
   @SerializedName(SERIALIZED_NAME_ACTION)
-  private ActionEnum action;
+  private WhatsappMessageInteractiveActionCardAction action;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  /**
-   * The ID of the item when the attribute is &#39;tags&#39;. This field is only present for tag-related changes.
-  **/
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  /**
-   * The value of the item when the attribute is &#39;tags&#39;. This field is only present for tag-related changes.
-  **/
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  private String value;
-
-  public AttributeChangeAction() {
+  public WhatsappMessageInteractiveActionCard() {
   }
 
-  public AttributeChangeAction action(ActionEnum action) {
+  public WhatsappMessageInteractiveActionCard cardIndex(BigDecimal cardIndex) {
+
+    this.cardIndex = cardIndex;
+    return this;
+  }
+
+   /**
+   * Card index. Unique index for each card (0-9).
+   * @return cardIndex
+  **/
+  @javax.annotation.Nullable
+
+  public BigDecimal getCardIndex() {
+    return cardIndex;
+  }
+
+
+  /**
+   * Card index. Unique index for each card (0-9).
+   **/
+  @ApiModelProperty(value = "Card index. Unique index for each card (0-9).")
+  public void setCardIndex(BigDecimal cardIndex) {
+    this.cardIndex = cardIndex;
+  }
+
+
+  public WhatsappMessageInteractiveActionCard type(String type) {
+
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Must be \&quot;cta_url\&quot;.
+   * @return type
+  **/
+  @javax.annotation.Nullable
+
+  public String getType() {
+    return type;
+  }
+
+
+  /**
+   * Must be \&quot;cta_url\&quot;.
+   **/
+  @ApiModelProperty(value = "Must be \"cta_url\".")
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
+  public WhatsappMessageInteractiveActionCard header(WhatsappMessageInteractiveActionCardHeader header) {
+
+    this.header = header;
+    return this;
+  }
+
+   /**
+   * Get header
+   * @return header
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageInteractiveActionCardHeader getHeader() {
+    return header;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setHeader(WhatsappMessageInteractiveActionCardHeader header) {
+    this.header = header;
+  }
+
+
+  public WhatsappMessageInteractiveActionCard body(WhatsappMessageInteractiveActionCardBody body) {
+
+    this.body = body;
+    return this;
+  }
+
+   /**
+   * Get body
+   * @return body
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageInteractiveActionCardBody getBody() {
+    return body;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setBody(WhatsappMessageInteractiveActionCardBody body) {
+    this.body = body;
+  }
+
+
+  public WhatsappMessageInteractiveActionCard action(WhatsappMessageInteractiveActionCardAction action) {
 
     this.action = action;
     return this;
   }
 
    /**
-   * The type of change action performed.
+   * Get action
    * @return action
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
-  public ActionEnum getAction() {
+  public WhatsappMessageInteractiveActionCardAction getAction() {
     return action;
   }
 
 
   /**
-   * The type of change action performed.
    **/
-  @ApiModelProperty(example = "ADDED", required = true, value = "The type of change action performed.")
-  public void setAction(ActionEnum action) {
+  @ApiModelProperty(value = "")
+  public void setAction(WhatsappMessageInteractiveActionCardAction action) {
     this.action = action;
-  }
-
-
-  public AttributeChangeAction id(String id) {
-
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ID of the item when the attribute is &#39;tags&#39;. This field is only present for tag-related changes.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-
-  public String getId() {
-    return id;
-  }
-
-
-  /**
-   * The ID of the item when the attribute is &#39;tags&#39;. This field is only present for tag-related changes.
-   **/
-  @ApiModelProperty(example = "686dd294334be8606a5bfxxx", value = "The ID of the item when the attribute is 'tags'. This field is only present for tag-related changes.")
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public AttributeChangeAction value(String value) {
-
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * The value of the item when the attribute is &#39;tags&#39;. This field is only present for tag-related changes.
-   * @return value
-  **/
-  @javax.annotation.Nullable
-
-  public String getValue() {
-    return value;
-  }
-
-
-  /**
-   * The value of the item when the attribute is &#39;tags&#39;. This field is only present for tag-related changes.
-   **/
-  @ApiModelProperty(example = "tag1", value = "The value of the item when the attribute is 'tags'. This field is only present for tag-related changes.")
-  public void setValue(String value) {
-    this.value = value;
   }
 
   /**
@@ -211,7 +226,7 @@ public class AttributeChangeAction {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public AttributeChangeAction putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageInteractiveActionCard putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -245,25 +260,29 @@ public class AttributeChangeAction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AttributeChangeAction attributeChangeAction = (AttributeChangeAction) o;
-    return Objects.equals(this.action, attributeChangeAction.action) &&
-        Objects.equals(this.id, attributeChangeAction.id) &&
-        Objects.equals(this.value, attributeChangeAction.value)&&
-        Objects.equals(this.additionalProperties, attributeChangeAction.additionalProperties);
+    WhatsappMessageInteractiveActionCard whatsappMessageInteractiveActionCard = (WhatsappMessageInteractiveActionCard) o;
+    return Objects.equals(this.cardIndex, whatsappMessageInteractiveActionCard.cardIndex) &&
+        Objects.equals(this.type, whatsappMessageInteractiveActionCard.type) &&
+        Objects.equals(this.header, whatsappMessageInteractiveActionCard.header) &&
+        Objects.equals(this.body, whatsappMessageInteractiveActionCard.body) &&
+        Objects.equals(this.action, whatsappMessageInteractiveActionCard.action)&&
+        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionCard.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, id, value, additionalProperties);
+    return Objects.hash(cardIndex, type, header, body, action, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AttributeChangeAction {\n");
+    sb.append("class WhatsappMessageInteractiveActionCard {\n");
+    sb.append("    cardIndex: ").append(toIndentedString(cardIndex)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    header: ").append(toIndentedString(header)).append("\n");
+    sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -287,44 +306,44 @@ public class AttributeChangeAction {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("card_index");
+    openapiFields.add("type");
+    openapiFields.add("header");
+    openapiFields.add("body");
     openapiFields.add("action");
-    openapiFields.add("id");
-    openapiFields.add("value");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("action");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AttributeChangeAction
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionCard
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (AttributeChangeAction.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageInteractiveActionCard.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AttributeChangeAction is not found in the empty JSON string", AttributeChangeAction.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionCard is not found in the empty JSON string", WhatsappMessageInteractiveActionCard.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AttributeChangeAction.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      if (jsonObj.get("action") != null && !jsonObj.get("action").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
+      // validate the optional field `header`
+      if (jsonObj.getAsJsonObject("header") != null) {
+        WhatsappMessageInteractiveActionCardHeader.validateJsonObject(jsonObj.getAsJsonObject("header"));
       }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      // validate the optional field `body`
+      if (jsonObj.getAsJsonObject("body") != null) {
+        WhatsappMessageInteractiveActionCardBody.validateJsonObject(jsonObj.getAsJsonObject("body"));
       }
-      if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      // validate the optional field `action`
+      if (jsonObj.getAsJsonObject("action") != null) {
+        WhatsappMessageInteractiveActionCardAction.validateJsonObject(jsonObj.getAsJsonObject("action"));
       }
   }
 
@@ -332,16 +351,16 @@ public class AttributeChangeAction {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AttributeChangeAction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AttributeChangeAction' and its subtypes
+       if (!WhatsappMessageInteractiveActionCard.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageInteractiveActionCard' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AttributeChangeAction> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AttributeChangeAction.class));
+       final TypeAdapter<WhatsappMessageInteractiveActionCard> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionCard.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AttributeChangeAction>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionCard>() {
            @Override
-           public void write(JsonWriter out, AttributeChangeAction value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageInteractiveActionCard value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -364,11 +383,11 @@ public class AttributeChangeAction {
            }
 
            @Override
-           public AttributeChangeAction read(JsonReader in) throws IOException {
+           public WhatsappMessageInteractiveActionCard read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             AttributeChangeAction instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageInteractiveActionCard instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -393,18 +412,18 @@ public class AttributeChangeAction {
   }
 
  /**
-  * Create an instance of AttributeChangeAction given an JSON string
+  * Create an instance of WhatsappMessageInteractiveActionCard given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of AttributeChangeAction
-  * @throws IOException if the JSON string is invalid with respect to AttributeChangeAction
+  * @return An instance of WhatsappMessageInteractiveActionCard
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionCard
   */
-  public static AttributeChangeAction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AttributeChangeAction.class);
+  public static WhatsappMessageInteractiveActionCard fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionCard.class);
   }
 
  /**
-  * Convert an instance of AttributeChangeAction to an JSON string
+  * Convert an instance of WhatsappMessageInteractiveActionCard to an JSON string
   *
   * @return JSON string
   */

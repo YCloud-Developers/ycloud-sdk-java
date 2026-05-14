@@ -12,7 +12,7 @@
 |**text** | **String** | The text of this message. |  [optional] |
 |**senderId** | **String** | Sender ID to be used. |  [optional] |
 |**regionCode** | **String** | [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |  [optional] |
-|**totalSegments** | **Integer** | Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info. |  [optional] |
+|**totalSegments** | **Integer** | Number of message segments. See [SMS character encoding](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-basic-principles#sms-encoding) for more info. |  [optional] |
 |**totalPrice** | **Double** | Total price of this message. |  [optional] |
 |**currency** | **String** | Price currency. [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | Delivery status. One of &#x60;accepted&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;undelivered&#x60;, or &#x60;failed&#x60;. - &#x60;accepted&#x60;: The messaging request is accepted by our system. - &#x60;failed&#x60;: The message failed to be sent from our system. - &#x60;sent&#x60;: The message has been sent from our system. - &#x60;delivered&#x60;: Our system has received a delivery receipt indicating that message is delivered. - &#x60;undelivered&#x60;: Our system has received a delivery receipt indicating that message is not delivered. |  [optional] |

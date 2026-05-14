@@ -83,7 +83,7 @@ public class WhatsappTemplate {
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
   /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
   **/
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   private String language;
@@ -173,11 +173,11 @@ public class WhatsappTemplate {
   @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
   private WhatsappApiError whatsappApiError;
 
-  public WhatsappTemplate() { 
+  public WhatsappTemplate() {
   }
 
   public WhatsappTemplate officialTemplateId(String officialTemplateId) {
-    
+
     this.officialTemplateId = officialTemplateId;
     return this;
   }
@@ -203,7 +203,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate wabaId(String wabaId) {
-    
+
     this.wabaId = wabaId;
     return this;
   }
@@ -229,7 +229,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -255,13 +255,13 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate language(String language) {
-    
+
     this.language = language;
     return this;
   }
 
    /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
    * @return language
   **/
   @javax.annotation.Nonnull
@@ -272,16 +272,16 @@ public class WhatsappTemplate {
 
 
   /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
    **/
-  @ApiModelProperty(example = "en_US", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
+  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.")
   public void setLanguage(String language) {
     this.language = language;
   }
 
 
   public WhatsappTemplate category(WhatsappTemplateCategory category) {
-    
+
     this.category = category;
     return this;
   }
@@ -306,7 +306,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate subCategory(WhatsappTemplateSubCategory subCategory) {
-    
+
     this.subCategory = subCategory;
     return this;
   }
@@ -331,7 +331,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate previousCategory(String previousCategory) {
-    
+
     this.previousCategory = previousCategory;
     return this;
   }
@@ -357,7 +357,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate messageSendTtlSeconds(Integer messageSendTtlSeconds) {
-    
+
     this.messageSendTtlSeconds = messageSendTtlSeconds;
     return this;
   }
@@ -383,7 +383,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate components(List<WhatsappTemplateComponent> components) {
-    
+
     this.components = components;
     return this;
   }
@@ -417,7 +417,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate status(WhatsappTemplateStatus status) {
-    
+
     this.status = status;
     return this;
   }
@@ -442,7 +442,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate qualityRating(WhatsappTemplateQualityRating qualityRating) {
-    
+
     this.qualityRating = qualityRating;
     return this;
   }
@@ -467,7 +467,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate reason(String reason) {
-    
+
     this.reason = reason;
     return this;
   }
@@ -493,7 +493,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate createTime(Date createTime) {
-    
+
     this.createTime = createTime;
     return this;
   }
@@ -519,7 +519,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate updateTime(Date updateTime) {
-    
+
     this.updateTime = updateTime;
     return this;
   }
@@ -545,7 +545,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate statusUpdateEvent(WhatsappTemplateStatusUpdateEventEnum statusUpdateEvent) {
-    
+
     this.statusUpdateEvent = statusUpdateEvent;
     return this;
   }
@@ -570,7 +570,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate disableDate(String disableDate) {
-    
+
     this.disableDate = disableDate;
     return this;
   }
@@ -596,7 +596,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate whatsappApiError(WhatsappApiError whatsappApiError) {
-    
+
     this.whatsappApiError = whatsappApiError;
     return this;
   }

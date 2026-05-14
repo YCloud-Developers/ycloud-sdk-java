@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.15.8</version>
+  <version>1.15.9</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.15.8"
+     implementation "com.ycloud:ycloud-sdk-java:1.15.9"
   }
 ```
 
@@ -66,7 +66,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -291,6 +291,13 @@ Class | Method | HTTP request | Description
  - [WhatsappMessageInteractiveAction](docs/WhatsappMessageInteractiveAction.md)
  - [WhatsappMessageInteractiveActionButton](docs/WhatsappMessageInteractiveActionButton.md)
  - [WhatsappMessageInteractiveActionButtonReply](docs/WhatsappMessageInteractiveActionButtonReply.md)
+ - [WhatsappMessageInteractiveActionCard](docs/WhatsappMessageInteractiveActionCard.md)
+ - [WhatsappMessageInteractiveActionCardAction](docs/WhatsappMessageInteractiveActionCardAction.md)
+ - [WhatsappMessageInteractiveActionCardActionButton](docs/WhatsappMessageInteractiveActionCardActionButton.md)
+ - [WhatsappMessageInteractiveActionCardActionButtonQuickReply](docs/WhatsappMessageInteractiveActionCardActionButtonQuickReply.md)
+ - [WhatsappMessageInteractiveActionCardActionParameters](docs/WhatsappMessageInteractiveActionCardActionParameters.md)
+ - [WhatsappMessageInteractiveActionCardBody](docs/WhatsappMessageInteractiveActionCardBody.md)
+ - [WhatsappMessageInteractiveActionCardHeader](docs/WhatsappMessageInteractiveActionCardHeader.md)
  - [WhatsappMessageInteractiveActionParameters](docs/WhatsappMessageInteractiveActionParameters.md)
  - [WhatsappMessageInteractiveActionParametersFlowActionPayload](docs/WhatsappMessageInteractiveActionParametersFlowActionPayload.md)
  - [WhatsappMessageInteractiveActionSection](docs/WhatsappMessageInteractiveActionSection.md)
@@ -357,6 +364,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateCategory](docs/WhatsappTemplateCategory.md)
  - [WhatsappTemplateComponent](docs/WhatsappTemplateComponent.md)
  - [WhatsappTemplateComponentButton](docs/WhatsappTemplateComponentButton.md)
+ - [WhatsappTemplateComponentButtonAppDeepLink](docs/WhatsappTemplateComponentButtonAppDeepLink.md)
  - [WhatsappTemplateComponentButtonOtpSupportedApp](docs/WhatsappTemplateComponentButtonOtpSupportedApp.md)
  - [WhatsappTemplateComponentButtonOtpType](docs/WhatsappTemplateComponentButtonOtpType.md)
  - [WhatsappTemplateComponentButtonType](docs/WhatsappTemplateComponentButtonType.md)
@@ -371,6 +379,7 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateStatus](docs/WhatsappTemplateStatus.md)
  - [WhatsappTemplateStatusUpdateEventEnum](docs/WhatsappTemplateStatusUpdateEventEnum.md)
  - [WhatsappTemplateSubCategory](docs/WhatsappTemplateSubCategory.md)
+ - [WhatsappUserPreference](docs/WhatsappUserPreference.md)
 
 
 ## Documentation for Authorization

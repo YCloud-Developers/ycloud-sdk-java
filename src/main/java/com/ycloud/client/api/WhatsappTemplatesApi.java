@@ -136,12 +136,12 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(WhatsappTemplateCreateRequest whatsappTemplateCreateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'whatsappTemplateCreateRequest' is set
         if (whatsappTemplateCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappTemplateCreateRequest' when calling create(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createCall(whatsappTemplateCreateRequest, _callback);
         return localVarCall;
@@ -256,7 +256,7 @@ public class WhatsappTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -269,17 +269,17 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteByNameValidateBeforeCall(String wabaId, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling deleteByName(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteByName(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteByNameCall(wabaId, name, _callback);
         return localVarCall;
@@ -354,7 +354,7 @@ public class WhatsappTemplatesApi {
      * Build call for deleteByNameAndLanguage
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -402,7 +402,7 @@ public class WhatsappTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -415,22 +415,22 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteByNameAndLanguageValidateBeforeCall(String wabaId, String name, String language, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling deleteByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'language' is set
         if (language == null) {
             throw new ApiException("Missing the required parameter 'language' when calling deleteByNameAndLanguage(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteByNameAndLanguageCall(wabaId, name, language, _callback);
         return localVarCall;
@@ -443,7 +443,7 @@ public class WhatsappTemplatesApi {
      * Deletes a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @return WhatsappTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -464,7 +464,7 @@ public class WhatsappTemplatesApi {
      * Deletes a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @return ApiResponse&lt;WhatsappTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -486,7 +486,7 @@ public class WhatsappTemplatesApi {
      * Deletes a WhatsApp template by name and language.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -508,7 +508,7 @@ public class WhatsappTemplatesApi {
      * Build call for editByNameAndLanguage
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @param whatsappTemplateEditRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -570,22 +570,22 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call editByNameAndLanguageValidateBeforeCall(String wabaId, String name, String language, WhatsappTemplateEditRequest whatsappTemplateEditRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling editByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling editByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'language' is set
         if (language == null) {
             throw new ApiException("Missing the required parameter 'language' when calling editByNameAndLanguage(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = editByNameAndLanguageCall(wabaId, name, language, whatsappTemplateEditRequest, _callback);
         return localVarCall;
@@ -595,10 +595,10 @@ public class WhatsappTemplatesApi {
     /**
      * Edit a template
      * <p>
-     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
+     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.  Only templates in &#x60;APPROVED&#x60;, &#x60;REJECTED&#x60;, or &#x60;PAUSED&#x60; status can be edited. &#x60;ARCHIVED&#x60; templates cannot be edited.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @param whatsappTemplateEditRequest  (optional)
      * @return WhatsappTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -617,10 +617,10 @@ public class WhatsappTemplatesApi {
     /**
      * Edit a template
      * <p>
-     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
+     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.  Only templates in &#x60;APPROVED&#x60;, &#x60;REJECTED&#x60;, or &#x60;PAUSED&#x60; status can be edited. &#x60;ARCHIVED&#x60; templates cannot be edited.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @param whatsappTemplateEditRequest  (optional)
      * @return ApiResponse&lt;WhatsappTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -640,10 +640,10 @@ public class WhatsappTemplatesApi {
     /**
      * Edit a template (asynchronously)
      * <p>
-     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
+     * Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.  Only templates in &#x60;APPROVED&#x60;, &#x60;REJECTED&#x60;, or &#x60;PAUSED&#x60; status can be edited. &#x60;ARCHIVED&#x60; templates cannot be edited.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @param whatsappTemplateEditRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -662,7 +662,7 @@ public class WhatsappTemplatesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    private okhttp3.Call listCall(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, String filterName, String filterLanguage, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCall(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, String filterName, String filterLanguage, String filterStatus, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -711,6 +711,10 @@ public class WhatsappTemplatesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter.language", filterLanguage));
         }
 
+        if (filterStatus != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter.status", filterStatus));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -720,7 +724,7 @@ public class WhatsappTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -732,24 +736,24 @@ public class WhatsappTemplatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, String filterName, String filterLanguage, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, String filterName, String filterLanguage, String filterStatus, final ApiCallback _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, _callback);
+
+        okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, filterStatus, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<WhatsappTemplatePage> listWithHttpInfo(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, String filterName, String filterLanguage) throws ApiException {
-        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, null);
+    private ApiResponse<WhatsappTemplatePage> listWithHttpInfo(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, String filterName, String filterLanguage, String filterStatus) throws ApiException {
+        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, filterStatus, null);
         Type localVarReturnType = new TypeToken<WhatsappTemplatePage>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listAsync(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, String filterName, String filterLanguage, final ApiCallback<WhatsappTemplatePage> _callback) throws ApiException {
+    private okhttp3.Call listAsync(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, String filterName, String filterLanguage, String filterStatus, final ApiCallback<WhatsappTemplatePage> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, _callback);
+        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, filterStatus, _callback);
         Type localVarReturnType = new TypeToken<WhatsappTemplatePage>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -762,6 +766,7 @@ public class WhatsappTemplatesApi {
         private String filterWabaId;
         private String filterName;
         private String filterLanguage;
+        private String filterStatus;
 
         private ApiListRequest() {
         }
@@ -818,11 +823,21 @@ public class WhatsappTemplatesApi {
 
         /**
          * Set filterLanguage
-         * @param filterLanguage Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (optional)
+         * @param filterLanguage Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (optional)
          * @return ApiListRequest
          */
         public ApiListRequest filterLanguage(String filterLanguage) {
             this.filterLanguage = filterLanguage;
+            return this;
+        }
+
+        /**
+         * Set filterStatus
+         * @param filterStatus Comma-separated template statuses to filter by. Supported values include &#x60;PENDING&#x60;, &#x60;REJECTED&#x60;, &#x60;APPROVED&#x60;, &#x60;PAUSED&#x60;, &#x60;DISABLED&#x60;, &#x60;ARCHIVED&#x60;, &#x60;IN_APPEAL&#x60;, and &#x60;DELETED&#x60;. (optional)
+         * @return ApiListRequest
+         */
+        public ApiListRequest filterStatus(String filterStatus) {
+            this.filterStatus = filterStatus;
             return this;
         }
 
@@ -838,7 +853,7 @@ public class WhatsappTemplatesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listCall(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, _callback);
+            return listCall(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, filterStatus, _callback);
         }
 
         /**
@@ -852,7 +867,7 @@ public class WhatsappTemplatesApi {
          </table>
          */
         public WhatsappTemplatePage execute() throws ApiException {
-            ApiResponse<WhatsappTemplatePage> localVarResp = listWithHttpInfo(page, limit, includeTotal, filterWabaId, filterName, filterLanguage);
+            ApiResponse<WhatsappTemplatePage> localVarResp = listWithHttpInfo(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, filterStatus);
             return localVarResp.getData();
         }
 
@@ -867,7 +882,7 @@ public class WhatsappTemplatesApi {
          </table>
          */
         public ApiResponse<WhatsappTemplatePage> executeWithHttpInfo() throws ApiException {
-            return listWithHttpInfo(page, limit, includeTotal, filterWabaId, filterName, filterLanguage);
+            return listWithHttpInfo(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, filterStatus);
         }
 
         /**
@@ -882,14 +897,14 @@ public class WhatsappTemplatesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<WhatsappTemplatePage> _callback) throws ApiException {
-            return listAsync(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, _callback);
+            return listAsync(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, filterStatus, _callback);
         }
     }
 
     /**
      * List templates
      * <p>
-     * Returns a paginated list of WhatsApp templates you&#39;ve previously created.
+     * Returns a paginated list of WhatsApp templates you&#39;ve previously created.  Archived templates are included when they match the query. Use &#x60;filter.status&#x3D;ARCHIVED&#x60; to list archived templates explicitly.
      * @return ApiListRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -904,7 +919,7 @@ public class WhatsappTemplatesApi {
      * Build call for retrieveByNameAndLanguage
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -952,7 +967,7 @@ public class WhatsappTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -965,22 +980,22 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveByNameAndLanguageValidateBeforeCall(String wabaId, String name, String language, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling retrieveByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'language' is set
         if (language == null) {
             throw new ApiException("Missing the required parameter 'language' when calling retrieveByNameAndLanguage(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveByNameAndLanguageCall(wabaId, name, language, _callback);
         return localVarCall;
@@ -990,10 +1005,10 @@ public class WhatsappTemplatesApi {
     /**
      * Retrieve a template
      * <p>
-     * Retrieves a WhatsApp template by name and language.
+     * Retrieves a WhatsApp template by name and language.  The returned template &#x60;status&#x60; may be &#x60;ARCHIVED&#x60;.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @return WhatsappTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1011,10 +1026,10 @@ public class WhatsappTemplatesApi {
     /**
      * Retrieve a template
      * <p>
-     * Retrieves a WhatsApp template by name and language.
+     * Retrieves a WhatsApp template by name and language.  The returned template &#x60;status&#x60; may be &#x60;ARCHIVED&#x60;.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @return ApiResponse&lt;WhatsappTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1033,10 +1048,10 @@ public class WhatsappTemplatesApi {
     /**
      * Retrieve a template (asynchronously)
      * <p>
-     * Retrieves a WhatsApp template by name and language.
+     * Retrieves a WhatsApp template by name and language.  The returned template &#x60;status&#x60; may be &#x60;ARCHIVED&#x60;.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param name Name of the template. (required)
-     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. (required)
+     * @param language Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

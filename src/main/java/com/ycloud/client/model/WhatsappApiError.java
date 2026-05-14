@@ -101,16 +101,16 @@ public class WhatsappApiError {
 
   public static final String SERIALIZED_NAME_ERROR_DATA = "error_data";
   /**
-   * Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error.
+   * Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error. - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error.
   **/
   @SerializedName(SERIALIZED_NAME_ERROR_DATA)
   private Object errorData;
 
-  public WhatsappApiError() { 
+  public WhatsappApiError() {
   }
 
   public WhatsappApiError message(String message) {
-    
+
     this.message = message;
     return this;
   }
@@ -136,7 +136,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError code(String code) {
-    
+
     this.code = code;
     return this;
   }
@@ -162,7 +162,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError type(String type) {
-    
+
     this.type = type;
     return this;
   }
@@ -188,7 +188,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorSubcode(String errorSubcode) {
-    
+
     this.errorSubcode = errorSubcode;
     return this;
   }
@@ -214,7 +214,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorUserMsg(String errorUserMsg) {
-    
+
     this.errorUserMsg = errorUserMsg;
     return this;
   }
@@ -240,7 +240,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorUserTitle(String errorUserTitle) {
-    
+
     this.errorUserTitle = errorUserTitle;
     return this;
   }
@@ -266,7 +266,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError fbtraceId(String fbtraceId) {
-    
+
     this.fbtraceId = fbtraceId;
     return this;
   }
@@ -292,13 +292,13 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorData(Object errorData) {
-    
+
     this.errorData = errorData;
     return this;
   }
 
    /**
-   * Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error.
+   * Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error. - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error.
    * @return errorData
   **/
   @javax.annotation.Nullable
@@ -309,9 +309,9 @@ public class WhatsappApiError {
 
 
   /**
-   * Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error.
+   * Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error. - For message APIs, this field is a map with property &#x60;details&#x60; describing the reason for the error.
    **/
-  @ApiModelProperty(value = "Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error.   - For message APIs, this field is a map with property `details` describing the reason for the error.")
+  @ApiModelProperty(value = "Additional data about the error. A string or map. - For template APIs, this field is a string describing the reason for the error. - For message APIs, this field is a map with property `details` describing the reason for the error.")
   public void setErrorData(Object errorData) {
     this.errorData = errorData;
   }

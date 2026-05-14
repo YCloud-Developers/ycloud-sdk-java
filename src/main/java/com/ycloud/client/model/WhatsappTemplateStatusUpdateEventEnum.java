@@ -25,27 +25,31 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Used when an event happened on WhatsApp template status updates. - &#x60;PENDING&#x60;: Pending. - &#x60;APPROVED&#x60;: Approved. - &#x60;REJECTED&#x60;: Rejected. - &#x60;IN_APPEAL&#x60;: In appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals). - &#x60;PAUSED&#x60;: Paused. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - &#x60;FLAGGED&#x60;: Flagged. The template is scheduled for disabling. - &#x60;DISABLED&#x60;: Disabled. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - &#x60;REINSTATED&#x60;: Reinstated. - &#x60;PENDING_DELETION&#x60;: Pending deletion.
+ * Used when an event happened on WhatsApp template status updates. - &#x60;PENDING&#x60;: Pending. - &#x60;APPROVED&#x60;: Approved. - &#x60;REJECTED&#x60;: Rejected. - &#x60;IN_APPEAL&#x60;: In appeal. See also [Template Appeals](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#appeals). - &#x60;PAUSED&#x60;: Paused. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - &#x60;FLAGGED&#x60;: Flagged. The template is scheduled for disabling. - &#x60;DISABLED&#x60;: Disabled. See also [Template Pausing](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines#template-pausing). - &#x60;ARCHIVED&#x60;: Archived. The template status is updated to &#x60;ARCHIVED&#x60;. - &#x60;UNARCHIVED&#x60;: Unarchived. The template status is restored to the current status returned by Meta. If the status is &#x60;APPROVED&#x60;, this event still does not represent a new approval review. - &#x60;REINSTATED&#x60;: Reinstated. - &#x60;PENDING_DELETION&#x60;: Pending deletion.
  */
 @JsonAdapter(WhatsappTemplateStatusUpdateEventEnum.Adapter.class)
 public enum WhatsappTemplateStatusUpdateEventEnum {
-  
+
   PENDING("PENDING"),
-  
+
   APPROVED("APPROVED"),
-  
+
   REJECTED("REJECTED"),
-  
+
   IN_APPEAL("IN_APPEAL"),
-  
+
   PAUSED("PAUSED"),
-  
+
   FLAGGED("FLAGGED"),
-  
+
   DISABLED("DISABLED"),
-  
+
+  ARCHIVED("ARCHIVED"),
+
+  UNARCHIVED("UNARCHIVED"),
+
   REINSTATED("REINSTATED"),
-  
+
   PENDING_DELETION("PENDING_DELETION");
 
   private String value;

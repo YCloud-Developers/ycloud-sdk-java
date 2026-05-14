@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappMessageInteractiveActionCardActionButtonQuickReply;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -45,43 +46,74 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappMessageMediaOneOf1
+ * WhatsappMessageInteractiveActionCardActionButton
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class WhatsappMessageMediaOneOf1 {
-  public static final String SERIALIZED_NAME_LINK = "link";
+public class WhatsappMessageInteractiveActionCardActionButton {
+  public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
+   * Must be \&quot;quick_reply\&quot;.
   **/
-  @SerializedName(SERIALIZED_NAME_LINK)
-  private String link;
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
-  public WhatsappMessageMediaOneOf1() { 
+  public static final String SERIALIZED_NAME_QUICK_REPLY = "quick_reply";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_QUICK_REPLY)
+  private WhatsappMessageInteractiveActionCardActionButtonQuickReply quickReply;
+
+  public WhatsappMessageInteractiveActionCardActionButton() {
   }
 
-  public WhatsappMessageMediaOneOf1 link(String link) {
-    
-    this.link = link;
+  public WhatsappMessageInteractiveActionCardActionButton type(String type) {
+
+    this.type = type;
     return this;
   }
 
    /**
-   * Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
-   * @return link
+   * Must be \&quot;quick_reply\&quot;.
+   * @return type
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
-  public String getLink() {
-    return link;
+  public String getType() {
+    return type;
   }
 
 
   /**
-   * Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.
+   * Must be \&quot;quick_reply\&quot;.
    **/
-  @ApiModelProperty(required = true, value = "Required when sending media directly from your server.  The protocol and URL of the media to be sent. Use only with HTTP/HTTPS URLs. Note: WhatsApp Cloud API caches media resources for 10 minutes. To ensure latest content, add random query strings to the URL.")
-  public void setLink(String link) {
-    this.link = link;
+  @ApiModelProperty(value = "Must be \"quick_reply\".")
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
+  public WhatsappMessageInteractiveActionCardActionButton quickReply(WhatsappMessageInteractiveActionCardActionButtonQuickReply quickReply) {
+
+    this.quickReply = quickReply;
+    return this;
+  }
+
+   /**
+   * Get quickReply
+   * @return quickReply
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageInteractiveActionCardActionButtonQuickReply getQuickReply() {
+    return quickReply;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setQuickReply(WhatsappMessageInteractiveActionCardActionButtonQuickReply quickReply) {
+    this.quickReply = quickReply;
   }
 
   /**
@@ -95,7 +127,7 @@ public class WhatsappMessageMediaOneOf1 {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public WhatsappMessageMediaOneOf1 putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageInteractiveActionCardActionButton putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -129,21 +161,23 @@ public class WhatsappMessageMediaOneOf1 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WhatsappMessageMediaOneOf1 whatsappMessageMediaOneOf1 = (WhatsappMessageMediaOneOf1) o;
-    return Objects.equals(this.link, whatsappMessageMediaOneOf1.link)&&
-        Objects.equals(this.additionalProperties, whatsappMessageMediaOneOf1.additionalProperties);
+    WhatsappMessageInteractiveActionCardActionButton whatsappMessageInteractiveActionCardActionButton = (WhatsappMessageInteractiveActionCardActionButton) o;
+    return Objects.equals(this.type, whatsappMessageInteractiveActionCardActionButton.type) &&
+        Objects.equals(this.quickReply, whatsappMessageInteractiveActionCardActionButton.quickReply)&&
+        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionCardActionButton.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, additionalProperties);
+    return Objects.hash(type, quickReply, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WhatsappMessageMediaOneOf1 {\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("class WhatsappMessageInteractiveActionCardActionButton {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    quickReply: ").append(toIndentedString(quickReply)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -167,36 +201,33 @@ public class WhatsappMessageMediaOneOf1 {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("link");
+    openapiFields.add("type");
+    openapiFields.add("quick_reply");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("link");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageMediaOneOf1
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionCardActionButton
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WhatsappMessageMediaOneOf1.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageInteractiveActionCardActionButton.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageMediaOneOf1 is not found in the empty JSON string", WhatsappMessageMediaOneOf1.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionCardActionButton is not found in the empty JSON string", WhatsappMessageInteractiveActionCardActionButton.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WhatsappMessageMediaOneOf1.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
+      // validate the optional field `quick_reply`
+      if (jsonObj.getAsJsonObject("quick_reply") != null) {
+        WhatsappMessageInteractiveActionCardActionButtonQuickReply.validateJsonObject(jsonObj.getAsJsonObject("quick_reply"));
       }
   }
 
@@ -204,16 +235,16 @@ public class WhatsappMessageMediaOneOf1 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WhatsappMessageMediaOneOf1.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WhatsappMessageMediaOneOf1' and its subtypes
+       if (!WhatsappMessageInteractiveActionCardActionButton.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageInteractiveActionCardActionButton' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WhatsappMessageMediaOneOf1> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageMediaOneOf1.class));
+       final TypeAdapter<WhatsappMessageInteractiveActionCardActionButton> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionCardActionButton.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageMediaOneOf1>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionCardActionButton>() {
            @Override
-           public void write(JsonWriter out, WhatsappMessageMediaOneOf1 value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageInteractiveActionCardActionButton value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -236,11 +267,11 @@ public class WhatsappMessageMediaOneOf1 {
            }
 
            @Override
-           public WhatsappMessageMediaOneOf1 read(JsonReader in) throws IOException {
+           public WhatsappMessageInteractiveActionCardActionButton read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             WhatsappMessageMediaOneOf1 instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageInteractiveActionCardActionButton instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -265,18 +296,18 @@ public class WhatsappMessageMediaOneOf1 {
   }
 
  /**
-  * Create an instance of WhatsappMessageMediaOneOf1 given an JSON string
+  * Create an instance of WhatsappMessageInteractiveActionCardActionButton given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WhatsappMessageMediaOneOf1
-  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageMediaOneOf1
+  * @return An instance of WhatsappMessageInteractiveActionCardActionButton
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionCardActionButton
   */
-  public static WhatsappMessageMediaOneOf1 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WhatsappMessageMediaOneOf1.class);
+  public static WhatsappMessageInteractiveActionCardActionButton fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionCardActionButton.class);
   }
 
  /**
-  * Convert an instance of WhatsappMessageMediaOneOf1 to an JSON string
+  * Convert an instance of WhatsappMessageInteractiveActionCardActionButton to an JSON string
   *
   * @return JSON string
   */

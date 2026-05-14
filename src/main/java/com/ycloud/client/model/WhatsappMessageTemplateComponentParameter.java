@@ -55,28 +55,30 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageTemplateComponentParameter {
   /**
-   * **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. - &#x60;location&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;LOCATION&#x60;.
+   * **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;gif&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;GIF&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. - &#x60;location&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;LOCATION&#x60;.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     TEXT("text"),
-    
+
     IMAGE("image"),
-    
+
+    GIF("gif"),
+
     VIDEO("video"),
-    
+
     DOCUMENT("document"),
-    
+
     PAYLOAD("payload"),
-    
+
     COUPON_CODE("coupon_code"),
-    
+
     LIMITED_TIME_OFFER("limited_time_offer"),
-    
+
     ACTION("action"),
-    
+
     ORDER_STATUS("order_status"),
-    
+
     LOCATION("location");
 
     private String value;
@@ -119,7 +121,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. - &#x60;location&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;LOCATION&#x60;.
+   * **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;gif&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;GIF&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. - &#x60;location&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;LOCATION&#x60;.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -150,6 +152,12 @@ public class WhatsappMessageTemplateComponentParameter {
   **/
   @SerializedName(SERIALIZED_NAME_IMAGE)
   private WhatsappMessageMedia image;
+
+  public static final String SERIALIZED_NAME_GIF = "gif";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_GIF)
+  private WhatsappMessageMedia gif;
 
   public static final String SERIALIZED_NAME_VIDEO = "video";
   /**
@@ -187,17 +195,17 @@ public class WhatsappMessageTemplateComponentParameter {
   @SerializedName(SERIALIZED_NAME_LOCATION)
   private WhatsappMessageLocation location;
 
-  public WhatsappMessageTemplateComponentParameter() { 
+  public WhatsappMessageTemplateComponentParameter() {
   }
 
   public WhatsappMessageTemplateComponentParameter type(TypeEnum type) {
-    
+
     this.type = type;
     return this;
   }
 
    /**
-   * **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. - &#x60;location&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;LOCATION&#x60;.
+   * **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;gif&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;GIF&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. - &#x60;location&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;LOCATION&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -208,16 +216,16 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   /**
-   * **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. - &#x60;location&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;LOCATION&#x60;.
+   * **Required.** Component parameter type. - &#x60;text&#x60;: Used when the template component type is &#x60;BODY&#x60;, or the &#x60;HEADER&#x60; component format is &#x60;TEXT&#x60;. - &#x60;image&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;IMAGE&#x60;. - &#x60;gif&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;GIF&#x60;. - &#x60;video&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;VIDEO&#x60;. - &#x60;document&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;DOCUMENT&#x60;. - &#x60;payload&#x60;: Used when the template component button type is &#x60;QUICK_REPLY&#x60;. - &#x60;coupon_code&#x60;: Used when the template component button type is &#x60;COPY_CODE&#x60;. - &#x60;limited_time_offer&#x60;: Used when the template component type is &#x60;LIMITED_TIME_OFFER&#x60;. - &#x60;action&#x60;: Used when the template component button type is &#x60;CATALOG&#x60;, &#x60;MPM&#x60;, &#x60;FLOW&#x60;, or &#x60;ORDER_DETAILS&#x60;. - &#x60;order_status&#x60;: Used when the template subcategory is &#x60;ORDER_STATUS&#x60;. - &#x60;location&#x60;: Used when the template &#x60;HEADER&#x60; component is &#x60;LOCATION&#x60;.
    **/
-  @ApiModelProperty(value = "**Required.** Component parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`. - `limited_time_offer`: Used when the template component type is `LIMITED_TIME_OFFER`. - `action`: Used when the template component button type is `CATALOG`, `MPM`, `FLOW`, or `ORDER_DETAILS`. - `order_status`: Used when the template subcategory is `ORDER_STATUS`. - `location`: Used when the template `HEADER` component is `LOCATION`.")
+  @ApiModelProperty(value = "**Required.** Component parameter type. - `text`: Used when the template component type is `BODY`, or the `HEADER` component format is `TEXT`. - `image`: Used when the template `HEADER` component is `IMAGE`. - `gif`: Used when the template `HEADER` component is `GIF`. - `video`: Used when the template `HEADER` component is `VIDEO`. - `document`: Used when the template `HEADER` component is `DOCUMENT`. - `payload`: Used when the template component button type is `QUICK_REPLY`. - `coupon_code`: Used when the template component button type is `COPY_CODE`. - `limited_time_offer`: Used when the template component type is `LIMITED_TIME_OFFER`. - `action`: Used when the template component button type is `CATALOG`, `MPM`, `FLOW`, or `ORDER_DETAILS`. - `order_status`: Used when the template subcategory is `ORDER_STATUS`. - `location`: Used when the template `HEADER` component is `LOCATION`.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
   public WhatsappMessageTemplateComponentParameter text(String text) {
-    
+
     this.text = text;
     return this;
   }
@@ -243,7 +251,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   public WhatsappMessageTemplateComponentParameter payload(String payload) {
-    
+
     this.payload = payload;
     return this;
   }
@@ -269,7 +277,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   public WhatsappMessageTemplateComponentParameter couponCode(String couponCode) {
-    
+
     this.couponCode = couponCode;
     return this;
   }
@@ -295,7 +303,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   public WhatsappMessageTemplateComponentParameter image(WhatsappMessageMedia image) {
-    
+
     this.image = image;
     return this;
   }
@@ -319,8 +327,33 @@ public class WhatsappMessageTemplateComponentParameter {
   }
 
 
+  public WhatsappMessageTemplateComponentParameter gif(WhatsappMessageMedia gif) {
+
+    this.gif = gif;
+    return this;
+  }
+
+   /**
+   * Get gif
+   * @return gif
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageMedia getGif() {
+    return gif;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setGif(WhatsappMessageMedia gif) {
+    this.gif = gif;
+  }
+
+
   public WhatsappMessageTemplateComponentParameter video(WhatsappMessageMedia video) {
-    
+
     this.video = video;
     return this;
   }
@@ -345,7 +378,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   public WhatsappMessageTemplateComponentParameter document(WhatsappMessageMedia document) {
-    
+
     this.document = document;
     return this;
   }
@@ -370,7 +403,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   public WhatsappMessageTemplateComponentParameter limitedTimeOffer(WhatsappMessageTemplateComponentParameterLimitedTimeOffer limitedTimeOffer) {
-    
+
     this.limitedTimeOffer = limitedTimeOffer;
     return this;
   }
@@ -395,7 +428,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   public WhatsappMessageTemplateComponentParameter action(WhatsappMessageTemplateComponentParameterAction action) {
-    
+
     this.action = action;
     return this;
   }
@@ -420,7 +453,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   public WhatsappMessageTemplateComponentParameter orderStatus(WhatsappMessageOrderStatus orderStatus) {
-    
+
     this.orderStatus = orderStatus;
     return this;
   }
@@ -445,7 +478,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
 
   public WhatsappMessageTemplateComponentParameter location(WhatsappMessageLocation location) {
-    
+
     this.location = location;
     return this;
   }
@@ -519,6 +552,7 @@ public class WhatsappMessageTemplateComponentParameter {
         Objects.equals(this.payload, whatsappMessageTemplateComponentParameter.payload) &&
         Objects.equals(this.couponCode, whatsappMessageTemplateComponentParameter.couponCode) &&
         Objects.equals(this.image, whatsappMessageTemplateComponentParameter.image) &&
+        Objects.equals(this.gif, whatsappMessageTemplateComponentParameter.gif) &&
         Objects.equals(this.video, whatsappMessageTemplateComponentParameter.video) &&
         Objects.equals(this.document, whatsappMessageTemplateComponentParameter.document) &&
         Objects.equals(this.limitedTimeOffer, whatsappMessageTemplateComponentParameter.limitedTimeOffer) &&
@@ -530,7 +564,7 @@ public class WhatsappMessageTemplateComponentParameter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, text, payload, couponCode, image, video, document, limitedTimeOffer, action, orderStatus, location, additionalProperties);
+    return Objects.hash(type, text, payload, couponCode, image, gif, video, document, limitedTimeOffer, action, orderStatus, location, additionalProperties);
   }
 
   @Override
@@ -542,6 +576,7 @@ public class WhatsappMessageTemplateComponentParameter {
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    couponCode: ").append(toIndentedString(couponCode)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    gif: ").append(toIndentedString(gif)).append("\n");
     sb.append("    video: ").append(toIndentedString(video)).append("\n");
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    limitedTimeOffer: ").append(toIndentedString(limitedTimeOffer)).append("\n");
@@ -576,6 +611,7 @@ public class WhatsappMessageTemplateComponentParameter {
     openapiFields.add("payload");
     openapiFields.add("coupon_code");
     openapiFields.add("image");
+    openapiFields.add("gif");
     openapiFields.add("video");
     openapiFields.add("document");
     openapiFields.add("limited_time_offer");
@@ -616,6 +652,10 @@ public class WhatsappMessageTemplateComponentParameter {
       // validate the optional field `image`
       if (jsonObj.getAsJsonObject("image") != null) {
         WhatsappMessageMedia.validateJsonObject(jsonObj.getAsJsonObject("image"));
+      }
+      // validate the optional field `gif`
+      if (jsonObj.getAsJsonObject("gif") != null) {
+        WhatsappMessageMedia.validateJsonObject(jsonObj.getAsJsonObject("gif"));
       }
       // validate the optional field `video`
       if (jsonObj.getAsJsonObject("video") != null) {

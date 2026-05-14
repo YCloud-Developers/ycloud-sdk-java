@@ -71,7 +71,7 @@ public class WhatsappTemplateCreateRequest {
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
   /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
   **/
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   private String language;
@@ -108,11 +108,11 @@ public class WhatsappTemplateCreateRequest {
   @SerializedName(SERIALIZED_NAME_CTA_URL_LINK_TRACKING_OPTED_OUT)
   private Boolean ctaUrlLinkTrackingOptedOut;
 
-  public WhatsappTemplateCreateRequest() { 
+  public WhatsappTemplateCreateRequest() {
   }
 
   public WhatsappTemplateCreateRequest wabaId(String wabaId) {
-    
+
     this.wabaId = wabaId;
     return this;
   }
@@ -138,7 +138,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -164,13 +164,13 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest language(String language) {
-    
+
     this.language = language;
     return this;
   }
 
    /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
    * @return language
   **/
   @javax.annotation.Nonnull
@@ -181,16 +181,16 @@ public class WhatsappTemplateCreateRequest {
 
 
   /**
-   * Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
    **/
-  @ApiModelProperty(example = "en_US", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
+  @ApiModelProperty(example = "en", required = true, value = "Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.")
   public void setLanguage(String language) {
     this.language = language;
   }
 
 
   public WhatsappTemplateCreateRequest category(WhatsappTemplateCategory category) {
-    
+
     this.category = category;
     return this;
   }
@@ -215,7 +215,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest subCategory(WhatsappTemplateSubCategory subCategory) {
-    
+
     this.subCategory = subCategory;
     return this;
   }
@@ -240,7 +240,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest messageSendTtlSeconds(Integer messageSendTtlSeconds) {
-    
+
     this.messageSendTtlSeconds = messageSendTtlSeconds;
     return this;
   }
@@ -266,7 +266,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest components(List<WhatsappTemplateComponent> components) {
-    
+
     this.components = components;
     return this;
   }
@@ -296,7 +296,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest ctaUrlLinkTrackingOptedOut(Boolean ctaUrlLinkTrackingOptedOut) {
-    
+
     this.ctaUrlLinkTrackingOptedOut = ctaUrlLinkTrackingOptedOut;
     return this;
   }

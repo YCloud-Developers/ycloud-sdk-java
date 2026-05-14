@@ -31,7 +31,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -85,7 +85,7 @@ public class Example {
 
 Enqueue a message
 
-Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.
+Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.  For WhatsApp &#x60;template&#x60; messages, the referenced template must be in &#x60;APPROVED&#x60; status. &#x60;ARCHIVED&#x60; templates cannot be sent.
 
 ### Example
 ```java
@@ -101,7 +101,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -109,7 +109,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappMessagesApi apiInstance = new WhatsappMessagesApi(defaultClient);
-    WhatsappMessageSendRequest whatsappMessageSendRequest = new WhatsappMessageSendRequest(); // WhatsappMessageSendRequest | 
+    WhatsappMessageSendRequest whatsappMessageSendRequest = new WhatsappMessageSendRequest(); // WhatsappMessageSendRequest |
     try {
       WhatsappMessage result = apiInstance.send(whatsappMessageSendRequest);
       System.out.println(result);
@@ -170,7 +170,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -178,7 +178,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappMessagesApi apiInstance = new WhatsappMessagesApi(defaultClient);
-    WhatsappMessageSendRequest whatsappMessageSendRequest = new WhatsappMessageSendRequest(); // WhatsappMessageSendRequest | 
+    WhatsappMessageSendRequest whatsappMessageSendRequest = new WhatsappMessageSendRequest(); // WhatsappMessageSendRequest |
     try {
       WhatsappMessage result = apiInstance.sendDirectly(whatsappMessageSendRequest);
       System.out.println(result);

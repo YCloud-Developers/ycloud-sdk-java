@@ -59,7 +59,7 @@ public class WhatsappMessageOrderAmount {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   /**
-   * Positive integer representing the amount value multiplied by offset.  For example, ₹12.34 has value 1234.
+   * Positive integer representing the amount value multiplied by offset. For example, ₹12.34 has value 1234.
   **/
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Integer value;
@@ -78,11 +78,11 @@ public class WhatsappMessageOrderAmount {
   @SerializedName(SERIALIZED_NAME_DISCOUNT_PROGRAM_NAME)
   private String discountProgramName;
 
-  public WhatsappMessageOrderAmount() { 
+  public WhatsappMessageOrderAmount() {
   }
 
   public WhatsappMessageOrderAmount offset(Integer offset) {
-    
+
     this.offset = offset;
     return this;
   }
@@ -108,13 +108,13 @@ public class WhatsappMessageOrderAmount {
 
 
   public WhatsappMessageOrderAmount value(Integer value) {
-    
+
     this.value = value;
     return this;
   }
 
    /**
-   * Positive integer representing the amount value multiplied by offset.  For example, ₹12.34 has value 1234.
+   * Positive integer representing the amount value multiplied by offset. For example, ₹12.34 has value 1234.
    * @return value
   **/
   @javax.annotation.Nonnull
@@ -125,16 +125,16 @@ public class WhatsappMessageOrderAmount {
 
 
   /**
-   * Positive integer representing the amount value multiplied by offset.  For example, ₹12.34 has value 1234.
+   * Positive integer representing the amount value multiplied by offset. For example, ₹12.34 has value 1234.
    **/
-  @ApiModelProperty(example = "1234", required = true, value = "Positive integer representing the amount value multiplied by offset.  For example, ₹12.34 has value 1234.")
+  @ApiModelProperty(example = "1234", required = true, value = "Positive integer representing the amount value multiplied by offset. For example, ₹12.34 has value 1234.")
   public void setValue(Integer value) {
     this.value = value;
   }
 
 
   public WhatsappMessageOrderAmount description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -160,7 +160,7 @@ public class WhatsappMessageOrderAmount {
 
 
   public WhatsappMessageOrderAmount discountProgramName(String discountProgramName) {
-    
+
     this.discountProgramName = discountProgramName;
     return this;
   }

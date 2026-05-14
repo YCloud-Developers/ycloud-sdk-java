@@ -87,7 +87,7 @@ public class Sms {
 
   public static final String SERIALIZED_NAME_TOTAL_SEGMENTS = "totalSegments";
   /**
-   * Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info.
+   * Number of message segments. See [SMS character encoding](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-basic-principles#sms-encoding) for more info.
   **/
   @SerializedName(SERIALIZED_NAME_TOTAL_SEGMENTS)
   private Integer totalSegments;
@@ -112,13 +112,13 @@ public class Sms {
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     ACCEPTED("accepted"),
-    
+
     FAILED("failed"),
-    
+
     SENT("sent"),
-    
+
     DELIVERED("delivered"),
-    
+
     UNDELIVERED("undelivered");
 
     private String value;
@@ -215,11 +215,11 @@ public class Sms {
   @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
   private String verificationId;
 
-  public Sms() { 
+  public Sms() {
   }
 
   public Sms id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -245,7 +245,7 @@ public class Sms {
 
 
   public Sms to(String to) {
-    
+
     this.to = to;
     return this;
   }
@@ -271,7 +271,7 @@ public class Sms {
 
 
   public Sms text(String text) {
-    
+
     this.text = text;
     return this;
   }
@@ -297,7 +297,7 @@ public class Sms {
 
 
   public Sms senderId(String senderId) {
-    
+
     this.senderId = senderId;
     return this;
   }
@@ -323,7 +323,7 @@ public class Sms {
 
 
   public Sms regionCode(String regionCode) {
-    
+
     this.regionCode = regionCode;
     return this;
   }
@@ -349,13 +349,13 @@ public class Sms {
 
 
   public Sms totalSegments(Integer totalSegments) {
-    
+
     this.totalSegments = totalSegments;
     return this;
   }
 
    /**
-   * Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info.
+   * Number of message segments. See [SMS character encoding](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-basic-principles#sms-encoding) for more info.
    * minimum: 1
    * @return totalSegments
   **/
@@ -367,16 +367,16 @@ public class Sms {
 
 
   /**
-   * Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info.
+   * Number of message segments. See [SMS character encoding](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-basic-principles#sms-encoding) for more info.
    **/
-  @ApiModelProperty(example = "1", value = "Number of message segments. See [SMS character encoding](https://help.ycloud.com/en/articles/3083427-sms-character-encoding) for more info.")
+  @ApiModelProperty(example = "1", value = "Number of message segments. See [SMS character encoding](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-basic-principles#sms-encoding) for more info.")
   public void setTotalSegments(Integer totalSegments) {
     this.totalSegments = totalSegments;
   }
 
 
   public Sms totalPrice(Double totalPrice) {
-    
+
     this.totalPrice = totalPrice;
     return this;
   }
@@ -402,7 +402,7 @@ public class Sms {
 
 
   public Sms currency(String currency) {
-    
+
     this.currency = currency;
     return this;
   }
@@ -428,7 +428,7 @@ public class Sms {
 
 
   public Sms status(StatusEnum status) {
-    
+
     this.status = status;
     return this;
   }
@@ -454,7 +454,7 @@ public class Sms {
 
 
   public Sms errorCode(String errorCode) {
-    
+
     this.errorCode = errorCode;
     return this;
   }
@@ -480,7 +480,7 @@ public class Sms {
 
 
   public Sms createTime(Date createTime) {
-    
+
     this.createTime = createTime;
     return this;
   }
@@ -506,7 +506,7 @@ public class Sms {
 
 
   public Sms updateTime(Date updateTime) {
-    
+
     this.updateTime = updateTime;
     return this;
   }
@@ -532,7 +532,7 @@ public class Sms {
 
 
   public Sms externalId(String externalId) {
-    
+
     this.externalId = externalId;
     return this;
   }
@@ -558,7 +558,7 @@ public class Sms {
 
 
   public Sms callbackUrl(String callbackUrl) {
-    
+
     this.callbackUrl = callbackUrl;
     return this;
   }
@@ -584,7 +584,7 @@ public class Sms {
 
 
   public Sms bizType(String bizType) {
-    
+
     this.bizType = bizType;
     return this;
   }
@@ -610,7 +610,7 @@ public class Sms {
 
 
   public Sms verificationId(String verificationId) {
-    
+
     this.verificationId = verificationId;
     return this;
   }

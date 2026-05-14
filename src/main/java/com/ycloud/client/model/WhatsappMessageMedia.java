@@ -45,9 +45,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Use for &#x60;image&#x60;, &#x60;video&#x60;, &#x60;audio&#x60;, &#x60;document&#x60;, or &#x60;sticker&#x60; messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Important**: You must provide either &#x60;id&#x60; OR &#x60;link&#x60;, but not both. These parameters are mutually exclusive: - Use &#x60;id&#x60; when the media has been uploaded to WhatsApp servers - Use &#x60;link&#x60; when sending media directly from your server - If both are provided, the system will use &#x60;id&#x60; and ignore &#x60;link&#x60;  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)
+ * Use for &#x60;image&#x60;, &#x60;gif&#x60;, &#x60;video&#x60;, &#x60;audio&#x60;, &#x60;document&#x60;, or &#x60;sticker&#x60; messages. See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)
  */
-@ApiModel(description = "Use for `image`, `video`, `audio`, `document`, or `sticker` messages.  See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Important**: You must provide either `id` OR `link`, but not both. These parameters are mutually exclusive: - Use `id` when the media has been uploaded to WhatsApp servers - Use `link` when sending media directly from your server - If both are provided, the system will use `id` and ignore `link`  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)")
+@ApiModel(description = "Use for `image`, `gif`, `video`, `audio`, `document`, or `sticker` messages. See also [Supported Media Types](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types).  **Note**: Either `id` or `link` must be provided, but not both. These parameters are mutually exclusive.  Reference: [WhatsApp Cloud API Media Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#media-object)")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageMedia {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -66,7 +66,7 @@ public class WhatsappMessageMedia {
 
   public static final String SERIALIZED_NAME_CAPTION = "caption";
   /**
-   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
+   * Describes the specified &#x60;image&#x60;, &#x60;gif&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
   **/
   @SerializedName(SERIALIZED_NAME_CAPTION)
   private String caption;
@@ -78,11 +78,11 @@ public class WhatsappMessageMedia {
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
 
-  public WhatsappMessageMedia() { 
+  public WhatsappMessageMedia() {
   }
 
   public WhatsappMessageMedia id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -108,7 +108,7 @@ public class WhatsappMessageMedia {
 
 
   public WhatsappMessageMedia link(String link) {
-    
+
     this.link = link;
     return this;
   }
@@ -134,13 +134,13 @@ public class WhatsappMessageMedia {
 
 
   public WhatsappMessageMedia caption(String caption) {
-    
+
     this.caption = caption;
     return this;
   }
 
    /**
-   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
+   * Describes the specified &#x60;image&#x60;, &#x60;gif&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
    * @return caption
   **/
   @javax.annotation.Nullable
@@ -151,16 +151,16 @@ public class WhatsappMessageMedia {
 
 
   /**
-   * Describes the specified &#x60;image&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
+   * Describes the specified &#x60;image&#x60;, &#x60;gif&#x60;, &#x60;video&#x60;, or &#x60;document&#x60; media. Not applicable in the &#x60;header&#x60; of &#x60;template&#x60; or &#x60;interactive&#x60; messages.
    **/
-  @ApiModelProperty(value = "Describes the specified `image`, `video`, or `document` media. Not applicable in the `header` of `template` or `interactive` messages.")
+  @ApiModelProperty(value = "Describes the specified `image`, `gif`, `video`, or `document` media. Not applicable in the `header` of `template` or `interactive` messages.")
   public void setCaption(String caption) {
     this.caption = caption;
   }
 
 
   public WhatsappMessageMedia filename(String filename) {
-    
+
     this.filename = filename;
     return this;
   }

@@ -23,6 +23,7 @@
 |**flowJson** | **String** | **Conditionally required for button type &#x60;FLOW&#x60;.** The Flow JSON encoded as string with escaping. The Flow JSON specifies the content of the Flow. Cannot be used if &#x60;flow_id&#x60; or &#x60;flow_name&#x60; parameters are provided. Only one of these parameters is allowed. |  [optional] |
 |**flowAction** | **String** | **Use for button type &#x60;FLOW&#x60;.** Either &#x60;navigate&#x60; or &#x60;data_exchange&#x60;. Defaults to &#x60;navigate&#x60;. |  [optional] |
 |**navigateScreen** | **String** | **Required if &#x60;flow_action&#x60; is &#x60;navigate&#x60;.** The unique ID of the Screen in the Flow. |  [optional] |
+|**appDeepLink** | [**WhatsappTemplateComponentButtonAppDeepLink**](WhatsappTemplateComponentButtonAppDeepLink.md) |  |  [optional] |
 
 
 
