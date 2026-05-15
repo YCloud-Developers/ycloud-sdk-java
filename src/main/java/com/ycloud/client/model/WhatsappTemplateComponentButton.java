@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappTemplateComponentButtonAppDeepLink;
 import com.ycloud.client.model.WhatsappTemplateComponentButtonOtpSupportedApp;
 import com.ycloud.client.model.WhatsappTemplateComponentButtonOtpType;
 import com.ycloud.client.model.WhatsappTemplateComponentButtonType;
@@ -164,11 +165,17 @@ public class WhatsappTemplateComponentButton {
   @SerializedName(SERIALIZED_NAME_NAVIGATE_SCREEN)
   private String navigateScreen;
 
-  public WhatsappTemplateComponentButton() { 
+  public static final String SERIALIZED_NAME_APP_DEEP_LINK = "app_deep_link";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_APP_DEEP_LINK)
+  private WhatsappTemplateComponentButtonAppDeepLink appDeepLink;
+
+  public WhatsappTemplateComponentButton() {
   }
 
   public WhatsappTemplateComponentButton type(WhatsappTemplateComponentButtonType type) {
-    
+
     this.type = type;
     return this;
   }
@@ -193,7 +200,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton text(String text) {
-    
+
     this.text = text;
     return this;
   }
@@ -219,7 +226,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton url(String url) {
-    
+
     this.url = url;
     return this;
   }
@@ -245,7 +252,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton phoneNumber(String phoneNumber) {
-    
+
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -271,7 +278,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton otpType(WhatsappTemplateComponentButtonOtpType otpType) {
-    
+
     this.otpType = otpType;
     return this;
   }
@@ -296,7 +303,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton autofillText(String autofillText) {
-    
+
     this.autofillText = autofillText;
     return this;
   }
@@ -322,7 +329,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton packageName(String packageName) {
-    
+
     this.packageName = packageName;
     return this;
   }
@@ -350,7 +357,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton signatureHash(String signatureHash) {
-    
+
     this.signatureHash = signatureHash;
     return this;
   }
@@ -378,7 +385,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton supportedApps(List<WhatsappTemplateComponentButtonOtpSupportedApp> supportedApps) {
-    
+
     this.supportedApps = supportedApps;
     return this;
   }
@@ -412,7 +419,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton zeroTapTermsAccepted(Boolean zeroTapTermsAccepted) {
-    
+
     this.zeroTapTermsAccepted = zeroTapTermsAccepted;
     return this;
   }
@@ -438,7 +445,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton example(List<String> example) {
-    
+
     this.example = example;
     return this;
   }
@@ -472,7 +479,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton flowId(String flowId) {
-    
+
     this.flowId = flowId;
     return this;
   }
@@ -498,7 +505,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton flowName(String flowName) {
-    
+
     this.flowName = flowName;
     return this;
   }
@@ -524,7 +531,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton flowJson(String flowJson) {
-    
+
     this.flowJson = flowJson;
     return this;
   }
@@ -550,7 +557,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton flowAction(String flowAction) {
-    
+
     this.flowAction = flowAction;
     return this;
   }
@@ -576,7 +583,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton navigateScreen(String navigateScreen) {
-    
+
     this.navigateScreen = navigateScreen;
     return this;
   }
@@ -598,6 +605,31 @@ public class WhatsappTemplateComponentButton {
   @ApiModelProperty(example = "WELCOME_SCREEN", value = "**Required if `flow_action` is `navigate`.** The unique ID of the Screen in the Flow.")
   public void setNavigateScreen(String navigateScreen) {
     this.navigateScreen = navigateScreen;
+  }
+
+
+  public WhatsappTemplateComponentButton appDeepLink(WhatsappTemplateComponentButtonAppDeepLink appDeepLink) {
+
+    this.appDeepLink = appDeepLink;
+    return this;
+  }
+
+   /**
+   * Get appDeepLink
+   * @return appDeepLink
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappTemplateComponentButtonAppDeepLink getAppDeepLink() {
+    return appDeepLink;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setAppDeepLink(WhatsappTemplateComponentButtonAppDeepLink appDeepLink) {
+    this.appDeepLink = appDeepLink;
   }
 
   /**
@@ -661,13 +693,14 @@ public class WhatsappTemplateComponentButton {
         Objects.equals(this.flowName, whatsappTemplateComponentButton.flowName) &&
         Objects.equals(this.flowJson, whatsappTemplateComponentButton.flowJson) &&
         Objects.equals(this.flowAction, whatsappTemplateComponentButton.flowAction) &&
-        Objects.equals(this.navigateScreen, whatsappTemplateComponentButton.navigateScreen)&&
+        Objects.equals(this.navigateScreen, whatsappTemplateComponentButton.navigateScreen) &&
+        Objects.equals(this.appDeepLink, whatsappTemplateComponentButton.appDeepLink)&&
         Objects.equals(this.additionalProperties, whatsappTemplateComponentButton.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, supportedApps, zeroTapTermsAccepted, example, flowId, flowName, flowJson, flowAction, navigateScreen, additionalProperties);
+    return Objects.hash(type, text, url, phoneNumber, otpType, autofillText, packageName, signatureHash, supportedApps, zeroTapTermsAccepted, example, flowId, flowName, flowJson, flowAction, navigateScreen, appDeepLink, additionalProperties);
   }
 
   @Override
@@ -690,6 +723,7 @@ public class WhatsappTemplateComponentButton {
     sb.append("    flowJson: ").append(toIndentedString(flowJson)).append("\n");
     sb.append("    flowAction: ").append(toIndentedString(flowAction)).append("\n");
     sb.append("    navigateScreen: ").append(toIndentedString(navigateScreen)).append("\n");
+    sb.append("    appDeepLink: ").append(toIndentedString(appDeepLink)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -729,6 +763,7 @@ public class WhatsappTemplateComponentButton {
     openapiFields.add("flow_json");
     openapiFields.add("flow_action");
     openapiFields.add("navigate_screen");
+    openapiFields.add("app_deep_link");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -804,6 +839,10 @@ public class WhatsappTemplateComponentButton {
       }
       if (jsonObj.get("navigate_screen") != null && !jsonObj.get("navigate_screen").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `navigate_screen` to be a primitive type in the JSON string but got `%s`", jsonObj.get("navigate_screen").toString()));
+      }
+      // validate the optional field `app_deep_link`
+      if (jsonObj.getAsJsonObject("app_deep_link") != null) {
+        WhatsappTemplateComponentButtonAppDeepLink.validateJsonObject(jsonObj.getAsJsonObject("app_deep_link"));
       }
   }
 

@@ -123,7 +123,7 @@ public class WhatsappMessagesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -136,12 +136,12 @@ public class WhatsappMessagesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling retrieve(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveCall(id, _callback);
         return localVarCall;
@@ -268,12 +268,12 @@ public class WhatsappMessagesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call sendValidateBeforeCall(WhatsappMessageSendRequest whatsappMessageSendRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'whatsappMessageSendRequest' is set
         if (whatsappMessageSendRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappMessageSendRequest' when calling send(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = sendCall(whatsappMessageSendRequest, _callback);
         return localVarCall;
@@ -283,7 +283,7 @@ public class WhatsappMessagesApi {
     /**
      * Enqueue a message
      * <p>
-     * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.
+     * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.  For WhatsApp &#x60;template&#x60; messages, the referenced template must be in &#x60;APPROVED&#x60; status. &#x60;ARCHIVED&#x60; templates cannot be sent.
      * @param whatsappMessageSendRequest  (required)
      * @return WhatsappMessage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -301,7 +301,7 @@ public class WhatsappMessagesApi {
     /**
      * Enqueue a message
      * <p>
-     * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.
+     * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.  For WhatsApp &#x60;template&#x60; messages, the referenced template must be in &#x60;APPROVED&#x60; status. &#x60;ARCHIVED&#x60; templates cannot be sent.
      * @param whatsappMessageSendRequest  (required)
      * @return ApiResponse&lt;WhatsappMessage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -320,7 +320,7 @@ public class WhatsappMessagesApi {
     /**
      * Enqueue a message (asynchronously)
      * <p>
-     * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.
+     * Enqueues an outbound WhatsApp message for sending.  Queued messages will be submitted to the WhatsApp Business API asynchronously.  For WhatsApp &#x60;template&#x60; messages, the referenced template must be in &#x60;APPROVED&#x60; status. &#x60;ARCHIVED&#x60; templates cannot be sent.
      * @param whatsappMessageSendRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -397,12 +397,12 @@ public class WhatsappMessagesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call sendDirectlyValidateBeforeCall(WhatsappMessageSendRequest whatsappMessageSendRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'whatsappMessageSendRequest' is set
         if (whatsappMessageSendRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappMessageSendRequest' when calling sendDirectly(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = sendDirectlyCall(whatsappMessageSendRequest, _callback);
         return localVarCall;

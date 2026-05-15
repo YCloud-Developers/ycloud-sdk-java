@@ -56,21 +56,23 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappTemplateComponent {
   /**
-   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.
+   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, gif, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view. - &#x60;CALL_PERMISSION_REQUEST&#x60;: Sending a template message allows you to initiate a user conversation with a call permission request.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     BODY("BODY"),
-    
+
     HEADER("HEADER"),
-    
+
     FOOTER("FOOTER"),
-    
+
     BUTTONS("BUTTONS"),
-    
+
     LIMITED_TIME_OFFER("LIMITED_TIME_OFFER"),
-    
-    CAROUSEL("CAROUSEL");
+
+    CAROUSEL("CAROUSEL"),
+
+    CALL_PERMISSION_REQUEST("CALL_PERMISSION_REQUEST");
 
     private String value;
 
@@ -112,7 +114,7 @@ public class WhatsappTemplateComponent {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.
+   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, gif, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view. - &#x60;CALL_PERMISSION_REQUEST&#x60;: Sending a template message allows you to initiate a user conversation with a call permission request.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -123,13 +125,15 @@ public class WhatsappTemplateComponent {
   @JsonAdapter(FormatEnum.Adapter.class)
   public enum FormatEnum {
     TEXT("TEXT"),
-    
+
     IMAGE("IMAGE"),
-    
+
+    GIF("GIF"),
+
     VIDEO("VIDEO"),
-    
+
     DOCUMENT("DOCUMENT"),
-    
+
     LOCATION("LOCATION");
 
     private String value;
@@ -224,17 +228,17 @@ public class WhatsappTemplateComponent {
   @SerializedName(SERIALIZED_NAME_CARDS)
   private List<WhatsappTemplateComponentCard> cards = null;
 
-  public WhatsappTemplateComponent() { 
+  public WhatsappTemplateComponent() {
   }
 
   public WhatsappTemplateComponent type(TypeEnum type) {
-    
+
     this.type = type;
     return this;
   }
 
    /**
-   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.
+   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, gif, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view. - &#x60;CALL_PERMISSION_REQUEST&#x60;: Sending a template message allows you to initiate a user conversation with a call permission request.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -245,16 +249,16 @@ public class WhatsappTemplateComponent {
 
 
   /**
-   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.
+   * **Required.** Template component type. - &#x60;BODY&#x60;: Body components are text-only components and are required by all templates. Templates are limited to one body component. - &#x60;HEADER&#x60;: Headers are optional components that appear at the top of template messages. Headers support text, media (images, gif, videos, documents). Templates are limited to one header component. - &#x60;FOOTER&#x60;: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - &#x60;BUTTONS&#x60;: Buttons are optional interactive components that perform specific actions when tapped. - &#x60;LIMITED_TIME_OFFER&#x60;: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - &#x60;CAROUSEL&#x60;: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view. - &#x60;CALL_PERMISSION_REQUEST&#x60;: Sending a template message allows you to initiate a user conversation with a call permission request.
    **/
-  @ApiModelProperty(value = "**Required.** Template component type. - `BODY`: Body components are text-only components and are required by all templates. Templates are limited to one body component. - `HEADER`: Headers are optional components that appear at the top of template messages. Headers support text, media (images, videos, documents). Templates are limited to one header component. - `FOOTER`: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - `BUTTONS`: Buttons are optional interactive components that perform specific actions when tapped. - `LIMITED_TIME_OFFER`: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - `CAROUSEL`: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view.")
+  @ApiModelProperty(value = "**Required.** Template component type. - `BODY`: Body components are text-only components and are required by all templates. Templates are limited to one body component. - `HEADER`: Headers are optional components that appear at the top of template messages. Headers support text, media (images, gif, videos, documents). Templates are limited to one header component. - `FOOTER`: Footers are optional text-only components that appear immediately after the body component. Templates are limited to one footer component. - `BUTTONS`: Buttons are optional interactive components that perform specific actions when tapped. - `LIMITED_TIME_OFFER`: Use for limited-time offer templates. The delivered message can display an offer expiration details section with a heading, an optional expiration timer, and the offer code itself. - `CAROUSEL`: Carousel templates allow you to send a single text message (1), accompanied by a set of up to 10 carousel cards (2) in a horizontally scrollable view. - `CALL_PERMISSION_REQUEST`: Sending a template message allows you to initiate a user conversation with a call permission request.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
   public WhatsappTemplateComponent format(FormatEnum format) {
-    
+
     this.format = format;
     return this;
   }
@@ -280,7 +284,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent text(String text) {
-    
+
     this.text = text;
     return this;
   }
@@ -306,7 +310,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent buttons(List<WhatsappTemplateComponentButton> buttons) {
-    
+
     this.buttons = buttons;
     return this;
   }
@@ -340,7 +344,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent addSecurityRecommendation(Boolean addSecurityRecommendation) {
-    
+
     this.addSecurityRecommendation = addSecurityRecommendation;
     return this;
   }
@@ -366,7 +370,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent codeExpirationMinutes(Integer codeExpirationMinutes) {
-    
+
     this.codeExpirationMinutes = codeExpirationMinutes;
     return this;
   }
@@ -394,7 +398,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent limitedTimeOffer(WhatsappTemplateComponentLimitedTimeOffer limitedTimeOffer) {
-    
+
     this.limitedTimeOffer = limitedTimeOffer;
     return this;
   }
@@ -419,7 +423,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent example(WhatsappTemplateComponentExample example) {
-    
+
     this.example = example;
     return this;
   }
@@ -444,7 +448,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent cards(List<WhatsappTemplateComponentCard> cards) {
-    
+
     this.cards = cards;
     return this;
   }

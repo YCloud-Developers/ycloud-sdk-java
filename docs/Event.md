@@ -27,6 +27,7 @@ Represents a webhook event payload. Every event contains certain common properti
 |**contactDeleted** | [**ContactDeleted**](ContactDeleted.md) |  |  [optional] |
 |**contactUnsubscribeCreated** | [**ContactUnsubscribeCreated**](ContactUnsubscribeCreated.md) |  |  [optional] |
 |**contactUnsubscribeDeleted** | [**ContactUnsubscribeDeleted**](ContactUnsubscribeDeleted.md) |  |  [optional] |
+|**whatsappUserPreference** | [**WhatsappUserPreference**](WhatsappUserPreference.md) |  |  [optional] |
 
 
 

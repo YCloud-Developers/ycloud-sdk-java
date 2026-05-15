@@ -15,6 +15,7 @@
 |**sections** | [**List&lt;WhatsappMessageInteractiveActionSection&gt;**](WhatsappMessageInteractiveActionSection.md) | Required for List Messages and Multi-Product Messages. Array of section objects. Minimum of 1, maximum of 10. |  [optional] |
 |**name** | [**NameEnum**](#NameEnum) | Action name. Required for Call-To-Action (CTA) buttons. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL buttons. - &#x60;send_location&#x60;: Use for Location Request buttons. - &#x60;flow&#x60;: Use for Flow buttons. - &#x60;review_and_pay&#x60;: Use for Order Details buttons. - &#x60;review_order&#x60;: Use for Order Status buttons. - &#x60;voice_call&#x60;: Use for Voice Call buttons. |  [optional] |
 |**parameters** | [**WhatsappMessageInteractiveActionParameters**](WhatsappMessageInteractiveActionParameters.md) |  |  [optional] |
+|**cards** | [**List&lt;WhatsappMessageInteractiveActionCard&gt;**](WhatsappMessageInteractiveActionCard.md) | Required for Carousel Messages. Array of card objects. Minimum of 2, maximum of 10. |  [optional] |
 
 
 

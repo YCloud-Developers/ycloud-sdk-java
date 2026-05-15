@@ -123,7 +123,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -136,7 +136,7 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call attributesListValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = attributesListCall(_callback);
         return localVarCall;
@@ -257,12 +257,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(ContactCreateRequest contactCreateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'contactCreateRequest' is set
         if (contactCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'contactCreateRequest' when calling create(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createCall(contactCreateRequest, _callback);
         return localVarCall;
@@ -329,7 +329,7 @@ public class ContactsApi {
     }
     /**
      * Build call for delete
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -375,7 +375,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -388,12 +388,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteCall(id, _callback);
         return localVarCall;
@@ -404,7 +404,7 @@ public class ContactsApi {
      * Delete a contact
      * <p>
      * Deletes a contact.
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @return Contact
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -423,7 +423,7 @@ public class ContactsApi {
      * Delete a contact
      * <p>
      * Deletes a contact.
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @return ApiResponse&lt;Contact&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -443,7 +443,7 @@ public class ContactsApi {
      * Delete a contact (asynchronously)
      * <p>
      * Deletes a contact.
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -523,7 +523,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -536,7 +536,7 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail, final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
         return localVarCall;
@@ -602,7 +602,7 @@ public class ContactsApi {
 
         /**
          * Set filterTags
-         * @param filterTags Comma-separated list of tags. (optional)
+         * @param filterTags Comma-separated list of tags&#39; id. (optional)
          * @return ApiListRequest
          */
         public ApiListRequest filterTags(String filterTags) {
@@ -716,7 +716,7 @@ public class ContactsApi {
     }
     /**
      * Build call for retrieve
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -762,7 +762,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -775,12 +775,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling retrieve(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveCall(id, _callback);
         return localVarCall;
@@ -791,7 +791,7 @@ public class ContactsApi {
      * Retrieve a contact
      * <p>
      * Retrieves a contact.
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @return Contact
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -810,7 +810,7 @@ public class ContactsApi {
      * Retrieve a contact
      * <p>
      * Retrieves a contact.
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @return ApiResponse&lt;Contact&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -830,7 +830,7 @@ public class ContactsApi {
      * Retrieve a contact (asynchronously)
      * <p>
      * Retrieves a contact.
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -850,7 +850,7 @@ public class ContactsApi {
     }
     /**
      * Build call for update
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @param contactUpdateRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -910,12 +910,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateValidateBeforeCall(String id, ContactUpdateRequest contactUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling update(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateCall(id, contactUpdateRequest, _callback);
         return localVarCall;
@@ -926,7 +926,7 @@ public class ContactsApi {
      * Update a contact
      * <p>
      * Updates a contact.
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @param contactUpdateRequest  (optional)
      * @return Contact
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -946,7 +946,7 @@ public class ContactsApi {
      * Update a contact
      * <p>
      * Updates a contact.
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @param contactUpdateRequest  (optional)
      * @return ApiResponse&lt;Contact&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -967,7 +967,7 @@ public class ContactsApi {
      * Update a contact (asynchronously)
      * <p>
      * Updates a contact.
-     * @param id ID of the contact. (required)
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @param contactUpdateRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

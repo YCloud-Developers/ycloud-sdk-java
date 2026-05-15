@@ -34,7 +34,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -42,7 +42,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
-    WhatsappTemplateCreateRequest whatsappTemplateCreateRequest = new WhatsappTemplateCreateRequest(); // WhatsappTemplateCreateRequest | 
+    WhatsappTemplateCreateRequest whatsappTemplateCreateRequest = new WhatsappTemplateCreateRequest(); // WhatsappTemplateCreateRequest |
     try {
       WhatsappTemplate result = apiInstance.create(whatsappTemplateCreateRequest);
       System.out.println(result);
@@ -103,7 +103,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -175,7 +175,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -185,7 +185,7 @@ public class Example {
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
-    String language = "en_US"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
     try {
       WhatsappTemplate result = apiInstance.deleteByNameAndLanguage(wabaId, name, language);
       System.out.println(result);
@@ -206,7 +206,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **wabaId** | **String**| WhatsApp Business Account ID. | |
 | **name** | **String**| Name of the template. | |
-| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | |
+| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. | |
 
 ### Return type
 
@@ -233,7 +233,7 @@ public class Example {
 
 Edit a template
 
-Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.
+Edits a WhatsApp template by name and language. Editing a template replaces its old contents entirely, so include any components you wish to preserve as well as components you wish to update using the components parameter.  Only templates in &#x60;APPROVED&#x60;, &#x60;REJECTED&#x60;, or &#x60;PAUSED&#x60; status can be edited. &#x60;ARCHIVED&#x60; templates cannot be edited.
 
 ### Example
 ```java
@@ -249,7 +249,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -259,8 +259,8 @@ public class Example {
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
-    String language = "en_US"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
-    WhatsappTemplateEditRequest whatsappTemplateEditRequest = new WhatsappTemplateEditRequest(); // WhatsappTemplateEditRequest | 
+    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
+    WhatsappTemplateEditRequest whatsappTemplateEditRequest = new WhatsappTemplateEditRequest(); // WhatsappTemplateEditRequest |
     try {
       WhatsappTemplate result = apiInstance.editByNameAndLanguage(wabaId, name, language, whatsappTemplateEditRequest);
       System.out.println(result);
@@ -281,7 +281,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **wabaId** | **String**| WhatsApp Business Account ID. | |
 | **name** | **String**| Name of the template. | |
-| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | |
+| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. | |
 | **whatsappTemplateEditRequest** | [**WhatsappTemplateEditRequest**](WhatsappTemplateEditRequest.md)|  | [optional] |
 
 ### Return type
@@ -305,11 +305,11 @@ public class Example {
 
 <a name="list"></a>
 # **list**
-> WhatsappTemplatePage list().page(page).limit(limit).includeTotal(includeTotal).filterWabaId(filterWabaId).filterName(filterName).filterLanguage(filterLanguage).execute();
+> WhatsappTemplatePage list().page(page).limit(limit).includeTotal(includeTotal).filterWabaId(filterWabaId).filterName(filterName).filterLanguage(filterLanguage).filterStatus(filterStatus).execute();
 
 List templates
 
-Returns a paginated list of WhatsApp templates you&#39;ve previously created.
+Returns a paginated list of WhatsApp templates you&#39;ve previously created.  Archived templates are included when they match the query. Use &#x60;filter.status&#x3D;ARCHIVED&#x60; to list archived templates explicitly.
 
 ### Example
 ```java
@@ -325,7 +325,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -338,7 +338,8 @@ public class Example {
     Boolean includeTotal = false; // Boolean | Return results inside an object that contains the total result count or not.
     String filterWabaId = "whatsapp-business-account-id"; // String | **Required if you have more than 100 WABAs.** WhatsApp Business Account ID.
     String filterName = "sample_whatsapp_template"; // String | Name of the template.
-    String filterLanguage = "en_US"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    String filterLanguage = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
+    String filterStatus = "APPROVED,ARCHIVED"; // String | Comma-separated template statuses to filter by. Supported values include `PENDING`, `REJECTED`, `APPROVED`, `PAUSED`, `DISABLED`, `ARCHIVED`, `IN_APPEAL`, and `DELETED`.
     try {
       WhatsappTemplatePage result = apiInstance.list()
             .page(page)
@@ -347,6 +348,7 @@ public class Example {
             .filterWabaId(filterWabaId)
             .filterName(filterName)
             .filterLanguage(filterLanguage)
+            .filterStatus(filterStatus)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -369,7 +371,8 @@ public class Example {
 | **includeTotal** | **Boolean**| Return results inside an object that contains the total result count or not. | [optional] [default to false] |
 | **filterWabaId** | **String**| **Required if you have more than 100 WABAs.** WhatsApp Business Account ID. | [optional] |
 | **filterName** | **String**| Name of the template. | [optional] |
-| **filterLanguage** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | [optional] |
+| **filterLanguage** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. | [optional] |
+| **filterStatus** | **String**| Comma-separated template statuses to filter by. Supported values include &#x60;PENDING&#x60;, &#x60;REJECTED&#x60;, &#x60;APPROVED&#x60;, &#x60;PAUSED&#x60;, &#x60;DISABLED&#x60;, &#x60;ARCHIVED&#x60;, &#x60;IN_APPEAL&#x60;, and &#x60;DELETED&#x60;. | [optional] |
 
 ### Return type
 
@@ -395,7 +398,7 @@ public class Example {
 
 Retrieve a template
 
-Retrieves a WhatsApp template by name and language.
+Retrieves a WhatsApp template by name and language.  The returned template &#x60;status&#x60; may be &#x60;ARCHIVED&#x60;.
 
 ### Example
 ```java
@@ -411,7 +414,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -421,7 +424,7 @@ public class Example {
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
-    String language = "en_US"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+    String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
     try {
       WhatsappTemplate result = apiInstance.retrieveByNameAndLanguage(wabaId, name, language);
       System.out.println(result);
@@ -442,7 +445,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **wabaId** | **String**| WhatsApp Business Account ID. | |
 | **name** | **String**| Name of the template. | |
-| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes. | |
+| **language** | **String**| Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes. | |
 
 ### Return type
 

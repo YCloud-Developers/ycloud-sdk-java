@@ -72,7 +72,7 @@ public class VerificationSendRequest {
 
   public static final String SERIALIZED_NAME_SENDER_ID = "senderId";
   /**
-   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+   * [Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used.
   **/
   @SerializedName(SERIALIZED_NAME_SENDER_ID)
   private String senderId;
@@ -98,11 +98,11 @@ public class VerificationSendRequest {
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
-  public VerificationSendRequest() { 
+  public VerificationSendRequest() {
   }
 
   public VerificationSendRequest channel(VerificationChannel channel) {
-    
+
     this.channel = channel;
     return this;
   }
@@ -127,7 +127,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest to(String to) {
-    
+
     this.to = to;
     return this;
   }
@@ -153,7 +153,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest code(String code) {
-    
+
     this.code = code;
     return this;
   }
@@ -179,13 +179,13 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest senderId(String senderId) {
-    
+
     this.senderId = senderId;
     return this;
   }
 
    /**
-   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+   * [Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used.
    * @return senderId
   **/
   @javax.annotation.Nullable
@@ -196,16 +196,16 @@ public class VerificationSendRequest {
 
 
   /**
-   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+   * [Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used.
    **/
-  @ApiModelProperty(example = "Brand", value = "[Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.")
+  @ApiModelProperty(example = "Brand", value = "[Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used.")
   public void setSenderId(String senderId) {
     this.senderId = senderId;
   }
 
 
   public VerificationSendRequest signature(String signature) {
-    
+
     this.signature = signature;
     return this;
   }
@@ -231,7 +231,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest language(String language) {
-    
+
     this.language = language;
     return this;
   }
@@ -257,7 +257,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest externalId(String externalId) {
-    
+
     this.externalId = externalId;
     return this;
   }

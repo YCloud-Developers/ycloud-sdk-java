@@ -76,7 +76,7 @@ public class EmailSendRequest {
 
   public static final String SERIALIZED_NAME_CONTENT = "content";
   /**
-   * - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.
+   * - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://helpdocs.ycloud.com/help-center/integrations/channels/email/email-template-samples) provided by YCloud for testing.
   **/
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
@@ -136,11 +136,11 @@ public class EmailSendRequest {
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
 
-  public EmailSendRequest() { 
+  public EmailSendRequest() {
   }
 
   public EmailSendRequest from(String from) {
-    
+
     this.from = from;
     return this;
   }
@@ -166,7 +166,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest to(String to) {
-    
+
     this.to = to;
     return this;
   }
@@ -192,7 +192,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest subject(String subject) {
-    
+
     this.subject = subject;
     return this;
   }
@@ -218,13 +218,13 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest content(String content) {
-    
+
     this.content = content;
     return this;
   }
 
    /**
-   * - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.
+   * - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://helpdocs.ycloud.com/help-center/integrations/channels/email/email-template-samples) provided by YCloud for testing.
    * @return content
   **/
   @javax.annotation.Nonnull
@@ -235,16 +235,16 @@ public class EmailSendRequest {
 
 
   /**
-   * - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.
+   * - The email body. Max size: 150 KB. - Variables in the form of &#x60;#var_1#&#x60; are supported, they should be used together with the &#x60;variables&#x60; parameter. Variable keys only support letters, digits, and the underline character (&#x60;_&#x60;). - You can use the [Test Templates](https://helpdocs.ycloud.com/help-center/integrations/channels/email/email-template-samples) provided by YCloud for testing.
    **/
-  @ApiModelProperty(example = "This is a test message from #nick#.", required = true, value = "- The email body. Max size: 150 KB. - Variables in the form of `#var_1#` are supported, they should be used together with the `variables` parameter. Variable keys only support letters, digits, and the underline character (`_`). - You can use the [Test Templates](https://help.ycloud.com/en/articles/6006545) provided by YCloud for testing.")
+  @ApiModelProperty(example = "This is a test message from #nick#.", required = true, value = "- The email body. Max size: 150 KB. - Variables in the form of `#var_1#` are supported, they should be used together with the `variables` parameter. Variable keys only support letters, digits, and the underline character (`_`). - You can use the [Test Templates](https://helpdocs.ycloud.com/help-center/integrations/channels/email/email-template-samples) provided by YCloud for testing.")
   public void setContent(String content) {
     this.content = content;
   }
 
 
   public EmailSendRequest contentType(EmailContentType contentType) {
-    
+
     this.contentType = contentType;
     return this;
   }
@@ -269,7 +269,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest variables(List<Map<String, String>> variables) {
-    
+
     this.variables = variables;
     return this;
   }
@@ -303,7 +303,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest cc(String cc) {
-    
+
     this.cc = cc;
     return this;
   }
@@ -329,7 +329,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest bcc(String bcc) {
-    
+
     this.bcc = bcc;
     return this;
   }
@@ -355,7 +355,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest replyTo(String replyTo) {
-    
+
     this.replyTo = replyTo;
     return this;
   }
@@ -381,7 +381,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest summary(String summary) {
-    
+
     this.summary = summary;
     return this;
   }
@@ -407,7 +407,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest externalId(String externalId) {
-    
+
     this.externalId = externalId;
     return this;
   }
@@ -433,7 +433,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest callbackUrl(String callbackUrl) {
-    
+
     this.callbackUrl = callbackUrl;
     return this;
   }

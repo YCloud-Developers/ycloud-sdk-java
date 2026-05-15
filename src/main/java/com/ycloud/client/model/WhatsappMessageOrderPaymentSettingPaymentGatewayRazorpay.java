@@ -55,7 +55,7 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay {
   public static final String SERIALIZED_NAME_RECEIPT = "receipt";
   /**
-   * Receipt number that corresponds to this order, set for your internal reference.  Maximum length of 40 characters supported with minimum length greater than 0 characters.
+   * Receipt number that corresponds to this order, set for your internal reference. Maximum length of 40 characters supported with minimum length greater than 0 characters.
   **/
   @SerializedName(SERIALIZED_NAME_RECEIPT)
   private String receipt;
@@ -67,17 +67,17 @@ public class WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay {
   @SerializedName(SERIALIZED_NAME_NOTES)
   private Map<String, String> notes = null;
 
-  public WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay() { 
+  public WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay() {
   }
 
   public WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay receipt(String receipt) {
-    
+
     this.receipt = receipt;
     return this;
   }
 
    /**
-   * Receipt number that corresponds to this order, set for your internal reference.  Maximum length of 40 characters supported with minimum length greater than 0 characters.
+   * Receipt number that corresponds to this order, set for your internal reference. Maximum length of 40 characters supported with minimum length greater than 0 characters.
    * @return receipt
   **/
   @javax.annotation.Nullable
@@ -88,16 +88,16 @@ public class WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay {
 
 
   /**
-   * Receipt number that corresponds to this order, set for your internal reference.  Maximum length of 40 characters supported with minimum length greater than 0 characters.
+   * Receipt number that corresponds to this order, set for your internal reference. Maximum length of 40 characters supported with minimum length greater than 0 characters.
    **/
-  @ApiModelProperty(value = "Receipt number that corresponds to this order, set for your internal reference.  Maximum length of 40 characters supported with minimum length greater than 0 characters.")
+  @ApiModelProperty(value = "Receipt number that corresponds to this order, set for your internal reference. Maximum length of 40 characters supported with minimum length greater than 0 characters.")
   public void setReceipt(String receipt) {
     this.receipt = receipt;
   }
 
 
   public WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay notes(Map<String, String> notes) {
-    
+
     this.notes = notes;
     return this;
   }

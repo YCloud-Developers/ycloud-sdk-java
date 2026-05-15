@@ -65,7 +65,7 @@ public class SmsSendRequest {
 
   public static final String SERIALIZED_NAME_SENDER_ID = "senderId";
   /**
-   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+   * [Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used.
   **/
   @SerializedName(SERIALIZED_NAME_SENDER_ID)
   private String senderId;
@@ -91,11 +91,11 @@ public class SmsSendRequest {
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
 
-  public SmsSendRequest() { 
+  public SmsSendRequest() {
   }
 
   public SmsSendRequest to(String to) {
-    
+
     this.to = to;
     return this;
   }
@@ -121,7 +121,7 @@ public class SmsSendRequest {
 
 
   public SmsSendRequest text(String text) {
-    
+
     this.text = text;
     return this;
   }
@@ -147,13 +147,13 @@ public class SmsSendRequest {
 
 
   public SmsSendRequest senderId(String senderId) {
-    
+
     this.senderId = senderId;
     return this;
   }
 
    /**
-   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+   * [Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used.
    * @return senderId
   **/
   @javax.annotation.Nullable
@@ -164,16 +164,16 @@ public class SmsSendRequest {
 
 
   /**
-   * [Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.
+   * [Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used.
    **/
-  @ApiModelProperty(example = "Brand", value = "[Sender ID](https://help.ycloud.com/en/articles/3080386) to be used.")
+  @ApiModelProperty(example = "Brand", value = "[Sender ID](https://helpdocs.ycloud.com/help-center/integrations/channels/global-sms/sms-features/sender-id) to be used.")
   public void setSenderId(String senderId) {
     this.senderId = senderId;
   }
 
 
   public SmsSendRequest signature(String signature) {
-    
+
     this.signature = signature;
     return this;
   }
@@ -199,7 +199,7 @@ public class SmsSendRequest {
 
 
   public SmsSendRequest externalId(String externalId) {
-    
+
     this.externalId = externalId;
     return this;
   }
@@ -225,7 +225,7 @@ public class SmsSendRequest {
 
 
   public SmsSendRequest callbackUrl(String callbackUrl) {
-    
+
     this.callbackUrl = callbackUrl;
     return this;
   }

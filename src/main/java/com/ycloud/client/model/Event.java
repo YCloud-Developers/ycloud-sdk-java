@@ -36,6 +36,7 @@ import com.ycloud.client.model.WhatsappMessage;
 import com.ycloud.client.model.WhatsappPayment;
 import com.ycloud.client.model.WhatsappPhoneNumber;
 import com.ycloud.client.model.WhatsappTemplate;
+import com.ycloud.client.model.WhatsappUserPreference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -184,11 +185,17 @@ public class Event {
   @SerializedName(SERIALIZED_NAME_CONTACT_UNSUBSCRIBE_DELETED)
   private ContactUnsubscribeDeleted contactUnsubscribeDeleted;
 
-  public Event() { 
+  public static final String SERIALIZED_NAME_WHATSAPP_USER_PREFERENCE = "whatsappUserPreference";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_USER_PREFERENCE)
+  private WhatsappUserPreference whatsappUserPreference;
+
+  public Event() {
   }
 
   public Event id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -214,7 +221,7 @@ public class Event {
 
 
   public Event type(EventType type) {
-    
+
     this.type = type;
     return this;
   }
@@ -239,7 +246,7 @@ public class Event {
 
 
   public Event apiVersion(String apiVersion) {
-    
+
     this.apiVersion = apiVersion;
     return this;
   }
@@ -265,7 +272,7 @@ public class Event {
 
 
   public Event createTime(Date createTime) {
-    
+
     this.createTime = createTime;
     return this;
   }
@@ -291,7 +298,7 @@ public class Event {
 
 
   public Event emailDelivery(EmailDelivery emailDelivery) {
-    
+
     this.emailDelivery = emailDelivery;
     return this;
   }
@@ -316,7 +323,7 @@ public class Event {
 
 
   public Event sms(Sms sms) {
-    
+
     this.sms = sms;
     return this;
   }
@@ -341,7 +348,7 @@ public class Event {
 
 
   public Event smsInbound(SmsInbound smsInbound) {
-    
+
     this.smsInbound = smsInbound;
     return this;
   }
@@ -366,7 +373,7 @@ public class Event {
 
 
   public Event voice(Voice voice) {
-    
+
     this.voice = voice;
     return this;
   }
@@ -391,7 +398,7 @@ public class Event {
 
 
   public Event whatsappBusinessAccount(WhatsappBusinessAccount whatsappBusinessAccount) {
-    
+
     this.whatsappBusinessAccount = whatsappBusinessAccount;
     return this;
   }
@@ -416,7 +423,7 @@ public class Event {
 
 
   public Event whatsappInboundMessage(WhatsappInboundMessage whatsappInboundMessage) {
-    
+
     this.whatsappInboundMessage = whatsappInboundMessage;
     return this;
   }
@@ -441,7 +448,7 @@ public class Event {
 
 
   public Event whatsappMessage(WhatsappMessage whatsappMessage) {
-    
+
     this.whatsappMessage = whatsappMessage;
     return this;
   }
@@ -466,7 +473,7 @@ public class Event {
 
 
   public Event whatsappPhoneNumber(WhatsappPhoneNumber whatsappPhoneNumber) {
-    
+
     this.whatsappPhoneNumber = whatsappPhoneNumber;
     return this;
   }
@@ -491,7 +498,7 @@ public class Event {
 
 
   public Event whatsappPayment(WhatsappPayment whatsappPayment) {
-    
+
     this.whatsappPayment = whatsappPayment;
     return this;
   }
@@ -516,7 +523,7 @@ public class Event {
 
 
   public Event whatsappTemplate(WhatsappTemplate whatsappTemplate) {
-    
+
     this.whatsappTemplate = whatsappTemplate;
     return this;
   }
@@ -541,7 +548,7 @@ public class Event {
 
 
   public Event contactAttributesChanged(ContactAttributesChanged contactAttributesChanged) {
-    
+
     this.contactAttributesChanged = contactAttributesChanged;
     return this;
   }
@@ -566,7 +573,7 @@ public class Event {
 
 
   public Event contactCreated(ContactCreated contactCreated) {
-    
+
     this.contactCreated = contactCreated;
     return this;
   }
@@ -591,7 +598,7 @@ public class Event {
 
 
   public Event contactDeleted(ContactDeleted contactDeleted) {
-    
+
     this.contactDeleted = contactDeleted;
     return this;
   }
@@ -616,7 +623,7 @@ public class Event {
 
 
   public Event contactUnsubscribeCreated(ContactUnsubscribeCreated contactUnsubscribeCreated) {
-    
+
     this.contactUnsubscribeCreated = contactUnsubscribeCreated;
     return this;
   }
@@ -641,7 +648,7 @@ public class Event {
 
 
   public Event contactUnsubscribeDeleted(ContactUnsubscribeDeleted contactUnsubscribeDeleted) {
-    
+
     this.contactUnsubscribeDeleted = contactUnsubscribeDeleted;
     return this;
   }
@@ -662,6 +669,31 @@ public class Event {
   @ApiModelProperty(value = "")
   public void setContactUnsubscribeDeleted(ContactUnsubscribeDeleted contactUnsubscribeDeleted) {
     this.contactUnsubscribeDeleted = contactUnsubscribeDeleted;
+  }
+
+
+  public Event whatsappUserPreference(WhatsappUserPreference whatsappUserPreference) {
+
+    this.whatsappUserPreference = whatsappUserPreference;
+    return this;
+  }
+
+   /**
+   * Get whatsappUserPreference
+   * @return whatsappUserPreference
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappUserPreference getWhatsappUserPreference() {
+    return whatsappUserPreference;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setWhatsappUserPreference(WhatsappUserPreference whatsappUserPreference) {
+    this.whatsappUserPreference = whatsappUserPreference;
   }
 
   /**
@@ -728,13 +760,14 @@ public class Event {
         Objects.equals(this.contactCreated, event.contactCreated) &&
         Objects.equals(this.contactDeleted, event.contactDeleted) &&
         Objects.equals(this.contactUnsubscribeCreated, event.contactUnsubscribeCreated) &&
-        Objects.equals(this.contactUnsubscribeDeleted, event.contactUnsubscribeDeleted)&&
+        Objects.equals(this.contactUnsubscribeDeleted, event.contactUnsubscribeDeleted) &&
+        Objects.equals(this.whatsappUserPreference, event.whatsappUserPreference)&&
         Objects.equals(this.additionalProperties, event.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, contactAttributesChanged, contactCreated, contactDeleted, contactUnsubscribeCreated, contactUnsubscribeDeleted, additionalProperties);
+    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, contactAttributesChanged, contactCreated, contactDeleted, contactUnsubscribeCreated, contactUnsubscribeDeleted, whatsappUserPreference, additionalProperties);
   }
 
   @Override
@@ -760,6 +793,7 @@ public class Event {
     sb.append("    contactDeleted: ").append(toIndentedString(contactDeleted)).append("\n");
     sb.append("    contactUnsubscribeCreated: ").append(toIndentedString(contactUnsubscribeCreated)).append("\n");
     sb.append("    contactUnsubscribeDeleted: ").append(toIndentedString(contactUnsubscribeDeleted)).append("\n");
+    sb.append("    whatsappUserPreference: ").append(toIndentedString(whatsappUserPreference)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -802,6 +836,7 @@ public class Event {
     openapiFields.add("contactDeleted");
     openapiFields.add("contactUnsubscribeCreated");
     openapiFields.add("contactUnsubscribeDeleted");
+    openapiFields.add("whatsappUserPreference");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -897,6 +932,10 @@ public class Event {
       // validate the optional field `contactUnsubscribeDeleted`
       if (jsonObj.getAsJsonObject("contactUnsubscribeDeleted") != null) {
         ContactUnsubscribeDeleted.validateJsonObject(jsonObj.getAsJsonObject("contactUnsubscribeDeleted"));
+      }
+      // validate the optional field `whatsappUserPreference`
+      if (jsonObj.getAsJsonObject("whatsappUserPreference") != null) {
+        WhatsappUserPreference.validateJsonObject(jsonObj.getAsJsonObject("whatsappUserPreference"));
       }
   }
 

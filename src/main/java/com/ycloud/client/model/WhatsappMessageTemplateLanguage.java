@@ -52,7 +52,7 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageTemplateLanguage {
   public static final String SERIALIZED_NAME_CODE = "code";
   /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
   **/
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
@@ -64,17 +64,17 @@ public class WhatsappMessageTemplateLanguage {
   @SerializedName(SERIALIZED_NAME_POLICY)
   private String policy;
 
-  public WhatsappMessageTemplateLanguage() { 
+  public WhatsappMessageTemplateLanguage() {
   }
 
   public WhatsappMessageTemplateLanguage code(String code) {
-    
+
     this.code = code;
     return this;
   }
 
    /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
    * @return code
   **/
   @javax.annotation.Nonnull
@@ -85,16 +85,16 @@ public class WhatsappMessageTemplateLanguage {
 
 
   /**
-   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.
+   * The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
    **/
-  @ApiModelProperty(example = "en_US", required = true, value = "The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages) for all codes.")
+  @ApiModelProperty(example = "en", required = true, value = "The code of the language or locale to use. Accepts both language and language_locale formats (e.g., en and en_US). See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.")
   public void setCode(String code) {
     this.code = code;
   }
 
 
   public WhatsappMessageTemplateLanguage policy(String policy) {
-    
+
     this.policy = policy;
     return this;
   }

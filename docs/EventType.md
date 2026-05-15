@@ -59,5 +59,7 @@
 
 * `CONTACT_UNSUBSCRIBE_DELETED` (value: `"contact.unsubscribe.deleted"`)
 
+* `WHATSAPP_USER_PREFERENCES` (value: `"whatsapp.user.preferences"`)
+
 
 

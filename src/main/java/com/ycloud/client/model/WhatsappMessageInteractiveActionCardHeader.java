@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappMessageMedia;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -45,76 +46,152 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * ContactCustomAttribute
+ * WhatsappMessageInteractiveActionCardHeader
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ContactCustomAttribute {
-  public static final String SERIALIZED_NAME_NAME = "name";
+public class WhatsappMessageInteractiveActionCardHeader {
   /**
-   * Name of the attribute that you&#39;ve previously defined.
-  **/
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+   * **Required.** The header type you would like to use. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    IMAGE("image"),
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  /**
-   * Value of the attribute. Its data type depends on the format of the attribute you defined: For Text, the &#x60;value&#x60; is a string with a maximum length of 250. For Array, the &#x60;value&#x60; is an array of strings with a maximum length of 250. For Number, the &#x60;value&#x60; is a signed decimal number. For Boolean, the &#x60;value&#x60; is either &#x60;true&#x60; or &#x60;false&#x60;. For Time, the &#x60;value&#x60; is a Unix timestamp in milliseconds. For Long Text, the &#x60;value&#x60; is a string with a maximum length of 5000.
-  **/
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  private Object value;
+    VIDEO("video");
 
-  public ContactCustomAttribute() {
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
   }
 
-  public ContactCustomAttribute name(String name) {
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  /**
+   * **Required.** The header type you would like to use. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons.
+  **/
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type;
 
-    this.name = name;
+  public static final String SERIALIZED_NAME_IMAGE = "image";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_IMAGE)
+  private WhatsappMessageMedia image;
+
+  public static final String SERIALIZED_NAME_VIDEO = "video";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_VIDEO)
+  private WhatsappMessageMedia video;
+
+  public WhatsappMessageInteractiveActionCardHeader() {
+  }
+
+  public WhatsappMessageInteractiveActionCardHeader type(TypeEnum type) {
+
+    this.type = type;
     return this;
   }
 
    /**
-   * Name of the attribute that you&#39;ve previously defined.
-   * @return name
+   * **Required.** The header type you would like to use. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons.
+   * @return type
   **/
   @javax.annotation.Nullable
 
-  public String getName() {
-    return name;
+  public TypeEnum getType() {
+    return type;
   }
 
 
   /**
-   * Name of the attribute that you&#39;ve previously defined.
+   * **Required.** The header type you would like to use. - &#x60;video&#x60;: Used for Reply Buttons. - &#x60;image&#x60;: Used for Reply Buttons.
    **/
-  @ApiModelProperty(value = "Name of the attribute that you've previously defined.")
-  public void setName(String name) {
-    this.name = name;
+  @ApiModelProperty(value = "**Required.** The header type you would like to use. - `video`: Used for Reply Buttons. - `image`: Used for Reply Buttons.")
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
-  public ContactCustomAttribute value(Object value) {
+  public WhatsappMessageInteractiveActionCardHeader image(WhatsappMessageMedia image) {
 
-    this.value = value;
+    this.image = image;
     return this;
   }
 
    /**
-   * Value of the attribute. Its data type depends on the format of the attribute you defined: For Text, the &#x60;value&#x60; is a string with a maximum length of 250. For Array, the &#x60;value&#x60; is an array of strings with a maximum length of 250. For Number, the &#x60;value&#x60; is a signed decimal number. For Boolean, the &#x60;value&#x60; is either &#x60;true&#x60; or &#x60;false&#x60;. For Time, the &#x60;value&#x60; is a Unix timestamp in milliseconds. For Long Text, the &#x60;value&#x60; is a string with a maximum length of 5000.
-   * @return value
+   * Get image
+   * @return image
   **/
   @javax.annotation.Nullable
 
-  public Object getValue() {
-    return value;
+  public WhatsappMessageMedia getImage() {
+    return image;
   }
 
 
   /**
-   * Value of the attribute. Its data type depends on the format of the attribute you defined: For Text, the &#x60;value&#x60; is a string with a maximum length of 250. For Array, the &#x60;value&#x60; is an array of strings with a maximum length of 250. For Number, the &#x60;value&#x60; is a signed decimal number. For Boolean, the &#x60;value&#x60; is either &#x60;true&#x60; or &#x60;false&#x60;. For Time, the &#x60;value&#x60; is a Unix timestamp in milliseconds. For Long Text, the &#x60;value&#x60; is a string with a maximum length of 5000.
    **/
-  @ApiModelProperty(value = "Value of the attribute. Its data type depends on the format of the attribute you defined: For Text, the `value` is a string with a maximum length of 250. For Array, the `value` is an array of strings with a maximum length of 250. For Number, the `value` is a signed decimal number. For Boolean, the `value` is either `true` or `false`. For Time, the `value` is a Unix timestamp in milliseconds. For Long Text, the `value` is a string with a maximum length of 5000.")
-  public void setValue(Object value) {
-    this.value = value;
+  @ApiModelProperty(value = "")
+  public void setImage(WhatsappMessageMedia image) {
+    this.image = image;
+  }
+
+
+  public WhatsappMessageInteractiveActionCardHeader video(WhatsappMessageMedia video) {
+
+    this.video = video;
+    return this;
+  }
+
+   /**
+   * Get video
+   * @return video
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageMedia getVideo() {
+    return video;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setVideo(WhatsappMessageMedia video) {
+    this.video = video;
   }
 
   /**
@@ -128,7 +205,7 @@ public class ContactCustomAttribute {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public ContactCustomAttribute putAdditionalProperty(String key, Object value) {
+  public WhatsappMessageInteractiveActionCardHeader putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -162,23 +239,25 @@ public class ContactCustomAttribute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ContactCustomAttribute contactCustomAttribute = (ContactCustomAttribute) o;
-    return Objects.equals(this.name, contactCustomAttribute.name) &&
-        Objects.equals(this.value, contactCustomAttribute.value)&&
-        Objects.equals(this.additionalProperties, contactCustomAttribute.additionalProperties);
+    WhatsappMessageInteractiveActionCardHeader whatsappMessageInteractiveActionCardHeader = (WhatsappMessageInteractiveActionCardHeader) o;
+    return Objects.equals(this.type, whatsappMessageInteractiveActionCardHeader.type) &&
+        Objects.equals(this.image, whatsappMessageInteractiveActionCardHeader.image) &&
+        Objects.equals(this.video, whatsappMessageInteractiveActionCardHeader.video)&&
+        Objects.equals(this.additionalProperties, whatsappMessageInteractiveActionCardHeader.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, additionalProperties);
+    return Objects.hash(type, image, video, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ContactCustomAttribute {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("class WhatsappMessageInteractiveActionCardHeader {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    video: ").append(toIndentedString(video)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -202,8 +281,9 @@ public class ContactCustomAttribute {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("value");
+    openapiFields.add("type");
+    openapiFields.add("image");
+    openapiFields.add("video");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -213,18 +293,26 @@ public class ContactCustomAttribute {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContactCustomAttribute
+  * @throws IOException if the JSON Object is invalid with respect to WhatsappMessageInteractiveActionCardHeader
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (ContactCustomAttribute.openapiRequiredFields.isEmpty()) {
+        if (WhatsappMessageInteractiveActionCardHeader.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ContactCustomAttribute is not found in the empty JSON string", ContactCustomAttribute.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappMessageInteractiveActionCardHeader is not found in the empty JSON string", WhatsappMessageInteractiveActionCardHeader.openapiRequiredFields.toString()));
         }
       }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      // validate the optional field `image`
+      if (jsonObj.getAsJsonObject("image") != null) {
+        WhatsappMessageMedia.validateJsonObject(jsonObj.getAsJsonObject("image"));
+      }
+      // validate the optional field `video`
+      if (jsonObj.getAsJsonObject("video") != null) {
+        WhatsappMessageMedia.validateJsonObject(jsonObj.getAsJsonObject("video"));
       }
   }
 
@@ -232,16 +320,16 @@ public class ContactCustomAttribute {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ContactCustomAttribute.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ContactCustomAttribute' and its subtypes
+       if (!WhatsappMessageInteractiveActionCardHeader.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WhatsappMessageInteractiveActionCardHeader' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ContactCustomAttribute> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ContactCustomAttribute.class));
+       final TypeAdapter<WhatsappMessageInteractiveActionCardHeader> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WhatsappMessageInteractiveActionCardHeader.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ContactCustomAttribute>() {
+       return (TypeAdapter<T>) new TypeAdapter<WhatsappMessageInteractiveActionCardHeader>() {
            @Override
-           public void write(JsonWriter out, ContactCustomAttribute value) throws IOException {
+           public void write(JsonWriter out, WhatsappMessageInteractiveActionCardHeader value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -264,11 +352,11 @@ public class ContactCustomAttribute {
            }
 
            @Override
-           public ContactCustomAttribute read(JsonReader in) throws IOException {
+           public WhatsappMessageInteractiveActionCardHeader read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             ContactCustomAttribute instance = thisAdapter.fromJsonTree(jsonObj);
+             WhatsappMessageInteractiveActionCardHeader instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -293,18 +381,18 @@ public class ContactCustomAttribute {
   }
 
  /**
-  * Create an instance of ContactCustomAttribute given an JSON string
+  * Create an instance of WhatsappMessageInteractiveActionCardHeader given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ContactCustomAttribute
-  * @throws IOException if the JSON string is invalid with respect to ContactCustomAttribute
+  * @return An instance of WhatsappMessageInteractiveActionCardHeader
+  * @throws IOException if the JSON string is invalid with respect to WhatsappMessageInteractiveActionCardHeader
   */
-  public static ContactCustomAttribute fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ContactCustomAttribute.class);
+  public static WhatsappMessageInteractiveActionCardHeader fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WhatsappMessageInteractiveActionCardHeader.class);
   }
 
  /**
-  * Convert an instance of ContactCustomAttribute to an JSON string
+  * Convert an instance of WhatsappMessageInteractiveActionCardHeader to an JSON string
   *
   * @return JSON string
   */

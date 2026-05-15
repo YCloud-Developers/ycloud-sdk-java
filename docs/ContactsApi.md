@@ -34,7 +34,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -99,7 +99,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -107,7 +107,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ContactsApi apiInstance = new ContactsApi(defaultClient);
-    ContactCreateRequest contactCreateRequest = new ContactCreateRequest(); // ContactCreateRequest | 
+    ContactCreateRequest contactCreateRequest = new ContactCreateRequest(); // ContactCreateRequest |
     try {
       Contact result = apiInstance.create(contactCreateRequest);
       System.out.println(result);
@@ -168,7 +168,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -176,7 +176,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ContactsApi apiInstance = new ContactsApi(defaultClient);
-    String id = "1693364594105000026"; // String | ID of the contact.
+    String id = "1693364594105000026/+16315551111"; // String | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
     try {
       Contact result = apiInstance.delete(id);
       System.out.println(result);
@@ -195,7 +195,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| ID of the contact. | |
+| **id** | **String**| ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 | |
 
 ### Return type
 
@@ -238,7 +238,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -249,7 +249,7 @@ public class Example {
     Integer page = 1; // Integer | Page number of the results to be returned, 1-based.
     Integer limit = 10; // Integer | A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10.
     Boolean includeTotal = false; // Boolean | Return results inside an object that contains the total result count or not.
-    String filterTags = "tag1,tag2"; // String | Comma-separated list of tags.
+    String filterTags = "tag1_id,tag2_id"; // String | Comma-separated list of tags' id.
     String filterCountryCode = "US"; // String | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
     String filterPhoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
     String filterEmail = "support@example.com"; // String | The contact's email address.
@@ -282,7 +282,7 @@ public class Example {
 | **page** | **Integer**| Page number of the results to be returned, 1-based. | [optional] [default to 1] |
 | **limit** | **Integer**| A limit on the number of results to be returned, or number of results per page, between 1 and 100, defaults to 10. | [optional] [default to 10] |
 | **includeTotal** | **Boolean**| Return results inside an object that contains the total result count or not. | [optional] [default to false] |
-| **filterTags** | **String**| Comma-separated list of tags. | [optional] |
+| **filterTags** | **String**| Comma-separated list of tags&#39; id. | [optional] |
 | **filterCountryCode** | **String**| Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). | [optional] |
 | **filterPhoneNumber** | **String**| Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | [optional] |
 | **filterEmail** | **String**| The contact&#39;s email address. | [optional] |
@@ -327,7 +327,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -335,7 +335,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ContactsApi apiInstance = new ContactsApi(defaultClient);
-    String id = "1693364594105000026"; // String | ID of the contact.
+    String id = "1693364594105000026/+16315551111"; // String | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
     try {
       Contact result = apiInstance.retrieve(id);
       System.out.println(result);
@@ -354,7 +354,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| ID of the contact. | |
+| **id** | **String**| ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 | |
 
 ### Return type
 
@@ -397,7 +397,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -405,8 +405,8 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ContactsApi apiInstance = new ContactsApi(defaultClient);
-    String id = "1693364594105000026"; // String | ID of the contact.
-    ContactUpdateRequest contactUpdateRequest = new ContactUpdateRequest(); // ContactUpdateRequest | 
+    String id = "1693364594105000026/+16315551111"; // String | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
+    ContactUpdateRequest contactUpdateRequest = new ContactUpdateRequest(); // ContactUpdateRequest |
     try {
       Contact result = apiInstance.update(id, contactUpdateRequest);
       System.out.println(result);
@@ -425,7 +425,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| ID of the contact. | |
+| **id** | **String**| ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 | |
 | **contactUpdateRequest** | [**ContactUpdateRequest**](ContactUpdateRequest.md)|  | [optional] |
 
 ### Return type
