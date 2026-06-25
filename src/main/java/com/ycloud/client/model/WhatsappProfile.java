@@ -57,11 +57,18 @@ public class WhatsappProfile {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public WhatsappProfile() { 
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  /**
+   * WhatsApp username.
+  **/
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
+
+  public WhatsappProfile() {
   }
 
   public WhatsappProfile name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -83,6 +90,32 @@ public class WhatsappProfile {
   @ApiModelProperty(example = "John", value = "Name of the WhatsApp account.")
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public WhatsappProfile username(String username) {
+
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * WhatsApp username.
+   * @return username
+  **/
+  @javax.annotation.Nullable
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  /**
+   * WhatsApp username.
+   **/
+  @ApiModelProperty(example = "john_doe", value = "WhatsApp username.")
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   /**
@@ -131,13 +164,14 @@ public class WhatsappProfile {
       return false;
     }
     WhatsappProfile whatsappProfile = (WhatsappProfile) o;
-    return Objects.equals(this.name, whatsappProfile.name)&&
+    return Objects.equals(this.name, whatsappProfile.name) &&
+        Objects.equals(this.username, whatsappProfile.username)&&
         Objects.equals(this.additionalProperties, whatsappProfile.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, additionalProperties);
+    return Objects.hash(name, username, additionalProperties);
   }
 
   @Override
@@ -145,6 +179,7 @@ public class WhatsappProfile {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappProfile {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -169,6 +204,7 @@ public class WhatsappProfile {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
+    openapiFields.add("username");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -190,6 +226,9 @@ public class WhatsappProfile {
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

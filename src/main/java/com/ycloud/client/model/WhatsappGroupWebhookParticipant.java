@@ -95,11 +95,11 @@ public class WhatsappGroupWebhookParticipant {
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private List<Map<String, Object>> errors = null;
 
-  public WhatsappGroupWebhookParticipant() { 
+  public WhatsappGroupWebhookParticipant() {
   }
 
   public WhatsappGroupWebhookParticipant input(String input) {
-    
+
     this.input = input;
     return this;
   }
@@ -118,14 +118,14 @@ public class WhatsappGroupWebhookParticipant {
   /**
    * The original participant input.
    **/
-  @ApiModelProperty(example = "US.abc123", value = "The original participant input.")
+  @ApiModelProperty(example = "US.1234", value = "The original participant input.")
   public void setInput(String input) {
     this.input = input;
   }
 
 
   public WhatsappGroupWebhookParticipant waId(String waId) {
-    
+
     this.waId = waId;
     return this;
   }
@@ -151,7 +151,7 @@ public class WhatsappGroupWebhookParticipant {
 
 
   public WhatsappGroupWebhookParticipant recipientUserId(String recipientUserId) {
-    
+
     this.recipientUserId = recipientUserId;
     return this;
   }
@@ -170,14 +170,14 @@ public class WhatsappGroupWebhookParticipant {
   /**
    * Business-scoped user ID.
    **/
-  @ApiModelProperty(example = "US.abc123", value = "Business-scoped user ID.")
+  @ApiModelProperty(example = "US.1234", value = "Business-scoped user ID.")
   public void setRecipientUserId(String recipientUserId) {
     this.recipientUserId = recipientUserId;
   }
 
 
   public WhatsappGroupWebhookParticipant parentRecipientUserId(String parentRecipientUserId) {
-    
+
     this.parentRecipientUserId = parentRecipientUserId;
     return this;
   }
@@ -203,7 +203,7 @@ public class WhatsappGroupWebhookParticipant {
 
 
   public WhatsappGroupWebhookParticipant customerProfile(WhatsappGroupCustomerProfile customerProfile) {
-    
+
     this.customerProfile = customerProfile;
     return this;
   }
@@ -228,7 +228,7 @@ public class WhatsappGroupWebhookParticipant {
 
 
   public WhatsappGroupWebhookParticipant errors(List<Map<String, Object>> errors) {
-    
+
     this.errors = errors;
     return this;
   }

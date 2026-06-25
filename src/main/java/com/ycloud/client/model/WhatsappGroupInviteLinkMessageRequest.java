@@ -48,16 +48,24 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappGroupInviteLinkMessageRequest
+ * Provide exactly one of &#x60;to&#x60; or &#x60;recipient&#x60;. If both are provided, &#x60;to&#x60; takes precedence and &#x60;recipient&#x60; is ignored.
  */
+@ApiModel(description = "Provide exactly one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappGroupInviteLinkMessageRequest {
   public static final String SERIALIZED_NAME_TO = "to";
   /**
-   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided.
   **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
+
+  public static final String SERIALIZED_NAME_RECIPIENT = "recipient";
+  /**
+   * The recipient&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided.
+  **/
+  @SerializedName(SERIALIZED_NAME_RECIPIENT)
+  private String recipient;
 
   public static final String SERIALIZED_NAME_TEMPLATE_NAME = "templateName";
   /**
@@ -80,20 +88,20 @@ public class WhatsappGroupInviteLinkMessageRequest {
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private List<WhatsappMessageTemplateComponentParameter> parameters = new ArrayList<>();
 
-  public WhatsappGroupInviteLinkMessageRequest() { 
+  public WhatsappGroupInviteLinkMessageRequest() {
   }
 
   public WhatsappGroupInviteLinkMessageRequest to(String to) {
-    
+
     this.to = to;
     return this;
   }
 
    /**
-   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided.
    * @return to
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
   public String getTo() {
     return to;
@@ -101,16 +109,42 @@ public class WhatsappGroupInviteLinkMessageRequest {
 
 
   /**
-   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided.
    **/
-  @ApiModelProperty(example = "+16315551111", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when `recipient` is not provided.")
   public void setTo(String to) {
     this.to = to;
   }
 
 
+  public WhatsappGroupInviteLinkMessageRequest recipient(String recipient) {
+
+    this.recipient = recipient;
+    return this;
+  }
+
+   /**
+   * The recipient&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided.
+   * @return recipient
+  **/
+  @javax.annotation.Nullable
+
+  public String getRecipient() {
+    return recipient;
+  }
+
+
+  /**
+   * The recipient&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided.
+   **/
+  @ApiModelProperty(example = "US.1234", value = "The recipient's WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when `to` is not provided.")
+  public void setRecipient(String recipient) {
+    this.recipient = recipient;
+  }
+
+
   public WhatsappGroupInviteLinkMessageRequest templateName(String templateName) {
-    
+
     this.templateName = templateName;
     return this;
   }
@@ -136,7 +170,7 @@ public class WhatsappGroupInviteLinkMessageRequest {
 
 
   public WhatsappGroupInviteLinkMessageRequest languageCode(String languageCode) {
-    
+
     this.languageCode = languageCode;
     return this;
   }
@@ -162,7 +196,7 @@ public class WhatsappGroupInviteLinkMessageRequest {
 
 
   public WhatsappGroupInviteLinkMessageRequest parameters(List<WhatsappMessageTemplateComponentParameter> parameters) {
-    
+
     this.parameters = parameters;
     return this;
   }
@@ -238,6 +272,7 @@ public class WhatsappGroupInviteLinkMessageRequest {
     }
     WhatsappGroupInviteLinkMessageRequest whatsappGroupInviteLinkMessageRequest = (WhatsappGroupInviteLinkMessageRequest) o;
     return Objects.equals(this.to, whatsappGroupInviteLinkMessageRequest.to) &&
+        Objects.equals(this.recipient, whatsappGroupInviteLinkMessageRequest.recipient) &&
         Objects.equals(this.templateName, whatsappGroupInviteLinkMessageRequest.templateName) &&
         Objects.equals(this.languageCode, whatsappGroupInviteLinkMessageRequest.languageCode) &&
         Objects.equals(this.parameters, whatsappGroupInviteLinkMessageRequest.parameters)&&
@@ -246,7 +281,7 @@ public class WhatsappGroupInviteLinkMessageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(to, templateName, languageCode, parameters, additionalProperties);
+    return Objects.hash(to, recipient, templateName, languageCode, parameters, additionalProperties);
   }
 
   @Override
@@ -254,6 +289,7 @@ public class WhatsappGroupInviteLinkMessageRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappGroupInviteLinkMessageRequest {\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
@@ -281,13 +317,13 @@ public class WhatsappGroupInviteLinkMessageRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("to");
+    openapiFields.add("recipient");
     openapiFields.add("templateName");
     openapiFields.add("languageCode");
     openapiFields.add("parameters");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("to");
     openapiRequiredFields.add("templateName");
     openapiRequiredFields.add("languageCode");
     openapiRequiredFields.add("parameters");
@@ -316,6 +352,9 @@ public class WhatsappGroupInviteLinkMessageRequest {
       }
       if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
+      }
+      if (jsonObj.get("recipient") != null && !jsonObj.get("recipient").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipient` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipient").toString()));
       }
       if (jsonObj.get("templateName") != null && !jsonObj.get("templateName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `templateName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("templateName").toString()));

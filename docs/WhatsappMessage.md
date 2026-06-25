@@ -12,7 +12,13 @@ WhatsApp outbound message object.
 |**wamid** | **String** | The original message ID on WhatsApp&#39;s platform. |  [optional] |
 |**wabaId** | **String** | WhatsApp Business Account ID. |  |
 |**from** | **String** | The sender&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
-|**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  |
+|**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
+|**recipient** | **String** | The recipient value submitted in the request when a BSUID or parent BSUID was used. |  [optional] |
+|**recipientUserId** | **String** | The recipient&#39;s WhatsApp Business-scoped user ID (BSUID). |  [optional] |
+|**toUserId** | **String** | Alias of &#x60;recipientUserId&#x60; kept for compatibility. |  [optional] |
+|**parentRecipientUserId** | **String** | The recipient&#39;s parent WhatsApp Business-scoped user ID. |  [optional] |
+|**toParentUserId** | **String** | Alias of &#x60;parentRecipientUserId&#x60; kept for compatibility. |  [optional] |
+|**customerProfile** | [**WhatsappProfile**](WhatsappProfile.md) |  |  [optional] |
 |**conversation** | [**WhatsappConversation**](WhatsappConversation.md) |  |  [optional] |
 |**type** | **WhatsappMessageType** |  |  [optional] |
 |**template** | [**WhatsappMessageTemplate**](WhatsappMessageTemplate.md) |  |  [optional] |

@@ -95,6 +95,20 @@ public class WhatsappInboundMessage {
   @SerializedName(SERIALIZED_NAME_FROM)
   private String from;
 
+  public static final String SERIALIZED_NAME_FROM_USER_ID = "fromUserId";
+  /**
+   * The customer&#39;s WhatsApp Business-scoped user ID (BSUID).
+  **/
+  @SerializedName(SERIALIZED_NAME_FROM_USER_ID)
+  private String fromUserId;
+
+  public static final String SERIALIZED_NAME_FROM_PARENT_USER_ID = "fromParentUserId";
+  /**
+   * The customer&#39;s parent WhatsApp Business-scoped user ID.
+  **/
+  @SerializedName(SERIALIZED_NAME_FROM_PARENT_USER_ID)
+  private String fromParentUserId;
+
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   /**
   **/
@@ -107,13 +121,6 @@ public class WhatsappInboundMessage {
   **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
-
-  public static final String SERIALIZED_NAME_GROUP_ID = "groupId";
-  /**
-   * WhatsApp group ID. Included when the inbound message was sent in a group.
-  **/
-  @SerializedName(SERIALIZED_NAME_GROUP_ID)
-  private String groupId;
 
   public static final String SERIALIZED_NAME_SEND_TIME = "sendTime";
   /**
@@ -224,11 +231,11 @@ public class WhatsappInboundMessage {
   @SerializedName(SERIALIZED_NAME_REFERRAL)
   private WhatsappInboundMessageReferral referral;
 
-  public WhatsappInboundMessage() { 
+  public WhatsappInboundMessage() {
   }
 
   public WhatsappInboundMessage id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -254,7 +261,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage wamid(String wamid) {
-    
+
     this.wamid = wamid;
     return this;
   }
@@ -280,7 +287,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage wabaId(String wabaId) {
-    
+
     this.wabaId = wabaId;
     return this;
   }
@@ -306,7 +313,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage from(String from) {
-    
+
     this.from = from;
     return this;
   }
@@ -331,8 +338,60 @@ public class WhatsappInboundMessage {
   }
 
 
+  public WhatsappInboundMessage fromUserId(String fromUserId) {
+
+    this.fromUserId = fromUserId;
+    return this;
+  }
+
+   /**
+   * The customer&#39;s WhatsApp Business-scoped user ID (BSUID).
+   * @return fromUserId
+  **/
+  @javax.annotation.Nullable
+
+  public String getFromUserId() {
+    return fromUserId;
+  }
+
+
+  /**
+   * The customer&#39;s WhatsApp Business-scoped user ID (BSUID).
+   **/
+  @ApiModelProperty(example = "US.1234", value = "The customer's WhatsApp Business-scoped user ID (BSUID).")
+  public void setFromUserId(String fromUserId) {
+    this.fromUserId = fromUserId;
+  }
+
+
+  public WhatsappInboundMessage fromParentUserId(String fromParentUserId) {
+
+    this.fromParentUserId = fromParentUserId;
+    return this;
+  }
+
+   /**
+   * The customer&#39;s parent WhatsApp Business-scoped user ID.
+   * @return fromParentUserId
+  **/
+  @javax.annotation.Nullable
+
+  public String getFromParentUserId() {
+    return fromParentUserId;
+  }
+
+
+  /**
+   * The customer&#39;s parent WhatsApp Business-scoped user ID.
+   **/
+  @ApiModelProperty(example = "US.parent123", value = "The customer's parent WhatsApp Business-scoped user ID.")
+  public void setFromParentUserId(String fromParentUserId) {
+    this.fromParentUserId = fromParentUserId;
+  }
+
+
   public WhatsappInboundMessage customerProfile(WhatsappProfile customerProfile) {
-    
+
     this.customerProfile = customerProfile;
     return this;
   }
@@ -357,7 +416,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage to(String to) {
-    
+
     this.to = to;
     return this;
   }
@@ -382,34 +441,8 @@ public class WhatsappInboundMessage {
   }
 
 
-  public WhatsappInboundMessage groupId(String groupId) {
-    
-    this.groupId = groupId;
-    return this;
-  }
-
-   /**
-   * WhatsApp group ID. Included when the inbound message was sent in a group.
-   * @return groupId
-  **/
-  @javax.annotation.Nullable
-
-  public String getGroupId() {
-    return groupId;
-  }
-
-
-  /**
-   * WhatsApp group ID. Included when the inbound message was sent in a group.
-   **/
-  @ApiModelProperty(example = "120363345678901234@g.us", value = "WhatsApp group ID. Included when the inbound message was sent in a group.")
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-
   public WhatsappInboundMessage sendTime(Date sendTime) {
-    
+
     this.sendTime = sendTime;
     return this;
   }
@@ -435,7 +468,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage type(WhatsappInboundMessageType type) {
-    
+
     this.type = type;
     return this;
   }
@@ -460,7 +493,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage text(WhatsappInboundMessageText text) {
-    
+
     this.text = text;
     return this;
   }
@@ -485,7 +518,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage image(WhatsappInboundMessageMedia image) {
-    
+
     this.image = image;
     return this;
   }
@@ -510,7 +543,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage video(WhatsappInboundMessageMedia video) {
-    
+
     this.video = video;
     return this;
   }
@@ -535,7 +568,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage audio(WhatsappInboundMessageMedia audio) {
-    
+
     this.audio = audio;
     return this;
   }
@@ -560,7 +593,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage document(WhatsappInboundMessageMedia document) {
-    
+
     this.document = document;
     return this;
   }
@@ -585,7 +618,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage sticker(WhatsappInboundMessageMedia sticker) {
-    
+
     this.sticker = sticker;
     return this;
   }
@@ -610,7 +643,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage interactive(WhatsappInboundMessageInteractive interactive) {
-    
+
     this.interactive = interactive;
     return this;
   }
@@ -635,7 +668,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage location(WhatsappInboundMessageLocation location) {
-    
+
     this.location = location;
     return this;
   }
@@ -660,7 +693,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage button(WhatsappInboundMessageButton button) {
-    
+
     this.button = button;
     return this;
   }
@@ -685,7 +718,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage contacts(List<WhatsappMessageContact> contacts) {
-    
+
     this.contacts = contacts;
     return this;
   }
@@ -718,7 +751,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage reaction(WhatsappMessageReaction reaction) {
-    
+
     this.reaction = reaction;
     return this;
   }
@@ -743,7 +776,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage order(WhatsappInboundMessageOrder order) {
-    
+
     this.order = order;
     return this;
   }
@@ -768,7 +801,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage system(WhatsappInboundMessageSystem system) {
-    
+
     this.system = system;
     return this;
   }
@@ -793,7 +826,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage errors(List<WhatsappInboundMessageError> errors) {
-    
+
     this.errors = errors;
     return this;
   }
@@ -826,7 +859,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage context(WhatsappInboundMessageContext context) {
-    
+
     this.context = context;
     return this;
   }
@@ -851,7 +884,7 @@ public class WhatsappInboundMessage {
 
 
   public WhatsappInboundMessage referral(WhatsappInboundMessageReferral referral) {
-    
+
     this.referral = referral;
     return this;
   }
@@ -924,9 +957,10 @@ public class WhatsappInboundMessage {
         Objects.equals(this.wamid, whatsappInboundMessage.wamid) &&
         Objects.equals(this.wabaId, whatsappInboundMessage.wabaId) &&
         Objects.equals(this.from, whatsappInboundMessage.from) &&
+        Objects.equals(this.fromUserId, whatsappInboundMessage.fromUserId) &&
+        Objects.equals(this.fromParentUserId, whatsappInboundMessage.fromParentUserId) &&
         Objects.equals(this.customerProfile, whatsappInboundMessage.customerProfile) &&
         Objects.equals(this.to, whatsappInboundMessage.to) &&
-        Objects.equals(this.groupId, whatsappInboundMessage.groupId) &&
         Objects.equals(this.sendTime, whatsappInboundMessage.sendTime) &&
         Objects.equals(this.type, whatsappInboundMessage.type) &&
         Objects.equals(this.text, whatsappInboundMessage.text) &&
@@ -950,7 +984,7 @@ public class WhatsappInboundMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, customerProfile, to, groupId, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, reaction, order, system, errors, context, referral, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, fromUserId, fromParentUserId, customerProfile, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, reaction, order, system, errors, context, referral, additionalProperties);
   }
 
   @Override
@@ -961,9 +995,10 @@ public class WhatsappInboundMessage {
     sb.append("    wamid: ").append(toIndentedString(wamid)).append("\n");
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    fromUserId: ").append(toIndentedString(fromUserId)).append("\n");
+    sb.append("    fromParentUserId: ").append(toIndentedString(fromParentUserId)).append("\n");
     sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
-    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    sendTime: ").append(toIndentedString(sendTime)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
@@ -1009,9 +1044,10 @@ public class WhatsappInboundMessage {
     openapiFields.add("wamid");
     openapiFields.add("wabaId");
     openapiFields.add("from");
+    openapiFields.add("fromUserId");
+    openapiFields.add("fromParentUserId");
     openapiFields.add("customerProfile");
     openapiFields.add("to");
-    openapiFields.add("groupId");
     openapiFields.add("sendTime");
     openapiFields.add("type");
     openapiFields.add("text");
@@ -1069,15 +1105,18 @@ public class WhatsappInboundMessage {
       if (jsonObj.get("from") != null && !jsonObj.get("from").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `from` to be a primitive type in the JSON string but got `%s`", jsonObj.get("from").toString()));
       }
+      if (jsonObj.get("fromUserId") != null && !jsonObj.get("fromUserId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserId").toString()));
+      }
+      if (jsonObj.get("fromParentUserId") != null && !jsonObj.get("fromParentUserId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromParentUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromParentUserId").toString()));
+      }
       // validate the optional field `customerProfile`
       if (jsonObj.getAsJsonObject("customerProfile") != null) {
         WhatsappProfile.validateJsonObject(jsonObj.getAsJsonObject("customerProfile"));
       }
       if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
-      }
-      if (jsonObj.get("groupId") != null && !jsonObj.get("groupId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `groupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("groupId").toString()));
       }
       // validate the optional field `text`
       if (jsonObj.getAsJsonObject("text") != null) {
