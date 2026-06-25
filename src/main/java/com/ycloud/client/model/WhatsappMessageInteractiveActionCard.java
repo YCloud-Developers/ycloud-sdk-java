@@ -86,11 +86,11 @@ public class WhatsappMessageInteractiveActionCard {
   @SerializedName(SERIALIZED_NAME_ACTION)
   private WhatsappMessageInteractiveActionCardAction action;
 
-  public WhatsappMessageInteractiveActionCard() {
+  public WhatsappMessageInteractiveActionCard() { 
   }
 
   public WhatsappMessageInteractiveActionCard cardIndex(BigDecimal cardIndex) {
-
+    
     this.cardIndex = cardIndex;
     return this;
   }
@@ -116,7 +116,7 @@ public class WhatsappMessageInteractiveActionCard {
 
 
   public WhatsappMessageInteractiveActionCard type(String type) {
-
+    
     this.type = type;
     return this;
   }
@@ -142,7 +142,7 @@ public class WhatsappMessageInteractiveActionCard {
 
 
   public WhatsappMessageInteractiveActionCard header(WhatsappMessageInteractiveActionCardHeader header) {
-
+    
     this.header = header;
     return this;
   }
@@ -167,7 +167,7 @@ public class WhatsappMessageInteractiveActionCard {
 
 
   public WhatsappMessageInteractiveActionCard body(WhatsappMessageInteractiveActionCardBody body) {
-
+    
     this.body = body;
     return this;
   }
@@ -192,7 +192,7 @@ public class WhatsappMessageInteractiveActionCard {
 
 
   public WhatsappMessageInteractiveActionCard action(WhatsappMessageInteractiveActionCardAction action) {
-
+    
     this.action = action;
     return this;
   }

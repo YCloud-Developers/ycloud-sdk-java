@@ -171,11 +171,11 @@ public class WhatsappTemplateComponentButton {
   @SerializedName(SERIALIZED_NAME_APP_DEEP_LINK)
   private WhatsappTemplateComponentButtonAppDeepLink appDeepLink;
 
-  public WhatsappTemplateComponentButton() {
+  public WhatsappTemplateComponentButton() { 
   }
 
   public WhatsappTemplateComponentButton type(WhatsappTemplateComponentButtonType type) {
-
+    
     this.type = type;
     return this;
   }
@@ -200,7 +200,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton text(String text) {
-
+    
     this.text = text;
     return this;
   }
@@ -226,7 +226,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton url(String url) {
-
+    
     this.url = url;
     return this;
   }
@@ -252,7 +252,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton phoneNumber(String phoneNumber) {
-
+    
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -278,7 +278,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton otpType(WhatsappTemplateComponentButtonOtpType otpType) {
-
+    
     this.otpType = otpType;
     return this;
   }
@@ -303,7 +303,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton autofillText(String autofillText) {
-
+    
     this.autofillText = autofillText;
     return this;
   }
@@ -329,7 +329,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton packageName(String packageName) {
-
+    
     this.packageName = packageName;
     return this;
   }
@@ -357,7 +357,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton signatureHash(String signatureHash) {
-
+    
     this.signatureHash = signatureHash;
     return this;
   }
@@ -385,7 +385,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton supportedApps(List<WhatsappTemplateComponentButtonOtpSupportedApp> supportedApps) {
-
+    
     this.supportedApps = supportedApps;
     return this;
   }
@@ -419,7 +419,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton zeroTapTermsAccepted(Boolean zeroTapTermsAccepted) {
-
+    
     this.zeroTapTermsAccepted = zeroTapTermsAccepted;
     return this;
   }
@@ -445,7 +445,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton example(List<String> example) {
-
+    
     this.example = example;
     return this;
   }
@@ -479,7 +479,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton flowId(String flowId) {
-
+    
     this.flowId = flowId;
     return this;
   }
@@ -505,7 +505,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton flowName(String flowName) {
-
+    
     this.flowName = flowName;
     return this;
   }
@@ -531,7 +531,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton flowJson(String flowJson) {
-
+    
     this.flowJson = flowJson;
     return this;
   }
@@ -557,7 +557,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton flowAction(String flowAction) {
-
+    
     this.flowAction = flowAction;
     return this;
   }
@@ -583,7 +583,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton navigateScreen(String navigateScreen) {
-
+    
     this.navigateScreen = navigateScreen;
     return this;
   }
@@ -609,7 +609,7 @@ public class WhatsappTemplateComponentButton {
 
 
   public WhatsappTemplateComponentButton appDeepLink(WhatsappTemplateComponentButtonAppDeepLink appDeepLink) {
-
+    
     this.appDeepLink = appDeepLink;
     return this;
   }

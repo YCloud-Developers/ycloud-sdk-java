@@ -123,7 +123,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -136,7 +136,7 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call attributesListValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = attributesListCall(_callback);
         return localVarCall;
@@ -257,12 +257,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(ContactCreateRequest contactCreateRequest, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'contactCreateRequest' is set
         if (contactCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'contactCreateRequest' when calling create(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = createCall(contactCreateRequest, _callback);
         return localVarCall;
@@ -375,7 +375,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -388,12 +388,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = deleteCall(id, _callback);
         return localVarCall;
@@ -523,7 +523,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -536,7 +536,7 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail, final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
         return localVarCall;
@@ -602,7 +602,7 @@ public class ContactsApi {
 
         /**
          * Set filterTags
-         * @param filterTags Comma-separated list of tags&#39; id. (optional)
+         * @param filterTags Comma-separated list of tag names. If any tag does not exist, the request fails with a parameter error. (optional)
          * @return ApiListRequest
          */
         public ApiListRequest filterTags(String filterTags) {
@@ -762,7 +762,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -775,12 +775,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling retrieve(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = retrieveCall(id, _callback);
         return localVarCall;
@@ -910,12 +910,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateValidateBeforeCall(String id, ContactUpdateRequest contactUpdateRequest, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling update(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = updateCall(id, contactUpdateRequest, _callback);
         return localVarCall;

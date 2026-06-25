@@ -106,11 +106,11 @@ public class WhatsappApiError {
   @SerializedName(SERIALIZED_NAME_ERROR_DATA)
   private Object errorData;
 
-  public WhatsappApiError() {
+  public WhatsappApiError() { 
   }
 
   public WhatsappApiError message(String message) {
-
+    
     this.message = message;
     return this;
   }
@@ -136,7 +136,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError code(String code) {
-
+    
     this.code = code;
     return this;
   }
@@ -162,7 +162,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError type(String type) {
-
+    
     this.type = type;
     return this;
   }
@@ -188,7 +188,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorSubcode(String errorSubcode) {
-
+    
     this.errorSubcode = errorSubcode;
     return this;
   }
@@ -214,7 +214,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorUserMsg(String errorUserMsg) {
-
+    
     this.errorUserMsg = errorUserMsg;
     return this;
   }
@@ -240,7 +240,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorUserTitle(String errorUserTitle) {
-
+    
     this.errorUserTitle = errorUserTitle;
     return this;
   }
@@ -266,7 +266,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError fbtraceId(String fbtraceId) {
-
+    
     this.fbtraceId = fbtraceId;
     return this;
   }
@@ -292,7 +292,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorData(Object errorData) {
-
+    
     this.errorData = errorData;
     return this;
   }

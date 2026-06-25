@@ -63,11 +63,11 @@ public class ContactCustomAttribute {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Object value;
 
-  public ContactCustomAttribute() {
+  public ContactCustomAttribute() { 
   }
 
   public ContactCustomAttribute name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -93,7 +93,7 @@ public class ContactCustomAttribute {
 
 
   public ContactCustomAttribute value(Object value) {
-
+    
     this.value = value;
     return this;
   }

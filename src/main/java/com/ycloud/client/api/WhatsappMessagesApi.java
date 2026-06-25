@@ -123,7 +123,7 @@ public class WhatsappMessagesApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -136,12 +136,12 @@ public class WhatsappMessagesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling retrieve(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = retrieveCall(id, _callback);
         return localVarCall;
@@ -268,12 +268,12 @@ public class WhatsappMessagesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call sendValidateBeforeCall(WhatsappMessageSendRequest whatsappMessageSendRequest, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'whatsappMessageSendRequest' is set
         if (whatsappMessageSendRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappMessageSendRequest' when calling send(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = sendCall(whatsappMessageSendRequest, _callback);
         return localVarCall;
@@ -397,12 +397,12 @@ public class WhatsappMessagesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call sendDirectlyValidateBeforeCall(WhatsappMessageSendRequest whatsappMessageSendRequest, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'whatsappMessageSendRequest' is set
         if (whatsappMessageSendRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappMessageSendRequest' when calling sendDirectly(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = sendDirectlyCall(whatsappMessageSendRequest, _callback);
         return localVarCall;

@@ -73,11 +73,11 @@ public class WhatsappTemplateComponentExample {
   @SerializedName(SERIALIZED_NAME_HEADER_URL)
   private List<String> headerUrl = null;
 
-  public WhatsappTemplateComponentExample() {
+  public WhatsappTemplateComponentExample() { 
   }
 
   public WhatsappTemplateComponentExample bodyText(List<List<String>> bodyText) {
-
+    
     this.bodyText = bodyText;
     return this;
   }
@@ -111,7 +111,7 @@ public class WhatsappTemplateComponentExample {
 
 
   public WhatsappTemplateComponentExample headerText(List<String> headerText) {
-
+    
     this.headerText = headerText;
     return this;
   }
@@ -145,7 +145,7 @@ public class WhatsappTemplateComponentExample {
 
 
   public WhatsappTemplateComponentExample headerUrl(List<String> headerUrl) {
-
+    
     this.headerUrl = headerUrl;
     return this;
   }

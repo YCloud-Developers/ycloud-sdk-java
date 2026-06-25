@@ -108,11 +108,11 @@ public class WhatsappTemplateCreateRequest {
   @SerializedName(SERIALIZED_NAME_CTA_URL_LINK_TRACKING_OPTED_OUT)
   private Boolean ctaUrlLinkTrackingOptedOut;
 
-  public WhatsappTemplateCreateRequest() {
+  public WhatsappTemplateCreateRequest() { 
   }
 
   public WhatsappTemplateCreateRequest wabaId(String wabaId) {
-
+    
     this.wabaId = wabaId;
     return this;
   }
@@ -138,7 +138,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -164,7 +164,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest language(String language) {
-
+    
     this.language = language;
     return this;
   }
@@ -190,7 +190,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest category(WhatsappTemplateCategory category) {
-
+    
     this.category = category;
     return this;
   }
@@ -215,7 +215,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest subCategory(WhatsappTemplateSubCategory subCategory) {
-
+    
     this.subCategory = subCategory;
     return this;
   }
@@ -240,7 +240,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest messageSendTtlSeconds(Integer messageSendTtlSeconds) {
-
+    
     this.messageSendTtlSeconds = messageSendTtlSeconds;
     return this;
   }
@@ -266,7 +266,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest components(List<WhatsappTemplateComponent> components) {
-
+    
     this.components = components;
     return this;
   }
@@ -296,7 +296,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest ctaUrlLinkTrackingOptedOut(Boolean ctaUrlLinkTrackingOptedOut) {
-
+    
     this.ctaUrlLinkTrackingOptedOut = ctaUrlLinkTrackingOptedOut;
     return this;
   }

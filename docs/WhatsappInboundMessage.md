@@ -14,6 +14,7 @@ WhatsApp inbound message object.
 |**from** | **String** | The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
 |**customerProfile** | [**WhatsappProfile**](WhatsappProfile.md) |  |  [optional] |
 |**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
+|**groupId** | **String** | WhatsApp group ID. Included when the inbound message was sent in a group. |  [optional] |
 |**sendTime** | **Date** | The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
 |**type** | **WhatsappInboundMessageType** |  |  [optional] |
 |**text** | [**WhatsappInboundMessageText**](WhatsappInboundMessageText.md) |  |  [optional] |

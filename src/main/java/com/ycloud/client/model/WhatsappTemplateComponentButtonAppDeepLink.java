@@ -70,11 +70,11 @@ public class WhatsappTemplateComponentButtonAppDeepLink {
   @SerializedName(SERIALIZED_NAME_ANDROID_FALLBACK_PLAYSTORE_URL)
   private String androidFallbackPlaystoreUrl;
 
-  public WhatsappTemplateComponentButtonAppDeepLink() {
+  public WhatsappTemplateComponentButtonAppDeepLink() { 
   }
 
   public WhatsappTemplateComponentButtonAppDeepLink metaAppId(String metaAppId) {
-
+    
     this.metaAppId = metaAppId;
     return this;
   }
@@ -100,7 +100,7 @@ public class WhatsappTemplateComponentButtonAppDeepLink {
 
 
   public WhatsappTemplateComponentButtonAppDeepLink androidDeepLink(String androidDeepLink) {
-
+    
     this.androidDeepLink = androidDeepLink;
     return this;
   }
@@ -126,7 +126,7 @@ public class WhatsappTemplateComponentButtonAppDeepLink {
 
 
   public WhatsappTemplateComponentButtonAppDeepLink androidFallbackPlaystoreUrl(String androidFallbackPlaystoreUrl) {
-
+    
     this.androidFallbackPlaystoreUrl = androidFallbackPlaystoreUrl;
     return this;
   }

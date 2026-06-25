@@ -23,6 +23,14 @@
 
 * `WHATSAPP_MESSAGE_UPDATED` (value: `"whatsapp.message.updated"`)
 
+* `WHATSAPP_GROUP_LIFECYCLE_UPDATE` (value: `"whatsapp.group.lifecycle_update"`)
+
+* `WHATSAPP_GROUP_PARTICIPANTS_UPDATE` (value: `"whatsapp.group.participants_update"`)
+
+* `WHATSAPP_GROUP_SETTINGS_UPDATE` (value: `"whatsapp.group.settings_update"`)
+
+* `WHATSAPP_GROUP_STATUS_UPDATE` (value: `"whatsapp.group.status_update"`)
+
 * `WHATSAPP_SMB_HISTORY` (value: `"whatsapp.smb.history"`)
 
 * `WHATSAPP_SMB_MESSAGE_CREATED` (value: `"whatsapp.smb.message.created"`)
@@ -32,6 +40,8 @@
 * `WHATSAPP_PHONE_NUMBER_NAME_UPDATED` (value: `"whatsapp.phone_number.name_updated"`)
 
 * `WHATSAPP_PHONE_NUMBER_QUALITY_UPDATED` (value: `"whatsapp.phone_number.quality_updated"`)
+
+* `WHATSAPP_PHONE_NUMBER_BUSINESS_USERNAME_UPDATED` (value: `"whatsapp.phone_number.business_username_updated"`)
 
 * `WHATSAPP_TEMPLATE_CATEGORY_UPDATED` (value: `"whatsapp.template.category_updated"`)
 

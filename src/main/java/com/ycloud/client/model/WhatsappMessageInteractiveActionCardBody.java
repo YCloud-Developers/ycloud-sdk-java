@@ -57,11 +57,11 @@ public class WhatsappMessageInteractiveActionCardBody {
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
-  public WhatsappMessageInteractiveActionCardBody() {
+  public WhatsappMessageInteractiveActionCardBody() { 
   }
 
   public WhatsappMessageInteractiveActionCardBody text(String text) {
-
+    
     this.text = text;
     return this;
   }

@@ -78,11 +78,11 @@ public class WhatsappMessageOrderAmount {
   @SerializedName(SERIALIZED_NAME_DISCOUNT_PROGRAM_NAME)
   private String discountProgramName;
 
-  public WhatsappMessageOrderAmount() {
+  public WhatsappMessageOrderAmount() { 
   }
 
   public WhatsappMessageOrderAmount offset(Integer offset) {
-
+    
     this.offset = offset;
     return this;
   }
@@ -108,7 +108,7 @@ public class WhatsappMessageOrderAmount {
 
 
   public WhatsappMessageOrderAmount value(Integer value) {
-
+    
     this.value = value;
     return this;
   }
@@ -134,7 +134,7 @@ public class WhatsappMessageOrderAmount {
 
 
   public WhatsappMessageOrderAmount description(String description) {
-
+    
     this.description = description;
     return this;
   }
@@ -160,7 +160,7 @@ public class WhatsappMessageOrderAmount {
 
 
   public WhatsappMessageOrderAmount discountProgramName(String discountProgramName) {
-
+    
     this.discountProgramName = discountProgramName;
     return this;
   }

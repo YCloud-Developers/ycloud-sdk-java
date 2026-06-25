@@ -111,11 +111,11 @@ public class WhatsappUserPreference {
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private String timestamp;
 
-  public WhatsappUserPreference() {
+  public WhatsappUserPreference() { 
   }
 
   public WhatsappUserPreference wabaId(String wabaId) {
-
+    
     this.wabaId = wabaId;
     return this;
   }
@@ -141,7 +141,7 @@ public class WhatsappUserPreference {
 
 
   public WhatsappUserPreference businessPhoneNumber(String businessPhoneNumber) {
-
+    
     this.businessPhoneNumber = businessPhoneNumber;
     return this;
   }
@@ -167,7 +167,7 @@ public class WhatsappUserPreference {
 
 
   public WhatsappUserPreference businessPhoneId(String businessPhoneId) {
-
+    
     this.businessPhoneId = businessPhoneId;
     return this;
   }
@@ -193,7 +193,7 @@ public class WhatsappUserPreference {
 
 
   public WhatsappUserPreference contactName(String contactName) {
-
+    
     this.contactName = contactName;
     return this;
   }
@@ -219,7 +219,7 @@ public class WhatsappUserPreference {
 
 
   public WhatsappUserPreference contactPhoneNumber(String contactPhoneNumber) {
-
+    
     this.contactPhoneNumber = contactPhoneNumber;
     return this;
   }
@@ -245,7 +245,7 @@ public class WhatsappUserPreference {
 
 
   public WhatsappUserPreference detail(String detail) {
-
+    
     this.detail = detail;
     return this;
   }
@@ -271,7 +271,7 @@ public class WhatsappUserPreference {
 
 
   public WhatsappUserPreference category(String category) {
-
+    
     this.category = category;
     return this;
   }
@@ -296,7 +296,7 @@ public class WhatsappUserPreference {
 
 
   public WhatsappUserPreference value(String value) {
-
+    
     this.value = value;
     return this;
   }
@@ -322,7 +322,7 @@ public class WhatsappUserPreference {
 
 
   public WhatsappUserPreference timestamp(String timestamp) {
-
+    
     this.timestamp = timestamp;
     return this;
   }

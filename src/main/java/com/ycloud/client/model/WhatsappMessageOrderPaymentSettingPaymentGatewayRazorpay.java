@@ -67,11 +67,11 @@ public class WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay {
   @SerializedName(SERIALIZED_NAME_NOTES)
   private Map<String, String> notes = null;
 
-  public WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay() {
+  public WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay() { 
   }
 
   public WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay receipt(String receipt) {
-
+    
     this.receipt = receipt;
     return this;
   }
@@ -97,7 +97,7 @@ public class WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay {
 
 
   public WhatsappMessageOrderPaymentSettingPaymentGatewayRazorpay notes(Map<String, String> notes) {
-
+    
     this.notes = notes;
     return this;
   }

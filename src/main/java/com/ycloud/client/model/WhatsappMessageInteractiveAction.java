@@ -97,15 +97,15 @@ public class WhatsappMessageInteractiveAction {
   @JsonAdapter(NameEnum.Adapter.class)
   public enum NameEnum {
     CTA_URL("cta_url"),
-
+    
     SEND_LOCATION("send_location"),
-
+    
     FLOW("flow"),
-
+    
     REVIEW_AND_PAY("review_and_pay"),
-
+    
     REVIEW_ORDER("review_order"),
-
+    
     VOICE_CALL("voice_call");
 
     private String value;
@@ -166,11 +166,11 @@ public class WhatsappMessageInteractiveAction {
   @SerializedName(SERIALIZED_NAME_CARDS)
   private List<WhatsappMessageInteractiveActionCard> cards = null;
 
-  public WhatsappMessageInteractiveAction() {
+  public WhatsappMessageInteractiveAction() { 
   }
 
   public WhatsappMessageInteractiveAction buttons(List<WhatsappMessageInteractiveActionButton> buttons) {
-
+    
     this.buttons = buttons;
     return this;
   }
@@ -204,7 +204,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction button(String button) {
-
+    
     this.button = button;
     return this;
   }
@@ -230,7 +230,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction catalogId(String catalogId) {
-
+    
     this.catalogId = catalogId;
     return this;
   }
@@ -256,7 +256,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction productRetailerId(String productRetailerId) {
-
+    
     this.productRetailerId = productRetailerId;
     return this;
   }
@@ -282,7 +282,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction sections(List<WhatsappMessageInteractiveActionSection> sections) {
-
+    
     this.sections = sections;
     return this;
   }
@@ -316,7 +316,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction name(NameEnum name) {
-
+    
     this.name = name;
     return this;
   }
@@ -342,7 +342,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction parameters(WhatsappMessageInteractiveActionParameters parameters) {
-
+    
     this.parameters = parameters;
     return this;
   }
@@ -367,7 +367,7 @@ public class WhatsappMessageInteractiveAction {
 
 
   public WhatsappMessageInteractiveAction cards(List<WhatsappMessageInteractiveActionCard> cards) {
-
+    
     this.cards = cards;
     return this;
   }

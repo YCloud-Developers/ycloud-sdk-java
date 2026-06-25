@@ -98,11 +98,11 @@ public class VerificationSendRequest {
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
-  public VerificationSendRequest() {
+  public VerificationSendRequest() { 
   }
 
   public VerificationSendRequest channel(VerificationChannel channel) {
-
+    
     this.channel = channel;
     return this;
   }
@@ -127,7 +127,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest to(String to) {
-
+    
     this.to = to;
     return this;
   }
@@ -153,7 +153,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest code(String code) {
-
+    
     this.code = code;
     return this;
   }
@@ -179,7 +179,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest senderId(String senderId) {
-
+    
     this.senderId = senderId;
     return this;
   }
@@ -205,7 +205,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest signature(String signature) {
-
+    
     this.signature = signature;
     return this;
   }
@@ -231,7 +231,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest language(String language) {
-
+    
     this.language = language;
     return this;
   }
@@ -257,7 +257,7 @@ public class VerificationSendRequest {
 
 
   public VerificationSendRequest externalId(String externalId) {
-
+    
     this.externalId = externalId;
     return this;
   }

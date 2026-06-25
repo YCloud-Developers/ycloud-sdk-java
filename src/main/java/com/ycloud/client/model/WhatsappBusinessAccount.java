@@ -31,6 +31,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -221,6 +222,27 @@ public class WhatsappBusinessAccount {
   **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_BUSINESS_MANAGER_MESSAGING_LIMIT)
   private String whatsappBusinessManagerMessagingLimit;
+
+  public static final String SERIALIZED_NAME_REMOVED_REASON = "removedReason";
+  /**
+   * Raw reason from the WhatsApp Business Account deletion event. Known values include: - &#x60;ACCOUNT_DISCONNECTED&#x60;: The account was disconnected due to enforcement or because the WhatsApp account was explicitly deleted. - &#x60;BUSINESS_DOWNGRADE&#x60;: The phone number was registered with the consumer WhatsApp app. - &#x60;CHANGE_NUMBER&#x60;: The WhatsApp phone number was changed. - &#x60;COMPANION_INACTIVITY&#x60;: A companion device was inactive for approximately 30 days. - &#x60;PRIMARY_INACTIVITY&#x60;: A primary device was inactive for approximately 30 days. - &#x60;USER_RE_REGISTERED&#x60;: WhatsApp was re-registered on a new device.  Unknown values are returned as received.
+  **/
+  @SerializedName(SERIALIZED_NAME_REMOVED_REASON)
+  private String removedReason;
+
+  public static final String SERIALIZED_NAME_REMOVED_INITIATED_BY = "removedInitiatedBy";
+  /**
+   * Raw initiator from the WhatsApp Business Account deletion event. Known values include: - &#x60;USER&#x60;: The removal was initiated by the WhatsApp user. - &#x60;SYSTEM&#x60;: The removal was initiated by the Meta system.  Unknown values are returned as received.
+  **/
+  @SerializedName(SERIALIZED_NAME_REMOVED_INITIATED_BY)
+  private String removedInitiatedBy;
+
+  public static final String SERIALIZED_NAME_REMOVED_TIME = "removedTime";
+  /**
+   * The time when the WhatsApp Business Account deletion event was received, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2026-05-19T12:00:00.000Z&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_REMOVED_TIME)
+  private Date removedTime;
 
   public WhatsappBusinessAccount() { 
   }
@@ -859,6 +881,84 @@ public class WhatsappBusinessAccount {
     this.whatsappBusinessManagerMessagingLimit = whatsappBusinessManagerMessagingLimit;
   }
 
+
+  public WhatsappBusinessAccount removedReason(String removedReason) {
+    
+    this.removedReason = removedReason;
+    return this;
+  }
+
+   /**
+   * Raw reason from the WhatsApp Business Account deletion event. Known values include: - &#x60;ACCOUNT_DISCONNECTED&#x60;: The account was disconnected due to enforcement or because the WhatsApp account was explicitly deleted. - &#x60;BUSINESS_DOWNGRADE&#x60;: The phone number was registered with the consumer WhatsApp app. - &#x60;CHANGE_NUMBER&#x60;: The WhatsApp phone number was changed. - &#x60;COMPANION_INACTIVITY&#x60;: A companion device was inactive for approximately 30 days. - &#x60;PRIMARY_INACTIVITY&#x60;: A primary device was inactive for approximately 30 days. - &#x60;USER_RE_REGISTERED&#x60;: WhatsApp was re-registered on a new device.  Unknown values are returned as received.
+   * @return removedReason
+  **/
+  @javax.annotation.Nullable
+
+  public String getRemovedReason() {
+    return removedReason;
+  }
+
+
+  /**
+   * Raw reason from the WhatsApp Business Account deletion event. Known values include: - &#x60;ACCOUNT_DISCONNECTED&#x60;: The account was disconnected due to enforcement or because the WhatsApp account was explicitly deleted. - &#x60;BUSINESS_DOWNGRADE&#x60;: The phone number was registered with the consumer WhatsApp app. - &#x60;CHANGE_NUMBER&#x60;: The WhatsApp phone number was changed. - &#x60;COMPANION_INACTIVITY&#x60;: A companion device was inactive for approximately 30 days. - &#x60;PRIMARY_INACTIVITY&#x60;: A primary device was inactive for approximately 30 days. - &#x60;USER_RE_REGISTERED&#x60;: WhatsApp was re-registered on a new device.  Unknown values are returned as received.
+   **/
+  @ApiModelProperty(example = "ACCOUNT_DISCONNECTED", value = "Raw reason from the WhatsApp Business Account deletion event. Known values include: - `ACCOUNT_DISCONNECTED`: The account was disconnected due to enforcement or because the WhatsApp account was explicitly deleted. - `BUSINESS_DOWNGRADE`: The phone number was registered with the consumer WhatsApp app. - `CHANGE_NUMBER`: The WhatsApp phone number was changed. - `COMPANION_INACTIVITY`: A companion device was inactive for approximately 30 days. - `PRIMARY_INACTIVITY`: A primary device was inactive for approximately 30 days. - `USER_RE_REGISTERED`: WhatsApp was re-registered on a new device.  Unknown values are returned as received.")
+  public void setRemovedReason(String removedReason) {
+    this.removedReason = removedReason;
+  }
+
+
+  public WhatsappBusinessAccount removedInitiatedBy(String removedInitiatedBy) {
+    
+    this.removedInitiatedBy = removedInitiatedBy;
+    return this;
+  }
+
+   /**
+   * Raw initiator from the WhatsApp Business Account deletion event. Known values include: - &#x60;USER&#x60;: The removal was initiated by the WhatsApp user. - &#x60;SYSTEM&#x60;: The removal was initiated by the Meta system.  Unknown values are returned as received.
+   * @return removedInitiatedBy
+  **/
+  @javax.annotation.Nullable
+
+  public String getRemovedInitiatedBy() {
+    return removedInitiatedBy;
+  }
+
+
+  /**
+   * Raw initiator from the WhatsApp Business Account deletion event. Known values include: - &#x60;USER&#x60;: The removal was initiated by the WhatsApp user. - &#x60;SYSTEM&#x60;: The removal was initiated by the Meta system.  Unknown values are returned as received.
+   **/
+  @ApiModelProperty(example = "USER", value = "Raw initiator from the WhatsApp Business Account deletion event. Known values include: - `USER`: The removal was initiated by the WhatsApp user. - `SYSTEM`: The removal was initiated by the Meta system.  Unknown values are returned as received.")
+  public void setRemovedInitiatedBy(String removedInitiatedBy) {
+    this.removedInitiatedBy = removedInitiatedBy;
+  }
+
+
+  public WhatsappBusinessAccount removedTime(Date removedTime) {
+    
+    this.removedTime = removedTime;
+    return this;
+  }
+
+   /**
+   * The time when the WhatsApp Business Account deletion event was received, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2026-05-19T12:00:00.000Z&#x60;.
+   * @return removedTime
+  **/
+  @javax.annotation.Nullable
+
+  public Date getRemovedTime() {
+    return removedTime;
+  }
+
+
+  /**
+   * The time when the WhatsApp Business Account deletion event was received, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2026-05-19T12:00:00.000Z&#x60;.
+   **/
+  @ApiModelProperty(example = "2026-05-19T12:00Z", value = "The time when the WhatsApp Business Account deletion event was received, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2026-05-19T12:00:00.000Z`.")
+  public void setRemovedTime(Date removedTime) {
+    this.removedTime = removedTime;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -928,13 +1028,16 @@ public class WhatsappBusinessAccount {
         Objects.equals(this.restrictions, whatsappBusinessAccount.restrictions) &&
         Objects.equals(this.authIntlRateEligibilityCountries, whatsappBusinessAccount.authIntlRateEligibilityCountries) &&
         Objects.equals(this.primaryBusinessLocation, whatsappBusinessAccount.primaryBusinessLocation) &&
-        Objects.equals(this.whatsappBusinessManagerMessagingLimit, whatsappBusinessAccount.whatsappBusinessManagerMessagingLimit)&&
+        Objects.equals(this.whatsappBusinessManagerMessagingLimit, whatsappBusinessAccount.whatsappBusinessManagerMessagingLimit) &&
+        Objects.equals(this.removedReason, whatsappBusinessAccount.removedReason) &&
+        Objects.equals(this.removedInitiatedBy, whatsappBusinessAccount.removedInitiatedBy) &&
+        Objects.equals(this.removedTime, whatsappBusinessAccount.removedTime)&&
         Objects.equals(this.additionalProperties, whatsappBusinessAccount.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, currency, messageTemplateNamespace, accountReviewStatus, businessId, businessName, businessStatus, businessVerificationStatus, country, ownershipType, paymentMethodAttached, primaryFundingId, purchaseOrderNumber, timezoneId, decision, updateEvent, banState, banDate, violationType, restrictions, authIntlRateEligibilityCountries, primaryBusinessLocation, whatsappBusinessManagerMessagingLimit, additionalProperties);
+    return Objects.hash(id, name, currency, messageTemplateNamespace, accountReviewStatus, businessId, businessName, businessStatus, businessVerificationStatus, country, ownershipType, paymentMethodAttached, primaryFundingId, purchaseOrderNumber, timezoneId, decision, updateEvent, banState, banDate, violationType, restrictions, authIntlRateEligibilityCountries, primaryBusinessLocation, whatsappBusinessManagerMessagingLimit, removedReason, removedInitiatedBy, removedTime, additionalProperties);
   }
 
   @Override
@@ -965,6 +1068,9 @@ public class WhatsappBusinessAccount {
     sb.append("    authIntlRateEligibilityCountries: ").append(toIndentedString(authIntlRateEligibilityCountries)).append("\n");
     sb.append("    primaryBusinessLocation: ").append(toIndentedString(primaryBusinessLocation)).append("\n");
     sb.append("    whatsappBusinessManagerMessagingLimit: ").append(toIndentedString(whatsappBusinessManagerMessagingLimit)).append("\n");
+    sb.append("    removedReason: ").append(toIndentedString(removedReason)).append("\n");
+    sb.append("    removedInitiatedBy: ").append(toIndentedString(removedInitiatedBy)).append("\n");
+    sb.append("    removedTime: ").append(toIndentedString(removedTime)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1012,6 +1118,9 @@ public class WhatsappBusinessAccount {
     openapiFields.add("authIntlRateEligibilityCountries");
     openapiFields.add("primaryBusinessLocation");
     openapiFields.add("whatsappBusinessManagerMessagingLimit");
+    openapiFields.add("removedReason");
+    openapiFields.add("removedInitiatedBy");
+    openapiFields.add("removedTime");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1102,6 +1211,12 @@ public class WhatsappBusinessAccount {
       }
       if (jsonObj.get("whatsappBusinessManagerMessagingLimit") != null && !jsonObj.get("whatsappBusinessManagerMessagingLimit").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `whatsappBusinessManagerMessagingLimit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("whatsappBusinessManagerMessagingLimit").toString()));
+      }
+      if (jsonObj.get("removedReason") != null && !jsonObj.get("removedReason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `removedReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("removedReason").toString()));
+      }
+      if (jsonObj.get("removedInitiatedBy") != null && !jsonObj.get("removedInitiatedBy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `removedInitiatedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("removedInitiatedBy").toString()));
       }
   }
 

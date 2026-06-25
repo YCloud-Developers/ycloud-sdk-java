@@ -56,7 +56,7 @@ public class WhatsappMessageInteractiveActionCardHeader {
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     IMAGE("image"),
-
+    
     VIDEO("video");
 
     private String value;
@@ -116,11 +116,11 @@ public class WhatsappMessageInteractiveActionCardHeader {
   @SerializedName(SERIALIZED_NAME_VIDEO)
   private WhatsappMessageMedia video;
 
-  public WhatsappMessageInteractiveActionCardHeader() {
+  public WhatsappMessageInteractiveActionCardHeader() { 
   }
 
   public WhatsappMessageInteractiveActionCardHeader type(TypeEnum type) {
-
+    
     this.type = type;
     return this;
   }
@@ -146,7 +146,7 @@ public class WhatsappMessageInteractiveActionCardHeader {
 
 
   public WhatsappMessageInteractiveActionCardHeader image(WhatsappMessageMedia image) {
-
+    
     this.image = image;
     return this;
   }
@@ -171,7 +171,7 @@ public class WhatsappMessageInteractiveActionCardHeader {
 
 
   public WhatsappMessageInteractiveActionCardHeader video(WhatsappMessageMedia video) {
-
+    
     this.video = video;
     return this;
   }

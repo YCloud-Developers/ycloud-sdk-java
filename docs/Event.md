@@ -19,6 +19,7 @@ Represents a webhook event payload. Every event contains certain common properti
 |**whatsappBusinessAccount** | [**WhatsappBusinessAccount**](WhatsappBusinessAccount.md) |  |  [optional] |
 |**whatsappInboundMessage** | [**WhatsappInboundMessage**](WhatsappInboundMessage.md) |  |  [optional] |
 |**whatsappMessage** | [**WhatsappMessage**](WhatsappMessage.md) |  |  [optional] |
+|**whatsappGroup** | [**WhatsappGroupWebhook**](WhatsappGroupWebhook.md) |  |  [optional] |
 |**whatsappPhoneNumber** | [**WhatsappPhoneNumber**](WhatsappPhoneNumber.md) |  |  [optional] |
 |**whatsappPayment** | [**WhatsappPayment**](WhatsappPayment.md) |  |  [optional] |
 |**whatsappTemplate** | [**WhatsappTemplate**](WhatsappTemplate.md) |  |  [optional] |

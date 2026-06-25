@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappBusinessUsernameStatus;
 import com.ycloud.client.model.WhatsappPhoneNumberCodeVerificationStatus;
 import com.ycloud.client.model.WhatsappPhoneNumberNameStatus;
 import com.ycloud.client.model.WhatsappPhoneNumberQualityRating;
@@ -29,6 +30,7 @@ import com.ycloud.client.model.WhatsappReviewDecision;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Date;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -83,6 +85,33 @@ public class WhatsappPhoneNumber {
   **/
   @SerializedName(SERIALIZED_NAME_WABA_ID)
   private String wabaId;
+
+  public static final String SERIALIZED_NAME_BUSINESS_USERNAME = "businessUsername";
+  /**
+   * Active Business Username for this phone number. The value is a plain username without &#x60;@&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_BUSINESS_USERNAME)
+  private String businessUsername;
+
+  public static final String SERIALIZED_NAME_BUSINESS_USERNAME_STATUS = "businessUsernameStatus";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_BUSINESS_USERNAME_STATUS)
+  private WhatsappBusinessUsernameStatus businessUsernameStatus;
+
+  public static final String SERIALIZED_NAME_REQUESTED_BUSINESS_USERNAME = "requestedBusinessUsername";
+  /**
+   * Last requested Business Username that is still under review. This value can coexist with an active &#x60;businessUsername&#x60; while the new request is pending.
+  **/
+  @SerializedName(SERIALIZED_NAME_REQUESTED_BUSINESS_USERNAME)
+  private String requestedBusinessUsername;
+
+  public static final String SERIALIZED_NAME_BUSINESS_USERNAME_UPDATED_AT = "businessUsernameUpdatedAt";
+  /**
+   * The time when the Business Username state was last updated.
+  **/
+  @SerializedName(SERIALIZED_NAME_BUSINESS_USERNAME_UPDATED_AT)
+  private Date businessUsernameUpdatedAt;
 
   public static final String SERIALIZED_NAME_QUALITY_RATING = "qualityRating";
   /**
@@ -174,6 +203,60 @@ public class WhatsappPhoneNumber {
   **/
   @SerializedName(SERIALIZED_NAME_QUALITY_UPDATE_EVENT)
   private WhatsappPhoneNumberQualityUpdateEventEnum qualityUpdateEvent;
+
+  /**
+   * Account update event that triggered this phone number status change.
+   */
+  @JsonAdapter(UpdateEventEnum.Adapter.class)
+  public enum UpdateEventEnum {
+    RECONNECTED("ACCOUNT_RECONNECTED"),
+    
+    OFFBOARDED("ACCOUNT_OFFBOARDED");
+
+    private String value;
+
+    UpdateEventEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UpdateEventEnum fromValue(String value) {
+      for (UpdateEventEnum b : UpdateEventEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<UpdateEventEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UpdateEventEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UpdateEventEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return UpdateEventEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_UPDATE_EVENT = "updateEvent";
+  /**
+   * Account update event that triggered this phone number status change.
+  **/
+  @SerializedName(SERIALIZED_NAME_UPDATE_EVENT)
+  private UpdateEventEnum updateEvent;
 
   public WhatsappPhoneNumber() { 
   }
@@ -279,6 +362,109 @@ public class WhatsappPhoneNumber {
   @ApiModelProperty(example = "whatsapp-business-account-id", value = "WhatsApp Business Account ID.")
   public void setWabaId(String wabaId) {
     this.wabaId = wabaId;
+  }
+
+
+  public WhatsappPhoneNumber businessUsername(String businessUsername) {
+    
+    this.businessUsername = businessUsername;
+    return this;
+  }
+
+   /**
+   * Active Business Username for this phone number. The value is a plain username without &#x60;@&#x60;.
+   * @return businessUsername
+  **/
+  @javax.annotation.Nullable
+
+  public String getBusinessUsername() {
+    return businessUsername;
+  }
+
+
+  /**
+   * Active Business Username for this phone number. The value is a plain username without &#x60;@&#x60;.
+   **/
+  @ApiModelProperty(example = "acme.support", value = "Active Business Username for this phone number. The value is a plain username without `@`.")
+  public void setBusinessUsername(String businessUsername) {
+    this.businessUsername = businessUsername;
+  }
+
+
+  public WhatsappPhoneNumber businessUsernameStatus(WhatsappBusinessUsernameStatus businessUsernameStatus) {
+    
+    this.businessUsernameStatus = businessUsernameStatus;
+    return this;
+  }
+
+   /**
+   * Get businessUsernameStatus
+   * @return businessUsernameStatus
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappBusinessUsernameStatus getBusinessUsernameStatus() {
+    return businessUsernameStatus;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setBusinessUsernameStatus(WhatsappBusinessUsernameStatus businessUsernameStatus) {
+    this.businessUsernameStatus = businessUsernameStatus;
+  }
+
+
+  public WhatsappPhoneNumber requestedBusinessUsername(String requestedBusinessUsername) {
+    
+    this.requestedBusinessUsername = requestedBusinessUsername;
+    return this;
+  }
+
+   /**
+   * Last requested Business Username that is still under review. This value can coexist with an active &#x60;businessUsername&#x60; while the new request is pending.
+   * @return requestedBusinessUsername
+  **/
+  @javax.annotation.Nullable
+
+  public String getRequestedBusinessUsername() {
+    return requestedBusinessUsername;
+  }
+
+
+  /**
+   * Last requested Business Username that is still under review. This value can coexist with an active &#x60;businessUsername&#x60; while the new request is pending.
+   **/
+  @ApiModelProperty(example = "acme.help", value = "Last requested Business Username that is still under review. This value can coexist with an active `businessUsername` while the new request is pending.")
+  public void setRequestedBusinessUsername(String requestedBusinessUsername) {
+    this.requestedBusinessUsername = requestedBusinessUsername;
+  }
+
+
+  public WhatsappPhoneNumber businessUsernameUpdatedAt(Date businessUsernameUpdatedAt) {
+    
+    this.businessUsernameUpdatedAt = businessUsernameUpdatedAt;
+    return this;
+  }
+
+   /**
+   * The time when the Business Username state was last updated.
+   * @return businessUsernameUpdatedAt
+  **/
+  @javax.annotation.Nullable
+
+  public Date getBusinessUsernameUpdatedAt() {
+    return businessUsernameUpdatedAt;
+  }
+
+
+  /**
+   * The time when the Business Username state was last updated.
+   **/
+  @ApiModelProperty(example = "2026-05-26T12:00Z", value = "The time when the Business Username state was last updated.")
+  public void setBusinessUsernameUpdatedAt(Date businessUsernameUpdatedAt) {
+    this.businessUsernameUpdatedAt = businessUsernameUpdatedAt;
   }
 
 
@@ -638,6 +824,32 @@ public class WhatsappPhoneNumber {
     this.qualityUpdateEvent = qualityUpdateEvent;
   }
 
+
+  public WhatsappPhoneNumber updateEvent(UpdateEventEnum updateEvent) {
+    
+    this.updateEvent = updateEvent;
+    return this;
+  }
+
+   /**
+   * Account update event that triggered this phone number status change.
+   * @return updateEvent
+  **/
+  @javax.annotation.Nullable
+
+  public UpdateEventEnum getUpdateEvent() {
+    return updateEvent;
+  }
+
+
+  /**
+   * Account update event that triggered this phone number status change.
+   **/
+  @ApiModelProperty(example = "ACCOUNT_OFFBOARDED", value = "Account update event that triggered this phone number status change.")
+  public void setUpdateEvent(UpdateEventEnum updateEvent) {
+    this.updateEvent = updateEvent;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -688,6 +900,10 @@ public class WhatsappPhoneNumber {
         Objects.equals(this.phoneNumber, whatsappPhoneNumber.phoneNumber) &&
         Objects.equals(this.displayPhoneNumber, whatsappPhoneNumber.displayPhoneNumber) &&
         Objects.equals(this.wabaId, whatsappPhoneNumber.wabaId) &&
+        Objects.equals(this.businessUsername, whatsappPhoneNumber.businessUsername) &&
+        Objects.equals(this.businessUsernameStatus, whatsappPhoneNumber.businessUsernameStatus) &&
+        Objects.equals(this.requestedBusinessUsername, whatsappPhoneNumber.requestedBusinessUsername) &&
+        Objects.equals(this.businessUsernameUpdatedAt, whatsappPhoneNumber.businessUsernameUpdatedAt) &&
         Objects.equals(this.qualityRating, whatsappPhoneNumber.qualityRating) &&
         Objects.equals(this.messagingLimit, whatsappPhoneNumber.messagingLimit) &&
         Objects.equals(this.whatsappBusinessManagerMessagingLimit, whatsappPhoneNumber.whatsappBusinessManagerMessagingLimit) &&
@@ -701,13 +917,14 @@ public class WhatsappPhoneNumber {
         Objects.equals(this.decision, whatsappPhoneNumber.decision) &&
         Objects.equals(this.requestedVerifiedName, whatsappPhoneNumber.requestedVerifiedName) &&
         Objects.equals(this.rejectionReason, whatsappPhoneNumber.rejectionReason) &&
-        Objects.equals(this.qualityUpdateEvent, whatsappPhoneNumber.qualityUpdateEvent)&&
+        Objects.equals(this.qualityUpdateEvent, whatsappPhoneNumber.qualityUpdateEvent) &&
+        Objects.equals(this.updateEvent, whatsappPhoneNumber.updateEvent)&&
         Objects.equals(this.additionalProperties, whatsappPhoneNumber.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, phoneNumber, displayPhoneNumber, wabaId, qualityRating, messagingLimit, whatsappBusinessManagerMessagingLimit, verifiedName, newName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, additionalProperties);
+    return Objects.hash(id, phoneNumber, displayPhoneNumber, wabaId, businessUsername, businessUsernameStatus, requestedBusinessUsername, businessUsernameUpdatedAt, qualityRating, messagingLimit, whatsappBusinessManagerMessagingLimit, verifiedName, newName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, updateEvent, additionalProperties);
   }
 
   @Override
@@ -718,6 +935,10 @@ public class WhatsappPhoneNumber {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    displayPhoneNumber: ").append(toIndentedString(displayPhoneNumber)).append("\n");
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
+    sb.append("    businessUsername: ").append(toIndentedString(businessUsername)).append("\n");
+    sb.append("    businessUsernameStatus: ").append(toIndentedString(businessUsernameStatus)).append("\n");
+    sb.append("    requestedBusinessUsername: ").append(toIndentedString(requestedBusinessUsername)).append("\n");
+    sb.append("    businessUsernameUpdatedAt: ").append(toIndentedString(businessUsernameUpdatedAt)).append("\n");
     sb.append("    qualityRating: ").append(toIndentedString(qualityRating)).append("\n");
     sb.append("    messagingLimit: ").append(toIndentedString(messagingLimit)).append("\n");
     sb.append("    whatsappBusinessManagerMessagingLimit: ").append(toIndentedString(whatsappBusinessManagerMessagingLimit)).append("\n");
@@ -732,6 +953,7 @@ public class WhatsappPhoneNumber {
     sb.append("    requestedVerifiedName: ").append(toIndentedString(requestedVerifiedName)).append("\n");
     sb.append("    rejectionReason: ").append(toIndentedString(rejectionReason)).append("\n");
     sb.append("    qualityUpdateEvent: ").append(toIndentedString(qualityUpdateEvent)).append("\n");
+    sb.append("    updateEvent: ").append(toIndentedString(updateEvent)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -759,6 +981,10 @@ public class WhatsappPhoneNumber {
     openapiFields.add("phoneNumber");
     openapiFields.add("displayPhoneNumber");
     openapiFields.add("wabaId");
+    openapiFields.add("businessUsername");
+    openapiFields.add("businessUsernameStatus");
+    openapiFields.add("requestedBusinessUsername");
+    openapiFields.add("businessUsernameUpdatedAt");
     openapiFields.add("qualityRating");
     openapiFields.add("messagingLimit");
     openapiFields.add("whatsappBusinessManagerMessagingLimit");
@@ -773,6 +999,7 @@ public class WhatsappPhoneNumber {
     openapiFields.add("requestedVerifiedName");
     openapiFields.add("rejectionReason");
     openapiFields.add("qualityUpdateEvent");
+    openapiFields.add("updateEvent");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -804,6 +1031,12 @@ public class WhatsappPhoneNumber {
       if (jsonObj.get("wabaId") != null && !jsonObj.get("wabaId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wabaId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wabaId").toString()));
       }
+      if (jsonObj.get("businessUsername") != null && !jsonObj.get("businessUsername").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessUsername` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessUsername").toString()));
+      }
+      if (jsonObj.get("requestedBusinessUsername") != null && !jsonObj.get("requestedBusinessUsername").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `requestedBusinessUsername` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestedBusinessUsername").toString()));
+      }
       if (jsonObj.get("messagingLimit") != null && !jsonObj.get("messagingLimit").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `messagingLimit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("messagingLimit").toString()));
       }
@@ -821,6 +1054,9 @@ public class WhatsappPhoneNumber {
       }
       if (jsonObj.get("rejectionReason") != null && !jsonObj.get("rejectionReason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rejectionReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rejectionReason").toString()));
+      }
+      if (jsonObj.get("updateEvent") != null && !jsonObj.get("updateEvent").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updateEvent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updateEvent").toString()));
       }
   }
 
