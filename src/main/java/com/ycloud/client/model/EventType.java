@@ -29,139 +29,170 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(EventType.Adapter.class)
 public enum EventType {
-
+  
   /**
    * Occurs when an email delivery status is updated, and the status changes to &#x60;delivered&#x60; or &#x60;failed&#x60;.
    */
   EMAIL_DELIVERY_UPDATED("email.delivery.updated"),
-
+  
   /**
    * Occurs when an SMS message status is updated, and the status changes to &#x60;delivered&#x60; or &#x60;undelivered&#x60;.
    */
   SMS_MESSAGE_UPDATED("sms.message.updated"),
-
+  
   /**
    * Occurs when an SMS inbound message is received, which means a user replies to your message.
    */
   SMS_INBOUND_RECEIVED("sms.inbound.received"),
-
+  
   /**
    * Occurs when a voice message status is updated, and the status changes to &#x60;delivered&#x60; or &#x60;undelivered&#x60;.
    */
   VOICE_MESSAGE_UPDATED("voice.message.updated"),
-
+  
   /**
    * Occurs when a WhatsApp Business Account is deleted.
    */
   WHATSAPP_BUSINESS_ACCOUNT_DELETED("whatsapp.business_account.deleted"),
-
+  
   /**
    * Occurs when a WhatsApp Business Account has been reviewed.
    */
   WHATSAPP_BUSINESS_ACCOUNT_REVIEWED("whatsapp.business_account.reviewed"),
-
+  
   /**
    * Occurs when a policy violation happened, WhatsApp Business Account has been banned and more.
    */
   WHATSAPP_BUSINESS_ACCOUNT_UPDATED("whatsapp.business_account.updated"),
-
+  
   /**
    * Occurs when a WhatsApp inbound message is received.
    */
   WHATSAPP_INBOUND_MESSAGE_RECEIVED("whatsapp.inbound_message.received"),
-
+  
   /**
    * Occurs when a WhatsApp outbound message status is updated, and the status changes to &#x60;sent&#x60;, &#x60;failed&#x60;, &#x60;delivered&#x60;, or &#x60;read&#x60;.
    */
   WHATSAPP_MESSAGE_UPDATED("whatsapp.message.updated"),
-
+  
+  /**
+   * Occurs when a WhatsApp group is created or deleted, including successful and failed results.
+   */
+  WHATSAPP_GROUP_LIFECYCLE_UPDATE("whatsapp.group.lifecycle_update"),
+  
+  /**
+   * Occurs when WhatsApp group participants or join requests are updated.
+   */
+  WHATSAPP_GROUP_PARTICIPANTS_UPDATE("whatsapp.group.participants_update"),
+  
+  /**
+   * Occurs when WhatsApp group settings are updated, including successful and failed results.
+   */
+  WHATSAPP_GROUP_SETTINGS_UPDATE("whatsapp.group.settings_update"),
+  
+  /**
+   * Occurs when a WhatsApp group suspension status is updated.
+   */
+  WHATSAPP_GROUP_STATUS_UPDATE("whatsapp.group.status_update"),
+  
   /**
    * Occurs when WhatsApp Business app sync history message.
    */
   WHATSAPP_SMB_HISTORY("whatsapp.smb.history"),
-
+  
   /**
    * Occurs when WhatsApp Business app send message.
    */
   WHATSAPP_SMB_MESSAGE_CREATED("whatsapp.smb.message.created"),
-
+  
   /**
    * Occurs when a WhatsApp business phone number is deleted.
    */
   WHATSAPP_PHONE_NUMBER_DELETED("whatsapp.phone_number.deleted"),
-
+  
   /**
    * Occurs when a WhatsApp business phone number&#39;s name has been approved or rejected.
    */
   WHATSAPP_PHONE_NUMBER_NAME_UPDATED("whatsapp.phone_number.name_updated"),
-
+  
   /**
    * Occurs when a WhatsApp business phone number&#39;s quality-related status is updated, and the status changes to &#x60;GREEN&#x60;, &#x60;YELLOW&#x60;, or &#x60;RED&#x60;.
    */
   WHATSAPP_PHONE_NUMBER_QUALITY_UPDATED("whatsapp.phone_number.quality_updated"),
-
+  
+  /**
+   * Occurs when a WhatsApp business phone number&#39;s Business Username is updated.
+   */
+  WHATSAPP_PHONE_NUMBER_BUSINESS_USERNAME_UPDATED("whatsapp.phone_number.business_username_updated"),
+  
   /**
    * Occurs when a WhatsApp template category is updated.
    */
   WHATSAPP_TEMPLATE_CATEGORY_UPDATED("whatsapp.template.category_updated"),
-
+  
   /**
    * Occurs when a WhatsApp template quality rating is updated.
    */
   WHATSAPP_TEMPLATE_QUALITY_UPDATED("whatsapp.template.quality_updated"),
-
+  
   /**
    * Occurs when a WhatsApp template status is updated, and the status changes to &#x60;REJECTED&#x60;, &#x60;APPROVED&#x60;, &#x60;PAUSED&#x60;, &#x60;DISABLED&#x60;, &#x60;IN_APPEAL&#x60;, or &#x60;ARCHIVED&#x60;.
    */
   WHATSAPP_TEMPLATE_REVIEWED("whatsapp.template.reviewed"),
-
+  
   /**
    * Occurs when a WhatsApp call is connected.
    */
   WHATSAPP_CALL_CONNECT("whatsapp.call.connect"),
-
+  
   /**
    * Occurs when a WhatsApp call is terminated.
    */
   WHATSAPP_CALL_TERMINATE("whatsapp.call.terminate"),
-
+  
   /**
    * Occurs when a WhatsApp call status is updated.
    */
   WHATSAPP_CALL_STATUS_UPDATED("whatsapp.call.status.updated"),
-
+  
   /**
    * Occurs when a WhatsApp flow status is updated.
    */
   WHATSAPP_FLOW_STATUS_CHANGE("whatsapp.flow.status_change"),
-
+  
   /**
    * Occurs when a WhatsApp payment transaction changes.
    */
   WHATSAPP_PAYMENT_UPDATED("whatsapp.payment.updated"),
-
+  
   /**
    * Occurs when a contact&#39;s attributes are changed.
    */
   CONTACT_ATTRIBUTES_CHANGED("contact.attributes_changed"),
-
+  
   /**
    * Occurs when a contact is created.
    */
   CONTACT_CREATED("contact.created"),
-
+  
   /**
    * Occurs when a contact is deleted.
    */
   CONTACT_DELETED("contact.deleted"),
-
+  
+  /**
+   * Occurs when a contact unsubscribes from messages.
+   */
+  CONTACT_UNSUBSCRIBE_CREATED("contact.unsubscribe.created"),
+  
+  /**
+   * Occurs when a contact resumes subscription to messages.
+   */
+  CONTACT_UNSUBSCRIBE_DELETED("contact.unsubscribe.deleted"),
+  
   /**
    * Occurs when a WhatsApp user stops marketing messages or a WhatsApp user resumes marketing messages.
    */
-  CONTACT_UNSUBSCRIBE_CREATED("contact.unsubscribe.created"),
-
-  CONTACT_UNSUBSCRIBE_DELETED("contact.unsubscribe.deleted"),
-
   WHATSAPP_USER_PREFERENCES("whatsapp.user.preferences");
 
   private String value;

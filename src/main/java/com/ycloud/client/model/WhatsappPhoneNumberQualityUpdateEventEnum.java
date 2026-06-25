@@ -29,15 +29,15 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(WhatsappPhoneNumberQualityUpdateEventEnum.Adapter.class)
 public enum WhatsappPhoneNumberQualityUpdateEventEnum {
-
+  
   ONBOARDING("ONBOARDING"),
-
+  
   UPGRADE("UPGRADE"),
-
+  
   DOWNGRADE("DOWNGRADE"),
-
+  
   FLAGGED("FLAGGED"),
-
+  
   UNFLAGGED("UNFLAGGED");
 
   private String value;

@@ -56,9 +56,9 @@ public class AttributeChangeAction {
   @JsonAdapter(ActionEnum.Adapter.class)
   public enum ActionEnum {
     ADDED("ADDED"),
-
+    
     REMOVED("REMOVED"),
-
+    
     CHANGED("CHANGED");
 
     private String value;
@@ -120,11 +120,11 @@ public class AttributeChangeAction {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
-  public AttributeChangeAction() {
+  public AttributeChangeAction() { 
   }
 
   public AttributeChangeAction action(ActionEnum action) {
-
+    
     this.action = action;
     return this;
   }
@@ -150,7 +150,7 @@ public class AttributeChangeAction {
 
 
   public AttributeChangeAction id(String id) {
-
+    
     this.id = id;
     return this;
   }
@@ -176,7 +176,7 @@ public class AttributeChangeAction {
 
 
   public AttributeChangeAction value(String value) {
-
+    
     this.value = value;
     return this;
   }

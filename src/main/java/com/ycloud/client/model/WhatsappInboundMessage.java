@@ -108,6 +108,13 @@ public class WhatsappInboundMessage {
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
 
+  public static final String SERIALIZED_NAME_GROUP_ID = "groupId";
+  /**
+   * WhatsApp group ID. Included when the inbound message was sent in a group.
+  **/
+  @SerializedName(SERIALIZED_NAME_GROUP_ID)
+  private String groupId;
+
   public static final String SERIALIZED_NAME_SEND_TIME = "sendTime";
   /**
    * The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;.
@@ -372,6 +379,32 @@ public class WhatsappInboundMessage {
   @ApiModelProperty(example = "+16315551111", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setTo(String to) {
     this.to = to;
+  }
+
+
+  public WhatsappInboundMessage groupId(String groupId) {
+    
+    this.groupId = groupId;
+    return this;
+  }
+
+   /**
+   * WhatsApp group ID. Included when the inbound message was sent in a group.
+   * @return groupId
+  **/
+  @javax.annotation.Nullable
+
+  public String getGroupId() {
+    return groupId;
+  }
+
+
+  /**
+   * WhatsApp group ID. Included when the inbound message was sent in a group.
+   **/
+  @ApiModelProperty(example = "120363345678901234@g.us", value = "WhatsApp group ID. Included when the inbound message was sent in a group.")
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
   }
 
 
@@ -893,6 +926,7 @@ public class WhatsappInboundMessage {
         Objects.equals(this.from, whatsappInboundMessage.from) &&
         Objects.equals(this.customerProfile, whatsappInboundMessage.customerProfile) &&
         Objects.equals(this.to, whatsappInboundMessage.to) &&
+        Objects.equals(this.groupId, whatsappInboundMessage.groupId) &&
         Objects.equals(this.sendTime, whatsappInboundMessage.sendTime) &&
         Objects.equals(this.type, whatsappInboundMessage.type) &&
         Objects.equals(this.text, whatsappInboundMessage.text) &&
@@ -916,7 +950,7 @@ public class WhatsappInboundMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, customerProfile, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, reaction, order, system, errors, context, referral, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, customerProfile, to, groupId, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, reaction, order, system, errors, context, referral, additionalProperties);
   }
 
   @Override
@@ -929,6 +963,7 @@ public class WhatsappInboundMessage {
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    sendTime: ").append(toIndentedString(sendTime)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
@@ -976,6 +1011,7 @@ public class WhatsappInboundMessage {
     openapiFields.add("from");
     openapiFields.add("customerProfile");
     openapiFields.add("to");
+    openapiFields.add("groupId");
     openapiFields.add("sendTime");
     openapiFields.add("type");
     openapiFields.add("text");
@@ -1039,6 +1075,9 @@ public class WhatsappInboundMessage {
       }
       if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
+      }
+      if (jsonObj.get("groupId") != null && !jsonObj.get("groupId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `groupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("groupId").toString()));
       }
       // validate the optional field `text`
       if (jsonObj.getAsJsonObject("text") != null) {

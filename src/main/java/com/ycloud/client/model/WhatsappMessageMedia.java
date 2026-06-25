@@ -78,11 +78,11 @@ public class WhatsappMessageMedia {
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
 
-  public WhatsappMessageMedia() {
+  public WhatsappMessageMedia() { 
   }
 
   public WhatsappMessageMedia id(String id) {
-
+    
     this.id = id;
     return this;
   }
@@ -108,7 +108,7 @@ public class WhatsappMessageMedia {
 
 
   public WhatsappMessageMedia link(String link) {
-
+    
     this.link = link;
     return this;
   }
@@ -134,7 +134,7 @@ public class WhatsappMessageMedia {
 
 
   public WhatsappMessageMedia caption(String caption) {
-
+    
     this.caption = caption;
     return this;
   }
@@ -160,7 +160,7 @@ public class WhatsappMessageMedia {
 
 
   public WhatsappMessageMedia filename(String filename) {
-
+    
     this.filename = filename;
     return this;
   }

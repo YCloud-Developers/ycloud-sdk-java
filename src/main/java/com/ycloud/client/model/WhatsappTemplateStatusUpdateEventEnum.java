@@ -29,27 +29,27 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(WhatsappTemplateStatusUpdateEventEnum.Adapter.class)
 public enum WhatsappTemplateStatusUpdateEventEnum {
-
+  
   PENDING("PENDING"),
-
+  
   APPROVED("APPROVED"),
-
+  
   REJECTED("REJECTED"),
-
+  
   IN_APPEAL("IN_APPEAL"),
-
+  
   PAUSED("PAUSED"),
-
+  
   FLAGGED("FLAGGED"),
-
+  
   DISABLED("DISABLED"),
-
+  
   ARCHIVED("ARCHIVED"),
-
+  
   UNARCHIVED("UNARCHIVED"),
-
+  
   REINSTATED("REINSTATED"),
-
+  
   PENDING_DELETION("PENDING_DELETION");
 
   private String value;

@@ -34,7 +34,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-
+    
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -42,7 +42,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
-    WhatsappTemplateCreateRequest whatsappTemplateCreateRequest = new WhatsappTemplateCreateRequest(); // WhatsappTemplateCreateRequest |
+    WhatsappTemplateCreateRequest whatsappTemplateCreateRequest = new WhatsappTemplateCreateRequest(); // WhatsappTemplateCreateRequest | 
     try {
       WhatsappTemplate result = apiInstance.create(whatsappTemplateCreateRequest);
       System.out.println(result);
@@ -103,7 +103,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-
+    
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -175,7 +175,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-
+    
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -249,7 +249,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-
+    
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -260,7 +260,7 @@ public class Example {
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
     String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
-    WhatsappTemplateEditRequest whatsappTemplateEditRequest = new WhatsappTemplateEditRequest(); // WhatsappTemplateEditRequest |
+    WhatsappTemplateEditRequest whatsappTemplateEditRequest = new WhatsappTemplateEditRequest(); // WhatsappTemplateEditRequest | 
     try {
       WhatsappTemplate result = apiInstance.editByNameAndLanguage(wabaId, name, language, whatsappTemplateEditRequest);
       System.out.println(result);
@@ -325,7 +325,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-
+    
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -414,7 +414,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-
+    
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");

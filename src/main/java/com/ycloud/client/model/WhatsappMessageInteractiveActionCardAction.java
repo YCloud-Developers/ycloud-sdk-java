@@ -74,11 +74,11 @@ public class WhatsappMessageInteractiveActionCardAction {
   @SerializedName(SERIALIZED_NAME_BUTTONS)
   private List<WhatsappMessageInteractiveActionCardActionButton> buttons = null;
 
-  public WhatsappMessageInteractiveActionCardAction() {
+  public WhatsappMessageInteractiveActionCardAction() { 
   }
 
   public WhatsappMessageInteractiveActionCardAction name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -104,7 +104,7 @@ public class WhatsappMessageInteractiveActionCardAction {
 
 
   public WhatsappMessageInteractiveActionCardAction parameters(WhatsappMessageInteractiveActionCardActionParameters parameters) {
-
+    
     this.parameters = parameters;
     return this;
   }
@@ -129,7 +129,7 @@ public class WhatsappMessageInteractiveActionCardAction {
 
 
   public WhatsappMessageInteractiveActionCardAction buttons(List<WhatsappMessageInteractiveActionCardActionButton> buttons) {
-
+    
     this.buttons = buttons;
     return this;
   }

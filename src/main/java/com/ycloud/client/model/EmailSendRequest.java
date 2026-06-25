@@ -136,11 +136,11 @@ public class EmailSendRequest {
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
 
-  public EmailSendRequest() {
+  public EmailSendRequest() { 
   }
 
   public EmailSendRequest from(String from) {
-
+    
     this.from = from;
     return this;
   }
@@ -166,7 +166,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest to(String to) {
-
+    
     this.to = to;
     return this;
   }
@@ -192,7 +192,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest subject(String subject) {
-
+    
     this.subject = subject;
     return this;
   }
@@ -218,7 +218,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest content(String content) {
-
+    
     this.content = content;
     return this;
   }
@@ -244,7 +244,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest contentType(EmailContentType contentType) {
-
+    
     this.contentType = contentType;
     return this;
   }
@@ -269,7 +269,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest variables(List<Map<String, String>> variables) {
-
+    
     this.variables = variables;
     return this;
   }
@@ -303,7 +303,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest cc(String cc) {
-
+    
     this.cc = cc;
     return this;
   }
@@ -329,7 +329,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest bcc(String bcc) {
-
+    
     this.bcc = bcc;
     return this;
   }
@@ -355,7 +355,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest replyTo(String replyTo) {
-
+    
     this.replyTo = replyTo;
     return this;
   }
@@ -381,7 +381,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest summary(String summary) {
-
+    
     this.summary = summary;
     return this;
   }
@@ -407,7 +407,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest externalId(String externalId) {
-
+    
     this.externalId = externalId;
     return this;
   }
@@ -433,7 +433,7 @@ public class EmailSendRequest {
 
 
   public EmailSendRequest callbackUrl(String callbackUrl) {
-
+    
     this.callbackUrl = callbackUrl;
     return this;
   }

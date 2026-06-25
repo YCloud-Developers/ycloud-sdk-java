@@ -60,27 +60,27 @@ public class WhatsappMessageInteractive {
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     BUTTON("button"),
-
+    
     LIST("list"),
-
+    
     CTA_URL("cta_url"),
-
+    
     PRODUCT("product"),
-
+    
     PRODUCT_LIST("product_list"),
-
+    
     CATALOG_MESSAGE("catalog_message"),
-
+    
     LOCATION_REQUEST_MESSAGE("location_request_message"),
-
+    
     ORDER_DETAILS("order_details"),
-
+    
     ORDER_STATUS("order_status"),
-
+    
     VOICE_CALL("voice_call"),
-
+    
     FLOW("flow"),
-
+    
     CAROUSEL("carousel");
 
     private String value;
@@ -152,11 +152,11 @@ public class WhatsappMessageInteractive {
   @SerializedName(SERIALIZED_NAME_FOOTER)
   private WhatsappMessageInteractiveFooter footer;
 
-  public WhatsappMessageInteractive() {
+  public WhatsappMessageInteractive() { 
   }
 
   public WhatsappMessageInteractive type(TypeEnum type) {
-
+    
     this.type = type;
     return this;
   }
@@ -182,7 +182,7 @@ public class WhatsappMessageInteractive {
 
 
   public WhatsappMessageInteractive action(WhatsappMessageInteractiveAction action) {
-
+    
     this.action = action;
     return this;
   }
@@ -207,7 +207,7 @@ public class WhatsappMessageInteractive {
 
 
   public WhatsappMessageInteractive body(WhatsappMessageInteractiveBody body) {
-
+    
     this.body = body;
     return this;
   }
@@ -232,7 +232,7 @@ public class WhatsappMessageInteractive {
 
 
   public WhatsappMessageInteractive header(WhatsappMessageInteractiveHeader header) {
-
+    
     this.header = header;
     return this;
   }
@@ -257,7 +257,7 @@ public class WhatsappMessageInteractive {
 
 
   public WhatsappMessageInteractive footer(WhatsappMessageInteractiveFooter footer) {
-
+    
     this.footer = footer;
     return this;
   }

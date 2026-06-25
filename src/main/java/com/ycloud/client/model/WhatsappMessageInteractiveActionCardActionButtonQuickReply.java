@@ -63,11 +63,11 @@ public class WhatsappMessageInteractiveActionCardActionButtonQuickReply {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  public WhatsappMessageInteractiveActionCardActionButtonQuickReply() {
+  public WhatsappMessageInteractiveActionCardActionButtonQuickReply() { 
   }
 
   public WhatsappMessageInteractiveActionCardActionButtonQuickReply title(String title) {
-
+    
     this.title = title;
     return this;
   }
@@ -93,7 +93,7 @@ public class WhatsappMessageInteractiveActionCardActionButtonQuickReply {
 
 
   public WhatsappMessageInteractiveActionCardActionButtonQuickReply id(String id) {
-
+    
     this.id = id;
     return this;
   }

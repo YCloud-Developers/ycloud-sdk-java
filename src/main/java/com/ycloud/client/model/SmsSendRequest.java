@@ -91,11 +91,11 @@ public class SmsSendRequest {
   @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
   private String callbackUrl;
 
-  public SmsSendRequest() {
+  public SmsSendRequest() { 
   }
 
   public SmsSendRequest to(String to) {
-
+    
     this.to = to;
     return this;
   }
@@ -121,7 +121,7 @@ public class SmsSendRequest {
 
 
   public SmsSendRequest text(String text) {
-
+    
     this.text = text;
     return this;
   }
@@ -147,7 +147,7 @@ public class SmsSendRequest {
 
 
   public SmsSendRequest senderId(String senderId) {
-
+    
     this.senderId = senderId;
     return this;
   }
@@ -173,7 +173,7 @@ public class SmsSendRequest {
 
 
   public SmsSendRequest signature(String signature) {
-
+    
     this.signature = signature;
     return this;
   }
@@ -199,7 +199,7 @@ public class SmsSendRequest {
 
 
   public SmsSendRequest externalId(String externalId) {
-
+    
     this.externalId = externalId;
     return this;
   }
@@ -225,7 +225,7 @@ public class SmsSendRequest {
 
 
   public SmsSendRequest callbackUrl(String callbackUrl) {
-
+    
     this.callbackUrl = callbackUrl;
     return this;
   }

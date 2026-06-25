@@ -28,6 +28,10 @@ import java.io.IOException;
 
 
 import com.ycloud.client.model.ErrorResponse;
+import com.ycloud.client.model.WhatsappBusinessUsername;
+import com.ycloud.client.model.WhatsappBusinessUsernameDeleteResult;
+import com.ycloud.client.model.WhatsappBusinessUsernameSuggestions;
+import com.ycloud.client.model.WhatsappBusinessUsernameUpdateRequest;
 import com.ycloud.client.model.WhatsappCommerceSettings;
 import com.ycloud.client.model.WhatsappCommerceSettingsUpdateRequest;
 import com.ycloud.client.model.WhatsappPhoneNameUpdateRequest;
@@ -82,6 +86,150 @@ public class WhatsappPhoneNumbersApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for deleteBusinessUsername
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the business username. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteBusinessUsernameCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteBusinessUsernameValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling deleteBusinessUsername(Async)");
+        }
+        
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling deleteBusinessUsername(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteBusinessUsernameCall(wabaId, phoneNumber, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete a phone number business username
+     * <p>
+     * Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a pending Business Username request. If a pending request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;pending_review&#x60;; otherwise it becomes &#x60;not_set&#x60;.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return WhatsappBusinessUsernameDeleteResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the business username. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappBusinessUsernameDeleteResult deleteBusinessUsername(String wabaId, String phoneNumber) throws ApiException {
+        ApiResponse<WhatsappBusinessUsernameDeleteResult> localVarResp = deleteBusinessUsernameWithHttpInfo(wabaId, phoneNumber);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a phone number business username
+     * <p>
+     * Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a pending Business Username request. If a pending request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;pending_review&#x60;; otherwise it becomes &#x60;not_set&#x60;.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return ApiResponse&lt;WhatsappBusinessUsernameDeleteResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the business username. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappBusinessUsernameDeleteResult> deleteBusinessUsernameWithHttpInfo(String wabaId, String phoneNumber) throws ApiException {
+        okhttp3.Call localVarCall = deleteBusinessUsernameValidateBeforeCall(wabaId, phoneNumber, null);
+        Type localVarReturnType = new TypeToken<WhatsappBusinessUsernameDeleteResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a phone number business username (asynchronously)
+     * <p>
+     * Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a pending Business Username request. If a pending request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;pending_review&#x60;; otherwise it becomes &#x60;not_set&#x60;.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the business username. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteBusinessUsernameAsync(String wabaId, String phoneNumber, final ApiCallback<WhatsappBusinessUsernameDeleteResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteBusinessUsernameValidateBeforeCall(wabaId, phoneNumber, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappBusinessUsernameDeleteResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     private okhttp3.Call listCall(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -575,6 +723,294 @@ public class WhatsappPhoneNumbersApi {
 
         okhttp3.Call localVarCall = retrieveValidateBeforeCall(wabaId, phoneNumber, _callback);
         Type localVarReturnType = new TypeToken<WhatsappPhoneNumber>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for retrieveBusinessUsername
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveBusinessUsernameCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call retrieveBusinessUsernameValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveBusinessUsername(Async)");
+        }
+        
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieveBusinessUsername(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = retrieveBusinessUsernameCall(wabaId, phoneNumber, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve a phone number business username
+     * <p>
+     * Retrieves the Business Username state for a WhatsApp business phone number. The response reflects YCloud&#39;s latest known phone number state. If the phone number has no locally stored Business Username state, YCloud may sync the current username state from Meta before returning the response.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return WhatsappBusinessUsername
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappBusinessUsername retrieveBusinessUsername(String wabaId, String phoneNumber) throws ApiException {
+        ApiResponse<WhatsappBusinessUsername> localVarResp = retrieveBusinessUsernameWithHttpInfo(wabaId, phoneNumber);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve a phone number business username
+     * <p>
+     * Retrieves the Business Username state for a WhatsApp business phone number. The response reflects YCloud&#39;s latest known phone number state. If the phone number has no locally stored Business Username state, YCloud may sync the current username state from Meta before returning the response.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return ApiResponse&lt;WhatsappBusinessUsername&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappBusinessUsername> retrieveBusinessUsernameWithHttpInfo(String wabaId, String phoneNumber) throws ApiException {
+        okhttp3.Call localVarCall = retrieveBusinessUsernameValidateBeforeCall(wabaId, phoneNumber, null);
+        Type localVarReturnType = new TypeToken<WhatsappBusinessUsername>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a phone number business username (asynchronously)
+     * <p>
+     * Retrieves the Business Username state for a WhatsApp business phone number. The response reflects YCloud&#39;s latest known phone number state. If the phone number has no locally stored Business Username state, YCloud may sync the current username state from Meta before returning the response.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the object. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveBusinessUsernameAsync(String wabaId, String phoneNumber, final ApiCallback<WhatsappBusinessUsername> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = retrieveBusinessUsernameValidateBeforeCall(wabaId, phoneNumber, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappBusinessUsername>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for retrieveBusinessUsernameSuggestions
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the suggestions. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveBusinessUsernameSuggestionsCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername/suggestions"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call retrieveBusinessUsernameSuggestionsValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveBusinessUsernameSuggestions(Async)");
+        }
+        
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieveBusinessUsernameSuggestions(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = retrieveBusinessUsernameSuggestionsCall(wabaId, phoneNumber, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve phone number business username suggestions
+     * <p>
+     * Retrieves reserved Business Username suggestions for a WhatsApp business phone number. The response flattens Meta username suggestions into a string array. If no suggestions are available, &#x60;data&#x60; is an empty array.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return WhatsappBusinessUsernameSuggestions
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the suggestions. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappBusinessUsernameSuggestions retrieveBusinessUsernameSuggestions(String wabaId, String phoneNumber) throws ApiException {
+        ApiResponse<WhatsappBusinessUsernameSuggestions> localVarResp = retrieveBusinessUsernameSuggestionsWithHttpInfo(wabaId, phoneNumber);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve phone number business username suggestions
+     * <p>
+     * Retrieves reserved Business Username suggestions for a WhatsApp business phone number. The response flattens Meta username suggestions into a string array. If no suggestions are available, &#x60;data&#x60; is an empty array.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @return ApiResponse&lt;WhatsappBusinessUsernameSuggestions&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the suggestions. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappBusinessUsernameSuggestions> retrieveBusinessUsernameSuggestionsWithHttpInfo(String wabaId, String phoneNumber) throws ApiException {
+        okhttp3.Call localVarCall = retrieveBusinessUsernameSuggestionsValidateBeforeCall(wabaId, phoneNumber, null);
+        Type localVarReturnType = new TypeToken<WhatsappBusinessUsernameSuggestions>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve phone number business username suggestions (asynchronously)
+     * <p>
+     * Retrieves reserved Business Username suggestions for a WhatsApp business phone number. The response flattens Meta username suggestions into a string array. If no suggestions are available, &#x60;data&#x60; is an empty array.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the suggestions. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveBusinessUsernameSuggestionsAsync(String wabaId, String phoneNumber, final ApiCallback<WhatsappBusinessUsernameSuggestions> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = retrieveBusinessUsernameSuggestionsValidateBeforeCall(wabaId, phoneNumber, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappBusinessUsernameSuggestions>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1160,6 +1596,163 @@ public class WhatsappPhoneNumbersApi {
 
         okhttp3.Call localVarCall = saveSettingsValidateBeforeCall(wabaId, phoneNumber, whatsappPhoneNumberSettings, _callback);
         Type localVarReturnType = new TypeToken<WhatsappPhoneNumberSettings>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateBusinessUsername
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappBusinessUsernameUpdateRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully submitted the update request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Invalid request parameters. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateBusinessUsernameCall(String wabaId, String phoneNumber, WhatsappBusinessUsernameUpdateRequest whatsappBusinessUsernameUpdateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = whatsappBusinessUsernameUpdateRequest;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateBusinessUsernameValidateBeforeCall(String wabaId, String phoneNumber, WhatsappBusinessUsernameUpdateRequest whatsappBusinessUsernameUpdateRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling updateBusinessUsername(Async)");
+        }
+        
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling updateBusinessUsername(Async)");
+        }
+        
+        // verify the required parameter 'whatsappBusinessUsernameUpdateRequest' is set
+        if (whatsappBusinessUsernameUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'whatsappBusinessUsernameUpdateRequest' when calling updateBusinessUsername(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateBusinessUsernameCall(wabaId, phoneNumber, whatsappBusinessUsernameUpdateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a phone number business username
+     * <p>
+     * Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts the request for review, the response status is usually &#x60;pending_review&#x60;; if Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappBusinessUsernameUpdateRequest  (required)
+     * @return WhatsappBusinessUsername
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully submitted the update request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Invalid request parameters. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappBusinessUsername updateBusinessUsername(String wabaId, String phoneNumber, WhatsappBusinessUsernameUpdateRequest whatsappBusinessUsernameUpdateRequest) throws ApiException {
+        ApiResponse<WhatsappBusinessUsername> localVarResp = updateBusinessUsernameWithHttpInfo(wabaId, phoneNumber, whatsappBusinessUsernameUpdateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a phone number business username
+     * <p>
+     * Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts the request for review, the response status is usually &#x60;pending_review&#x60;; if Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappBusinessUsernameUpdateRequest  (required)
+     * @return ApiResponse&lt;WhatsappBusinessUsername&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully submitted the update request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Invalid request parameters. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappBusinessUsername> updateBusinessUsernameWithHttpInfo(String wabaId, String phoneNumber, WhatsappBusinessUsernameUpdateRequest whatsappBusinessUsernameUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateBusinessUsernameValidateBeforeCall(wabaId, phoneNumber, whatsappBusinessUsernameUpdateRequest, null);
+        Type localVarReturnType = new TypeToken<WhatsappBusinessUsername>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a phone number business username (asynchronously)
+     * <p>
+     * Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts the request for review, the response status is usually &#x60;pending_review&#x60;; if Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param whatsappBusinessUsernameUpdateRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully submitted the update request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Invalid request parameters. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateBusinessUsernameAsync(String wabaId, String phoneNumber, WhatsappBusinessUsernameUpdateRequest whatsappBusinessUsernameUpdateRequest, final ApiCallback<WhatsappBusinessUsername> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateBusinessUsernameValidateBeforeCall(wabaId, phoneNumber, whatsappBusinessUsernameUpdateRequest, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappBusinessUsername>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -64,11 +64,11 @@ public class WhatsappMessageTemplateLanguage {
   @SerializedName(SERIALIZED_NAME_POLICY)
   private String policy;
 
-  public WhatsappMessageTemplateLanguage() {
+  public WhatsappMessageTemplateLanguage() { 
   }
 
   public WhatsappMessageTemplateLanguage code(String code) {
-
+    
     this.code = code;
     return this;
   }
@@ -94,7 +94,7 @@ public class WhatsappMessageTemplateLanguage {
 
 
   public WhatsappMessageTemplateLanguage policy(String policy) {
-
+    
     this.policy = policy;
     return this;
   }

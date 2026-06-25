@@ -31,6 +31,7 @@ import com.ycloud.client.model.Sms;
 import com.ycloud.client.model.SmsInbound;
 import com.ycloud.client.model.Voice;
 import com.ycloud.client.model.WhatsappBusinessAccount;
+import com.ycloud.client.model.WhatsappGroupWebhook;
 import com.ycloud.client.model.WhatsappInboundMessage;
 import com.ycloud.client.model.WhatsappMessage;
 import com.ycloud.client.model.WhatsappPayment;
@@ -137,6 +138,12 @@ public class Event {
   @SerializedName(SERIALIZED_NAME_WHATSAPP_MESSAGE)
   private WhatsappMessage whatsappMessage;
 
+  public static final String SERIALIZED_NAME_WHATSAPP_GROUP = "whatsappGroup";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_WHATSAPP_GROUP)
+  private WhatsappGroupWebhook whatsappGroup;
+
   public static final String SERIALIZED_NAME_WHATSAPP_PHONE_NUMBER = "whatsappPhoneNumber";
   /**
   **/
@@ -191,11 +198,11 @@ public class Event {
   @SerializedName(SERIALIZED_NAME_WHATSAPP_USER_PREFERENCE)
   private WhatsappUserPreference whatsappUserPreference;
 
-  public Event() {
+  public Event() { 
   }
 
   public Event id(String id) {
-
+    
     this.id = id;
     return this;
   }
@@ -221,7 +228,7 @@ public class Event {
 
 
   public Event type(EventType type) {
-
+    
     this.type = type;
     return this;
   }
@@ -246,7 +253,7 @@ public class Event {
 
 
   public Event apiVersion(String apiVersion) {
-
+    
     this.apiVersion = apiVersion;
     return this;
   }
@@ -272,7 +279,7 @@ public class Event {
 
 
   public Event createTime(Date createTime) {
-
+    
     this.createTime = createTime;
     return this;
   }
@@ -298,7 +305,7 @@ public class Event {
 
 
   public Event emailDelivery(EmailDelivery emailDelivery) {
-
+    
     this.emailDelivery = emailDelivery;
     return this;
   }
@@ -323,7 +330,7 @@ public class Event {
 
 
   public Event sms(Sms sms) {
-
+    
     this.sms = sms;
     return this;
   }
@@ -348,7 +355,7 @@ public class Event {
 
 
   public Event smsInbound(SmsInbound smsInbound) {
-
+    
     this.smsInbound = smsInbound;
     return this;
   }
@@ -373,7 +380,7 @@ public class Event {
 
 
   public Event voice(Voice voice) {
-
+    
     this.voice = voice;
     return this;
   }
@@ -398,7 +405,7 @@ public class Event {
 
 
   public Event whatsappBusinessAccount(WhatsappBusinessAccount whatsappBusinessAccount) {
-
+    
     this.whatsappBusinessAccount = whatsappBusinessAccount;
     return this;
   }
@@ -423,7 +430,7 @@ public class Event {
 
 
   public Event whatsappInboundMessage(WhatsappInboundMessage whatsappInboundMessage) {
-
+    
     this.whatsappInboundMessage = whatsappInboundMessage;
     return this;
   }
@@ -448,7 +455,7 @@ public class Event {
 
 
   public Event whatsappMessage(WhatsappMessage whatsappMessage) {
-
+    
     this.whatsappMessage = whatsappMessage;
     return this;
   }
@@ -472,8 +479,33 @@ public class Event {
   }
 
 
-  public Event whatsappPhoneNumber(WhatsappPhoneNumber whatsappPhoneNumber) {
+  public Event whatsappGroup(WhatsappGroupWebhook whatsappGroup) {
+    
+    this.whatsappGroup = whatsappGroup;
+    return this;
+  }
 
+   /**
+   * Get whatsappGroup
+   * @return whatsappGroup
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappGroupWebhook getWhatsappGroup() {
+    return whatsappGroup;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setWhatsappGroup(WhatsappGroupWebhook whatsappGroup) {
+    this.whatsappGroup = whatsappGroup;
+  }
+
+
+  public Event whatsappPhoneNumber(WhatsappPhoneNumber whatsappPhoneNumber) {
+    
     this.whatsappPhoneNumber = whatsappPhoneNumber;
     return this;
   }
@@ -498,7 +530,7 @@ public class Event {
 
 
   public Event whatsappPayment(WhatsappPayment whatsappPayment) {
-
+    
     this.whatsappPayment = whatsappPayment;
     return this;
   }
@@ -523,7 +555,7 @@ public class Event {
 
 
   public Event whatsappTemplate(WhatsappTemplate whatsappTemplate) {
-
+    
     this.whatsappTemplate = whatsappTemplate;
     return this;
   }
@@ -548,7 +580,7 @@ public class Event {
 
 
   public Event contactAttributesChanged(ContactAttributesChanged contactAttributesChanged) {
-
+    
     this.contactAttributesChanged = contactAttributesChanged;
     return this;
   }
@@ -573,7 +605,7 @@ public class Event {
 
 
   public Event contactCreated(ContactCreated contactCreated) {
-
+    
     this.contactCreated = contactCreated;
     return this;
   }
@@ -598,7 +630,7 @@ public class Event {
 
 
   public Event contactDeleted(ContactDeleted contactDeleted) {
-
+    
     this.contactDeleted = contactDeleted;
     return this;
   }
@@ -623,7 +655,7 @@ public class Event {
 
 
   public Event contactUnsubscribeCreated(ContactUnsubscribeCreated contactUnsubscribeCreated) {
-
+    
     this.contactUnsubscribeCreated = contactUnsubscribeCreated;
     return this;
   }
@@ -648,7 +680,7 @@ public class Event {
 
 
   public Event contactUnsubscribeDeleted(ContactUnsubscribeDeleted contactUnsubscribeDeleted) {
-
+    
     this.contactUnsubscribeDeleted = contactUnsubscribeDeleted;
     return this;
   }
@@ -673,7 +705,7 @@ public class Event {
 
 
   public Event whatsappUserPreference(WhatsappUserPreference whatsappUserPreference) {
-
+    
     this.whatsappUserPreference = whatsappUserPreference;
     return this;
   }
@@ -753,6 +785,7 @@ public class Event {
         Objects.equals(this.whatsappBusinessAccount, event.whatsappBusinessAccount) &&
         Objects.equals(this.whatsappInboundMessage, event.whatsappInboundMessage) &&
         Objects.equals(this.whatsappMessage, event.whatsappMessage) &&
+        Objects.equals(this.whatsappGroup, event.whatsappGroup) &&
         Objects.equals(this.whatsappPhoneNumber, event.whatsappPhoneNumber) &&
         Objects.equals(this.whatsappPayment, event.whatsappPayment) &&
         Objects.equals(this.whatsappTemplate, event.whatsappTemplate) &&
@@ -767,7 +800,7 @@ public class Event {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, contactAttributesChanged, contactCreated, contactDeleted, contactUnsubscribeCreated, contactUnsubscribeDeleted, whatsappUserPreference, additionalProperties);
+    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappGroup, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, contactAttributesChanged, contactCreated, contactDeleted, contactUnsubscribeCreated, contactUnsubscribeDeleted, whatsappUserPreference, additionalProperties);
   }
 
   @Override
@@ -785,6 +818,7 @@ public class Event {
     sb.append("    whatsappBusinessAccount: ").append(toIndentedString(whatsappBusinessAccount)).append("\n");
     sb.append("    whatsappInboundMessage: ").append(toIndentedString(whatsappInboundMessage)).append("\n");
     sb.append("    whatsappMessage: ").append(toIndentedString(whatsappMessage)).append("\n");
+    sb.append("    whatsappGroup: ").append(toIndentedString(whatsappGroup)).append("\n");
     sb.append("    whatsappPhoneNumber: ").append(toIndentedString(whatsappPhoneNumber)).append("\n");
     sb.append("    whatsappPayment: ").append(toIndentedString(whatsappPayment)).append("\n");
     sb.append("    whatsappTemplate: ").append(toIndentedString(whatsappTemplate)).append("\n");
@@ -828,6 +862,7 @@ public class Event {
     openapiFields.add("whatsappBusinessAccount");
     openapiFields.add("whatsappInboundMessage");
     openapiFields.add("whatsappMessage");
+    openapiFields.add("whatsappGroup");
     openapiFields.add("whatsappPhoneNumber");
     openapiFields.add("whatsappPayment");
     openapiFields.add("whatsappTemplate");
@@ -900,6 +935,10 @@ public class Event {
       // validate the optional field `whatsappMessage`
       if (jsonObj.getAsJsonObject("whatsappMessage") != null) {
         WhatsappMessage.validateJsonObject(jsonObj.getAsJsonObject("whatsappMessage"));
+      }
+      // validate the optional field `whatsappGroup`
+      if (jsonObj.getAsJsonObject("whatsappGroup") != null) {
+        WhatsappGroupWebhook.validateJsonObject(jsonObj.getAsJsonObject("whatsappGroup"));
       }
       // validate the optional field `whatsappPhoneNumber`
       if (jsonObj.getAsJsonObject("whatsappPhoneNumber") != null) {

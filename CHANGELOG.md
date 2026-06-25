@@ -1,4 +1,11 @@
 # Changelog
+## 1.16.0 (2026-06-25)
+- Add WhatsApp Groups API and related group, participant, invite link, join request, and group webhook models.
+- Add WhatsApp Business Username retrieve, update, delete, and suggestions support.
+- Add `businessUsername`, `businessUsernameStatus`, `requestedBusinessUsername`, `businessUsernameUpdatedAt`, and `updateEvent` to the WhatsApp Phone Number object.
+- Add `whatsapp.phone_number.business_username_updated` and WhatsApp group webhook event types.
+- Add `removedReason`, `removedInitiatedBy`, and `removedTime` to the WhatsApp Business Account object, and add `PARTNER_APP_UNINSTALLED` to `WhatsappBusinessAccountUpdateEventEnum`.
+
 ## 1.15.9 (2026-05-14)
 - Support WhatsApp carousel interactive messages and related card/action models.
 - Add WhatsApp template app deep link button support.

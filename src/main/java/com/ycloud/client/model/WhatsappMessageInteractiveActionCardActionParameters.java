@@ -64,11 +64,11 @@ public class WhatsappMessageInteractiveActionCardActionParameters {
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
-  public WhatsappMessageInteractiveActionCardActionParameters() {
+  public WhatsappMessageInteractiveActionCardActionParameters() { 
   }
 
   public WhatsappMessageInteractiveActionCardActionParameters displayText(String displayText) {
-
+    
     this.displayText = displayText;
     return this;
   }
@@ -94,7 +94,7 @@ public class WhatsappMessageInteractiveActionCardActionParameters {
 
 
   public WhatsappMessageInteractiveActionCardActionParameters url(String url) {
-
+    
     this.url = url;
     return this;
   }

@@ -61,17 +61,17 @@ public class WhatsappTemplateComponent {
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     BODY("BODY"),
-
+    
     HEADER("HEADER"),
-
+    
     FOOTER("FOOTER"),
-
+    
     BUTTONS("BUTTONS"),
-
+    
     LIMITED_TIME_OFFER("LIMITED_TIME_OFFER"),
-
+    
     CAROUSEL("CAROUSEL"),
-
+    
     CALL_PERMISSION_REQUEST("CALL_PERMISSION_REQUEST");
 
     private String value;
@@ -125,15 +125,15 @@ public class WhatsappTemplateComponent {
   @JsonAdapter(FormatEnum.Adapter.class)
   public enum FormatEnum {
     TEXT("TEXT"),
-
+    
     IMAGE("IMAGE"),
-
+    
     GIF("GIF"),
-
+    
     VIDEO("VIDEO"),
-
+    
     DOCUMENT("DOCUMENT"),
-
+    
     LOCATION("LOCATION");
 
     private String value;
@@ -228,11 +228,11 @@ public class WhatsappTemplateComponent {
   @SerializedName(SERIALIZED_NAME_CARDS)
   private List<WhatsappTemplateComponentCard> cards = null;
 
-  public WhatsappTemplateComponent() {
+  public WhatsappTemplateComponent() { 
   }
 
   public WhatsappTemplateComponent type(TypeEnum type) {
-
+    
     this.type = type;
     return this;
   }
@@ -258,7 +258,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent format(FormatEnum format) {
-
+    
     this.format = format;
     return this;
   }
@@ -284,7 +284,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent text(String text) {
-
+    
     this.text = text;
     return this;
   }
@@ -310,7 +310,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent buttons(List<WhatsappTemplateComponentButton> buttons) {
-
+    
     this.buttons = buttons;
     return this;
   }
@@ -344,7 +344,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent addSecurityRecommendation(Boolean addSecurityRecommendation) {
-
+    
     this.addSecurityRecommendation = addSecurityRecommendation;
     return this;
   }
@@ -370,7 +370,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent codeExpirationMinutes(Integer codeExpirationMinutes) {
-
+    
     this.codeExpirationMinutes = codeExpirationMinutes;
     return this;
   }
@@ -398,7 +398,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent limitedTimeOffer(WhatsappTemplateComponentLimitedTimeOffer limitedTimeOffer) {
-
+    
     this.limitedTimeOffer = limitedTimeOffer;
     return this;
   }
@@ -423,7 +423,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent example(WhatsappTemplateComponentExample example) {
-
+    
     this.example = example;
     return this;
   }
@@ -448,7 +448,7 @@ public class WhatsappTemplateComponent {
 
 
   public WhatsappTemplateComponent cards(List<WhatsappTemplateComponentCard> cards) {
-
+    
     this.cards = cards;
     return this;
   }
