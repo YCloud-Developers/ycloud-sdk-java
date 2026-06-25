@@ -45,8 +45,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappCallingConnectRequest
+ * Provide exactly one of &#x60;to&#x60; or &#x60;recipient&#x60;. If both are provided, &#x60;to&#x60; takes precedence and &#x60;recipient&#x60; is ignored.
  */
+@ApiModel(description = "Provide exactly one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappCallingConnectRequest {
   public static final String SERIALIZED_NAME_FROM = "from";
@@ -58,10 +59,17 @@ public class WhatsappCallingConnectRequest {
 
   public static final String SERIALIZED_NAME_TO = "to";
   /**
-   * The callee&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The callee&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided.
   **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
+
+  public static final String SERIALIZED_NAME_RECIPIENT = "recipient";
+  /**
+   * The callee&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided.
+  **/
+  @SerializedName(SERIALIZED_NAME_RECIPIENT)
+  private String recipient;
 
   /**
    * The SDP type, must be \&quot;offer\&quot; for connection requests.
@@ -122,11 +130,11 @@ public class WhatsappCallingConnectRequest {
   @SerializedName(SERIALIZED_NAME_SDP)
   private String sdp;
 
-  public WhatsappCallingConnectRequest() { 
+  public WhatsappCallingConnectRequest() {
   }
 
   public WhatsappCallingConnectRequest from(String from) {
-    
+
     this.from = from;
     return this;
   }
@@ -152,16 +160,16 @@ public class WhatsappCallingConnectRequest {
 
 
   public WhatsappCallingConnectRequest to(String to) {
-    
+
     this.to = to;
     return this;
   }
 
    /**
-   * The callee&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The callee&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided.
    * @return to
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
   public String getTo() {
     return to;
@@ -169,16 +177,42 @@ public class WhatsappCallingConnectRequest {
 
 
   /**
-   * The callee&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The callee&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided.
    **/
-  @ApiModelProperty(example = "+6281361905133", required = true, value = "The callee's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+6281361905133", value = "The callee's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when `recipient` is not provided.")
   public void setTo(String to) {
     this.to = to;
   }
 
 
+  public WhatsappCallingConnectRequest recipient(String recipient) {
+
+    this.recipient = recipient;
+    return this;
+  }
+
+   /**
+   * The callee&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided.
+   * @return recipient
+  **/
+  @javax.annotation.Nullable
+
+  public String getRecipient() {
+    return recipient;
+  }
+
+
+  /**
+   * The callee&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided.
+   **/
+  @ApiModelProperty(example = "US.1234", value = "The callee's WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when `to` is not provided.")
+  public void setRecipient(String recipient) {
+    this.recipient = recipient;
+  }
+
+
   public WhatsappCallingConnectRequest sdpType(SdpTypeEnum sdpType) {
-    
+
     this.sdpType = sdpType;
     return this;
   }
@@ -204,7 +238,7 @@ public class WhatsappCallingConnectRequest {
 
 
   public WhatsappCallingConnectRequest sdp(String sdp) {
-    
+
     this.sdp = sdp;
     return this;
   }
@@ -276,6 +310,7 @@ public class WhatsappCallingConnectRequest {
     WhatsappCallingConnectRequest whatsappCallingConnectRequest = (WhatsappCallingConnectRequest) o;
     return Objects.equals(this.from, whatsappCallingConnectRequest.from) &&
         Objects.equals(this.to, whatsappCallingConnectRequest.to) &&
+        Objects.equals(this.recipient, whatsappCallingConnectRequest.recipient) &&
         Objects.equals(this.sdpType, whatsappCallingConnectRequest.sdpType) &&
         Objects.equals(this.sdp, whatsappCallingConnectRequest.sdp)&&
         Objects.equals(this.additionalProperties, whatsappCallingConnectRequest.additionalProperties);
@@ -283,7 +318,7 @@ public class WhatsappCallingConnectRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to, sdpType, sdp, additionalProperties);
+    return Objects.hash(from, to, recipient, sdpType, sdp, additionalProperties);
   }
 
   @Override
@@ -292,6 +327,7 @@ public class WhatsappCallingConnectRequest {
     sb.append("class WhatsappCallingConnectRequest {\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
     sb.append("    sdpType: ").append(toIndentedString(sdpType)).append("\n");
     sb.append("    sdp: ").append(toIndentedString(sdp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -319,13 +355,13 @@ public class WhatsappCallingConnectRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("from");
     openapiFields.add("to");
+    openapiFields.add("recipient");
     openapiFields.add("sdpType");
     openapiFields.add("sdp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("from");
-    openapiRequiredFields.add("to");
     openapiRequiredFields.add("sdpType");
     openapiRequiredFields.add("sdp");
   }
@@ -356,6 +392,9 @@ public class WhatsappCallingConnectRequest {
       }
       if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
+      }
+      if (jsonObj.get("recipient") != null && !jsonObj.get("recipient").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipient` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipient").toString()));
       }
       if (jsonObj.get("sdpType") != null && !jsonObj.get("sdpType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sdpType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdpType").toString()));

@@ -12,9 +12,10 @@ WhatsApp inbound message object.
 |**wamid** | **String** | The original message ID on WhatsApp&#39;s platform. |  [optional] |
 |**wabaId** | **String** | WhatsApp Business Account ID. |  [optional] |
 |**from** | **String** | The customer&#39;s phone number who sent the message to the business, formatted in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
+|**fromUserId** | **String** | The customer&#39;s WhatsApp Business-scoped user ID (BSUID). |  [optional] |
+|**fromParentUserId** | **String** | The customer&#39;s parent WhatsApp Business-scoped user ID. |  [optional] |
 |**customerProfile** | [**WhatsappProfile**](WhatsappProfile.md) |  |  [optional] |
 |**to** | **String** | The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
-|**groupId** | **String** | WhatsApp group ID. Included when the inbound message was sent in a group. |  [optional] |
 |**sendTime** | **Date** | The time at which this message is sent, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
 |**type** | **WhatsappInboundMessageType** |  |  [optional] |
 |**text** | [**WhatsappInboundMessageText**](WhatsappInboundMessageText.md) |  |  [optional] |

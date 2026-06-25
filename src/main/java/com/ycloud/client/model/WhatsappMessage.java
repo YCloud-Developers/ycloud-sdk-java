@@ -35,6 +35,7 @@ import com.ycloud.client.model.WhatsappMessageType;
 import com.ycloud.client.model.WhatsappPricingCategory;
 import com.ycloud.client.model.WhatsappPricingModel;
 import com.ycloud.client.model.WhatsappPricingType;
+import com.ycloud.client.model.WhatsappProfile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -102,6 +103,47 @@ public class WhatsappMessage {
   **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
+
+  public static final String SERIALIZED_NAME_RECIPIENT = "recipient";
+  /**
+   * The recipient value submitted in the request when a BSUID or parent BSUID was used.
+  **/
+  @SerializedName(SERIALIZED_NAME_RECIPIENT)
+  private String recipient;
+
+  public static final String SERIALIZED_NAME_RECIPIENT_USER_ID = "recipientUserId";
+  /**
+   * The recipient&#39;s WhatsApp Business-scoped user ID (BSUID).
+  **/
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_USER_ID)
+  private String recipientUserId;
+
+  public static final String SERIALIZED_NAME_TO_USER_ID = "toUserId";
+  /**
+   * Alias of &#x60;recipientUserId&#x60; kept for compatibility.
+  **/
+  @SerializedName(SERIALIZED_NAME_TO_USER_ID)
+  private String toUserId;
+
+  public static final String SERIALIZED_NAME_PARENT_RECIPIENT_USER_ID = "parentRecipientUserId";
+  /**
+   * The recipient&#39;s parent WhatsApp Business-scoped user ID.
+  **/
+  @SerializedName(SERIALIZED_NAME_PARENT_RECIPIENT_USER_ID)
+  private String parentRecipientUserId;
+
+  public static final String SERIALIZED_NAME_TO_PARENT_USER_ID = "toParentUserId";
+  /**
+   * Alias of &#x60;parentRecipientUserId&#x60; kept for compatibility.
+  **/
+  @SerializedName(SERIALIZED_NAME_TO_PARENT_USER_ID)
+  private String toParentUserId;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
+  private WhatsappProfile customerProfile;
 
   public static final String SERIALIZED_NAME_CONVERSATION = "conversation";
   /**
@@ -308,11 +350,11 @@ public class WhatsappMessage {
   @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
   private String verificationId;
 
-  public WhatsappMessage() { 
+  public WhatsappMessage() {
   }
 
   public WhatsappMessage id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -338,7 +380,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage wamid(String wamid) {
-    
+
     this.wamid = wamid;
     return this;
   }
@@ -364,7 +406,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage wabaId(String wabaId) {
-    
+
     this.wabaId = wabaId;
     return this;
   }
@@ -390,7 +432,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage from(String from) {
-    
+
     this.from = from;
     return this;
   }
@@ -416,7 +458,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage to(String to) {
-    
+
     this.to = to;
     return this;
   }
@@ -425,7 +467,7 @@ public class WhatsappMessage {
    * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    * @return to
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
   public String getTo() {
     return to;
@@ -435,14 +477,169 @@ public class WhatsappMessage {
   /**
    * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
    **/
-  @ApiModelProperty(example = "+16315551111", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
   public void setTo(String to) {
     this.to = to;
   }
 
 
+  public WhatsappMessage recipient(String recipient) {
+
+    this.recipient = recipient;
+    return this;
+  }
+
+   /**
+   * The recipient value submitted in the request when a BSUID or parent BSUID was used.
+   * @return recipient
+  **/
+  @javax.annotation.Nullable
+
+  public String getRecipient() {
+    return recipient;
+  }
+
+
+  /**
+   * The recipient value submitted in the request when a BSUID or parent BSUID was used.
+   **/
+  @ApiModelProperty(example = "US.1234", value = "The recipient value submitted in the request when a BSUID or parent BSUID was used.")
+  public void setRecipient(String recipient) {
+    this.recipient = recipient;
+  }
+
+
+  public WhatsappMessage recipientUserId(String recipientUserId) {
+
+    this.recipientUserId = recipientUserId;
+    return this;
+  }
+
+   /**
+   * The recipient&#39;s WhatsApp Business-scoped user ID (BSUID).
+   * @return recipientUserId
+  **/
+  @javax.annotation.Nullable
+
+  public String getRecipientUserId() {
+    return recipientUserId;
+  }
+
+
+  /**
+   * The recipient&#39;s WhatsApp Business-scoped user ID (BSUID).
+   **/
+  @ApiModelProperty(example = "US.1234", value = "The recipient's WhatsApp Business-scoped user ID (BSUID).")
+  public void setRecipientUserId(String recipientUserId) {
+    this.recipientUserId = recipientUserId;
+  }
+
+
+  public WhatsappMessage toUserId(String toUserId) {
+
+    this.toUserId = toUserId;
+    return this;
+  }
+
+   /**
+   * Alias of &#x60;recipientUserId&#x60; kept for compatibility.
+   * @return toUserId
+  **/
+  @javax.annotation.Nullable
+
+  public String getToUserId() {
+    return toUserId;
+  }
+
+
+  /**
+   * Alias of &#x60;recipientUserId&#x60; kept for compatibility.
+   **/
+  @ApiModelProperty(example = "US.1234", value = "Alias of `recipientUserId` kept for compatibility.")
+  public void setToUserId(String toUserId) {
+    this.toUserId = toUserId;
+  }
+
+
+  public WhatsappMessage parentRecipientUserId(String parentRecipientUserId) {
+
+    this.parentRecipientUserId = parentRecipientUserId;
+    return this;
+  }
+
+   /**
+   * The recipient&#39;s parent WhatsApp Business-scoped user ID.
+   * @return parentRecipientUserId
+  **/
+  @javax.annotation.Nullable
+
+  public String getParentRecipientUserId() {
+    return parentRecipientUserId;
+  }
+
+
+  /**
+   * The recipient&#39;s parent WhatsApp Business-scoped user ID.
+   **/
+  @ApiModelProperty(example = "US.ENT.1234", value = "The recipient's parent WhatsApp Business-scoped user ID.")
+  public void setParentRecipientUserId(String parentRecipientUserId) {
+    this.parentRecipientUserId = parentRecipientUserId;
+  }
+
+
+  public WhatsappMessage toParentUserId(String toParentUserId) {
+
+    this.toParentUserId = toParentUserId;
+    return this;
+  }
+
+   /**
+   * Alias of &#x60;parentRecipientUserId&#x60; kept for compatibility.
+   * @return toParentUserId
+  **/
+  @javax.annotation.Nullable
+
+  public String getToParentUserId() {
+    return toParentUserId;
+  }
+
+
+  /**
+   * Alias of &#x60;parentRecipientUserId&#x60; kept for compatibility.
+   **/
+  @ApiModelProperty(example = "US.ENT.1234", value = "Alias of `parentRecipientUserId` kept for compatibility.")
+  public void setToParentUserId(String toParentUserId) {
+    this.toParentUserId = toParentUserId;
+  }
+
+
+  public WhatsappMessage customerProfile(WhatsappProfile customerProfile) {
+
+    this.customerProfile = customerProfile;
+    return this;
+  }
+
+   /**
+   * Get customerProfile
+   * @return customerProfile
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappProfile getCustomerProfile() {
+    return customerProfile;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setCustomerProfile(WhatsappProfile customerProfile) {
+    this.customerProfile = customerProfile;
+  }
+
+
   public WhatsappMessage conversation(WhatsappConversation conversation) {
-    
+
     this.conversation = conversation;
     return this;
   }
@@ -467,7 +664,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage type(WhatsappMessageType type) {
-    
+
     this.type = type;
     return this;
   }
@@ -492,7 +689,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage template(WhatsappMessageTemplate template) {
-    
+
     this.template = template;
     return this;
   }
@@ -517,7 +714,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage text(WhatsappMessageText text) {
-    
+
     this.text = text;
     return this;
   }
@@ -542,7 +739,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage image(WhatsappMessageMedia image) {
-    
+
     this.image = image;
     return this;
   }
@@ -567,7 +764,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage video(WhatsappMessageMedia video) {
-    
+
     this.video = video;
     return this;
   }
@@ -592,7 +789,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage audio(WhatsappMessageMedia audio) {
-    
+
     this.audio = audio;
     return this;
   }
@@ -617,7 +814,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage document(WhatsappMessageMedia document) {
-    
+
     this.document = document;
     return this;
   }
@@ -642,7 +839,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage sticker(WhatsappMessageMedia sticker) {
-    
+
     this.sticker = sticker;
     return this;
   }
@@ -667,7 +864,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage location(WhatsappMessageLocation location) {
-    
+
     this.location = location;
     return this;
   }
@@ -692,7 +889,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage interactive(WhatsappMessageInteractive interactive) {
-    
+
     this.interactive = interactive;
     return this;
   }
@@ -717,7 +914,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage contacts(List<WhatsappMessageContact> contacts) {
-    
+
     this.contacts = contacts;
     return this;
   }
@@ -750,7 +947,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage reaction(WhatsappMessageReaction reaction) {
-    
+
     this.reaction = reaction;
     return this;
   }
@@ -775,7 +972,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage context(WhatsappMessageContext context) {
-    
+
     this.context = context;
     return this;
   }
@@ -800,7 +997,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage externalId(String externalId) {
-    
+
     this.externalId = externalId;
     return this;
   }
@@ -826,7 +1023,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage status(WhatsappMessageStatus status) {
-    
+
     this.status = status;
     return this;
   }
@@ -851,7 +1048,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage errorCode(String errorCode) {
-    
+
     this.errorCode = errorCode;
     return this;
   }
@@ -877,7 +1074,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage errorMessage(String errorMessage) {
-    
+
     this.errorMessage = errorMessage;
     return this;
   }
@@ -903,7 +1100,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage createTime(Date createTime) {
-    
+
     this.createTime = createTime;
     return this;
   }
@@ -929,7 +1126,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage updateTime(Date updateTime) {
-    
+
     this.updateTime = updateTime;
     return this;
   }
@@ -955,7 +1152,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage sendTime(Date sendTime) {
-    
+
     this.sendTime = sendTime;
     return this;
   }
@@ -981,7 +1178,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage deliverTime(Date deliverTime) {
-    
+
     this.deliverTime = deliverTime;
     return this;
   }
@@ -1007,7 +1204,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage readTime(Date readTime) {
-    
+
     this.readTime = readTime;
     return this;
   }
@@ -1033,7 +1230,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage totalPrice(Double totalPrice) {
-    
+
     this.totalPrice = totalPrice;
     return this;
   }
@@ -1059,7 +1256,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage currency(String currency) {
-    
+
     this.currency = currency;
     return this;
   }
@@ -1085,7 +1282,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage regionCode(String regionCode) {
-    
+
     this.regionCode = regionCode;
     return this;
   }
@@ -1111,7 +1308,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage pricingCategory(WhatsappPricingCategory pricingCategory) {
-    
+
     this.pricingCategory = pricingCategory;
     return this;
   }
@@ -1136,7 +1333,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage pricingModel(WhatsappPricingModel pricingModel) {
-    
+
     this.pricingModel = pricingModel;
     return this;
   }
@@ -1161,7 +1358,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage pricingType(WhatsappPricingType pricingType) {
-    
+
     this.pricingType = pricingType;
     return this;
   }
@@ -1186,7 +1383,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage whatsappApiError(WhatsappApiError whatsappApiError) {
-    
+
     this.whatsappApiError = whatsappApiError;
     return this;
   }
@@ -1211,7 +1408,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage bizType(String bizType) {
-    
+
     this.bizType = bizType;
     return this;
   }
@@ -1237,7 +1434,7 @@ public class WhatsappMessage {
 
 
   public WhatsappMessage verificationId(String verificationId) {
-    
+
     this.verificationId = verificationId;
     return this;
   }
@@ -1312,6 +1509,12 @@ public class WhatsappMessage {
         Objects.equals(this.wabaId, whatsappMessage.wabaId) &&
         Objects.equals(this.from, whatsappMessage.from) &&
         Objects.equals(this.to, whatsappMessage.to) &&
+        Objects.equals(this.recipient, whatsappMessage.recipient) &&
+        Objects.equals(this.recipientUserId, whatsappMessage.recipientUserId) &&
+        Objects.equals(this.toUserId, whatsappMessage.toUserId) &&
+        Objects.equals(this.parentRecipientUserId, whatsappMessage.parentRecipientUserId) &&
+        Objects.equals(this.toParentUserId, whatsappMessage.toParentUserId) &&
+        Objects.equals(this.customerProfile, whatsappMessage.customerProfile) &&
         Objects.equals(this.conversation, whatsappMessage.conversation) &&
         Objects.equals(this.type, whatsappMessage.type) &&
         Objects.equals(this.template, whatsappMessage.template) &&
@@ -1349,7 +1552,7 @@ public class WhatsappMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, to, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, sendTime, deliverTime, readTime, totalPrice, currency, regionCode, pricingCategory, pricingModel, pricingType, whatsappApiError, bizType, verificationId, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, to, recipient, recipientUserId, toUserId, parentRecipientUserId, toParentUserId, customerProfile, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, sendTime, deliverTime, readTime, totalPrice, currency, regionCode, pricingCategory, pricingModel, pricingType, whatsappApiError, bizType, verificationId, additionalProperties);
   }
 
   @Override
@@ -1361,6 +1564,12 @@ public class WhatsappMessage {
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
+    sb.append("    recipientUserId: ").append(toIndentedString(recipientUserId)).append("\n");
+    sb.append("    toUserId: ").append(toIndentedString(toUserId)).append("\n");
+    sb.append("    parentRecipientUserId: ").append(toIndentedString(parentRecipientUserId)).append("\n");
+    sb.append("    toParentUserId: ").append(toIndentedString(toParentUserId)).append("\n");
+    sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    conversation: ").append(toIndentedString(conversation)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
@@ -1421,6 +1630,12 @@ public class WhatsappMessage {
     openapiFields.add("wabaId");
     openapiFields.add("from");
     openapiFields.add("to");
+    openapiFields.add("recipient");
+    openapiFields.add("recipientUserId");
+    openapiFields.add("toUserId");
+    openapiFields.add("parentRecipientUserId");
+    openapiFields.add("toParentUserId");
+    openapiFields.add("customerProfile");
     openapiFields.add("conversation");
     openapiFields.add("type");
     openapiFields.add("template");
@@ -1459,7 +1674,6 @@ public class WhatsappMessage {
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("wabaId");
     openapiRequiredFields.add("from");
-    openapiRequiredFields.add("to");
   }
 
  /**
@@ -1497,6 +1711,25 @@ public class WhatsappMessage {
       }
       if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
+      }
+      if (jsonObj.get("recipient") != null && !jsonObj.get("recipient").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipient` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipient").toString()));
+      }
+      if (jsonObj.get("recipientUserId") != null && !jsonObj.get("recipientUserId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipientUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientUserId").toString()));
+      }
+      if (jsonObj.get("toUserId") != null && !jsonObj.get("toUserId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `toUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("toUserId").toString()));
+      }
+      if (jsonObj.get("parentRecipientUserId") != null && !jsonObj.get("parentRecipientUserId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parentRecipientUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentRecipientUserId").toString()));
+      }
+      if (jsonObj.get("toParentUserId") != null && !jsonObj.get("toParentUserId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `toParentUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("toParentUserId").toString()));
+      }
+      // validate the optional field `customerProfile`
+      if (jsonObj.getAsJsonObject("customerProfile") != null) {
+        WhatsappProfile.validateJsonObject(jsonObj.getAsJsonObject("customerProfile"));
       }
       // validate the optional field `conversation`
       if (jsonObj.getAsJsonObject("conversation") != null) {

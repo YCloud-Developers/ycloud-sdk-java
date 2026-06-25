@@ -175,11 +175,11 @@ public class WhatsappGroupWebhookMessageStatus {
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private List<Map<String, Object>> errors = null;
 
-  public WhatsappGroupWebhookMessageStatus() { 
+  public WhatsappGroupWebhookMessageStatus() {
   }
 
   public WhatsappGroupWebhookMessageStatus id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -205,7 +205,7 @@ public class WhatsappGroupWebhookMessageStatus {
 
 
   public WhatsappGroupWebhookMessageStatus status(String status) {
-    
+
     this.status = status;
     return this;
   }
@@ -231,7 +231,7 @@ public class WhatsappGroupWebhookMessageStatus {
 
 
   public WhatsappGroupWebhookMessageStatus timestamp(Long timestamp) {
-    
+
     this.timestamp = timestamp;
     return this;
   }
@@ -257,7 +257,7 @@ public class WhatsappGroupWebhookMessageStatus {
 
 
   public WhatsappGroupWebhookMessageStatus recipientId(String recipientId) {
-    
+
     this.recipientId = recipientId;
     return this;
   }
@@ -283,7 +283,7 @@ public class WhatsappGroupWebhookMessageStatus {
 
 
   public WhatsappGroupWebhookMessageStatus recipientType(RecipientTypeEnum recipientType) {
-    
+
     this.recipientType = recipientType;
     return this;
   }
@@ -309,7 +309,7 @@ public class WhatsappGroupWebhookMessageStatus {
 
 
   public WhatsappGroupWebhookMessageStatus recipientParticipantId(String recipientParticipantId) {
-    
+
     this.recipientParticipantId = recipientParticipantId;
     return this;
   }
@@ -335,7 +335,7 @@ public class WhatsappGroupWebhookMessageStatus {
 
 
   public WhatsappGroupWebhookMessageStatus recipientUserId(String recipientUserId) {
-    
+
     this.recipientUserId = recipientUserId;
     return this;
   }
@@ -354,14 +354,14 @@ public class WhatsappGroupWebhookMessageStatus {
   /**
    * Business-scoped user ID of the recipient participant.
    **/
-  @ApiModelProperty(example = "US.abc123", value = "Business-scoped user ID of the recipient participant.")
+  @ApiModelProperty(example = "US.1234", value = "Business-scoped user ID of the recipient participant.")
   public void setRecipientUserId(String recipientUserId) {
     this.recipientUserId = recipientUserId;
   }
 
 
   public WhatsappGroupWebhookMessageStatus parentRecipientUserId(String parentRecipientUserId) {
-    
+
     this.parentRecipientUserId = parentRecipientUserId;
     return this;
   }
@@ -387,7 +387,7 @@ public class WhatsappGroupWebhookMessageStatus {
 
 
   public WhatsappGroupWebhookMessageStatus conversation(WhatsappGroupWebhookConversation conversation) {
-    
+
     this.conversation = conversation;
     return this;
   }
@@ -412,7 +412,7 @@ public class WhatsappGroupWebhookMessageStatus {
 
 
   public WhatsappGroupWebhookMessageStatus pricing(WhatsappGroupWebhookPricing pricing) {
-    
+
     this.pricing = pricing;
     return this;
   }
@@ -437,7 +437,7 @@ public class WhatsappGroupWebhookMessageStatus {
 
 
   public WhatsappGroupWebhookMessageStatus errors(List<Map<String, Object>> errors) {
-    
+
     this.errors = errors;
     return this;
   }

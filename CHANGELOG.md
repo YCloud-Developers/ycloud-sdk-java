@@ -1,4 +1,10 @@
 # Changelog
+## 1.16.1 (2026-06-25)
+- Add WhatsApp BSUID recipient support: WhatsApp message send requests, calling connect requests, and group invite link message requests now support `recipient` as an alternative to `to`.
+- Add WhatsApp customer/profile identity fields including `customerProfile`, `fromUserId`, `fromParentUserId`, `recipient`, `recipientUserId`, `parentRecipientUserId`, and compatibility aliases `toUserId` / `toParentUserId`.
+- Add `username` to the WhatsApp profile model.
+- Remove `groupId` from the WhatsApp inbound message model to match the OpenAPI schema.
+
 ## 1.16.0 (2026-06-25)
 - Add WhatsApp Groups API and related group, participant, invite link, join request, and group webhook models.
 - Add WhatsApp Business Username retrieve, update, delete, and suggestions support.

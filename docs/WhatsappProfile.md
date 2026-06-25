@@ -9,6 +9,7 @@ Represents the profile of a WhatsApp account.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** | Name of the WhatsApp account. |  [optional] |
+|**username** | **String** | WhatsApp username. |  [optional] |
 
 
 

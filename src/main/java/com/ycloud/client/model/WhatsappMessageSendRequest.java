@@ -29,6 +29,7 @@ import com.ycloud.client.model.WhatsappMessageReaction;
 import com.ycloud.client.model.WhatsappMessageTemplate;
 import com.ycloud.client.model.WhatsappMessageText;
 import com.ycloud.client.model.WhatsappMessageType;
+import com.ycloud.client.model.WhatsappProfile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -56,8 +57,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * WhatsappMessageSendRequest
+ * Provide exactly one of &#x60;to&#x60; or &#x60;recipient&#x60;. If both are provided, &#x60;to&#x60; takes precedence and &#x60;recipient&#x60; is ignored.
  */
+@ApiModel(description = "Provide exactly one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageSendRequest {
   public static final String SERIALIZED_NAME_FROM = "from";
@@ -69,10 +71,23 @@ public class WhatsappMessageSendRequest {
 
   public static final String SERIALIZED_NAME_TO = "to";
   /**
-   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided.
   **/
   @SerializedName(SERIALIZED_NAME_TO)
   private String to;
+
+  public static final String SERIALIZED_NAME_RECIPIENT = "recipient";
+  /**
+   * The recipient&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided.
+  **/
+  @SerializedName(SERIALIZED_NAME_RECIPIENT)
+  private String recipient;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
+  private WhatsappProfile customerProfile;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
@@ -174,11 +189,11 @@ public class WhatsappMessageSendRequest {
   @SerializedName(SERIALIZED_NAME_FILTER_BLOCKED)
   private Boolean filterBlocked;
 
-  public WhatsappMessageSendRequest() { 
+  public WhatsappMessageSendRequest() {
   }
 
   public WhatsappMessageSendRequest from(String from) {
-    
+
     this.from = from;
     return this;
   }
@@ -204,16 +219,16 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest to(String to) {
-    
+
     this.to = to;
     return this;
   }
 
    /**
-   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided.
    * @return to
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
 
   public String getTo() {
     return to;
@@ -221,16 +236,67 @@ public class WhatsappMessageSendRequest {
 
 
   /**
-   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+   * The recipient&#39;s phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when &#x60;recipient&#x60; is not provided.
    **/
-  @ApiModelProperty(example = "+16315551111", required = true, value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.")
+  @ApiModelProperty(example = "+16315551111", value = "The recipient's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Required when `recipient` is not provided.")
   public void setTo(String to) {
     this.to = to;
   }
 
 
+  public WhatsappMessageSendRequest recipient(String recipient) {
+
+    this.recipient = recipient;
+    return this;
+  }
+
+   /**
+   * The recipient&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided.
+   * @return recipient
+  **/
+  @javax.annotation.Nullable
+
+  public String getRecipient() {
+    return recipient;
+  }
+
+
+  /**
+   * The recipient&#39;s WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when &#x60;to&#x60; is not provided.
+   **/
+  @ApiModelProperty(example = "US.1234", value = "The recipient's WhatsApp Business-scoped user ID (BSUID) or parent BSUID. Required when `to` is not provided.")
+  public void setRecipient(String recipient) {
+    this.recipient = recipient;
+  }
+
+
+  public WhatsappMessageSendRequest customerProfile(WhatsappProfile customerProfile) {
+
+    this.customerProfile = customerProfile;
+    return this;
+  }
+
+   /**
+   * Get customerProfile
+   * @return customerProfile
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappProfile getCustomerProfile() {
+    return customerProfile;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setCustomerProfile(WhatsappProfile customerProfile) {
+    this.customerProfile = customerProfile;
+  }
+
+
   public WhatsappMessageSendRequest type(WhatsappMessageType type) {
-    
+
     this.type = type;
     return this;
   }
@@ -255,7 +321,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest template(WhatsappMessageTemplate template) {
-    
+
     this.template = template;
     return this;
   }
@@ -280,7 +346,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest text(WhatsappMessageText text) {
-    
+
     this.text = text;
     return this;
   }
@@ -305,7 +371,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest image(WhatsappMessageMedia image) {
-    
+
     this.image = image;
     return this;
   }
@@ -330,7 +396,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest video(WhatsappMessageMedia video) {
-    
+
     this.video = video;
     return this;
   }
@@ -355,7 +421,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest audio(WhatsappMessageMedia audio) {
-    
+
     this.audio = audio;
     return this;
   }
@@ -380,7 +446,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest document(WhatsappMessageMedia document) {
-    
+
     this.document = document;
     return this;
   }
@@ -405,7 +471,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest sticker(WhatsappMessageMedia sticker) {
-    
+
     this.sticker = sticker;
     return this;
   }
@@ -430,7 +496,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest location(WhatsappMessageLocation location) {
-    
+
     this.location = location;
     return this;
   }
@@ -455,7 +521,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest interactive(WhatsappMessageInteractive interactive) {
-    
+
     this.interactive = interactive;
     return this;
   }
@@ -480,7 +546,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest contacts(List<WhatsappMessageContact> contacts) {
-    
+
     this.contacts = contacts;
     return this;
   }
@@ -514,7 +580,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest reaction(WhatsappMessageReaction reaction) {
-    
+
     this.reaction = reaction;
     return this;
   }
@@ -539,7 +605,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest context(WhatsappMessageContext context) {
-    
+
     this.context = context;
     return this;
   }
@@ -564,7 +630,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest externalId(String externalId) {
-    
+
     this.externalId = externalId;
     return this;
   }
@@ -590,7 +656,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest filterUnsubscribed(Boolean filterUnsubscribed) {
-    
+
     this.filterUnsubscribed = filterUnsubscribed;
     return this;
   }
@@ -616,7 +682,7 @@ public class WhatsappMessageSendRequest {
 
 
   public WhatsappMessageSendRequest filterBlocked(Boolean filterBlocked) {
-    
+
     this.filterBlocked = filterBlocked;
     return this;
   }
@@ -688,6 +754,8 @@ public class WhatsappMessageSendRequest {
     WhatsappMessageSendRequest whatsappMessageSendRequest = (WhatsappMessageSendRequest) o;
     return Objects.equals(this.from, whatsappMessageSendRequest.from) &&
         Objects.equals(this.to, whatsappMessageSendRequest.to) &&
+        Objects.equals(this.recipient, whatsappMessageSendRequest.recipient) &&
+        Objects.equals(this.customerProfile, whatsappMessageSendRequest.customerProfile) &&
         Objects.equals(this.type, whatsappMessageSendRequest.type) &&
         Objects.equals(this.template, whatsappMessageSendRequest.template) &&
         Objects.equals(this.text, whatsappMessageSendRequest.text) &&
@@ -709,7 +777,7 @@ public class WhatsappMessageSendRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, filterUnsubscribed, filterBlocked, additionalProperties);
+    return Objects.hash(from, to, recipient, customerProfile, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, filterUnsubscribed, filterBlocked, additionalProperties);
   }
 
   @Override
@@ -718,6 +786,8 @@ public class WhatsappMessageSendRequest {
     sb.append("class WhatsappMessageSendRequest {\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
+    sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
@@ -759,6 +829,8 @@ public class WhatsappMessageSendRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("from");
     openapiFields.add("to");
+    openapiFields.add("recipient");
+    openapiFields.add("customerProfile");
     openapiFields.add("type");
     openapiFields.add("template");
     openapiFields.add("text");
@@ -779,7 +851,6 @@ public class WhatsappMessageSendRequest {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("from");
-    openapiRequiredFields.add("to");
     openapiRequiredFields.add("type");
   }
 
@@ -809,6 +880,13 @@ public class WhatsappMessageSendRequest {
       }
       if (jsonObj.get("to") != null && !jsonObj.get("to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
+      }
+      if (jsonObj.get("recipient") != null && !jsonObj.get("recipient").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recipient` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipient").toString()));
+      }
+      // validate the optional field `customerProfile`
+      if (jsonObj.getAsJsonObject("customerProfile") != null) {
+        WhatsappProfile.validateJsonObject(jsonObj.getAsJsonObject("customerProfile"));
       }
       // validate the optional field `template`
       if (jsonObj.getAsJsonObject("template") != null) {

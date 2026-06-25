@@ -64,11 +64,11 @@ public class WhatsappGroupRemoveParticipant {
   @SerializedName(SERIALIZED_NAME_FROM_USER_ID)
   private String fromUserId;
 
-  public WhatsappGroupRemoveParticipant() { 
+  public WhatsappGroupRemoveParticipant() {
   }
 
   public WhatsappGroupRemoveParticipant user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -94,7 +94,7 @@ public class WhatsappGroupRemoveParticipant {
 
 
   public WhatsappGroupRemoveParticipant fromUserId(String fromUserId) {
-    
+
     this.fromUserId = fromUserId;
     return this;
   }
@@ -113,7 +113,7 @@ public class WhatsappGroupRemoveParticipant {
   /**
    * Business-scoped user ID to remove. Also accepts &#x60;userId&#x60; as an alias.
    **/
-  @ApiModelProperty(example = "US.abc123", value = "Business-scoped user ID to remove. Also accepts `userId` as an alias.")
+  @ApiModelProperty(example = "US.1234", value = "Business-scoped user ID to remove. Also accepts `userId` as an alias.")
   public void setFromUserId(String fromUserId) {
     this.fromUserId = fromUserId;
   }

@@ -78,11 +78,11 @@ public class WhatsappGroupParticipant {
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
 
-  public WhatsappGroupParticipant() { 
+  public WhatsappGroupParticipant() {
   }
 
   public WhatsappGroupParticipant waId(String waId) {
-    
+
     this.waId = waId;
     return this;
   }
@@ -108,7 +108,7 @@ public class WhatsappGroupParticipant {
 
 
   public WhatsappGroupParticipant userId(String userId) {
-    
+
     this.userId = userId;
     return this;
   }
@@ -127,14 +127,14 @@ public class WhatsappGroupParticipant {
   /**
    * Business-scoped user ID.
    **/
-  @ApiModelProperty(example = "US.abc123", value = "Business-scoped user ID.")
+  @ApiModelProperty(example = "US.1234", value = "Business-scoped user ID.")
   public void setUserId(String userId) {
     this.userId = userId;
   }
 
 
   public WhatsappGroupParticipant parentUserId(String parentUserId) {
-    
+
     this.parentUserId = parentUserId;
     return this;
   }
@@ -160,7 +160,7 @@ public class WhatsappGroupParticipant {
 
 
   public WhatsappGroupParticipant username(String username) {
-    
+
     this.username = username;
     return this;
   }

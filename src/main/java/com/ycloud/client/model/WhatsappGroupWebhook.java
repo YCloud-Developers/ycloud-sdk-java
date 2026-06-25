@@ -136,7 +136,7 @@ public class WhatsappGroupWebhook {
   @JsonAdapter(InitiatedByEnum.Adapter.class)
   public enum InitiatedByEnum {
     BUSINESS("business"),
-    
+
     PARTICIPANT("participant");
 
     private String value;
@@ -301,11 +301,11 @@ public class WhatsappGroupWebhook {
   @SerializedName(SERIALIZED_NAME_DEDUPE_KEY)
   private String dedupeKey;
 
-  public WhatsappGroupWebhook() { 
+  public WhatsappGroupWebhook() {
   }
 
   public WhatsappGroupWebhook wabaId(String wabaId) {
-    
+
     this.wabaId = wabaId;
     return this;
   }
@@ -331,7 +331,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook displayPhoneNumber(String displayPhoneNumber) {
-    
+
     this.displayPhoneNumber = displayPhoneNumber;
     return this;
   }
@@ -357,7 +357,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook phoneNumberId(String phoneNumberId) {
-    
+
     this.phoneNumberId = phoneNumberId;
     return this;
   }
@@ -383,7 +383,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook field(WhatsappGroupWebhookField field) {
-    
+
     this.field = field;
     return this;
   }
@@ -408,7 +408,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook type(WhatsappGroupWebhookType type) {
-    
+
     this.type = type;
     return this;
   }
@@ -433,7 +433,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook requestId(String requestId) {
-    
+
     this.requestId = requestId;
     return this;
   }
@@ -459,7 +459,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook status(WhatsappGroupWebhookStatus status) {
-    
+
     this.status = status;
     return this;
   }
@@ -484,7 +484,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook groupId(String groupId) {
-    
+
     this.groupId = groupId;
     return this;
   }
@@ -510,7 +510,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook inviteLink(String inviteLink) {
-    
+
     this.inviteLink = inviteLink;
     return this;
   }
@@ -536,7 +536,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook reason(String reason) {
-    
+
     this.reason = reason;
     return this;
   }
@@ -562,7 +562,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook initiatedBy(InitiatedByEnum initiatedBy) {
-    
+
     this.initiatedBy = initiatedBy;
     return this;
   }
@@ -588,7 +588,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook joinRequestId(String joinRequestId) {
-    
+
     this.joinRequestId = joinRequestId;
     return this;
   }
@@ -614,7 +614,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook waId(String waId) {
-    
+
     this.waId = waId;
     return this;
   }
@@ -640,7 +640,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook recipientUserId(String recipientUserId) {
-    
+
     this.recipientUserId = recipientUserId;
     return this;
   }
@@ -659,14 +659,14 @@ public class WhatsappGroupWebhook {
   /**
    * Business-scoped user ID for a single participant event.
    **/
-  @ApiModelProperty(example = "US.abc123", value = "Business-scoped user ID for a single participant event.")
+  @ApiModelProperty(example = "US.1234", value = "Business-scoped user ID for a single participant event.")
   public void setRecipientUserId(String recipientUserId) {
     this.recipientUserId = recipientUserId;
   }
 
 
   public WhatsappGroupWebhook parentRecipientUserId(String parentRecipientUserId) {
-    
+
     this.parentRecipientUserId = parentRecipientUserId;
     return this;
   }
@@ -692,7 +692,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook customerProfile(WhatsappGroupCustomerProfile customerProfile) {
-    
+
     this.customerProfile = customerProfile;
     return this;
   }
@@ -717,7 +717,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook subject(String subject) {
-    
+
     this.subject = subject;
     return this;
   }
@@ -743,7 +743,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -769,7 +769,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook joinApprovalMode(WhatsappGroupJoinApprovalMode joinApprovalMode) {
-    
+
     this.joinApprovalMode = joinApprovalMode;
     return this;
   }
@@ -794,7 +794,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook addedParticipants(List<WhatsappGroupWebhookParticipant> addedParticipants) {
-    
+
     this.addedParticipants = addedParticipants;
     return this;
   }
@@ -828,7 +828,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook removedParticipants(List<WhatsappGroupWebhookParticipant> removedParticipants) {
-    
+
     this.removedParticipants = removedParticipants;
     return this;
   }
@@ -862,7 +862,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook failedParticipants(List<WhatsappGroupWebhookParticipant> failedParticipants) {
-    
+
     this.failedParticipants = failedParticipants;
     return this;
   }
@@ -896,7 +896,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook settings(List<WhatsappGroupWebhookSetting> settings) {
-    
+
     this.settings = settings;
     return this;
   }
@@ -930,7 +930,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook errors(List<Map<String, Object>> errors) {
-    
+
     this.errors = errors;
     return this;
   }
@@ -964,7 +964,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook contacts(List<WhatsappGroupWebhookStatusContact> contacts) {
-    
+
     this.contacts = contacts;
     return this;
   }
@@ -998,7 +998,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook statuses(List<WhatsappGroupWebhookMessageStatus> statuses) {
-    
+
     this.statuses = statuses;
     return this;
   }
@@ -1032,7 +1032,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook webhookTime(Date webhookTime) {
-    
+
     this.webhookTime = webhookTime;
     return this;
   }
@@ -1058,7 +1058,7 @@ public class WhatsappGroupWebhook {
 
 
   public WhatsappGroupWebhook dedupeKey(String dedupeKey) {
-    
+
     this.dedupeKey = dedupeKey;
     return this;
   }

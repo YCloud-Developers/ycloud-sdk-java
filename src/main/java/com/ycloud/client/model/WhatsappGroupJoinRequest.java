@@ -92,11 +92,11 @@ public class WhatsappGroupJoinRequest {
   @SerializedName(SERIALIZED_NAME_CREATION_TIMESTAMP)
   private Long creationTimestamp;
 
-  public WhatsappGroupJoinRequest() { 
+  public WhatsappGroupJoinRequest() {
   }
 
   public WhatsappGroupJoinRequest joinRequestId(String joinRequestId) {
-    
+
     this.joinRequestId = joinRequestId;
     return this;
   }
@@ -122,7 +122,7 @@ public class WhatsappGroupJoinRequest {
 
 
   public WhatsappGroupJoinRequest waId(String waId) {
-    
+
     this.waId = waId;
     return this;
   }
@@ -148,7 +148,7 @@ public class WhatsappGroupJoinRequest {
 
 
   public WhatsappGroupJoinRequest userId(String userId) {
-    
+
     this.userId = userId;
     return this;
   }
@@ -167,14 +167,14 @@ public class WhatsappGroupJoinRequest {
   /**
    * Business-scoped user ID.
    **/
-  @ApiModelProperty(example = "US.abc123", value = "Business-scoped user ID.")
+  @ApiModelProperty(example = "US.1234", value = "Business-scoped user ID.")
   public void setUserId(String userId) {
     this.userId = userId;
   }
 
 
   public WhatsappGroupJoinRequest parentUserId(String parentUserId) {
-    
+
     this.parentUserId = parentUserId;
     return this;
   }
@@ -200,7 +200,7 @@ public class WhatsappGroupJoinRequest {
 
 
   public WhatsappGroupJoinRequest username(String username) {
-    
+
     this.username = username;
     return this;
   }
@@ -226,7 +226,7 @@ public class WhatsappGroupJoinRequest {
 
 
   public WhatsappGroupJoinRequest creationTimestamp(Long creationTimestamp) {
-    
+
     this.creationTimestamp = creationTimestamp;
     return this;
   }

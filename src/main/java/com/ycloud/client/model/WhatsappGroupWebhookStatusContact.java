@@ -78,11 +78,11 @@ public class WhatsappGroupWebhookStatusContact {
   @SerializedName(SERIALIZED_NAME_PARENT_RECIPIENT_USER_ID)
   private String parentRecipientUserId;
 
-  public WhatsappGroupWebhookStatusContact() { 
+  public WhatsappGroupWebhookStatusContact() {
   }
 
   public WhatsappGroupWebhookStatusContact customerProfile(WhatsappGroupCustomerProfile customerProfile) {
-    
+
     this.customerProfile = customerProfile;
     return this;
   }
@@ -107,7 +107,7 @@ public class WhatsappGroupWebhookStatusContact {
 
 
   public WhatsappGroupWebhookStatusContact waId(String waId) {
-    
+
     this.waId = waId;
     return this;
   }
@@ -133,7 +133,7 @@ public class WhatsappGroupWebhookStatusContact {
 
 
   public WhatsappGroupWebhookStatusContact recipientUserId(String recipientUserId) {
-    
+
     this.recipientUserId = recipientUserId;
     return this;
   }
@@ -152,14 +152,14 @@ public class WhatsappGroupWebhookStatusContact {
   /**
    * Business-scoped user ID.
    **/
-  @ApiModelProperty(example = "US.abc123", value = "Business-scoped user ID.")
+  @ApiModelProperty(example = "US.1234", value = "Business-scoped user ID.")
   public void setRecipientUserId(String recipientUserId) {
     this.recipientUserId = recipientUserId;
   }
 
 
   public WhatsappGroupWebhookStatusContact parentRecipientUserId(String parentRecipientUserId) {
-    
+
     this.parentRecipientUserId = parentRecipientUserId;
     return this;
   }
