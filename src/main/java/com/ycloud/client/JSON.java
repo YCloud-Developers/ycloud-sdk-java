@@ -100,6 +100,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactCreated.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactCustomAttribute.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactDeleted.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactNote.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactPage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactUnsubscribeCreated.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ContactUnsubscribeDeleted.CustomTypeAdapterFactory());

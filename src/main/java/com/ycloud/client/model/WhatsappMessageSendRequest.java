@@ -175,16 +175,84 @@ public class WhatsappMessageSendRequest {
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
+  /**
+   * **Optional.** Indicates the category of the message to be sent with Direct Send. Supported values are &#x60;utility&#x60; and &#x60;authentication&#x60;.  Use &#x60;utility&#x60; for business-initiated utility messages. Messages sent with &#x60;utility&#x60; are charged at utility rates.  Use &#x60;authentication&#x60; for business-initiated authentication messages. Messages sent with &#x60;authentication&#x60; are charged at authentication rates. Authentication Direct Send only supports &#x60;text&#x60; messages.
+   */
+  @JsonAdapter(CategoryEnum.Adapter.class)
+  public enum CategoryEnum {
+    UTILITY("utility"),
+
+    AUTHENTICATION("authentication");
+
+    private String value;
+
+    CategoryEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CategoryEnum fromValue(String value) {
+      for (CategoryEnum b : CategoryEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<CategoryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CategoryEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CategoryEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return CategoryEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_CATEGORY = "category";
+  /**
+   * **Optional.** Indicates the category of the message to be sent with Direct Send. Supported values are &#x60;utility&#x60; and &#x60;authentication&#x60;.  Use &#x60;utility&#x60; for business-initiated utility messages. Messages sent with &#x60;utility&#x60; are charged at utility rates.  Use &#x60;authentication&#x60; for business-initiated authentication messages. Messages sent with &#x60;authentication&#x60; are charged at authentication rates. Authentication Direct Send only supports &#x60;text&#x60; messages.
+  **/
+  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  private CategoryEnum category;
+
+  public static final String SERIALIZED_NAME_TTL_SECONDS = "ttlSeconds";
+  /**
+   * **Optional.** Message time-to-live in seconds for Direct Send &#x60;utility&#x60; or &#x60;authentication&#x60; messages.  The supported range is 30 seconds to 43200 seconds (12 hours). If omitted, the default Direct Send TTL is used.
+  **/
+  @SerializedName(SERIALIZED_NAME_TTL_SECONDS)
+  private Integer ttlSeconds;
+
+  public static final String SERIALIZED_NAME_USE_DIRECT_SEND = "useDirectSend";
+  /**
+   * **Optional.** Whether to send the message through Direct Send. Defaults to &#x60;false&#x60;.  Set this to &#x60;true&#x60; to send the message through Direct Send when the sender WABA is enabled for Direct Send.  For template messages, the template must be convertible to a Direct Send message type. Supported Direct Send message types for template conversion are:  - Text messages - Interactive Call-to-Action URL button messages - Interactive reply button messages
+  **/
+  @SerializedName(SERIALIZED_NAME_USE_DIRECT_SEND)
+  private Boolean useDirectSend = false;
+
   public static final String SERIALIZED_NAME_FILTER_UNSUBSCRIBED = "filterUnsubscribed";
   /**
-   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;.
+   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;.
   **/
   @SerializedName(SERIALIZED_NAME_FILTER_UNSUBSCRIBED)
   private Boolean filterUnsubscribed;
 
   public static final String SERIALIZED_NAME_FILTER_BLOCKED = "filterBlocked";
   /**
-   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;.
+   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;.
   **/
   @SerializedName(SERIALIZED_NAME_FILTER_BLOCKED)
   private Boolean filterBlocked;
@@ -655,6 +723,86 @@ public class WhatsappMessageSendRequest {
   }
 
 
+  public WhatsappMessageSendRequest category(CategoryEnum category) {
+
+    this.category = category;
+    return this;
+  }
+
+   /**
+   * **Optional.** Indicates the category of the message to be sent with Direct Send. Supported values are &#x60;utility&#x60; and &#x60;authentication&#x60;.  Use &#x60;utility&#x60; for business-initiated utility messages. Messages sent with &#x60;utility&#x60; are charged at utility rates.  Use &#x60;authentication&#x60; for business-initiated authentication messages. Messages sent with &#x60;authentication&#x60; are charged at authentication rates. Authentication Direct Send only supports &#x60;text&#x60; messages.
+   * @return category
+  **/
+  @javax.annotation.Nullable
+
+  public CategoryEnum getCategory() {
+    return category;
+  }
+
+
+  /**
+   * **Optional.** Indicates the category of the message to be sent with Direct Send. Supported values are &#x60;utility&#x60; and &#x60;authentication&#x60;.  Use &#x60;utility&#x60; for business-initiated utility messages. Messages sent with &#x60;utility&#x60; are charged at utility rates.  Use &#x60;authentication&#x60; for business-initiated authentication messages. Messages sent with &#x60;authentication&#x60; are charged at authentication rates. Authentication Direct Send only supports &#x60;text&#x60; messages.
+   **/
+  @ApiModelProperty(example = "utility", value = "**Optional.** Indicates the category of the message to be sent with Direct Send. Supported values are `utility` and `authentication`.  Use `utility` for business-initiated utility messages. Messages sent with `utility` are charged at utility rates.  Use `authentication` for business-initiated authentication messages. Messages sent with `authentication` are charged at authentication rates. Authentication Direct Send only supports `text` messages.")
+  public void setCategory(CategoryEnum category) {
+    this.category = category;
+  }
+
+
+  public WhatsappMessageSendRequest ttlSeconds(Integer ttlSeconds) {
+
+    this.ttlSeconds = ttlSeconds;
+    return this;
+  }
+
+   /**
+   * **Optional.** Message time-to-live in seconds for Direct Send &#x60;utility&#x60; or &#x60;authentication&#x60; messages.  The supported range is 30 seconds to 43200 seconds (12 hours). If omitted, the default Direct Send TTL is used.
+   * minimum: 30
+   * maximum: 43200
+   * @return ttlSeconds
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getTtlSeconds() {
+    return ttlSeconds;
+  }
+
+
+  /**
+   * **Optional.** Message time-to-live in seconds for Direct Send &#x60;utility&#x60; or &#x60;authentication&#x60; messages.  The supported range is 30 seconds to 43200 seconds (12 hours). If omitted, the default Direct Send TTL is used.
+   **/
+  @ApiModelProperty(example = "600", value = "**Optional.** Message time-to-live in seconds for Direct Send `utility` or `authentication` messages.  The supported range is 30 seconds to 43200 seconds (12 hours). If omitted, the default Direct Send TTL is used.")
+  public void setTtlSeconds(Integer ttlSeconds) {
+    this.ttlSeconds = ttlSeconds;
+  }
+
+
+  public WhatsappMessageSendRequest useDirectSend(Boolean useDirectSend) {
+
+    this.useDirectSend = useDirectSend;
+    return this;
+  }
+
+   /**
+   * **Optional.** Whether to send the message through Direct Send. Defaults to &#x60;false&#x60;.  Set this to &#x60;true&#x60; to send the message through Direct Send when the sender WABA is enabled for Direct Send.  For template messages, the template must be convertible to a Direct Send message type. Supported Direct Send message types for template conversion are:  - Text messages - Interactive Call-to-Action URL button messages - Interactive reply button messages
+   * @return useDirectSend
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getUseDirectSend() {
+    return useDirectSend;
+  }
+
+
+  /**
+   * **Optional.** Whether to send the message through Direct Send. Defaults to &#x60;false&#x60;.  Set this to &#x60;true&#x60; to send the message through Direct Send when the sender WABA is enabled for Direct Send.  For template messages, the template must be convertible to a Direct Send message type. Supported Direct Send message types for template conversion are:  - Text messages - Interactive Call-to-Action URL button messages - Interactive reply button messages
+   **/
+  @ApiModelProperty(value = "**Optional.** Whether to send the message through Direct Send. Defaults to `false`.  Set this to `true` to send the message through Direct Send when the sender WABA is enabled for Direct Send.  For template messages, the template must be convertible to a Direct Send message type. Supported Direct Send message types for template conversion are:  - Text messages - Interactive Call-to-Action URL button messages - Interactive reply button messages")
+  public void setUseDirectSend(Boolean useDirectSend) {
+    this.useDirectSend = useDirectSend;
+  }
+
+
   public WhatsappMessageSendRequest filterUnsubscribed(Boolean filterUnsubscribed) {
 
     this.filterUnsubscribed = filterUnsubscribed;
@@ -662,7 +810,7 @@ public class WhatsappMessageSendRequest {
   }
 
    /**
-   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;.
+   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;.
    * @return filterUnsubscribed
   **/
   @javax.annotation.Nullable
@@ -673,9 +821,9 @@ public class WhatsappMessageSendRequest {
 
 
   /**
-   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;.
+   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;.
    **/
-  @ApiModelProperty(value = "**Optional.** If set to `true`, the message will not be sent to users who have unsubscribed from your account. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user has unsubscribed, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_UNSUBSCRIBED`.  Not applicable to `POST /v2/whatsapp/message/sendDirectly`.")
+  @ApiModelProperty(value = "**Optional.** If set to `true`, the message will not be sent to users who have unsubscribed from your account. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user has unsubscribed, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_UNSUBSCRIBED`.  Not applicable to `POST /v2/whatsapp/messages/sendDirectly`.")
   public void setFilterUnsubscribed(Boolean filterUnsubscribed) {
     this.filterUnsubscribed = filterUnsubscribed;
   }
@@ -688,7 +836,7 @@ public class WhatsappMessageSendRequest {
   }
 
    /**
-   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;.
+   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;.
    * @return filterBlocked
   **/
   @javax.annotation.Nullable
@@ -699,9 +847,9 @@ public class WhatsappMessageSendRequest {
 
 
   /**
-   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/message/sendDirectly&#x60;.
+   * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users in your block list. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user is in your block list, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_IN_BLOCK_LIST&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;.
    **/
-  @ApiModelProperty(value = "**Optional.** If set to `true`, the message will not be sent to users in your block list. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user is in your block list, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.  Not applicable to `POST /v2/whatsapp/message/sendDirectly`.")
+  @ApiModelProperty(value = "**Optional.** If set to `true`, the message will not be sent to users in your block list. Defaults to `false`.  Only use for `POST /v2/whatsapp/messages`. If the user is in your block list, we will push webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.  Not applicable to `POST /v2/whatsapp/messages/sendDirectly`.")
   public void setFilterBlocked(Boolean filterBlocked) {
     this.filterBlocked = filterBlocked;
   }
@@ -770,6 +918,9 @@ public class WhatsappMessageSendRequest {
         Objects.equals(this.reaction, whatsappMessageSendRequest.reaction) &&
         Objects.equals(this.context, whatsappMessageSendRequest.context) &&
         Objects.equals(this.externalId, whatsappMessageSendRequest.externalId) &&
+        Objects.equals(this.category, whatsappMessageSendRequest.category) &&
+        Objects.equals(this.ttlSeconds, whatsappMessageSendRequest.ttlSeconds) &&
+        Objects.equals(this.useDirectSend, whatsappMessageSendRequest.useDirectSend) &&
         Objects.equals(this.filterUnsubscribed, whatsappMessageSendRequest.filterUnsubscribed) &&
         Objects.equals(this.filterBlocked, whatsappMessageSendRequest.filterBlocked)&&
         Objects.equals(this.additionalProperties, whatsappMessageSendRequest.additionalProperties);
@@ -777,7 +928,7 @@ public class WhatsappMessageSendRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to, recipient, customerProfile, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, filterUnsubscribed, filterBlocked, additionalProperties);
+    return Objects.hash(from, to, recipient, customerProfile, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, category, ttlSeconds, useDirectSend, filterUnsubscribed, filterBlocked, additionalProperties);
   }
 
   @Override
@@ -802,6 +953,9 @@ public class WhatsappMessageSendRequest {
     sb.append("    reaction: ").append(toIndentedString(reaction)).append("\n");
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    ttlSeconds: ").append(toIndentedString(ttlSeconds)).append("\n");
+    sb.append("    useDirectSend: ").append(toIndentedString(useDirectSend)).append("\n");
     sb.append("    filterUnsubscribed: ").append(toIndentedString(filterUnsubscribed)).append("\n");
     sb.append("    filterBlocked: ").append(toIndentedString(filterBlocked)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -845,6 +999,9 @@ public class WhatsappMessageSendRequest {
     openapiFields.add("reaction");
     openapiFields.add("context");
     openapiFields.add("externalId");
+    openapiFields.add("category");
+    openapiFields.add("ttlSeconds");
+    openapiFields.add("useDirectSend");
     openapiFields.add("filterUnsubscribed");
     openapiFields.add("filterBlocked");
 
@@ -947,6 +1104,9 @@ public class WhatsappMessageSendRequest {
       if (jsonObj.get("externalId") != null && !jsonObj.get("externalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
       }
+      if (jsonObj.get("category") != null && !jsonObj.get("category").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -1033,4 +1193,3 @@ public class WhatsappMessageSendRequest {
     return JSON.getGson().toJson(this);
   }
 }
-

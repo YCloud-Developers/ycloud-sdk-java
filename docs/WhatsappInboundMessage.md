@@ -34,6 +34,4 @@ WhatsApp inbound message object.
 |**errors** | [**List&lt;WhatsappInboundMessageError&gt;**](WhatsappInboundMessageError.md) |  |  [optional] |
 |**context** | [**WhatsappInboundMessageContext**](WhatsappInboundMessageContext.md) |  |  [optional] |
 |**referral** | [**WhatsappInboundMessageReferral**](WhatsappInboundMessageReferral.md) |  |  [optional] |
-
-
-
+|**groupId** | **String** | WhatsApp group ID. This field is included when the inbound message is sent in a WhatsApp group. |  [optional] |
