@@ -231,6 +231,13 @@ public class WhatsappInboundMessage {
   @SerializedName(SERIALIZED_NAME_REFERRAL)
   private WhatsappInboundMessageReferral referral;
 
+  public static final String SERIALIZED_NAME_GROUP_ID = "groupId";
+  /**
+   * WhatsApp group ID. This field is included when the inbound message is sent in a WhatsApp group.
+  **/
+  @SerializedName(SERIALIZED_NAME_GROUP_ID)
+  private String groupId;
+
   public WhatsappInboundMessage() {
   }
 
@@ -907,6 +914,32 @@ public class WhatsappInboundMessage {
     this.referral = referral;
   }
 
+
+  public WhatsappInboundMessage groupId(String groupId) {
+
+    this.groupId = groupId;
+    return this;
+  }
+
+   /**
+   * WhatsApp group ID. This field is included when the inbound message is sent in a WhatsApp group.
+   * @return groupId
+  **/
+  @javax.annotation.Nullable
+
+  public String getGroupId() {
+    return groupId;
+  }
+
+
+  /**
+   * WhatsApp group ID. This field is included when the inbound message is sent in a WhatsApp group.
+   **/
+  @ApiModelProperty(example = "120363345678901234@g.us", value = "WhatsApp group ID. This field is included when the inbound message is sent in a WhatsApp group.")
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -978,13 +1011,14 @@ public class WhatsappInboundMessage {
         Objects.equals(this.system, whatsappInboundMessage.system) &&
         Objects.equals(this.errors, whatsappInboundMessage.errors) &&
         Objects.equals(this.context, whatsappInboundMessage.context) &&
-        Objects.equals(this.referral, whatsappInboundMessage.referral)&&
+        Objects.equals(this.referral, whatsappInboundMessage.referral) &&
+        Objects.equals(this.groupId, whatsappInboundMessage.groupId)&&
         Objects.equals(this.additionalProperties, whatsappInboundMessage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, fromUserId, fromParentUserId, customerProfile, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, reaction, order, system, errors, context, referral, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, fromUserId, fromParentUserId, customerProfile, to, sendTime, type, text, image, video, audio, document, sticker, interactive, location, button, contacts, reaction, order, system, errors, context, referral, groupId, additionalProperties);
   }
 
   @Override
@@ -1017,6 +1051,7 @@ public class WhatsappInboundMessage {
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    referral: ").append(toIndentedString(referral)).append("\n");
+    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1066,6 +1101,7 @@ public class WhatsappInboundMessage {
     openapiFields.add("errors");
     openapiFields.add("context");
     openapiFields.add("referral");
+    openapiFields.add("groupId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1198,6 +1234,9 @@ public class WhatsappInboundMessage {
       if (jsonObj.getAsJsonObject("referral") != null) {
         WhatsappInboundMessageReferral.validateJsonObject(jsonObj.getAsJsonObject("referral"));
       }
+      if (jsonObj.get("groupId") != null && !jsonObj.get("groupId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `groupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("groupId").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -1284,4 +1323,3 @@ public class WhatsappInboundMessage {
     return JSON.getGson().toJson(this);
   }
 }
-

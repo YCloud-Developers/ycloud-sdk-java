@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.16.1</version>
+  <version>1.16.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.16.1"
+     implementation "com.ycloud:ycloud-sdk-java:1.16.2"
   }
 ```
 
@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**create**](docs/ContactsApi.md#create) | **POST** /contact/contacts | Create a contact
 *ContactsApi* | [**delete**](docs/ContactsApi.md#delete) | **DELETE** /contact/contacts/{id} | Delete a contact
 *ContactsApi* | [**list**](docs/ContactsApi.md#list) | **GET** /contact/contacts | List contacts
+*ContactsApi* | [**notesList**](docs/ContactsApi.md#notesList) | **GET** /contact/contacts/{id}/notes | List contact notes
 *ContactsApi* | [**retrieve**](docs/ContactsApi.md#retrieve) | **GET** /contact/contacts/{id} | Retrieve a contact
 *ContactsApi* | [**update**](docs/ContactsApi.md#update) | **PATCH** /contact/contacts/{id} | Update a contact
 *CustomEventsApi* | [**createDefinition**](docs/CustomEventsApi.md#createDefinition) | **POST** /event/definitions | Create an event definition
@@ -193,6 +194,7 @@ Class | Method | HTTP request | Description
  - [ContactCreated](docs/ContactCreated.md)
  - [ContactCustomAttribute](docs/ContactCustomAttribute.md)
  - [ContactDeleted](docs/ContactDeleted.md)
+ - [ContactNote](docs/ContactNote.md)
  - [ContactPage](docs/ContactPage.md)
  - [ContactSourceType](docs/ContactSourceType.md)
  - [ContactUnsubscribeCreated](docs/ContactUnsubscribeCreated.md)

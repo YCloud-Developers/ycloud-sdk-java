@@ -266,6 +266,48 @@ paths:
       - Contacts
       x-content-type: application/json
       x-accepts: application/json
+  /contact/contacts/{id}/notes:
+    get:
+      description: "Returns all notes for a contact, ordered by creation time descending.\n\
+        The `{id}` path parameter supports contact ID and phone number. A phone number\
+        \ can be provided in E.164 format, such as `+16315551111`. If a numeric contact\
+        \ ID is not found, the same value is retried as a phone number with a leading\
+        \ `+`, so `861...` can match a stored `+861...` phone number.\nContact retrieve,\
+        \ list, and search responses do not include notes; use this endpoint to read\
+        \ contact notes."
+      operationId: contact-notes-list
+      parameters:
+      - description: "ID of the contact.\nAlso support phone number([E.164](https://en.wikipedia.org/wiki/E.164)\
+          \ format, start with character '+'), example: +16315551111"
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 1693364594105000026/+16315551111
+          maxLength: 255
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ContactNote'
+                maxItems: 50
+                type: array
+          description: Successfully retrieved contact notes.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource does not exist.
+      summary: List contact notes
+      tags:
+      - Contacts
+      x-accepts: application/json
   /contact/contacts/attributes:
     get:
       description: Returns a list of all available contact attributes and their configurations.
@@ -3942,6 +3984,55 @@ components:
           maxLength: 500
           type: string
       required:
+      - id
+      type: object
+    ContactNote:
+      description: Represents an internal note attached to a contact.
+      example:
+        contactId: "1693364594105000026"
+        createTime: 2022-06-01T12:00:00Z
+        updateOperatorId: user_123
+        updateTime: 2022-06-01T12:00:00Z
+        id: 6a3de646e18f344f743aaa4d
+        operatorId: user_123
+        content: Customer prefers follow-up in the morning.
+      properties:
+        id:
+          description: Unique ID for the contact note.
+          example: 6a3de646e18f344f743aaa4d
+          type: string
+        contactId:
+          description: Unique ID of the contact that owns this note.
+          example: "1693364594105000026"
+          type: string
+        content:
+          description: Note content.
+          example: Customer prefers follow-up in the morning.
+          maxLength: 500
+          type: string
+        operatorId:
+          description: ID of the actor who created the note.
+          example: user_123
+          type: string
+        updateOperatorId:
+          description: ID of the actor who last updated the note.
+          example: user_123
+          type: string
+        createTime:
+          description: "The time at which the note was created, formatted in [RFC\
+            \ 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+        updateTime:
+          description: "The time at which the note was last updated, formatted in\
+            \ [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., `2022-06-01T12:00:00.000Z`."
+          example: 2022-06-01T12:00:00Z
+          format: date-time
+          type: string
+      required:
+      - contactId
+      - content
       - id
       type: object
     ContactCustomAttribute:
@@ -8235,6 +8326,11 @@ components:
           $ref: '#/components/schemas/WhatsappInboundMessageContext'
         referral:
           $ref: '#/components/schemas/WhatsappInboundMessageReferral'
+        groupId:
+          description: WhatsApp group ID. This field is included when the inbound
+            message is sent in a WhatsApp group.
+          example: 120363345678901234@g.us
+          type: string
       required:
       - id
       type: object
@@ -23527,6 +23623,7 @@ components:
           body:
             text: text
         externalId: externalId
+        useDirectSend: false
         video:
           filename: filename
           link: link
@@ -23552,6 +23649,8 @@ components:
           link: link
           caption: caption
           id: id
+        category: utility
+        ttlSeconds: 600
         contacts:
         - birthday: 2022-09-27
           emails:
@@ -23694,19 +23793,51 @@ components:
             \ can be an order number or similar, and can be used to reconcile the\
             \ object with your internal systems."
           type: string
+        category:
+          description: |-
+            **Optional.**
+            Indicates the category of the message to be sent with Direct Send. Supported values are `utility` and `authentication`.
+
+            Use `utility` for business-initiated utility messages. Messages sent with `utility` are charged at utility rates.
+
+            Use `authentication` for business-initiated authentication messages. Messages sent with `authentication` are charged at authentication rates. Authentication Direct Send only supports `text` messages.
+          enum:
+          - utility
+          - authentication
+          example: utility
+          type: string
+        ttlSeconds:
+          description: "**Optional.**\nMessage time-to-live in seconds for Direct\
+            \ Send `utility` or `authentication` messages.\n\nThe supported range\
+            \ is 30 seconds to 43200 seconds (12 hours). If omitted, the default Direct\
+            \ Send TTL is used."
+          example: 600
+          maximum: 43200
+          minimum: 30
+          type: integer
+        useDirectSend:
+          default: false
+          description: "**Optional.**\nWhether to send the message through Direct\
+            \ Send. Defaults to `false`.\n\nSet this to `true` to send the message\
+            \ through Direct Send when the sender WABA is enabled for Direct Send.\n\
+            \nFor template messages, the template must be convertible to a Direct\
+            \ Send message type. Supported Direct Send message types for template\
+            \ conversion are:\n\n- Text messages\n- Interactive Call-to-Action URL\
+            \ button messages\n- Interactive reply button messages"
+          type: boolean
         filterUnsubscribed:
           description: "**Optional.**\nIf set to `true`, the message will not be sent\
             \ to users who have unsubscribed from your account. Defaults to `false`.\n\
             \nOnly use for `POST /v2/whatsapp/messages`. If the user has unsubscribed,\
             \ we will push webhook notifications with `whatsappMessage.errorCode`\
-            \ set to `RECIPIENT_UNSUBSCRIBED`.\n\nNot applicable to `POST /v2/whatsapp/message/sendDirectly`."
+            \ set to `RECIPIENT_UNSUBSCRIBED`.\n\nNot applicable to `POST /v2/whatsapp/messages/sendDirectly`."
           type: boolean
         filterBlocked:
           description: "**Optional.**\nIf set to `true`, the message will not be sent\
             \ to users in your block list. Defaults to `false`.\n\nOnly use for `POST\
             \ /v2/whatsapp/messages`. If the user is in your block list, we will push\
             \ webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.\n\
-            \nNot applicable to `POST /v2/whatsapp/message/sendDirectly`."
+            \nNot applicable to `POST /v2/whatsapp/messages/sendDirectly`."
           type: boolean
       required:
       - from
@@ -46480,4 +46611,3 @@ components:
       in: header
       name: X-API-Key
       type: apiKey
-

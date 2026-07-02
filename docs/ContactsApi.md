@@ -8,6 +8,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 | [**create**](ContactsApi.md#create) | **POST** /contact/contacts | Create a contact |
 | [**delete**](ContactsApi.md#delete) | **DELETE** /contact/contacts/{id} | Delete a contact |
 | [**list**](ContactsApi.md#list) | **GET** /contact/contacts | List contacts |
+| [**notesList**](ContactsApi.md#notesList) | **GET** /contact/contacts/{id}/notes | List contact notes |
 | [**retrieve**](ContactsApi.md#retrieve) | **GET** /contact/contacts/{id} | Retrieve a contact |
 | [**update**](ContactsApi.md#update) | **PATCH** /contact/contacts/{id} | Update a contact |
 
@@ -34,7 +35,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -99,7 +100,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -107,7 +108,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     ContactsApi apiInstance = new ContactsApi(defaultClient);
-    ContactCreateRequest contactCreateRequest = new ContactCreateRequest(); // ContactCreateRequest | 
+    ContactCreateRequest contactCreateRequest = new ContactCreateRequest(); // ContactCreateRequest |
     try {
       Contact result = apiInstance.create(contactCreateRequest);
       System.out.println(result);
@@ -168,7 +169,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -238,7 +239,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -305,6 +306,76 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved a paginated list of objects. |  -  |
 
+<a name="notesList"></a>
+# **notesList**
+> List&lt;ContactNote&gt; notesList(id)
+
+List contact notes
+
+Returns all notes for a contact, ordered by creation time descending. The &#x60;{id}&#x60; path parameter supports contact ID and phone number. A phone number can be provided in E.164 format, such as &#x60;+16315551111&#x60;. If a numeric contact ID is not found, the same value is retried as a phone number with a leading &#x60;+&#x60;, so &#x60;861...&#x60; can match a stored &#x60;+861...&#x60; phone number. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    String id = "1693364594105000026/+16315551111"; // String | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
+    try {
+      List<ContactNote> result = apiInstance.notesList(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#notesList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 | |
+
+### Return type
+
+[**List&lt;ContactNote&gt;**](ContactNote.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved contact notes. |  -  |
+| **404** | The requested resource does not exist. |  -  |
+
 <a name="retrieve"></a>
 # **retrieve**
 > Contact retrieve(id)
@@ -327,7 +398,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -397,7 +468,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -406,7 +477,7 @@ public class Example {
 
     ContactsApi apiInstance = new ContactsApi(defaultClient);
     String id = "1693364594105000026/+16315551111"; // String | ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character '+'), example: +16315551111
-    ContactUpdateRequest contactUpdateRequest = new ContactUpdateRequest(); // ContactUpdateRequest | 
+    ContactUpdateRequest contactUpdateRequest = new ContactUpdateRequest(); // ContactUpdateRequest |
     try {
       Contact result = apiInstance.update(id, contactUpdateRequest);
       System.out.println(result);
@@ -446,4 +517,3 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successfully updated the contact. |  -  |
 | **404** | The requested resource does not exist. |  -  |
-

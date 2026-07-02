@@ -30,6 +30,7 @@ import java.io.IOException;
 import com.ycloud.client.model.Contact;
 import com.ycloud.client.model.ContactAttribute;
 import com.ycloud.client.model.ContactCreateRequest;
+import com.ycloud.client.model.ContactNote;
 import com.ycloud.client.model.ContactPage;
 import com.ycloud.client.model.ContactUpdateRequest;
 import com.ycloud.client.model.ErrorResponse;
@@ -123,7 +124,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -136,7 +137,7 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call attributesListValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = attributesListCall(_callback);
         return localVarCall;
@@ -257,12 +258,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(ContactCreateRequest contactCreateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'contactCreateRequest' is set
         if (contactCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'contactCreateRequest' when calling create(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createCall(contactCreateRequest, _callback);
         return localVarCall;
@@ -375,7 +376,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -388,12 +389,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteCall(id, _callback);
         return localVarCall;
@@ -523,7 +524,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -536,7 +537,7 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail, final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
         return localVarCall;
@@ -715,6 +716,140 @@ public class ContactsApi {
         return new ApiListRequest();
     }
     /**
+     * Build call for notesList
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved contact notes. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call notesListCall(String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/contact/contacts/{id}/notes"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call notesListValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling notesList(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = notesListCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List contact notes
+     * <p>
+     * Returns all notes for a contact, ordered by creation time descending. The &#x60;{id}&#x60; path parameter supports contact ID and phone number. A phone number can be provided in E.164 format, such as &#x60;+16315551111&#x60;. If a numeric contact ID is not found, the same value is retried as a phone number with a leading &#x60;+&#x60;, so &#x60;861...&#x60; can match a stored &#x60;+861...&#x60; phone number. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @return List&lt;ContactNote&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved contact notes. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<ContactNote> notesList(String id) throws ApiException {
+        ApiResponse<List<ContactNote>> localVarResp = notesListWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List contact notes
+     * <p>
+     * Returns all notes for a contact, ordered by creation time descending. The &#x60;{id}&#x60; path parameter supports contact ID and phone number. A phone number can be provided in E.164 format, such as &#x60;+16315551111&#x60;. If a numeric contact ID is not found, the same value is retried as a phone number with a leading &#x60;+&#x60;, so &#x60;861...&#x60; can match a stored &#x60;+861...&#x60; phone number. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @return ApiResponse&lt;List&lt;ContactNote&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved contact notes. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<ContactNote>> notesListWithHttpInfo(String id) throws ApiException {
+        okhttp3.Call localVarCall = notesListValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<List<ContactNote>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List contact notes (asynchronously)
+     * <p>
+     * Returns all notes for a contact, ordered by creation time descending. The &#x60;{id}&#x60; path parameter supports contact ID and phone number. A phone number can be provided in E.164 format, such as &#x60;+16315551111&#x60;. If a numeric contact ID is not found, the same value is retried as a phone number with a leading &#x60;+&#x60;, so &#x60;861...&#x60; can match a stored &#x60;+861...&#x60; phone number. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
+     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved contact notes. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call notesListAsync(String id, final ApiCallback<List<ContactNote>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = notesListValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<List<ContactNote>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for retrieve
      * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
      * @param _callback Callback for upload/download progress
@@ -762,7 +897,7 @@ public class ContactsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -775,12 +910,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling retrieve(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveCall(id, _callback);
         return localVarCall;
@@ -910,12 +1045,12 @@ public class ContactsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateValidateBeforeCall(String id, ContactUpdateRequest contactUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling update(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateCall(id, contactUpdateRequest, _callback);
         return localVarCall;

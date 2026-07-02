@@ -1,4 +1,9 @@
 # Changelog
+## 1.16.2 (2026-07-02)
+- Add Contacts API support for listing contact notes and add the `ContactNote` model.
+- Restore `groupId` on WhatsApp inbound message models for group inbound messages.
+- Add Direct Send options to WhatsApp message send requests: `category`, `ttlSeconds`, and `useDirectSend`.
+
 ## 1.16.1 (2026-06-25)
 - Add WhatsApp BSUID recipient support: WhatsApp message send requests, calling connect requests, and group invite link message requests now support `recipient` as an alternative to `to`.
 - Add WhatsApp customer/profile identity fields including `customerProfile`, `fromUserId`, `fromParentUserId`, `recipient`, `recipientUserId`, `parentRecipientUserId`, and compatibility aliases `toUserId` / `toParentUserId`.
