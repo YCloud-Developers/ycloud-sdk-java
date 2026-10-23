@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.ycloud.client.model.ErrorResponse;
+import com.ycloud.client.model.WhatsappInboundMessageTypingResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -121,7 +122,7 @@ public class WhatsappInboundMessagesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -134,12 +135,12 @@ public class WhatsappInboundMessagesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call markAsReadValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling markAsRead(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = markAsReadCall(id, _callback);
         return localVarCall;
@@ -204,7 +205,7 @@ public class WhatsappInboundMessagesApi {
         return localVarCall;
     }
     /**
-     * Build call for typingIndicator
+     * Build call for typing
      * @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -212,11 +213,16 @@ public class WhatsappInboundMessagesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully marked the message as read. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully marked the message as read and displayed a typing indicator. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The inbound message cannot be used to send a typing indicator, or the upstream request is invalid. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed because the API key is missing or invalid. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You do not have access to the inbound message or permission to use this endpoint. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested inbound message does not exist. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests were sent in a given amount of time. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The typing indicator could not be sent because of an internal or upstream error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call typingIndicatorCall(String id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call typingCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -233,7 +239,7 @@ public class WhatsappInboundMessagesApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/whatsapp/inboundMessages/{id}/typingIndicator"
+        String localVarPath = "/whatsapp/inboundMessages/{id}/typing"
             .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -251,7 +257,7 @@ public class WhatsappInboundMessagesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -263,59 +269,72 @@ public class WhatsappInboundMessagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call typingIndicatorValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call typingValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling typingIndicator(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling typing(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = typingIndicatorCall(id, _callback);
+
+        okhttp3.Call localVarCall = typingCall(id, _callback);
         return localVarCall;
 
     }
 
     /**
-     * Mark message as read and display a typing indicator
+     * Mark message as read and display a typing indicator with a JSON response
      * <p>
-     * When you receive an inbound message from webhooks, you can use this endpoint to mark the message as read and display a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp.The typing indicator will be dismissed once you respond, or after 25 seconds, whichever comes first. To prevent a poor user experience, only display a typing indicator if you are going to respond.  Marking a message as read will also mark earlier messages in the conversation as read.
+     * Marks an inbound message as read and displays a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp. The typing indicator is dismissed once you respond, or after 25 seconds, whichever comes first.  Marking a message as read also marks earlier messages in the conversation as read. Repeating this request sends another typing-indicator request and refreshes the indicator; this endpoint does not provide an idempotency key.  A successful request returns &#x60;WhatsappInboundMessageTypingResponse&#x60;. Errors reuse the standard &#x60;ErrorResponse&#x60;.
      * @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. (required)
+     * @return WhatsappInboundMessageTypingResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully marked the message as read. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully marked the message as read and displayed a typing indicator. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The inbound message cannot be used to send a typing indicator, or the upstream request is invalid. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed because the API key is missing or invalid. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You do not have access to the inbound message or permission to use this endpoint. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested inbound message does not exist. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests were sent in a given amount of time. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The typing indicator could not be sent because of an internal or upstream error. </td><td>  -  </td></tr>
      </table>
      */
-    public void typingIndicator(String id) throws ApiException {
-        typingIndicatorWithHttpInfo(id);
+    public WhatsappInboundMessageTypingResponse typing(String id) throws ApiException {
+        ApiResponse<WhatsappInboundMessageTypingResponse> localVarResp = typingWithHttpInfo(id);
+        return localVarResp.getData();
     }
 
     /**
-     * Mark message as read and display a typing indicator
+     * Mark message as read and display a typing indicator with a JSON response
      * <p>
-     * When you receive an inbound message from webhooks, you can use this endpoint to mark the message as read and display a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp.The typing indicator will be dismissed once you respond, or after 25 seconds, whichever comes first. To prevent a poor user experience, only display a typing indicator if you are going to respond.  Marking a message as read will also mark earlier messages in the conversation as read.
+     * Marks an inbound message as read and displays a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp. The typing indicator is dismissed once you respond, or after 25 seconds, whichever comes first.  Marking a message as read also marks earlier messages in the conversation as read. Repeating this request sends another typing-indicator request and refreshes the indicator; this endpoint does not provide an idempotency key.  A successful request returns &#x60;WhatsappInboundMessageTypingResponse&#x60;. Errors reuse the standard &#x60;ErrorResponse&#x60;.
      * @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;WhatsappInboundMessageTypingResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully marked the message as read. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully marked the message as read and displayed a typing indicator. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The inbound message cannot be used to send a typing indicator, or the upstream request is invalid. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed because the API key is missing or invalid. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You do not have access to the inbound message or permission to use this endpoint. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested inbound message does not exist. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests were sent in a given amount of time. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The typing indicator could not be sent because of an internal or upstream error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> typingIndicatorWithHttpInfo(String id) throws ApiException {
-        okhttp3.Call localVarCall = typingIndicatorValidateBeforeCall(id, null);
-        return localVarApiClient.execute(localVarCall);
+    public ApiResponse<WhatsappInboundMessageTypingResponse> typingWithHttpInfo(String id) throws ApiException {
+        okhttp3.Call localVarCall = typingValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<WhatsappInboundMessageTypingResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Mark message as read and display a typing indicator (asynchronously)
+     * Mark message as read and display a typing indicator with a JSON response (asynchronously)
      * <p>
-     * When you receive an inbound message from webhooks, you can use this endpoint to mark the message as read and display a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp.The typing indicator will be dismissed once you respond, or after 25 seconds, whichever comes first. To prevent a poor user experience, only display a typing indicator if you are going to respond.  Marking a message as read will also mark earlier messages in the conversation as read.
+     * Marks an inbound message as read and displays a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp. The typing indicator is dismissed once you respond, or after 25 seconds, whichever comes first.  Marking a message as read also marks earlier messages in the conversation as read. Repeating this request sends another typing-indicator request and refreshes the indicator; this endpoint does not provide an idempotency key.  A successful request returns &#x60;WhatsappInboundMessageTypingResponse&#x60;. Errors reuse the standard &#x60;ErrorResponse&#x60;.
      * @param id ID of the message.  A wamid (i.e., the original message ID on WhatsApp&#39;s platform) is also acceptable. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -323,14 +342,20 @@ public class WhatsappInboundMessagesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully marked the message as read. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully marked the message as read and displayed a typing indicator. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The inbound message cannot be used to send a typing indicator, or the upstream request is invalid. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed because the API key is missing or invalid. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You do not have access to the inbound message or permission to use this endpoint. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested inbound message does not exist. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests were sent in a given amount of time. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The typing indicator could not be sent because of an internal or upstream error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call typingIndicatorAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call typingAsync(String id, final ApiCallback<WhatsappInboundMessageTypingResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = typingIndicatorValidateBeforeCall(id, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        okhttp3.Call localVarCall = typingValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappInboundMessageTypingResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 }

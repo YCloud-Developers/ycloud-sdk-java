@@ -62,12 +62,26 @@ public class Contact {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_REMARK_NAME = "remarkName";
+  /**
+   * The business-managed remark name for the contact.
+  **/
+  @SerializedName(SERIALIZED_NAME_REMARK_NAME)
+  private String remarkName;
+
   public static final String SERIALIZED_NAME_NICKNAME = "nickname";
   /**
-   * Contact&#39;s nickname.
+   * The read-only nickname obtained from WhatsApp.
   **/
   @SerializedName(SERIALIZED_NAME_NICKNAME)
   private String nickname;
+
+  public static final String SERIALIZED_NAME_META_USERNAME = "metaUsername";
+  /**
+   * The read-only Meta username associated with the contact, without the leading &#x60;@&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_META_USERNAME)
+  private String metaUsername;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "countryCode";
   /**
@@ -159,11 +173,11 @@ public class Contact {
   @SerializedName(SERIALIZED_NAME_SOURCE_URL)
   private String sourceUrl;
 
-  public Contact() { 
+  public Contact() {
   }
 
   public Contact id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -188,14 +202,40 @@ public class Contact {
   }
 
 
+  public Contact remarkName(String remarkName) {
+
+    this.remarkName = remarkName;
+    return this;
+  }
+
+   /**
+   * The business-managed remark name for the contact.
+   * @return remarkName
+  **/
+  @javax.annotation.Nullable
+
+  public String getRemarkName() {
+    return remarkName;
+  }
+
+
+  /**
+   * The business-managed remark name for the contact.
+   **/
+  @ApiModelProperty(example = "Priority customer", value = "The business-managed remark name for the contact.")
+  public void setRemarkName(String remarkName) {
+    this.remarkName = remarkName;
+  }
+
+
   public Contact nickname(String nickname) {
-    
+
     this.nickname = nickname;
     return this;
   }
 
    /**
-   * Contact&#39;s nickname.
+   * The read-only nickname obtained from WhatsApp.
    * @return nickname
   **/
   @javax.annotation.Nullable
@@ -206,16 +246,42 @@ public class Contact {
 
 
   /**
-   * Contact&#39;s nickname.
+   * The read-only nickname obtained from WhatsApp.
    **/
-  @ApiModelProperty(example = "nickname", value = "Contact's nickname.")
+  @ApiModelProperty(example = "nickname", value = "The read-only nickname obtained from WhatsApp.")
   public void setNickname(String nickname) {
     this.nickname = nickname;
   }
 
 
+  public Contact metaUsername(String metaUsername) {
+
+    this.metaUsername = metaUsername;
+    return this;
+  }
+
+   /**
+   * The read-only Meta username associated with the contact, without the leading &#x60;@&#x60;.
+   * @return metaUsername
+  **/
+  @javax.annotation.Nullable
+
+  public String getMetaUsername() {
+    return metaUsername;
+  }
+
+
+  /**
+   * The read-only Meta username associated with the contact, without the leading &#x60;@&#x60;.
+   **/
+  @ApiModelProperty(example = "alice_01", value = "The read-only Meta username associated with the contact, without the leading `@`.")
+  public void setMetaUsername(String metaUsername) {
+    this.metaUsername = metaUsername;
+  }
+
+
   public Contact countryCode(String countryCode) {
-    
+
     this.countryCode = countryCode;
     return this;
   }
@@ -241,7 +307,7 @@ public class Contact {
 
 
   public Contact countryName(String countryName) {
-    
+
     this.countryName = countryName;
     return this;
   }
@@ -267,7 +333,7 @@ public class Contact {
 
 
   public Contact phoneNumber(String phoneNumber) {
-    
+
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -293,7 +359,7 @@ public class Contact {
 
 
   public Contact email(String email) {
-    
+
     this.email = email;
     return this;
   }
@@ -319,7 +385,7 @@ public class Contact {
 
 
   public Contact lastSeen(Date lastSeen) {
-    
+
     this.lastSeen = lastSeen;
     return this;
   }
@@ -345,7 +411,7 @@ public class Contact {
 
 
   public Contact lastMessageToPhoneNumber(String lastMessageToPhoneNumber) {
-    
+
     this.lastMessageToPhoneNumber = lastMessageToPhoneNumber;
     return this;
   }
@@ -371,7 +437,7 @@ public class Contact {
 
 
   public Contact tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -405,7 +471,7 @@ public class Contact {
 
 
   public Contact createTime(Date createTime) {
-    
+
     this.createTime = createTime;
     return this;
   }
@@ -431,7 +497,7 @@ public class Contact {
 
 
   public Contact customAttributes(List<ContactCustomAttribute> customAttributes) {
-    
+
     this.customAttributes = customAttributes;
     return this;
   }
@@ -465,7 +531,7 @@ public class Contact {
 
 
   public Contact ownerEmail(String ownerEmail) {
-    
+
     this.ownerEmail = ownerEmail;
     return this;
   }
@@ -491,7 +557,7 @@ public class Contact {
 
 
   public Contact sourceType(ContactSourceType sourceType) {
-    
+
     this.sourceType = sourceType;
     return this;
   }
@@ -516,7 +582,7 @@ public class Contact {
 
 
   public Contact sourceId(String sourceId) {
-    
+
     this.sourceId = sourceId;
     return this;
   }
@@ -542,7 +608,7 @@ public class Contact {
 
 
   public Contact sourceUrl(String sourceUrl) {
-    
+
     this.sourceUrl = sourceUrl;
     return this;
   }
@@ -613,7 +679,9 @@ public class Contact {
     }
     Contact contact = (Contact) o;
     return Objects.equals(this.id, contact.id) &&
+        Objects.equals(this.remarkName, contact.remarkName) &&
         Objects.equals(this.nickname, contact.nickname) &&
+        Objects.equals(this.metaUsername, contact.metaUsername) &&
         Objects.equals(this.countryCode, contact.countryCode) &&
         Objects.equals(this.countryName, contact.countryName) &&
         Objects.equals(this.phoneNumber, contact.phoneNumber) &&
@@ -632,7 +700,7 @@ public class Contact {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, nickname, countryCode, countryName, phoneNumber, email, lastSeen, lastMessageToPhoneNumber, tags, createTime, customAttributes, ownerEmail, sourceType, sourceId, sourceUrl, additionalProperties);
+    return Objects.hash(id, remarkName, nickname, metaUsername, countryCode, countryName, phoneNumber, email, lastSeen, lastMessageToPhoneNumber, tags, createTime, customAttributes, ownerEmail, sourceType, sourceId, sourceUrl, additionalProperties);
   }
 
   @Override
@@ -640,7 +708,9 @@ public class Contact {
     StringBuilder sb = new StringBuilder();
     sb.append("class Contact {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    remarkName: ").append(toIndentedString(remarkName)).append("\n");
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
+    sb.append("    metaUsername: ").append(toIndentedString(metaUsername)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    countryName: ").append(toIndentedString(countryName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
@@ -678,7 +748,9 @@ public class Contact {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("remarkName");
     openapiFields.add("nickname");
+    openapiFields.add("metaUsername");
     openapiFields.add("countryCode");
     openapiFields.add("countryName");
     openapiFields.add("phoneNumber");
@@ -722,8 +794,14 @@ public class Contact {
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
+      if (jsonObj.get("remarkName") != null && !jsonObj.get("remarkName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remarkName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remarkName").toString()));
+      }
       if (jsonObj.get("nickname") != null && !jsonObj.get("nickname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
+      }
+      if (jsonObj.get("metaUsername") != null && !jsonObj.get("metaUsername").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metaUsername` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metaUsername").toString()));
       }
       if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
@@ -851,4 +929,3 @@ public class Contact {
     return JSON.getGson().toJson(this);
   }
 }
-

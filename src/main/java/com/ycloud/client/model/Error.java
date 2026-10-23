@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.MetaBusinessAgentApiError;
 import com.ycloud.client.model.WhatsappApiError;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -98,11 +99,17 @@ public class Error {
   @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
   private WhatsappApiError whatsappApiError;
 
-  public Error() { 
+  public static final String SERIALIZED_NAME_META_BUSINESS_AGENT_API_ERROR = "metaBusinessAgentApiError";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_META_BUSINESS_AGENT_API_ERROR)
+  private MetaBusinessAgentApiError metaBusinessAgentApiError;
+
+  public Error() {
   }
 
   public Error status(Integer status) {
-    
+
     this.status = status;
     return this;
   }
@@ -128,7 +135,7 @@ public class Error {
 
 
   public Error code(String code) {
-    
+
     this.code = code;
     return this;
   }
@@ -154,7 +161,7 @@ public class Error {
 
 
   public Error message(String message) {
-    
+
     this.message = message;
     return this;
   }
@@ -180,7 +187,7 @@ public class Error {
 
 
   public Error target(String target) {
-    
+
     this.target = target;
     return this;
   }
@@ -206,7 +213,7 @@ public class Error {
 
 
   public Error docUrl(String docUrl) {
-    
+
     this.docUrl = docUrl;
     return this;
   }
@@ -232,7 +239,7 @@ public class Error {
 
 
   public Error requestId(String requestId) {
-    
+
     this.requestId = requestId;
     return this;
   }
@@ -258,7 +265,7 @@ public class Error {
 
 
   public Error whatsappApiError(WhatsappApiError whatsappApiError) {
-    
+
     this.whatsappApiError = whatsappApiError;
     return this;
   }
@@ -279,6 +286,31 @@ public class Error {
   @ApiModelProperty(value = "")
   public void setWhatsappApiError(WhatsappApiError whatsappApiError) {
     this.whatsappApiError = whatsappApiError;
+  }
+
+
+  public Error metaBusinessAgentApiError(MetaBusinessAgentApiError metaBusinessAgentApiError) {
+
+    this.metaBusinessAgentApiError = metaBusinessAgentApiError;
+    return this;
+  }
+
+   /**
+   * Get metaBusinessAgentApiError
+   * @return metaBusinessAgentApiError
+  **/
+  @javax.annotation.Nullable
+
+  public MetaBusinessAgentApiError getMetaBusinessAgentApiError() {
+    return metaBusinessAgentApiError;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setMetaBusinessAgentApiError(MetaBusinessAgentApiError metaBusinessAgentApiError) {
+    this.metaBusinessAgentApiError = metaBusinessAgentApiError;
   }
 
   /**
@@ -333,13 +365,14 @@ public class Error {
         Objects.equals(this.target, error.target) &&
         Objects.equals(this.docUrl, error.docUrl) &&
         Objects.equals(this.requestId, error.requestId) &&
-        Objects.equals(this.whatsappApiError, error.whatsappApiError)&&
+        Objects.equals(this.whatsappApiError, error.whatsappApiError) &&
+        Objects.equals(this.metaBusinessAgentApiError, error.metaBusinessAgentApiError)&&
         Objects.equals(this.additionalProperties, error.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, code, message, target, docUrl, requestId, whatsappApiError, additionalProperties);
+    return Objects.hash(status, code, message, target, docUrl, requestId, whatsappApiError, metaBusinessAgentApiError, additionalProperties);
   }
 
   @Override
@@ -353,6 +386,7 @@ public class Error {
     sb.append("    docUrl: ").append(toIndentedString(docUrl)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
+    sb.append("    metaBusinessAgentApiError: ").append(toIndentedString(metaBusinessAgentApiError)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -383,6 +417,7 @@ public class Error {
     openapiFields.add("docUrl");
     openapiFields.add("requestId");
     openapiFields.add("whatsappApiError");
+    openapiFields.add("metaBusinessAgentApiError");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -429,6 +464,10 @@ public class Error {
       // validate the optional field `whatsappApiError`
       if (jsonObj.getAsJsonObject("whatsappApiError") != null) {
         WhatsappApiError.validateJsonObject(jsonObj.getAsJsonObject("whatsappApiError"));
+      }
+      // validate the optional field `metaBusinessAgentApiError`
+      if (jsonObj.getAsJsonObject("metaBusinessAgentApiError") != null) {
+        MetaBusinessAgentApiError.validateJsonObject(jsonObj.getAsJsonObject("metaBusinessAgentApiError"));
       }
   }
 
@@ -516,4 +555,3 @@ public class Error {
     return JSON.getGson().toJson(this);
   }
 }
-

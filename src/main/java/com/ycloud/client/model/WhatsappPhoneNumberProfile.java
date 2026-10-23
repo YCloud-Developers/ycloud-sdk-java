@@ -61,6 +61,13 @@ public class WhatsappPhoneNumberProfile {
   @SerializedName(SERIALIZED_NAME_ABOUT)
   private String about;
 
+  public static final String SERIALIZED_NAME_YCLOUD_NAME = "ycloudName";
+  /**
+   * Optional remark name assigned to this phone number in YCloud. It is populated by the profile GET API and omitted when no remark name is set.
+  **/
+  @SerializedName(SERIALIZED_NAME_YCLOUD_NAME)
+  private String ycloudName;
+
   public static final String SERIALIZED_NAME_VERIFIED_NAME = "verifiedName";
   /**
    * The verified name
@@ -128,11 +135,19 @@ public class WhatsappPhoneNumberProfile {
   @SerializedName(SERIALIZED_NAME_WEBSITES)
   private List<String> websites = null;
 
-  public WhatsappPhoneNumberProfile() { 
+  public WhatsappPhoneNumberProfile() {
+  }
+
+
+  public WhatsappPhoneNumberProfile(
+     String ycloudName
+  ) {
+    this();
+    this.ycloudName = ycloudName;
   }
 
   public WhatsappPhoneNumberProfile about(String about) {
-    
+
     this.about = about;
     return this;
   }
@@ -157,8 +172,21 @@ public class WhatsappPhoneNumberProfile {
   }
 
 
+   /**
+   * Optional remark name assigned to this phone number in YCloud. It is populated by the profile GET API and omitted when no remark name is set.
+   * @return ycloudName
+  **/
+  @javax.annotation.Nullable
+
+  public String getYcloudName() {
+    return ycloudName;
+  }
+
+
+
+
   public WhatsappPhoneNumberProfile verifiedName(String verifiedName) {
-    
+
     this.verifiedName = verifiedName;
     return this;
   }
@@ -184,7 +212,7 @@ public class WhatsappPhoneNumberProfile {
 
 
   public WhatsappPhoneNumberProfile nameStatus(WhatsappPhoneNumberNameStatus nameStatus) {
-    
+
     this.nameStatus = nameStatus;
     return this;
   }
@@ -209,7 +237,7 @@ public class WhatsappPhoneNumberProfile {
 
 
   public WhatsappPhoneNumberProfile newName(String newName) {
-    
+
     this.newName = newName;
     return this;
   }
@@ -235,7 +263,7 @@ public class WhatsappPhoneNumberProfile {
 
 
   public WhatsappPhoneNumberProfile newNameStatus(WhatsappPhoneNumberNameStatus newNameStatus) {
-    
+
     this.newNameStatus = newNameStatus;
     return this;
   }
@@ -260,7 +288,7 @@ public class WhatsappPhoneNumberProfile {
 
 
   public WhatsappPhoneNumberProfile address(String address) {
-    
+
     this.address = address;
     return this;
   }
@@ -286,7 +314,7 @@ public class WhatsappPhoneNumberProfile {
 
 
   public WhatsappPhoneNumberProfile description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -312,7 +340,7 @@ public class WhatsappPhoneNumberProfile {
 
 
   public WhatsappPhoneNumberProfile email(String email) {
-    
+
     this.email = email;
     return this;
   }
@@ -338,7 +366,7 @@ public class WhatsappPhoneNumberProfile {
 
 
   public WhatsappPhoneNumberProfile profilePictureUrl(String profilePictureUrl) {
-    
+
     this.profilePictureUrl = profilePictureUrl;
     return this;
   }
@@ -364,7 +392,7 @@ public class WhatsappPhoneNumberProfile {
 
 
   public WhatsappPhoneNumberProfile vertical(WhatsappPhoneNumberProfileVertical vertical) {
-    
+
     this.vertical = vertical;
     return this;
   }
@@ -389,7 +417,7 @@ public class WhatsappPhoneNumberProfile {
 
 
   public WhatsappPhoneNumberProfile websites(List<String> websites) {
-    
+
     this.websites = websites;
     return this;
   }
@@ -468,6 +496,7 @@ public class WhatsappPhoneNumberProfile {
     }
     WhatsappPhoneNumberProfile whatsappPhoneNumberProfile = (WhatsappPhoneNumberProfile) o;
     return Objects.equals(this.about, whatsappPhoneNumberProfile.about) &&
+        Objects.equals(this.ycloudName, whatsappPhoneNumberProfile.ycloudName) &&
         Objects.equals(this.verifiedName, whatsappPhoneNumberProfile.verifiedName) &&
         Objects.equals(this.nameStatus, whatsappPhoneNumberProfile.nameStatus) &&
         Objects.equals(this.newName, whatsappPhoneNumberProfile.newName) &&
@@ -483,7 +512,7 @@ public class WhatsappPhoneNumberProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(about, verifiedName, nameStatus, newName, newNameStatus, address, description, email, profilePictureUrl, vertical, websites, additionalProperties);
+    return Objects.hash(about, ycloudName, verifiedName, nameStatus, newName, newNameStatus, address, description, email, profilePictureUrl, vertical, websites, additionalProperties);
   }
 
   @Override
@@ -491,6 +520,7 @@ public class WhatsappPhoneNumberProfile {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappPhoneNumberProfile {\n");
     sb.append("    about: ").append(toIndentedString(about)).append("\n");
+    sb.append("    ycloudName: ").append(toIndentedString(ycloudName)).append("\n");
     sb.append("    verifiedName: ").append(toIndentedString(verifiedName)).append("\n");
     sb.append("    nameStatus: ").append(toIndentedString(nameStatus)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -525,6 +555,7 @@ public class WhatsappPhoneNumberProfile {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("about");
+    openapiFields.add("ycloudName");
     openapiFields.add("verifiedName");
     openapiFields.add("nameStatus");
     openapiFields.add("newName");
@@ -556,6 +587,9 @@ public class WhatsappPhoneNumberProfile {
       }
       if (jsonObj.get("about") != null && !jsonObj.get("about").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `about` to be a primitive type in the JSON string but got `%s`", jsonObj.get("about").toString()));
+      }
+      if (jsonObj.get("ycloudName") != null && !jsonObj.get("ycloudName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ycloudName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ycloudName").toString()));
       }
       if (jsonObj.get("verifiedName") != null && !jsonObj.get("verifiedName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `verifiedName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verifiedName").toString()));
@@ -665,4 +699,3 @@ public class WhatsappPhoneNumberProfile {
     return JSON.getGson().toJson(this);
   }
 }
-

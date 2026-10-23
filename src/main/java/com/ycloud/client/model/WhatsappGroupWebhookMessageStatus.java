@@ -721,4 +721,3 @@ public class WhatsappGroupWebhookMessageStatus {
     return JSON.getGson().toJson(this);
   }
 }
-

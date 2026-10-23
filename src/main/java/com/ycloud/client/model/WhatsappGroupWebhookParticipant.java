@@ -484,4 +484,3 @@ public class WhatsappGroupWebhookParticipant {
     return JSON.getGson().toJson(this);
   }
 }
-

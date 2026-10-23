@@ -243,6 +243,13 @@ public class WhatsappMessageSendRequest {
   @SerializedName(SERIALIZED_NAME_USE_DIRECT_SEND)
   private Boolean useDirectSend = false;
 
+  public static final String SERIALIZED_NAME_TEMPLATE_NAME = "templateName";
+  /**
+   * **Optional.** Business-defined template name for a Utility Direct Send message submitted through synchronous &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60; or asynchronous &#x60;POST /v2/whatsapp/messages&#x60;.  The value is case-sensitive and may contain only lowercase letters, digits, and underscores. It does not enable Direct Send by itself. When Direct Send is not selected, this field is ignored.  The name must not already be used by a non-Direct-Send template in the sender WABA. A conflict is rejected before the synchronous provider call or asynchronous acceptance, so an asynchronous conflict does not return a message ID. This field is not supported for Authentication Direct Send.
+  **/
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_NAME)
+  private String templateName;
+
   public static final String SERIALIZED_NAME_FILTER_UNSUBSCRIBED = "filterUnsubscribed";
   /**
    * **Optional.** If set to &#x60;true&#x60;, the message will not be sent to users who have unsubscribed from your account. Defaults to &#x60;false&#x60;.  Only use for &#x60;POST /v2/whatsapp/messages&#x60;. If the user has unsubscribed, we will push webhook notifications with &#x60;whatsappMessage.errorCode&#x60; set to &#x60;RECIPIENT_UNSUBSCRIBED&#x60;.  Not applicable to &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60;.
@@ -803,6 +810,32 @@ public class WhatsappMessageSendRequest {
   }
 
 
+  public WhatsappMessageSendRequest templateName(String templateName) {
+
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * **Optional.** Business-defined template name for a Utility Direct Send message submitted through synchronous &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60; or asynchronous &#x60;POST /v2/whatsapp/messages&#x60;.  The value is case-sensitive and may contain only lowercase letters, digits, and underscores. It does not enable Direct Send by itself. When Direct Send is not selected, this field is ignored.  The name must not already be used by a non-Direct-Send template in the sender WABA. A conflict is rejected before the synchronous provider call or asynchronous acceptance, so an asynchronous conflict does not return a message ID. This field is not supported for Authentication Direct Send.
+   * @return templateName
+  **/
+  @javax.annotation.Nullable
+
+  public String getTemplateName() {
+    return templateName;
+  }
+
+
+  /**
+   * **Optional.** Business-defined template name for a Utility Direct Send message submitted through synchronous &#x60;POST /v2/whatsapp/messages/sendDirectly&#x60; or asynchronous &#x60;POST /v2/whatsapp/messages&#x60;.  The value is case-sensitive and may contain only lowercase letters, digits, and underscores. It does not enable Direct Send by itself. When Direct Send is not selected, this field is ignored.  The name must not already be used by a non-Direct-Send template in the sender WABA. A conflict is rejected before the synchronous provider call or asynchronous acceptance, so an asynchronous conflict does not return a message ID. This field is not supported for Authentication Direct Send.
+   **/
+  @ApiModelProperty(example = "order_update_ds", value = "**Optional.** Business-defined template name for a Utility Direct Send message submitted through synchronous `POST /v2/whatsapp/messages/sendDirectly` or asynchronous `POST /v2/whatsapp/messages`.  The value is case-sensitive and may contain only lowercase letters, digits, and underscores. It does not enable Direct Send by itself. When Direct Send is not selected, this field is ignored.  The name must not already be used by a non-Direct-Send template in the sender WABA. A conflict is rejected before the synchronous provider call or asynchronous acceptance, so an asynchronous conflict does not return a message ID. This field is not supported for Authentication Direct Send.")
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
+
   public WhatsappMessageSendRequest filterUnsubscribed(Boolean filterUnsubscribed) {
 
     this.filterUnsubscribed = filterUnsubscribed;
@@ -921,6 +954,7 @@ public class WhatsappMessageSendRequest {
         Objects.equals(this.category, whatsappMessageSendRequest.category) &&
         Objects.equals(this.ttlSeconds, whatsappMessageSendRequest.ttlSeconds) &&
         Objects.equals(this.useDirectSend, whatsappMessageSendRequest.useDirectSend) &&
+        Objects.equals(this.templateName, whatsappMessageSendRequest.templateName) &&
         Objects.equals(this.filterUnsubscribed, whatsappMessageSendRequest.filterUnsubscribed) &&
         Objects.equals(this.filterBlocked, whatsappMessageSendRequest.filterBlocked)&&
         Objects.equals(this.additionalProperties, whatsappMessageSendRequest.additionalProperties);
@@ -928,7 +962,7 @@ public class WhatsappMessageSendRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to, recipient, customerProfile, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, category, ttlSeconds, useDirectSend, filterUnsubscribed, filterBlocked, additionalProperties);
+    return Objects.hash(from, to, recipient, customerProfile, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, category, ttlSeconds, useDirectSend, templateName, filterUnsubscribed, filterBlocked, additionalProperties);
   }
 
   @Override
@@ -956,6 +990,7 @@ public class WhatsappMessageSendRequest {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    ttlSeconds: ").append(toIndentedString(ttlSeconds)).append("\n");
     sb.append("    useDirectSend: ").append(toIndentedString(useDirectSend)).append("\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    filterUnsubscribed: ").append(toIndentedString(filterUnsubscribed)).append("\n");
     sb.append("    filterBlocked: ").append(toIndentedString(filterBlocked)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -1002,6 +1037,7 @@ public class WhatsappMessageSendRequest {
     openapiFields.add("category");
     openapiFields.add("ttlSeconds");
     openapiFields.add("useDirectSend");
+    openapiFields.add("templateName");
     openapiFields.add("filterUnsubscribed");
     openapiFields.add("filterBlocked");
 
@@ -1106,6 +1142,9 @@ public class WhatsappMessageSendRequest {
       }
       if (jsonObj.get("category") != null && !jsonObj.get("category").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
+      }
+      if (jsonObj.get("templateName") != null && !jsonObj.get("templateName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `templateName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("templateName").toString()));
       }
   }
 

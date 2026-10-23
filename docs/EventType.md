@@ -33,7 +33,7 @@
 
 * `WHATSAPP_SMB_HISTORY` (value: `"whatsapp.smb.history"`)
 
-* `WHATSAPP_SMB_MESSAGE_CREATED` (value: `"whatsapp.smb.message.created"`)
+* `WHATSAPP_SMB_MESSAGE_ECHOES` (value: `"whatsapp.smb.message.echoes"`)
 
 * `WHATSAPP_PHONE_NUMBER_DELETED` (value: `"whatsapp.phone_number.deleted"`)
 
@@ -55,6 +55,10 @@
 
 * `WHATSAPP_CALL_STATUS_UPDATED` (value: `"whatsapp.call.status.updated"`)
 
+* `WHATSAPP_CALL_RECORDING_UPDATED` (value: `"whatsapp.call.recording.updated"`)
+
+* `WHATSAPP_CALL_TRANSCRIPTION_UPDATED` (value: `"whatsapp.call.transcription.updated"`)
+
 * `WHATSAPP_FLOW_STATUS_CHANGE` (value: `"whatsapp.flow.status_change"`)
 
 * `WHATSAPP_PAYMENT_UPDATED` (value: `"whatsapp.payment.updated"`)
@@ -65,11 +69,14 @@
 
 * `CONTACT_DELETED` (value: `"contact.deleted"`)
 
+* `CONTACT_NOTE_CREATED` (value: `"contact.note.created"`)
+
+* `CONTACT_NOTE_UPDATED` (value: `"contact.note.updated"`)
+
+* `CONTACT_NOTE_DELETED` (value: `"contact.note.deleted"`)
+
 * `CONTACT_UNSUBSCRIBE_CREATED` (value: `"contact.unsubscribe.created"`)
 
 * `CONTACT_UNSUBSCRIBE_DELETED` (value: `"contact.unsubscribe.deleted"`)
 
 * `WHATSAPP_USER_PREFERENCES` (value: `"whatsapp.user.preferences"`)
-
-
-

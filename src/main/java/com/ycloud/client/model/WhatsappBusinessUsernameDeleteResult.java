@@ -47,9 +47,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Business Username deletion result. Deleting the active username does not cancel a pending Business Username request. If a pending request still exists, the returned &#x60;businessUsernameStatus&#x60; is &#x60;pending_review&#x60;; otherwise it is &#x60;not_set&#x60;.
+ * Business Username deletion result. Deleting the active username does not cancel a reserved Business Username request. If a reserved request still exists, the returned &#x60;businessUsernameStatus&#x60; is &#x60;reserved&#x60;; otherwise it is &#x60;not_set&#x60;.
  */
-@ApiModel(description = "Business Username deletion result. Deleting the active username does not cancel a pending Business Username request. If a pending request still exists, the returned `businessUsernameStatus` is `pending_review`; otherwise it is `not_set`.")
+@ApiModel(description = "Business Username deletion result. Deleting the active username does not cancel a reserved Business Username request. If a reserved request still exists, the returned `businessUsernameStatus` is `reserved`; otherwise it is `not_set`.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappBusinessUsernameDeleteResult {
   public static final String SERIALIZED_NAME_SUCCESS = "success";
@@ -93,11 +93,11 @@ public class WhatsappBusinessUsernameDeleteResult {
   @SerializedName(SERIALIZED_NAME_BUSINESS_USERNAME_UPDATED_AT)
   private Date businessUsernameUpdatedAt;
 
-  public WhatsappBusinessUsernameDeleteResult() { 
+  public WhatsappBusinessUsernameDeleteResult() {
   }
 
   public WhatsappBusinessUsernameDeleteResult success(Boolean success) {
-    
+
     this.success = success;
     return this;
   }
@@ -123,7 +123,7 @@ public class WhatsappBusinessUsernameDeleteResult {
 
 
   public WhatsappBusinessUsernameDeleteResult id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -149,7 +149,7 @@ public class WhatsappBusinessUsernameDeleteResult {
 
 
   public WhatsappBusinessUsernameDeleteResult wabaId(String wabaId) {
-    
+
     this.wabaId = wabaId;
     return this;
   }
@@ -175,7 +175,7 @@ public class WhatsappBusinessUsernameDeleteResult {
 
 
   public WhatsappBusinessUsernameDeleteResult phoneNumber(String phoneNumber) {
-    
+
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -201,7 +201,7 @@ public class WhatsappBusinessUsernameDeleteResult {
 
 
   public WhatsappBusinessUsernameDeleteResult businessUsernameStatus(WhatsappBusinessUsernameStatus businessUsernameStatus) {
-    
+
     this.businessUsernameStatus = businessUsernameStatus;
     return this;
   }
@@ -226,7 +226,7 @@ public class WhatsappBusinessUsernameDeleteResult {
 
 
   public WhatsappBusinessUsernameDeleteResult businessUsernameUpdatedAt(Date businessUsernameUpdatedAt) {
-    
+
     this.businessUsernameUpdatedAt = businessUsernameUpdatedAt;
     return this;
   }
@@ -463,4 +463,3 @@ public class WhatsappBusinessUsernameDeleteResult {
     return JSON.getGson().toJson(this);
   }
 }
-

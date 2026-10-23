@@ -8,13 +8,12 @@ Contains the properties of the contact to be updated.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**nickname** | **String** | Contact&#39;s nickname. Maximum length: 250 characters. |  [optional] |
+|**remarkName** | **String** | Contact&#39;s remark name. Maximum length: 250 characters. |  [optional] |
+|**nickname** | **String** | Deprecated compatibility alias for &#x60;remarkName&#x60;. When &#x60;remarkName&#x60; is absent, this value is saved as the contact&#39;s remark name. It does not update the read-only WhatsApp nickname. Maximum length: 250 characters. |  [optional] |
 |**phoneNumber** | **String** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
 |**countryCode** | **String** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |  [optional] |
 |**email** | **String** | The contact&#39;s email address. If present, the email address must be unique. |  [optional] |
 |**tags** | **List&lt;String&gt;** | Contact&#39;s tags. Maximum items: 50. |  [optional] |
 |**customAttributes** | [**List&lt;ContactCustomAttribute&gt;**](ContactCustomAttribute.md) | Contact&#39;s custom attributes. If present (i.e., not &#x60;null&#x60;), all previous attributes of this contact will be replaced. |  [optional] |
 |**ownerEmail** | **String** | The email address of the contact&#39;s owner. |  [optional] |
-
-
-
+|**notes** | [**List&lt;ContactNoteMutationInput&gt;**](ContactNoteMutationInput.md) | Optional incremental note mutations. An empty array changes nothing. Items without &#x60;id&#x60; create notes; items with &#x60;id&#x60; update owned notes. Notes not listed remain unchanged. Delete notes with the dedicated endpoint. |  [optional] |

@@ -2,7 +2,7 @@
 
 # WhatsappCallingConnectRequest
 
-Provide exactly one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.
+Provide at least one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.
 
 ## Properties
 
@@ -21,6 +21,3 @@ Provide exactly one of `to` or `recipient`. If both are provided, `to` takes pre
 | Name | Value |
 |---- | -----|
 | OFFER | &quot;offer&quot; |
-
-
-

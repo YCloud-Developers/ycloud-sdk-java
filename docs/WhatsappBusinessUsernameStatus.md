@@ -11,5 +11,4 @@
 
 * `PENDING_REVIEW` (value: `"pending_review"`)
 
-
-
+* `RESERVED` (value: `"reserved"`)

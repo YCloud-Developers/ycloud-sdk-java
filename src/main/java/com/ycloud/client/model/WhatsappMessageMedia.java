@@ -52,7 +52,7 @@ import com.ycloud.client.JSON;
 public class WhatsappMessageMedia {
   public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence.
+   * **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence.
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -78,17 +78,17 @@ public class WhatsappMessageMedia {
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
 
-  public WhatsappMessageMedia() { 
+  public WhatsappMessageMedia() {
   }
 
   public WhatsappMessageMedia id(String id) {
-    
+
     this.id = id;
     return this;
   }
 
    /**
-   * **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence.
+   * **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -99,16 +99,16 @@ public class WhatsappMessageMedia {
 
 
   /**
-   * **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence.
+   * **Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/reference/whatsapp_media-upload#/).  Note: Either &#x60;id&#x60; or &#x60;link&#x60; must be provided. If both are provided, &#x60;id&#x60; takes precedence.
    **/
-  @ApiModelProperty(value = "**Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/update/reference/whatsapp_media-upload#/).  Note: Either `id` or `link` must be provided. If both are provided, `id` takes precedence.")
+  @ApiModelProperty(value = "**Use this when media is uploaded to WhatsApp servers.**  Provide the media object ID obtained from WhatsApp media upload API (https://docs.ycloud.com/reference/whatsapp_media-upload#/).  Note: Either `id` or `link` must be provided. If both are provided, `id` takes precedence.")
   public void setId(String id) {
     this.id = id;
   }
 
 
   public WhatsappMessageMedia link(String link) {
-    
+
     this.link = link;
     return this;
   }
@@ -134,7 +134,7 @@ public class WhatsappMessageMedia {
 
 
   public WhatsappMessageMedia caption(String caption) {
-    
+
     this.caption = caption;
     return this;
   }
@@ -160,7 +160,7 @@ public class WhatsappMessageMedia {
 
 
   public WhatsappMessageMedia filename(String filename) {
-    
+
     this.filename = filename;
     return this;
   }
@@ -394,4 +394,3 @@ public class WhatsappMessageMedia {
     return JSON.getGson().toJson(this);
   }
 }
-

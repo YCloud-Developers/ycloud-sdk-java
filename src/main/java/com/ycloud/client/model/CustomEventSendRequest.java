@@ -49,9 +49,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Contains the properties of the custom event data to be sent.
+ * Contains the properties of the custom event data to be sent. For events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;, provide one of &#x60;objectId&#x60;, &#x60;contactPhoneNumber&#x60;, or &#x60;contactUsername&#x60; to identify the contact. Only one identifier is used per event. If multiple identifiers are provided, a numeric &#x60;objectId&#x60; takes precedence, followed by a non-blank &#x60;contactPhoneNumber&#x60;, then &#x60;contactUsername&#x60;. Contact identifier requirements and precedence are validated by the server.
  */
-@ApiModel(description = "Contains the properties of the custom event data to be sent.")
+@ApiModel(description = "Contains the properties of the custom event data to be sent. For events defined with `objectType` as `CONTACT`, provide one of `objectId`, `contactPhoneNumber`, or `contactUsername` to identify the contact. Only one identifier is used per event. If multiple identifiers are provided, a numeric `objectId` takes precedence, followed by a non-blank `contactPhoneNumber`, then `contactUsername`. Contact identifier requirements and precedence are validated by the server.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CustomEventSendRequest {
   public static final String SERIALIZED_NAME_EVENT_NAME = "eventName";
@@ -70,17 +70,24 @@ public class CustomEventSendRequest {
 
   public static final String SERIALIZED_NAME_OBJECT_ID = "objectId";
   /**
-   * ID of the object that the event is associated with. For events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;, the &#x60;objectId&#x60; should be a &#x60;contact&#x60; ID. Alternatively, you can use the &#x60;contactPhoneNumber&#x60; field to specify the contact.
+   * ID of the object that the event is associated with. For events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;, provide the numeric ID of an existing contact in your account. A numeric &#x60;objectId&#x60; takes precedence over &#x60;contactPhoneNumber&#x60; and &#x60;contactUsername&#x60;. If that contact is not found, the request fails without trying another identifier.
   **/
   @SerializedName(SERIALIZED_NAME_OBJECT_ID)
   private String objectId;
 
   public static final String SERIALIZED_NAME_CONTACT_PHONE_NUMBER = "contactPhoneNumber";
   /**
-   * The phone number of the contact for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;.
+   * The contact&#39;s phone number in E.164 format for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;. Used when no numeric &#x60;objectId&#x60; is provided. Looks up a contact in your account by phone number and creates one if no match exists. Takes precedence over &#x60;contactUsername&#x60;.
   **/
   @SerializedName(SERIALIZED_NAME_CONTACT_PHONE_NUMBER)
   private String contactPhoneNumber;
+
+  public static final String SERIALIZED_NAME_CONTACT_USERNAME = "contactUsername";
+  /**
+   * The Meta username of an existing contact in your account for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;. Provide the username saved on the contact, without the leading &#x60;@&#x60;. Used when neither a numeric &#x60;objectId&#x60; nor a non-blank &#x60;contactPhoneNumber&#x60; is provided. If no matching contact exists, the request fails. A username does not automatically create a contact.
+  **/
+  @SerializedName(SERIALIZED_NAME_CONTACT_USERNAME)
+  private String contactUsername;
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   /**
@@ -89,11 +96,11 @@ public class CustomEventSendRequest {
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
   private Map<String, Object> properties = null;
 
-  public CustomEventSendRequest() { 
+  public CustomEventSendRequest() {
   }
 
   public CustomEventSendRequest eventName(String eventName) {
-    
+
     this.eventName = eventName;
     return this;
   }
@@ -119,7 +126,7 @@ public class CustomEventSendRequest {
 
 
   public CustomEventSendRequest occurTime(Date occurTime) {
-    
+
     this.occurTime = occurTime;
     return this;
   }
@@ -145,13 +152,13 @@ public class CustomEventSendRequest {
 
 
   public CustomEventSendRequest objectId(String objectId) {
-    
+
     this.objectId = objectId;
     return this;
   }
 
    /**
-   * ID of the object that the event is associated with. For events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;, the &#x60;objectId&#x60; should be a &#x60;contact&#x60; ID. Alternatively, you can use the &#x60;contactPhoneNumber&#x60; field to specify the contact.
+   * ID of the object that the event is associated with. For events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;, provide the numeric ID of an existing contact in your account. A numeric &#x60;objectId&#x60; takes precedence over &#x60;contactPhoneNumber&#x60; and &#x60;contactUsername&#x60;. If that contact is not found, the request fails without trying another identifier.
    * @return objectId
   **/
   @javax.annotation.Nullable
@@ -162,22 +169,22 @@ public class CustomEventSendRequest {
 
 
   /**
-   * ID of the object that the event is associated with. For events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;, the &#x60;objectId&#x60; should be a &#x60;contact&#x60; ID. Alternatively, you can use the &#x60;contactPhoneNumber&#x60; field to specify the contact.
+   * ID of the object that the event is associated with. For events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;, provide the numeric ID of an existing contact in your account. A numeric &#x60;objectId&#x60; takes precedence over &#x60;contactPhoneNumber&#x60; and &#x60;contactUsername&#x60;. If that contact is not found, the request fails without trying another identifier.
    **/
-  @ApiModelProperty(value = "ID of the object that the event is associated with. For events defined with `objectType` as `CONTACT`, the `objectId` should be a `contact` ID. Alternatively, you can use the `contactPhoneNumber` field to specify the contact.")
+  @ApiModelProperty(value = "ID of the object that the event is associated with. For events defined with `objectType` as `CONTACT`, provide the numeric ID of an existing contact in your account. A numeric `objectId` takes precedence over `contactPhoneNumber` and `contactUsername`. If that contact is not found, the request fails without trying another identifier.")
   public void setObjectId(String objectId) {
     this.objectId = objectId;
   }
 
 
   public CustomEventSendRequest contactPhoneNumber(String contactPhoneNumber) {
-    
+
     this.contactPhoneNumber = contactPhoneNumber;
     return this;
   }
 
    /**
-   * The phone number of the contact for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;.
+   * The contact&#39;s phone number in E.164 format for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;. Used when no numeric &#x60;objectId&#x60; is provided. Looks up a contact in your account by phone number and creates one if no match exists. Takes precedence over &#x60;contactUsername&#x60;.
    * @return contactPhoneNumber
   **/
   @javax.annotation.Nullable
@@ -188,16 +195,42 @@ public class CustomEventSendRequest {
 
 
   /**
-   * The phone number of the contact for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;.
+   * The contact&#39;s phone number in E.164 format for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;. Used when no numeric &#x60;objectId&#x60; is provided. Looks up a contact in your account by phone number and creates one if no match exists. Takes precedence over &#x60;contactUsername&#x60;.
    **/
-  @ApiModelProperty(value = "The phone number of the contact for events defined with `objectType` as `CONTACT`.")
+  @ApiModelProperty(example = "+16315551111", value = "The contact's phone number in E.164 format for events defined with `objectType` as `CONTACT`. Used when no numeric `objectId` is provided. Looks up a contact in your account by phone number and creates one if no match exists. Takes precedence over `contactUsername`.")
   public void setContactPhoneNumber(String contactPhoneNumber) {
     this.contactPhoneNumber = contactPhoneNumber;
   }
 
 
+  public CustomEventSendRequest contactUsername(String contactUsername) {
+
+    this.contactUsername = contactUsername;
+    return this;
+  }
+
+   /**
+   * The Meta username of an existing contact in your account for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;. Provide the username saved on the contact, without the leading &#x60;@&#x60;. Used when neither a numeric &#x60;objectId&#x60; nor a non-blank &#x60;contactPhoneNumber&#x60; is provided. If no matching contact exists, the request fails. A username does not automatically create a contact.
+   * @return contactUsername
+  **/
+  @javax.annotation.Nullable
+
+  public String getContactUsername() {
+    return contactUsername;
+  }
+
+
+  /**
+   * The Meta username of an existing contact in your account for events defined with &#x60;objectType&#x60; as &#x60;CONTACT&#x60;. Provide the username saved on the contact, without the leading &#x60;@&#x60;. Used when neither a numeric &#x60;objectId&#x60; nor a non-blank &#x60;contactPhoneNumber&#x60; is provided. If no matching contact exists, the request fails. A username does not automatically create a contact.
+   **/
+  @ApiModelProperty(example = "customer_demo", value = "The Meta username of an existing contact in your account for events defined with `objectType` as `CONTACT`. Provide the username saved on the contact, without the leading `@`. Used when neither a numeric `objectId` nor a non-blank `contactPhoneNumber` is provided. If no matching contact exists, the request fails. A username does not automatically create a contact.")
+  public void setContactUsername(String contactUsername) {
+    this.contactUsername = contactUsername;
+  }
+
+
   public CustomEventSendRequest properties(Map<String, Object> properties) {
-    
+
     this.properties = properties;
     return this;
   }
@@ -279,13 +312,14 @@ public class CustomEventSendRequest {
         Objects.equals(this.occurTime, customEventSendRequest.occurTime) &&
         Objects.equals(this.objectId, customEventSendRequest.objectId) &&
         Objects.equals(this.contactPhoneNumber, customEventSendRequest.contactPhoneNumber) &&
+        Objects.equals(this.contactUsername, customEventSendRequest.contactUsername) &&
         Objects.equals(this.properties, customEventSendRequest.properties)&&
         Objects.equals(this.additionalProperties, customEventSendRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventName, occurTime, objectId, contactPhoneNumber, properties, additionalProperties);
+    return Objects.hash(eventName, occurTime, objectId, contactPhoneNumber, contactUsername, properties, additionalProperties);
   }
 
   @Override
@@ -296,6 +330,7 @@ public class CustomEventSendRequest {
     sb.append("    occurTime: ").append(toIndentedString(occurTime)).append("\n");
     sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
     sb.append("    contactPhoneNumber: ").append(toIndentedString(contactPhoneNumber)).append("\n");
+    sb.append("    contactUsername: ").append(toIndentedString(contactUsername)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -324,6 +359,7 @@ public class CustomEventSendRequest {
     openapiFields.add("occurTime");
     openapiFields.add("objectId");
     openapiFields.add("contactPhoneNumber");
+    openapiFields.add("contactUsername");
     openapiFields.add("properties");
 
     // a set of required properties/fields (JSON key names)
@@ -360,6 +396,9 @@ public class CustomEventSendRequest {
       }
       if (jsonObj.get("contactPhoneNumber") != null && !jsonObj.get("contactPhoneNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contactPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contactPhoneNumber").toString()));
+      }
+      if (jsonObj.get("contactUsername") != null && !jsonObj.get("contactUsername").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `contactUsername` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contactUsername").toString()));
       }
   }
 
@@ -447,4 +486,3 @@ public class CustomEventSendRequest {
     return JSON.getGson().toJson(this);
   }
 }
-

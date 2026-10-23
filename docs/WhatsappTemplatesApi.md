@@ -4,6 +4,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**analytics**](WhatsappTemplatesApi.md#analytics) | **POST** /whatsapp/templates/analytics | Retrieve WhatsApp template analytics |
 | [**create**](WhatsappTemplatesApi.md#create) | **POST** /whatsapp/templates | Create a template |
 | [**deleteByName**](WhatsappTemplatesApi.md#deleteByName) | **DELETE** /whatsapp/templates/{wabaId}/{name} | Delete templates by name |
 | [**deleteByNameAndLanguage**](WhatsappTemplatesApi.md#deleteByNameAndLanguage) | **DELETE** /whatsapp/templates/{wabaId}/{name}/{language} | Delete a template |
@@ -11,6 +12,79 @@ All URIs are relative to *https://api.ycloud.com/v2*
 | [**list**](WhatsappTemplatesApi.md#list) | **GET** /whatsapp/templates | List templates |
 | [**retrieveByNameAndLanguage**](WhatsappTemplatesApi.md#retrieveByNameAndLanguage) | **GET** /whatsapp/templates/{wabaId}/{name}/{language} | Retrieve a template |
 
+
+<a name="analytics"></a>
+# **analytics**
+> WhatsappTemplateAnalytics analytics(whatsappTemplateAnalyticsRequest)
+
+Retrieve WhatsApp template analytics
+
+Returns daily YCloud message metrics and, when available, Meta Template Insights for one WhatsApp template. Authenticate with &#x60;X-API-Key&#x60;. &#x60;analyticsStatus&#x60; describes Meta Template Insights only; it does not describe YCloud metrics. Dates are interpreted in the WABA timezone, both boundaries are inclusive, and the range must contain between 1 and 90 calendar days.  The selected template must currently exist under the requested WABA. REST resolves and validates the template before querying any statistics. A missing template returns &#x60;404&#x60;, a template that belongs to another WABA returns &#x60;403&#x60;, and a template lookup failure returns &#x60;500&#x60;; none of these errors returns partial statistics.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
+    WhatsappTemplateAnalyticsRequest whatsappTemplateAnalyticsRequest = new WhatsappTemplateAnalyticsRequest(); // WhatsappTemplateAnalyticsRequest |
+    try {
+      WhatsappTemplateAnalytics result = apiInstance.analytics(whatsappTemplateAnalyticsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappTemplatesApi#analytics");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **whatsappTemplateAnalyticsRequest** | [**WhatsappTemplateAnalyticsRequest**](WhatsappTemplateAnalyticsRequest.md)|  | |
+
+### Return type
+
+[**WhatsappTemplateAnalytics**](WhatsappTemplateAnalytics.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved template analytics. |  -  |
+| **400** | The request parameters are invalid. |  -  |
+| **403** | The WABA or template is not accessible. |  -  |
+| **404** | The WABA does not exist, or the template selected by either supported selector was not found. |  -  |
+| **500** | A required dependency, such as current template resolution or YCloud message statistics, could not be retrieved. Meta Template Insights failures after successful template validation are returned as a 200 response with analyticsStatus set to ERROR. |  -  |
 
 <a name="create"></a>
 # **create**
@@ -34,7 +108,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -42,7 +116,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappTemplatesApi apiInstance = new WhatsappTemplatesApi(defaultClient);
-    WhatsappTemplateCreateRequest whatsappTemplateCreateRequest = new WhatsappTemplateCreateRequest(); // WhatsappTemplateCreateRequest | 
+    WhatsappTemplateCreateRequest whatsappTemplateCreateRequest = new WhatsappTemplateCreateRequest(); // WhatsappTemplateCreateRequest |
     try {
       WhatsappTemplate result = apiInstance.create(whatsappTemplateCreateRequest);
       System.out.println(result);
@@ -103,7 +177,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -175,7 +249,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -249,7 +323,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -260,7 +334,7 @@ public class Example {
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String name = "sample_whatsapp_template"; // String | Name of the template.
     String language = "en"; // String | Language code of the template. See [Supported Languages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/supported-languages) for all codes.
-    WhatsappTemplateEditRequest whatsappTemplateEditRequest = new WhatsappTemplateEditRequest(); // WhatsappTemplateEditRequest | 
+    WhatsappTemplateEditRequest whatsappTemplateEditRequest = new WhatsappTemplateEditRequest(); // WhatsappTemplateEditRequest |
     try {
       WhatsappTemplate result = apiInstance.editByNameAndLanguage(wabaId, name, language, whatsappTemplateEditRequest);
       System.out.println(result);
@@ -325,7 +399,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -414,7 +488,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -465,4 +539,3 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the template. |  -  |
 | **404** | The requested resource does not exist. |  -  |
-

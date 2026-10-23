@@ -53,7 +53,7 @@ import com.ycloud.client.JSON;
 public class ContactNote {
   public static final String SERIALIZED_NAME_ID = "id";
   /**
-   * Unique ID for the contact note.
+   * Unique 24-character ObjectId for the contact note. IDs remain unchanged after storage migration.
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -110,7 +110,7 @@ public class ContactNote {
   }
 
    /**
-   * Unique ID for the contact note.
+   * Unique 24-character ObjectId for the contact note. IDs remain unchanged after storage migration.
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -121,9 +121,9 @@ public class ContactNote {
 
 
   /**
-   * Unique ID for the contact note.
+   * Unique 24-character ObjectId for the contact note. IDs remain unchanged after storage migration.
    **/
-  @ApiModelProperty(example = "6a3de646e18f344f743aaa4d", required = true, value = "Unique ID for the contact note.")
+  @ApiModelProperty(example = "6a3de646e18f344f743aaa4d", required = true, value = "Unique 24-character ObjectId for the contact note. IDs remain unchanged after storage migration.")
   public void setId(String id) {
     this.id = id;
   }

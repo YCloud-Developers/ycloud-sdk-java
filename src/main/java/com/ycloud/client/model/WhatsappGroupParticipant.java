@@ -394,4 +394,3 @@ public class WhatsappGroupParticipant {
     return JSON.getGson().toJson(this);
   }
 }
-

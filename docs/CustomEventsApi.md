@@ -35,7 +35,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -43,7 +43,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     CustomEventsApi apiInstance = new CustomEventsApi(defaultClient);
-    CustomEventDefinitionCreateRequest customEventDefinitionCreateRequest = new CustomEventDefinitionCreateRequest(); // CustomEventDefinitionCreateRequest | 
+    CustomEventDefinitionCreateRequest customEventDefinitionCreateRequest = new CustomEventDefinitionCreateRequest(); // CustomEventDefinitionCreateRequest |
     try {
       CustomEventDefinition result = apiInstance.createDefinition(customEventDefinitionCreateRequest);
       System.out.println(result);
@@ -104,7 +104,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -113,7 +113,7 @@ public class Example {
 
     CustomEventsApi apiInstance = new CustomEventsApi(defaultClient);
     String name = "unique_event_name"; // String | Name of the custom event.
-    CustomEventDefinitionPropertyCreateRequest customEventDefinitionPropertyCreateRequest = new CustomEventDefinitionPropertyCreateRequest(); // CustomEventDefinitionPropertyCreateRequest | 
+    CustomEventDefinitionPropertyCreateRequest customEventDefinitionPropertyCreateRequest = new CustomEventDefinitionPropertyCreateRequest(); // CustomEventDefinitionPropertyCreateRequest |
     try {
       CustomEventDefinitionProperty result = apiInstance.createPropertyDefinition(name, customEventDefinitionPropertyCreateRequest);
       System.out.println(result);
@@ -176,7 +176,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -247,7 +247,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -257,7 +257,7 @@ public class Example {
     CustomEventsApi apiInstance = new CustomEventsApi(defaultClient);
     String name = "unique_event_name"; // String | Name of the custom event.
     String propertyName = "unique_property_name"; // String | Name of the custom event property.
-    CustomEventDefinitionPropertyUpdateRequest customEventDefinitionPropertyUpdateRequest = new CustomEventDefinitionPropertyUpdateRequest(); // CustomEventDefinitionPropertyUpdateRequest | 
+    CustomEventDefinitionPropertyUpdateRequest customEventDefinitionPropertyUpdateRequest = new CustomEventDefinitionPropertyUpdateRequest(); // CustomEventDefinitionPropertyUpdateRequest |
     try {
       CustomEventDefinitionProperty result = apiInstance.propertyDefinition_0(name, propertyName, customEventDefinitionPropertyUpdateRequest);
       System.out.println(result);
@@ -321,7 +321,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -375,7 +375,7 @@ public class Example {
 
 Send an event
 
-Sends an event.
+Sends an occurrence of a previously defined custom event. For contact events, identify the contact using one of a contact ID, phone number, or Meta username.
 
 ### Example
 ```java
@@ -391,7 +391,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -399,7 +399,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     CustomEventsApi apiInstance = new CustomEventsApi(defaultClient);
-    CustomEventSendRequest customEventSendRequest = new CustomEventSendRequest(); // CustomEventSendRequest | 
+    CustomEventSendRequest customEventSendRequest = new CustomEventSendRequest(); // CustomEventSendRequest |
     try {
       apiInstance.sendEvent(customEventSendRequest);
     } catch (ApiException e) {
@@ -435,7 +435,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully sent the event. |  -  |
+| **200** | Successfully accepted the event. Returns an empty JSON object. |  -  |
 
 <a name="updateDefinition"></a>
 # **updateDefinition**
@@ -459,7 +459,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -468,7 +468,7 @@ public class Example {
 
     CustomEventsApi apiInstance = new CustomEventsApi(defaultClient);
     String name = "unique_event_name"; // String | Name of the custom event.
-    CustomEventDefinitionUpdateRequest customEventDefinitionUpdateRequest = new CustomEventDefinitionUpdateRequest(); // CustomEventDefinitionUpdateRequest | 
+    CustomEventDefinitionUpdateRequest customEventDefinitionUpdateRequest = new CustomEventDefinitionUpdateRequest(); // CustomEventDefinitionUpdateRequest |
     try {
       CustomEventDefinition result = apiInstance.updateDefinition(name, customEventDefinitionUpdateRequest);
       System.out.println(result);
@@ -508,4 +508,3 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successfully updated the event definition. |  -  |
 | **404** | The requested resource does not exist. |  -  |
-

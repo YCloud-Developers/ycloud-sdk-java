@@ -140,6 +140,13 @@ public class WhatsappPhoneNumber {
   @SerializedName(SERIALIZED_NAME_VERIFIED_NAME)
   private String verifiedName;
 
+  public static final String SERIALIZED_NAME_YCLOUD_NAME = "ycloudName";
+  /**
+   * Optional remark name assigned to this phone number in YCloud. It is populated by the phone-number list, retrieve, and profile GET APIs, and omitted when no remark name is set.
+  **/
+  @SerializedName(SERIALIZED_NAME_YCLOUD_NAME)
+  private String ycloudName;
+
   public static final String SERIALIZED_NAME_NEW_NAME = "newName";
   /**
    * The modified name
@@ -210,7 +217,7 @@ public class WhatsappPhoneNumber {
   @JsonAdapter(UpdateEventEnum.Adapter.class)
   public enum UpdateEventEnum {
     RECONNECTED("ACCOUNT_RECONNECTED"),
-    
+
     OFFBOARDED("ACCOUNT_OFFBOARDED");
 
     private String value;
@@ -258,11 +265,75 @@ public class WhatsappPhoneNumber {
   @SerializedName(SERIALIZED_NAME_UPDATE_EVENT)
   private UpdateEventEnum updateEvent;
 
-  public WhatsappPhoneNumber() { 
+  /**
+   * Current Meta throughput level of the WhatsApp phone number. - &#x60;STANDARD&#x60;: Default Cloud API throughput level, currently up to 80 messages per second. - &#x60;HIGH&#x60;: Upgraded Cloud API throughput level, currently up to 1,000 messages per second, subject to Meta&#39;s current Cloud API throughput rules. - &#x60;NOT_APPLICABLE&#x60;: Throughput level is not applicable to this phone number.
+   */
+  @JsonAdapter(ThroughputLevelEnum.Adapter.class)
+  public enum ThroughputLevelEnum {
+    STANDARD("STANDARD"),
+
+    HIGH("HIGH"),
+
+    NOT_APPLICABLE("NOT_APPLICABLE");
+
+    private String value;
+
+    ThroughputLevelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ThroughputLevelEnum fromValue(String value) {
+      for (ThroughputLevelEnum b : ThroughputLevelEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ThroughputLevelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ThroughputLevelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ThroughputLevelEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ThroughputLevelEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_THROUGHPUT_LEVEL = "throughputLevel";
+  /**
+   * Current Meta throughput level of the WhatsApp phone number. - &#x60;STANDARD&#x60;: Default Cloud API throughput level, currently up to 80 messages per second. - &#x60;HIGH&#x60;: Upgraded Cloud API throughput level, currently up to 1,000 messages per second, subject to Meta&#39;s current Cloud API throughput rules. - &#x60;NOT_APPLICABLE&#x60;: Throughput level is not applicable to this phone number.
+  **/
+  @SerializedName(SERIALIZED_NAME_THROUGHPUT_LEVEL)
+  private ThroughputLevelEnum throughputLevel;
+
+  public WhatsappPhoneNumber() {
+  }
+
+
+  public WhatsappPhoneNumber(
+     String ycloudName
+  ) {
+    this();
+    this.ycloudName = ycloudName;
   }
 
   public WhatsappPhoneNumber id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -288,7 +359,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber phoneNumber(String phoneNumber) {
-    
+
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -314,7 +385,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber displayPhoneNumber(String displayPhoneNumber) {
-    
+
     this.displayPhoneNumber = displayPhoneNumber;
     return this;
   }
@@ -340,7 +411,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber wabaId(String wabaId) {
-    
+
     this.wabaId = wabaId;
     return this;
   }
@@ -366,7 +437,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber businessUsername(String businessUsername) {
-    
+
     this.businessUsername = businessUsername;
     return this;
   }
@@ -392,7 +463,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber businessUsernameStatus(WhatsappBusinessUsernameStatus businessUsernameStatus) {
-    
+
     this.businessUsernameStatus = businessUsernameStatus;
     return this;
   }
@@ -417,7 +488,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber requestedBusinessUsername(String requestedBusinessUsername) {
-    
+
     this.requestedBusinessUsername = requestedBusinessUsername;
     return this;
   }
@@ -443,7 +514,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber businessUsernameUpdatedAt(Date businessUsernameUpdatedAt) {
-    
+
     this.businessUsernameUpdatedAt = businessUsernameUpdatedAt;
     return this;
   }
@@ -469,7 +540,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber qualityRating(WhatsappPhoneNumberQualityRating qualityRating) {
-    
+
     this.qualityRating = qualityRating;
     return this;
   }
@@ -494,7 +565,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber messagingLimit(String messagingLimit) {
-    
+
     this.messagingLimit = messagingLimit;
     return this;
   }
@@ -520,7 +591,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber whatsappBusinessManagerMessagingLimit(String whatsappBusinessManagerMessagingLimit) {
-    
+
     this.whatsappBusinessManagerMessagingLimit = whatsappBusinessManagerMessagingLimit;
     return this;
   }
@@ -546,7 +617,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber verifiedName(String verifiedName) {
-    
+
     this.verifiedName = verifiedName;
     return this;
   }
@@ -571,8 +642,21 @@ public class WhatsappPhoneNumber {
   }
 
 
+   /**
+   * Optional remark name assigned to this phone number in YCloud. It is populated by the phone-number list, retrieve, and profile GET APIs, and omitted when no remark name is set.
+   * @return ycloudName
+  **/
+  @javax.annotation.Nullable
+
+  public String getYcloudName() {
+    return ycloudName;
+  }
+
+
+
+
   public WhatsappPhoneNumber newName(String newName) {
-    
+
     this.newName = newName;
     return this;
   }
@@ -598,7 +682,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber codeVerificationStatus(WhatsappPhoneNumberCodeVerificationStatus codeVerificationStatus) {
-    
+
     this.codeVerificationStatus = codeVerificationStatus;
     return this;
   }
@@ -623,7 +707,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber isOfficialBusinessAccount(Boolean isOfficialBusinessAccount) {
-    
+
     this.isOfficialBusinessAccount = isOfficialBusinessAccount;
     return this;
   }
@@ -649,7 +733,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber status(WhatsappPhoneNumberStatus status) {
-    
+
     this.status = status;
     return this;
   }
@@ -674,7 +758,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber nameStatus(WhatsappPhoneNumberNameStatus nameStatus) {
-    
+
     this.nameStatus = nameStatus;
     return this;
   }
@@ -699,7 +783,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber newNameStatus(WhatsappPhoneNumberNameStatus newNameStatus) {
-    
+
     this.newNameStatus = newNameStatus;
     return this;
   }
@@ -724,7 +808,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber decision(WhatsappReviewDecision decision) {
-    
+
     this.decision = decision;
     return this;
   }
@@ -749,7 +833,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber requestedVerifiedName(String requestedVerifiedName) {
-    
+
     this.requestedVerifiedName = requestedVerifiedName;
     return this;
   }
@@ -775,7 +859,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber rejectionReason(String rejectionReason) {
-    
+
     this.rejectionReason = rejectionReason;
     return this;
   }
@@ -801,7 +885,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber qualityUpdateEvent(WhatsappPhoneNumberQualityUpdateEventEnum qualityUpdateEvent) {
-    
+
     this.qualityUpdateEvent = qualityUpdateEvent;
     return this;
   }
@@ -826,7 +910,7 @@ public class WhatsappPhoneNumber {
 
 
   public WhatsappPhoneNumber updateEvent(UpdateEventEnum updateEvent) {
-    
+
     this.updateEvent = updateEvent;
     return this;
   }
@@ -848,6 +932,32 @@ public class WhatsappPhoneNumber {
   @ApiModelProperty(example = "ACCOUNT_OFFBOARDED", value = "Account update event that triggered this phone number status change.")
   public void setUpdateEvent(UpdateEventEnum updateEvent) {
     this.updateEvent = updateEvent;
+  }
+
+
+  public WhatsappPhoneNumber throughputLevel(ThroughputLevelEnum throughputLevel) {
+
+    this.throughputLevel = throughputLevel;
+    return this;
+  }
+
+   /**
+   * Current Meta throughput level of the WhatsApp phone number. - &#x60;STANDARD&#x60;: Default Cloud API throughput level, currently up to 80 messages per second. - &#x60;HIGH&#x60;: Upgraded Cloud API throughput level, currently up to 1,000 messages per second, subject to Meta&#39;s current Cloud API throughput rules. - &#x60;NOT_APPLICABLE&#x60;: Throughput level is not applicable to this phone number.
+   * @return throughputLevel
+  **/
+  @javax.annotation.Nullable
+
+  public ThroughputLevelEnum getThroughputLevel() {
+    return throughputLevel;
+  }
+
+
+  /**
+   * Current Meta throughput level of the WhatsApp phone number. - &#x60;STANDARD&#x60;: Default Cloud API throughput level, currently up to 80 messages per second. - &#x60;HIGH&#x60;: Upgraded Cloud API throughput level, currently up to 1,000 messages per second, subject to Meta&#39;s current Cloud API throughput rules. - &#x60;NOT_APPLICABLE&#x60;: Throughput level is not applicable to this phone number.
+   **/
+  @ApiModelProperty(example = "HIGH", value = "Current Meta throughput level of the WhatsApp phone number. - `STANDARD`: Default Cloud API throughput level, currently up to 80 messages per second. - `HIGH`: Upgraded Cloud API throughput level, currently up to 1,000 messages per second, subject to Meta's current Cloud API throughput rules. - `NOT_APPLICABLE`: Throughput level is not applicable to this phone number.")
+  public void setThroughputLevel(ThroughputLevelEnum throughputLevel) {
+    this.throughputLevel = throughputLevel;
   }
 
   /**
@@ -908,6 +1018,7 @@ public class WhatsappPhoneNumber {
         Objects.equals(this.messagingLimit, whatsappPhoneNumber.messagingLimit) &&
         Objects.equals(this.whatsappBusinessManagerMessagingLimit, whatsappPhoneNumber.whatsappBusinessManagerMessagingLimit) &&
         Objects.equals(this.verifiedName, whatsappPhoneNumber.verifiedName) &&
+        Objects.equals(this.ycloudName, whatsappPhoneNumber.ycloudName) &&
         Objects.equals(this.newName, whatsappPhoneNumber.newName) &&
         Objects.equals(this.codeVerificationStatus, whatsappPhoneNumber.codeVerificationStatus) &&
         Objects.equals(this.isOfficialBusinessAccount, whatsappPhoneNumber.isOfficialBusinessAccount) &&
@@ -918,13 +1029,14 @@ public class WhatsappPhoneNumber {
         Objects.equals(this.requestedVerifiedName, whatsappPhoneNumber.requestedVerifiedName) &&
         Objects.equals(this.rejectionReason, whatsappPhoneNumber.rejectionReason) &&
         Objects.equals(this.qualityUpdateEvent, whatsappPhoneNumber.qualityUpdateEvent) &&
-        Objects.equals(this.updateEvent, whatsappPhoneNumber.updateEvent)&&
+        Objects.equals(this.updateEvent, whatsappPhoneNumber.updateEvent) &&
+        Objects.equals(this.throughputLevel, whatsappPhoneNumber.throughputLevel)&&
         Objects.equals(this.additionalProperties, whatsappPhoneNumber.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, phoneNumber, displayPhoneNumber, wabaId, businessUsername, businessUsernameStatus, requestedBusinessUsername, businessUsernameUpdatedAt, qualityRating, messagingLimit, whatsappBusinessManagerMessagingLimit, verifiedName, newName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, updateEvent, additionalProperties);
+    return Objects.hash(id, phoneNumber, displayPhoneNumber, wabaId, businessUsername, businessUsernameStatus, requestedBusinessUsername, businessUsernameUpdatedAt, qualityRating, messagingLimit, whatsappBusinessManagerMessagingLimit, verifiedName, ycloudName, newName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, updateEvent, throughputLevel, additionalProperties);
   }
 
   @Override
@@ -943,6 +1055,7 @@ public class WhatsappPhoneNumber {
     sb.append("    messagingLimit: ").append(toIndentedString(messagingLimit)).append("\n");
     sb.append("    whatsappBusinessManagerMessagingLimit: ").append(toIndentedString(whatsappBusinessManagerMessagingLimit)).append("\n");
     sb.append("    verifiedName: ").append(toIndentedString(verifiedName)).append("\n");
+    sb.append("    ycloudName: ").append(toIndentedString(ycloudName)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    codeVerificationStatus: ").append(toIndentedString(codeVerificationStatus)).append("\n");
     sb.append("    isOfficialBusinessAccount: ").append(toIndentedString(isOfficialBusinessAccount)).append("\n");
@@ -954,6 +1067,7 @@ public class WhatsappPhoneNumber {
     sb.append("    rejectionReason: ").append(toIndentedString(rejectionReason)).append("\n");
     sb.append("    qualityUpdateEvent: ").append(toIndentedString(qualityUpdateEvent)).append("\n");
     sb.append("    updateEvent: ").append(toIndentedString(updateEvent)).append("\n");
+    sb.append("    throughputLevel: ").append(toIndentedString(throughputLevel)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -989,6 +1103,7 @@ public class WhatsappPhoneNumber {
     openapiFields.add("messagingLimit");
     openapiFields.add("whatsappBusinessManagerMessagingLimit");
     openapiFields.add("verifiedName");
+    openapiFields.add("ycloudName");
     openapiFields.add("newName");
     openapiFields.add("codeVerificationStatus");
     openapiFields.add("isOfficialBusinessAccount");
@@ -1000,6 +1115,7 @@ public class WhatsappPhoneNumber {
     openapiFields.add("rejectionReason");
     openapiFields.add("qualityUpdateEvent");
     openapiFields.add("updateEvent");
+    openapiFields.add("throughputLevel");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1046,6 +1162,9 @@ public class WhatsappPhoneNumber {
       if (jsonObj.get("verifiedName") != null && !jsonObj.get("verifiedName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `verifiedName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verifiedName").toString()));
       }
+      if (jsonObj.get("ycloudName") != null && !jsonObj.get("ycloudName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ycloudName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ycloudName").toString()));
+      }
       if (jsonObj.get("newName") != null && !jsonObj.get("newName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `newName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newName").toString()));
       }
@@ -1057,6 +1176,9 @@ public class WhatsappPhoneNumber {
       }
       if (jsonObj.get("updateEvent") != null && !jsonObj.get("updateEvent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `updateEvent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updateEvent").toString()));
+      }
+      if (jsonObj.get("throughputLevel") != null && !jsonObj.get("throughputLevel").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `throughputLevel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("throughputLevel").toString()));
       }
   }
 
@@ -1144,4 +1266,3 @@ public class WhatsappPhoneNumber {
     return JSON.getGson().toJson(this);
   }
 }
-

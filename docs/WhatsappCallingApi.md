@@ -6,6 +6,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 |------------- | ------------- | -------------|
 | [**accept**](WhatsappCallingApi.md#accept) | **POST** /whatsapp/calls/accept | Accept a call |
 | [**connect**](WhatsappCallingApi.md#connect) | **POST** /whatsapp/calls/connect | Connect a call |
+| [**downloadMedia**](WhatsappCallingApi.md#downloadMedia) | **GET** /whatsapp/calls/media/{mediaAssetId} | Download call media |
 | [**preAccept**](WhatsappCallingApi.md#preAccept) | **POST** /whatsapp/calls/preAccept | Pre-accept a call |
 | [**reject**](WhatsappCallingApi.md#reject) | **POST** /whatsapp/calls/reject | Reject a call |
 | [**terminate**](WhatsappCallingApi.md#terminate) | **POST** /whatsapp/calls/terminate | Terminate a call |
@@ -33,7 +34,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -41,7 +42,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappCallingApi apiInstance = new WhatsappCallingApi(defaultClient);
-    WhatsappCallingPreAcceptRequest whatsappCallingPreAcceptRequest = new WhatsappCallingPreAcceptRequest(); // WhatsappCallingPreAcceptRequest | 
+    WhatsappCallingPreAcceptRequest whatsappCallingPreAcceptRequest = new WhatsappCallingPreAcceptRequest(); // WhatsappCallingPreAcceptRequest |
     try {
       WhatsappCallingResponse result = apiInstance.accept(whatsappCallingPreAcceptRequest);
       System.out.println(result);
@@ -104,7 +105,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -112,7 +113,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappCallingApi apiInstance = new WhatsappCallingApi(defaultClient);
-    WhatsappCallingConnectRequest whatsappCallingConnectRequest = new WhatsappCallingConnectRequest(); // WhatsappCallingConnectRequest | 
+    WhatsappCallingConnectRequest whatsappCallingConnectRequest = new WhatsappCallingConnectRequest(); // WhatsappCallingConnectRequest |
     try {
       WhatsappCallingResponse result = apiInstance.connect(whatsappCallingConnectRequest);
       System.out.println(result);
@@ -153,6 +154,77 @@ public class Example {
 | **400** | Bad request. Invalid request parameters. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
+<a name="downloadMedia"></a>
+# **downloadMedia**
+> File downloadMedia(mediaAssetId)
+
+Download call media
+
+Downloads an available recording or transcription generated for an API-sourced WhatsApp call.  Media can be downloaded only by the owning tenant for 30 days from its creation time. Requests without a Range header or with a blank Range header return the complete file as a download attachment with HTTP 200. A non-empty Range header is rejected with HTTP 400 because byte-range downloads are not supported.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappCallingApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappCallingApi apiInstance = new WhatsappCallingApi(defaultClient);
+    String mediaAssetId = "66b1f0c2e4b05c2d8f1a3b47"; // String | YCloud call media asset ID received in a recording or transcription webhook.
+    try {
+      File result = apiInstance.downloadMedia(mediaAssetId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappCallingApi#downloadMedia");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **mediaAssetId** | **String**| YCloud call media asset ID received in a recording or transcription webhook. | |
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: audio/ogg, application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The complete recording or transcription file. |  * Accept-Ranges - Always &#x60;none&#x60;; byte-range downloads are not supported. <br>  * Content-Disposition - Download attachment filename. Recordings use the &#x60;.ogg&#x60; extension and transcriptions use the &#x60;.json&#x60; extension. <br>  * Content-Length -  <br>  |
+| **400** | The request includes a non-empty Range header. Byte-range downloads are not supported. |  -  |
+| **404** | The media asset does not exist, is not available, is expired, or does not belong to the authenticated tenant. |  -  |
+
 <a name="preAccept"></a>
 # **preAccept**
 > WhatsappCallingResponse preAccept(whatsappCallingPreAcceptRequest)
@@ -175,7 +247,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -183,7 +255,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappCallingApi apiInstance = new WhatsappCallingApi(defaultClient);
-    WhatsappCallingPreAcceptRequest whatsappCallingPreAcceptRequest = new WhatsappCallingPreAcceptRequest(); // WhatsappCallingPreAcceptRequest | 
+    WhatsappCallingPreAcceptRequest whatsappCallingPreAcceptRequest = new WhatsappCallingPreAcceptRequest(); // WhatsappCallingPreAcceptRequest |
     try {
       WhatsappCallingResponse result = apiInstance.preAccept(whatsappCallingPreAcceptRequest);
       System.out.println(result);
@@ -246,7 +318,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -254,7 +326,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappCallingApi apiInstance = new WhatsappCallingApi(defaultClient);
-    WhatsappCallingTerminateRequest whatsappCallingTerminateRequest = new WhatsappCallingTerminateRequest(); // WhatsappCallingTerminateRequest | 
+    WhatsappCallingTerminateRequest whatsappCallingTerminateRequest = new WhatsappCallingTerminateRequest(); // WhatsappCallingTerminateRequest |
     try {
       WhatsappCallingResponse result = apiInstance.reject(whatsappCallingTerminateRequest);
       System.out.println(result);
@@ -317,7 +389,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -325,7 +397,7 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     WhatsappCallingApi apiInstance = new WhatsappCallingApi(defaultClient);
-    WhatsappCallingTerminateRequest whatsappCallingTerminateRequest = new WhatsappCallingTerminateRequest(); // WhatsappCallingTerminateRequest | 
+    WhatsappCallingTerminateRequest whatsappCallingTerminateRequest = new WhatsappCallingTerminateRequest(); // WhatsappCallingTerminateRequest |
     try {
       WhatsappCallingResponse result = apiInstance.terminate(whatsappCallingTerminateRequest);
       System.out.println(result);
@@ -365,4 +437,3 @@ public class Example {
 | **200** | The call termination request is successfully processed. |  -  |
 | **400** | Bad request. Invalid request parameters. |  -  |
 | **404** | The requested resource does not exist. |  -  |
-

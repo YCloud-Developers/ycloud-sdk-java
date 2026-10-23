@@ -28,6 +28,9 @@ import java.io.IOException;
 
 
 import com.ycloud.client.model.ErrorResponse;
+import com.ycloud.client.model.WhatsappAutomaticCreativeOptimizationRetrieveResponse;
+import com.ycloud.client.model.WhatsappAutomaticCreativeOptimizationUpdateRequest;
+import com.ycloud.client.model.WhatsappAutomaticCreativeOptimizationUpdateResponse;
 import com.ycloud.client.model.WhatsappBusinessAccount;
 import com.ycloud.client.model.WhatsappBusinessAccountPage;
 
@@ -125,7 +128,7 @@ public class WhatsappBusinessAccountsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -138,7 +141,7 @@ public class WhatsappBusinessAccountsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterAccountReviewStatus, final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterAccountReviewStatus, _callback);
         return localVarCall;
@@ -331,7 +334,7 @@ public class WhatsappBusinessAccountsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -344,12 +347,12 @@ public class WhatsappBusinessAccountsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling retrieve(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveCall(id, _callback);
         return localVarCall;
@@ -414,6 +417,291 @@ public class WhatsappBusinessAccountsApi {
 
         okhttp3.Call localVarCall = retrieveValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<WhatsappBusinessAccount>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for retrieveAutomaticCreativeOptimizations
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved current automatic creative optimization features. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Meta returned an error for the WABA automatic creative optimization query. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You have no access to the requested WABA. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveAutomaticCreativeOptimizationsCall(String wabaId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/businessAccounts/{wabaId}/automatic-creative-optimizations"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call retrieveAutomaticCreativeOptimizationsValidateBeforeCall(String wabaId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveAutomaticCreativeOptimizations(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = retrieveAutomaticCreativeOptimizationsCall(wabaId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve WABA automatic creative optimizations
+     * <p>
+     * Retrieves current automatic creative optimization feature enrollment for a WhatsApp Business Account from Meta.  This endpoint does not persist feature enrollment locally. If Meta returns &#x60;degrees_of_freedom_spec.data[0].creative_features_spec[0]&#x60; as an object, its string fields are returned as &#x60;creativeOptimizationFeatures&#x60; without feature-key filtering, status-value validation, or case normalization. If Meta returns success without a valid &#x60;creative_features_spec[0]&#x60; object, &#x60;creativeOptimizationFeatures&#x60; is returned as an empty object.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @return WhatsappAutomaticCreativeOptimizationRetrieveResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved current automatic creative optimization features. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Meta returned an error for the WABA automatic creative optimization query. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You have no access to the requested WABA. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappAutomaticCreativeOptimizationRetrieveResponse retrieveAutomaticCreativeOptimizations(String wabaId) throws ApiException {
+        ApiResponse<WhatsappAutomaticCreativeOptimizationRetrieveResponse> localVarResp = retrieveAutomaticCreativeOptimizationsWithHttpInfo(wabaId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve WABA automatic creative optimizations
+     * <p>
+     * Retrieves current automatic creative optimization feature enrollment for a WhatsApp Business Account from Meta.  This endpoint does not persist feature enrollment locally. If Meta returns &#x60;degrees_of_freedom_spec.data[0].creative_features_spec[0]&#x60; as an object, its string fields are returned as &#x60;creativeOptimizationFeatures&#x60; without feature-key filtering, status-value validation, or case normalization. If Meta returns success without a valid &#x60;creative_features_spec[0]&#x60; object, &#x60;creativeOptimizationFeatures&#x60; is returned as an empty object.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @return ApiResponse&lt;WhatsappAutomaticCreativeOptimizationRetrieveResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved current automatic creative optimization features. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Meta returned an error for the WABA automatic creative optimization query. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You have no access to the requested WABA. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappAutomaticCreativeOptimizationRetrieveResponse> retrieveAutomaticCreativeOptimizationsWithHttpInfo(String wabaId) throws ApiException {
+        okhttp3.Call localVarCall = retrieveAutomaticCreativeOptimizationsValidateBeforeCall(wabaId, null);
+        Type localVarReturnType = new TypeToken<WhatsappAutomaticCreativeOptimizationRetrieveResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve WABA automatic creative optimizations (asynchronously)
+     * <p>
+     * Retrieves current automatic creative optimization feature enrollment for a WhatsApp Business Account from Meta.  This endpoint does not persist feature enrollment locally. If Meta returns &#x60;degrees_of_freedom_spec.data[0].creative_features_spec[0]&#x60; as an object, its string fields are returned as &#x60;creativeOptimizationFeatures&#x60; without feature-key filtering, status-value validation, or case normalization. If Meta returns success without a valid &#x60;creative_features_spec[0]&#x60; object, &#x60;creativeOptimizationFeatures&#x60; is returned as an empty object.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved current automatic creative optimization features. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Meta returned an error for the WABA automatic creative optimization query. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You have no access to the requested WABA. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call retrieveAutomaticCreativeOptimizationsAsync(String wabaId, final ApiCallback<WhatsappAutomaticCreativeOptimizationRetrieveResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = retrieveAutomaticCreativeOptimizationsValidateBeforeCall(wabaId, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappAutomaticCreativeOptimizationRetrieveResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateAutomaticCreativeOptimizations
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param whatsappAutomaticCreativeOptimizationUpdateRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated submitted automatic creative optimization features. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more request parameters are invalid, or Meta returned an error for the WABA automatic creative optimization update. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You have no access to the requested WABA. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAutomaticCreativeOptimizationsCall(String wabaId, WhatsappAutomaticCreativeOptimizationUpdateRequest whatsappAutomaticCreativeOptimizationUpdateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = whatsappAutomaticCreativeOptimizationUpdateRequest;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/businessAccounts/{wabaId}/automatic-creative-optimizations"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateAutomaticCreativeOptimizationsValidateBeforeCall(String wabaId, WhatsappAutomaticCreativeOptimizationUpdateRequest whatsappAutomaticCreativeOptimizationUpdateRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling updateAutomaticCreativeOptimizations(Async)");
+        }
+
+        // verify the required parameter 'whatsappAutomaticCreativeOptimizationUpdateRequest' is set
+        if (whatsappAutomaticCreativeOptimizationUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'whatsappAutomaticCreativeOptimizationUpdateRequest' when calling updateAutomaticCreativeOptimizations(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = updateAutomaticCreativeOptimizationsCall(wabaId, whatsappAutomaticCreativeOptimizationUpdateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update WABA automatic creative optimizations
+     * <p>
+     * Partially updates automatic creative optimization feature enrollment for a WhatsApp Business Account.  Only submitted feature keys are updated. This endpoint does not persist feature enrollment locally and does not check whether the WABA has completed Meta MM Lite / ACO onboarding before forwarding the request to Meta.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param whatsappAutomaticCreativeOptimizationUpdateRequest  (required)
+     * @return WhatsappAutomaticCreativeOptimizationUpdateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated submitted automatic creative optimization features. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more request parameters are invalid, or Meta returned an error for the WABA automatic creative optimization update. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You have no access to the requested WABA. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappAutomaticCreativeOptimizationUpdateResponse updateAutomaticCreativeOptimizations(String wabaId, WhatsappAutomaticCreativeOptimizationUpdateRequest whatsappAutomaticCreativeOptimizationUpdateRequest) throws ApiException {
+        ApiResponse<WhatsappAutomaticCreativeOptimizationUpdateResponse> localVarResp = updateAutomaticCreativeOptimizationsWithHttpInfo(wabaId, whatsappAutomaticCreativeOptimizationUpdateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update WABA automatic creative optimizations
+     * <p>
+     * Partially updates automatic creative optimization feature enrollment for a WhatsApp Business Account.  Only submitted feature keys are updated. This endpoint does not persist feature enrollment locally and does not check whether the WABA has completed Meta MM Lite / ACO onboarding before forwarding the request to Meta.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param whatsappAutomaticCreativeOptimizationUpdateRequest  (required)
+     * @return ApiResponse&lt;WhatsappAutomaticCreativeOptimizationUpdateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated submitted automatic creative optimization features. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more request parameters are invalid, or Meta returned an error for the WABA automatic creative optimization update. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You have no access to the requested WABA. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappAutomaticCreativeOptimizationUpdateResponse> updateAutomaticCreativeOptimizationsWithHttpInfo(String wabaId, WhatsappAutomaticCreativeOptimizationUpdateRequest whatsappAutomaticCreativeOptimizationUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateAutomaticCreativeOptimizationsValidateBeforeCall(wabaId, whatsappAutomaticCreativeOptimizationUpdateRequest, null);
+        Type localVarReturnType = new TypeToken<WhatsappAutomaticCreativeOptimizationUpdateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update WABA automatic creative optimizations (asynchronously)
+     * <p>
+     * Partially updates automatic creative optimization feature enrollment for a WhatsApp Business Account.  Only submitted feature keys are updated. This endpoint does not persist feature enrollment locally and does not check whether the WABA has completed Meta MM Lite / ACO onboarding before forwarding the request to Meta.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param whatsappAutomaticCreativeOptimizationUpdateRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated submitted automatic creative optimization features. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more request parameters are invalid, or Meta returned an error for the WABA automatic creative optimization update. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You have no access to the requested WABA. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAutomaticCreativeOptimizationsAsync(String wabaId, WhatsappAutomaticCreativeOptimizationUpdateRequest whatsappAutomaticCreativeOptimizationUpdateRequest, final ApiCallback<WhatsappAutomaticCreativeOptimizationUpdateResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateAutomaticCreativeOptimizationsValidateBeforeCall(wabaId, whatsappAutomaticCreativeOptimizationUpdateRequest, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappAutomaticCreativeOptimizationUpdateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

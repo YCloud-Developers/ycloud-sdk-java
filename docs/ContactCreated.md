@@ -9,6 +9,7 @@ Represents a contact created event. Contains the full contact information that w
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Unique ID for the object. |  |
+|**remarkName** | **String** | The business-managed remark name for the contact. |  [optional] |
 |**nickName** | **String** | Contact&#39;s nickname. |  [optional] |
 |**realName** | **String** | Contact&#39;s real name. |  [optional] |
 |**phoneNumber** | **String** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
@@ -26,6 +27,3 @@ Represents a contact created event. Contains the full contact information that w
 |**updateTime** | **Date** | The time at which the contact was last updated, formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339). e.g., &#x60;2022-06-01T12:00:00.000Z&#x60;. |  [optional] |
 |**blocked** | **Boolean** | Whether the contact is blocked. |  [optional] |
 |**customAttributes** | **Map&lt;String, Object&gt;** | Contact&#39;s custom attributes as key-value pairs. |  [optional] |
-
-
-

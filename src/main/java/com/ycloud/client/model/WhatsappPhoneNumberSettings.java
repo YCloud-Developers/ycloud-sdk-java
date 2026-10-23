@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.CallingCaptureSettings;
 import com.ycloud.client.model.WhatsappPhoneNumberSettingsCalling;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -57,11 +58,17 @@ public class WhatsappPhoneNumberSettings {
   @SerializedName(SERIALIZED_NAME_CALLING)
   private WhatsappPhoneNumberSettingsCalling calling;
 
-  public WhatsappPhoneNumberSettings() { 
+  public static final String SERIALIZED_NAME_CAPTURE = "capture";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CAPTURE)
+  private CallingCaptureSettings capture;
+
+  public WhatsappPhoneNumberSettings() {
   }
 
   public WhatsappPhoneNumberSettings calling(WhatsappPhoneNumberSettingsCalling calling) {
-    
+
     this.calling = calling;
     return this;
   }
@@ -82,6 +89,31 @@ public class WhatsappPhoneNumberSettings {
   @ApiModelProperty(value = "")
   public void setCalling(WhatsappPhoneNumberSettingsCalling calling) {
     this.calling = calling;
+  }
+
+
+  public WhatsappPhoneNumberSettings capture(CallingCaptureSettings capture) {
+
+    this.capture = capture;
+    return this;
+  }
+
+   /**
+   * Get capture
+   * @return capture
+  **/
+  @javax.annotation.Nullable
+
+  public CallingCaptureSettings getCapture() {
+    return capture;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setCapture(CallingCaptureSettings capture) {
+    this.capture = capture;
   }
 
   /**
@@ -130,13 +162,14 @@ public class WhatsappPhoneNumberSettings {
       return false;
     }
     WhatsappPhoneNumberSettings whatsappPhoneNumberSettings = (WhatsappPhoneNumberSettings) o;
-    return Objects.equals(this.calling, whatsappPhoneNumberSettings.calling)&&
+    return Objects.equals(this.calling, whatsappPhoneNumberSettings.calling) &&
+        Objects.equals(this.capture, whatsappPhoneNumberSettings.capture)&&
         Objects.equals(this.additionalProperties, whatsappPhoneNumberSettings.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(calling, additionalProperties);
+    return Objects.hash(calling, capture, additionalProperties);
   }
 
   @Override
@@ -144,6 +177,7 @@ public class WhatsappPhoneNumberSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappPhoneNumberSettings {\n");
     sb.append("    calling: ").append(toIndentedString(calling)).append("\n");
+    sb.append("    capture: ").append(toIndentedString(capture)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -168,6 +202,7 @@ public class WhatsappPhoneNumberSettings {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("calling");
+    openapiFields.add("capture");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -190,6 +225,10 @@ public class WhatsappPhoneNumberSettings {
       // validate the optional field `calling`
       if (jsonObj.getAsJsonObject("calling") != null) {
         WhatsappPhoneNumberSettingsCalling.validateJsonObject(jsonObj.getAsJsonObject("calling"));
+      }
+      // validate the optional field `capture`
+      if (jsonObj.getAsJsonObject("capture") != null) {
+        CallingCaptureSettings.validateJsonObject(jsonObj.getAsJsonObject("capture"));
       }
   }
 
@@ -277,4 +316,3 @@ public class WhatsappPhoneNumberSettings {
     return JSON.getGson().toJson(this);
   }
 }
-

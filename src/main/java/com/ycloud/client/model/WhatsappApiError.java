@@ -71,6 +71,13 @@ public class WhatsappApiError {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public static final String SERIALIZED_NAME_IS_TRANSIENT = "is_transient";
+  /**
+   * Whether the error is transient.
+  **/
+  @SerializedName(SERIALIZED_NAME_IS_TRANSIENT)
+  private Boolean isTransient;
+
   public static final String SERIALIZED_NAME_ERROR_SUBCODE = "error_subcode";
   /**
    * Additional code about the error.
@@ -106,11 +113,11 @@ public class WhatsappApiError {
   @SerializedName(SERIALIZED_NAME_ERROR_DATA)
   private Object errorData;
 
-  public WhatsappApiError() { 
+  public WhatsappApiError() {
   }
 
   public WhatsappApiError message(String message) {
-    
+
     this.message = message;
     return this;
   }
@@ -136,7 +143,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError code(String code) {
-    
+
     this.code = code;
     return this;
   }
@@ -162,7 +169,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError type(String type) {
-    
+
     this.type = type;
     return this;
   }
@@ -187,8 +194,34 @@ public class WhatsappApiError {
   }
 
 
+  public WhatsappApiError isTransient(Boolean isTransient) {
+
+    this.isTransient = isTransient;
+    return this;
+  }
+
+   /**
+   * Whether the error is transient.
+   * @return isTransient
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getIsTransient() {
+    return isTransient;
+  }
+
+
+  /**
+   * Whether the error is transient.
+   **/
+  @ApiModelProperty(example = "false", value = "Whether the error is transient.")
+  public void setIsTransient(Boolean isTransient) {
+    this.isTransient = isTransient;
+  }
+
+
   public WhatsappApiError errorSubcode(String errorSubcode) {
-    
+
     this.errorSubcode = errorSubcode;
     return this;
   }
@@ -214,7 +247,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorUserMsg(String errorUserMsg) {
-    
+
     this.errorUserMsg = errorUserMsg;
     return this;
   }
@@ -240,7 +273,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorUserTitle(String errorUserTitle) {
-    
+
     this.errorUserTitle = errorUserTitle;
     return this;
   }
@@ -266,7 +299,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError fbtraceId(String fbtraceId) {
-    
+
     this.fbtraceId = fbtraceId;
     return this;
   }
@@ -292,7 +325,7 @@ public class WhatsappApiError {
 
 
   public WhatsappApiError errorData(Object errorData) {
-    
+
     this.errorData = errorData;
     return this;
   }
@@ -365,6 +398,7 @@ public class WhatsappApiError {
     return Objects.equals(this.message, whatsappApiError.message) &&
         Objects.equals(this.code, whatsappApiError.code) &&
         Objects.equals(this.type, whatsappApiError.type) &&
+        Objects.equals(this.isTransient, whatsappApiError.isTransient) &&
         Objects.equals(this.errorSubcode, whatsappApiError.errorSubcode) &&
         Objects.equals(this.errorUserMsg, whatsappApiError.errorUserMsg) &&
         Objects.equals(this.errorUserTitle, whatsappApiError.errorUserTitle) &&
@@ -375,7 +409,7 @@ public class WhatsappApiError {
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, code, type, errorSubcode, errorUserMsg, errorUserTitle, fbtraceId, errorData, additionalProperties);
+    return Objects.hash(message, code, type, isTransient, errorSubcode, errorUserMsg, errorUserTitle, fbtraceId, errorData, additionalProperties);
   }
 
   @Override
@@ -385,6 +419,7 @@ public class WhatsappApiError {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    isTransient: ").append(toIndentedString(isTransient)).append("\n");
     sb.append("    errorSubcode: ").append(toIndentedString(errorSubcode)).append("\n");
     sb.append("    errorUserMsg: ").append(toIndentedString(errorUserMsg)).append("\n");
     sb.append("    errorUserTitle: ").append(toIndentedString(errorUserTitle)).append("\n");
@@ -416,6 +451,7 @@ public class WhatsappApiError {
     openapiFields.add("message");
     openapiFields.add("code");
     openapiFields.add("type");
+    openapiFields.add("is_transient");
     openapiFields.add("error_subcode");
     openapiFields.add("error_user_msg");
     openapiFields.add("error_user_title");
@@ -556,4 +592,3 @@ public class WhatsappApiError {
     return JSON.getGson().toJson(this);
   }
 }
-

@@ -29,6 +29,8 @@ import java.io.IOException;
 
 import com.ycloud.client.model.ErrorResponse;
 import com.ycloud.client.model.WhatsappTemplate;
+import com.ycloud.client.model.WhatsappTemplateAnalytics;
+import com.ycloud.client.model.WhatsappTemplateAnalyticsRequest;
 import com.ycloud.client.model.WhatsappTemplateCreateRequest;
 import com.ycloud.client.model.WhatsappTemplateEditRequest;
 import com.ycloud.client.model.WhatsappTemplatePage;
@@ -77,6 +79,151 @@ public class WhatsappTemplatesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for analytics
+     * @param whatsappTemplateAnalyticsRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved template analytics. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The request parameters are invalid. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The WABA or template is not accessible. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The WABA does not exist, or the template selected by either supported selector was not found. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> A required dependency, such as current template resolution or YCloud message statistics, could not be retrieved. Meta Template Insights failures after successful template validation are returned as a 200 response with analyticsStatus set to ERROR. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call analyticsCall(WhatsappTemplateAnalyticsRequest whatsappTemplateAnalyticsRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = whatsappTemplateAnalyticsRequest;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/templates/analytics";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call analyticsValidateBeforeCall(WhatsappTemplateAnalyticsRequest whatsappTemplateAnalyticsRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'whatsappTemplateAnalyticsRequest' is set
+        if (whatsappTemplateAnalyticsRequest == null) {
+            throw new ApiException("Missing the required parameter 'whatsappTemplateAnalyticsRequest' when calling analytics(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = analyticsCall(whatsappTemplateAnalyticsRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve WhatsApp template analytics
+     * <p>
+     * Returns daily YCloud message metrics and, when available, Meta Template Insights for one WhatsApp template. Authenticate with &#x60;X-API-Key&#x60;. &#x60;analyticsStatus&#x60; describes Meta Template Insights only; it does not describe YCloud metrics. Dates are interpreted in the WABA timezone, both boundaries are inclusive, and the range must contain between 1 and 90 calendar days.  The selected template must currently exist under the requested WABA. REST resolves and validates the template before querying any statistics. A missing template returns &#x60;404&#x60;, a template that belongs to another WABA returns &#x60;403&#x60;, and a template lookup failure returns &#x60;500&#x60;; none of these errors returns partial statistics.
+     * @param whatsappTemplateAnalyticsRequest  (required)
+     * @return WhatsappTemplateAnalytics
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved template analytics. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The request parameters are invalid. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The WABA or template is not accessible. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The WABA does not exist, or the template selected by either supported selector was not found. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> A required dependency, such as current template resolution or YCloud message statistics, could not be retrieved. Meta Template Insights failures after successful template validation are returned as a 200 response with analyticsStatus set to ERROR. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappTemplateAnalytics analytics(WhatsappTemplateAnalyticsRequest whatsappTemplateAnalyticsRequest) throws ApiException {
+        ApiResponse<WhatsappTemplateAnalytics> localVarResp = analyticsWithHttpInfo(whatsappTemplateAnalyticsRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve WhatsApp template analytics
+     * <p>
+     * Returns daily YCloud message metrics and, when available, Meta Template Insights for one WhatsApp template. Authenticate with &#x60;X-API-Key&#x60;. &#x60;analyticsStatus&#x60; describes Meta Template Insights only; it does not describe YCloud metrics. Dates are interpreted in the WABA timezone, both boundaries are inclusive, and the range must contain between 1 and 90 calendar days.  The selected template must currently exist under the requested WABA. REST resolves and validates the template before querying any statistics. A missing template returns &#x60;404&#x60;, a template that belongs to another WABA returns &#x60;403&#x60;, and a template lookup failure returns &#x60;500&#x60;; none of these errors returns partial statistics.
+     * @param whatsappTemplateAnalyticsRequest  (required)
+     * @return ApiResponse&lt;WhatsappTemplateAnalytics&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved template analytics. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The request parameters are invalid. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The WABA or template is not accessible. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The WABA does not exist, or the template selected by either supported selector was not found. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> A required dependency, such as current template resolution or YCloud message statistics, could not be retrieved. Meta Template Insights failures after successful template validation are returned as a 200 response with analyticsStatus set to ERROR. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappTemplateAnalytics> analyticsWithHttpInfo(WhatsappTemplateAnalyticsRequest whatsappTemplateAnalyticsRequest) throws ApiException {
+        okhttp3.Call localVarCall = analyticsValidateBeforeCall(whatsappTemplateAnalyticsRequest, null);
+        Type localVarReturnType = new TypeToken<WhatsappTemplateAnalytics>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve WhatsApp template analytics (asynchronously)
+     * <p>
+     * Returns daily YCloud message metrics and, when available, Meta Template Insights for one WhatsApp template. Authenticate with &#x60;X-API-Key&#x60;. &#x60;analyticsStatus&#x60; describes Meta Template Insights only; it does not describe YCloud metrics. Dates are interpreted in the WABA timezone, both boundaries are inclusive, and the range must contain between 1 and 90 calendar days.  The selected template must currently exist under the requested WABA. REST resolves and validates the template before querying any statistics. A missing template returns &#x60;404&#x60;, a template that belongs to another WABA returns &#x60;403&#x60;, and a template lookup failure returns &#x60;500&#x60;; none of these errors returns partial statistics.
+     * @param whatsappTemplateAnalyticsRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved template analytics. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The request parameters are invalid. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The WABA or template is not accessible. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The WABA does not exist, or the template selected by either supported selector was not found. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> A required dependency, such as current template resolution or YCloud message statistics, could not be retrieved. Meta Template Insights failures after successful template validation are returned as a 200 response with analyticsStatus set to ERROR. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call analyticsAsync(WhatsappTemplateAnalyticsRequest whatsappTemplateAnalyticsRequest, final ApiCallback<WhatsappTemplateAnalytics> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = analyticsValidateBeforeCall(whatsappTemplateAnalyticsRequest, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappTemplateAnalytics>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for create
      * @param whatsappTemplateCreateRequest  (required)
@@ -136,12 +283,12 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(WhatsappTemplateCreateRequest whatsappTemplateCreateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'whatsappTemplateCreateRequest' is set
         if (whatsappTemplateCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappTemplateCreateRequest' when calling create(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createCall(whatsappTemplateCreateRequest, _callback);
         return localVarCall;
@@ -256,7 +403,7 @@ public class WhatsappTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -269,17 +416,17 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteByNameValidateBeforeCall(String wabaId, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling deleteByName(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteByName(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteByNameCall(wabaId, name, _callback);
         return localVarCall;
@@ -402,7 +549,7 @@ public class WhatsappTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -415,22 +562,22 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteByNameAndLanguageValidateBeforeCall(String wabaId, String name, String language, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling deleteByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'language' is set
         if (language == null) {
             throw new ApiException("Missing the required parameter 'language' when calling deleteByNameAndLanguage(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteByNameAndLanguageCall(wabaId, name, language, _callback);
         return localVarCall;
@@ -570,22 +717,22 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call editByNameAndLanguageValidateBeforeCall(String wabaId, String name, String language, WhatsappTemplateEditRequest whatsappTemplateEditRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling editByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling editByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'language' is set
         if (language == null) {
             throw new ApiException("Missing the required parameter 'language' when calling editByNameAndLanguage(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = editByNameAndLanguageCall(wabaId, name, language, whatsappTemplateEditRequest, _callback);
         return localVarCall;
@@ -724,7 +871,7 @@ public class WhatsappTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -737,7 +884,7 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, String filterName, String filterLanguage, String filterStatus, final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterWabaId, filterName, filterLanguage, filterStatus, _callback);
         return localVarCall;
@@ -967,7 +1114,7 @@ public class WhatsappTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -980,22 +1127,22 @@ public class WhatsappTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveByNameAndLanguageValidateBeforeCall(String wabaId, String name, String language, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling retrieveByNameAndLanguage(Async)");
         }
-        
+
         // verify the required parameter 'language' is set
         if (language == null) {
             throw new ApiException("Missing the required parameter 'language' when calling retrieveByNameAndLanguage(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveByNameAndLanguageCall(wabaId, name, language, _callback);
         return localVarCall;

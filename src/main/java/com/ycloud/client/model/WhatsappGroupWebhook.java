@@ -1477,4 +1477,3 @@ public class WhatsappGroupWebhook {
     return JSON.getGson().toJson(this);
   }
 }
-

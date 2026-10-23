@@ -9,6 +9,4 @@ WhatsApp business phone number settings.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**calling** | [**WhatsappPhoneNumberSettingsCalling**](WhatsappPhoneNumberSettingsCalling.md) |  |  [optional] |
-
-
-
+|**capture** | [**CallingCaptureSettings**](CallingCaptureSettings.md) |  |  [optional] |

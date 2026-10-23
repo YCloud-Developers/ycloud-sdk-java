@@ -460,4 +460,3 @@ public class WhatsappGroupInviteLinkMessageRequest {
     return JSON.getGson().toJson(this);
   }
 }
-
