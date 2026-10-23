@@ -1,4 +1,19 @@
 # Changelog
+## 1.17.0 (2026-10-23)
+- Add Meta Business Agent settings, budgets, conversation turns, Connectors, credentials, Tools, and tool-run APIs and models.
+- Add Contact Note create, update, delete APIs and note webhook events; support notes in contact create/update requests.
+- Add contact cursor pagination (`pageAfter` / `cursor.after`), Meta username lookup, `metaUsername`, and `remarkName`; deprecate the writable `nickname` alias.
+- Add `contactUsername` to custom event requests while preserving typed request fields and constructors.
+- Add WhatsApp template analytics and expose template CTA URL click-tracking settings.
+- Add WhatsApp Calling recording/transcription capture settings, media download, and recording/transcription webhook payloads.
+- Add WhatsApp automatic creative optimization APIs and Meta contact-book entry deletion.
+- Add phone-number `ycloudName` / `throughputLevel`, reserved Business Username status, WABA capacity limits, and `BUSINESS_CAPABILITY_UPDATE`.
+- Add Direct Send `templateName`, SMB history `phase` / `progress`, and the WhatsApp API error `is_transient` flag.
+- Breaking: replace `typingIndicator` with `typing` (`POST /whatsapp/inboundMessages/{id}/typing`), which returns a JSON success response. Go callers must receive the response body, HTTP response, and error.
+- Breaking: replace the `whatsapp.smb.message.created` event value and generated enum member with `whatsapp.smb.message.echoes`.
+- Migration: Contact Note listing now names its path argument `contactIdentifier`; update named arguments where applicable.
+- Breaking (Java): `WhatsappPhoneNumbersApi.retrieveSettings` and its HTTP-info/async variants now accept a `type` argument; pass `null` to retain the existing Calling-settings response or `"capture"` for capture settings.
+
 ## 1.16.2 (2026-07-02)
 - Add Contacts API support for listing contact notes and add the `ContactNote` model.
 - Restore `groupId` on WhatsApp inbound message models for group inbound messages.

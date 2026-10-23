@@ -394,4 +394,3 @@ public class WhatsappGroupWebhookStatusContact {
     return JSON.getGson().toJson(this);
   }
 }
-

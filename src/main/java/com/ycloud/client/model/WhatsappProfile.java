@@ -316,4 +316,3 @@ public class WhatsappProfile {
     return JSON.getGson().toJson(this);
   }
 }
-

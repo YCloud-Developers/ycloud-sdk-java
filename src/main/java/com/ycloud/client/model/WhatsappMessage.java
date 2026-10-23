@@ -1902,4 +1902,3 @@ public class WhatsappMessage {
     return JSON.getGson().toJson(this);
   }
 }
-

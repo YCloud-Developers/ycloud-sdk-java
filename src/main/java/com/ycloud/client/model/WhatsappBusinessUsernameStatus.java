@@ -25,16 +25,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Business Username state for a WhatsApp business phone number. - &#x60;not_set&#x60;: No active or pending Business Username exists. - &#x60;active&#x60;: A Business Username is active. - &#x60;pending_review&#x60;: A requested Business Username is under Meta review. If an active username exists while a new request is pending, &#x60;businessUsernameStatus&#x60; is &#x60;pending_review&#x60;, &#x60;businessUsername&#x60; contains the still-active username, and &#x60;requestedBusinessUsername&#x60; contains the pending request.
+ * Business Username state for a WhatsApp business phone number. - &#x60;not_set&#x60;: No active or pending Business Username exists. - &#x60;active&#x60;: A Business Username is active. - &#x60;reserved&#x60;: A requested Business Username is reserved by Meta and may still be under review. - &#x60;pending_review&#x60;: Legacy compatibility value for an under-review request. New writes use &#x60;reserved&#x60;. If an active username exists while a new request is reserved or under review, &#x60;businessUsernameStatus&#x60; is &#x60;reserved&#x60;, &#x60;businessUsername&#x60; contains the still-active username, and &#x60;requestedBusinessUsername&#x60; contains the requested username.
  */
 @JsonAdapter(WhatsappBusinessUsernameStatus.Adapter.class)
 public enum WhatsappBusinessUsernameStatus {
-  
+
   NOT_SET("not_set"),
-  
+
   ACTIVE("active"),
-  
-  PENDING_REVIEW("pending_review");
+
+  PENDING_REVIEW("pending_review"),
+
+  RESERVED("reserved");
 
   private String value;
 
@@ -73,4 +75,3 @@ public enum WhatsappBusinessUsernameStatus {
     }
   }
 }
-

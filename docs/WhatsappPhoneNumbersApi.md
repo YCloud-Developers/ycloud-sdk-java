@@ -5,6 +5,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**deleteBusinessUsername**](WhatsappPhoneNumbersApi.md#deleteBusinessUsername) | **DELETE** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername | Delete a phone number business username |
+| [**deleteContactBookEntry**](WhatsappPhoneNumbersApi.md#deleteContactBookEntry) | **DELETE** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid} | Delete a Meta contact book entry |
 | [**list**](WhatsappPhoneNumbersApi.md#list) | **GET** /whatsapp/phoneNumbers | List phone numbers |
 | [**register**](WhatsappPhoneNumbersApi.md#register) | **POST** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/register | Register a phone number |
 | [**retrieve**](WhatsappPhoneNumbersApi.md#retrieve) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number |
@@ -26,7 +27,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 
 Delete a phone number business username
 
-Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a pending Business Username request. If a pending request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;pending_review&#x60;; otherwise it becomes &#x60;not_set&#x60;.
+Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a reserved Business Username request. If a reserved request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;reserved&#x60;; otherwise it becomes &#x60;not_set&#x60;.
 
 ### Example
 ```java
@@ -42,7 +43,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -92,6 +93,82 @@ public class Example {
 | **200** | Successfully deleted the business username. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
+<a name="deleteContactBookEntry"></a>
+# **deleteContactBookEntry**
+> WhatsappContactBookEntryDeleteResult deleteContactBookEntry(wabaId, phoneNumber, bsuid)
+
+Delete a Meta contact book entry
+
+Deletes the Meta contact book entry that associates a WhatsApp business phone number with a customer&#39;s WhatsApp Business-scoped user ID (BSUID).  Only standard BSUIDs such as &#x60;US.11815799212886844830&#x60; are supported. Parent BSUIDs such as &#x60;US.ENT.11815799212886844830&#x60; are not supported. The BSUID must be scoped to the same Meta business portfolio as the phone number. The specified WABA must belong to the authenticated YCloud account and be available, and the phone number must be bound to that WABA in YCloud. Use the YCloud account API key in the &#x60;X-API-Key&#x60; header. Developer App API keys are not supported and return HTTP 403.  An HTTP 200 response always has &#x60;success&#x3D;true&#x60;. &#x60;deleted&#x3D;true&#x60; means Meta reports that it deleted a matching contact book entry. &#x60;deleted&#x3D;false&#x60; means Meta processed the request but found no matching entry to delete. This operation does not delete or modify YCloud Contact, message, or BSUID business records, and it does not bypass Meta&#39;s 30-day caching behavior. A later WhatsApp interaction between the same business phone number and customer may cause Meta to create the entry again.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappPhoneNumbersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
+    String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading `+` as `%2B`.
+    String bsuid = "US.11815799212886844830"; // String | Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing `.ENT.` are not supported.
+    try {
+      WhatsappContactBookEntryDeleteResult result = apiInstance.deleteContactBookEntry(wabaId, phoneNumber, bsuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappPhoneNumbersApi#deleteContactBookEntry");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wabaId** | **String**| WhatsApp Business Account ID. | |
+| **phoneNumber** | **String**| Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. | |
+| **bsuid** | **String**| Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. | |
+
+### Return type
+
+[**WhatsappContactBookEntryDeleteResult**](WhatsappContactBookEntryDeleteResult.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The delete request was processed successfully. |  -  |
+| **400** | One or more path parameters are invalid, or Meta returned HTTP 400 for the delete request. |  -  |
+| **403** | The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. |  -  |
+| **404** | Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;deleted&#x3D;false&#x60;. |  -  |
+
 <a name="list"></a>
 # **list**
 > WhatsappPhoneNumberPage list().page(page).limit(limit).includeTotal(includeTotal).filterWabaId(filterWabaId).execute();
@@ -114,7 +191,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -194,7 +271,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -266,7 +343,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -338,7 +415,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -410,7 +487,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -482,7 +559,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -554,7 +631,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -606,7 +683,7 @@ public class Example {
 
 <a name="retrieveSettings"></a>
 # **retrieveSettings**
-> WhatsappPhoneNumberSettings retrieveSettings(wabaId, phoneNumber)
+> WhatsappPhoneNumberSettings retrieveSettings(wabaId, phoneNumber, type)
 
 Retrieve phone number settings
 
@@ -626,7 +703,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -636,8 +713,9 @@ public class Example {
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String phoneNumber = "+6283138205170"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+    String type = "capture"; // String | Set to `capture` to retrieve only Calling recording and transcription capture settings. Omit it or set it to `calling` to retrieve the existing Calling settings response.
     try {
-      WhatsappPhoneNumberSettings result = apiInstance.retrieveSettings(wabaId, phoneNumber);
+      WhatsappPhoneNumberSettings result = apiInstance.retrieveSettings(wabaId, phoneNumber, type);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WhatsappPhoneNumbersApi#retrieveSettings");
@@ -656,6 +734,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **wabaId** | **String**| WhatsApp Business Account ID. | |
 | **phoneNumber** | **String**| Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. | |
+| **type** | **String**| Set to &#x60;capture&#x60; to retrieve only Calling recording and transcription capture settings. Omit it or set it to &#x60;calling&#x60; to retrieve the existing Calling settings response. | [optional] [enum: capture, calling] |
 
 ### Return type
 
@@ -674,6 +753,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the phone number settings. |  -  |
+| **400** | Bad request. The settings type is unsupported. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
 <a name="saveSettings"></a>
@@ -682,7 +762,7 @@ public class Example {
 
 Save phone number settings
 
-Saves phone number specific settings.
+Saves phone number specific settings. Send &#x60;calling&#x60;, &#x60;capture&#x60;, or both. When both are supplied, the service independently attempts both saves after shared authorization and phone-number validation. A failure in either branch does not prevent the other branch from being attempted. If either branch fails, the existing error response is returned and the other setting may already have been saved.
 
 ### Example
 ```java
@@ -698,7 +778,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -748,6 +828,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully saved the phone number settings. |  -  |
+| **400** | Bad request. A Calling or Capture setting is invalid. For a combined request, the other setting may already have been saved. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
 <a name="updateBusinessUsername"></a>
@@ -756,7 +837,7 @@ public class Example {
 
 Update a phone number business username
 
-Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts the request for review, the response status is usually &#x60;pending_review&#x60;; if Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
+Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts or reserves the request for review, the response status is usually &#x60;reserved&#x60;; &#x60;pending_review&#x60; is kept only as a legacy compatibility value. If Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
 
 ### Example
 ```java
@@ -772,7 +853,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -782,7 +863,7 @@ public class Example {
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    WhatsappBusinessUsernameUpdateRequest whatsappBusinessUsernameUpdateRequest = new WhatsappBusinessUsernameUpdateRequest(); // WhatsappBusinessUsernameUpdateRequest | 
+    WhatsappBusinessUsernameUpdateRequest whatsappBusinessUsernameUpdateRequest = new WhatsappBusinessUsernameUpdateRequest(); // WhatsappBusinessUsernameUpdateRequest |
     try {
       WhatsappBusinessUsername result = apiInstance.updateBusinessUsername(wabaId, phoneNumber, whatsappBusinessUsernameUpdateRequest);
       System.out.println(result);
@@ -847,7 +928,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -857,7 +938,7 @@ public class Example {
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    WhatsappCommerceSettingsUpdateRequest whatsappCommerceSettingsUpdateRequest = new WhatsappCommerceSettingsUpdateRequest(); // WhatsappCommerceSettingsUpdateRequest | 
+    WhatsappCommerceSettingsUpdateRequest whatsappCommerceSettingsUpdateRequest = new WhatsappCommerceSettingsUpdateRequest(); // WhatsappCommerceSettingsUpdateRequest |
     try {
       WhatsappCommerceSettings result = apiInstance.updateCommerceSettings(wabaId, phoneNumber, whatsappCommerceSettingsUpdateRequest);
       System.out.println(result);
@@ -921,7 +1002,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -931,7 +1012,7 @@ public class Example {
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest = new WhatsappPhoneNameUpdateRequest(); // WhatsappPhoneNameUpdateRequest | 
+    WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest = new WhatsappPhoneNameUpdateRequest(); // WhatsappPhoneNameUpdateRequest |
     try {
       WhatsappPhoneNameUpdateResponse result = apiInstance.updateDisplayName(wabaId, phoneNumber, whatsappPhoneNameUpdateRequest);
       System.out.println(result);
@@ -995,7 +1076,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -1005,7 +1086,7 @@ public class Example {
     WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
     String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
     String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-    WhatsappPhoneNumberProfileUpdateRequest whatsappPhoneNumberProfileUpdateRequest = new WhatsappPhoneNumberProfileUpdateRequest(); // WhatsappPhoneNumberProfileUpdateRequest | 
+    WhatsappPhoneNumberProfileUpdateRequest whatsappPhoneNumberProfileUpdateRequest = new WhatsappPhoneNumberProfileUpdateRequest(); // WhatsappPhoneNumberProfileUpdateRequest |
     try {
       WhatsappPhoneNumberProfile result = apiInstance.updateProfile(wabaId, phoneNumber, whatsappPhoneNumberProfileUpdateRequest);
       System.out.println(result);
@@ -1046,4 +1127,3 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successfully updated the object. |  -  |
 | **404** | The requested resource does not exist. |  -  |
-

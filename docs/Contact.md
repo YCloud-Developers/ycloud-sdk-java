@@ -9,7 +9,9 @@ Represents a contact.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Unique ID for the object. |  |
-|**nickname** | **String** | Contact&#39;s nickname. |  [optional] |
+|**remarkName** | **String** | The business-managed remark name for the contact. |  [optional] |
+|**nickname** | **String** | The read-only nickname obtained from WhatsApp. |  [optional] |
+|**metaUsername** | **String** | The read-only Meta username associated with the contact, without the leading &#x60;@&#x60;. |  [optional] |
 |**countryCode** | **String** | Two-letter country abbreviation. See [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |  [optional] |
 |**countryName** | **String** | Full country name. |  [optional] |
 |**phoneNumber** | **String** | Unique Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
@@ -23,6 +25,3 @@ Represents a contact.
 |**sourceType** | **ContactSourceType** |  |  [optional] |
 |**sourceId** | **String** | Source identifier. A unique identifier related to the contact creation source. |  [optional] |
 |**sourceUrl** | **String** | Source URL. The source link address where the contact was created. |  [optional] |
-
-
-

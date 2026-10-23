@@ -316,4 +316,3 @@ public class WhatsappGroupRemoveParticipant {
     return JSON.getGson().toJson(this);
   }
 }
-

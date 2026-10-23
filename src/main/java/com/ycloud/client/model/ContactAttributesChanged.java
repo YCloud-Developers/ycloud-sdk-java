@@ -50,9 +50,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Represents a contact attributes changed event. Contains information about which contact attributes were modified and their old/new values.
+ * Represents a contact attributes changed event. Contains information about which contact attributes were modified and their old/new values. This event is emitted only when at least one persisted contact field actually changes; note-only and contact no-op updates do not emit it.
  */
-@ApiModel(description = "Represents a contact attributes changed event. Contains information about which contact attributes were modified and their old/new values.")
+@ApiModel(description = "Represents a contact attributes changed event. Contains information about which contact attributes were modified and their old/new values. This event is emitted only when at least one persisted contact field actually changes; note-only and contact no-op updates do not emit it.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ContactAttributesChanged {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -61,6 +61,13 @@ public class ContactAttributesChanged {
   **/
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_PHONE_NUMBER = "phoneNumber";
+  /**
+   * The contact&#39;s phone number in E.164 format.
+  **/
+  @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
+  private String phoneNumber;
 
   public static final String SERIALIZED_NAME_UPDATE_TIME = "updateTime";
   /**
@@ -76,11 +83,11 @@ public class ContactAttributesChanged {
   @SerializedName(SERIALIZED_NAME_CHANGED_ATTRIBUTES)
   private Map<String, ContactAttributeChange> changedAttributes = new HashMap<>();
 
-  public ContactAttributesChanged() { 
+  public ContactAttributesChanged() {
   }
 
   public ContactAttributesChanged id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -105,8 +112,34 @@ public class ContactAttributesChanged {
   }
 
 
+  public ContactAttributesChanged phoneNumber(String phoneNumber) {
+
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+   /**
+   * The contact&#39;s phone number in E.164 format.
+   * @return phoneNumber
+  **/
+  @javax.annotation.Nullable
+
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+
+  /**
+   * The contact&#39;s phone number in E.164 format.
+   **/
+  @ApiModelProperty(example = "+16315551111", value = "The contact's phone number in E.164 format.")
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+
   public ContactAttributesChanged updateTime(Date updateTime) {
-    
+
     this.updateTime = updateTime;
     return this;
   }
@@ -132,7 +165,7 @@ public class ContactAttributesChanged {
 
 
   public ContactAttributesChanged changedAttributes(Map<String, ContactAttributeChange> changedAttributes) {
-    
+
     this.changedAttributes = changedAttributes;
     return this;
   }
@@ -156,7 +189,7 @@ public class ContactAttributesChanged {
   /**
    * An object containing the changed attributes. Each key represents the name of the changed attribute, and the value contains the old value, new value, and change actions.
    **/
-  @ApiModelProperty(example = "{\"tags\":{\"newValue\":[\"customer\",\"vip\"],\"extra\":[{\"action\":\"ADDED\",\"id\":\"686dd294334be8606a5bfxxx\",\"value\":\"customer\"}]},\"waba_id\":{\"oldValue\":\"wabaId1\",\"newValue\":\"wabaId2\",\"extra\":[{\"action\":\"CHANGED\"}]},\"age\":{\"oldValue\":25,\"newValue\":26,\"extra\":[{\"action\":\"CHANGED\"}]},\"is_verified\":{\"oldValue\":false,\"newValue\":true,\"extra\":[{\"action\":\"CHANGED\"}]}}", required = true, value = "An object containing the changed attributes. Each key represents the name of the changed attribute, and the value contains the old value, new value, and change actions.")
+  @ApiModelProperty(example = "{\"remark_name\":{\"oldValue\":\"Standard customer\",\"newValue\":\"Priority customer\",\"extra\":[{\"action\":\"CHANGED\"}]},\"tags\":{\"newValue\":[\"customer\",\"vip\"],\"extra\":[{\"action\":\"ADDED\",\"id\":\"686dd294334be8606a5bfxxx\",\"value\":\"customer\"}]},\"waba_id\":{\"oldValue\":\"wabaId1\",\"newValue\":\"wabaId2\",\"extra\":[{\"action\":\"CHANGED\"}]},\"age\":{\"oldValue\":25,\"newValue\":26,\"extra\":[{\"action\":\"CHANGED\"}]},\"is_verified\":{\"oldValue\":false,\"newValue\":true,\"extra\":[{\"action\":\"CHANGED\"}]}}", required = true, value = "An object containing the changed attributes. Each key represents the name of the changed attribute, and the value contains the old value, new value, and change actions.")
   public void setChangedAttributes(Map<String, ContactAttributeChange> changedAttributes) {
     this.changedAttributes = changedAttributes;
   }
@@ -208,6 +241,7 @@ public class ContactAttributesChanged {
     }
     ContactAttributesChanged contactAttributesChanged = (ContactAttributesChanged) o;
     return Objects.equals(this.id, contactAttributesChanged.id) &&
+        Objects.equals(this.phoneNumber, contactAttributesChanged.phoneNumber) &&
         Objects.equals(this.updateTime, contactAttributesChanged.updateTime) &&
         Objects.equals(this.changedAttributes, contactAttributesChanged.changedAttributes)&&
         Objects.equals(this.additionalProperties, contactAttributesChanged.additionalProperties);
@@ -215,7 +249,7 @@ public class ContactAttributesChanged {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, updateTime, changedAttributes, additionalProperties);
+    return Objects.hash(id, phoneNumber, updateTime, changedAttributes, additionalProperties);
   }
 
   @Override
@@ -223,6 +257,7 @@ public class ContactAttributesChanged {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContactAttributesChanged {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    changedAttributes: ").append(toIndentedString(changedAttributes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -249,6 +284,7 @@ public class ContactAttributesChanged {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("phoneNumber");
     openapiFields.add("updateTime");
     openapiFields.add("changedAttributes");
 
@@ -282,6 +318,9 @@ public class ContactAttributesChanged {
       }
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("phoneNumber") != null && !jsonObj.get("phoneNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `phoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phoneNumber").toString()));
       }
   }
 
@@ -369,4 +408,3 @@ public class ContactAttributesChanged {
     return JSON.getGson().toJson(this);
   }
 }
-

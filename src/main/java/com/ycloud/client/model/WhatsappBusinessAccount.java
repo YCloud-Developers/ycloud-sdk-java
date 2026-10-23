@@ -202,6 +202,20 @@ public class WhatsappBusinessAccount {
   @SerializedName(SERIALIZED_NAME_RESTRICTIONS)
   private List<WhatsappBusinessAccountRestrictionInfo> restrictions = null;
 
+  public static final String SERIALIZED_NAME_MAX_PHONE_NUMBERS_PER_BUSINESS = "maxPhoneNumbersPerBusiness";
+  /**
+   * Included in a &#x60;whatsapp.business_account.updated&#x60; webhook with &#x60;updateEvent&#x3D;BUSINESS_CAPABILITY_UPDATE&#x60; when Meta reports the Business Portfolio phone-number registration limit.
+  **/
+  @SerializedName(SERIALIZED_NAME_MAX_PHONE_NUMBERS_PER_BUSINESS)
+  private Integer maxPhoneNumbersPerBusiness;
+
+  public static final String SERIALIZED_NAME_MAX_PHONE_NUMBERS_PER_WABA = "maxPhoneNumbersPerWaba";
+  /**
+   * Included in a &#x60;whatsapp.business_account.updated&#x60; webhook with &#x60;updateEvent&#x3D;BUSINESS_CAPABILITY_UPDATE&#x60; when Meta reports the WABA phone-number registration limit.
+  **/
+  @SerializedName(SERIALIZED_NAME_MAX_PHONE_NUMBERS_PER_WABA)
+  private Integer maxPhoneNumbersPerWaba;
+
   public static final String SERIALIZED_NAME_AUTH_INTL_RATE_ELIGIBILITY_COUNTRIES = "authIntlRateEligibilityCountries";
   /**
    * Starting June 1, 2024, we are updating our authentication rate card and introducing a new authentication-international rate. This rate will apply in the the following countries: - June 1, 2024 – Indonesia (country calling code +62, country code &#x60;ID&#x60;) - July 1, 2024 – India (country calling code +91, country code &#x60;IN&#x60;)  See also [Authentication-International Rates](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates).
@@ -244,11 +258,11 @@ public class WhatsappBusinessAccount {
   @SerializedName(SERIALIZED_NAME_REMOVED_TIME)
   private Date removedTime;
 
-  public WhatsappBusinessAccount() { 
+  public WhatsappBusinessAccount() {
   }
 
   public WhatsappBusinessAccount id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -274,7 +288,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -300,7 +314,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount currency(String currency) {
-    
+
     this.currency = currency;
     return this;
   }
@@ -326,7 +340,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount messageTemplateNamespace(String messageTemplateNamespace) {
-    
+
     this.messageTemplateNamespace = messageTemplateNamespace;
     return this;
   }
@@ -352,7 +366,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount accountReviewStatus(WhatsappBusinessAccountReviewStatus accountReviewStatus) {
-    
+
     this.accountReviewStatus = accountReviewStatus;
     return this;
   }
@@ -377,7 +391,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount businessId(String businessId) {
-    
+
     this.businessId = businessId;
     return this;
   }
@@ -403,7 +417,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount businessName(String businessName) {
-    
+
     this.businessName = businessName;
     return this;
   }
@@ -429,7 +443,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount businessStatus(String businessStatus) {
-    
+
     this.businessStatus = businessStatus;
     return this;
   }
@@ -455,7 +469,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount businessVerificationStatus(MetaBusinessAccountVerificationStatus businessVerificationStatus) {
-    
+
     this.businessVerificationStatus = businessVerificationStatus;
     return this;
   }
@@ -480,7 +494,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount country(String country) {
-    
+
     this.country = country;
     return this;
   }
@@ -506,7 +520,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount ownershipType(String ownershipType) {
-    
+
     this.ownershipType = ownershipType;
     return this;
   }
@@ -532,7 +546,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount paymentMethodAttached(Boolean paymentMethodAttached) {
-    
+
     this.paymentMethodAttached = paymentMethodAttached;
     return this;
   }
@@ -558,7 +572,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount primaryFundingId(String primaryFundingId) {
-    
+
     this.primaryFundingId = primaryFundingId;
     return this;
   }
@@ -584,7 +598,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount purchaseOrderNumber(String purchaseOrderNumber) {
-    
+
     this.purchaseOrderNumber = purchaseOrderNumber;
     return this;
   }
@@ -610,7 +624,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount timezoneId(String timezoneId) {
-    
+
     this.timezoneId = timezoneId;
     return this;
   }
@@ -636,7 +650,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount decision(WhatsappReviewDecision decision) {
-    
+
     this.decision = decision;
     return this;
   }
@@ -661,7 +675,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount updateEvent(WhatsappBusinessAccountUpdateEventEnum updateEvent) {
-    
+
     this.updateEvent = updateEvent;
     return this;
   }
@@ -686,7 +700,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount banState(WhatsappBusinessAccountBanState banState) {
-    
+
     this.banState = banState;
     return this;
   }
@@ -711,7 +725,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount banDate(String banDate) {
-    
+
     this.banDate = banDate;
     return this;
   }
@@ -737,7 +751,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount violationType(String violationType) {
-    
+
     this.violationType = violationType;
     return this;
   }
@@ -763,7 +777,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount restrictions(List<WhatsappBusinessAccountRestrictionInfo> restrictions) {
-    
+
     this.restrictions = restrictions;
     return this;
   }
@@ -796,8 +810,60 @@ public class WhatsappBusinessAccount {
   }
 
 
+  public WhatsappBusinessAccount maxPhoneNumbersPerBusiness(Integer maxPhoneNumbersPerBusiness) {
+
+    this.maxPhoneNumbersPerBusiness = maxPhoneNumbersPerBusiness;
+    return this;
+  }
+
+   /**
+   * Included in a &#x60;whatsapp.business_account.updated&#x60; webhook with &#x60;updateEvent&#x3D;BUSINESS_CAPABILITY_UPDATE&#x60; when Meta reports the Business Portfolio phone-number registration limit.
+   * @return maxPhoneNumbersPerBusiness
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getMaxPhoneNumbersPerBusiness() {
+    return maxPhoneNumbersPerBusiness;
+  }
+
+
+  /**
+   * Included in a &#x60;whatsapp.business_account.updated&#x60; webhook with &#x60;updateEvent&#x3D;BUSINESS_CAPABILITY_UPDATE&#x60; when Meta reports the Business Portfolio phone-number registration limit.
+   **/
+  @ApiModelProperty(example = "20", value = "Included in a `whatsapp.business_account.updated` webhook with `updateEvent=BUSINESS_CAPABILITY_UPDATE` when Meta reports the Business Portfolio phone-number registration limit.")
+  public void setMaxPhoneNumbersPerBusiness(Integer maxPhoneNumbersPerBusiness) {
+    this.maxPhoneNumbersPerBusiness = maxPhoneNumbersPerBusiness;
+  }
+
+
+  public WhatsappBusinessAccount maxPhoneNumbersPerWaba(Integer maxPhoneNumbersPerWaba) {
+
+    this.maxPhoneNumbersPerWaba = maxPhoneNumbersPerWaba;
+    return this;
+  }
+
+   /**
+   * Included in a &#x60;whatsapp.business_account.updated&#x60; webhook with &#x60;updateEvent&#x3D;BUSINESS_CAPABILITY_UPDATE&#x60; when Meta reports the WABA phone-number registration limit.
+   * @return maxPhoneNumbersPerWaba
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getMaxPhoneNumbersPerWaba() {
+    return maxPhoneNumbersPerWaba;
+  }
+
+
+  /**
+   * Included in a &#x60;whatsapp.business_account.updated&#x60; webhook with &#x60;updateEvent&#x3D;BUSINESS_CAPABILITY_UPDATE&#x60; when Meta reports the WABA phone-number registration limit.
+   **/
+  @ApiModelProperty(example = "25", value = "Included in a `whatsapp.business_account.updated` webhook with `updateEvent=BUSINESS_CAPABILITY_UPDATE` when Meta reports the WABA phone-number registration limit.")
+  public void setMaxPhoneNumbersPerWaba(Integer maxPhoneNumbersPerWaba) {
+    this.maxPhoneNumbersPerWaba = maxPhoneNumbersPerWaba;
+  }
+
+
   public WhatsappBusinessAccount authIntlRateEligibilityCountries(List<WhatsappAuthIntlRateEligibilityCountry> authIntlRateEligibilityCountries) {
-    
+
     this.authIntlRateEligibilityCountries = authIntlRateEligibilityCountries;
     return this;
   }
@@ -831,7 +897,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount primaryBusinessLocation(String primaryBusinessLocation) {
-    
+
     this.primaryBusinessLocation = primaryBusinessLocation;
     return this;
   }
@@ -857,7 +923,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount whatsappBusinessManagerMessagingLimit(String whatsappBusinessManagerMessagingLimit) {
-    
+
     this.whatsappBusinessManagerMessagingLimit = whatsappBusinessManagerMessagingLimit;
     return this;
   }
@@ -883,7 +949,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount removedReason(String removedReason) {
-    
+
     this.removedReason = removedReason;
     return this;
   }
@@ -909,7 +975,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount removedInitiatedBy(String removedInitiatedBy) {
-    
+
     this.removedInitiatedBy = removedInitiatedBy;
     return this;
   }
@@ -935,7 +1001,7 @@ public class WhatsappBusinessAccount {
 
 
   public WhatsappBusinessAccount removedTime(Date removedTime) {
-    
+
     this.removedTime = removedTime;
     return this;
   }
@@ -1026,6 +1092,8 @@ public class WhatsappBusinessAccount {
         Objects.equals(this.banDate, whatsappBusinessAccount.banDate) &&
         Objects.equals(this.violationType, whatsappBusinessAccount.violationType) &&
         Objects.equals(this.restrictions, whatsappBusinessAccount.restrictions) &&
+        Objects.equals(this.maxPhoneNumbersPerBusiness, whatsappBusinessAccount.maxPhoneNumbersPerBusiness) &&
+        Objects.equals(this.maxPhoneNumbersPerWaba, whatsappBusinessAccount.maxPhoneNumbersPerWaba) &&
         Objects.equals(this.authIntlRateEligibilityCountries, whatsappBusinessAccount.authIntlRateEligibilityCountries) &&
         Objects.equals(this.primaryBusinessLocation, whatsappBusinessAccount.primaryBusinessLocation) &&
         Objects.equals(this.whatsappBusinessManagerMessagingLimit, whatsappBusinessAccount.whatsappBusinessManagerMessagingLimit) &&
@@ -1037,7 +1105,7 @@ public class WhatsappBusinessAccount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, currency, messageTemplateNamespace, accountReviewStatus, businessId, businessName, businessStatus, businessVerificationStatus, country, ownershipType, paymentMethodAttached, primaryFundingId, purchaseOrderNumber, timezoneId, decision, updateEvent, banState, banDate, violationType, restrictions, authIntlRateEligibilityCountries, primaryBusinessLocation, whatsappBusinessManagerMessagingLimit, removedReason, removedInitiatedBy, removedTime, additionalProperties);
+    return Objects.hash(id, name, currency, messageTemplateNamespace, accountReviewStatus, businessId, businessName, businessStatus, businessVerificationStatus, country, ownershipType, paymentMethodAttached, primaryFundingId, purchaseOrderNumber, timezoneId, decision, updateEvent, banState, banDate, violationType, restrictions, maxPhoneNumbersPerBusiness, maxPhoneNumbersPerWaba, authIntlRateEligibilityCountries, primaryBusinessLocation, whatsappBusinessManagerMessagingLimit, removedReason, removedInitiatedBy, removedTime, additionalProperties);
   }
 
   @Override
@@ -1065,6 +1133,8 @@ public class WhatsappBusinessAccount {
     sb.append("    banDate: ").append(toIndentedString(banDate)).append("\n");
     sb.append("    violationType: ").append(toIndentedString(violationType)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
+    sb.append("    maxPhoneNumbersPerBusiness: ").append(toIndentedString(maxPhoneNumbersPerBusiness)).append("\n");
+    sb.append("    maxPhoneNumbersPerWaba: ").append(toIndentedString(maxPhoneNumbersPerWaba)).append("\n");
     sb.append("    authIntlRateEligibilityCountries: ").append(toIndentedString(authIntlRateEligibilityCountries)).append("\n");
     sb.append("    primaryBusinessLocation: ").append(toIndentedString(primaryBusinessLocation)).append("\n");
     sb.append("    whatsappBusinessManagerMessagingLimit: ").append(toIndentedString(whatsappBusinessManagerMessagingLimit)).append("\n");
@@ -1115,6 +1185,8 @@ public class WhatsappBusinessAccount {
     openapiFields.add("banDate");
     openapiFields.add("violationType");
     openapiFields.add("restrictions");
+    openapiFields.add("maxPhoneNumbersPerBusiness");
+    openapiFields.add("maxPhoneNumbersPerWaba");
     openapiFields.add("authIntlRateEligibilityCountries");
     openapiFields.add("primaryBusinessLocation");
     openapiFields.add("whatsappBusinessManagerMessagingLimit");
@@ -1304,4 +1376,3 @@ public class WhatsappBusinessAccount {
     return JSON.getGson().toJson(this);
   }
 }
-

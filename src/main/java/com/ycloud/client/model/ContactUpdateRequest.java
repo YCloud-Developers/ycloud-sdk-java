@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.ContactCustomAttribute;
+import com.ycloud.client.model.ContactNoteMutationInput;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -53,9 +54,16 @@ import com.ycloud.client.JSON;
 @ApiModel(description = "Contains the properties of the contact to be updated.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ContactUpdateRequest {
+  public static final String SERIALIZED_NAME_REMARK_NAME = "remarkName";
+  /**
+   * Contact&#39;s remark name. Maximum length: 250 characters.
+  **/
+  @SerializedName(SERIALIZED_NAME_REMARK_NAME)
+  private String remarkName;
+
   public static final String SERIALIZED_NAME_NICKNAME = "nickname";
   /**
-   * Contact&#39;s nickname. Maximum length: 250 characters.
+   * Deprecated compatibility alias for &#x60;remarkName&#x60;. When &#x60;remarkName&#x60; is absent, this value is saved as the contact&#39;s remark name. It does not update the read-only WhatsApp nickname. Maximum length: 250 characters.
   **/
   @SerializedName(SERIALIZED_NAME_NICKNAME)
   private String nickname;
@@ -102,19 +110,54 @@ public class ContactUpdateRequest {
   @SerializedName(SERIALIZED_NAME_OWNER_EMAIL)
   private String ownerEmail;
 
-  public ContactUpdateRequest() { 
+  public static final String SERIALIZED_NAME_NOTES = "notes";
+  /**
+   * Optional incremental note mutations. An empty array changes nothing. Items without &#x60;id&#x60; create notes; items with &#x60;id&#x60; update owned notes. Notes not listed remain unchanged. Delete notes with the dedicated endpoint.
+  **/
+  @SerializedName(SERIALIZED_NAME_NOTES)
+  private List<ContactNoteMutationInput> notes = null;
+
+  public ContactUpdateRequest() {
   }
 
+  public ContactUpdateRequest remarkName(String remarkName) {
+
+    this.remarkName = remarkName;
+    return this;
+  }
+
+   /**
+   * Contact&#39;s remark name. Maximum length: 250 characters.
+   * @return remarkName
+  **/
+  @javax.annotation.Nullable
+
+  public String getRemarkName() {
+    return remarkName;
+  }
+
+
+  /**
+   * Contact&#39;s remark name. Maximum length: 250 characters.
+   **/
+  @ApiModelProperty(example = "remark name", value = "Contact's remark name. Maximum length: 250 characters.")
+  public void setRemarkName(String remarkName) {
+    this.remarkName = remarkName;
+  }
+
+
   public ContactUpdateRequest nickname(String nickname) {
-    
+
     this.nickname = nickname;
     return this;
   }
 
    /**
-   * Contact&#39;s nickname. Maximum length: 250 characters.
+   * Deprecated compatibility alias for &#x60;remarkName&#x60;. When &#x60;remarkName&#x60; is absent, this value is saved as the contact&#39;s remark name. It does not update the read-only WhatsApp nickname. Maximum length: 250 characters.
    * @return nickname
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
 
   public String getNickname() {
@@ -123,16 +166,16 @@ public class ContactUpdateRequest {
 
 
   /**
-   * Contact&#39;s nickname. Maximum length: 250 characters.
+   * Deprecated compatibility alias for &#x60;remarkName&#x60;. When &#x60;remarkName&#x60; is absent, this value is saved as the contact&#39;s remark name. It does not update the read-only WhatsApp nickname. Maximum length: 250 characters.
    **/
-  @ApiModelProperty(example = "nickname", value = "Contact's nickname. Maximum length: 250 characters.")
+  @ApiModelProperty(example = "remark name", value = "Deprecated compatibility alias for `remarkName`. When `remarkName` is absent, this value is saved as the contact's remark name. It does not update the read-only WhatsApp nickname. Maximum length: 250 characters.")
   public void setNickname(String nickname) {
     this.nickname = nickname;
   }
 
 
   public ContactUpdateRequest phoneNumber(String phoneNumber) {
-    
+
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -158,7 +201,7 @@ public class ContactUpdateRequest {
 
 
   public ContactUpdateRequest countryCode(String countryCode) {
-    
+
     this.countryCode = countryCode;
     return this;
   }
@@ -184,7 +227,7 @@ public class ContactUpdateRequest {
 
 
   public ContactUpdateRequest email(String email) {
-    
+
     this.email = email;
     return this;
   }
@@ -210,7 +253,7 @@ public class ContactUpdateRequest {
 
 
   public ContactUpdateRequest tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -244,7 +287,7 @@ public class ContactUpdateRequest {
 
 
   public ContactUpdateRequest customAttributes(List<ContactCustomAttribute> customAttributes) {
-    
+
     this.customAttributes = customAttributes;
     return this;
   }
@@ -278,7 +321,7 @@ public class ContactUpdateRequest {
 
 
   public ContactUpdateRequest ownerEmail(String ownerEmail) {
-    
+
     this.ownerEmail = ownerEmail;
     return this;
   }
@@ -300,6 +343,40 @@ public class ContactUpdateRequest {
   @ApiModelProperty(example = "support@example.com", value = "The email address of the contact's owner.")
   public void setOwnerEmail(String ownerEmail) {
     this.ownerEmail = ownerEmail;
+  }
+
+
+  public ContactUpdateRequest notes(List<ContactNoteMutationInput> notes) {
+
+    this.notes = notes;
+    return this;
+  }
+
+  public ContactUpdateRequest addNotesItem(ContactNoteMutationInput notesItem) {
+    if (this.notes == null) {
+      this.notes = new ArrayList<>();
+    }
+    this.notes.add(notesItem);
+    return this;
+  }
+
+   /**
+   * Optional incremental note mutations. An empty array changes nothing. Items without &#x60;id&#x60; create notes; items with &#x60;id&#x60; update owned notes. Notes not listed remain unchanged. Delete notes with the dedicated endpoint.
+   * @return notes
+  **/
+  @javax.annotation.Nullable
+
+  public List<ContactNoteMutationInput> getNotes() {
+    return notes;
+  }
+
+
+  /**
+   * Optional incremental note mutations. An empty array changes nothing. Items without &#x60;id&#x60; create notes; items with &#x60;id&#x60; update owned notes. Notes not listed remain unchanged. Delete notes with the dedicated endpoint.
+   **/
+  @ApiModelProperty(value = "Optional incremental note mutations. An empty array changes nothing. Items without `id` create notes; items with `id` update owned notes. Notes not listed remain unchanged. Delete notes with the dedicated endpoint.")
+  public void setNotes(List<ContactNoteMutationInput> notes) {
+    this.notes = notes;
   }
 
   /**
@@ -348,25 +425,28 @@ public class ContactUpdateRequest {
       return false;
     }
     ContactUpdateRequest contactUpdateRequest = (ContactUpdateRequest) o;
-    return Objects.equals(this.nickname, contactUpdateRequest.nickname) &&
+    return Objects.equals(this.remarkName, contactUpdateRequest.remarkName) &&
+        Objects.equals(this.nickname, contactUpdateRequest.nickname) &&
         Objects.equals(this.phoneNumber, contactUpdateRequest.phoneNumber) &&
         Objects.equals(this.countryCode, contactUpdateRequest.countryCode) &&
         Objects.equals(this.email, contactUpdateRequest.email) &&
         Objects.equals(this.tags, contactUpdateRequest.tags) &&
         Objects.equals(this.customAttributes, contactUpdateRequest.customAttributes) &&
-        Objects.equals(this.ownerEmail, contactUpdateRequest.ownerEmail)&&
+        Objects.equals(this.ownerEmail, contactUpdateRequest.ownerEmail) &&
+        Objects.equals(this.notes, contactUpdateRequest.notes)&&
         Objects.equals(this.additionalProperties, contactUpdateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nickname, phoneNumber, countryCode, email, tags, customAttributes, ownerEmail, additionalProperties);
+    return Objects.hash(remarkName, nickname, phoneNumber, countryCode, email, tags, customAttributes, ownerEmail, notes, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContactUpdateRequest {\n");
+    sb.append("    remarkName: ").append(toIndentedString(remarkName)).append("\n");
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
@@ -374,6 +454,7 @@ public class ContactUpdateRequest {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
     sb.append("    ownerEmail: ").append(toIndentedString(ownerEmail)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -397,6 +478,7 @@ public class ContactUpdateRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("remarkName");
     openapiFields.add("nickname");
     openapiFields.add("phoneNumber");
     openapiFields.add("countryCode");
@@ -404,6 +486,7 @@ public class ContactUpdateRequest {
     openapiFields.add("tags");
     openapiFields.add("customAttributes");
     openapiFields.add("ownerEmail");
+    openapiFields.add("notes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -422,6 +505,9 @@ public class ContactUpdateRequest {
         } else { // has required fields
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContactUpdateRequest is not found in the empty JSON string", ContactUpdateRequest.openapiRequiredFields.toString()));
         }
+      }
+      if (jsonObj.get("remarkName") != null && !jsonObj.get("remarkName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remarkName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remarkName").toString()));
       }
       if (jsonObj.get("nickname") != null && !jsonObj.get("nickname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
@@ -453,6 +539,18 @@ public class ContactUpdateRequest {
       }
       if (jsonObj.get("ownerEmail") != null && !jsonObj.get("ownerEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ownerEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerEmail").toString()));
+      }
+      JsonArray jsonArraynotes = jsonObj.getAsJsonArray("notes");
+      if (jsonArraynotes != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("notes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
+        }
+
+        // validate the optional field `notes` (array)
+        for (int i = 0; i < jsonArraynotes.size(); i++) {
+          ContactNoteMutationInput.validateJsonObject(jsonArraynotes.get(i).getAsJsonObject());
+        };
       }
   }
 
@@ -540,4 +638,3 @@ public class ContactUpdateRequest {
     return JSON.getGson().toJson(this);
   }
 }
-

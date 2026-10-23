@@ -121,6 +121,13 @@ public class WhatsappTemplate {
   @SerializedName(SERIALIZED_NAME_COMPONENTS)
   private List<WhatsappTemplateComponent> components = null;
 
+  public static final String SERIALIZED_NAME_CTA_URL_LINK_TRACKING_OPTED_OUT = "ctaUrlLinkTrackingOptedOut";
+  /**
+   * Whether Meta CTA URL click tracking is disabled. Historical &#x60;null&#x60; values are returned as &#x60;true&#x60;.
+  **/
+  @SerializedName(SERIALIZED_NAME_CTA_URL_LINK_TRACKING_OPTED_OUT)
+  private Boolean ctaUrlLinkTrackingOptedOut;
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   /**
   **/
@@ -173,11 +180,11 @@ public class WhatsappTemplate {
   @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
   private WhatsappApiError whatsappApiError;
 
-  public WhatsappTemplate() { 
+  public WhatsappTemplate() {
   }
 
   public WhatsappTemplate officialTemplateId(String officialTemplateId) {
-    
+
     this.officialTemplateId = officialTemplateId;
     return this;
   }
@@ -203,7 +210,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate wabaId(String wabaId) {
-    
+
     this.wabaId = wabaId;
     return this;
   }
@@ -229,7 +236,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -255,7 +262,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate language(String language) {
-    
+
     this.language = language;
     return this;
   }
@@ -281,7 +288,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate category(WhatsappTemplateCategory category) {
-    
+
     this.category = category;
     return this;
   }
@@ -306,7 +313,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate subCategory(WhatsappTemplateSubCategory subCategory) {
-    
+
     this.subCategory = subCategory;
     return this;
   }
@@ -331,7 +338,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate previousCategory(String previousCategory) {
-    
+
     this.previousCategory = previousCategory;
     return this;
   }
@@ -357,7 +364,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate messageSendTtlSeconds(Integer messageSendTtlSeconds) {
-    
+
     this.messageSendTtlSeconds = messageSendTtlSeconds;
     return this;
   }
@@ -383,7 +390,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate components(List<WhatsappTemplateComponent> components) {
-    
+
     this.components = components;
     return this;
   }
@@ -416,8 +423,34 @@ public class WhatsappTemplate {
   }
 
 
+  public WhatsappTemplate ctaUrlLinkTrackingOptedOut(Boolean ctaUrlLinkTrackingOptedOut) {
+
+    this.ctaUrlLinkTrackingOptedOut = ctaUrlLinkTrackingOptedOut;
+    return this;
+  }
+
+   /**
+   * Whether Meta CTA URL click tracking is disabled. Historical &#x60;null&#x60; values are returned as &#x60;true&#x60;.
+   * @return ctaUrlLinkTrackingOptedOut
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getCtaUrlLinkTrackingOptedOut() {
+    return ctaUrlLinkTrackingOptedOut;
+  }
+
+
+  /**
+   * Whether Meta CTA URL click tracking is disabled. Historical &#x60;null&#x60; values are returned as &#x60;true&#x60;.
+   **/
+  @ApiModelProperty(example = "true", value = "Whether Meta CTA URL click tracking is disabled. Historical `null` values are returned as `true`.")
+  public void setCtaUrlLinkTrackingOptedOut(Boolean ctaUrlLinkTrackingOptedOut) {
+    this.ctaUrlLinkTrackingOptedOut = ctaUrlLinkTrackingOptedOut;
+  }
+
+
   public WhatsappTemplate status(WhatsappTemplateStatus status) {
-    
+
     this.status = status;
     return this;
   }
@@ -442,7 +475,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate qualityRating(WhatsappTemplateQualityRating qualityRating) {
-    
+
     this.qualityRating = qualityRating;
     return this;
   }
@@ -467,7 +500,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate reason(String reason) {
-    
+
     this.reason = reason;
     return this;
   }
@@ -493,7 +526,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate createTime(Date createTime) {
-    
+
     this.createTime = createTime;
     return this;
   }
@@ -519,7 +552,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate updateTime(Date updateTime) {
-    
+
     this.updateTime = updateTime;
     return this;
   }
@@ -545,7 +578,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate statusUpdateEvent(WhatsappTemplateStatusUpdateEventEnum statusUpdateEvent) {
-    
+
     this.statusUpdateEvent = statusUpdateEvent;
     return this;
   }
@@ -570,7 +603,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate disableDate(String disableDate) {
-    
+
     this.disableDate = disableDate;
     return this;
   }
@@ -596,7 +629,7 @@ public class WhatsappTemplate {
 
 
   public WhatsappTemplate whatsappApiError(WhatsappApiError whatsappApiError) {
-    
+
     this.whatsappApiError = whatsappApiError;
     return this;
   }
@@ -674,6 +707,7 @@ public class WhatsappTemplate {
         Objects.equals(this.previousCategory, whatsappTemplate.previousCategory) &&
         Objects.equals(this.messageSendTtlSeconds, whatsappTemplate.messageSendTtlSeconds) &&
         Objects.equals(this.components, whatsappTemplate.components) &&
+        Objects.equals(this.ctaUrlLinkTrackingOptedOut, whatsappTemplate.ctaUrlLinkTrackingOptedOut) &&
         Objects.equals(this.status, whatsappTemplate.status) &&
         Objects.equals(this.qualityRating, whatsappTemplate.qualityRating) &&
         Objects.equals(this.reason, whatsappTemplate.reason) &&
@@ -687,7 +721,7 @@ public class WhatsappTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(officialTemplateId, wabaId, name, language, category, subCategory, previousCategory, messageSendTtlSeconds, components, status, qualityRating, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
+    return Objects.hash(officialTemplateId, wabaId, name, language, category, subCategory, previousCategory, messageSendTtlSeconds, components, ctaUrlLinkTrackingOptedOut, status, qualityRating, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
   }
 
   @Override
@@ -703,6 +737,7 @@ public class WhatsappTemplate {
     sb.append("    previousCategory: ").append(toIndentedString(previousCategory)).append("\n");
     sb.append("    messageSendTtlSeconds: ").append(toIndentedString(messageSendTtlSeconds)).append("\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
+    sb.append("    ctaUrlLinkTrackingOptedOut: ").append(toIndentedString(ctaUrlLinkTrackingOptedOut)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    qualityRating: ").append(toIndentedString(qualityRating)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -743,6 +778,7 @@ public class WhatsappTemplate {
     openapiFields.add("previousCategory");
     openapiFields.add("messageSendTtlSeconds");
     openapiFields.add("components");
+    openapiFields.add("ctaUrlLinkTrackingOptedOut");
     openapiFields.add("status");
     openapiFields.add("qualityRating");
     openapiFields.add("reason");
@@ -903,4 +939,3 @@ public class WhatsappTemplate {
     return JSON.getGson().toJson(this);
   }
 }
-

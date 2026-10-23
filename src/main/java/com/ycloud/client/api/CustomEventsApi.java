@@ -139,12 +139,12 @@ public class CustomEventsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createDefinitionValidateBeforeCall(CustomEventDefinitionCreateRequest customEventDefinitionCreateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'customEventDefinitionCreateRequest' is set
         if (customEventDefinitionCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'customEventDefinitionCreateRequest' when calling createDefinition(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createDefinitionCall(customEventDefinitionCreateRequest, _callback);
         return localVarCall;
@@ -271,17 +271,17 @@ public class CustomEventsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createPropertyDefinitionValidateBeforeCall(String name, CustomEventDefinitionPropertyCreateRequest customEventDefinitionPropertyCreateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling createPropertyDefinition(Async)");
         }
-        
+
         // verify the required parameter 'customEventDefinitionPropertyCreateRequest' is set
         if (customEventDefinitionPropertyCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'customEventDefinitionPropertyCreateRequest' when calling createPropertyDefinition(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createPropertyDefinitionCall(name, customEventDefinitionPropertyCreateRequest, _callback);
         return localVarCall;
@@ -402,7 +402,7 @@ public class CustomEventsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -415,17 +415,17 @@ public class CustomEventsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call propertyDefinitionValidateBeforeCall(String name, String propertyName, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling propertyDefinition(Async)");
         }
-        
+
         // verify the required parameter 'propertyName' is set
         if (propertyName == null) {
             throw new ApiException("Missing the required parameter 'propertyName' when calling propertyDefinition(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = propertyDefinitionCall(name, propertyName, _callback);
         return localVarCall;
@@ -556,22 +556,22 @@ public class CustomEventsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call propertyDefinition_0ValidateBeforeCall(String name, String propertyName, CustomEventDefinitionPropertyUpdateRequest customEventDefinitionPropertyUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling propertyDefinition_0(Async)");
         }
-        
+
         // verify the required parameter 'propertyName' is set
         if (propertyName == null) {
             throw new ApiException("Missing the required parameter 'propertyName' when calling propertyDefinition_0(Async)");
         }
-        
+
         // verify the required parameter 'customEventDefinitionPropertyUpdateRequest' is set
         if (customEventDefinitionPropertyUpdateRequest == null) {
             throw new ApiException("Missing the required parameter 'customEventDefinitionPropertyUpdateRequest' when calling propertyDefinition_0(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = propertyDefinition_0Call(name, propertyName, customEventDefinitionPropertyUpdateRequest, _callback);
         return localVarCall;
@@ -693,7 +693,7 @@ public class CustomEventsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -706,12 +706,12 @@ public class CustomEventsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveDefinitionValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling retrieveDefinition(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveDefinitionCall(name, _callback);
         return localVarCall;
@@ -788,7 +788,7 @@ public class CustomEventsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully sent the event. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully accepted the event. Returns an empty JSON object. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call sendEventCall(CustomEventSendRequest customEventSendRequest, final ApiCallback _callback) throws ApiException {
@@ -817,7 +817,7 @@ public class CustomEventsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -838,12 +838,12 @@ public class CustomEventsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call sendEventValidateBeforeCall(CustomEventSendRequest customEventSendRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'customEventSendRequest' is set
         if (customEventSendRequest == null) {
             throw new ApiException("Missing the required parameter 'customEventSendRequest' when calling sendEvent(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = sendEventCall(customEventSendRequest, _callback);
         return localVarCall;
@@ -853,13 +853,13 @@ public class CustomEventsApi {
     /**
      * Send an event
      * <p>
-     * Sends an event.
+     * Sends an occurrence of a previously defined custom event. For contact events, identify the contact using one of a contact ID, phone number, or Meta username.
      * @param customEventSendRequest  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully sent the event. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully accepted the event. Returns an empty JSON object. </td><td>  -  </td></tr>
      </table>
      */
     public void sendEvent(CustomEventSendRequest customEventSendRequest) throws ApiException {
@@ -869,14 +869,14 @@ public class CustomEventsApi {
     /**
      * Send an event
      * <p>
-     * Sends an event.
+     * Sends an occurrence of a previously defined custom event. For contact events, identify the contact using one of a contact ID, phone number, or Meta username.
      * @param customEventSendRequest  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully sent the event. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully accepted the event. Returns an empty JSON object. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> sendEventWithHttpInfo(CustomEventSendRequest customEventSendRequest) throws ApiException {
@@ -887,7 +887,7 @@ public class CustomEventsApi {
     /**
      * Send an event (asynchronously)
      * <p>
-     * Sends an event.
+     * Sends an occurrence of a previously defined custom event. For contact events, identify the contact using one of a contact ID, phone number, or Meta username.
      * @param customEventSendRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -895,7 +895,7 @@ public class CustomEventsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully sent the event. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully accepted the event. Returns an empty JSON object. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call sendEventAsync(CustomEventSendRequest customEventSendRequest, final ApiCallback<Void> _callback) throws ApiException {
@@ -966,17 +966,17 @@ public class CustomEventsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateDefinitionValidateBeforeCall(String name, CustomEventDefinitionUpdateRequest customEventDefinitionUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling updateDefinition(Async)");
         }
-        
+
         // verify the required parameter 'customEventDefinitionUpdateRequest' is set
         if (customEventDefinitionUpdateRequest == null) {
             throw new ApiException("Missing the required parameter 'customEventDefinitionUpdateRequest' when calling updateDefinition(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateDefinitionCall(name, customEventDefinitionUpdateRequest, _callback);
         return localVarCall;

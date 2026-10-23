@@ -2,7 +2,7 @@
 
 # WhatsappBusinessUsernameDeleteResult
 
-Business Username deletion result. Deleting the active username does not cancel a pending Business Username request. If a pending request still exists, the returned `businessUsernameStatus` is `pending_review`; otherwise it is `not_set`.
+Business Username deletion result. Deleting the active username does not cancel a reserved Business Username request. If a reserved request still exists, the returned `businessUsernameStatus` is `reserved`; otherwise it is `not_set`.
 
 ## Properties
 
@@ -14,6 +14,3 @@ Business Username deletion result. Deleting the active username does not cancel 
 |**phoneNumber** | **String** | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. |  [optional] |
 |**businessUsernameStatus** | **WhatsappBusinessUsernameStatus** |  |  [optional] |
 |**businessUsernameUpdatedAt** | **Date** | The time when the Business Username state was last updated. |  [optional] |
-
-
-

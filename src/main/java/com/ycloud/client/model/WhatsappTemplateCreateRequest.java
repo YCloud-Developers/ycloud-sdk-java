@@ -103,16 +103,16 @@ public class WhatsappTemplateCreateRequest {
 
   public static final String SERIALIZED_NAME_CTA_URL_LINK_TRACKING_OPTED_OUT = "ctaUrlLinkTrackingOptedOut";
   /**
-   * **Optional.** Indicates if template button click tracking is disabled. Set to &#x60;true&#x60; to disable button click tracking on the template, or &#x60;false&#x60; to enable. You can disable button click tracking on an individual template by setting this field to &#x60;true&#x60;. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template&#39;s insights. If not provided, this value defaults to &#x60;false&#x60;, which means button click tracking is enabled by default.
+   * **Optional.** Indicates if template button click tracking is disabled. Set to &#x60;true&#x60; to disable button click tracking on the template, or &#x60;false&#x60; to enable. You can disable button click tracking on an individual template by setting this field to &#x60;true&#x60;. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template&#39;s insights. If not provided or set to &#x60;null&#x60;, this value defaults to &#x60;true&#x60;, which means button click tracking is disabled by default.
   **/
   @SerializedName(SERIALIZED_NAME_CTA_URL_LINK_TRACKING_OPTED_OUT)
   private Boolean ctaUrlLinkTrackingOptedOut;
 
-  public WhatsappTemplateCreateRequest() { 
+  public WhatsappTemplateCreateRequest() {
   }
 
   public WhatsappTemplateCreateRequest wabaId(String wabaId) {
-    
+
     this.wabaId = wabaId;
     return this;
   }
@@ -138,7 +138,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -164,7 +164,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest language(String language) {
-    
+
     this.language = language;
     return this;
   }
@@ -190,7 +190,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest category(WhatsappTemplateCategory category) {
-    
+
     this.category = category;
     return this;
   }
@@ -215,7 +215,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest subCategory(WhatsappTemplateSubCategory subCategory) {
-    
+
     this.subCategory = subCategory;
     return this;
   }
@@ -240,7 +240,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest messageSendTtlSeconds(Integer messageSendTtlSeconds) {
-    
+
     this.messageSendTtlSeconds = messageSendTtlSeconds;
     return this;
   }
@@ -266,7 +266,7 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest components(List<WhatsappTemplateComponent> components) {
-    
+
     this.components = components;
     return this;
   }
@@ -296,13 +296,13 @@ public class WhatsappTemplateCreateRequest {
 
 
   public WhatsappTemplateCreateRequest ctaUrlLinkTrackingOptedOut(Boolean ctaUrlLinkTrackingOptedOut) {
-    
+
     this.ctaUrlLinkTrackingOptedOut = ctaUrlLinkTrackingOptedOut;
     return this;
   }
 
    /**
-   * **Optional.** Indicates if template button click tracking is disabled. Set to &#x60;true&#x60; to disable button click tracking on the template, or &#x60;false&#x60; to enable. You can disable button click tracking on an individual template by setting this field to &#x60;true&#x60;. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template&#39;s insights. If not provided, this value defaults to &#x60;false&#x60;, which means button click tracking is enabled by default.
+   * **Optional.** Indicates if template button click tracking is disabled. Set to &#x60;true&#x60; to disable button click tracking on the template, or &#x60;false&#x60; to enable. You can disable button click tracking on an individual template by setting this field to &#x60;true&#x60;. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template&#39;s insights. If not provided or set to &#x60;null&#x60;, this value defaults to &#x60;true&#x60;, which means button click tracking is disabled by default.
    * @return ctaUrlLinkTrackingOptedOut
   **/
   @javax.annotation.Nullable
@@ -313,9 +313,9 @@ public class WhatsappTemplateCreateRequest {
 
 
   /**
-   * **Optional.** Indicates if template button click tracking is disabled. Set to &#x60;true&#x60; to disable button click tracking on the template, or &#x60;false&#x60; to enable. You can disable button click tracking on an individual template by setting this field to &#x60;true&#x60;. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template&#39;s insights. If not provided, this value defaults to &#x60;false&#x60;, which means button click tracking is enabled by default.
+   * **Optional.** Indicates if template button click tracking is disabled. Set to &#x60;true&#x60; to disable button click tracking on the template, or &#x60;false&#x60; to enable. You can disable button click tracking on an individual template by setting this field to &#x60;true&#x60;. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template&#39;s insights. If not provided or set to &#x60;null&#x60;, this value defaults to &#x60;true&#x60;, which means button click tracking is disabled by default.
    **/
-  @ApiModelProperty(example = "true", value = "**Optional.** Indicates if template button click tracking is disabled. Set to `true` to disable button click tracking on the template, or `false` to enable. You can disable button click tracking on an individual template by setting this field to `true`. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template's insights. If not provided, this value defaults to `false`, which means button click tracking is enabled by default.")
+  @ApiModelProperty(example = "true", value = "**Optional.** Indicates if template button click tracking is disabled. Set to `true` to disable button click tracking on the template, or `false` to enable. You can disable button click tracking on an individual template by setting this field to `true`. Once disabled, button engagement/clicks will not be displayed in the WhatsApp Manager when viewing the template's insights. If not provided or set to `null`, this value defaults to `true`, which means button click tracking is disabled by default.")
   public void setCtaUrlLinkTrackingOptedOut(Boolean ctaUrlLinkTrackingOptedOut) {
     this.ctaUrlLinkTrackingOptedOut = ctaUrlLinkTrackingOptedOut;
   }
@@ -563,4 +563,3 @@ public class WhatsappTemplateCreateRequest {
     return JSON.getGson().toJson(this);
   }
 }
-

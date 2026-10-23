@@ -34,6 +34,7 @@ import com.ycloud.client.model.WhatsappBusinessUsernameSuggestions;
 import com.ycloud.client.model.WhatsappBusinessUsernameUpdateRequest;
 import com.ycloud.client.model.WhatsappCommerceSettings;
 import com.ycloud.client.model.WhatsappCommerceSettingsUpdateRequest;
+import com.ycloud.client.model.WhatsappContactBookEntryDeleteResult;
 import com.ycloud.client.model.WhatsappPhoneNameUpdateRequest;
 import com.ycloud.client.model.WhatsappPhoneNameUpdateResponse;
 import com.ycloud.client.model.WhatsappPhoneNumber;
@@ -136,7 +137,7 @@ public class WhatsappPhoneNumbersApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -149,17 +150,17 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteBusinessUsernameValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling deleteBusinessUsername(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling deleteBusinessUsername(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteBusinessUsernameCall(wabaId, phoneNumber, _callback);
         return localVarCall;
@@ -169,7 +170,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Delete a phone number business username
      * <p>
-     * Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a pending Business Username request. If a pending request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;pending_review&#x60;; otherwise it becomes &#x60;not_set&#x60;.
+     * Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a reserved Business Username request. If a reserved request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;reserved&#x60;; otherwise it becomes &#x60;not_set&#x60;.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @return WhatsappBusinessUsernameDeleteResult
@@ -189,7 +190,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Delete a phone number business username
      * <p>
-     * Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a pending Business Username request. If a pending request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;pending_review&#x60;; otherwise it becomes &#x60;not_set&#x60;.
+     * Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a reserved Business Username request. If a reserved request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;reserved&#x60;; otherwise it becomes &#x60;not_set&#x60;.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @return ApiResponse&lt;WhatsappBusinessUsernameDeleteResult&gt;
@@ -210,7 +211,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Delete a phone number business username (asynchronously)
      * <p>
-     * Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a pending Business Username request. If a pending request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;pending_review&#x60;; otherwise it becomes &#x60;not_set&#x60;.
+     * Deletes the active Business Username for a WhatsApp business phone number. This operation removes the currently active Business Username. It does not cancel or remove a reserved Business Username request. If a reserved request still exists after deletion, the returned &#x60;businessUsernameStatus&#x60; remains &#x60;reserved&#x60;; otherwise it becomes &#x60;not_set&#x60;.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -227,6 +228,168 @@ public class WhatsappPhoneNumbersApi {
 
         okhttp3.Call localVarCall = deleteBusinessUsernameValidateBeforeCall(wabaId, phoneNumber, _callback);
         Type localVarReturnType = new TypeToken<WhatsappBusinessUsernameDeleteResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteContactBookEntry
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. (required)
+     * @param bsuid Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The delete request was processed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more path parameters are invalid, or Meta returned HTTP 400 for the delete request. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;deleted&#x3D;false&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteContactBookEntryCall(String wabaId, String phoneNumber, String bsuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid}"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()))
+            .replaceAll("\\{" + "bsuid" + "\\}", localVarApiClient.escapeString(bsuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteContactBookEntryValidateBeforeCall(String wabaId, String phoneNumber, String bsuid, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling deleteContactBookEntry(Async)");
+        }
+
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling deleteContactBookEntry(Async)");
+        }
+
+        // verify the required parameter 'bsuid' is set
+        if (bsuid == null) {
+            throw new ApiException("Missing the required parameter 'bsuid' when calling deleteContactBookEntry(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = deleteContactBookEntryCall(wabaId, phoneNumber, bsuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete a Meta contact book entry
+     * <p>
+     * Deletes the Meta contact book entry that associates a WhatsApp business phone number with a customer&#39;s WhatsApp Business-scoped user ID (BSUID).  Only standard BSUIDs such as &#x60;US.11815799212886844830&#x60; are supported. Parent BSUIDs such as &#x60;US.ENT.11815799212886844830&#x60; are not supported. The BSUID must be scoped to the same Meta business portfolio as the phone number. The specified WABA must belong to the authenticated YCloud account and be available, and the phone number must be bound to that WABA in YCloud. Use the YCloud account API key in the &#x60;X-API-Key&#x60; header. Developer App API keys are not supported and return HTTP 403.  An HTTP 200 response always has &#x60;success&#x3D;true&#x60;. &#x60;deleted&#x3D;true&#x60; means Meta reports that it deleted a matching contact book entry. &#x60;deleted&#x3D;false&#x60; means Meta processed the request but found no matching entry to delete. This operation does not delete or modify YCloud Contact, message, or BSUID business records, and it does not bypass Meta&#39;s 30-day caching behavior. A later WhatsApp interaction between the same business phone number and customer may cause Meta to create the entry again.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. (required)
+     * @param bsuid Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. (required)
+     * @return WhatsappContactBookEntryDeleteResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The delete request was processed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more path parameters are invalid, or Meta returned HTTP 400 for the delete request. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;deleted&#x3D;false&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappContactBookEntryDeleteResult deleteContactBookEntry(String wabaId, String phoneNumber, String bsuid) throws ApiException {
+        ApiResponse<WhatsappContactBookEntryDeleteResult> localVarResp = deleteContactBookEntryWithHttpInfo(wabaId, phoneNumber, bsuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a Meta contact book entry
+     * <p>
+     * Deletes the Meta contact book entry that associates a WhatsApp business phone number with a customer&#39;s WhatsApp Business-scoped user ID (BSUID).  Only standard BSUIDs such as &#x60;US.11815799212886844830&#x60; are supported. Parent BSUIDs such as &#x60;US.ENT.11815799212886844830&#x60; are not supported. The BSUID must be scoped to the same Meta business portfolio as the phone number. The specified WABA must belong to the authenticated YCloud account and be available, and the phone number must be bound to that WABA in YCloud. Use the YCloud account API key in the &#x60;X-API-Key&#x60; header. Developer App API keys are not supported and return HTTP 403.  An HTTP 200 response always has &#x60;success&#x3D;true&#x60;. &#x60;deleted&#x3D;true&#x60; means Meta reports that it deleted a matching contact book entry. &#x60;deleted&#x3D;false&#x60; means Meta processed the request but found no matching entry to delete. This operation does not delete or modify YCloud Contact, message, or BSUID business records, and it does not bypass Meta&#39;s 30-day caching behavior. A later WhatsApp interaction between the same business phone number and customer may cause Meta to create the entry again.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. (required)
+     * @param bsuid Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. (required)
+     * @return ApiResponse&lt;WhatsappContactBookEntryDeleteResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The delete request was processed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more path parameters are invalid, or Meta returned HTTP 400 for the delete request. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;deleted&#x3D;false&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappContactBookEntryDeleteResult> deleteContactBookEntryWithHttpInfo(String wabaId, String phoneNumber, String bsuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteContactBookEntryValidateBeforeCall(wabaId, phoneNumber, bsuid, null);
+        Type localVarReturnType = new TypeToken<WhatsappContactBookEntryDeleteResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a Meta contact book entry (asynchronously)
+     * <p>
+     * Deletes the Meta contact book entry that associates a WhatsApp business phone number with a customer&#39;s WhatsApp Business-scoped user ID (BSUID).  Only standard BSUIDs such as &#x60;US.11815799212886844830&#x60; are supported. Parent BSUIDs such as &#x60;US.ENT.11815799212886844830&#x60; are not supported. The BSUID must be scoped to the same Meta business portfolio as the phone number. The specified WABA must belong to the authenticated YCloud account and be available, and the phone number must be bound to that WABA in YCloud. Use the YCloud account API key in the &#x60;X-API-Key&#x60; header. Developer App API keys are not supported and return HTTP 403.  An HTTP 200 response always has &#x60;success&#x3D;true&#x60;. &#x60;deleted&#x3D;true&#x60; means Meta reports that it deleted a matching contact book entry. &#x60;deleted&#x3D;false&#x60; means Meta processed the request but found no matching entry to delete. This operation does not delete or modify YCloud Contact, message, or BSUID business records, and it does not bypass Meta&#39;s 30-day caching behavior. A later WhatsApp interaction between the same business phone number and customer may cause Meta to create the entry again.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. (required)
+     * @param bsuid Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The delete request was processed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more path parameters are invalid, or Meta returned HTTP 400 for the delete request. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;deleted&#x3D;false&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteContactBookEntryAsync(String wabaId, String phoneNumber, String bsuid, final ApiCallback<WhatsappContactBookEntryDeleteResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteContactBookEntryValidateBeforeCall(wabaId, phoneNumber, bsuid, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappContactBookEntryDeleteResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -280,7 +443,7 @@ public class WhatsappPhoneNumbersApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -293,7 +456,7 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterWabaId, final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterWabaId, _callback);
         return localVarCall;
@@ -488,7 +651,7 @@ public class WhatsappPhoneNumbersApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -501,17 +664,17 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call registerValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling register(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling register(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = registerCall(wabaId, phoneNumber, _callback);
         return localVarCall;
@@ -632,7 +795,7 @@ public class WhatsappPhoneNumbersApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -645,17 +808,17 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling retrieve(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieve(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveCall(wabaId, phoneNumber, _callback);
         return localVarCall;
@@ -776,7 +939,7 @@ public class WhatsappPhoneNumbersApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -789,17 +952,17 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveBusinessUsernameValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveBusinessUsername(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieveBusinessUsername(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveBusinessUsernameCall(wabaId, phoneNumber, _callback);
         return localVarCall;
@@ -920,7 +1083,7 @@ public class WhatsappPhoneNumbersApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -933,17 +1096,17 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveBusinessUsernameSuggestionsValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveBusinessUsernameSuggestions(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieveBusinessUsernameSuggestions(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveBusinessUsernameSuggestionsCall(wabaId, phoneNumber, _callback);
         return localVarCall;
@@ -1064,7 +1227,7 @@ public class WhatsappPhoneNumbersApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1077,17 +1240,17 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveCommerceSettingsValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveCommerceSettings(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieveCommerceSettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveCommerceSettingsCall(wabaId, phoneNumber, _callback);
         return localVarCall;
@@ -1208,7 +1371,7 @@ public class WhatsappPhoneNumbersApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1221,17 +1384,17 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call retrieveProfileValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveProfile(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieveProfile(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = retrieveProfileCall(wabaId, phoneNumber, _callback);
         return localVarCall;
@@ -1306,6 +1469,7 @@ public class WhatsappPhoneNumbersApi {
      * Build call for retrieveSettings
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param type Set to &#x60;capture&#x60; to retrieve only Calling recording and transcription capture settings. Omit it or set it to &#x60;calling&#x60; to retrieve the existing Calling settings response. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1313,10 +1477,11 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the phone number settings. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The settings type is unsupported. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call retrieveSettingsCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call retrieveSettingsCall(String wabaId, String phoneNumber, String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1343,6 +1508,10 @@ public class WhatsappPhoneNumbersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1352,7 +1521,7 @@ public class WhatsappPhoneNumbersApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1364,20 +1533,20 @@ public class WhatsappPhoneNumbersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call retrieveSettingsValidateBeforeCall(String wabaId, String phoneNumber, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call retrieveSettingsValidateBeforeCall(String wabaId, String phoneNumber, String type, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling retrieveSettings(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling retrieveSettings(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = retrieveSettingsCall(wabaId, phoneNumber, _callback);
+
+        okhttp3.Call localVarCall = retrieveSettingsCall(wabaId, phoneNumber, type, _callback);
         return localVarCall;
 
     }
@@ -1388,17 +1557,19 @@ public class WhatsappPhoneNumbersApi {
      * Retrieves phone number specific settings.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param type Set to &#x60;capture&#x60; to retrieve only Calling recording and transcription capture settings. Omit it or set it to &#x60;calling&#x60; to retrieve the existing Calling settings response. (optional)
      * @return WhatsappPhoneNumberSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the phone number settings. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The settings type is unsupported. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public WhatsappPhoneNumberSettings retrieveSettings(String wabaId, String phoneNumber) throws ApiException {
-        ApiResponse<WhatsappPhoneNumberSettings> localVarResp = retrieveSettingsWithHttpInfo(wabaId, phoneNumber);
+    public WhatsappPhoneNumberSettings retrieveSettings(String wabaId, String phoneNumber, String type) throws ApiException {
+        ApiResponse<WhatsappPhoneNumberSettings> localVarResp = retrieveSettingsWithHttpInfo(wabaId, phoneNumber, type);
         return localVarResp.getData();
     }
 
@@ -1408,17 +1579,19 @@ public class WhatsappPhoneNumbersApi {
      * Retrieves phone number specific settings.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param type Set to &#x60;capture&#x60; to retrieve only Calling recording and transcription capture settings. Omit it or set it to &#x60;calling&#x60; to retrieve the existing Calling settings response. (optional)
      * @return ApiResponse&lt;WhatsappPhoneNumberSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the phone number settings. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The settings type is unsupported. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WhatsappPhoneNumberSettings> retrieveSettingsWithHttpInfo(String wabaId, String phoneNumber) throws ApiException {
-        okhttp3.Call localVarCall = retrieveSettingsValidateBeforeCall(wabaId, phoneNumber, null);
+    public ApiResponse<WhatsappPhoneNumberSettings> retrieveSettingsWithHttpInfo(String wabaId, String phoneNumber, String type) throws ApiException {
+        okhttp3.Call localVarCall = retrieveSettingsValidateBeforeCall(wabaId, phoneNumber, type, null);
         Type localVarReturnType = new TypeToken<WhatsappPhoneNumberSettings>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1429,6 +1602,7 @@ public class WhatsappPhoneNumbersApi {
      * Retrieves phone number specific settings.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
+     * @param type Set to &#x60;capture&#x60; to retrieve only Calling recording and transcription capture settings. Omit it or set it to &#x60;calling&#x60; to retrieve the existing Calling settings response. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1436,12 +1610,13 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the phone number settings. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. The settings type is unsupported. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call retrieveSettingsAsync(String wabaId, String phoneNumber, final ApiCallback<WhatsappPhoneNumberSettings> _callback) throws ApiException {
+    public okhttp3.Call retrieveSettingsAsync(String wabaId, String phoneNumber, String type, final ApiCallback<WhatsappPhoneNumberSettings> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = retrieveSettingsValidateBeforeCall(wabaId, phoneNumber, _callback);
+        okhttp3.Call localVarCall = retrieveSettingsValidateBeforeCall(wabaId, phoneNumber, type, _callback);
         Type localVarReturnType = new TypeToken<WhatsappPhoneNumberSettings>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1458,6 +1633,7 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully saved the phone number settings. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. A Calling or Capture setting is invalid. For a combined request, the other setting may already have been saved. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -1510,22 +1686,22 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call saveSettingsValidateBeforeCall(String wabaId, String phoneNumber, WhatsappPhoneNumberSettings whatsappPhoneNumberSettings, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling saveSettings(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling saveSettings(Async)");
         }
-        
+
         // verify the required parameter 'whatsappPhoneNumberSettings' is set
         if (whatsappPhoneNumberSettings == null) {
             throw new ApiException("Missing the required parameter 'whatsappPhoneNumberSettings' when calling saveSettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = saveSettingsCall(wabaId, phoneNumber, whatsappPhoneNumberSettings, _callback);
         return localVarCall;
@@ -1535,7 +1711,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Save phone number settings
      * <p>
-     * Saves phone number specific settings.
+     * Saves phone number specific settings. Send &#x60;calling&#x60;, &#x60;capture&#x60;, or both. When both are supplied, the service independently attempts both saves after shared authorization and phone-number validation. A failure in either branch does not prevent the other branch from being attempted. If either branch fails, the existing error response is returned and the other setting may already have been saved.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param whatsappPhoneNumberSettings Phone number settings to save. (required)
@@ -1545,6 +1721,7 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully saved the phone number settings. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. A Calling or Capture setting is invalid. For a combined request, the other setting may already have been saved. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -1556,7 +1733,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Save phone number settings
      * <p>
-     * Saves phone number specific settings.
+     * Saves phone number specific settings. Send &#x60;calling&#x60;, &#x60;capture&#x60;, or both. When both are supplied, the service independently attempts both saves after shared authorization and phone-number validation. A failure in either branch does not prevent the other branch from being attempted. If either branch fails, the existing error response is returned and the other setting may already have been saved.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param whatsappPhoneNumberSettings Phone number settings to save. (required)
@@ -1566,6 +1743,7 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully saved the phone number settings. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. A Calling or Capture setting is invalid. For a combined request, the other setting may already have been saved. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -1578,7 +1756,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Save phone number settings (asynchronously)
      * <p>
-     * Saves phone number specific settings.
+     * Saves phone number specific settings. Send &#x60;calling&#x60;, &#x60;capture&#x60;, or both. When both are supplied, the service independently attempts both saves after shared authorization and phone-number validation. A failure in either branch does not prevent the other branch from being attempted. If either branch fails, the existing error response is returned and the other setting may already have been saved.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param whatsappPhoneNumberSettings Phone number settings to save. (required)
@@ -1589,6 +1767,7 @@ public class WhatsappPhoneNumbersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully saved the phone number settings. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. A Calling or Capture setting is invalid. For a combined request, the other setting may already have been saved. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
@@ -1664,22 +1843,22 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateBusinessUsernameValidateBeforeCall(String wabaId, String phoneNumber, WhatsappBusinessUsernameUpdateRequest whatsappBusinessUsernameUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling updateBusinessUsername(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling updateBusinessUsername(Async)");
         }
-        
+
         // verify the required parameter 'whatsappBusinessUsernameUpdateRequest' is set
         if (whatsappBusinessUsernameUpdateRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappBusinessUsernameUpdateRequest' when calling updateBusinessUsername(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateBusinessUsernameCall(wabaId, phoneNumber, whatsappBusinessUsernameUpdateRequest, _callback);
         return localVarCall;
@@ -1689,7 +1868,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Update a phone number business username
      * <p>
-     * Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts the request for review, the response status is usually &#x60;pending_review&#x60;; if Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
+     * Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts or reserves the request for review, the response status is usually &#x60;reserved&#x60;; &#x60;pending_review&#x60; is kept only as a legacy compatibility value. If Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param whatsappBusinessUsernameUpdateRequest  (required)
@@ -1711,7 +1890,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Update a phone number business username
      * <p>
-     * Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts the request for review, the response status is usually &#x60;pending_review&#x60;; if Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
+     * Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts or reserves the request for review, the response status is usually &#x60;reserved&#x60;; &#x60;pending_review&#x60; is kept only as a legacy compatibility value. If Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param whatsappBusinessUsernameUpdateRequest  (required)
@@ -1734,7 +1913,7 @@ public class WhatsappPhoneNumbersApi {
     /**
      * Update a phone number business username (asynchronously)
      * <p>
-     * Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts the request for review, the response status is usually &#x60;pending_review&#x60;; if Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
+     * Requests a Business Username update for a WhatsApp business phone number. The requested username may require Meta review before it becomes active. If Meta accepts or reserves the request for review, the response status is usually &#x60;reserved&#x60;; &#x60;pending_review&#x60; is kept only as a legacy compatibility value. If Meta returns an error, YCloud returns the error and does not change the stored Business Username state.  The &#x60;username&#x60; value is a plain username without &#x60;@&#x60;. YCloud trims leading and trailing whitespace and normalizes the value to lowercase before validation and submission.
      * @param wabaId WhatsApp Business Account ID. (required)
      * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. (required)
      * @param whatsappBusinessUsernameUpdateRequest  (required)
@@ -1820,22 +1999,22 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCommerceSettingsValidateBeforeCall(String wabaId, String phoneNumber, WhatsappCommerceSettingsUpdateRequest whatsappCommerceSettingsUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling updateCommerceSettings(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling updateCommerceSettings(Async)");
         }
-        
+
         // verify the required parameter 'whatsappCommerceSettingsUpdateRequest' is set
         if (whatsappCommerceSettingsUpdateRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappCommerceSettingsUpdateRequest' when calling updateCommerceSettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateCommerceSettingsCall(wabaId, phoneNumber, whatsappCommerceSettingsUpdateRequest, _callback);
         return localVarCall;
@@ -1973,22 +2152,22 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateDisplayNameValidateBeforeCall(String wabaId, String phoneNumber, WhatsappPhoneNameUpdateRequest whatsappPhoneNameUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling updateDisplayName(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling updateDisplayName(Async)");
         }
-        
+
         // verify the required parameter 'whatsappPhoneNameUpdateRequest' is set
         if (whatsappPhoneNameUpdateRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappPhoneNameUpdateRequest' when calling updateDisplayName(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateDisplayNameCall(wabaId, phoneNumber, whatsappPhoneNameUpdateRequest, _callback);
         return localVarCall;
@@ -2126,22 +2305,22 @@ public class WhatsappPhoneNumbersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProfileValidateBeforeCall(String wabaId, String phoneNumber, WhatsappPhoneNumberProfileUpdateRequest whatsappPhoneNumberProfileUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'wabaId' is set
         if (wabaId == null) {
             throw new ApiException("Missing the required parameter 'wabaId' when calling updateProfile(Async)");
         }
-        
+
         // verify the required parameter 'phoneNumber' is set
         if (phoneNumber == null) {
             throw new ApiException("Missing the required parameter 'phoneNumber' when calling updateProfile(Async)");
         }
-        
+
         // verify the required parameter 'whatsappPhoneNumberProfileUpdateRequest' is set
         if (whatsappPhoneNumberProfileUpdateRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappPhoneNumberProfileUpdateRequest' when calling updateProfile(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateProfileCall(wabaId, phoneNumber, whatsappPhoneNumberProfileUpdateRequest, _callback);
         return localVarCall;

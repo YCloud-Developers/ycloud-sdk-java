@@ -8,7 +8,7 @@ Represents an internal note attached to a contact.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | Unique ID for the contact note. |  |
+|**id** | **String** | Unique 24-character ObjectId for the contact note. IDs remain unchanged after storage migration. |  |
 |**contactId** | **String** | Unique ID of the contact that owns this note. |  |
 |**content** | **String** | Note content. |  |
 |**operatorId** | **String** | ID of the actor who created the note. |  [optional] |

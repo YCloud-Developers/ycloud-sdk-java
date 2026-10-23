@@ -469,4 +469,3 @@ public class WhatsappGroupJoinRequest {
     return JSON.getGson().toJson(this);
   }
 }
-

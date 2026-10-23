@@ -20,9 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.CallingMediaUpdated;
 import com.ycloud.client.model.ContactAttributesChanged;
 import com.ycloud.client.model.ContactCreated;
 import com.ycloud.client.model.ContactDeleted;
+import com.ycloud.client.model.ContactNoteWebhookPayload;
 import com.ycloud.client.model.ContactUnsubscribeCreated;
 import com.ycloud.client.model.ContactUnsubscribeDeleted;
 import com.ycloud.client.model.EmailDelivery;
@@ -95,6 +97,20 @@ public class Event {
   **/
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private Date createTime;
+
+  public static final String SERIALIZED_NAME_PHASE = "phase";
+  /**
+   * Included when &#x60;type&#x60; is &#x60;whatsapp.smb.history&#x60; and the event was generated from a Meta history chunk. Identifies the chunk&#39;s synchronization phase.
+  **/
+  @SerializedName(SERIALIZED_NAME_PHASE)
+  private Integer phase;
+
+  public static final String SERIALIZED_NAME_PROGRESS = "progress";
+  /**
+   * Included when &#x60;type&#x60; is &#x60;whatsapp.smb.history&#x60; and the event was generated from a Meta history chunk. Reports the chunk&#39;s synchronization progress.
+  **/
+  @SerializedName(SERIALIZED_NAME_PROGRESS)
+  private Integer progress;
 
   public static final String SERIALIZED_NAME_EMAIL_DELIVERY = "emailDelivery";
   /**
@@ -180,6 +196,12 @@ public class Event {
   @SerializedName(SERIALIZED_NAME_CONTACT_DELETED)
   private ContactDeleted contactDeleted;
 
+  public static final String SERIALIZED_NAME_CONTACT_NOTE = "contactNote";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CONTACT_NOTE)
+  private ContactNoteWebhookPayload contactNote;
+
   public static final String SERIALIZED_NAME_CONTACT_UNSUBSCRIBE_CREATED = "contactUnsubscribeCreated";
   /**
   **/
@@ -198,11 +220,23 @@ public class Event {
   @SerializedName(SERIALIZED_NAME_WHATSAPP_USER_PREFERENCE)
   private WhatsappUserPreference whatsappUserPreference;
 
-  public Event() { 
+  public static final String SERIALIZED_NAME_CALLING_RECORDING = "callingRecording";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CALLING_RECORDING)
+  private CallingMediaUpdated callingRecording;
+
+  public static final String SERIALIZED_NAME_CALLING_TRANSCRIPTION = "callingTranscription";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CALLING_TRANSCRIPTION)
+  private CallingMediaUpdated callingTranscription;
+
+  public Event() {
   }
 
   public Event id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -228,7 +262,7 @@ public class Event {
 
 
   public Event type(EventType type) {
-    
+
     this.type = type;
     return this;
   }
@@ -253,7 +287,7 @@ public class Event {
 
 
   public Event apiVersion(String apiVersion) {
-    
+
     this.apiVersion = apiVersion;
     return this;
   }
@@ -279,7 +313,7 @@ public class Event {
 
 
   public Event createTime(Date createTime) {
-    
+
     this.createTime = createTime;
     return this;
   }
@@ -304,8 +338,60 @@ public class Event {
   }
 
 
+  public Event phase(Integer phase) {
+
+    this.phase = phase;
+    return this;
+  }
+
+   /**
+   * Included when &#x60;type&#x60; is &#x60;whatsapp.smb.history&#x60; and the event was generated from a Meta history chunk. Identifies the chunk&#39;s synchronization phase.
+   * @return phase
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getPhase() {
+    return phase;
+  }
+
+
+  /**
+   * Included when &#x60;type&#x60; is &#x60;whatsapp.smb.history&#x60; and the event was generated from a Meta history chunk. Identifies the chunk&#39;s synchronization phase.
+   **/
+  @ApiModelProperty(example = "1", value = "Included when `type` is `whatsapp.smb.history` and the event was generated from a Meta history chunk. Identifies the chunk's synchronization phase.")
+  public void setPhase(Integer phase) {
+    this.phase = phase;
+  }
+
+
+  public Event progress(Integer progress) {
+
+    this.progress = progress;
+    return this;
+  }
+
+   /**
+   * Included when &#x60;type&#x60; is &#x60;whatsapp.smb.history&#x60; and the event was generated from a Meta history chunk. Reports the chunk&#39;s synchronization progress.
+   * @return progress
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getProgress() {
+    return progress;
+  }
+
+
+  /**
+   * Included when &#x60;type&#x60; is &#x60;whatsapp.smb.history&#x60; and the event was generated from a Meta history chunk. Reports the chunk&#39;s synchronization progress.
+   **/
+  @ApiModelProperty(example = "73", value = "Included when `type` is `whatsapp.smb.history` and the event was generated from a Meta history chunk. Reports the chunk's synchronization progress.")
+  public void setProgress(Integer progress) {
+    this.progress = progress;
+  }
+
+
   public Event emailDelivery(EmailDelivery emailDelivery) {
-    
+
     this.emailDelivery = emailDelivery;
     return this;
   }
@@ -330,7 +416,7 @@ public class Event {
 
 
   public Event sms(Sms sms) {
-    
+
     this.sms = sms;
     return this;
   }
@@ -355,7 +441,7 @@ public class Event {
 
 
   public Event smsInbound(SmsInbound smsInbound) {
-    
+
     this.smsInbound = smsInbound;
     return this;
   }
@@ -380,7 +466,7 @@ public class Event {
 
 
   public Event voice(Voice voice) {
-    
+
     this.voice = voice;
     return this;
   }
@@ -405,7 +491,7 @@ public class Event {
 
 
   public Event whatsappBusinessAccount(WhatsappBusinessAccount whatsappBusinessAccount) {
-    
+
     this.whatsappBusinessAccount = whatsappBusinessAccount;
     return this;
   }
@@ -430,7 +516,7 @@ public class Event {
 
 
   public Event whatsappInboundMessage(WhatsappInboundMessage whatsappInboundMessage) {
-    
+
     this.whatsappInboundMessage = whatsappInboundMessage;
     return this;
   }
@@ -455,7 +541,7 @@ public class Event {
 
 
   public Event whatsappMessage(WhatsappMessage whatsappMessage) {
-    
+
     this.whatsappMessage = whatsappMessage;
     return this;
   }
@@ -480,7 +566,7 @@ public class Event {
 
 
   public Event whatsappGroup(WhatsappGroupWebhook whatsappGroup) {
-    
+
     this.whatsappGroup = whatsappGroup;
     return this;
   }
@@ -505,7 +591,7 @@ public class Event {
 
 
   public Event whatsappPhoneNumber(WhatsappPhoneNumber whatsappPhoneNumber) {
-    
+
     this.whatsappPhoneNumber = whatsappPhoneNumber;
     return this;
   }
@@ -530,7 +616,7 @@ public class Event {
 
 
   public Event whatsappPayment(WhatsappPayment whatsappPayment) {
-    
+
     this.whatsappPayment = whatsappPayment;
     return this;
   }
@@ -555,7 +641,7 @@ public class Event {
 
 
   public Event whatsappTemplate(WhatsappTemplate whatsappTemplate) {
-    
+
     this.whatsappTemplate = whatsappTemplate;
     return this;
   }
@@ -580,7 +666,7 @@ public class Event {
 
 
   public Event contactAttributesChanged(ContactAttributesChanged contactAttributesChanged) {
-    
+
     this.contactAttributesChanged = contactAttributesChanged;
     return this;
   }
@@ -605,7 +691,7 @@ public class Event {
 
 
   public Event contactCreated(ContactCreated contactCreated) {
-    
+
     this.contactCreated = contactCreated;
     return this;
   }
@@ -630,7 +716,7 @@ public class Event {
 
 
   public Event contactDeleted(ContactDeleted contactDeleted) {
-    
+
     this.contactDeleted = contactDeleted;
     return this;
   }
@@ -654,8 +740,33 @@ public class Event {
   }
 
 
+  public Event contactNote(ContactNoteWebhookPayload contactNote) {
+
+    this.contactNote = contactNote;
+    return this;
+  }
+
+   /**
+   * Get contactNote
+   * @return contactNote
+  **/
+  @javax.annotation.Nullable
+
+  public ContactNoteWebhookPayload getContactNote() {
+    return contactNote;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setContactNote(ContactNoteWebhookPayload contactNote) {
+    this.contactNote = contactNote;
+  }
+
+
   public Event contactUnsubscribeCreated(ContactUnsubscribeCreated contactUnsubscribeCreated) {
-    
+
     this.contactUnsubscribeCreated = contactUnsubscribeCreated;
     return this;
   }
@@ -680,7 +791,7 @@ public class Event {
 
 
   public Event contactUnsubscribeDeleted(ContactUnsubscribeDeleted contactUnsubscribeDeleted) {
-    
+
     this.contactUnsubscribeDeleted = contactUnsubscribeDeleted;
     return this;
   }
@@ -705,7 +816,7 @@ public class Event {
 
 
   public Event whatsappUserPreference(WhatsappUserPreference whatsappUserPreference) {
-    
+
     this.whatsappUserPreference = whatsappUserPreference;
     return this;
   }
@@ -726,6 +837,56 @@ public class Event {
   @ApiModelProperty(value = "")
   public void setWhatsappUserPreference(WhatsappUserPreference whatsappUserPreference) {
     this.whatsappUserPreference = whatsappUserPreference;
+  }
+
+
+  public Event callingRecording(CallingMediaUpdated callingRecording) {
+
+    this.callingRecording = callingRecording;
+    return this;
+  }
+
+   /**
+   * Get callingRecording
+   * @return callingRecording
+  **/
+  @javax.annotation.Nullable
+
+  public CallingMediaUpdated getCallingRecording() {
+    return callingRecording;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setCallingRecording(CallingMediaUpdated callingRecording) {
+    this.callingRecording = callingRecording;
+  }
+
+
+  public Event callingTranscription(CallingMediaUpdated callingTranscription) {
+
+    this.callingTranscription = callingTranscription;
+    return this;
+  }
+
+   /**
+   * Get callingTranscription
+   * @return callingTranscription
+  **/
+  @javax.annotation.Nullable
+
+  public CallingMediaUpdated getCallingTranscription() {
+    return callingTranscription;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setCallingTranscription(CallingMediaUpdated callingTranscription) {
+    this.callingTranscription = callingTranscription;
   }
 
   /**
@@ -778,6 +939,8 @@ public class Event {
         Objects.equals(this.type, event.type) &&
         Objects.equals(this.apiVersion, event.apiVersion) &&
         Objects.equals(this.createTime, event.createTime) &&
+        Objects.equals(this.phase, event.phase) &&
+        Objects.equals(this.progress, event.progress) &&
         Objects.equals(this.emailDelivery, event.emailDelivery) &&
         Objects.equals(this.sms, event.sms) &&
         Objects.equals(this.smsInbound, event.smsInbound) &&
@@ -792,15 +955,18 @@ public class Event {
         Objects.equals(this.contactAttributesChanged, event.contactAttributesChanged) &&
         Objects.equals(this.contactCreated, event.contactCreated) &&
         Objects.equals(this.contactDeleted, event.contactDeleted) &&
+        Objects.equals(this.contactNote, event.contactNote) &&
         Objects.equals(this.contactUnsubscribeCreated, event.contactUnsubscribeCreated) &&
         Objects.equals(this.contactUnsubscribeDeleted, event.contactUnsubscribeDeleted) &&
-        Objects.equals(this.whatsappUserPreference, event.whatsappUserPreference)&&
+        Objects.equals(this.whatsappUserPreference, event.whatsappUserPreference) &&
+        Objects.equals(this.callingRecording, event.callingRecording) &&
+        Objects.equals(this.callingTranscription, event.callingTranscription)&&
         Objects.equals(this.additionalProperties, event.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, apiVersion, createTime, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappGroup, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, contactAttributesChanged, contactCreated, contactDeleted, contactUnsubscribeCreated, contactUnsubscribeDeleted, whatsappUserPreference, additionalProperties);
+    return Objects.hash(id, type, apiVersion, createTime, phase, progress, emailDelivery, sms, smsInbound, voice, whatsappBusinessAccount, whatsappInboundMessage, whatsappMessage, whatsappGroup, whatsappPhoneNumber, whatsappPayment, whatsappTemplate, contactAttributesChanged, contactCreated, contactDeleted, contactNote, contactUnsubscribeCreated, contactUnsubscribeDeleted, whatsappUserPreference, callingRecording, callingTranscription, additionalProperties);
   }
 
   @Override
@@ -811,6 +977,8 @@ public class Event {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
+    sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("    emailDelivery: ").append(toIndentedString(emailDelivery)).append("\n");
     sb.append("    sms: ").append(toIndentedString(sms)).append("\n");
     sb.append("    smsInbound: ").append(toIndentedString(smsInbound)).append("\n");
@@ -825,9 +993,12 @@ public class Event {
     sb.append("    contactAttributesChanged: ").append(toIndentedString(contactAttributesChanged)).append("\n");
     sb.append("    contactCreated: ").append(toIndentedString(contactCreated)).append("\n");
     sb.append("    contactDeleted: ").append(toIndentedString(contactDeleted)).append("\n");
+    sb.append("    contactNote: ").append(toIndentedString(contactNote)).append("\n");
     sb.append("    contactUnsubscribeCreated: ").append(toIndentedString(contactUnsubscribeCreated)).append("\n");
     sb.append("    contactUnsubscribeDeleted: ").append(toIndentedString(contactUnsubscribeDeleted)).append("\n");
     sb.append("    whatsappUserPreference: ").append(toIndentedString(whatsappUserPreference)).append("\n");
+    sb.append("    callingRecording: ").append(toIndentedString(callingRecording)).append("\n");
+    sb.append("    callingTranscription: ").append(toIndentedString(callingTranscription)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -855,6 +1026,8 @@ public class Event {
     openapiFields.add("type");
     openapiFields.add("apiVersion");
     openapiFields.add("createTime");
+    openapiFields.add("phase");
+    openapiFields.add("progress");
     openapiFields.add("emailDelivery");
     openapiFields.add("sms");
     openapiFields.add("smsInbound");
@@ -869,9 +1042,12 @@ public class Event {
     openapiFields.add("contactAttributesChanged");
     openapiFields.add("contactCreated");
     openapiFields.add("contactDeleted");
+    openapiFields.add("contactNote");
     openapiFields.add("contactUnsubscribeCreated");
     openapiFields.add("contactUnsubscribeDeleted");
     openapiFields.add("whatsappUserPreference");
+    openapiFields.add("callingRecording");
+    openapiFields.add("callingTranscription");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -964,6 +1140,10 @@ public class Event {
       if (jsonObj.getAsJsonObject("contactDeleted") != null) {
         ContactDeleted.validateJsonObject(jsonObj.getAsJsonObject("contactDeleted"));
       }
+      // validate the optional field `contactNote`
+      if (jsonObj.getAsJsonObject("contactNote") != null) {
+        ContactNoteWebhookPayload.validateJsonObject(jsonObj.getAsJsonObject("contactNote"));
+      }
       // validate the optional field `contactUnsubscribeCreated`
       if (jsonObj.getAsJsonObject("contactUnsubscribeCreated") != null) {
         ContactUnsubscribeCreated.validateJsonObject(jsonObj.getAsJsonObject("contactUnsubscribeCreated"));
@@ -975,6 +1155,14 @@ public class Event {
       // validate the optional field `whatsappUserPreference`
       if (jsonObj.getAsJsonObject("whatsappUserPreference") != null) {
         WhatsappUserPreference.validateJsonObject(jsonObj.getAsJsonObject("whatsappUserPreference"));
+      }
+      // validate the optional field `callingRecording`
+      if (jsonObj.getAsJsonObject("callingRecording") != null) {
+        CallingMediaUpdated.validateJsonObject(jsonObj.getAsJsonObject("callingRecording"));
+      }
+      // validate the optional field `callingTranscription`
+      if (jsonObj.getAsJsonObject("callingTranscription") != null) {
+        CallingMediaUpdated.validateJsonObject(jsonObj.getAsJsonObject("callingTranscription"));
       }
   }
 
@@ -1062,4 +1250,3 @@ public class Event {
     return JSON.getGson().toJson(this);
   }
 }
-

@@ -45,9 +45,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Provide exactly one of &#x60;to&#x60; or &#x60;recipient&#x60;. If both are provided, &#x60;to&#x60; takes precedence and &#x60;recipient&#x60; is ignored.
+ * Provide at least one of &#x60;to&#x60; or &#x60;recipient&#x60;. If both are provided, &#x60;to&#x60; takes precedence and &#x60;recipient&#x60; is ignored.
  */
-@ApiModel(description = "Provide exactly one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.")
+@ApiModel(description = "Provide at least one of `to` or `recipient`. If both are provided, `to` takes precedence and `recipient` is ignored.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappCallingConnectRequest {
   public static final String SERIALIZED_NAME_FROM = "from";
@@ -488,4 +488,3 @@ public class WhatsappCallingConnectRequest {
     return JSON.getGson().toJson(this);
   }
 }
-

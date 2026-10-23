@@ -62,6 +62,13 @@ public class ContactCreated {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_REMARK_NAME = "remarkName";
+  /**
+   * The business-managed remark name for the contact.
+  **/
+  @SerializedName(SERIALIZED_NAME_REMARK_NAME)
+  private String remarkName;
+
   public static final String SERIALIZED_NAME_NICK_NAME = "nickName";
   /**
    * Contact&#39;s nickname.
@@ -181,11 +188,11 @@ public class ContactCreated {
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTES)
   private Map<String, Object> customAttributes = null;
 
-  public ContactCreated() { 
+  public ContactCreated() {
   }
 
   public ContactCreated id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -210,8 +217,34 @@ public class ContactCreated {
   }
 
 
+  public ContactCreated remarkName(String remarkName) {
+
+    this.remarkName = remarkName;
+    return this;
+  }
+
+   /**
+   * The business-managed remark name for the contact.
+   * @return remarkName
+  **/
+  @javax.annotation.Nullable
+
+  public String getRemarkName() {
+    return remarkName;
+  }
+
+
+  /**
+   * The business-managed remark name for the contact.
+   **/
+  @ApiModelProperty(example = "Priority customer", value = "The business-managed remark name for the contact.")
+  public void setRemarkName(String remarkName) {
+    this.remarkName = remarkName;
+  }
+
+
   public ContactCreated nickName(String nickName) {
-    
+
     this.nickName = nickName;
     return this;
   }
@@ -237,7 +270,7 @@ public class ContactCreated {
 
 
   public ContactCreated realName(String realName) {
-    
+
     this.realName = realName;
     return this;
   }
@@ -263,7 +296,7 @@ public class ContactCreated {
 
 
   public ContactCreated phoneNumber(String phoneNumber) {
-    
+
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -289,7 +322,7 @@ public class ContactCreated {
 
 
   public ContactCreated countryCode(String countryCode) {
-    
+
     this.countryCode = countryCode;
     return this;
   }
@@ -315,7 +348,7 @@ public class ContactCreated {
 
 
   public ContactCreated countryName(String countryName) {
-    
+
     this.countryName = countryName;
     return this;
   }
@@ -341,7 +374,7 @@ public class ContactCreated {
 
 
   public ContactCreated email(String email) {
-    
+
     this.email = email;
     return this;
   }
@@ -367,7 +400,7 @@ public class ContactCreated {
 
 
   public ContactCreated sourceType(String sourceType) {
-    
+
     this.sourceType = sourceType;
     return this;
   }
@@ -393,7 +426,7 @@ public class ContactCreated {
 
 
   public ContactCreated sourceId(String sourceId) {
-    
+
     this.sourceId = sourceId;
     return this;
   }
@@ -419,7 +452,7 @@ public class ContactCreated {
 
 
   public ContactCreated sourceUrl(String sourceUrl) {
-    
+
     this.sourceUrl = sourceUrl;
     return this;
   }
@@ -445,7 +478,7 @@ public class ContactCreated {
 
 
   public ContactCreated lastSeen(Date lastSeen) {
-    
+
     this.lastSeen = lastSeen;
     return this;
   }
@@ -471,7 +504,7 @@ public class ContactCreated {
 
 
   public ContactCreated lastConnectedNumber(String lastConnectedNumber) {
-    
+
     this.lastConnectedNumber = lastConnectedNumber;
     return this;
   }
@@ -497,7 +530,7 @@ public class ContactCreated {
 
 
   public ContactCreated ownerEmail(String ownerEmail) {
-    
+
     this.ownerEmail = ownerEmail;
     return this;
   }
@@ -523,7 +556,7 @@ public class ContactCreated {
 
 
   public ContactCreated tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -557,7 +590,7 @@ public class ContactCreated {
 
 
   public ContactCreated createTime(Date createTime) {
-    
+
     this.createTime = createTime;
     return this;
   }
@@ -583,7 +616,7 @@ public class ContactCreated {
 
 
   public ContactCreated updateTime(Date updateTime) {
-    
+
     this.updateTime = updateTime;
     return this;
   }
@@ -609,7 +642,7 @@ public class ContactCreated {
 
 
   public ContactCreated blocked(Boolean blocked) {
-    
+
     this.blocked = blocked;
     return this;
   }
@@ -635,7 +668,7 @@ public class ContactCreated {
 
 
   public ContactCreated customAttributes(Map<String, Object> customAttributes) {
-    
+
     this.customAttributes = customAttributes;
     return this;
   }
@@ -714,6 +747,7 @@ public class ContactCreated {
     }
     ContactCreated contactCreated = (ContactCreated) o;
     return Objects.equals(this.id, contactCreated.id) &&
+        Objects.equals(this.remarkName, contactCreated.remarkName) &&
         Objects.equals(this.nickName, contactCreated.nickName) &&
         Objects.equals(this.realName, contactCreated.realName) &&
         Objects.equals(this.phoneNumber, contactCreated.phoneNumber) &&
@@ -736,7 +770,7 @@ public class ContactCreated {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, nickName, realName, phoneNumber, countryCode, countryName, email, sourceType, sourceId, sourceUrl, lastSeen, lastConnectedNumber, ownerEmail, tags, createTime, updateTime, blocked, customAttributes, additionalProperties);
+    return Objects.hash(id, remarkName, nickName, realName, phoneNumber, countryCode, countryName, email, sourceType, sourceId, sourceUrl, lastSeen, lastConnectedNumber, ownerEmail, tags, createTime, updateTime, blocked, customAttributes, additionalProperties);
   }
 
   @Override
@@ -744,6 +778,7 @@ public class ContactCreated {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContactCreated {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    remarkName: ").append(toIndentedString(remarkName)).append("\n");
     sb.append("    nickName: ").append(toIndentedString(nickName)).append("\n");
     sb.append("    realName: ").append(toIndentedString(realName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
@@ -785,6 +820,7 @@ public class ContactCreated {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("remarkName");
     openapiFields.add("nickName");
     openapiFields.add("realName");
     openapiFields.add("phoneNumber");
@@ -831,6 +867,9 @@ public class ContactCreated {
       }
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("remarkName") != null && !jsonObj.get("remarkName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remarkName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remarkName").toString()));
       }
       if (jsonObj.get("nickName") != null && !jsonObj.get("nickName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nickName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickName").toString()));
@@ -955,4 +994,3 @@ public class ContactCreated {
     return JSON.getGson().toJson(this);
   }
 }
-

@@ -58,6 +58,13 @@ public class ContactDeleted {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_REMARK_NAME = "remarkName";
+  /**
+   * The business-managed remark name from the deleted contact snapshot.
+  **/
+  @SerializedName(SERIALIZED_NAME_REMARK_NAME)
+  private String remarkName;
+
   public static final String SERIALIZED_NAME_NICK_NAME = "nickName";
   /**
    * Contact&#39;s nickname.
@@ -79,11 +86,11 @@ public class ContactDeleted {
   @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
   private Date updateTime;
 
-  public ContactDeleted() { 
+  public ContactDeleted() {
   }
 
   public ContactDeleted id(String id) {
-    
+
     this.id = id;
     return this;
   }
@@ -108,8 +115,34 @@ public class ContactDeleted {
   }
 
 
+  public ContactDeleted remarkName(String remarkName) {
+
+    this.remarkName = remarkName;
+    return this;
+  }
+
+   /**
+   * The business-managed remark name from the deleted contact snapshot.
+   * @return remarkName
+  **/
+  @javax.annotation.Nullable
+
+  public String getRemarkName() {
+    return remarkName;
+  }
+
+
+  /**
+   * The business-managed remark name from the deleted contact snapshot.
+   **/
+  @ApiModelProperty(example = "Former customer", value = "The business-managed remark name from the deleted contact snapshot.")
+  public void setRemarkName(String remarkName) {
+    this.remarkName = remarkName;
+  }
+
+
   public ContactDeleted nickName(String nickName) {
-    
+
     this.nickName = nickName;
     return this;
   }
@@ -135,7 +168,7 @@ public class ContactDeleted {
 
 
   public ContactDeleted phoneNumber(String phoneNumber) {
-    
+
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -161,7 +194,7 @@ public class ContactDeleted {
 
 
   public ContactDeleted updateTime(Date updateTime) {
-    
+
     this.updateTime = updateTime;
     return this;
   }
@@ -232,6 +265,7 @@ public class ContactDeleted {
     }
     ContactDeleted contactDeleted = (ContactDeleted) o;
     return Objects.equals(this.id, contactDeleted.id) &&
+        Objects.equals(this.remarkName, contactDeleted.remarkName) &&
         Objects.equals(this.nickName, contactDeleted.nickName) &&
         Objects.equals(this.phoneNumber, contactDeleted.phoneNumber) &&
         Objects.equals(this.updateTime, contactDeleted.updateTime)&&
@@ -240,7 +274,7 @@ public class ContactDeleted {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, nickName, phoneNumber, updateTime, additionalProperties);
+    return Objects.hash(id, remarkName, nickName, phoneNumber, updateTime, additionalProperties);
   }
 
   @Override
@@ -248,6 +282,7 @@ public class ContactDeleted {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContactDeleted {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    remarkName: ").append(toIndentedString(remarkName)).append("\n");
     sb.append("    nickName: ").append(toIndentedString(nickName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
@@ -275,6 +310,7 @@ public class ContactDeleted {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("remarkName");
     openapiFields.add("nickName");
     openapiFields.add("phoneNumber");
     openapiFields.add("updateTime");
@@ -307,6 +343,9 @@ public class ContactDeleted {
       }
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("remarkName") != null && !jsonObj.get("remarkName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remarkName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remarkName").toString()));
       }
       if (jsonObj.get("nickName") != null && !jsonObj.get("nickName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nickName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickName").toString()));
@@ -400,4 +439,3 @@ public class ContactDeleted {
     return JSON.getGson().toJson(this);
   }
 }
-

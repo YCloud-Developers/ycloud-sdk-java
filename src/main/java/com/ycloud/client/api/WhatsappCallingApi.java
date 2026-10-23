@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.ycloud.client.model.ErrorResponse;
+import java.io.File;
 import com.ycloud.client.model.WhatsappCallingConnectRequest;
 import com.ycloud.client.model.WhatsappCallingPreAcceptRequest;
 import com.ycloud.client.model.WhatsappCallingResponse;
@@ -138,12 +139,12 @@ public class WhatsappCallingApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call acceptValidateBeforeCall(WhatsappCallingPreAcceptRequest whatsappCallingPreAcceptRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'whatsappCallingPreAcceptRequest' is set
         if (whatsappCallingPreAcceptRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappCallingPreAcceptRequest' when calling accept(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = acceptCall(whatsappCallingPreAcceptRequest, _callback);
         return localVarCall;
@@ -275,12 +276,12 @@ public class WhatsappCallingApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call connectValidateBeforeCall(WhatsappCallingConnectRequest whatsappCallingConnectRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'whatsappCallingConnectRequest' is set
         if (whatsappCallingConnectRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappCallingConnectRequest' when calling connect(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = connectCall(whatsappCallingConnectRequest, _callback);
         return localVarCall;
@@ -352,6 +353,144 @@ public class WhatsappCallingApi {
         return localVarCall;
     }
     /**
+     * Build call for downloadMedia
+     * @param mediaAssetId YCloud call media asset ID received in a recording or transcription webhook. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The complete recording or transcription file. </td><td>  * Accept-Ranges - Always &#x60;none&#x60;; byte-range downloads are not supported. <br>  * Content-Disposition - Download attachment filename. Recordings use the &#x60;.ogg&#x60; extension and transcriptions use the &#x60;.json&#x60; extension. <br>  * Content-Length -  <br>  </td></tr>
+        <tr><td> 400 </td><td> The request includes a non-empty Range header. Byte-range downloads are not supported. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The media asset does not exist, is not available, is expired, or does not belong to the authenticated tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call downloadMediaCall(String mediaAssetId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/calls/media/{mediaAssetId}"
+            .replaceAll("\\{" + "mediaAssetId" + "\\}", localVarApiClient.escapeString(mediaAssetId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "audio/ogg", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call downloadMediaValidateBeforeCall(String mediaAssetId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'mediaAssetId' is set
+        if (mediaAssetId == null) {
+            throw new ApiException("Missing the required parameter 'mediaAssetId' when calling downloadMedia(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = downloadMediaCall(mediaAssetId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Download call media
+     * <p>
+     * Downloads an available recording or transcription generated for an API-sourced WhatsApp call.  Media can be downloaded only by the owning tenant for 30 days from its creation time. Requests without a Range header or with a blank Range header return the complete file as a download attachment with HTTP 200. A non-empty Range header is rejected with HTTP 400 because byte-range downloads are not supported.
+     * @param mediaAssetId YCloud call media asset ID received in a recording or transcription webhook. (required)
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The complete recording or transcription file. </td><td>  * Accept-Ranges - Always &#x60;none&#x60;; byte-range downloads are not supported. <br>  * Content-Disposition - Download attachment filename. Recordings use the &#x60;.ogg&#x60; extension and transcriptions use the &#x60;.json&#x60; extension. <br>  * Content-Length -  <br>  </td></tr>
+        <tr><td> 400 </td><td> The request includes a non-empty Range header. Byte-range downloads are not supported. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The media asset does not exist, is not available, is expired, or does not belong to the authenticated tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public File downloadMedia(String mediaAssetId) throws ApiException {
+        ApiResponse<File> localVarResp = downloadMediaWithHttpInfo(mediaAssetId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Download call media
+     * <p>
+     * Downloads an available recording or transcription generated for an API-sourced WhatsApp call.  Media can be downloaded only by the owning tenant for 30 days from its creation time. Requests without a Range header or with a blank Range header return the complete file as a download attachment with HTTP 200. A non-empty Range header is rejected with HTTP 400 because byte-range downloads are not supported.
+     * @param mediaAssetId YCloud call media asset ID received in a recording or transcription webhook. (required)
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The complete recording or transcription file. </td><td>  * Accept-Ranges - Always &#x60;none&#x60;; byte-range downloads are not supported. <br>  * Content-Disposition - Download attachment filename. Recordings use the &#x60;.ogg&#x60; extension and transcriptions use the &#x60;.json&#x60; extension. <br>  * Content-Length -  <br>  </td></tr>
+        <tr><td> 400 </td><td> The request includes a non-empty Range header. Byte-range downloads are not supported. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The media asset does not exist, is not available, is expired, or does not belong to the authenticated tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<File> downloadMediaWithHttpInfo(String mediaAssetId) throws ApiException {
+        okhttp3.Call localVarCall = downloadMediaValidateBeforeCall(mediaAssetId, null);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Download call media (asynchronously)
+     * <p>
+     * Downloads an available recording or transcription generated for an API-sourced WhatsApp call.  Media can be downloaded only by the owning tenant for 30 days from its creation time. Requests without a Range header or with a blank Range header return the complete file as a download attachment with HTTP 200. A non-empty Range header is rejected with HTTP 400 because byte-range downloads are not supported.
+     * @param mediaAssetId YCloud call media asset ID received in a recording or transcription webhook. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The complete recording or transcription file. </td><td>  * Accept-Ranges - Always &#x60;none&#x60;; byte-range downloads are not supported. <br>  * Content-Disposition - Download attachment filename. Recordings use the &#x60;.ogg&#x60; extension and transcriptions use the &#x60;.json&#x60; extension. <br>  * Content-Length -  <br>  </td></tr>
+        <tr><td> 400 </td><td> The request includes a non-empty Range header. Byte-range downloads are not supported. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The media asset does not exist, is not available, is expired, or does not belong to the authenticated tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call downloadMediaAsync(String mediaAssetId, final ApiCallback<File> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = downloadMediaValidateBeforeCall(mediaAssetId, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for preAccept
      * @param whatsappCallingPreAcceptRequest  (required)
      * @param _callback Callback for upload/download progress
@@ -412,12 +551,12 @@ public class WhatsappCallingApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call preAcceptValidateBeforeCall(WhatsappCallingPreAcceptRequest whatsappCallingPreAcceptRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'whatsappCallingPreAcceptRequest' is set
         if (whatsappCallingPreAcceptRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappCallingPreAcceptRequest' when calling preAccept(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = preAcceptCall(whatsappCallingPreAcceptRequest, _callback);
         return localVarCall;
@@ -549,12 +688,12 @@ public class WhatsappCallingApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call rejectValidateBeforeCall(WhatsappCallingTerminateRequest whatsappCallingTerminateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'whatsappCallingTerminateRequest' is set
         if (whatsappCallingTerminateRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappCallingTerminateRequest' when calling reject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = rejectCall(whatsappCallingTerminateRequest, _callback);
         return localVarCall;
@@ -686,12 +825,12 @@ public class WhatsappCallingApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call terminateValidateBeforeCall(WhatsappCallingTerminateRequest whatsappCallingTerminateRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'whatsappCallingTerminateRequest' is set
         if (whatsappCallingTerminateRequest == null) {
             throw new ApiException("Missing the required parameter 'whatsappCallingTerminateRequest' when calling terminate(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = terminateCall(whatsappCallingTerminateRequest, _callback);
         return localVarCall;

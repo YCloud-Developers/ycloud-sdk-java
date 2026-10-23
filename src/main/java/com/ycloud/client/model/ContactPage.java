@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.Contact;
+import com.ycloud.client.model.ContactPageCursor;
 import com.ycloud.client.model.Page;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -49,9 +50,9 @@ import java.util.Set;
 import com.ycloud.client.JSON;
 
 /**
- * Represents a given page of contacts.
+ * Represents a given page of contacts. In cursor mode, &#x60;offset&#x60; is &#x60;0&#x60;, items are ordered by contact ID in ascending order, and &#x60;cursor&#x60; is returned only when another page exists. When &#x60;includeTotal&#x3D;true&#x60;, &#x60;total&#x60; is the complete filtered count and is not reduced by the cursor position.
  */
-@ApiModel(description = "Represents a given page of contacts.")
+@ApiModel(description = "Represents a given page of contacts. In cursor mode, `offset` is `0`, items are ordered by contact ID in ascending order, and `cursor` is returned only when another page exists. When `includeTotal=true`, `total` is the complete filtered count and is not reduced by the cursor position.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ContactPage {
   public static final String SERIALIZED_NAME_ITEMS = "items";
@@ -60,6 +61,12 @@ public class ContactPage {
   **/
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<Contact> items = null;
+
+  public static final String SERIALIZED_NAME_CURSOR = "cursor";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_CURSOR)
+  private ContactPageCursor cursor;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
   /**
@@ -89,11 +96,11 @@ public class ContactPage {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public ContactPage() { 
+  public ContactPage() {
   }
 
   public ContactPage items(List<Contact> items) {
-    
+
     this.items = items;
     return this;
   }
@@ -126,8 +133,33 @@ public class ContactPage {
   }
 
 
+  public ContactPage cursor(ContactPageCursor cursor) {
+
+    this.cursor = cursor;
+    return this;
+  }
+
+   /**
+   * Get cursor
+   * @return cursor
+  **/
+  @javax.annotation.Nullable
+
+  public ContactPageCursor getCursor() {
+    return cursor;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setCursor(ContactPageCursor cursor) {
+    this.cursor = cursor;
+  }
+
+
   public ContactPage offset(Integer offset) {
-    
+
     this.offset = offset;
     return this;
   }
@@ -154,7 +186,7 @@ public class ContactPage {
 
 
   public ContactPage limit(Integer limit) {
-    
+
     this.limit = limit;
     return this;
   }
@@ -181,7 +213,7 @@ public class ContactPage {
 
 
   public ContactPage length(Integer length) {
-    
+
     this.length = length;
     return this;
   }
@@ -208,7 +240,7 @@ public class ContactPage {
 
 
   public ContactPage total(Integer total) {
-    
+
     this.total = total;
     return this;
   }
@@ -280,6 +312,7 @@ public class ContactPage {
     }
     ContactPage contactPage = (ContactPage) o;
     return Objects.equals(this.items, contactPage.items) &&
+        Objects.equals(this.cursor, contactPage.cursor) &&
         Objects.equals(this.offset, contactPage.offset) &&
         Objects.equals(this.limit, contactPage.limit) &&
         Objects.equals(this.length, contactPage.length) &&
@@ -289,7 +322,7 @@ public class ContactPage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, offset, limit, length, total, additionalProperties);
+    return Objects.hash(items, cursor, offset, limit, length, total, additionalProperties);
   }
 
   @Override
@@ -297,6 +330,7 @@ public class ContactPage {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContactPage {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    cursor: ").append(toIndentedString(cursor)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    length: ").append(toIndentedString(length)).append("\n");
@@ -369,6 +403,10 @@ public class ContactPage {
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           Contact.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
         };
+      }
+      // validate the optional field `cursor`
+      if (jsonObj.getAsJsonObject("cursor") != null) {
+        ContactPageCursor.validateJsonObject(jsonObj.getAsJsonObject("cursor"));
       }
   }
 
@@ -456,4 +494,3 @@ public class ContactPage {
     return JSON.getGson().toJson(this);
   }
 }
-

@@ -9,6 +9,7 @@ WhatsApp Phone Number Business Profile. Customers can view your business profile
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**about** | **String** | The business&#39;s **About** text. This text appears in the business&#39;s profile, beneath its profile image, phone number, and contact buttons. |  [optional] |
+|**ycloudName** | **String** | Optional remark name assigned to this phone number in YCloud. It is populated by the profile GET API and omitted when no remark name is set. |  [optional] [readonly] |
 |**verifiedName** | **String** | The verified name |  [optional] |
 |**nameStatus** | **WhatsappPhoneNumberNameStatus** |  |  [optional] |
 |**newName** | **String** | The modified name |  [optional] |
@@ -19,6 +20,3 @@ WhatsApp Phone Number Business Profile. Customers can view your business profile
 |**profilePictureUrl** | **String** | URL of the profile picture used to upload to Meta. |  [optional] |
 |**vertical** | **WhatsappPhoneNumberProfileVertical** |  |  [optional] |
 |**websites** | **List&lt;String&gt;** | The URLs associated with the business. For instance, a website, Facebook Page, or Instagram. You must include the http:// or https:// portion of the URL. There is a maximum of 2 websites with a maximum of 255 characters each. |  [optional] |
-
-
-

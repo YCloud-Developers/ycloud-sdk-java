@@ -31,6 +31,7 @@ import com.ycloud.client.model.Contact;
 import com.ycloud.client.model.ContactAttribute;
 import com.ycloud.client.model.ContactCreateRequest;
 import com.ycloud.client.model.ContactNote;
+import com.ycloud.client.model.ContactNoteWriteRequest;
 import com.ycloud.client.model.ContactPage;
 import com.ycloud.client.model.ContactUpdateRequest;
 import com.ycloud.client.model.ErrorResponse;
@@ -209,6 +210,7 @@ public class ContactsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully created a contact. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The notes array or note content is invalid. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createCall(ContactCreateRequest contactCreateRequest, final ApiCallback _callback) throws ApiException {
@@ -281,6 +283,7 @@ public class ContactsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully created a contact. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The notes array or note content is invalid. </td><td>  -  </td></tr>
      </table>
      */
     public Contact create(ContactCreateRequest contactCreateRequest) throws ApiException {
@@ -299,6 +302,7 @@ public class ContactsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully created a contact. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The notes array or note content is invalid. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Contact> createWithHttpInfo(ContactCreateRequest contactCreateRequest) throws ApiException {
@@ -319,6 +323,7 @@ public class ContactsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully created a contact. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The notes array or note content is invalid. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAsync(ContactCreateRequest contactCreateRequest, final ApiCallback<Contact> _callback) throws ApiException {
@@ -330,7 +335,7 @@ public class ContactsApi {
     }
     /**
      * Build call for delete
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -405,7 +410,7 @@ public class ContactsApi {
      * Delete a contact
      * <p>
      * Deletes a contact.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @return Contact
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -424,7 +429,7 @@ public class ContactsApi {
      * Delete a contact
      * <p>
      * Deletes a contact.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @return ApiResponse&lt;Contact&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -444,7 +449,7 @@ public class ContactsApi {
      * Delete a contact (asynchronously)
      * <p>
      * Deletes a contact.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -462,7 +467,7 @@ public class ContactsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    private okhttp3.Call listCall(Integer page, Integer limit, Boolean includeTotal, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCall(Integer page, Integer limit, Boolean includeTotal, String pageAfter, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -497,6 +502,10 @@ public class ContactsApi {
 
         if (includeTotal != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeTotal", includeTotal));
+        }
+
+        if (pageAfter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageAfter", pageAfter));
         }
 
         if (filterTags != null) {
@@ -536,24 +545,24 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listValidateBeforeCall(Integer page, Integer limit, Boolean includeTotal, String pageAfter, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail, final ApiCallback _callback) throws ApiException {
 
 
-        okhttp3.Call localVarCall = listCall(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
+        okhttp3.Call localVarCall = listCall(page, limit, includeTotal, pageAfter, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<ContactPage> listWithHttpInfo(Integer page, Integer limit, Boolean includeTotal, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail) throws ApiException {
-        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, null);
+    private ApiResponse<ContactPage> listWithHttpInfo(Integer page, Integer limit, Boolean includeTotal, String pageAfter, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail) throws ApiException {
+        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, pageAfter, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, null);
         Type localVarReturnType = new TypeToken<ContactPage>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listAsync(Integer page, Integer limit, Boolean includeTotal, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail, final ApiCallback<ContactPage> _callback) throws ApiException {
+    private okhttp3.Call listAsync(Integer page, Integer limit, Boolean includeTotal, String pageAfter, String filterTags, String filterCountryCode, String filterPhoneNumber, String filterEmail, final ApiCallback<ContactPage> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
+        okhttp3.Call localVarCall = listValidateBeforeCall(page, limit, includeTotal, pageAfter, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
         Type localVarReturnType = new TypeToken<ContactPage>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -563,6 +572,7 @@ public class ContactsApi {
         private Integer page;
         private Integer limit;
         private Boolean includeTotal;
+        private String pageAfter;
         private String filterTags;
         private String filterCountryCode;
         private String filterPhoneNumber;
@@ -598,6 +608,16 @@ public class ContactsApi {
          */
         public ApiListRequest includeTotal(Boolean includeTotal) {
             this.includeTotal = includeTotal;
+            return this;
+        }
+
+        /**
+         * Set pageAfter
+         * @param pageAfter Contact ID cursor for forward pagination. Use &#x60;0&#x60; to start a new cursor traversal. For each subsequent page, pass the exact &#x60;cursor.after&#x60; value from the previous response. The value must be a non-negative decimal integer in the signed 64-bit range (&#x60;0&#x60; through &#x60;9223372036854775807&#x60;). It cannot be combined with &#x60;page&#x60;, &#x60;pageBefore&#x60;, &#x60;offset&#x60;, or &#x60;sort&#x60;. (optional)
+         * @return ApiListRequest
+         */
+        public ApiListRequest pageAfter(String pageAfter) {
+            this.pageAfter = pageAfter;
             return this;
         }
 
@@ -650,10 +670,11 @@ public class ContactsApi {
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved a paginated list of objects. </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> One or more query parameters are invalid, including an invalid cursor, incompatible pagination parameters, an out-of-range limit, or an unknown tag. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listCall(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
+            return listCall(page, limit, includeTotal, pageAfter, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
         }
 
         /**
@@ -664,10 +685,11 @@ public class ContactsApi {
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved a paginated list of objects. </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> One or more query parameters are invalid, including an invalid cursor, incompatible pagination parameters, an out-of-range limit, or an unknown tag. </td><td>  -  </td></tr>
          </table>
          */
         public ContactPage execute() throws ApiException {
-            ApiResponse<ContactPage> localVarResp = listWithHttpInfo(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail);
+            ApiResponse<ContactPage> localVarResp = listWithHttpInfo(page, limit, includeTotal, pageAfter, filterTags, filterCountryCode, filterPhoneNumber, filterEmail);
             return localVarResp.getData();
         }
 
@@ -679,10 +701,11 @@ public class ContactsApi {
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved a paginated list of objects. </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> One or more query parameters are invalid, including an invalid cursor, incompatible pagination parameters, an out-of-range limit, or an unknown tag. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<ContactPage> executeWithHttpInfo() throws ApiException {
-            return listWithHttpInfo(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail);
+            return listWithHttpInfo(page, limit, includeTotal, pageAfter, filterTags, filterCountryCode, filterPhoneNumber, filterEmail);
         }
 
         /**
@@ -694,41 +717,191 @@ public class ContactsApi {
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved a paginated list of objects. </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> One or more query parameters are invalid, including an invalid cursor, incompatible pagination parameters, an out-of-range limit, or an unknown tag. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ContactPage> _callback) throws ApiException {
-            return listAsync(page, limit, includeTotal, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
+            return listAsync(page, limit, includeTotal, pageAfter, filterTags, filterCountryCode, filterPhoneNumber, filterEmail, _callback);
         }
     }
 
     /**
      * List contacts
      * <p>
-     * Returns a paginated list of contacts.
+     * Returns a paginated list of contacts.  Omit &#x60;pageAfter&#x60; to use the existing page-based pagination. To use forward cursor pagination, set &#x60;pageAfter&#x3D;0&#x60; for the first page, then pass the exact &#x60;cursor.after&#x60; value returned by the previous response. Cursor results are ordered by contact ID in ascending order.  Do not combine &#x60;pageAfter&#x60; with &#x60;page&#x60;, &#x60;pageBefore&#x60;, &#x60;offset&#x60;, or &#x60;sort&#x60;. Keep all filters unchanged while following a cursor. Concurrent contact inserts, deletions, or filter-field updates use weak consistency; restart a full traversal with &#x60;pageAfter&#x3D;0&#x60; when a fresh snapshot is required.
      * @return ApiListRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved a paginated list of objects. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more query parameters are invalid, including an invalid cursor, incompatible pagination parameters, an out-of-range limit, or an unknown tag. </td><td>  -  </td></tr>
      </table>
      */
     public ApiListRequest list() {
         return new ApiListRequest();
     }
     /**
-     * Build call for notesList
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * Build call for noteCreate
+     * @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading &#x60;@&#x60;, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60;. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists. (required)
+     * @param contactNoteWriteRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved contact notes. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact identifier or note content is invalid, or the contact already has 50 notes. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call notesListCall(String id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call noteCreateCall(String contactIdentifier, ContactNoteWriteRequest contactNoteWriteRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = contactNoteWriteRequest;
+
+        // create path and map variables
+        String localVarPath = "/contact/contacts/{contactIdentifier}/notes"
+            .replaceAll("\\{" + "contactIdentifier" + "\\}", localVarApiClient.escapeString(contactIdentifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call noteCreateValidateBeforeCall(String contactIdentifier, ContactNoteWriteRequest contactNoteWriteRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'contactIdentifier' is set
+        if (contactIdentifier == null) {
+            throw new ApiException("Missing the required parameter 'contactIdentifier' when calling noteCreate(Async)");
+        }
+
+        // verify the required parameter 'contactNoteWriteRequest' is set
+        if (contactNoteWriteRequest == null) {
+            throw new ApiException("Missing the required parameter 'contactNoteWriteRequest' when calling noteCreate(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = noteCreateCall(contactIdentifier, contactNoteWriteRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create a contact note
+     * <p>
+     * Creates one note for the contact and returns the created note. Leading and trailing whitespace is removed before storage. This operation does not use a client idempotency key; repeating the request creates another note with a different ID.
+     * @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading &#x60;@&#x60;, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60;. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists. (required)
+     * @param contactNoteWriteRequest  (required)
+     * @return ContactNote
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully created the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact identifier or note content is invalid, or the contact already has 50 notes. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ContactNote noteCreate(String contactIdentifier, ContactNoteWriteRequest contactNoteWriteRequest) throws ApiException {
+        ApiResponse<ContactNote> localVarResp = noteCreateWithHttpInfo(contactIdentifier, contactNoteWriteRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a contact note
+     * <p>
+     * Creates one note for the contact and returns the created note. Leading and trailing whitespace is removed before storage. This operation does not use a client idempotency key; repeating the request creates another note with a different ID.
+     * @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading &#x60;@&#x60;, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60;. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists. (required)
+     * @param contactNoteWriteRequest  (required)
+     * @return ApiResponse&lt;ContactNote&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully created the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact identifier or note content is invalid, or the contact already has 50 notes. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ContactNote> noteCreateWithHttpInfo(String contactIdentifier, ContactNoteWriteRequest contactNoteWriteRequest) throws ApiException {
+        okhttp3.Call localVarCall = noteCreateValidateBeforeCall(contactIdentifier, contactNoteWriteRequest, null);
+        Type localVarReturnType = new TypeToken<ContactNote>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a contact note (asynchronously)
+     * <p>
+     * Creates one note for the contact and returns the created note. Leading and trailing whitespace is removed before storage. This operation does not use a client idempotency key; repeating the request creates another note with a different ID.
+     * @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading &#x60;@&#x60;, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60;. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists. (required)
+     * @param contactNoteWriteRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully created the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact identifier or note content is invalid, or the contact already has 50 notes. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call noteCreateAsync(String contactIdentifier, ContactNoteWriteRequest contactNoteWriteRequest, final ApiCallback<ContactNote> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = noteCreateValidateBeforeCall(contactIdentifier, contactNoteWriteRequest, _callback);
+        Type localVarReturnType = new TypeToken<ContactNote>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for noteDelete
+     * @param noteId The 24-character ObjectId of the contact note. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact note ID is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact note does not exist in the current tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call noteDeleteCall(String noteId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -745,8 +918,293 @@ public class ContactsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/contact/contacts/{id}/notes"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+        String localVarPath = "/contact/notes/{noteId}"
+            .replaceAll("\\{" + "noteId" + "\\}", localVarApiClient.escapeString(noteId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call noteDeleteValidateBeforeCall(String noteId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'noteId' is set
+        if (noteId == null) {
+            throw new ApiException("Missing the required parameter 'noteId' when calling noteDelete(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = noteDeleteCall(noteId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete a contact note
+     * <p>
+     * Deletes one note in the current tenant by note ID and returns its snapshot before deletion. Deleting the same note again returns &#x60;404&#x60;; the operation does not use a client idempotency key.
+     * @param noteId The 24-character ObjectId of the contact note. (required)
+     * @return ContactNote
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact note ID is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact note does not exist in the current tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ContactNote noteDelete(String noteId) throws ApiException {
+        ApiResponse<ContactNote> localVarResp = noteDeleteWithHttpInfo(noteId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a contact note
+     * <p>
+     * Deletes one note in the current tenant by note ID and returns its snapshot before deletion. Deleting the same note again returns &#x60;404&#x60;; the operation does not use a client idempotency key.
+     * @param noteId The 24-character ObjectId of the contact note. (required)
+     * @return ApiResponse&lt;ContactNote&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact note ID is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact note does not exist in the current tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ContactNote> noteDeleteWithHttpInfo(String noteId) throws ApiException {
+        okhttp3.Call localVarCall = noteDeleteValidateBeforeCall(noteId, null);
+        Type localVarReturnType = new TypeToken<ContactNote>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a contact note (asynchronously)
+     * <p>
+     * Deletes one note in the current tenant by note ID and returns its snapshot before deletion. Deleting the same note again returns &#x60;404&#x60;; the operation does not use a client idempotency key.
+     * @param noteId The 24-character ObjectId of the contact note. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact note ID is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact note does not exist in the current tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call noteDeleteAsync(String noteId, final ApiCallback<ContactNote> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = noteDeleteValidateBeforeCall(noteId, _callback);
+        Type localVarReturnType = new TypeToken<ContactNote>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for noteUpdate
+     * @param noteId The 24-character ObjectId of the contact note. (required)
+     * @param contactNoteWriteRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact note ID or content is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact note does not exist in the current tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call noteUpdateCall(String noteId, ContactNoteWriteRequest contactNoteWriteRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = contactNoteWriteRequest;
+
+        // create path and map variables
+        String localVarPath = "/contact/notes/{noteId}"
+            .replaceAll("\\{" + "noteId" + "\\}", localVarApiClient.escapeString(noteId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call noteUpdateValidateBeforeCall(String noteId, ContactNoteWriteRequest contactNoteWriteRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'noteId' is set
+        if (noteId == null) {
+            throw new ApiException("Missing the required parameter 'noteId' when calling noteUpdate(Async)");
+        }
+
+        // verify the required parameter 'contactNoteWriteRequest' is set
+        if (contactNoteWriteRequest == null) {
+            throw new ApiException("Missing the required parameter 'contactNoteWriteRequest' when calling noteUpdate(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = noteUpdateCall(noteId, contactNoteWriteRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a contact note
+     * <p>
+     * Updates one note in the current tenant by note ID and returns the updated note. Repeating the same request leaves the stored content unchanged, but an accepted update may still produce another &#x60;contact.note.updated&#x60; event.
+     * @param noteId The 24-character ObjectId of the contact note. (required)
+     * @param contactNoteWriteRequest  (required)
+     * @return ContactNote
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact note ID or content is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact note does not exist in the current tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ContactNote noteUpdate(String noteId, ContactNoteWriteRequest contactNoteWriteRequest) throws ApiException {
+        ApiResponse<ContactNote> localVarResp = noteUpdateWithHttpInfo(noteId, contactNoteWriteRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a contact note
+     * <p>
+     * Updates one note in the current tenant by note ID and returns the updated note. Repeating the same request leaves the stored content unchanged, but an accepted update may still produce another &#x60;contact.note.updated&#x60; event.
+     * @param noteId The 24-character ObjectId of the contact note. (required)
+     * @param contactNoteWriteRequest  (required)
+     * @return ApiResponse&lt;ContactNote&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact note ID or content is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact note does not exist in the current tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ContactNote> noteUpdateWithHttpInfo(String noteId, ContactNoteWriteRequest contactNoteWriteRequest) throws ApiException {
+        okhttp3.Call localVarCall = noteUpdateValidateBeforeCall(noteId, contactNoteWriteRequest, null);
+        Type localVarReturnType = new TypeToken<ContactNote>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a contact note (asynchronously)
+     * <p>
+     * Updates one note in the current tenant by note ID and returns the updated note. Repeating the same request leaves the stored content unchanged, but an accepted update may still produce another &#x60;contact.note.updated&#x60; event.
+     * @param noteId The 24-character ObjectId of the contact note. (required)
+     * @param contactNoteWriteRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated the contact note. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact note ID or content is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact note does not exist in the current tenant. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call noteUpdateAsync(String noteId, ContactNoteWriteRequest contactNoteWriteRequest, final ApiCallback<ContactNote> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = noteUpdateValidateBeforeCall(noteId, contactNoteWriteRequest, _callback);
+        Type localVarReturnType = new TypeToken<ContactNote>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for notesList
+     * @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading &#x60;@&#x60;, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60;. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved contact notes. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact identifier is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call notesListCall(String contactIdentifier, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/contact/contacts/{contactIdentifier}/notes"
+            .replaceAll("\\{" + "contactIdentifier" + "\\}", localVarApiClient.escapeString(contactIdentifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -775,15 +1233,15 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call notesListValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call notesListValidateBeforeCall(String contactIdentifier, final ApiCallback _callback) throws ApiException {
 
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling notesList(Async)");
+        // verify the required parameter 'contactIdentifier' is set
+        if (contactIdentifier == null) {
+            throw new ApiException("Missing the required parameter 'contactIdentifier' when calling notesList(Async)");
         }
 
 
-        okhttp3.Call localVarCall = notesListCall(id, _callback);
+        okhttp3.Call localVarCall = notesListCall(contactIdentifier, _callback);
         return localVarCall;
 
     }
@@ -791,38 +1249,40 @@ public class ContactsApi {
     /**
      * List contact notes
      * <p>
-     * Returns all notes for a contact, ordered by creation time descending. The &#x60;{id}&#x60; path parameter supports contact ID and phone number. A phone number can be provided in E.164 format, such as &#x60;+16315551111&#x60;. If a numeric contact ID is not found, the same value is retried as a phone number with a leading &#x60;+&#x60;, so &#x60;861...&#x60; can match a stored &#x60;+861...&#x60; phone number. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * Returns all notes for a contact, ordered by creation time descending. The &#x60;{contactIdentifier}&#x60; path parameter supports a contact ID, a phone number in E.164 format starting with &#x60;+&#x60;, or a Meta username without the leading &#x60;@&#x60;. Ambiguous numeric values are resolved as Meta usernames first and fall back to contact IDs only when no matching Meta username exists. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
+     * @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading &#x60;@&#x60;, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60;. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists. (required)
      * @return List&lt;ContactNote&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved contact notes. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact identifier is invalid. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public List<ContactNote> notesList(String id) throws ApiException {
-        ApiResponse<List<ContactNote>> localVarResp = notesListWithHttpInfo(id);
+    public List<ContactNote> notesList(String contactIdentifier) throws ApiException {
+        ApiResponse<List<ContactNote>> localVarResp = notesListWithHttpInfo(contactIdentifier);
         return localVarResp.getData();
     }
 
     /**
      * List contact notes
      * <p>
-     * Returns all notes for a contact, ordered by creation time descending. The &#x60;{id}&#x60; path parameter supports contact ID and phone number. A phone number can be provided in E.164 format, such as &#x60;+16315551111&#x60;. If a numeric contact ID is not found, the same value is retried as a phone number with a leading &#x60;+&#x60;, so &#x60;861...&#x60; can match a stored &#x60;+861...&#x60; phone number. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * Returns all notes for a contact, ordered by creation time descending. The &#x60;{contactIdentifier}&#x60; path parameter supports a contact ID, a phone number in E.164 format starting with &#x60;+&#x60;, or a Meta username without the leading &#x60;@&#x60;. Ambiguous numeric values are resolved as Meta usernames first and fall back to contact IDs only when no matching Meta username exists. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
+     * @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading &#x60;@&#x60;, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60;. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists. (required)
      * @return ApiResponse&lt;List&lt;ContactNote&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved contact notes. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact identifier is invalid. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ContactNote>> notesListWithHttpInfo(String id) throws ApiException {
-        okhttp3.Call localVarCall = notesListValidateBeforeCall(id, null);
+    public ApiResponse<List<ContactNote>> notesListWithHttpInfo(String contactIdentifier) throws ApiException {
+        okhttp3.Call localVarCall = notesListValidateBeforeCall(contactIdentifier, null);
         Type localVarReturnType = new TypeToken<List<ContactNote>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -830,8 +1290,8 @@ public class ContactsApi {
     /**
      * List contact notes (asynchronously)
      * <p>
-     * Returns all notes for a contact, ordered by creation time descending. The &#x60;{id}&#x60; path parameter supports contact ID and phone number. A phone number can be provided in E.164 format, such as &#x60;+16315551111&#x60;. If a numeric contact ID is not found, the same value is retried as a phone number with a leading &#x60;+&#x60;, so &#x60;861...&#x60; can match a stored &#x60;+861...&#x60; phone number. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * Returns all notes for a contact, ordered by creation time descending. The &#x60;{contactIdentifier}&#x60; path parameter supports a contact ID, a phone number in E.164 format starting with &#x60;+&#x60;, or a Meta username without the leading &#x60;@&#x60;. Ambiguous numeric values are resolved as Meta usernames first and fall back to contact IDs only when no matching Meta username exists. Contact retrieve, list, and search responses do not include notes; use this endpoint to read contact notes.
+     * @param contactIdentifier Identifier of the contact that owns the note. Supports a contact ID, a username without the leading &#x60;@&#x60;, or a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60;. Usernames contain 3 to 35 letters, digits, periods, or underscores. A numeric value is resolved as a username first and then as a contact ID when no matching username exists. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -839,19 +1299,20 @@ public class ContactsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved contact notes. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The contact identifier is invalid. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call notesListAsync(String id, final ApiCallback<List<ContactNote>> _callback) throws ApiException {
+    public okhttp3.Call notesListAsync(String contactIdentifier, final ApiCallback<List<ContactNote>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = notesListValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = notesListValidateBeforeCall(contactIdentifier, _callback);
         Type localVarReturnType = new TypeToken<List<ContactNote>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for retrieve
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -926,7 +1387,7 @@ public class ContactsApi {
      * Retrieve a contact
      * <p>
      * Retrieves a contact.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @return Contact
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -945,7 +1406,7 @@ public class ContactsApi {
      * Retrieve a contact
      * <p>
      * Retrieves a contact.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @return ApiResponse&lt;Contact&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -965,7 +1426,7 @@ public class ContactsApi {
      * Retrieve a contact (asynchronously)
      * <p>
      * Retrieves a contact.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -985,7 +1446,7 @@ public class ContactsApi {
     }
     /**
      * Build call for update
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @param contactUpdateRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -994,7 +1455,8 @@ public class ContactsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated the contact. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The notes array, note ID, or note content is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact or referenced contact note does not exist, or the note is not owned by the contact. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateCall(String id, ContactUpdateRequest contactUpdateRequest, final ApiCallback _callback) throws ApiException {
@@ -1060,8 +1522,8 @@ public class ContactsApi {
     /**
      * Update a contact
      * <p>
-     * Updates a contact.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * Updates a contact. If every supplied persisted contact field already has the requested value, the contact is not updated and no &#x60;contact.attributes_changed&#x60; event is emitted. Note mutations in the same request are still applied.
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @param contactUpdateRequest  (optional)
      * @return Contact
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1069,7 +1531,8 @@ public class ContactsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated the contact. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The notes array, note ID, or note content is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact or referenced contact note does not exist, or the note is not owned by the contact. </td><td>  -  </td></tr>
      </table>
      */
     public Contact update(String id, ContactUpdateRequest contactUpdateRequest) throws ApiException {
@@ -1080,8 +1543,8 @@ public class ContactsApi {
     /**
      * Update a contact
      * <p>
-     * Updates a contact.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * Updates a contact. If every supplied persisted contact field already has the requested value, the contact is not updated and no &#x60;contact.attributes_changed&#x60; event is emitted. Note mutations in the same request are still applied.
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @param contactUpdateRequest  (optional)
      * @return ApiResponse&lt;Contact&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1089,7 +1552,8 @@ public class ContactsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated the contact. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The notes array, note ID, or note content is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact or referenced contact note does not exist, or the note is not owned by the contact. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Contact> updateWithHttpInfo(String id, ContactUpdateRequest contactUpdateRequest) throws ApiException {
@@ -1101,8 +1565,8 @@ public class ContactsApi {
     /**
      * Update a contact (asynchronously)
      * <p>
-     * Updates a contact.
-     * @param id ID of the contact. Also support phone number([E.164](https://en.wikipedia.org/wiki/E.164) format, start with character &#39;+&#39;), example: +16315551111 (required)
+     * Updates a contact. If every supplied persisted contact field already has the requested value, the contact is not updated and no &#x60;contact.attributes_changed&#x60; event is emitted. Note mutations in the same request are still applied.
+     * @param id Identifier of the contact. Supports a contact ID, a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format starting with &#x60;+&#x60; (for example, &#x60;+16315551111&#x60;), or a Meta username without the leading &#x60;@&#x60;. A Meta username must contain 3 to 35 letters, digits, periods, or underscores. If a numeric value can be interpreted as both a Meta username and a contact ID, it is resolved as a Meta username first. If no contact has that Meta username, the value is resolved as a contact ID. (required)
      * @param contactUpdateRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1111,7 +1575,8 @@ public class ContactsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated the contact. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The requested resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The notes array, note ID, or note content is invalid. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The contact or referenced contact note does not exist, or the note is not owned by the contact. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateAsync(String id, ContactUpdateRequest contactUpdateRequest, final ApiCallback<Contact> _callback) throws ApiException {

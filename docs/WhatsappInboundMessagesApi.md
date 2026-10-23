@@ -5,7 +5,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**markAsRead**](WhatsappInboundMessagesApi.md#markAsRead) | **POST** /whatsapp/inboundMessages/{id}/markAsRead | Mark message as read |
-| [**typingIndicator**](WhatsappInboundMessagesApi.md#typingIndicator) | **POST** /whatsapp/inboundMessages/{id}/typingIndicator | Mark message as read and display a typing indicator |
+| [**typing**](WhatsappInboundMessagesApi.md#typing) | **POST** /whatsapp/inboundMessages/{id}/typing | Mark message as read and display a typing indicator with a JSON response |
 
 
 <a name="markAsRead"></a>
@@ -30,7 +30,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -77,13 +77,13 @@ null (empty response body)
 | **200** | Successfully marked the message as read. |  -  |
 | **404** | The requested resource does not exist. |  -  |
 
-<a name="typingIndicator"></a>
-# **typingIndicator**
-> typingIndicator(id)
+<a name="typing"></a>
+# **typing**
+> WhatsappInboundMessageTypingResponse typing(id)
 
-Mark message as read and display a typing indicator
+Mark message as read and display a typing indicator with a JSON response
 
-When you receive an inbound message from webhooks, you can use this endpoint to mark the message as read and display a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp.The typing indicator will be dismissed once you respond, or after 25 seconds, whichever comes first. To prevent a poor user experience, only display a typing indicator if you are going to respond.  Marking a message as read will also mark earlier messages in the conversation as read.
+Marks an inbound message as read and displays a typing indicator so the WhatsApp user knows you are preparing a response. Messages marked as read display two blue check marks alongside their timestamp. The typing indicator is dismissed once you respond, or after 25 seconds, whichever comes first.  Marking a message as read also marks earlier messages in the conversation as read. Repeating this request sends another typing-indicator request and refreshes the indicator; this endpoint does not provide an idempotency key.  A successful request returns &#x60;WhatsappInboundMessageTypingResponse&#x60;. Errors reuse the standard &#x60;ErrorResponse&#x60;.
 
 ### Example
 ```java
@@ -99,7 +99,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.ycloud.com/v2");
-    
+
     // Configure API key authorization: api_key
     ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
     api_key.setApiKey("YOUR API KEY");
@@ -109,9 +109,10 @@ public class Example {
     WhatsappInboundMessagesApi apiInstance = new WhatsappInboundMessagesApi(defaultClient);
     String id = "627c8640675de8fc689ab9d9"; // String | ID of the message.  A wamid (i.e., the original message ID on WhatsApp's platform) is also acceptable.
     try {
-      apiInstance.typingIndicator(id);
+      WhatsappInboundMessageTypingResponse result = apiInstance.typing(id);
+      System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WhatsappInboundMessagesApi#typingIndicator");
+      System.err.println("Exception when calling WhatsappInboundMessagesApi#typing");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -129,7 +130,7 @@ public class Example {
 
 ### Return type
 
-null (empty response body)
+[**WhatsappInboundMessageTypingResponse**](WhatsappInboundMessageTypingResponse.md)
 
 ### Authorization
 
@@ -143,6 +144,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully marked the message as read. |  -  |
-| **404** | The requested resource does not exist. |  -  |
-
+| **200** | Successfully marked the message as read and displayed a typing indicator. |  -  |
+| **400** | The inbound message cannot be used to send a typing indicator, or the upstream request is invalid. |  -  |
+| **401** | Authentication failed because the API key is missing or invalid. |  -  |
+| **403** | You do not have access to the inbound message or permission to use this endpoint. |  -  |
+| **404** | The requested inbound message does not exist. |  -  |
+| **429** | Too many requests were sent in a given amount of time. |  -  |
+| **500** | The typing indicator could not be sent because of an internal or upstream error. |  -  |
