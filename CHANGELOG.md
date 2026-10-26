@@ -1,4 +1,7 @@
 # Changelog
+## 1.17.1 (2026-10-26)
+- Add `request_contact_info` to WhatsApp interactive message types for requesting a customer's phone number.
+
 ## 1.17.0 (2026-10-23)
 - Add Meta Business Agent settings, budgets, conversation turns, Connectors, credentials, Tools, and tool-run APIs and models.
 - Add Contact Note create, update, delete APIs and note webhook events; support notes in contact create/update requests.

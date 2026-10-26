@@ -20823,7 +20823,8 @@ components:
             \ Use for Location Request Messages.\n- `order_details`: Use for Order\
             \ Details Messages.\n- `order_status`: Use for Order Status Messages.\n\
             - `voice_call`: Use for Voice Call Messages.\n- `flow`: Use for Flow Messages.\n\
-            - `carousel`: Use for media carousel message."
+            - `carousel`: Use for media carousel message.\n- `request_contact_info`:\
+            \ Use for request phone numbers."
           enum:
           - button
           - list
@@ -20837,6 +20838,7 @@ components:
           - voice_call
           - flow
           - carousel
+          - request_contact_info
           type: string
         action:
           $ref: '#/components/schemas/WhatsappMessageInteractiveAction'

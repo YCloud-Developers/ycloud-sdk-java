@@ -55,33 +55,35 @@ import com.ycloud.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappMessageInteractive {
   /**
-   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. - &#x60;voice_call&#x60;: Use for Voice Call Messages. - &#x60;flow&#x60;: Use for Flow Messages. - &#x60;carousel&#x60;: Use for media carousel message.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. - &#x60;voice_call&#x60;: Use for Voice Call Messages. - &#x60;flow&#x60;: Use for Flow Messages. - &#x60;carousel&#x60;: Use for media carousel message. - &#x60;request_contact_info&#x60;: Use for request phone numbers.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     BUTTON("button"),
-    
+
     LIST("list"),
-    
+
     CTA_URL("cta_url"),
-    
+
     PRODUCT("product"),
-    
+
     PRODUCT_LIST("product_list"),
-    
+
     CATALOG_MESSAGE("catalog_message"),
-    
+
     LOCATION_REQUEST_MESSAGE("location_request_message"),
-    
+
     ORDER_DETAILS("order_details"),
-    
+
     ORDER_STATUS("order_status"),
-    
+
     VOICE_CALL("voice_call"),
-    
+
     FLOW("flow"),
-    
-    CAROUSEL("carousel");
+
+    CAROUSEL("carousel"),
+
+    REQUEST_CONTACT_INFO("request_contact_info");
 
     private String value;
 
@@ -123,7 +125,7 @@ public class WhatsappMessageInteractive {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. - &#x60;voice_call&#x60;: Use for Voice Call Messages. - &#x60;flow&#x60;: Use for Flow Messages. - &#x60;carousel&#x60;: Use for media carousel message.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. - &#x60;voice_call&#x60;: Use for Voice Call Messages. - &#x60;flow&#x60;: Use for Flow Messages. - &#x60;carousel&#x60;: Use for media carousel message. - &#x60;request_contact_info&#x60;: Use for request phone numbers.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
@@ -152,17 +154,17 @@ public class WhatsappMessageInteractive {
   @SerializedName(SERIALIZED_NAME_FOOTER)
   private WhatsappMessageInteractiveFooter footer;
 
-  public WhatsappMessageInteractive() { 
+  public WhatsappMessageInteractive() {
   }
 
   public WhatsappMessageInteractive type(TypeEnum type) {
-    
+
     this.type = type;
     return this;
   }
 
    /**
-   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. - &#x60;voice_call&#x60;: Use for Voice Call Messages. - &#x60;flow&#x60;: Use for Flow Messages. - &#x60;carousel&#x60;: Use for media carousel message.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. - &#x60;voice_call&#x60;: Use for Voice Call Messages. - &#x60;flow&#x60;: Use for Flow Messages. - &#x60;carousel&#x60;: Use for media carousel message. - &#x60;request_contact_info&#x60;: Use for request phone numbers.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -173,16 +175,16 @@ public class WhatsappMessageInteractive {
 
 
   /**
-   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. - &#x60;voice_call&#x60;: Use for Voice Call Messages. - &#x60;flow&#x60;: Use for Flow Messages. - &#x60;carousel&#x60;: Use for media carousel message.
+   * **Required.** The type of interactive message you want to send. - &#x60;button&#x60;: Use for Reply Buttons. - &#x60;list&#x60;: Use for List Messages. - &#x60;cta_url&#x60;: Use for Call-To-Action (CTA) URL Button Messages. - &#x60;product&#x60;: Use for Single Product Messages. - &#x60;product_list&#x60;: Use for Multi-Product Messages. - &#x60;catalog_message&#x60;: Use for Catalog Messages. - &#x60;location_request_message&#x60;: Use for Location Request Messages. - &#x60;order_details&#x60;: Use for Order Details Messages. - &#x60;order_status&#x60;: Use for Order Status Messages. - &#x60;voice_call&#x60;: Use for Voice Call Messages. - &#x60;flow&#x60;: Use for Flow Messages. - &#x60;carousel&#x60;: Use for media carousel message. - &#x60;request_contact_info&#x60;: Use for request phone numbers.
    **/
-  @ApiModelProperty(value = "**Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages. - `catalog_message`: Use for Catalog Messages. - `location_request_message`: Use for Location Request Messages. - `order_details`: Use for Order Details Messages. - `order_status`: Use for Order Status Messages. - `voice_call`: Use for Voice Call Messages. - `flow`: Use for Flow Messages. - `carousel`: Use for media carousel message.")
+  @ApiModelProperty(value = "**Required.** The type of interactive message you want to send. - `button`: Use for Reply Buttons. - `list`: Use for List Messages. - `cta_url`: Use for Call-To-Action (CTA) URL Button Messages. - `product`: Use for Single Product Messages. - `product_list`: Use for Multi-Product Messages. - `catalog_message`: Use for Catalog Messages. - `location_request_message`: Use for Location Request Messages. - `order_details`: Use for Order Details Messages. - `order_status`: Use for Order Status Messages. - `voice_call`: Use for Voice Call Messages. - `flow`: Use for Flow Messages. - `carousel`: Use for media carousel message. - `request_contact_info`: Use for request phone numbers.")
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
   public WhatsappMessageInteractive action(WhatsappMessageInteractiveAction action) {
-    
+
     this.action = action;
     return this;
   }
@@ -207,7 +209,7 @@ public class WhatsappMessageInteractive {
 
 
   public WhatsappMessageInteractive body(WhatsappMessageInteractiveBody body) {
-    
+
     this.body = body;
     return this;
   }
@@ -232,7 +234,7 @@ public class WhatsappMessageInteractive {
 
 
   public WhatsappMessageInteractive header(WhatsappMessageInteractiveHeader header) {
-    
+
     this.header = header;
     return this;
   }
@@ -257,7 +259,7 @@ public class WhatsappMessageInteractive {
 
 
   public WhatsappMessageInteractive footer(WhatsappMessageInteractiveFooter footer) {
-    
+
     this.footer = footer;
     return this;
   }
@@ -500,4 +502,3 @@ public class WhatsappMessageInteractive {
     return JSON.getGson().toJson(this);
   }
 }
-
