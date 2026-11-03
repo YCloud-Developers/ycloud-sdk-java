@@ -35,6 +35,7 @@ import com.ycloud.client.model.WhatsappBusinessUsernameUpdateRequest;
 import com.ycloud.client.model.WhatsappCommerceSettings;
 import com.ycloud.client.model.WhatsappCommerceSettingsUpdateRequest;
 import com.ycloud.client.model.WhatsappContactBookEntryDeleteResult;
+import com.ycloud.client.model.WhatsappContactBookEntryResult;
 import com.ycloud.client.model.WhatsappPhoneNameUpdateRequest;
 import com.ycloud.client.model.WhatsappPhoneNameUpdateResponse;
 import com.ycloud.client.model.WhatsappPhoneNumber;
@@ -390,6 +391,168 @@ public class WhatsappPhoneNumbersApi {
 
         okhttp3.Call localVarCall = deleteContactBookEntryValidateBeforeCall(wabaId, phoneNumber, bsuid, _callback);
         Type localVarReturnType = new TypeToken<WhatsappContactBookEntryDeleteResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getContactBookEntry
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. (required)
+     * @param bsuid Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The presence check completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more path parameters are invalid, or Meta returned HTTP 400 for the presence check. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;present&#x3D;false&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getContactBookEntryCall(String wabaId, String phoneNumber, String bsuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid}"
+            .replaceAll("\\{" + "wabaId" + "\\}", localVarApiClient.escapeString(wabaId.toString()))
+            .replaceAll("\\{" + "phoneNumber" + "\\}", localVarApiClient.escapeString(phoneNumber.toString()))
+            .replaceAll("\\{" + "bsuid" + "\\}", localVarApiClient.escapeString(bsuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getContactBookEntryValidateBeforeCall(String wabaId, String phoneNumber, String bsuid, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'wabaId' is set
+        if (wabaId == null) {
+            throw new ApiException("Missing the required parameter 'wabaId' when calling getContactBookEntry(Async)");
+        }
+
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling getContactBookEntry(Async)");
+        }
+
+        // verify the required parameter 'bsuid' is set
+        if (bsuid == null) {
+            throw new ApiException("Missing the required parameter 'bsuid' when calling getContactBookEntry(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = getContactBookEntryCall(wabaId, phoneNumber, bsuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Check a Meta contact book entry
+     * <p>
+     * Checks whether Meta has a phone number entry for this standard BSUID in this business phone number contact book, without returning the phone number. Uses the same account API key, available WABA ownership and bound phone checks as DELETE. Parent BSUIDs are unsupported; Developer App API keys return 403. Successful responses contain required boolean present; provider failures are not converted to false.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. (required)
+     * @param bsuid Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. (required)
+     * @return WhatsappContactBookEntryResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The presence check completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more path parameters are invalid, or Meta returned HTTP 400 for the presence check. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;present&#x3D;false&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WhatsappContactBookEntryResult getContactBookEntry(String wabaId, String phoneNumber, String bsuid) throws ApiException {
+        ApiResponse<WhatsappContactBookEntryResult> localVarResp = getContactBookEntryWithHttpInfo(wabaId, phoneNumber, bsuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Check a Meta contact book entry
+     * <p>
+     * Checks whether Meta has a phone number entry for this standard BSUID in this business phone number contact book, without returning the phone number. Uses the same account API key, available WABA ownership and bound phone checks as DELETE. Parent BSUIDs are unsupported; Developer App API keys return 403. Successful responses contain required boolean present; provider failures are not converted to false.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. (required)
+     * @param bsuid Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. (required)
+     * @return ApiResponse&lt;WhatsappContactBookEntryResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The presence check completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more path parameters are invalid, or Meta returned HTTP 400 for the presence check. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;present&#x3D;false&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WhatsappContactBookEntryResult> getContactBookEntryWithHttpInfo(String wabaId, String phoneNumber, String bsuid) throws ApiException {
+        okhttp3.Call localVarCall = getContactBookEntryValidateBeforeCall(wabaId, phoneNumber, bsuid, null);
+        Type localVarReturnType = new TypeToken<WhatsappContactBookEntryResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Check a Meta contact book entry (asynchronously)
+     * <p>
+     * Checks whether Meta has a phone number entry for this standard BSUID in this business phone number contact book, without returning the phone number. Uses the same account API key, available WABA ownership and bound phone checks as DELETE. Parent BSUIDs are unsupported; Developer App API keys return 403. Successful responses contain required boolean present; provider failures are not converted to false.
+     * @param wabaId WhatsApp Business Account ID. (required)
+     * @param phoneNumber Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. (required)
+     * @param bsuid Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The presence check completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> One or more path parameters are invalid, or Meta returned HTTP 400 for the presence check. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;present&#x3D;false&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getContactBookEntryAsync(String wabaId, String phoneNumber, String bsuid, final ApiCallback<WhatsappContactBookEntryResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getContactBookEntryValidateBeforeCall(wabaId, phoneNumber, bsuid, _callback);
+        Type localVarReturnType = new TypeToken<WhatsappContactBookEntryResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

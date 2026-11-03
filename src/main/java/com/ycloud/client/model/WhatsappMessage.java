@@ -293,7 +293,7 @@ public class WhatsappMessage {
 
   public static final String SERIALIZED_NAME_TOTAL_PRICE = "totalPrice";
   /**
-   * Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.**
+   * Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.**  For Max Price messages, the send-time amount is an estimate. Use the delivered/read whatsapp.message.updated event for the final charge; maxBid is not the final charged amount.
   **/
   @SerializedName(SERIALIZED_NAME_TOTAL_PRICE)
   private Double totalPrice;
@@ -350,7 +350,22 @@ public class WhatsappMessage {
   @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
   private String verificationId;
 
+  public static final String SERIALIZED_NAME_BID_PRICING_FLAG = "bidPricingFlag";
+  /**
+   * True when the message is identified as a Marketing Lite bidding message. Its pricingCategory is marketing_lite_bidding.
+  **/
+  @SerializedName(SERIALIZED_NAME_BID_PRICING_FLAG)
+  private Boolean bidPricingFlag;
+
   public WhatsappMessage() {
+  }
+
+
+  public WhatsappMessage(
+     Boolean bidPricingFlag
+  ) {
+    this();
+    this.bidPricingFlag = bidPricingFlag;
   }
 
   public WhatsappMessage id(String id) {
@@ -1236,7 +1251,7 @@ public class WhatsappMessage {
   }
 
    /**
-   * Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.**
+   * Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.**  For Max Price messages, the send-time amount is an estimate. Use the delivered/read whatsapp.message.updated event for the final charge; maxBid is not the final charged amount.
    * @return totalPrice
   **/
   @javax.annotation.Nullable
@@ -1247,9 +1262,9 @@ public class WhatsappMessage {
 
 
   /**
-   * Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.**
+   * Total price of this message. **Note: It&#39;s only an estimated price when the &#x60;status&#x60; is &#x60;accepted&#x60; or &#x60;sent&#x60;. It becomes the final price after the message is delivered, i.e., the &#x60;status&#x60; is &#x60;delivered&#x60; or &#x60;read&#x60;.**  For Max Price messages, the send-time amount is an estimate. Use the delivered/read whatsapp.message.updated event for the final charge; maxBid is not the final charged amount.
    **/
-  @ApiModelProperty(example = "0.05", value = "Total price of this message. **Note: It's only an estimated price when the `status` is `accepted` or `sent`. It becomes the final price after the message is delivered, i.e., the `status` is `delivered` or `read`.**")
+  @ApiModelProperty(example = "0.05", value = "Total price of this message. **Note: It's only an estimated price when the `status` is `accepted` or `sent`. It becomes the final price after the message is delivered, i.e., the `status` is `delivered` or `read`.**  For Max Price messages, the send-time amount is an estimate. Use the delivered/read whatsapp.message.updated event for the final charge; maxBid is not the final charged amount.")
   public void setTotalPrice(Double totalPrice) {
     this.totalPrice = totalPrice;
   }
@@ -1458,6 +1473,19 @@ public class WhatsappMessage {
     this.verificationId = verificationId;
   }
 
+
+   /**
+   * True when the message is identified as a Marketing Lite bidding message. Its pricingCategory is marketing_lite_bidding.
+   * @return bidPricingFlag
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getBidPricingFlag() {
+    return bidPricingFlag;
+  }
+
+
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -1546,13 +1574,14 @@ public class WhatsappMessage {
         Objects.equals(this.pricingType, whatsappMessage.pricingType) &&
         Objects.equals(this.whatsappApiError, whatsappMessage.whatsappApiError) &&
         Objects.equals(this.bizType, whatsappMessage.bizType) &&
-        Objects.equals(this.verificationId, whatsappMessage.verificationId)&&
+        Objects.equals(this.verificationId, whatsappMessage.verificationId) &&
+        Objects.equals(this.bidPricingFlag, whatsappMessage.bidPricingFlag)&&
         Objects.equals(this.additionalProperties, whatsappMessage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, wamid, wabaId, from, to, recipient, recipientUserId, toUserId, parentRecipientUserId, toParentUserId, customerProfile, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, sendTime, deliverTime, readTime, totalPrice, currency, regionCode, pricingCategory, pricingModel, pricingType, whatsappApiError, bizType, verificationId, additionalProperties);
+    return Objects.hash(id, wamid, wabaId, from, to, recipient, recipientUserId, toUserId, parentRecipientUserId, toParentUserId, customerProfile, conversation, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, status, errorCode, errorMessage, createTime, updateTime, sendTime, deliverTime, readTime, totalPrice, currency, regionCode, pricingCategory, pricingModel, pricingType, whatsappApiError, bizType, verificationId, bidPricingFlag, additionalProperties);
   }
 
   @Override
@@ -1602,6 +1631,7 @@ public class WhatsappMessage {
     sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
     sb.append("    bizType: ").append(toIndentedString(bizType)).append("\n");
     sb.append("    verificationId: ").append(toIndentedString(verificationId)).append("\n");
+    sb.append("    bidPricingFlag: ").append(toIndentedString(bidPricingFlag)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1668,6 +1698,7 @@ public class WhatsappMessage {
     openapiFields.add("whatsappApiError");
     openapiFields.add("bizType");
     openapiFields.add("verificationId");
+    openapiFields.add("bidPricingFlag");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

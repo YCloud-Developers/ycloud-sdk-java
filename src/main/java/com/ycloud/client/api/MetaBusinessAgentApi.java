@@ -27,24 +27,36 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.ycloud.client.model.AgentAllowlistEntryDTO;
+import com.ycloud.client.model.AgentEventResultDTO;
+import com.ycloud.client.model.AgentEventStatusDTO;
 import com.ycloud.client.model.ConnectorDTO;
 import com.ycloud.client.model.ConnectorLogStatsDTO;
 import com.ycloud.client.model.ConnectorToolDTO;
 import com.ycloud.client.model.ConnectorToolRunResultDTO;
 import com.ycloud.client.model.ErrorResponse;
+import com.ycloud.client.model.FaqDTO;
 import com.ycloud.client.model.MetaBusinessAgentBudgetReplaceRequest;
 import com.ycloud.client.model.MetaBusinessAgentBudgetResponse;
 import com.ycloud.client.model.MetaBusinessAgentConversationTurnPage;
+import com.ycloud.client.model.MetaBusinessAgentErrorResponse;
 import com.ycloud.client.model.MetaBusinessAgentSettings;
 import com.ycloud.client.model.MetaBusinessAgentSettingsReplaceRequest;
+import com.ycloud.client.model.PublicCreateAllowlistEntryRequest;
 import com.ycloud.client.model.PublicCreateConnectorRequest;
 import com.ycloud.client.model.PublicCreateConnectorToolRequest;
+import com.ycloud.client.model.PublicCreateFaqRequest;
+import com.ycloud.client.model.PublicCreateWebsiteRequest;
 import com.ycloud.client.model.PublicRunConnectorToolRequest;
+import com.ycloud.client.model.PublicSubmitAgentEventRequest;
 import com.ycloud.client.model.PublicUpdateConnectorRequest;
 import com.ycloud.client.model.PublicUpdateConnectorToolRequest;
+import com.ycloud.client.model.PublicUpdateFaqRequest;
+import com.ycloud.client.model.PublicUpdateWebsiteRequest;
 import com.ycloud.client.model.PublicUpsertConnectorApiKeyRequest;
 import com.ycloud.client.model.PublicUpsertConnectorCertificateRequest;
 import com.ycloud.client.model.PublicUpsertConnectorOAuthRequest;
+import com.ycloud.client.model.WebsiteDTO;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -424,6 +436,177 @@ public class MetaBusinessAgentApi {
         return localVarCall;
     }
     /**
+     * Build call for businessAgentCreateAllowlistEntry
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param publicCreateAllowlistEntryRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentCreateAllowlistEntryCall(String entityId, PublicCreateAllowlistEntryRequest publicCreateAllowlistEntryRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = publicCreateAllowlistEntryRequest;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/allowListEntries"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentCreateAllowlistEntryValidateBeforeCall(String entityId, PublicCreateAllowlistEntryRequest publicCreateAllowlistEntryRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentCreateAllowlistEntry(Async)");
+        }
+
+        // verify the required parameter 'publicCreateAllowlistEntryRequest' is set
+        if (publicCreateAllowlistEntryRequest == null) {
+            throw new ApiException("Missing the required parameter 'publicCreateAllowlistEntryRequest' when calling businessAgentCreateAllowlistEntry(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentCreateAllowlistEntryCall(entityId, publicCreateAllowlistEntryRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create Allowlist Entry
+     * <p>
+     * Adds exactly one explicitly supplied WhatsApp identity: consumer_phone_number or consumer_bsuid. This public API does not look up a BSUID from a phone number. Phone and BSUID entries have distinct IDs and each counts toward the shared limit of 20.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param publicCreateAllowlistEntryRequest  (required)
+     * @return AgentAllowlistEntryDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AgentAllowlistEntryDTO businessAgentCreateAllowlistEntry(String entityId, PublicCreateAllowlistEntryRequest publicCreateAllowlistEntryRequest) throws ApiException {
+        ApiResponse<AgentAllowlistEntryDTO> localVarResp = businessAgentCreateAllowlistEntryWithHttpInfo(entityId, publicCreateAllowlistEntryRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Allowlist Entry
+     * <p>
+     * Adds exactly one explicitly supplied WhatsApp identity: consumer_phone_number or consumer_bsuid. This public API does not look up a BSUID from a phone number. Phone and BSUID entries have distinct IDs and each counts toward the shared limit of 20.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param publicCreateAllowlistEntryRequest  (required)
+     * @return ApiResponse&lt;AgentAllowlistEntryDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AgentAllowlistEntryDTO> businessAgentCreateAllowlistEntryWithHttpInfo(String entityId, PublicCreateAllowlistEntryRequest publicCreateAllowlistEntryRequest) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentCreateAllowlistEntryValidateBeforeCall(entityId, publicCreateAllowlistEntryRequest, null);
+        Type localVarReturnType = new TypeToken<AgentAllowlistEntryDTO>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Allowlist Entry (asynchronously)
+     * <p>
+     * Adds exactly one explicitly supplied WhatsApp identity: consumer_phone_number or consumer_bsuid. This public API does not look up a BSUID from a phone number. Phone and BSUID entries have distinct IDs and each counts toward the shared limit of 20.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param publicCreateAllowlistEntryRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentCreateAllowlistEntryAsync(String entityId, PublicCreateAllowlistEntryRequest publicCreateAllowlistEntryRequest, final ApiCallback<AgentAllowlistEntryDTO> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentCreateAllowlistEntryValidateBeforeCall(entityId, publicCreateAllowlistEntryRequest, _callback);
+        Type localVarReturnType = new TypeToken<AgentAllowlistEntryDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for businessAgentCreateConnector
      * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
      * @param publicCreateConnectorRequest  (required)
@@ -776,6 +959,516 @@ public class MetaBusinessAgentApi {
         return localVarCall;
     }
     /**
+     * Build call for businessAgentCreateFaq
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param publicCreateFaqRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentCreateFaqCall(String entityId, PublicCreateFaqRequest publicCreateFaqRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = publicCreateFaqRequest;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/faqs"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentCreateFaqValidateBeforeCall(String entityId, PublicCreateFaqRequest publicCreateFaqRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentCreateFaq(Async)");
+        }
+
+        // verify the required parameter 'publicCreateFaqRequest' is set
+        if (publicCreateFaqRequest == null) {
+            throw new ApiException("Missing the required parameter 'publicCreateFaqRequest' when calling businessAgentCreateFaq(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentCreateFaqCall(entityId, publicCreateFaqRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create Faq
+     * <p>
+     * Creates a question-and-answer entry in the agent knowledge base and returns the created FAQ.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param publicCreateFaqRequest  (required)
+     * @return FaqDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public FaqDTO businessAgentCreateFaq(String entityId, PublicCreateFaqRequest publicCreateFaqRequest) throws ApiException {
+        ApiResponse<FaqDTO> localVarResp = businessAgentCreateFaqWithHttpInfo(entityId, publicCreateFaqRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Faq
+     * <p>
+     * Creates a question-and-answer entry in the agent knowledge base and returns the created FAQ.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param publicCreateFaqRequest  (required)
+     * @return ApiResponse&lt;FaqDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FaqDTO> businessAgentCreateFaqWithHttpInfo(String entityId, PublicCreateFaqRequest publicCreateFaqRequest) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentCreateFaqValidateBeforeCall(entityId, publicCreateFaqRequest, null);
+        Type localVarReturnType = new TypeToken<FaqDTO>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Faq (asynchronously)
+     * <p>
+     * Creates a question-and-answer entry in the agent knowledge base and returns the created FAQ.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param publicCreateFaqRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentCreateFaqAsync(String entityId, PublicCreateFaqRequest publicCreateFaqRequest, final ApiCallback<FaqDTO> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentCreateFaqValidateBeforeCall(entityId, publicCreateFaqRequest, _callback);
+        Type localVarReturnType = new TypeToken<FaqDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentCreateWebsite
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param publicCreateWebsiteRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentCreateWebsiteCall(String entityId, PublicCreateWebsiteRequest publicCreateWebsiteRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = publicCreateWebsiteRequest;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/websites"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentCreateWebsiteValidateBeforeCall(String entityId, PublicCreateWebsiteRequest publicCreateWebsiteRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentCreateWebsite(Async)");
+        }
+
+        // verify the required parameter 'publicCreateWebsiteRequest' is set
+        if (publicCreateWebsiteRequest == null) {
+            throw new ApiException("Missing the required parameter 'publicCreateWebsiteRequest' when calling businessAgentCreateWebsite(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentCreateWebsiteCall(entityId, publicCreateWebsiteRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create Website
+     * <p>
+     * Adds a website URL for Meta to crawl and ingest into the agent knowledge base and returns the created crawl entry.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param publicCreateWebsiteRequest  (required)
+     * @return WebsiteDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WebsiteDTO businessAgentCreateWebsite(String entityId, PublicCreateWebsiteRequest publicCreateWebsiteRequest) throws ApiException {
+        ApiResponse<WebsiteDTO> localVarResp = businessAgentCreateWebsiteWithHttpInfo(entityId, publicCreateWebsiteRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Website
+     * <p>
+     * Adds a website URL for Meta to crawl and ingest into the agent knowledge base and returns the created crawl entry.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param publicCreateWebsiteRequest  (required)
+     * @return ApiResponse&lt;WebsiteDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WebsiteDTO> businessAgentCreateWebsiteWithHttpInfo(String entityId, PublicCreateWebsiteRequest publicCreateWebsiteRequest) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentCreateWebsiteValidateBeforeCall(entityId, publicCreateWebsiteRequest, null);
+        Type localVarReturnType = new TypeToken<WebsiteDTO>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Website (asynchronously)
+     * <p>
+     * Adds a website URL for Meta to crawl and ingest into the agent knowledge base and returns the created crawl entry.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param publicCreateWebsiteRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentCreateWebsiteAsync(String entityId, PublicCreateWebsiteRequest publicCreateWebsiteRequest, final ApiCallback<WebsiteDTO> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentCreateWebsiteValidateBeforeCall(entityId, publicCreateWebsiteRequest, _callback);
+        Type localVarReturnType = new TypeToken<WebsiteDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentDeleteAllowlistEntry
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param entryId Allowlist entry ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentDeleteAllowlistEntryCall(String entityId, String entryId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/allowListEntries/{entryId}"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()))
+            .replaceAll("\\{" + "entryId" + "\\}", localVarApiClient.escapeString(entryId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentDeleteAllowlistEntryValidateBeforeCall(String entityId, String entryId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentDeleteAllowlistEntry(Async)");
+        }
+
+        // verify the required parameter 'entryId' is set
+        if (entryId == null) {
+            throw new ApiException("Missing the required parameter 'entryId' when calling businessAgentDeleteAllowlistEntry(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentDeleteAllowlistEntryCall(entityId, entryId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete Allowlist Entry
+     * <p>
+     * Deletes only the entry identified by entryId. Other phone or BSUID entries remain unchanged.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param entryId Allowlist entry ID. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void businessAgentDeleteAllowlistEntry(String entityId, String entryId) throws ApiException {
+        businessAgentDeleteAllowlistEntryWithHttpInfo(entityId, entryId);
+    }
+
+    /**
+     * Delete Allowlist Entry
+     * <p>
+     * Deletes only the entry identified by entryId. Other phone or BSUID entries remain unchanged.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param entryId Allowlist entry ID. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> businessAgentDeleteAllowlistEntryWithHttpInfo(String entityId, String entryId) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentDeleteAllowlistEntryValidateBeforeCall(entityId, entryId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete Allowlist Entry (asynchronously)
+     * <p>
+     * Deletes only the entry identified by entryId. Other phone or BSUID entries remain unchanged.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param entryId Allowlist entry ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentDeleteAllowlistEntryAsync(String entityId, String entryId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentDeleteAllowlistEntryValidateBeforeCall(entityId, entryId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for businessAgentDeleteConnector
      * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
      * @param connectorId Connector resource ID. (required)
@@ -1119,6 +1812,514 @@ public class MetaBusinessAgentApi {
 
         okhttp3.Call localVarCall = businessAgentDeleteConnectorToolValidateBeforeCall(entityId, connectorId, toolId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentDeleteFaq
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentDeleteFaqCall(String entityId, String faqId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/faqs/{faqId}"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()))
+            .replaceAll("\\{" + "faqId" + "\\}", localVarApiClient.escapeString(faqId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentDeleteFaqValidateBeforeCall(String entityId, String faqId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentDeleteFaq(Async)");
+        }
+
+        // verify the required parameter 'faqId' is set
+        if (faqId == null) {
+            throw new ApiException("Missing the required parameter 'faqId' when calling businessAgentDeleteFaq(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentDeleteFaqCall(entityId, faqId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete Faq
+     * <p>
+     * Deletes the FAQ identified by &#x60;faqId&#x60;. Returns HTTP &#x60;204&#x60; when deletion succeeds or Meta explicitly reports that the FAQ does not exist. Other &#x60;404&#x60; errors remain errors.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void businessAgentDeleteFaq(String entityId, String faqId) throws ApiException {
+        businessAgentDeleteFaqWithHttpInfo(entityId, faqId);
+    }
+
+    /**
+     * Delete Faq
+     * <p>
+     * Deletes the FAQ identified by &#x60;faqId&#x60;. Returns HTTP &#x60;204&#x60; when deletion succeeds or Meta explicitly reports that the FAQ does not exist. Other &#x60;404&#x60; errors remain errors.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> businessAgentDeleteFaqWithHttpInfo(String entityId, String faqId) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentDeleteFaqValidateBeforeCall(entityId, faqId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete Faq (asynchronously)
+     * <p>
+     * Deletes the FAQ identified by &#x60;faqId&#x60;. Returns HTTP &#x60;204&#x60; when deletion succeeds or Meta explicitly reports that the FAQ does not exist. Other &#x60;404&#x60; errors remain errors.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentDeleteFaqAsync(String entityId, String faqId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentDeleteFaqValidateBeforeCall(entityId, faqId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentDeleteWebsite
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentDeleteWebsiteCall(String entityId, String websiteId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/websites/{websiteId}"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()))
+            .replaceAll("\\{" + "websiteId" + "\\}", localVarApiClient.escapeString(websiteId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentDeleteWebsiteValidateBeforeCall(String entityId, String websiteId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentDeleteWebsite(Async)");
+        }
+
+        // verify the required parameter 'websiteId' is set
+        if (websiteId == null) {
+            throw new ApiException("Missing the required parameter 'websiteId' when calling businessAgentDeleteWebsite(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentDeleteWebsiteCall(entityId, websiteId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete Website
+     * <p>
+     * Removes the website crawl entry identified by &#x60;websiteId&#x60; from the agent knowledge base.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void businessAgentDeleteWebsite(String entityId, String websiteId) throws ApiException {
+        businessAgentDeleteWebsiteWithHttpInfo(entityId, websiteId);
+    }
+
+    /**
+     * Delete Website
+     * <p>
+     * Removes the website crawl entry identified by &#x60;websiteId&#x60; from the agent knowledge base.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> businessAgentDeleteWebsiteWithHttpInfo(String entityId, String websiteId) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentDeleteWebsiteValidateBeforeCall(entityId, websiteId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete Website (asynchronously)
+     * <p>
+     * Removes the website crawl entry identified by &#x60;websiteId&#x60; from the agent knowledge base.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentDeleteWebsiteAsync(String entityId, String websiteId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentDeleteWebsiteValidateBeforeCall(entityId, websiteId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentGetAgentEventStatus
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param agentEventId Agent event ID returned when the event was submitted. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentGetAgentEventStatusCall(String entityId, String agentEventId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/events/{agentEventId}"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()))
+            .replaceAll("\\{" + "agentEventId" + "\\}", localVarApiClient.escapeString(agentEventId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentGetAgentEventStatusValidateBeforeCall(String entityId, String agentEventId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentGetAgentEventStatus(Async)");
+        }
+
+        // verify the required parameter 'agentEventId' is set
+        if (agentEventId == null) {
+            throw new ApiException("Missing the required parameter 'agentEventId' when calling businessAgentGetAgentEventStatus(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentGetAgentEventStatusCall(entityId, agentEventId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get Agent Event Status
+     * <p>
+     * Retrieves the current processing status, timestamps, and any error or skip reason for the event identified by &#x60;agentEventId&#x60;.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param agentEventId Agent event ID returned when the event was submitted. (required)
+     * @return AgentEventStatusDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AgentEventStatusDTO businessAgentGetAgentEventStatus(String entityId, String agentEventId) throws ApiException {
+        ApiResponse<AgentEventStatusDTO> localVarResp = businessAgentGetAgentEventStatusWithHttpInfo(entityId, agentEventId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Agent Event Status
+     * <p>
+     * Retrieves the current processing status, timestamps, and any error or skip reason for the event identified by &#x60;agentEventId&#x60;.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param agentEventId Agent event ID returned when the event was submitted. (required)
+     * @return ApiResponse&lt;AgentEventStatusDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AgentEventStatusDTO> businessAgentGetAgentEventStatusWithHttpInfo(String entityId, String agentEventId) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentGetAgentEventStatusValidateBeforeCall(entityId, agentEventId, null);
+        Type localVarReturnType = new TypeToken<AgentEventStatusDTO>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Agent Event Status (asynchronously)
+     * <p>
+     * Retrieves the current processing status, timestamps, and any error or skip reason for the event identified by &#x60;agentEventId&#x60;.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param agentEventId Agent event ID returned when the event was submitted. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentGetAgentEventStatusAsync(String entityId, String agentEventId, final ApiCallback<AgentEventStatusDTO> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentGetAgentEventStatusValidateBeforeCall(entityId, agentEventId, _callback);
+        Type localVarReturnType = new TypeToken<AgentEventStatusDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -1472,6 +2673,512 @@ public class MetaBusinessAgentApi {
 
         okhttp3.Call localVarCall = businessAgentGetConnectorToolValidateBeforeCall(entityId, connectorId, toolId, _callback);
         Type localVarReturnType = new TypeToken<ConnectorToolDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentGetFaq
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentGetFaqCall(String entityId, String faqId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/faqs/{faqId}"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()))
+            .replaceAll("\\{" + "faqId" + "\\}", localVarApiClient.escapeString(faqId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentGetFaqValidateBeforeCall(String entityId, String faqId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentGetFaq(Async)");
+        }
+
+        // verify the required parameter 'faqId' is set
+        if (faqId == null) {
+            throw new ApiException("Missing the required parameter 'faqId' when calling businessAgentGetFaq(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentGetFaqCall(entityId, faqId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get Faq
+     * <p>
+     * Retrieves the FAQ knowledge entry identified by &#x60;faqId&#x60;.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @return FaqDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public FaqDTO businessAgentGetFaq(String entityId, String faqId) throws ApiException {
+        ApiResponse<FaqDTO> localVarResp = businessAgentGetFaqWithHttpInfo(entityId, faqId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Faq
+     * <p>
+     * Retrieves the FAQ knowledge entry identified by &#x60;faqId&#x60;.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @return ApiResponse&lt;FaqDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FaqDTO> businessAgentGetFaqWithHttpInfo(String entityId, String faqId) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentGetFaqValidateBeforeCall(entityId, faqId, null);
+        Type localVarReturnType = new TypeToken<FaqDTO>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Faq (asynchronously)
+     * <p>
+     * Retrieves the FAQ knowledge entry identified by &#x60;faqId&#x60;.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentGetFaqAsync(String entityId, String faqId, final ApiCallback<FaqDTO> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentGetFaqValidateBeforeCall(entityId, faqId, _callback);
+        Type localVarReturnType = new TypeToken<FaqDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentGetWebsite
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentGetWebsiteCall(String entityId, String websiteId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/websites/{websiteId}"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()))
+            .replaceAll("\\{" + "websiteId" + "\\}", localVarApiClient.escapeString(websiteId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentGetWebsiteValidateBeforeCall(String entityId, String websiteId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentGetWebsite(Async)");
+        }
+
+        // verify the required parameter 'websiteId' is set
+        if (websiteId == null) {
+            throw new ApiException("Missing the required parameter 'websiteId' when calling businessAgentGetWebsite(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentGetWebsiteCall(entityId, websiteId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get Website
+     * <p>
+     * Retrieves the website knowledge entry identified by &#x60;websiteId&#x60;, including its URL and crawl status information.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @return WebsiteDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WebsiteDTO businessAgentGetWebsite(String entityId, String websiteId) throws ApiException {
+        ApiResponse<WebsiteDTO> localVarResp = businessAgentGetWebsiteWithHttpInfo(entityId, websiteId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Website
+     * <p>
+     * Retrieves the website knowledge entry identified by &#x60;websiteId&#x60;, including its URL and crawl status information.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @return ApiResponse&lt;WebsiteDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WebsiteDTO> businessAgentGetWebsiteWithHttpInfo(String entityId, String websiteId) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentGetWebsiteValidateBeforeCall(entityId, websiteId, null);
+        Type localVarReturnType = new TypeToken<WebsiteDTO>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Website (asynchronously)
+     * <p>
+     * Retrieves the website knowledge entry identified by &#x60;websiteId&#x60;, including its URL and crawl status information.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentGetWebsiteAsync(String entityId, String websiteId, final ApiCallback<WebsiteDTO> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentGetWebsiteValidateBeforeCall(entityId, websiteId, _callback);
+        Type localVarReturnType = new TypeToken<WebsiteDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentListAllowlist
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentListAllowlistCall(String entityId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/allowListEntries"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentListAllowlistValidateBeforeCall(String entityId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentListAllowlist(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentListAllowlistCall(entityId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List Allowlist
+     * <p>
+     * Lists allowlist entries that may receive agent replies when &#x60;ai_audience&#x60; is set to &#x60;ALLOWLISTED_ONLY&#x60;. Identity fields may be absent.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @return List&lt;AgentAllowlistEntryDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<AgentAllowlistEntryDTO> businessAgentListAllowlist(String entityId) throws ApiException {
+        ApiResponse<List<AgentAllowlistEntryDTO>> localVarResp = businessAgentListAllowlistWithHttpInfo(entityId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Allowlist
+     * <p>
+     * Lists allowlist entries that may receive agent replies when &#x60;ai_audience&#x60; is set to &#x60;ALLOWLISTED_ONLY&#x60;. Identity fields may be absent.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @return ApiResponse&lt;List&lt;AgentAllowlistEntryDTO&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<AgentAllowlistEntryDTO>> businessAgentListAllowlistWithHttpInfo(String entityId) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentListAllowlistValidateBeforeCall(entityId, null);
+        Type localVarReturnType = new TypeToken<List<AgentAllowlistEntryDTO>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Allowlist (asynchronously)
+     * <p>
+     * Lists allowlist entries that may receive agent replies when &#x60;ai_audience&#x60; is set to &#x60;ALLOWLISTED_ONLY&#x60;. Identity fields may be absent.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentListAllowlistAsync(String entityId, final ApiCallback<List<AgentAllowlistEntryDTO>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentListAllowlistValidateBeforeCall(entityId, _callback);
+        Type localVarReturnType = new TypeToken<List<AgentAllowlistEntryDTO>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2038,6 +3745,330 @@ public class MetaBusinessAgentApi {
         return localVarCall;
     }
     /**
+     * Build call for businessAgentListFaqs
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentListFaqsCall(String entityId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/faqs"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentListFaqsValidateBeforeCall(String entityId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentListFaqs(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentListFaqsCall(entityId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List Faqs
+     * <p>
+     * Lists all FAQ question-and-answer entries currently available to the agent as knowledge.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @return List&lt;FaqDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<FaqDTO> businessAgentListFaqs(String entityId) throws ApiException {
+        ApiResponse<List<FaqDTO>> localVarResp = businessAgentListFaqsWithHttpInfo(entityId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Faqs
+     * <p>
+     * Lists all FAQ question-and-answer entries currently available to the agent as knowledge.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @return ApiResponse&lt;List&lt;FaqDTO&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<FaqDTO>> businessAgentListFaqsWithHttpInfo(String entityId) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentListFaqsValidateBeforeCall(entityId, null);
+        Type localVarReturnType = new TypeToken<List<FaqDTO>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Faqs (asynchronously)
+     * <p>
+     * Lists all FAQ question-and-answer entries currently available to the agent as knowledge.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentListFaqsAsync(String entityId, final ApiCallback<List<FaqDTO>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentListFaqsValidateBeforeCall(entityId, _callback);
+        Type localVarReturnType = new TypeToken<List<FaqDTO>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentListWebsites
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentListWebsitesCall(String entityId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/websites"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentListWebsitesValidateBeforeCall(String entityId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentListWebsites(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentListWebsitesCall(entityId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List Websites
+     * <p>
+     * Lists the website URLs configured for Meta to crawl and ingest into the agent knowledge base, including each crawl entry&#39;s current state.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @return List&lt;WebsiteDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<WebsiteDTO> businessAgentListWebsites(String entityId) throws ApiException {
+        ApiResponse<List<WebsiteDTO>> localVarResp = businessAgentListWebsitesWithHttpInfo(entityId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Websites
+     * <p>
+     * Lists the website URLs configured for Meta to crawl and ingest into the agent knowledge base, including each crawl entry&#39;s current state.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @return ApiResponse&lt;List&lt;WebsiteDTO&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<WebsiteDTO>> businessAgentListWebsitesWithHttpInfo(String entityId) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentListWebsitesValidateBeforeCall(entityId, null);
+        Type localVarReturnType = new TypeToken<List<WebsiteDTO>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Websites (asynchronously)
+     * <p>
+     * Lists the website URLs configured for Meta to crawl and ingest into the agent knowledge base, including each crawl entry&#39;s current state.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentListWebsitesAsync(String entityId, final ApiCallback<List<WebsiteDTO>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentListWebsitesValidateBeforeCall(entityId, _callback);
+        Type localVarReturnType = new TypeToken<List<WebsiteDTO>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for businessAgentRefreshConnectorMcpTools
      * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
      * @param connectorId Meta Connector ID returned by the Connector API. This is not a YCloud local Connector UUID. (required)
@@ -2397,6 +4428,177 @@ public class MetaBusinessAgentApi {
 
         okhttp3.Call localVarCall = businessAgentRunConnectorToolValidateBeforeCall(entityId, connectorId, toolId, publicRunConnectorToolRequest, _callback);
         Type localVarReturnType = new TypeToken<ConnectorToolRunResultDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentSubmitAgentEvent
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param publicSubmitAgentEventRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentSubmitAgentEventCall(String entityId, PublicSubmitAgentEventRequest publicSubmitAgentEventRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = publicSubmitAgentEventRequest;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/events"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentSubmitAgentEventValidateBeforeCall(String entityId, PublicSubmitAgentEventRequest publicSubmitAgentEventRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentSubmitAgentEvent(Async)");
+        }
+
+        // verify the required parameter 'publicSubmitAgentEventRequest' is set
+        if (publicSubmitAgentEventRequest == null) {
+            throw new ApiException("Missing the required parameter 'publicSubmitAgentEventRequest' when calling businessAgentSubmitAgentEvent(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentSubmitAgentEventCall(entityId, publicSubmitAgentEventRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Submit Agent Event
+     * <p>
+     * Submits a business event for a consumer and enqueues it for asynchronous agent processing. The immediate response contains &#x60;status&#x60; and &#x60;agent_event_id&#x60; for later polling.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param publicSubmitAgentEventRequest  (required)
+     * @return AgentEventResultDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AgentEventResultDTO businessAgentSubmitAgentEvent(String entityId, PublicSubmitAgentEventRequest publicSubmitAgentEventRequest) throws ApiException {
+        ApiResponse<AgentEventResultDTO> localVarResp = businessAgentSubmitAgentEventWithHttpInfo(entityId, publicSubmitAgentEventRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Submit Agent Event
+     * <p>
+     * Submits a business event for a consumer and enqueues it for asynchronous agent processing. The immediate response contains &#x60;status&#x60; and &#x60;agent_event_id&#x60; for later polling.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param publicSubmitAgentEventRequest  (required)
+     * @return ApiResponse&lt;AgentEventResultDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AgentEventResultDTO> businessAgentSubmitAgentEventWithHttpInfo(String entityId, PublicSubmitAgentEventRequest publicSubmitAgentEventRequest) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentSubmitAgentEventValidateBeforeCall(entityId, publicSubmitAgentEventRequest, null);
+        Type localVarReturnType = new TypeToken<AgentEventResultDTO>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Submit Agent Event (asynchronously)
+     * <p>
+     * Submits a business event for a consumer and enqueues it for asynchronous agent processing. The immediate response contains &#x60;status&#x60; and &#x60;agent_event_id&#x60; for later polling.
+     * @param entityId WhatsApp Business Phone Number ID that owns the Meta Business Agent. (required)
+     * @param publicSubmitAgentEventRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentSubmitAgentEventAsync(String entityId, PublicSubmitAgentEventRequest publicSubmitAgentEventRequest, final ApiCallback<AgentEventResultDTO> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentSubmitAgentEventValidateBeforeCall(entityId, publicSubmitAgentEventRequest, _callback);
+        Type localVarReturnType = new TypeToken<AgentEventResultDTO>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2769,6 +4971,368 @@ public class MetaBusinessAgentApi {
 
         okhttp3.Call localVarCall = businessAgentUpdateConnectorToolValidateBeforeCall(entityId, connectorId, toolId, publicUpdateConnectorToolRequest, _callback);
         Type localVarReturnType = new TypeToken<ConnectorToolDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentUpdateFaq
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @param publicUpdateFaqRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentUpdateFaqCall(String entityId, String faqId, PublicUpdateFaqRequest publicUpdateFaqRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = publicUpdateFaqRequest;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/faqs/{faqId}"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()))
+            .replaceAll("\\{" + "faqId" + "\\}", localVarApiClient.escapeString(faqId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentUpdateFaqValidateBeforeCall(String entityId, String faqId, PublicUpdateFaqRequest publicUpdateFaqRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentUpdateFaq(Async)");
+        }
+
+        // verify the required parameter 'faqId' is set
+        if (faqId == null) {
+            throw new ApiException("Missing the required parameter 'faqId' when calling businessAgentUpdateFaq(Async)");
+        }
+
+        // verify the required parameter 'publicUpdateFaqRequest' is set
+        if (publicUpdateFaqRequest == null) {
+            throw new ApiException("Missing the required parameter 'publicUpdateFaqRequest' when calling businessAgentUpdateFaq(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentUpdateFaqCall(entityId, faqId, publicUpdateFaqRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update Faq
+     * <p>
+     * Send both &#x60;question&#x60; and &#x60;answer&#x60; to update the FAQ. You can also include &#x60;metadata&#x60;. The response may contain a new &#x60;id&#x60;. Use the returned ID for subsequent reads, updates, and deletes. If the ID changes, &#x60;created_at&#x60; resets to the update time. A timeout or HTTP &#x60;502&#x60; response does not necessarily mean that the update failed. Do not automatically retry the update or create a replacement FAQ.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @param publicUpdateFaqRequest  (required)
+     * @return FaqDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public FaqDTO businessAgentUpdateFaq(String entityId, String faqId, PublicUpdateFaqRequest publicUpdateFaqRequest) throws ApiException {
+        ApiResponse<FaqDTO> localVarResp = businessAgentUpdateFaqWithHttpInfo(entityId, faqId, publicUpdateFaqRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Faq
+     * <p>
+     * Send both &#x60;question&#x60; and &#x60;answer&#x60; to update the FAQ. You can also include &#x60;metadata&#x60;. The response may contain a new &#x60;id&#x60;. Use the returned ID for subsequent reads, updates, and deletes. If the ID changes, &#x60;created_at&#x60; resets to the update time. A timeout or HTTP &#x60;502&#x60; response does not necessarily mean that the update failed. Do not automatically retry the update or create a replacement FAQ.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @param publicUpdateFaqRequest  (required)
+     * @return ApiResponse&lt;FaqDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FaqDTO> businessAgentUpdateFaqWithHttpInfo(String entityId, String faqId, PublicUpdateFaqRequest publicUpdateFaqRequest) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentUpdateFaqValidateBeforeCall(entityId, faqId, publicUpdateFaqRequest, null);
+        Type localVarReturnType = new TypeToken<FaqDTO>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Faq (asynchronously)
+     * <p>
+     * Send both &#x60;question&#x60; and &#x60;answer&#x60; to update the FAQ. You can also include &#x60;metadata&#x60;. The response may contain a new &#x60;id&#x60;. Use the returned ID for subsequent reads, updates, and deletes. If the ID changes, &#x60;created_at&#x60; resets to the update time. A timeout or HTTP &#x60;502&#x60; response does not necessarily mean that the update failed. Do not automatically retry the update or create a replacement FAQ.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param faqId FAQ resource ID. (required)
+     * @param publicUpdateFaqRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentUpdateFaqAsync(String entityId, String faqId, PublicUpdateFaqRequest publicUpdateFaqRequest, final ApiCallback<FaqDTO> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentUpdateFaqValidateBeforeCall(entityId, faqId, publicUpdateFaqRequest, _callback);
+        Type localVarReturnType = new TypeToken<FaqDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for businessAgentUpdateWebsite
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @param publicUpdateWebsiteRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentUpdateWebsiteCall(String entityId, String websiteId, PublicUpdateWebsiteRequest publicUpdateWebsiteRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = publicUpdateWebsiteRequest;
+
+        // create path and map variables
+        String localVarPath = "/metaBusinessAgents/{entityId}/websites/{websiteId}"
+            .replaceAll("\\{" + "entityId" + "\\}", localVarApiClient.escapeString(entityId.toString()))
+            .replaceAll("\\{" + "websiteId" + "\\}", localVarApiClient.escapeString(websiteId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call businessAgentUpdateWebsiteValidateBeforeCall(String entityId, String websiteId, PublicUpdateWebsiteRequest publicUpdateWebsiteRequest, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'entityId' is set
+        if (entityId == null) {
+            throw new ApiException("Missing the required parameter 'entityId' when calling businessAgentUpdateWebsite(Async)");
+        }
+
+        // verify the required parameter 'websiteId' is set
+        if (websiteId == null) {
+            throw new ApiException("Missing the required parameter 'websiteId' when calling businessAgentUpdateWebsite(Async)");
+        }
+
+        // verify the required parameter 'publicUpdateWebsiteRequest' is set
+        if (publicUpdateWebsiteRequest == null) {
+            throw new ApiException("Missing the required parameter 'publicUpdateWebsiteRequest' when calling businessAgentUpdateWebsite(Async)");
+        }
+
+
+        okhttp3.Call localVarCall = businessAgentUpdateWebsiteCall(entityId, websiteId, publicUpdateWebsiteRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update Website
+     * <p>
+     * Updates the URL and optional crawl scope of the website identified by &#x60;websiteId&#x60;. The response may contain a new &#x60;id&#x60;. Use the returned ID for subsequent reads, updates, and deletes. Do not automatically retry an update whose outcome is uncertain.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @param publicUpdateWebsiteRequest  (required)
+     * @return WebsiteDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WebsiteDTO businessAgentUpdateWebsite(String entityId, String websiteId, PublicUpdateWebsiteRequest publicUpdateWebsiteRequest) throws ApiException {
+        ApiResponse<WebsiteDTO> localVarResp = businessAgentUpdateWebsiteWithHttpInfo(entityId, websiteId, publicUpdateWebsiteRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Website
+     * <p>
+     * Updates the URL and optional crawl scope of the website identified by &#x60;websiteId&#x60;. The response may contain a new &#x60;id&#x60;. Use the returned ID for subsequent reads, updates, and deletes. Do not automatically retry an update whose outcome is uncertain.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @param publicUpdateWebsiteRequest  (required)
+     * @return ApiResponse&lt;WebsiteDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WebsiteDTO> businessAgentUpdateWebsiteWithHttpInfo(String entityId, String websiteId, PublicUpdateWebsiteRequest publicUpdateWebsiteRequest) throws ApiException {
+        okhttp3.Call localVarCall = businessAgentUpdateWebsiteValidateBeforeCall(entityId, websiteId, publicUpdateWebsiteRequest, null);
+        Type localVarReturnType = new TypeToken<WebsiteDTO>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Website (asynchronously)
+     * <p>
+     * Updates the URL and optional crawl scope of the website identified by &#x60;websiteId&#x60;. The response may contain a new &#x60;id&#x60;. Use the returned ID for subsequent reads, updates, and deletes. Do not automatically retry an update whose outcome is uncertain.
+     * @param entityId Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations use the tenant-owned WhatsApp Business Phone Number ID. (required)
+     * @param websiteId Website resource ID. (required)
+     * @param publicUpdateWebsiteRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Operation completed successfully. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Request failed. </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Request failed. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call businessAgentUpdateWebsiteAsync(String entityId, String websiteId, PublicUpdateWebsiteRequest publicUpdateWebsiteRequest, final ApiCallback<WebsiteDTO> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = businessAgentUpdateWebsiteValidateBeforeCall(entityId, websiteId, publicUpdateWebsiteRequest, _callback);
+        Type localVarReturnType = new TypeToken<WebsiteDTO>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

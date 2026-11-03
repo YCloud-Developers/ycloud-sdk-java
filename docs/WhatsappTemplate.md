@@ -26,3 +26,4 @@ See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-
 |**statusUpdateEvent** | **WhatsappTemplateStatusUpdateEventEnum** |  |  [optional] |
 |**disableDate** | **String** | The date at which the template will be disabled. When a WhatsApp template &#x60;FLAGGED&#x60; event is received, this field is set. |  [optional] |
 |**whatsappApiError** | [**WhatsappApiError**](WhatsappApiError.md) |  |  [optional] |
+|**bidSpec** | [**WhatsappTemplateBidSpecResponse**](WhatsappTemplateBidSpecResponse.md) |  |  [optional] |

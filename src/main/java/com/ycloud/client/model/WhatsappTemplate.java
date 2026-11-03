@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ycloud.client.model.WhatsappApiError;
+import com.ycloud.client.model.WhatsappTemplateBidSpecResponse;
 import com.ycloud.client.model.WhatsappTemplateCategory;
 import com.ycloud.client.model.WhatsappTemplateComponent;
 import com.ycloud.client.model.WhatsappTemplateQualityRating;
@@ -179,6 +180,12 @@ public class WhatsappTemplate {
   **/
   @SerializedName(SERIALIZED_NAME_WHATSAPP_API_ERROR)
   private WhatsappApiError whatsappApiError;
+
+  public static final String SERIALIZED_NAME_BID_SPEC = "bidSpec";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_BID_SPEC)
+  private WhatsappTemplateBidSpecResponse bidSpec;
 
   public WhatsappTemplate() {
   }
@@ -652,6 +659,31 @@ public class WhatsappTemplate {
     this.whatsappApiError = whatsappApiError;
   }
 
+
+  public WhatsappTemplate bidSpec(WhatsappTemplateBidSpecResponse bidSpec) {
+
+    this.bidSpec = bidSpec;
+    return this;
+  }
+
+   /**
+   * Get bidSpec
+   * @return bidSpec
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappTemplateBidSpecResponse getBidSpec() {
+    return bidSpec;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setBidSpec(WhatsappTemplateBidSpecResponse bidSpec) {
+    this.bidSpec = bidSpec;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -715,13 +747,14 @@ public class WhatsappTemplate {
         Objects.equals(this.updateTime, whatsappTemplate.updateTime) &&
         Objects.equals(this.statusUpdateEvent, whatsappTemplate.statusUpdateEvent) &&
         Objects.equals(this.disableDate, whatsappTemplate.disableDate) &&
-        Objects.equals(this.whatsappApiError, whatsappTemplate.whatsappApiError)&&
+        Objects.equals(this.whatsappApiError, whatsappTemplate.whatsappApiError) &&
+        Objects.equals(this.bidSpec, whatsappTemplate.bidSpec)&&
         Objects.equals(this.additionalProperties, whatsappTemplate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(officialTemplateId, wabaId, name, language, category, subCategory, previousCategory, messageSendTtlSeconds, components, ctaUrlLinkTrackingOptedOut, status, qualityRating, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, additionalProperties);
+    return Objects.hash(officialTemplateId, wabaId, name, language, category, subCategory, previousCategory, messageSendTtlSeconds, components, ctaUrlLinkTrackingOptedOut, status, qualityRating, reason, createTime, updateTime, statusUpdateEvent, disableDate, whatsappApiError, bidSpec, additionalProperties);
   }
 
   @Override
@@ -746,6 +779,7 @@ public class WhatsappTemplate {
     sb.append("    statusUpdateEvent: ").append(toIndentedString(statusUpdateEvent)).append("\n");
     sb.append("    disableDate: ").append(toIndentedString(disableDate)).append("\n");
     sb.append("    whatsappApiError: ").append(toIndentedString(whatsappApiError)).append("\n");
+    sb.append("    bidSpec: ").append(toIndentedString(bidSpec)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -787,6 +821,7 @@ public class WhatsappTemplate {
     openapiFields.add("statusUpdateEvent");
     openapiFields.add("disableDate");
     openapiFields.add("whatsappApiError");
+    openapiFields.add("bidSpec");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -852,6 +887,10 @@ public class WhatsappTemplate {
       // validate the optional field `whatsappApiError`
       if (jsonObj.getAsJsonObject("whatsappApiError") != null) {
         WhatsappApiError.validateJsonObject(jsonObj.getAsJsonObject("whatsappApiError"));
+      }
+      // validate the optional field `bidSpec`
+      if (jsonObj.getAsJsonObject("bidSpec") != null) {
+        WhatsappTemplateBidSpecResponse.validateJsonObject(jsonObj.getAsJsonObject("bidSpec"));
       }
   }
 

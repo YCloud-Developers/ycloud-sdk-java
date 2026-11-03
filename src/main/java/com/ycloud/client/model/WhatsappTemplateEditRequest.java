@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappTemplateBidSpecUpdate;
 import com.ycloud.client.model.WhatsappTemplateComponent;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -72,6 +73,12 @@ public class WhatsappTemplateEditRequest {
   **/
   @SerializedName(SERIALIZED_NAME_CTA_URL_LINK_TRACKING_OPTED_OUT)
   private Boolean ctaUrlLinkTrackingOptedOut;
+
+  public static final String SERIALIZED_NAME_BID_SPEC = "bidSpec";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_BID_SPEC)
+  private WhatsappTemplateBidSpecUpdate bidSpec;
 
   public WhatsappTemplateEditRequest() {
   }
@@ -157,6 +164,31 @@ public class WhatsappTemplateEditRequest {
     this.ctaUrlLinkTrackingOptedOut = ctaUrlLinkTrackingOptedOut;
   }
 
+
+  public WhatsappTemplateEditRequest bidSpec(WhatsappTemplateBidSpecUpdate bidSpec) {
+
+    this.bidSpec = bidSpec;
+    return this;
+  }
+
+   /**
+   * Get bidSpec
+   * @return bidSpec
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappTemplateBidSpecUpdate getBidSpec() {
+    return bidSpec;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setBidSpec(WhatsappTemplateBidSpecUpdate bidSpec) {
+    this.bidSpec = bidSpec;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -205,13 +237,14 @@ public class WhatsappTemplateEditRequest {
     WhatsappTemplateEditRequest whatsappTemplateEditRequest = (WhatsappTemplateEditRequest) o;
     return Objects.equals(this.components, whatsappTemplateEditRequest.components) &&
         Objects.equals(this.messageSendTtlSeconds, whatsappTemplateEditRequest.messageSendTtlSeconds) &&
-        Objects.equals(this.ctaUrlLinkTrackingOptedOut, whatsappTemplateEditRequest.ctaUrlLinkTrackingOptedOut)&&
+        Objects.equals(this.ctaUrlLinkTrackingOptedOut, whatsappTemplateEditRequest.ctaUrlLinkTrackingOptedOut) &&
+        Objects.equals(this.bidSpec, whatsappTemplateEditRequest.bidSpec)&&
         Objects.equals(this.additionalProperties, whatsappTemplateEditRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(components, messageSendTtlSeconds, ctaUrlLinkTrackingOptedOut, additionalProperties);
+    return Objects.hash(components, messageSendTtlSeconds, ctaUrlLinkTrackingOptedOut, bidSpec, additionalProperties);
   }
 
   @Override
@@ -221,6 +254,7 @@ public class WhatsappTemplateEditRequest {
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    messageSendTtlSeconds: ").append(toIndentedString(messageSendTtlSeconds)).append("\n");
     sb.append("    ctaUrlLinkTrackingOptedOut: ").append(toIndentedString(ctaUrlLinkTrackingOptedOut)).append("\n");
+    sb.append("    bidSpec: ").append(toIndentedString(bidSpec)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -247,6 +281,7 @@ public class WhatsappTemplateEditRequest {
     openapiFields.add("components");
     openapiFields.add("messageSendTtlSeconds");
     openapiFields.add("ctaUrlLinkTrackingOptedOut");
+    openapiFields.add("bidSpec");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -285,6 +320,10 @@ public class WhatsappTemplateEditRequest {
         for (int i = 0; i < jsonArraycomponents.size(); i++) {
           WhatsappTemplateComponent.validateJsonObject(jsonArraycomponents.get(i).getAsJsonObject());
         };
+      }
+      // validate the optional field `bidSpec`
+      if (jsonObj.getAsJsonObject("bidSpec") != null) {
+        WhatsappTemplateBidSpecUpdate.validateJsonObject(jsonObj.getAsJsonObject("bidSpec"));
       }
   }
 

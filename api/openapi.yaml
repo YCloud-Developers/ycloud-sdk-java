@@ -1849,6 +1849,19 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              maxPrice:
+                summary: Set a per-message bid multiplier
+                value:
+                  from: +15550001111
+                  to: +15550002222
+                  type: template
+                  template:
+                    name: seasonal_offer
+                    language:
+                      code: en_US
+                  bidSpec:
+                    per_message_bid_multiplier: "1.1"
             schema:
               $ref: '#/components/schemas/WhatsappMessageSendRequest'
         required: true
@@ -1874,6 +1887,19 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              maxPrice:
+                summary: Set a per-message bid multiplier
+                value:
+                  from: +15550001111
+                  to: +15550002222
+                  type: template
+                  template:
+                    name: seasonal_offer
+                    language:
+                      code: en_US
+                  bidSpec:
+                    per_message_bid_multiplier: "1.1"
             schema:
               $ref: '#/components/schemas/WhatsappMessageSendRequest'
         required: true
@@ -3301,6 +3327,82 @@ paths:
       tags:
       - WhatsApp Phone Numbers
       x-accepts: application/json
+    get:
+      description: "Checks whether Meta has a phone number entry for this standard\
+        \ BSUID in this business phone number contact book, without returning the\
+        \ phone number. Uses the same account API key, available WABA ownership and\
+        \ bound phone checks as DELETE. Parent BSUIDs are unsupported; Developer App\
+        \ API keys return 403. Successful responses contain required boolean present;\
+        \ provider failures are not converted to false."
+      operationId: whatsapp_phone_number-get-contact-book-entry
+      parameters:
+      - description: WhatsApp Business Account ID.
+        explode: false
+        in: path
+        name: wabaId
+        required: true
+        schema:
+          example: whatsapp-business-account-id
+          type: string
+        style: simple
+      - description: "Phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
+          \ format, bound to the specified WABA in YCloud. When constructing the path\
+          \ manually, URL-encode the leading `+` as `%2B`."
+        explode: false
+        in: path
+        name: phoneNumber
+        required: true
+        schema:
+          example: +16315551111
+          type: string
+        style: simple
+      - description: Standard WhatsApp Business-scoped user ID (BSUID) from the same
+          Meta business portfolio as the phone number. Parent BSUIDs containing `.ENT.`
+          are not supported.
+        explode: false
+        in: path
+        name: bsuid
+        required: true
+        schema:
+          example: US.11815799212886844830
+          pattern: "^[A-Z]{2}\\.[0-9]+$"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappContactBookEntryResult'
+          description: The presence check completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "One or more path parameters are invalid, or Meta returned\
+            \ HTTP 400 for the presence check."
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "The API key is not permitted to call this endpoint, the specified\
+            \ WABA is unavailable to the authenticated YCloud account, the phone number\
+            \ is unavailable or not bound to that WABA in YCloud, or Meta returned\
+            \ HTTP 403."
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Meta returned HTTP 404 for the phone number's upstream contact
+            book resource. This status is not used when no matching contact book entry
+            exists; that case returns HTTP 200 with `present=false`.
+      summary: Check a Meta contact book entry
+      tags:
+      - WhatsApp Phone Numbers
+      x-accepts: application/json
   /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/whatsappCommerceSettings:
     get:
       description: Retrieves a WhatsApp business phone number's commerce settings.
@@ -3725,6 +3827,40 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              standard:
+                summary: Rate-card template
+                value:
+                  wabaId: <WABA_ID>
+                  name: order_confirmation
+                  language: en_US
+                  category: UTILITY
+                  components:
+                  - type: BODY
+                    text: "Your order {{1}} for a total of {{2}} is confirmed. The\
+                      \ expected delivery is {{3}}."
+                    example:
+                      body_text:
+                      - - ORDER-5555
+                        - 99 USD
+                        - "February 25, 2023"
+              maxPrice:
+                summary: Create a Max Price marketing template
+                value:
+                  wabaId: <WABA_ID>
+                  name: seasonal_offer
+                  language: en_US
+                  category: MARKETING
+                  components:
+                  - type: BODY
+                    text: Our seasonal offers are now available.
+                  bidSpec:
+                    maxBid: "0.05"
+                    countryPriceAdjustments:
+                    - countryCode: IN
+                      multiplier: "1.2"
+                    - countryCode: MX
+                      multiplier: "0.8"
             schema:
               $ref: '#/components/schemas/WhatsappTemplateCreateRequest'
         required: true
@@ -3937,6 +4073,40 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              preserveMaxPrice:
+                summary: Omit bidSpec to preserve pricing
+                value:
+                  components:
+                  - type: BODY
+                    text: Our seasonal offers are now available.
+              preserveMaxPriceWithNull:
+                summary: Send null to preserve pricing
+                value:
+                  components:
+                  - type: BODY
+                    text: Our seasonal offers are now available.
+                  bidSpec: null
+              setMaxPrice:
+                summary: Add or update Max Price
+                value:
+                  components:
+                  - type: BODY
+                    text: Our seasonal offers are now available.
+                  bidSpec:
+                    maxBid: "0.05"
+                    countryPriceAdjustments:
+                    - countryCode: IN
+                      multiplier: "1.2"
+                    - countryCode: MX
+                      multiplier: "0.8"
+              clearMaxPrice:
+                summary: Clear all bidding settings
+                value:
+                  components:
+                  - type: BODY
+                    text: Our seasonal offers are now available.
+                  bidSpec: {}
             schema:
               $ref: '#/components/schemas/WhatsappTemplateEditRequest'
       responses:
@@ -6307,6 +6477,1255 @@ paths:
       - Meta Business Agent
       x-content-type: application/json
       x-accepts: application/json
+  /metaBusinessAgents/{entityId}/allowListEntries:
+    get:
+      description: Lists allowlist entries that may receive agent replies when `ai_audience`
+        is set to `ALLOWLISTED_ONLY`. Identity fields may be absent.
+      operationId: meta-business-agent-list-allowlist
+      parameters:
+      - description: WhatsApp Business Phone Number ID that owns the Meta Business
+          Agent.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AgentAllowlistEntryDTO'
+                type: array
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+      summary: List Allowlist
+      tags:
+      - Meta Business Agent
+      x-accepts: application/json
+    post:
+      description: "Adds exactly one explicitly supplied WhatsApp identity: consumer_phone_number\
+        \ or consumer_bsuid. This public API does not look up a BSUID from a phone\
+        \ number. Phone and BSUID entries have distinct IDs and each counts toward\
+        \ the shared limit of 20."
+      operationId: meta-business-agent-create-allowlist-entry
+      parameters:
+      - description: WhatsApp Business Phone Number ID that owns the Meta Business
+          Agent.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              phone:
+                value:
+                  consumer_phone_number: +15551234567
+              bsuid:
+                value:
+                  consumer_bsuid: US.ABC123
+            schema:
+              $ref: '#/components/schemas/PublicCreateAllowlistEntryRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentAllowlistEntryDTO'
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+      summary: Create Allowlist Entry
+      tags:
+      - Meta Business Agent
+      x-content-type: application/json
+      x-accepts: application/json
+  /metaBusinessAgents/{entityId}/allowListEntries/{entryId}:
+    delete:
+      description: Deletes only the entry identified by entryId. Other phone or BSUID
+        entries remain unchanged.
+      operationId: meta-business-agent-delete-allowlist-entry
+      parameters:
+      - description: WhatsApp Business Phone Number ID that owns the Meta Business
+          Agent.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Allowlist entry ID.
+        explode: false
+        in: path
+        name: entryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+      summary: Delete Allowlist Entry
+      tags:
+      - Meta Business Agent
+      x-accepts: application/json
+  /metaBusinessAgents/{entityId}/events:
+    post:
+      description: Submits a business event for a consumer and enqueues it for asynchronous
+        agent processing. The immediate response contains `status` and `agent_event_id`
+        for later polling.
+      operationId: meta-business-agent-submit-agent-event
+      parameters:
+      - description: WhatsApp Business Phone Number ID that owns the Meta Business
+          Agent.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicSubmitAgentEventRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentEventResultDTO'
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+      summary: Submit Agent Event
+      tags:
+      - Meta Business Agent
+      x-content-type: application/json
+      x-accepts: application/json
+  /metaBusinessAgents/{entityId}/events/{agentEventId}:
+    get:
+      description: "Retrieves the current processing status, timestamps, and any error\
+        \ or skip reason for the event identified by `agentEventId`."
+      operationId: meta-business-agent-get-agent-event-status
+      parameters:
+      - description: WhatsApp Business Phone Number ID that owns the Meta Business
+          Agent.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Agent event ID returned when the event was submitted.
+        explode: false
+        in: path
+        name: agentEventId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentEventStatusDTO'
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaBusinessAgentErrorResponse'
+          description: Request failed.
+      summary: Get Agent Event Status
+      tags:
+      - Meta Business Agent
+      x-accepts: application/json
+  /metaBusinessAgents/{entityId}/faqs:
+    get:
+      description: Lists all FAQ question-and-answer entries currently available to
+        the agent as knowledge.
+      operationId: meta-business-agent-list-faqs
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/FaqDTO'
+                type: array
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: List Faqs
+      tags:
+      - Meta Business Agent
+      x-accepts: application/json
+    post:
+      description: Creates a question-and-answer entry in the agent knowledge base
+        and returns the created FAQ.
+      operationId: meta-business-agent-create-faq
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicCreateFaqRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaqDTO'
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: Create Faq
+      tags:
+      - Meta Business Agent
+      x-content-type: application/json
+      x-accepts: application/json
+  /metaBusinessAgents/{entityId}/faqs/{faqId}:
+    delete:
+      description: Deletes the FAQ identified by `faqId`. Returns HTTP `204` when
+        deletion succeeds or Meta explicitly reports that the FAQ does not exist.
+        Other `404` errors remain errors.
+      operationId: meta-business-agent-delete-faq
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      - description: FAQ resource ID.
+        explode: false
+        in: path
+        name: faqId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: Delete Faq
+      tags:
+      - Meta Business Agent
+      x-accepts: application/json
+    get:
+      description: Retrieves the FAQ knowledge entry identified by `faqId`.
+      operationId: meta-business-agent-get-faq
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      - description: FAQ resource ID.
+        explode: false
+        in: path
+        name: faqId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaqDTO'
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: Get Faq
+      tags:
+      - Meta Business Agent
+      x-accepts: application/json
+    patch:
+      description: "Send both `question` and `answer` to update the FAQ. You can also\
+        \ include `metadata`. The response may contain a new `id`. Use the returned\
+        \ ID for subsequent reads, updates, and deletes. If the ID changes, `created_at`\
+        \ resets to the update time. A timeout or HTTP `502` response does not necessarily\
+        \ mean that the update failed. Do not automatically retry the update or create\
+        \ a replacement FAQ."
+      operationId: meta-business-agent-update-faq
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      - description: FAQ resource ID.
+        explode: false
+        in: path
+        name: faqId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicUpdateFaqRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaqDTO'
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: Update Faq
+      tags:
+      - Meta Business Agent
+      x-content-type: application/json
+      x-accepts: application/json
+  /metaBusinessAgents/{entityId}/websites:
+    get:
+      description: "Lists the website URLs configured for Meta to crawl and ingest\
+        \ into the agent knowledge base, including each crawl entry's current state."
+      operationId: meta-business-agent-list-websites
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WebsiteDTO'
+                type: array
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: List Websites
+      tags:
+      - Meta Business Agent
+      x-accepts: application/json
+    post:
+      description: Adds a website URL for Meta to crawl and ingest into the agent
+        knowledge base and returns the created crawl entry.
+      operationId: meta-business-agent-create-website
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicCreateWebsiteRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebsiteDTO'
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: Create Website
+      tags:
+      - Meta Business Agent
+      x-content-type: application/json
+      x-accepts: application/json
+  /metaBusinessAgents/{entityId}/websites/{websiteId}:
+    delete:
+      description: Removes the website crawl entry identified by `websiteId` from
+        the agent knowledge base.
+      operationId: meta-business-agent-delete-website
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      - description: Website resource ID.
+        explode: false
+        in: path
+        name: websiteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: Delete Website
+      tags:
+      - Meta Business Agent
+      x-accepts: application/json
+    get:
+      description: "Retrieves the website knowledge entry identified by `websiteId`,\
+        \ including its URL and crawl status information."
+      operationId: meta-business-agent-get-website
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      - description: Website resource ID.
+        explode: false
+        in: path
+        name: websiteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebsiteDTO'
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: Get Website
+      tags:
+      - Meta Business Agent
+      x-accepts: application/json
+    patch:
+      description: "Updates the URL and optional crawl scope of the website identified\
+        \ by `websiteId`. The response may contain a new `id`. Use the returned ID\
+        \ for subsequent reads, updates, and deletes. Do not automatically retry an\
+        \ update whose outcome is uncertain."
+      operationId: meta-business-agent-update-website
+      parameters:
+      - description: |-
+          Endpoint-specific Meta Business Agent entity ID. Budget and Conversation Turns operations
+          use the tenant-owned WhatsApp Business Phone Number ID.
+        explode: false
+        in: path
+        name: entityId
+        required: true
+        schema:
+          example: "1249005978294267"
+          minLength: 1
+          type: string
+        style: simple
+      - description: Website resource ID.
+        explode: false
+        in: path
+        name: websiteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicUpdateWebsiteRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebsiteDTO'
+          description: Operation completed successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request failed.
+      summary: Update Website
+      tags:
+      - Meta Business Agent
+      x-content-type: application/json
+      x-accepts: application/json
 components:
   parameters:
     metaBusinessAgentEntityId-in_path:
@@ -6672,6 +8091,180 @@ components:
       description: Meta Business Agent returned an invalid or unavailable upstream
         response.
   schemas:
+    AgentAllowlistEntryDTO:
+      additionalProperties: false
+      description: A real Meta allowlist entry. Identity fields are optional and mutually
+        exclusive; an ID-only entry is valid. Phone and BSUID entries are independent
+        and share the WhatsApp limit of 20.
+      example:
+        id: example-entry
+        consumer_bsuid: US.ABC123
+      maxProperties: 2
+      properties:
+        id:
+          description: Allowlist entry ID.
+          type: string
+        consumer_phone_number:
+          description: Allowlisted consumer phone number in E.164 format.
+          pattern: "^\\+[1-9][0-9]{1,14}$"
+          type: string
+        consumer_bsuid:
+          description: "Actual BSUID used to create this entry, if returned."
+          pattern: "^[A-Z]{2}\\.[A-Za-z0-9]{1,128}$"
+          type: string
+        consumer_instagram_username:
+          description: Optional read-only compatibility field. Instagram management
+            is not supported.
+          type: string
+      required:
+      - id
+      type: object
+    AgentEventDTO:
+      additionalProperties: false
+      example:
+        payload: payload
+        description: description
+        type: type
+      properties:
+        type:
+          description: "Stable business event type, up to 256 characters."
+          maxLength: 256
+          minLength: 1
+          type: string
+        description:
+          description: "Plain-language meaning of the event, up to 1,024 characters."
+          maxLength: 1024
+          minLength: 1
+          type: string
+        payload:
+          description: "Opaque JSON serialized as a string, up to 4,096 characters."
+          maxLength: 4096
+          minLength: 1
+          type: string
+      required:
+      - description
+      - payload
+      - type
+      type: object
+    AgentEventResultDTO:
+      additionalProperties: false
+      example:
+        agent_event_id: agent_event_id
+        status: accepted
+      properties:
+        status:
+          description: Initial event processing status returned by Meta.
+          enum:
+          - accepted
+          type: string
+        agent_event_id:
+          description: ID used to poll event processing status.
+          type: string
+      required:
+      - status
+      type: object
+    AgentEventStatusDTO:
+      additionalProperties: false
+      example:
+        error_message: error_message
+        event_type: event_type
+        updated_at: updated_at
+        conversation_id: conversation_id
+        created_at: created_at
+        status: request_received
+        skipped_reason: skipped_reason
+      properties:
+        status:
+          enum:
+          - request_received
+          - processing
+          - sent
+          - failed
+          - skipped
+          - success
+          type: string
+        event_type:
+          type: string
+        error_message:
+          type: string
+        skipped_reason:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        conversation_id:
+          description: "Optional app-scoped opaque conversation ID, also returned\
+            \ by Conversation Turns. Omitted when unavailable; not an event ID or\
+            \ proof of message delivery."
+          type: string
+      required:
+      - created_at
+      - event_type
+      - status
+      - updated_at
+      type: object
+    MetaBusinessAgentErrorResponse:
+      additionalProperties: true
+      properties:
+        status:
+          type: integer
+        code:
+          type: string
+        message:
+          type: string
+        target:
+          type: string
+        docUrl:
+          type: string
+        requestId:
+          type: string
+        metaBusinessAgentApiError:
+          $ref: '#/components/schemas/MetaBusinessAgentApiError'
+      type: object
+    PublicCreateAllowlistEntryRequest:
+      additionalProperties: false
+      example:
+        consumer_phone_number: consumer_phone_number
+        consumer_bsuid: consumer_bsuid
+      oneOf:
+      - $ref: '#/components/schemas/PublicCreateAllowlistEntryRequest_oneOf'
+      - $ref: '#/components/schemas/PublicCreateAllowlistEntryRequest_oneOf_1'
+      properties:
+        consumer_phone_number:
+          description: Consumer phone number in E.164 format.
+          minLength: 1
+          nullable: true
+          pattern: "^\\+[1-9][0-9]{1,14}$"
+          type: string
+        consumer_bsuid:
+          description: Ordinary WhatsApp consumer BSUID. Provide exactly one non-null
+            identity.
+          nullable: true
+          pattern: "^[A-Z]{2}\\.[A-Za-z0-9]{1,128}$"
+          type: string
+      type: object
+    PublicSubmitAgentEventRequest:
+      additionalProperties: false
+      example:
+        to: to
+        event:
+          payload: payload
+          description: description
+          type: type
+      properties:
+        to:
+          description: WhatsApp consumer E.164 phone number or ordinary business-scoped
+            user ID (BSUID). Parent BSUIDs and Instagram recipients are not supported.
+          minLength: 1
+          pattern: "^(?:\\+[1-9][0-9]{1,14}|[A-Z]{2}\\.[A-Za-z0-9]{1,128})$"
+          type: string
+        event:
+          $ref: '#/components/schemas/AgentEventDTO'
+      required:
+      - event
+      - to
+      type: object
     ApiKeyDTO:
       additionalProperties: false
       anyOf:
@@ -13717,6 +15310,22 @@ components:
         This object is added to Webhooks if a user has changed their phone number\
         \ and if a user's identity has potentially changed on WhatsApp."
       properties:
+        wa_id:
+          description: "Phone number supplied by Meta, without the leading `+`. It\
+            \ can be unchanged or omitted for a BSUID change."
+          type: string
+        user_id:
+          description: New business-scoped user ID supplied by Meta.
+          type: string
+        parent_user_id:
+          description: "New Parent BSUID, only when enabled and supplied by Meta."
+          type: string
+        previous_user_id:
+          description: Previous business-scoped user ID supplied by Meta.
+          type: string
+        previous_parent_user_id:
+          description: "Previous Parent BSUID, only when enabled and supplied by Meta."
+          type: string
         body:
           description: "Describes the system message event. Supported use cases are:\n\
             - Phone number update: for when a user changes from an old number to a\
@@ -13729,7 +15338,8 @@ components:
             New WhatsApp ID of the customer.
           type: string
         type:
-          description: "Supported types are:\n- `user_changed_number`: for a user\
+          description: "Supported types are:\n- `user_changed_user_id`: notification\
+            \ that a user changed their BSUID.\n- `user_changed_number`: for a user\
             \ changed number notification.\n- `user_identity_changed`: for user identity\
             \ changed notification."
           type: string
@@ -19832,6 +21442,7 @@ components:
           expireTime: 2022-06-01T12:00:00Z
           id: id
           type: null
+        bidPricingFlag: true
         pricingModel: null
         image:
           filename: filename
@@ -20092,7 +21703,9 @@ components:
           description: "Total price of this message.\n**Note: It's only an estimated\
             \ price when the `status` is `accepted` or `sent`. It becomes the final\
             \ price after the message is delivered, i.e., the `status` is `delivered`\
-            \ or `read`.**"
+            \ or `read`.**\n\nFor Max Price messages, the send-time amount is an estimate.\
+            \ Use the delivered/read whatsapp.message.updated event for the final\
+            \ charge; maxBid is not the final charged amount."
           example: 0.05
           format: double
           type: number
@@ -20124,6 +21737,12 @@ components:
           description: The verification ID. Included only when `bizType` is `verify`.
           example: VERIFICATION-ID
           type: string
+        bidPricingFlag:
+          description: True when the message is identified as a Marketing Lite bidding
+            message. Its pricingCategory is marketing_lite_bidding.
+          example: true
+          readOnly: true
+          type: boolean
       required:
       - from
       - id
@@ -28247,23 +29866,7 @@ components:
           language:
             code: en
             policy: deterministic
-        image:
-          filename: filename
-          link: link
-          caption: caption
-          id: id
-        reaction:
-          emoji: emoji
-          message_id: wamid.BgNODYxN...
-        customerProfile:
-          name: John
-          username: john_doe
         document:
-          filename: filename
-          link: link
-          caption: caption
-          id: id
-        sticker:
           filename: filename
           link: link
           caption: caption
@@ -28734,26 +30337,15 @@ components:
           type: button
           body:
             text: text
-        externalId: externalId
-        useDirectSend: false
         video:
           filename: filename
           link: link
           caption: caption
           id: id
         type: null
-        filterUnsubscribed: true
-        templateName: order_update_ds
-        recipient: US.1234
         context:
           message_id: wamid.BgNODYxN...
         from: +16315551111
-        location:
-          address: address
-          latitude: 1.4658129805029452
-          name: name
-          longitude: 5.962133916683182
-        to: +16315551111
         text:
           preview_url: true
           body: body
@@ -28762,8 +30354,38 @@ components:
           link: link
           caption: caption
           id: id
-        category: utility
         ttlSeconds: 600
+        filterBlocked: true
+        bidSpec:
+          per_message_bid_multiplier: "1.1"
+        image:
+          filename: filename
+          link: link
+          caption: caption
+          id: id
+        reaction:
+          emoji: emoji
+          message_id: wamid.BgNODYxN...
+        customerProfile:
+          name: John
+          username: john_doe
+        sticker:
+          filename: filename
+          link: link
+          caption: caption
+          id: id
+        externalId: externalId
+        useDirectSend: false
+        filterUnsubscribed: true
+        templateName: order_update_ds
+        recipient: US.1234
+        location:
+          address: address
+          latitude: 1.4658129805029452
+          name: name
+          longitude: 5.962133916683182
+        to: +16315551111
+        category: utility
         contacts:
         - birthday: 2022-09-27
           emails:
@@ -28853,7 +30475,6 @@ components:
           - phone: phone
             wa_id: wa_id
             type: type
-        filterBlocked: true
       properties:
         from:
           description: "The sender's phone number in [E.164](https://en.wikipedia.org/wiki/E.164)\
@@ -28965,6 +30586,8 @@ components:
             \ webhook notifications with `whatsappMessage.errorCode` set to `RECIPIENT_IN_BLOCK_LIST`.\n\
             \nNot applicable to `POST /v2/whatsapp/messages/sendDirectly`."
           type: boolean
+        bidSpec:
+          $ref: '#/components/schemas/WhatsappMessageBidSpec'
       required:
       - from
       - type
@@ -40075,6 +41698,7 @@ components:
         businessUsernameStatus: null
         whatsappBusinessManagerMessagingLimit: TIER_2K
         ycloudName: Support line
+        businessUsernameContext: revoked
         businessUsernameUpdatedAt: 2026-05-26T12:00:00Z
         wabaId: whatsapp-business-account-id
         requestedVerifiedName: requestedVerifiedName
@@ -40119,6 +41743,13 @@ components:
           description: Active Business Username for this phone number. The value is
             a plain username without `@`.
           example: acme.support
+          type: string
+        businessUsernameContext:
+          description: Optional context of this username notification. revoked is
+            included only when the username from a successful current Meta query matches
+            this revoked notification. Omitted for an obsolete revocation or a notification
+            without context; it does not expose historical page warnings.
+          example: revoked
           type: string
         businessUsernameStatus:
           $ref: '#/components/schemas/WhatsappBusinessUsernameStatus'
@@ -40392,6 +42023,18 @@ components:
           format: date-time
           type: string
       type: object
+    WhatsappContactBookEntryResult:
+      example:
+        present: true
+      properties:
+        present:
+          description: Whether a phone number entry exists for this BSUID in the phone
+            number contact book.
+          example: true
+          type: boolean
+      required:
+      - present
+      type: object
     WhatsappContactBookEntryDeleteResult:
       description: Meta's contact book entry deletion result returned by YCloud.
       example:
@@ -40421,6 +42064,7 @@ components:
         - businessUsernameStatus: null
           whatsappBusinessManagerMessagingLimit: TIER_2K
           ycloudName: Support line
+          businessUsernameContext: revoked
           businessUsernameUpdatedAt: 2026-05-26T12:00:00Z
           wabaId: whatsapp-business-account-id
           requestedVerifiedName: requestedVerifiedName
@@ -40446,6 +42090,7 @@ components:
         - businessUsernameStatus: null
           whatsappBusinessManagerMessagingLimit: TIER_2K
           ycloudName: Support line
+          businessUsernameContext: revoked
           businessUsernameUpdatedAt: 2026-05-26T12:00:00Z
           wabaId: whatsapp-business-account-id
           requestedVerifiedName: requestedVerifiedName
@@ -40848,7 +42493,9 @@ components:
         - `marketing_lite`: Indicates the conversation was billed at marketing-lite\
         \ rate.\n- `utility`: Indicates the conversation was billed at utility rate.\n\
         - `service`: Indicates the conversation was billed at service rate.\n\nSee\
-        \ also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing)."
+        \ also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).\n\
+        - `marketing_lite_bidding`: A marketing message billed through Marketing Lite\
+        \ bidding (Max Price)."
       enum:
       - referral_conversion
       - authentication
@@ -40857,6 +42504,7 @@ components:
       - marketing_lite
       - utility
       - service
+      - marketing_lite_bidding
       type: string
     WhatsappPricingModel:
       description: "WhatsApp pricing model.\n- `PMP`: Per-message pricing applies.\n\
@@ -40899,9 +42547,141 @@ components:
       - REJECTED
       - DEFERRED
       type: string
+    WhatsappCountryPriceAdjustment:
+      description: A template bid multiplier for one recipient country.
+      example:
+        countryCode: IN
+        multiplier: "1.2"
+      properties:
+        countryCode:
+          description: An uppercase ISO 3166-1 alpha-2 country code. Each country
+            may appear only once in the list.
+          example: IN
+          pattern: "^[A-Z]{2}$"
+          type: string
+        multiplier:
+          description: "Multiplier applied to the base maxBid for this country. Must\
+            \ be greater than 0 and at most 10, with at most 4 decimal places."
+          example: "1.2"
+          pattern: "^(?=.*[1-9])(?:0*[0-9](?:\\.[0-9]{1,4})?|0*10(?:\\.0{1,4})?)$"
+          type: string
+      required:
+      - countryCode
+      - multiplier
+      type: object
+    WhatsappTemplateBidSpec:
+      description: "Max Price configuration for a MARKETING template. When provided\
+        \ on creation, a valid maxBid is required. Omit bidSpec on creation to use\
+        \ rate-card pricing."
+      example:
+        maxBid: "0.05"
+        countryPriceAdjustments:
+        - countryCode: IN
+          multiplier: "1.2"
+        - countryCode: IN
+          multiplier: "1.2"
+        - countryCode: IN
+          multiplier: "1.2"
+        - countryCode: IN
+          multiplier: "1.2"
+        - countryCode: IN
+          multiplier: "1.2"
+      properties:
+        maxBid:
+          description: "Base maximum price per delivered marketing message, in your\
+            \ YCloud billing currency, before country and per-message multipliers.\
+            \ Must be greater than 0, with at most 4 decimal places. This is a price\
+            \ ceiling, not a fixed charge."
+          example: "0.05"
+          pattern: "^(?=.*[1-9])[0-9]+(?:\\.[0-9]{1,4})?$"
+          type: string
+        countryPriceAdjustments:
+          description: "Complete list of overrides for up to 50 distinct countries.\
+            \ Unlisted countries use a multiplier of 1. The submitted list replaces\
+            \ the locally stored list; omitting it or sending an empty list does not\
+            \ explicitly clear country overrides already stored by Meta. To remove\
+            \ all bidding settings, edit the template with bidSpec: {}."
+          items:
+            $ref: '#/components/schemas/WhatsappCountryPriceAdjustment'
+          maxItems: 50
+          type: array
+      required:
+      - maxBid
+      type: object
+    WhatsappTemplateBidSpecUpdate:
+      description: "Add or update Max Price on a MARKETING template, including a template\
+        \ created without it. Omit bidSpec or send null to preserve the current configuration.\
+        \ Send {} to clear all bidding settings; an object whose properties are all\
+        \ null also clears them. If any property is non-null, a valid maxBid is required.\
+        \ Empty strings and empty arrays are not clearing instructions. Include the\
+        \ components to retain and follow the existing template-status and Meta validation\
+        \ rules."
+      example:
+        maxBid: "0.05"
+        countryPriceAdjustments:
+        - countryCode: IN
+          multiplier: "1.2"
+        - countryCode: IN
+          multiplier: "1.2"
+        - countryCode: IN
+          multiplier: "1.2"
+        - countryCode: IN
+          multiplier: "1.2"
+        - countryCode: IN
+          multiplier: "1.2"
+      not:
+        $ref: '#/components/schemas/WhatsappTemplateBidSpecUpdate_not'
+      nullable: true
+      properties:
+        maxBid:
+          description: "Base maximum price per delivered marketing message, in your\
+            \ YCloud billing currency, before country and per-message multipliers.\
+            \ Must be greater than 0, with at most 4 decimal places. This is a price\
+            \ ceiling, not a fixed charge."
+          example: "0.05"
+          nullable: true
+          pattern: "^(?=.*[1-9])[0-9]+(?:\\.[0-9]{1,4})?$"
+          type: string
+        countryPriceAdjustments:
+          description: "Complete list of overrides for up to 50 distinct countries.\
+            \ Unlisted countries use a multiplier of 1. The submitted list replaces\
+            \ the locally stored list; omitting it or sending an empty list does not\
+            \ explicitly clear country overrides already stored by Meta. To remove\
+            \ all bidding settings, edit the template with bidSpec: {}."
+          items:
+            $ref: '#/components/schemas/WhatsappCountryPriceAdjustment'
+          maxItems: 50
+          nullable: true
+          type: array
+      type: object
+    WhatsappMessageBidSpec:
+      description: Per-message bid adjustment for a Max Price marketing template sent
+        through Marketing Messages Lite. Effective Max Price = template maxBid x recipient-country
+        multiplier x this message multiplier. Omit the entire bidSpec object to use
+        a message multiplier of 1; an empty object is invalid. Supported by synchronous
+        sending and asynchronous enqueueing.
+      example:
+        per_message_bid_multiplier: "1.1"
+      properties:
+        per_message_bid_multiplier:
+          description: "Supplemental bid multiplier for this message, greater than\
+            \ 0 and at most 999.999, with at most 3 decimal places. Values above 1\
+            \ raise the ceiling; values below 1 lower it. Required whenever the message\
+            \ bidSpec object is provided."
+          example: "1.1"
+          pattern: "^(?=.*[1-9])[0-9]{1,3}(?:\\.[0-9]{1,3})?$"
+          type: string
+      required:
+      - per_message_bid_multiplier
+      type: object
+    WhatsappTemplateBidSpecResponse:
+      allOf:
+      - $ref: '#/components/schemas/WhatsappTemplateBidSpec'
+      readOnly: true
     WhatsappTemplate:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
       example:
+        bidSpec: null
         reason: reason
         subCategory: null
         components:
@@ -42693,6 +44473,8 @@ components:
           type: string
         whatsappApiError:
           $ref: '#/components/schemas/WhatsappApiError'
+        bidSpec:
+          $ref: '#/components/schemas/WhatsappTemplateBidSpecResponse'
       required:
       - language
       - name
@@ -44193,6 +45975,19 @@ components:
     WhatsappTemplateCreateRequest:
       description: "See [WhatsApp Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates)."
       example:
+        bidSpec:
+          maxBid: "0.05"
+          countryPriceAdjustments:
+          - countryCode: IN
+            multiplier: "1.2"
+          - countryCode: IN
+            multiplier: "1.2"
+          - countryCode: IN
+            multiplier: "1.2"
+          - countryCode: IN
+            multiplier: "1.2"
+          - countryCode: IN
+            multiplier: "1.2"
         wabaId: whatsapp-business-account-id
         subCategory: null
         components:
@@ -45928,6 +47723,8 @@ components:
             \ `true`, which means button click tracking is disabled by default."
           example: true
           type: boolean
+        bidSpec:
+          $ref: '#/components/schemas/WhatsappTemplateBidSpec'
       required:
       - category
       - components
@@ -45938,6 +47735,19 @@ components:
     WhatsappTemplateEditRequest:
       description: The request body to edit a WhatsApp template.
       example:
+        bidSpec:
+          maxBid: "0.05"
+          countryPriceAdjustments:
+          - countryCode: IN
+            multiplier: "1.2"
+          - countryCode: IN
+            multiplier: "1.2"
+          - countryCode: IN
+            multiplier: "1.2"
+          - countryCode: IN
+            multiplier: "1.2"
+          - countryCode: IN
+            multiplier: "1.2"
         components:
         - buttons:
           - navigate_screen: WELCOME_SCREEN
@@ -47649,6 +49459,8 @@ components:
             \ `true`, which means button click tracking is disabled by default."
           example: true
           type: boolean
+        bidSpec:
+          $ref: '#/components/schemas/WhatsappTemplateBidSpecUpdate'
       required:
       - components
       type: object
@@ -47658,7 +49470,8 @@ components:
       description: Represents a given page of WhatsApp templates.
       example:
         items:
-        - reason: reason
+        - bidSpec: null
+          reason: reason
           subCategory: null
           components:
           - buttons:
@@ -49359,7 +51172,8 @@ components:
           statusUpdateEvent: null
           category: null
           status: REJECTED
-        - reason: reason
+        - bidSpec: null
+          reason: reason
           subCategory: null
           components:
           - buttons:
@@ -51428,6 +53242,280 @@ components:
           description: Unix timestamp indicating when the webhook was triggered.
           example: "1739321024000"
           type: string
+    FaqDTO:
+      additionalProperties: false
+      example:
+        metadata:
+          key: metadata
+        question: question
+        answer: answer
+        created_at: 0
+        id: id
+      properties:
+        id:
+          description: FAQ resource ID.
+          type: string
+        question:
+          description: Customer question written in natural language.
+          type: string
+        answer:
+          description: Factual answer the agent should use.
+          type: string
+        created_at:
+          description: "Meta timestamp. When an update changes the FAQ ID, this resets\
+            \ to the update time."
+          format: int64
+          type: integer
+        metadata:
+          additionalProperties:
+            type: string
+          description: String metadata retained with the FAQ.
+          type: object
+      required:
+      - answer
+      - id
+      - question
+      type: object
+    PublicCreateFaqRequest:
+      additionalProperties: false
+      example:
+        metadata:
+          key: metadata
+        question: question
+        answer: answer
+      properties:
+        question:
+          minLength: 1
+          type: string
+        answer:
+          minLength: 1
+          type: string
+        metadata:
+          additionalProperties:
+            type: string
+          type: object
+      required:
+      - answer
+      - question
+      type: object
+    PublicCreateWebsiteRequest:
+      additionalProperties: false
+      example:
+        included_sub_domains:
+        - included_sub_domains
+        - included_sub_domains
+        single_urls:
+        - single_urls
+        - single_urls
+        included_url_patterns:
+        - included_url_patterns
+        - included_url_patterns
+        excluded_sub_domains:
+        - excluded_sub_domains
+        - excluded_sub_domains
+        excluded_url_patterns:
+        - excluded_url_patterns
+        - excluded_url_patterns
+        url: url
+      properties:
+        url:
+          minLength: 1
+          type: string
+        included_sub_domains:
+          description: "Subdomains to include in the website crawl. Omit this field\
+            \ to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+        included_url_patterns:
+          description: "URL patterns to include in the website crawl. Omit this field\
+            \ to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+        excluded_sub_domains:
+          description: "Subdomains to exclude from the website crawl. Omit this field\
+            \ to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+        excluded_url_patterns:
+          description: "URL patterns to exclude from the website crawl. Omit this\
+            \ field to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+        single_urls:
+          description: "Individual URLs to include in the website source. Omit this\
+            \ field to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+      required:
+      - url
+      type: object
+    PublicUpdateFaqRequest:
+      additionalProperties: false
+      example:
+        metadata:
+          key: metadata
+        question: question
+        answer: answer
+      properties:
+        question:
+          minLength: 1
+          type: string
+        answer:
+          minLength: 1
+          type: string
+        metadata:
+          additionalProperties:
+            type: string
+          type: object
+      required:
+      - answer
+      - question
+      type: object
+    PublicUpdateWebsiteRequest:
+      additionalProperties: false
+      example:
+        included_sub_domains:
+        - included_sub_domains
+        - included_sub_domains
+        single_urls:
+        - single_urls
+        - single_urls
+        included_url_patterns:
+        - included_url_patterns
+        - included_url_patterns
+        excluded_sub_domains:
+        - excluded_sub_domains
+        - excluded_sub_domains
+        excluded_url_patterns:
+        - excluded_url_patterns
+        - excluded_url_patterns
+        url: url
+      properties:
+        url:
+          minLength: 1
+          type: string
+        included_sub_domains:
+          description: "Subdomains to include in the website crawl. Omit this field\
+            \ to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+        included_url_patterns:
+          description: "URL patterns to include in the website crawl. Omit this field\
+            \ to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+        excluded_sub_domains:
+          description: "Subdomains to exclude from the website crawl. Omit this field\
+            \ to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+        excluded_url_patterns:
+          description: "URL patterns to exclude from the website crawl. Omit this\
+            \ field to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+        single_urls:
+          description: "Individual URLs to include in the website source. Omit this\
+            \ field to leave it unspecified. Send `[]` to clear it."
+          items:
+            type: string
+          type: array
+      required:
+      - url
+      type: object
+    WebsiteDTO:
+      additionalProperties: false
+      example:
+        crawl_status: crawl_status
+        last_crawled_at: 6
+        included_sub_domains:
+        - included_sub_domains
+        - included_sub_domains
+        crawl_error: crawl_error
+        single_urls:
+        - single_urls
+        - single_urls
+        included_url_patterns:
+        - included_url_patterns
+        - included_url_patterns
+        pages_crawled: 0
+        excluded_sub_domains:
+        - excluded_sub_domains
+        - excluded_sub_domains
+        created_at: 1
+        excluded_url_patterns:
+        - excluded_url_patterns
+        - excluded_url_patterns
+        id: id
+        url: url
+      properties:
+        id:
+          description: Website resource ID.
+          type: string
+        url:
+          description: Source website URL.
+          type: string
+        crawl_status:
+          description: Current Meta crawl state.
+          type: string
+        pages_crawled:
+          description: Number of pages Meta has processed.
+          format: int32
+          type: integer
+        last_crawled_at:
+          description: Most recent crawl timestamp.
+          format: int64
+          type: integer
+        created_at:
+          description: Resource creation timestamp.
+          format: int64
+          type: integer
+        included_sub_domains:
+          description: "Subdomains included in the website crawl, when returned by\
+            \ Meta."
+          items:
+            type: string
+          type: array
+        included_url_patterns:
+          description: "URL patterns included in the website crawl, when returned\
+            \ by Meta."
+          items:
+            type: string
+          type: array
+        excluded_sub_domains:
+          description: "Subdomains excluded from the website crawl, when returned\
+            \ by Meta."
+          items:
+            type: string
+          type: array
+        excluded_url_patterns:
+          description: "URL patterns excluded from the website crawl, when returned\
+            \ by Meta."
+          items:
+            type: string
+          type: array
+        single_urls:
+          description: "Individual URLs included in the website source, when returned\
+            \ by Meta."
+          items:
+            type: string
+          type: array
+        crawl_error:
+          description: Optional crawl error reported by Meta; an empty string is preserved.
+          type: string
+      required:
+      - id
+      - url
+      type: object
     whatsapp_media_upload_request:
       properties:
         file:
@@ -51644,6 +53732,20 @@ components:
       required:
       - flowJson
       type: object
+    PublicCreateAllowlistEntryRequest_oneOf:
+      properties:
+        consumer_phone_number:
+          nullable: false
+          type: string
+      required:
+      - consumer_phone_number
+    PublicCreateAllowlistEntryRequest_oneOf_1:
+      properties:
+        consumer_bsuid:
+          nullable: false
+          type: string
+      required:
+      - consumer_bsuid
     ApiKeyDTO_anyOf:
       properties:
         headers:
@@ -51943,6 +54045,19 @@ components:
       required:
       - code
       - retryable
+      type: object
+    WhatsappTemplateBidSpecUpdate_not:
+      properties:
+        maxBid:
+          enum:
+          - null
+          nullable: true
+          type: string
+        countryPriceAdjustments:
+          items: {}
+          type: array
+      required:
+      - countryPriceAdjustments
       type: object
     WhatsappFlow_whatsappBusinessAccount:
       description: WhatsApp Business Account information.
