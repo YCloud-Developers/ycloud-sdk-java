@@ -1,4 +1,9 @@
 # Changelog
+## 1.17.2 (2026-11-03)
+- Support WhatsApp Max Price configuration on templates and per-message bid multipliers, and expose bidding price information in message responses and webhooks.
+- Add Meta Business Agent APIs for allowlist entries, event submission and status, FAQs, and website sources.
+- Add Meta Contact Book presence lookup and expose business username revocation context and BSUID change data in WhatsApp webhooks.
+
 ## 1.17.1 (2026-10-26)
 - Add `request_contact_info` to WhatsApp interactive message types for requesting a customer's phone number.
 

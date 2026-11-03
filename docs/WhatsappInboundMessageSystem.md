@@ -8,10 +8,12 @@ When the message type is set to `system`, this field is included. This object is
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**waId** | **String** | Phone number supplied by Meta, without the leading &#x60;+&#x60;. It can be unchanged or omitted for a BSUID change. |  [optional] |
+|**userId** | **String** | New business-scoped user ID supplied by Meta. |  [optional] |
+|**parentUserId** | **String** | New Parent BSUID, only when enabled and supplied by Meta. |  [optional] |
+|**previousUserId** | **String** | Previous business-scoped user ID supplied by Meta. |  [optional] |
+|**previousParentUserId** | **String** | Previous Parent BSUID, only when enabled and supplied by Meta. |  [optional] |
 |**body** | **String** | Describes the system message event. Supported use cases are: - Phone number update: for when a user changes from an old number to a new number. - Identity update: for when a user identity has changed. |  [optional] |
 |**newWaId** | **String** | **Added to Webhooks for phone number updates.**  New WhatsApp ID of the customer. |  [optional] |
-|**type** | **String** | Supported types are: - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification. |  [optional] |
+|**type** | **String** | Supported types are: - &#x60;user_changed_user_id&#x60;: notification that a user changed their BSUID. - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification. |  [optional] |
 |**user** | **String** | **Added to Webhooks for identity updates.**  The new WhatsApp user ID of the customer. |  [optional] |
-
-
-

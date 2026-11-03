@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ycloud.client.model.WhatsappMessageBidSpec;
 import com.ycloud.client.model.WhatsappMessageContact;
 import com.ycloud.client.model.WhatsappMessageContext;
 import com.ycloud.client.model.WhatsappMessageInteractive;
@@ -263,6 +264,12 @@ public class WhatsappMessageSendRequest {
   **/
   @SerializedName(SERIALIZED_NAME_FILTER_BLOCKED)
   private Boolean filterBlocked;
+
+  public static final String SERIALIZED_NAME_BID_SPEC = "bidSpec";
+  /**
+  **/
+  @SerializedName(SERIALIZED_NAME_BID_SPEC)
+  private WhatsappMessageBidSpec bidSpec;
 
   public WhatsappMessageSendRequest() {
   }
@@ -887,6 +894,31 @@ public class WhatsappMessageSendRequest {
     this.filterBlocked = filterBlocked;
   }
 
+
+  public WhatsappMessageSendRequest bidSpec(WhatsappMessageBidSpec bidSpec) {
+
+    this.bidSpec = bidSpec;
+    return this;
+  }
+
+   /**
+   * Get bidSpec
+   * @return bidSpec
+  **/
+  @javax.annotation.Nullable
+
+  public WhatsappMessageBidSpec getBidSpec() {
+    return bidSpec;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public void setBidSpec(WhatsappMessageBidSpec bidSpec) {
+    this.bidSpec = bidSpec;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -956,13 +988,14 @@ public class WhatsappMessageSendRequest {
         Objects.equals(this.useDirectSend, whatsappMessageSendRequest.useDirectSend) &&
         Objects.equals(this.templateName, whatsappMessageSendRequest.templateName) &&
         Objects.equals(this.filterUnsubscribed, whatsappMessageSendRequest.filterUnsubscribed) &&
-        Objects.equals(this.filterBlocked, whatsappMessageSendRequest.filterBlocked)&&
+        Objects.equals(this.filterBlocked, whatsappMessageSendRequest.filterBlocked) &&
+        Objects.equals(this.bidSpec, whatsappMessageSendRequest.bidSpec)&&
         Objects.equals(this.additionalProperties, whatsappMessageSendRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to, recipient, customerProfile, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, category, ttlSeconds, useDirectSend, templateName, filterUnsubscribed, filterBlocked, additionalProperties);
+    return Objects.hash(from, to, recipient, customerProfile, type, template, text, image, video, audio, document, sticker, location, interactive, contacts, reaction, context, externalId, category, ttlSeconds, useDirectSend, templateName, filterUnsubscribed, filterBlocked, bidSpec, additionalProperties);
   }
 
   @Override
@@ -993,6 +1026,7 @@ public class WhatsappMessageSendRequest {
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    filterUnsubscribed: ").append(toIndentedString(filterUnsubscribed)).append("\n");
     sb.append("    filterBlocked: ").append(toIndentedString(filterBlocked)).append("\n");
+    sb.append("    bidSpec: ").append(toIndentedString(bidSpec)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1040,6 +1074,7 @@ public class WhatsappMessageSendRequest {
     openapiFields.add("templateName");
     openapiFields.add("filterUnsubscribed");
     openapiFields.add("filterBlocked");
+    openapiFields.add("bidSpec");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1145,6 +1180,10 @@ public class WhatsappMessageSendRequest {
       }
       if (jsonObj.get("templateName") != null && !jsonObj.get("templateName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `templateName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("templateName").toString()));
+      }
+      // validate the optional field `bidSpec`
+      if (jsonObj.getAsJsonObject("bidSpec") != null) {
+        WhatsappMessageBidSpec.validateJsonObject(jsonObj.getAsJsonObject("bidSpec"));
       }
   }
 

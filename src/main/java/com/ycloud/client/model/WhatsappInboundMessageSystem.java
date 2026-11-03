@@ -50,6 +50,41 @@ import com.ycloud.client.JSON;
 @ApiModel(description = "When the message type is set to `system`, this field is included. This object is added to Webhooks if a user has changed their phone number and if a user's identity has potentially changed on WhatsApp.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WhatsappInboundMessageSystem {
+  public static final String SERIALIZED_NAME_WA_ID = "wa_id";
+  /**
+   * Phone number supplied by Meta, without the leading &#x60;+&#x60;. It can be unchanged or omitted for a BSUID change.
+  **/
+  @SerializedName(SERIALIZED_NAME_WA_ID)
+  private String waId;
+
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  /**
+   * New business-scoped user ID supplied by Meta.
+  **/
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  private String userId;
+
+  public static final String SERIALIZED_NAME_PARENT_USER_ID = "parent_user_id";
+  /**
+   * New Parent BSUID, only when enabled and supplied by Meta.
+  **/
+  @SerializedName(SERIALIZED_NAME_PARENT_USER_ID)
+  private String parentUserId;
+
+  public static final String SERIALIZED_NAME_PREVIOUS_USER_ID = "previous_user_id";
+  /**
+   * Previous business-scoped user ID supplied by Meta.
+  **/
+  @SerializedName(SERIALIZED_NAME_PREVIOUS_USER_ID)
+  private String previousUserId;
+
+  public static final String SERIALIZED_NAME_PREVIOUS_PARENT_USER_ID = "previous_parent_user_id";
+  /**
+   * Previous Parent BSUID, only when enabled and supplied by Meta.
+  **/
+  @SerializedName(SERIALIZED_NAME_PREVIOUS_PARENT_USER_ID)
+  private String previousParentUserId;
+
   public static final String SERIALIZED_NAME_BODY = "body";
   /**
    * Describes the system message event. Supported use cases are: - Phone number update: for when a user changes from an old number to a new number. - Identity update: for when a user identity has changed.
@@ -66,7 +101,7 @@ public class WhatsappInboundMessageSystem {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   /**
-   * Supported types are: - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification.
+   * Supported types are: - &#x60;user_changed_user_id&#x60;: notification that a user changed their BSUID. - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification.
   **/
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
@@ -78,11 +113,141 @@ public class WhatsappInboundMessageSystem {
   @SerializedName(SERIALIZED_NAME_USER)
   private String user;
 
-  public WhatsappInboundMessageSystem() { 
+  public WhatsappInboundMessageSystem() {
   }
 
+  public WhatsappInboundMessageSystem waId(String waId) {
+
+    this.waId = waId;
+    return this;
+  }
+
+   /**
+   * Phone number supplied by Meta, without the leading &#x60;+&#x60;. It can be unchanged or omitted for a BSUID change.
+   * @return waId
+  **/
+  @javax.annotation.Nullable
+
+  public String getWaId() {
+    return waId;
+  }
+
+
+  /**
+   * Phone number supplied by Meta, without the leading &#x60;+&#x60;. It can be unchanged or omitted for a BSUID change.
+   **/
+  @ApiModelProperty(value = "Phone number supplied by Meta, without the leading `+`. It can be unchanged or omitted for a BSUID change.")
+  public void setWaId(String waId) {
+    this.waId = waId;
+  }
+
+
+  public WhatsappInboundMessageSystem userId(String userId) {
+
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * New business-scoped user ID supplied by Meta.
+   * @return userId
+  **/
+  @javax.annotation.Nullable
+
+  public String getUserId() {
+    return userId;
+  }
+
+
+  /**
+   * New business-scoped user ID supplied by Meta.
+   **/
+  @ApiModelProperty(value = "New business-scoped user ID supplied by Meta.")
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+
+  public WhatsappInboundMessageSystem parentUserId(String parentUserId) {
+
+    this.parentUserId = parentUserId;
+    return this;
+  }
+
+   /**
+   * New Parent BSUID, only when enabled and supplied by Meta.
+   * @return parentUserId
+  **/
+  @javax.annotation.Nullable
+
+  public String getParentUserId() {
+    return parentUserId;
+  }
+
+
+  /**
+   * New Parent BSUID, only when enabled and supplied by Meta.
+   **/
+  @ApiModelProperty(value = "New Parent BSUID, only when enabled and supplied by Meta.")
+  public void setParentUserId(String parentUserId) {
+    this.parentUserId = parentUserId;
+  }
+
+
+  public WhatsappInboundMessageSystem previousUserId(String previousUserId) {
+
+    this.previousUserId = previousUserId;
+    return this;
+  }
+
+   /**
+   * Previous business-scoped user ID supplied by Meta.
+   * @return previousUserId
+  **/
+  @javax.annotation.Nullable
+
+  public String getPreviousUserId() {
+    return previousUserId;
+  }
+
+
+  /**
+   * Previous business-scoped user ID supplied by Meta.
+   **/
+  @ApiModelProperty(value = "Previous business-scoped user ID supplied by Meta.")
+  public void setPreviousUserId(String previousUserId) {
+    this.previousUserId = previousUserId;
+  }
+
+
+  public WhatsappInboundMessageSystem previousParentUserId(String previousParentUserId) {
+
+    this.previousParentUserId = previousParentUserId;
+    return this;
+  }
+
+   /**
+   * Previous Parent BSUID, only when enabled and supplied by Meta.
+   * @return previousParentUserId
+  **/
+  @javax.annotation.Nullable
+
+  public String getPreviousParentUserId() {
+    return previousParentUserId;
+  }
+
+
+  /**
+   * Previous Parent BSUID, only when enabled and supplied by Meta.
+   **/
+  @ApiModelProperty(value = "Previous Parent BSUID, only when enabled and supplied by Meta.")
+  public void setPreviousParentUserId(String previousParentUserId) {
+    this.previousParentUserId = previousParentUserId;
+  }
+
+
   public WhatsappInboundMessageSystem body(String body) {
-    
+
     this.body = body;
     return this;
   }
@@ -108,7 +273,7 @@ public class WhatsappInboundMessageSystem {
 
 
   public WhatsappInboundMessageSystem newWaId(String newWaId) {
-    
+
     this.newWaId = newWaId;
     return this;
   }
@@ -134,13 +299,13 @@ public class WhatsappInboundMessageSystem {
 
 
   public WhatsappInboundMessageSystem type(String type) {
-    
+
     this.type = type;
     return this;
   }
 
    /**
-   * Supported types are: - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification.
+   * Supported types are: - &#x60;user_changed_user_id&#x60;: notification that a user changed their BSUID. - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -151,16 +316,16 @@ public class WhatsappInboundMessageSystem {
 
 
   /**
-   * Supported types are: - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification.
+   * Supported types are: - &#x60;user_changed_user_id&#x60;: notification that a user changed their BSUID. - &#x60;user_changed_number&#x60;: for a user changed number notification. - &#x60;user_identity_changed&#x60;: for user identity changed notification.
    **/
-  @ApiModelProperty(value = "Supported types are: - `user_changed_number`: for a user changed number notification. - `user_identity_changed`: for user identity changed notification.")
+  @ApiModelProperty(value = "Supported types are: - `user_changed_user_id`: notification that a user changed their BSUID. - `user_changed_number`: for a user changed number notification. - `user_identity_changed`: for user identity changed notification.")
   public void setType(String type) {
     this.type = type;
   }
 
 
   public WhatsappInboundMessageSystem user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -230,7 +395,12 @@ public class WhatsappInboundMessageSystem {
       return false;
     }
     WhatsappInboundMessageSystem whatsappInboundMessageSystem = (WhatsappInboundMessageSystem) o;
-    return Objects.equals(this.body, whatsappInboundMessageSystem.body) &&
+    return Objects.equals(this.waId, whatsappInboundMessageSystem.waId) &&
+        Objects.equals(this.userId, whatsappInboundMessageSystem.userId) &&
+        Objects.equals(this.parentUserId, whatsappInboundMessageSystem.parentUserId) &&
+        Objects.equals(this.previousUserId, whatsappInboundMessageSystem.previousUserId) &&
+        Objects.equals(this.previousParentUserId, whatsappInboundMessageSystem.previousParentUserId) &&
+        Objects.equals(this.body, whatsappInboundMessageSystem.body) &&
         Objects.equals(this.newWaId, whatsappInboundMessageSystem.newWaId) &&
         Objects.equals(this.type, whatsappInboundMessageSystem.type) &&
         Objects.equals(this.user, whatsappInboundMessageSystem.user)&&
@@ -239,13 +409,18 @@ public class WhatsappInboundMessageSystem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, newWaId, type, user, additionalProperties);
+    return Objects.hash(waId, userId, parentUserId, previousUserId, previousParentUserId, body, newWaId, type, user, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WhatsappInboundMessageSystem {\n");
+    sb.append("    waId: ").append(toIndentedString(waId)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    parentUserId: ").append(toIndentedString(parentUserId)).append("\n");
+    sb.append("    previousUserId: ").append(toIndentedString(previousUserId)).append("\n");
+    sb.append("    previousParentUserId: ").append(toIndentedString(previousParentUserId)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    newWaId: ").append(toIndentedString(newWaId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -273,6 +448,11 @@ public class WhatsappInboundMessageSystem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("wa_id");
+    openapiFields.add("user_id");
+    openapiFields.add("parent_user_id");
+    openapiFields.add("previous_user_id");
+    openapiFields.add("previous_parent_user_id");
     openapiFields.add("body");
     openapiFields.add("new_wa_id");
     openapiFields.add("type");
@@ -295,6 +475,21 @@ public class WhatsappInboundMessageSystem {
         } else { // has required fields
           throw new IllegalArgumentException(String.format("The required field(s) %s in WhatsappInboundMessageSystem is not found in the empty JSON string", WhatsappInboundMessageSystem.openapiRequiredFields.toString()));
         }
+      }
+      if (jsonObj.get("wa_id") != null && !jsonObj.get("wa_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wa_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wa_id").toString()));
+      }
+      if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
+      }
+      if (jsonObj.get("parent_user_id") != null && !jsonObj.get("parent_user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parent_user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parent_user_id").toString()));
+      }
+      if (jsonObj.get("previous_user_id") != null && !jsonObj.get("previous_user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `previous_user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previous_user_id").toString()));
+      }
+      if (jsonObj.get("previous_parent_user_id") != null && !jsonObj.get("previous_parent_user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `previous_parent_user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previous_parent_user_id").toString()));
       }
       if (jsonObj.get("body") != null && !jsonObj.get("body").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body").toString()));
@@ -394,4 +589,3 @@ public class WhatsappInboundMessageSystem {
     return JSON.getGson().toJson(this);
   }
 }
-

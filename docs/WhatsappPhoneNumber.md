@@ -13,6 +13,7 @@ See [WhatsApp Business Phone Number](https://developers.facebook.com/docs/whatsa
 |**displayPhoneNumber** | **String** | Display phone number. |  [optional] |
 |**wabaId** | **String** | WhatsApp Business Account ID. |  [optional] |
 |**businessUsername** | **String** | Active Business Username for this phone number. The value is a plain username without &#x60;@&#x60;. |  [optional] |
+|**businessUsernameContext** | **String** | Optional context of this username notification. revoked is included only when the username from a successful current Meta query matches this revoked notification. Omitted for an obsolete revocation or a notification without context; it does not expose historical page warnings. |  [optional] |
 |**businessUsernameStatus** | **WhatsappBusinessUsernameStatus** |  |  [optional] |
 |**requestedBusinessUsername** | **String** | Last requested Business Username that is still under review. This value can coexist with an active &#x60;businessUsername&#x60; while the new request is pending. |  [optional] |
 |**businessUsernameUpdatedAt** | **Date** | The time when the Business Username state was last updated. |  [optional] |

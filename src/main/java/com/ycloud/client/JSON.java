@@ -90,6 +90,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(Date.class, dateTypeAdapter);
         gsonBuilder.registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter);
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.AgentAllowlistEntryDTO.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.AgentEventDTO.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.AgentEventResultDTO.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.AgentEventStatusDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ApiKeyDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ApiKeyDTOAnyOf.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ApiKeyDTOAnyOf1.CustomTypeAdapterFactory());
@@ -144,6 +148,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ErrorResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.Event.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.EventProperty.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.FaqDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.LogEntryDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.Mailbox.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.MetaBusinessAgentApiError.CustomTypeAdapterFactory());
@@ -157,6 +162,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.MetaBusinessAgentConversationTurnPage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.MetaBusinessAgentConversationTurnPaging.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.MetaBusinessAgentConversationTurnStep.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.MetaBusinessAgentErrorResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.MetaBusinessAgentSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.MetaBusinessAgentSettingsFollowup.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.MetaBusinessAgentSettingsHandoff.CustomTypeAdapterFactory());
@@ -168,11 +174,19 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PageCursor.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ParameterBindingDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.ParameterNodeDTO.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicCreateAllowlistEntryRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicCreateAllowlistEntryRequestOneOf.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicCreateAllowlistEntryRequestOneOf1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicCreateConnectorRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicCreateConnectorToolRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicCreateFaqRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicCreateWebsiteRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicRunConnectorToolRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicSubmitAgentEventRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicUpdateConnectorRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicUpdateConnectorToolRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicUpdateFaqRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicUpdateWebsiteRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicUpsertConnectorApiKeyRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicUpsertConnectorCertificateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.PublicUpsertConnectorOAuthRequest.CustomTypeAdapterFactory());
@@ -198,6 +212,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WebhookEndpointCreateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WebhookEndpointPage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WebhookEndpointUpdateRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WebsiteDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappApiError.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappAuthIntlRateEligibilityCountry.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappAutomaticCreativeOptimizationRetrieveResponse.CustomTypeAdapterFactory());
@@ -219,7 +234,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappCommerceSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappCommerceSettingsUpdateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappContactBookEntryDeleteResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappContactBookEntryResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappConversation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappCountryPriceAdjustment.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappFlow.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappFlowCreate200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappFlowCreate400Response.CustomTypeAdapterFactory());
@@ -279,6 +296,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappMedia.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappMediaUpload200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappMessage.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappMessageBidSpec.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappMessageContact.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappMessageContactAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappMessageContactEmail.CustomTypeAdapterFactory());
@@ -351,6 +369,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateAnalyticsButtonClick.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateAnalyticsDataPoint.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateAnalyticsRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateBidSpec.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateBidSpecResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateBidSpecUpdate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateBidSpecUpdateNot.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateComponent.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateComponentButton.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ycloud.client.model.WhatsappTemplateComponentButtonAppDeepLink.CustomTypeAdapterFactory());

@@ -93,6 +93,13 @@ public class WhatsappPhoneNumber {
   @SerializedName(SERIALIZED_NAME_BUSINESS_USERNAME)
   private String businessUsername;
 
+  public static final String SERIALIZED_NAME_BUSINESS_USERNAME_CONTEXT = "businessUsernameContext";
+  /**
+   * Optional context of this username notification. revoked is included only when the username from a successful current Meta query matches this revoked notification. Omitted for an obsolete revocation or a notification without context; it does not expose historical page warnings.
+  **/
+  @SerializedName(SERIALIZED_NAME_BUSINESS_USERNAME_CONTEXT)
+  private String businessUsernameContext;
+
   public static final String SERIALIZED_NAME_BUSINESS_USERNAME_STATUS = "businessUsernameStatus";
   /**
   **/
@@ -459,6 +466,32 @@ public class WhatsappPhoneNumber {
   @ApiModelProperty(example = "acme.support", value = "Active Business Username for this phone number. The value is a plain username without `@`.")
   public void setBusinessUsername(String businessUsername) {
     this.businessUsername = businessUsername;
+  }
+
+
+  public WhatsappPhoneNumber businessUsernameContext(String businessUsernameContext) {
+
+    this.businessUsernameContext = businessUsernameContext;
+    return this;
+  }
+
+   /**
+   * Optional context of this username notification. revoked is included only when the username from a successful current Meta query matches this revoked notification. Omitted for an obsolete revocation or a notification without context; it does not expose historical page warnings.
+   * @return businessUsernameContext
+  **/
+  @javax.annotation.Nullable
+
+  public String getBusinessUsernameContext() {
+    return businessUsernameContext;
+  }
+
+
+  /**
+   * Optional context of this username notification. revoked is included only when the username from a successful current Meta query matches this revoked notification. Omitted for an obsolete revocation or a notification without context; it does not expose historical page warnings.
+   **/
+  @ApiModelProperty(example = "revoked", value = "Optional context of this username notification. revoked is included only when the username from a successful current Meta query matches this revoked notification. Omitted for an obsolete revocation or a notification without context; it does not expose historical page warnings.")
+  public void setBusinessUsernameContext(String businessUsernameContext) {
+    this.businessUsernameContext = businessUsernameContext;
   }
 
 
@@ -1011,6 +1044,7 @@ public class WhatsappPhoneNumber {
         Objects.equals(this.displayPhoneNumber, whatsappPhoneNumber.displayPhoneNumber) &&
         Objects.equals(this.wabaId, whatsappPhoneNumber.wabaId) &&
         Objects.equals(this.businessUsername, whatsappPhoneNumber.businessUsername) &&
+        Objects.equals(this.businessUsernameContext, whatsappPhoneNumber.businessUsernameContext) &&
         Objects.equals(this.businessUsernameStatus, whatsappPhoneNumber.businessUsernameStatus) &&
         Objects.equals(this.requestedBusinessUsername, whatsappPhoneNumber.requestedBusinessUsername) &&
         Objects.equals(this.businessUsernameUpdatedAt, whatsappPhoneNumber.businessUsernameUpdatedAt) &&
@@ -1036,7 +1070,7 @@ public class WhatsappPhoneNumber {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, phoneNumber, displayPhoneNumber, wabaId, businessUsername, businessUsernameStatus, requestedBusinessUsername, businessUsernameUpdatedAt, qualityRating, messagingLimit, whatsappBusinessManagerMessagingLimit, verifiedName, ycloudName, newName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, updateEvent, throughputLevel, additionalProperties);
+    return Objects.hash(id, phoneNumber, displayPhoneNumber, wabaId, businessUsername, businessUsernameContext, businessUsernameStatus, requestedBusinessUsername, businessUsernameUpdatedAt, qualityRating, messagingLimit, whatsappBusinessManagerMessagingLimit, verifiedName, ycloudName, newName, codeVerificationStatus, isOfficialBusinessAccount, status, nameStatus, newNameStatus, decision, requestedVerifiedName, rejectionReason, qualityUpdateEvent, updateEvent, throughputLevel, additionalProperties);
   }
 
   @Override
@@ -1048,6 +1082,7 @@ public class WhatsappPhoneNumber {
     sb.append("    displayPhoneNumber: ").append(toIndentedString(displayPhoneNumber)).append("\n");
     sb.append("    wabaId: ").append(toIndentedString(wabaId)).append("\n");
     sb.append("    businessUsername: ").append(toIndentedString(businessUsername)).append("\n");
+    sb.append("    businessUsernameContext: ").append(toIndentedString(businessUsernameContext)).append("\n");
     sb.append("    businessUsernameStatus: ").append(toIndentedString(businessUsernameStatus)).append("\n");
     sb.append("    requestedBusinessUsername: ").append(toIndentedString(requestedBusinessUsername)).append("\n");
     sb.append("    businessUsernameUpdatedAt: ").append(toIndentedString(businessUsernameUpdatedAt)).append("\n");
@@ -1096,6 +1131,7 @@ public class WhatsappPhoneNumber {
     openapiFields.add("displayPhoneNumber");
     openapiFields.add("wabaId");
     openapiFields.add("businessUsername");
+    openapiFields.add("businessUsernameContext");
     openapiFields.add("businessUsernameStatus");
     openapiFields.add("requestedBusinessUsername");
     openapiFields.add("businessUsernameUpdatedAt");
@@ -1149,6 +1185,9 @@ public class WhatsappPhoneNumber {
       }
       if (jsonObj.get("businessUsername") != null && !jsonObj.get("businessUsername").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessUsername` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessUsername").toString()));
+      }
+      if (jsonObj.get("businessUsernameContext") != null && !jsonObj.get("businessUsernameContext").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessUsernameContext` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessUsernameContext").toString()));
       }
       if (jsonObj.get("requestedBusinessUsername") != null && !jsonObj.get("requestedBusinessUsername").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `requestedBusinessUsername` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestedBusinessUsername").toString()));

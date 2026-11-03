@@ -6,6 +6,7 @@ All URIs are relative to *https://api.ycloud.com/v2*
 |------------- | ------------- | -------------|
 | [**deleteBusinessUsername**](WhatsappPhoneNumbersApi.md#deleteBusinessUsername) | **DELETE** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername | Delete a phone number business username |
 | [**deleteContactBookEntry**](WhatsappPhoneNumbersApi.md#deleteContactBookEntry) | **DELETE** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid} | Delete a Meta contact book entry |
+| [**getContactBookEntry**](WhatsappPhoneNumbersApi.md#getContactBookEntry) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid} | Check a Meta contact book entry |
 | [**list**](WhatsappPhoneNumbersApi.md#list) | **GET** /whatsapp/phoneNumbers | List phone numbers |
 | [**register**](WhatsappPhoneNumbersApi.md#register) | **POST** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/register | Register a phone number |
 | [**retrieve**](WhatsappPhoneNumbersApi.md#retrieve) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number |
@@ -168,6 +169,82 @@ public class Example {
 | **400** | One or more path parameters are invalid, or Meta returned HTTP 400 for the delete request. |  -  |
 | **403** | The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. |  -  |
 | **404** | Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;deleted&#x3D;false&#x60;. |  -  |
+
+<a name="getContactBookEntry"></a>
+# **getContactBookEntry**
+> WhatsappContactBookEntryResult getContactBookEntry(wabaId, phoneNumber, bsuid)
+
+Check a Meta contact book entry
+
+Checks whether Meta has a phone number entry for this standard BSUID in this business phone number contact book, without returning the phone number. Uses the same account API key, available WABA ownership and bound phone checks as DELETE. Parent BSUIDs are unsupported; Developer App API keys return 403. Successful responses contain required boolean present; provider failures are not converted to false.
+
+### Example
+```java
+// Import classes:
+import com.ycloud.client.ApiClient;
+import com.ycloud.client.ApiException;
+import com.ycloud.client.Configuration;
+import com.ycloud.client.auth.*;
+import com.ycloud.client.models.*;
+import com.ycloud.client.api.WhatsappPhoneNumbersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.ycloud.com/v2");
+
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    WhatsappPhoneNumbersApi apiInstance = new WhatsappPhoneNumbersApi(defaultClient);
+    String wabaId = "whatsapp-business-account-id"; // String | WhatsApp Business Account ID.
+    String phoneNumber = "+16315551111"; // String | Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading `+` as `%2B`.
+    String bsuid = "US.11815799212886844830"; // String | Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing `.ENT.` are not supported.
+    try {
+      WhatsappContactBookEntryResult result = apiInstance.getContactBookEntry(wabaId, phoneNumber, bsuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WhatsappPhoneNumbersApi#getContactBookEntry");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wabaId** | **String**| WhatsApp Business Account ID. | |
+| **phoneNumber** | **String**| Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, bound to the specified WABA in YCloud. When constructing the path manually, URL-encode the leading &#x60;+&#x60; as &#x60;%2B&#x60;. | |
+| **bsuid** | **String**| Standard WhatsApp Business-scoped user ID (BSUID) from the same Meta business portfolio as the phone number. Parent BSUIDs containing &#x60;.ENT.&#x60; are not supported. | |
+
+### Return type
+
+[**WhatsappContactBookEntryResult**](WhatsappContactBookEntryResult.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The presence check completed successfully. |  -  |
+| **400** | One or more path parameters are invalid, or Meta returned HTTP 400 for the presence check. |  -  |
+| **403** | The API key is not permitted to call this endpoint, the specified WABA is unavailable to the authenticated YCloud account, the phone number is unavailable or not bound to that WABA in YCloud, or Meta returned HTTP 403. |  -  |
+| **404** | Meta returned HTTP 404 for the phone number&#39;s upstream contact book resource. This status is not used when no matching contact book entry exists; that case returns HTTP 200 with &#x60;present&#x3D;false&#x60;. |  -  |
 
 <a name="list"></a>
 # **list**

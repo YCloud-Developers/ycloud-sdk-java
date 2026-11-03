@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ycloud</groupId>
   <artifactId>ycloud-sdk-java</artifactId>
-  <version>1.17.1</version>
+  <version>1.17.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ycloud:ycloud-sdk-java:1.17.1"
+     implementation "com.ycloud:ycloud-sdk-java:1.17.2"
   }
 ```
 
@@ -114,19 +114,34 @@ Class | Method | HTTP request | Description
 *EmailsApi* | [**send**](docs/EmailsApi.md#send) | **POST** /emails | Send an email
 *MetaBusinessAgentApi* | [**budgetReplace**](docs/MetaBusinessAgentApi.md#budgetReplace) | **PUT** /metaBusinessAgents/{entityId}/budgets | Replace Meta Business Agent budgets
 *MetaBusinessAgentApi* | [**budgetRetrieve**](docs/MetaBusinessAgentApi.md#budgetRetrieve) | **GET** /metaBusinessAgents/{entityId}/budgets | Retrieve Meta Business Agent budgets
+*MetaBusinessAgentApi* | [**businessAgentCreateAllowlistEntry**](docs/MetaBusinessAgentApi.md#businessAgentCreateAllowlistEntry) | **POST** /metaBusinessAgents/{entityId}/allowListEntries | Create Allowlist Entry
 *MetaBusinessAgentApi* | [**businessAgentCreateConnector**](docs/MetaBusinessAgentApi.md#businessAgentCreateConnector) | **POST** /metaBusinessAgents/{entityId}/connectors | Create Connector
 *MetaBusinessAgentApi* | [**businessAgentCreateConnectorTool**](docs/MetaBusinessAgentApi.md#businessAgentCreateConnectorTool) | **POST** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools | Create Connector Tool
+*MetaBusinessAgentApi* | [**businessAgentCreateFaq**](docs/MetaBusinessAgentApi.md#businessAgentCreateFaq) | **POST** /metaBusinessAgents/{entityId}/faqs | Create Faq
+*MetaBusinessAgentApi* | [**businessAgentCreateWebsite**](docs/MetaBusinessAgentApi.md#businessAgentCreateWebsite) | **POST** /metaBusinessAgents/{entityId}/websites | Create Website
+*MetaBusinessAgentApi* | [**businessAgentDeleteAllowlistEntry**](docs/MetaBusinessAgentApi.md#businessAgentDeleteAllowlistEntry) | **DELETE** /metaBusinessAgents/{entityId}/allowListEntries/{entryId} | Delete Allowlist Entry
 *MetaBusinessAgentApi* | [**businessAgentDeleteConnector**](docs/MetaBusinessAgentApi.md#businessAgentDeleteConnector) | **DELETE** /metaBusinessAgents/{entityId}/connectors/{connectorId} | Delete Connector
 *MetaBusinessAgentApi* | [**businessAgentDeleteConnectorTool**](docs/MetaBusinessAgentApi.md#businessAgentDeleteConnectorTool) | **DELETE** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools/{toolId} | Delete Connector Tool
+*MetaBusinessAgentApi* | [**businessAgentDeleteFaq**](docs/MetaBusinessAgentApi.md#businessAgentDeleteFaq) | **DELETE** /metaBusinessAgents/{entityId}/faqs/{faqId} | Delete Faq
+*MetaBusinessAgentApi* | [**businessAgentDeleteWebsite**](docs/MetaBusinessAgentApi.md#businessAgentDeleteWebsite) | **DELETE** /metaBusinessAgents/{entityId}/websites/{websiteId} | Delete Website
+*MetaBusinessAgentApi* | [**businessAgentGetAgentEventStatus**](docs/MetaBusinessAgentApi.md#businessAgentGetAgentEventStatus) | **GET** /metaBusinessAgents/{entityId}/events/{agentEventId} | Get Agent Event Status
 *MetaBusinessAgentApi* | [**businessAgentGetConnector**](docs/MetaBusinessAgentApi.md#businessAgentGetConnector) | **GET** /metaBusinessAgents/{entityId}/connectors/{connectorId} | Get Connector
 *MetaBusinessAgentApi* | [**businessAgentGetConnectorTool**](docs/MetaBusinessAgentApi.md#businessAgentGetConnectorTool) | **GET** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools/{toolId} | Get Connector Tool
+*MetaBusinessAgentApi* | [**businessAgentGetFaq**](docs/MetaBusinessAgentApi.md#businessAgentGetFaq) | **GET** /metaBusinessAgents/{entityId}/faqs/{faqId} | Get Faq
+*MetaBusinessAgentApi* | [**businessAgentGetWebsite**](docs/MetaBusinessAgentApi.md#businessAgentGetWebsite) | **GET** /metaBusinessAgents/{entityId}/websites/{websiteId} | Get Website
+*MetaBusinessAgentApi* | [**businessAgentListAllowlist**](docs/MetaBusinessAgentApi.md#businessAgentListAllowlist) | **GET** /metaBusinessAgents/{entityId}/allowListEntries | List Allowlist
 *MetaBusinessAgentApi* | [**businessAgentListConnectorLogs**](docs/MetaBusinessAgentApi.md#businessAgentListConnectorLogs) | **GET** /metaBusinessAgents/{entityId}/connectors/{connectorId}/logs | List Connector Logs
 *MetaBusinessAgentApi* | [**businessAgentListConnectorTools**](docs/MetaBusinessAgentApi.md#businessAgentListConnectorTools) | **GET** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools | List Connector Tools
 *MetaBusinessAgentApi* | [**businessAgentListConnectors**](docs/MetaBusinessAgentApi.md#businessAgentListConnectors) | **GET** /metaBusinessAgents/{entityId}/connectors | List Connectors
+*MetaBusinessAgentApi* | [**businessAgentListFaqs**](docs/MetaBusinessAgentApi.md#businessAgentListFaqs) | **GET** /metaBusinessAgents/{entityId}/faqs | List Faqs
+*MetaBusinessAgentApi* | [**businessAgentListWebsites**](docs/MetaBusinessAgentApi.md#businessAgentListWebsites) | **GET** /metaBusinessAgents/{entityId}/websites | List Websites
 *MetaBusinessAgentApi* | [**businessAgentRefreshConnectorMcpTools**](docs/MetaBusinessAgentApi.md#businessAgentRefreshConnectorMcpTools) | **POST** /metaBusinessAgents/{entityId}/connectors/{connectorId}/refreshMCPTools | Refresh MCP Connector Tools
 *MetaBusinessAgentApi* | [**businessAgentRunConnectorTool**](docs/MetaBusinessAgentApi.md#businessAgentRunConnectorTool) | **POST** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools/{toolId}/runs | Run Connector Tool
+*MetaBusinessAgentApi* | [**businessAgentSubmitAgentEvent**](docs/MetaBusinessAgentApi.md#businessAgentSubmitAgentEvent) | **POST** /metaBusinessAgents/{entityId}/events | Submit Agent Event
 *MetaBusinessAgentApi* | [**businessAgentUpdateConnector**](docs/MetaBusinessAgentApi.md#businessAgentUpdateConnector) | **PATCH** /metaBusinessAgents/{entityId}/connectors/{connectorId} | Update Connector
 *MetaBusinessAgentApi* | [**businessAgentUpdateConnectorTool**](docs/MetaBusinessAgentApi.md#businessAgentUpdateConnectorTool) | **PATCH** /metaBusinessAgents/{entityId}/connectors/{connectorId}/tools/{toolId} | Update Connector Tool
+*MetaBusinessAgentApi* | [**businessAgentUpdateFaq**](docs/MetaBusinessAgentApi.md#businessAgentUpdateFaq) | **PATCH** /metaBusinessAgents/{entityId}/faqs/{faqId} | Update Faq
+*MetaBusinessAgentApi* | [**businessAgentUpdateWebsite**](docs/MetaBusinessAgentApi.md#businessAgentUpdateWebsite) | **PATCH** /metaBusinessAgents/{entityId}/websites/{websiteId} | Update Website
 *MetaBusinessAgentApi* | [**businessAgentUpsertConnectorApiKey**](docs/MetaBusinessAgentApi.md#businessAgentUpsertConnectorApiKey) | **PUT** /metaBusinessAgents/{entityId}/connectors/{connectorId}/credentials/apiKey | Upsert Connector Api Key
 *MetaBusinessAgentApi* | [**businessAgentUpsertConnectorCertificate**](docs/MetaBusinessAgentApi.md#businessAgentUpsertConnectorCertificate) | **PUT** /metaBusinessAgents/{entityId}/connectors/{connectorId}/credentials/certificate | Upsert Connector Certificate
 *MetaBusinessAgentApi* | [**businessAgentUpsertConnectorOAuth**](docs/MetaBusinessAgentApi.md#businessAgentUpsertConnectorOAuth) | **PUT** /metaBusinessAgents/{entityId}/connectors/{connectorId}/credentials/oauth | Upsert Connector O Auth
@@ -189,6 +204,7 @@ Class | Method | HTTP request | Description
 *WhatsappMessagesApi* | [**sendDirectly**](docs/WhatsappMessagesApi.md#sendDirectly) | **POST** /whatsapp/messages/sendDirectly | Send a message directly
 *WhatsappPhoneNumbersApi* | [**deleteBusinessUsername**](docs/WhatsappPhoneNumbersApi.md#deleteBusinessUsername) | **DELETE** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/businessUsername | Delete a phone number business username
 *WhatsappPhoneNumbersApi* | [**deleteContactBookEntry**](docs/WhatsappPhoneNumbersApi.md#deleteContactBookEntry) | **DELETE** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid} | Delete a Meta contact book entry
+*WhatsappPhoneNumbersApi* | [**getContactBookEntry**](docs/WhatsappPhoneNumbersApi.md#getContactBookEntry) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/contactBook/{bsuid} | Check a Meta contact book entry
 *WhatsappPhoneNumbersApi* | [**list**](docs/WhatsappPhoneNumbersApi.md#list) | **GET** /whatsapp/phoneNumbers | List phone numbers
 *WhatsappPhoneNumbersApi* | [**register**](docs/WhatsappPhoneNumbersApi.md#register) | **POST** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber}/register | Register a phone number
 *WhatsappPhoneNumbersApi* | [**retrieve**](docs/WhatsappPhoneNumbersApi.md#retrieve) | **GET** /whatsapp/phoneNumbers/{wabaId}/{phoneNumber} | Retrieve a phone number
@@ -213,6 +229,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AgentAllowlistEntryDTO](docs/AgentAllowlistEntryDTO.md)
+ - [AgentEventDTO](docs/AgentEventDTO.md)
+ - [AgentEventResultDTO](docs/AgentEventResultDTO.md)
+ - [AgentEventStatusDTO](docs/AgentEventStatusDTO.md)
  - [ApiKeyDTO](docs/ApiKeyDTO.md)
  - [ApiKeyDTOAnyOf](docs/ApiKeyDTOAnyOf.md)
  - [ApiKeyDTOAnyOf1](docs/ApiKeyDTOAnyOf1.md)
@@ -270,6 +290,7 @@ Class | Method | HTTP request | Description
  - [Event](docs/Event.md)
  - [EventProperty](docs/EventProperty.md)
  - [EventType](docs/EventType.md)
+ - [FaqDTO](docs/FaqDTO.md)
  - [LogEntryDTO](docs/LogEntryDTO.md)
  - [Mailbox](docs/Mailbox.md)
  - [MetaBusinessAccountVerificationStatus](docs/MetaBusinessAccountVerificationStatus.md)
@@ -284,6 +305,7 @@ Class | Method | HTTP request | Description
  - [MetaBusinessAgentConversationTurnPage](docs/MetaBusinessAgentConversationTurnPage.md)
  - [MetaBusinessAgentConversationTurnPaging](docs/MetaBusinessAgentConversationTurnPaging.md)
  - [MetaBusinessAgentConversationTurnStep](docs/MetaBusinessAgentConversationTurnStep.md)
+ - [MetaBusinessAgentErrorResponse](docs/MetaBusinessAgentErrorResponse.md)
  - [MetaBusinessAgentSettings](docs/MetaBusinessAgentSettings.md)
  - [MetaBusinessAgentSettingsFollowup](docs/MetaBusinessAgentSettingsFollowup.md)
  - [MetaBusinessAgentSettingsHandoff](docs/MetaBusinessAgentSettingsHandoff.md)
@@ -295,11 +317,19 @@ Class | Method | HTTP request | Description
  - [PageCursor](docs/PageCursor.md)
  - [ParameterBindingDTO](docs/ParameterBindingDTO.md)
  - [ParameterNodeDTO](docs/ParameterNodeDTO.md)
+ - [PublicCreateAllowlistEntryRequest](docs/PublicCreateAllowlistEntryRequest.md)
+ - [PublicCreateAllowlistEntryRequestOneOf](docs/PublicCreateAllowlistEntryRequestOneOf.md)
+ - [PublicCreateAllowlistEntryRequestOneOf1](docs/PublicCreateAllowlistEntryRequestOneOf1.md)
  - [PublicCreateConnectorRequest](docs/PublicCreateConnectorRequest.md)
  - [PublicCreateConnectorToolRequest](docs/PublicCreateConnectorToolRequest.md)
+ - [PublicCreateFaqRequest](docs/PublicCreateFaqRequest.md)
+ - [PublicCreateWebsiteRequest](docs/PublicCreateWebsiteRequest.md)
  - [PublicRunConnectorToolRequest](docs/PublicRunConnectorToolRequest.md)
+ - [PublicSubmitAgentEventRequest](docs/PublicSubmitAgentEventRequest.md)
  - [PublicUpdateConnectorRequest](docs/PublicUpdateConnectorRequest.md)
  - [PublicUpdateConnectorToolRequest](docs/PublicUpdateConnectorToolRequest.md)
+ - [PublicUpdateFaqRequest](docs/PublicUpdateFaqRequest.md)
+ - [PublicUpdateWebsiteRequest](docs/PublicUpdateWebsiteRequest.md)
  - [PublicUpsertConnectorApiKeyRequest](docs/PublicUpsertConnectorApiKeyRequest.md)
  - [PublicUpsertConnectorCertificateRequest](docs/PublicUpsertConnectorCertificateRequest.md)
  - [PublicUpsertConnectorOAuthRequest](docs/PublicUpsertConnectorOAuthRequest.md)
@@ -330,6 +360,7 @@ Class | Method | HTTP request | Description
  - [WebhookEndpointPage](docs/WebhookEndpointPage.md)
  - [WebhookEndpointStatus](docs/WebhookEndpointStatus.md)
  - [WebhookEndpointUpdateRequest](docs/WebhookEndpointUpdateRequest.md)
+ - [WebsiteDTO](docs/WebsiteDTO.md)
  - [WhatsappApiError](docs/WhatsappApiError.md)
  - [WhatsappAuthIntlRateEligibilityCountry](docs/WhatsappAuthIntlRateEligibilityCountry.md)
  - [WhatsappAutomaticCreativeOptimizationEnrollStatus](docs/WhatsappAutomaticCreativeOptimizationEnrollStatus.md)
@@ -356,9 +387,11 @@ Class | Method | HTTP request | Description
  - [WhatsappCommerceSettings](docs/WhatsappCommerceSettings.md)
  - [WhatsappCommerceSettingsUpdateRequest](docs/WhatsappCommerceSettingsUpdateRequest.md)
  - [WhatsappContactBookEntryDeleteResult](docs/WhatsappContactBookEntryDeleteResult.md)
+ - [WhatsappContactBookEntryResult](docs/WhatsappContactBookEntryResult.md)
  - [WhatsappConversation](docs/WhatsappConversation.md)
  - [WhatsappConversationOriginType](docs/WhatsappConversationOriginType.md)
  - [WhatsappConversationType](docs/WhatsappConversationType.md)
+ - [WhatsappCountryPriceAdjustment](docs/WhatsappCountryPriceAdjustment.md)
  - [WhatsappFlow](docs/WhatsappFlow.md)
  - [WhatsappFlowCategory](docs/WhatsappFlowCategory.md)
  - [WhatsappFlowCreate200Response](docs/WhatsappFlowCreate200Response.md)
@@ -425,6 +458,7 @@ Class | Method | HTTP request | Description
  - [WhatsappMedia](docs/WhatsappMedia.md)
  - [WhatsappMediaUpload200Response](docs/WhatsappMediaUpload200Response.md)
  - [WhatsappMessage](docs/WhatsappMessage.md)
+ - [WhatsappMessageBidSpec](docs/WhatsappMessageBidSpec.md)
  - [WhatsappMessageContact](docs/WhatsappMessageContact.md)
  - [WhatsappMessageContactAddress](docs/WhatsappMessageContactAddress.md)
  - [WhatsappMessageContactEmail](docs/WhatsappMessageContactEmail.md)
@@ -511,6 +545,10 @@ Class | Method | HTTP request | Description
  - [WhatsappTemplateAnalyticsButtonClick](docs/WhatsappTemplateAnalyticsButtonClick.md)
  - [WhatsappTemplateAnalyticsDataPoint](docs/WhatsappTemplateAnalyticsDataPoint.md)
  - [WhatsappTemplateAnalyticsRequest](docs/WhatsappTemplateAnalyticsRequest.md)
+ - [WhatsappTemplateBidSpec](docs/WhatsappTemplateBidSpec.md)
+ - [WhatsappTemplateBidSpecResponse](docs/WhatsappTemplateBidSpecResponse.md)
+ - [WhatsappTemplateBidSpecUpdate](docs/WhatsappTemplateBidSpecUpdate.md)
+ - [WhatsappTemplateBidSpecUpdateNot](docs/WhatsappTemplateBidSpecUpdateNot.md)
  - [WhatsappTemplateCategory](docs/WhatsappTemplateCategory.md)
  - [WhatsappTemplateComponent](docs/WhatsappTemplateComponent.md)
  - [WhatsappTemplateComponentButton](docs/WhatsappTemplateComponentButton.md)

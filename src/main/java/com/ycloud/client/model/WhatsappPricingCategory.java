@@ -25,24 +25,26 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * WhatsApp pricing category. - &#x60;referral_conversion&#x60;: Indicates a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations). - &#x60;authentication&#x60;: Indicates the conversation was billed at authentication rate. - &#x60;authentication_international&#x60;: Indicates the conversation was conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - &#x60;marketing&#x60;: Indicates the conversation was billed at authentication rate. - &#x60;marketing_lite&#x60;: Indicates the conversation was billed at marketing-lite rate. - &#x60;utility&#x60;: Indicates the conversation was billed at utility rate. - &#x60;service&#x60;: Indicates the conversation was billed at service rate.  See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+ * WhatsApp pricing category. - &#x60;referral_conversion&#x60;: Indicates a [free entry point conversation](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations). - &#x60;authentication&#x60;: Indicates the conversation was billed at authentication rate. - &#x60;authentication_international&#x60;: Indicates the conversation was conversation was billed at the [authentication-international rate](https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates). - &#x60;marketing&#x60;: Indicates the conversation was billed at authentication rate. - &#x60;marketing_lite&#x60;: Indicates the conversation was billed at marketing-lite rate. - &#x60;utility&#x60;: Indicates the conversation was billed at utility rate. - &#x60;service&#x60;: Indicates the conversation was billed at service rate.  See also [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing). - &#x60;marketing_lite_bidding&#x60;: A marketing message billed through Marketing Lite bidding (Max Price).
  */
 @JsonAdapter(WhatsappPricingCategory.Adapter.class)
 public enum WhatsappPricingCategory {
-  
+
   REFERRAL_CONVERSION("referral_conversion"),
-  
+
   AUTHENTICATION("authentication"),
-  
+
   AUTHENTICATION_INTERNATIONAL("authentication_international"),
-  
+
   MARKETING("marketing"),
-  
+
   MARKETING_LITE("marketing_lite"),
-  
+
   UTILITY("utility"),
-  
-  SERVICE("service");
+
+  SERVICE("service"),
+
+  MARKETING_LITE_BIDDING("marketing_lite_bidding");
 
   private String value;
 
@@ -81,4 +83,3 @@ public enum WhatsappPricingCategory {
     }
   }
 }
-

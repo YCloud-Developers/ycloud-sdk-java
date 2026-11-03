@@ -19,5 +19,4 @@
 
 * `SERVICE` (value: `"service"`)
 
-
-
+* `MARKETING_LITE_BIDDING` (value: `"marketing_lite_bidding"`)
